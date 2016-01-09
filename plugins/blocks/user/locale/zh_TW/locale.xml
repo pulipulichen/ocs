@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  *
+  * $Id$
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.block.user.displayName">使用者資訊</message>
+	<message key="plugins.block.user.description">這個外掛將會在側邊欄提供使用者帳戶相關工具(例如登入、登出、個人資料連結等等)。</message>
+	<message key="plugins.block.user.loggedInAs">你現在的帳號是...</message>
+	<message key="plugins.block.user.myConferences">我的會議</message>
+	<message key="plugins.block.user.myProfile">我的個人資料</message>
+	<message key="plugins.block.user.logout">登出</message>
+	<message key="plugins.block.user.signOutAsUser">以使用者身份登出</message>
+	<message key="plugins.block.user.rememberMe">記住我</message>
+</locale>

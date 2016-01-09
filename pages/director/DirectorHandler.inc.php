@@ -537,4 +537,3 @@ class DirectorHandler extends TrackDirectorHandler {
 	}
 }
 
-?>

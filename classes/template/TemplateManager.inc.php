@@ -90,6 +90,8 @@ class TemplateManager extends PKPTemplateManager {
 
 				$this->assign('pageFooter', $conference->getLocalizedSetting('conferencePageFooter'));
 				$this->assign('displayCreativeCommons', $conference->getSetting('postCreativeCommons'));
+                                
+                                $this->assign('currentConferenceHome', Request::url(null, $conference->getSetting("path"), 'index'));
 
 				if (isset($schedConf)) {
 

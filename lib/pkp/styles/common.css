@@ -108,6 +108,11 @@ input.defaultButton {
 	width: 100%;
 }
 
+#headerTitle a {
+        text-decoration: none;
+        color: inherit;
+}
+
 #header h1 {
 	margin: 0 auto;
 	padding: 0.5em 0 0.25em 10%;

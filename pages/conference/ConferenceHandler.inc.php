@@ -33,6 +33,7 @@ class ConferenceHandler extends Handler {
 	function index($args) {
 		$this->validate();
 		$this->setupTemplate();
+                
 		
 		$conference =& Request::getConference();
 
@@ -41,7 +42,6 @@ class ConferenceHandler extends Handler {
 		$conferenceDao =& DAORegistry::getDAO('ConferenceDAO');
 
 		$templateMgr->assign('helpTopicId', 'user.home');
-
 		// Assign header and content for home page
 		$templateMgr->assign('displayPageHeaderTitle', $conference->getPageHeaderTitle(true));
 		$templateMgr->assign('displayPageHeaderLogo', $conference->getPageHeaderLogo(true));

@@ -127,5 +127,3 @@ class LanguageToggleBlockPlugin extends BlockPlugin {
 		return parent::getContents($templateMgr);
 	}
 }
-
-?>

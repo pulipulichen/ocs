@@ -548,7 +548,6 @@ class SchedConfHandler extends Handler {
 		if (isset($schedConf) && ($conference->getEnabled() || (
 				Validation::isDirector($conference->getId()) ||
 				Validation::isConferenceManager($conference->getId())))) {
-
 			// Assign header and content for home page
 			$templateMgr->assign('displayPageHeaderTitle', $conference->getPageHeaderTitle(true));
 			$templateMgr->assign('displayPageHeaderLogo', $conference->getPageHeaderLogo(true));

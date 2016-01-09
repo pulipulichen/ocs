@@ -29,8 +29,7 @@
 installed = On
 
 ; The canonical URL to the OCS installation (excluding the trailing slash)
-//base_url = "http://pkp.sfu.ca/ocs"
-base_url = "http://localhost/ocs"
+base_url = "http://iccisc.dlll.nccu.edu.tw/ocs"
 
 ; Path to the registry directory (containing various settings files)
 ; Although the files in this directory generally do not contain any
@@ -48,7 +47,7 @@ session_lifetime = 30
 ; Enable support for running scheduled tasks
 ; Set this to On if you have set up the scheduled tasks script to
 ; execute periodically
-scheduled_tasks = Off
+scheduled_tasks = On
 
 ; Short and long date formats
 date_format_trunc = "%m-%d"
@@ -137,7 +136,6 @@ memcache_port = 11211
 [i18n]
 
 ; Default locale
-;locale = zh_TW
 locale = en_US
 
 ; Client output/input character set
@@ -170,7 +168,7 @@ charset_normalization = On
 
 ; Complete path to directory to store uploaded files
 ; (This directory should not be directly web-accessible)
-files_dir = "/opt/lampp/htdocs/ocs/files"
+files_dir = /opt/lampp/htdocs/ocs/files
 
 ; Path to the directory to store public uploaded files
 ; (This directory should be web-accessible and the specified path
@@ -236,7 +234,7 @@ allowed_html = "<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b
 
 ; Allow envelope sender to be specified
 ; (may not be possible with some server configurations)
-; allow_envelope_sender = Off
+allow_envelope_sender = On
 
 ; Enable attachments in the various "Send Email" pages.
 ; (Disabling here will not disable attachments on features that
@@ -305,7 +303,7 @@ result_cache_hours = 1
 oai = On
 
 ; OAI Repository identifier
-repository_id = "ocs.localhost"
+repository_id = "ocs.iccisc.dlll.nccu.edu.tw"
 
 
 ;;;;;;;;;;;;;;;;;;;;;

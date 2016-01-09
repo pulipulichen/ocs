@@ -857,4 +857,13 @@ Validation may fail on search URLs that require posted form data.]]></message>
 	<message key="rt.comments.commentsClosed">† Comments closed on {$closeCommentsDate}</message>
 
 	<message key="rt.context.authorTermsDescription">For items with more than one author, leave all names checked to search for similarly co-presented work, or search one at a time by checking only a single name. To learn more about the resource searched, click on ABOUT. These resources have been selected because of their relevance and their open (free) access to all or part of their contents.</message>
+        
+        <message key="pulipuli.20160419.submission_types.1">高齡者健康促進與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.2">生命歷程觀點與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.3">身心靈相互關係與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.4">活躍老化的教育與學習需求</message>
+        <message key="pulipuli.20160419.submission_types.5">高齡者健康促進與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.6">高齡者健康促進與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.7">高齡者健康促進與活躍老化</message>
+        <message key="pulipuli.20160419.submission_types.8">高齡者健康促進與活躍老化</message>
 </locale>
