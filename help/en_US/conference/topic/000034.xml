@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000034.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Conference Management - Roles - Readers 
+  *
+  * $Id$
+  -->
+
+<topic id="conference/topic/000034" locale="en_US" title="Readers" toc="conference/toc/000004" key="conference.roles.readers">
+	<section>
+		<![CDATA[<p>Readers can register to read the conference proceedings, whether immediately open access or open after a period of time after initial publication. Registered Readers will receive a notification email of the papers published for the conference, and will be able to receive other email sent by the Director or Conference Manager. </p>
+        <p>New users can enroll themselves as a Reader on registration to a scheduled conference, and can enroll themselves with other scheduled conferences from their profile page.</p>
+          ]]>	
+	</section>
+</topic>

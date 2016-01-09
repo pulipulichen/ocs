@@ -1,0 +1,595 @@
+commit e6c0eeb300ac770988032d5fc402a959b694bf52
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 28 08:35:07 2014 -0700
+
+    Version descriptor updates for 2.3.6
+
+commit 352157f324e348c157006128b97877e487641bd9
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon May 26 13:54:47 2014 -0700
+
+    Submodule update
+
+commit a946d82182d58afba8282e387dc41b62899a97de
+Merge: b5db4f4 95c6e86
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 14 12:01:11 2014 -0700
+
+    Merge pull request #6 from tikifez/tikifez2
+    
+    *8751* Facilitate creation of (scheduled) conferences after installation/conference creation
+
+commit 95c6e86d545fcb677d525a03ab6a7f4501547e50
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 13:52:13 2014 -0400
+
+    Removed inner loop
+
+commit fd83027d1d5412368f50d379cbda123c1cded599
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 13:08:40 2014 -0400
+
+    Removed dangling comma
+
+commit 457748eb50bf7cdbe27446e63c669151b87b6cb4
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 13:07:50 2014 -0400
+
+    Using getData/setData
+
+commit ae876f62c707da1022ffc89f7b6e4cfdca790186
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:58:20 2014 -0400
+
+    Selecting wildcard
+
+commit d9636135716004157bdeea15f9630930418ed1d4
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:42:12 2014 -0400
+
+    Added comments
+
+commit cbf43824530a0fb5e6b96dbb5c573d038edb7cb6
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:34:51 2014 -0400
+
+    Refined code for base timeline dates
+
+commit 72754bb98ea31a4aea7f383f23a36b8e3a09c6a7
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:33:00 2014 -0400
+
+    Cleaned up unused function
+
+commit 8e2433bab00473eaf1fb32339ee53ae414854da5
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:25:30 2014 -0400
+
+    Removed unused code block
+
+commit d1c64ea4695c87d4f722815d30074bc043ccfc69
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:22:16 2014 -0400
+
+    Removed unused code block
+
+commit 30327f04fceb18d026375a9a2429421bdca85fd9
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:21:29 2014 -0400
+
+    Cleaned up scheduled conference status checking
+
+commit ee5ea56d5c2147b5dc68746e87b12d9efcc4435e
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 12:07:17 2014 -0400
+
+    Simplified query
+
+commit e953284187c6b13a814e21b719e41c622b78da96
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 14 11:57:53 2014 -0400
+
+    Using getData/setData rather than modifying data directly
+
+commit 5080fd924d6d554f2ba172ed3dabe6e2ed1d5685
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 8 09:25:57 2014 -0400
+
+    Restored indentation; Using getData rather than accessing _data directly
+
+commit b5db4f4af42f751e6b46f2c874ba7ecd83b017e1
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 7 12:01:20 2014 -0700
+
+    *8151* Submodule update for APC fix
+
+commit b7dfc51024bd864af130d9a64832ca4652048377
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 7 11:30:43 2014 -0700
+
+    Add openshift config
+
+commit 147584022269b41a4b3992da18c076abdfac38f0
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 7 12:34:05 2014 -0400
+
+    Refined SQL for freshestConference
+
+commit 2ff87fc7e8f1b4abc728907bb1bc8583157741ed
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed May 7 12:21:25 2014 -0400
+
+    Added checkbox for scheduled conference lead-in
+
+commit 960df4e490f1daed8762573276be96438e399da3
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue May 6 12:53:29 2014 -0700
+
+    *8736* Fix ID clash
+
+commit be3b776b05f8083d4b65247dae21f70e9d99a0a2
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Mon May 5 15:59:34 2014 -0400
+
+    Fix for leading to add schedule when a schedule already exists
+
+commit 18378c2faa60664d5ad29c7dae6327736dabf1f2
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 1 15:33:19 2014 -0400
+
+    Converted subquery to left join
+
+commit 1988f164cbb4521444de652681a53f30b61fcc66
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 1 15:04:56 2014 -0400
+
+    Removed cruft
+
+commit b741149ff45e3559c40cd8378f806eaf19ea131a
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 1 12:59:35 2014 -0400
+
+    Improved timing checks
+
+commit 72948dac87eb0d2ef0aa98fb89fde2f335398910
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 1 08:08:04 2014 -0400
+
+    Removed references to the import functionality
+
+commit d797edce1587abdd5a996f83b44871ddc8dcf72f
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Thu May 1 08:07:35 2014 -0400
+
+    Removed cruft and added a comment header
+
+commit de6e6ad8b82784d03b6d1fd06d1b08f7094768e5
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed Apr 30 17:03:57 2014 -0400
+
+    Initial times for scheduling a conference will pass
+
+commit 55ba2e9e27a963d9aef7a77724ea0410a011b741
+Author: Christopher Anderton <chris@tikidream.com>
+Date:   Wed Apr 30 14:48:37 2014 -0400
+
+    Soft lead-ins for first conference creation and conference schedule creation
+
+commit 8bcfa10fd54af92363f88082b3e974ee8c634046
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Apr 23 16:18:06 2014 -0700
+
+    Merge pull request #5 from PatoFeliz/master
+
+commit 986d676c57ce2149eee225faf937f92982219294
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon Apr 7 11:15:52 2014 -0700
+
+    Submodule commit
+
+commit 4a4a046f52dca80ec5c4b66226f2d0aabe8ebb06
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon Apr 7 09:55:30 2014 -0700
+
+    *8667* Add session type to track director submission lists
+
+commit 1285ff79cda913699df91ee68f5908c997f5da87
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Apr 1 11:10:31 2014 -0700
+
+    *6627* Addition of session type and director comments to paper report
+
+commit 2b8929d3e35489901701be3e3fa47f662f6cff8d
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Mar 13 09:41:45 2014 -0700
+
+    Using public url for modules
+
+commit 8a2a3a4b97a7f8444748aa57b6c48be16aa85c52
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Mar 5 12:23:20 2014 -0800
+
+    Spacing/retentiveness
+
+commit 8e615265b01b5d26ef096c9124786081e3a2859e
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Mar 4 11:11:27 2014 -0800
+
+    *8587* Add session types to director's submission lists
+
+commit 050e7f3cb22aff66e71c18eba33e97abf7e41953
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jan 14 13:01:06 2014 -0300
+
+    *8531* Fixed empty tags for title-less submissions (fixed: mdash rather than nbsp)
+
+commit 742a353ef29258f3dc81bf72abcaa512f9d8e208
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jan 14 12:58:00 2014 -0300
+
+    *8531* Fixed empty tags for title-less submissions
+
+commit 263e0d0736566edcf66e1e0daa95a107cd9cc752
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Jan 3 10:05:15 2014 -0300
+
+    *8526* Add author sorting to papers report
+
+commit 35d2c63d09b03dd933cfa181a9c6e02fd79ac2f0
+Author: jmacgreg <jmacgreg@gmail.com>
+Date:   Fri Dec 27 19:28:03 2013 -0700
+
+    *7402* remove incomplete articles from Papers report
+
+commit 29eb094002ae6a3c2bc687e6b8a7e6a48f70018e
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Sep 7 15:22:30 2012 -0700
+
+    *7861* Fix time block form defaults
+
+commit 47b6e99a9165254279411d06f93a0999ad8bee73
+Author: Jason Nugent <jason.nugent@gmail.com>
+Date:   Wed Sep 18 11:32:45 2013 -0300
+
+    *6899* fix for previous commit (thanks Chris)
+
+commit b6da8cfcf13032a29694c46bbe21a52985b987a9
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Aug 15 09:40:38 2013 -0700
+
+    *8396* Fixed file name filter to include slashes
+
+commit 02a344b1b15d75baf643f6f20f7beb2c7633c5f1
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Aug 2 09:15:32 2013 -0700
+
+    *8357* Fixed director's sort by track
+
+commit 73183d814cd519af7d8ea54acda8ed8d37875b3e
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jul 31 10:34:13 2013 -0700
+
+    *8355* Fix director's sort by track
+
+commit de53d6853d3c12b2b60b055c0ebcaafff96353b4
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Jul 25 13:29:51 2013 -0700
+
+    Update doxygen OCS version number
+
+commit ef0203a5fec36b1b53c52cc3fb106d9bc799b5eb
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jul 23 13:40:35 2013 -0700
+
+    *8328* Fixed untranslated author registration closed message
+
+commit 1004117aaddf15dd58330ad444d132ea4ed77650
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jul 23 13:37:24 2013 -0700
+
+    Remove outdated presenter.xml locale files
+
+commit 3073fd99a11aa74cb311a72622cdc29f27168617
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Jul 18 09:46:58 2013 -0700
+
+    *8321* Fix revision specification for Set Editing File
+
+commit a876e684f488ae860739c0b667a17fd076eb7a06
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu May 23 08:51:53 2013 -0700
+
+    *8232* Make required forms required
+
+commit b09acda58f05e4758debadc45de8541b07c98a50
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Apr 19 15:01:46 2013 -0700
+
+    *8201* Don't duplicate date for single-day conferences
+
+commit c14f10dee35a42d8264ecdfe3a2c1f57d3870c37
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Apr 19 09:13:31 2013 -0700
+
+    *8200* Fix overzealous validation from preventing submission access
+
+commit faa53bef3a3479ebd556da4f50d1bd87b8767158
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Mar 27 08:04:43 2013 -0700
+
+    *8184* Fix call to non-existent function
+
+commit 52e10998fd95ac694f8e2735ba652e791ee093de
+Author: Jason Nugent <jason.nugent@gmail.com>
+Date:   Wed Feb 27 13:56:19 2013 -0400
+
+    *6899* fix review assignment totals when article is no longer under review
+
+commit 05275bb3e31de6d4d2280c16e5828532186cbc26
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon Feb 18 22:01:34 2013 -0800
+
+    *8119* Fix submission ack email collision
+
+commit 704591963863d83a989dc9347daf23a23bb0c4ba
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Feb 1 08:37:35 2013 -0800
+
+    *8104* Fix repeated user information in log (patch against OCS 2.3.x)
+
+commit b21a23a1814f0434004ca7785c92cca033264f8c
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jan 16 14:45:14 2013 -0800
+
+    *8082* Fix inability to specify sched conf path on user import (OCS 2.3.x)
+
+commit ea63c287907920a75ffd78545b1dd1451556566c
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jan 16 13:53:59 2013 -0800
+
+    Changed method name
+
+commit 9f52c6a11ee33a77807a11246b9c23d770d310e5
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jan 16 09:33:14 2013 -0800
+
+    *8081* Fixed typo in gossip export
+
+commit ec25e9fec9dff13ce434488011964c060f84883b
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jan 8 22:07:49 2013 -0800
+
+    *8077* Fixed reference parameter with default.
+
+commit 4b954f76a76d9d8685f81eddf33b3ba706800a4b
+Author: Matt Crider <mattcrider@gmail.com>
+Date:   Tue Nov 6 15:21:48 2012 -1000
+
+    *8003* Fixed browse by title
+
+commit 1a99ec567b8c99e5cd074fd59897ebb4bdea0b9b
+Author: Matt Crider <mattcrider@gmail.com>
+Date:   Tue Sep 18 13:49:11 2012 -1000
+
+    *6021* Fixed typo
+
+commit a7afdca10bd850295368325abb494c863a1ad5e3
+Author: jmacgreg <jmacgreg@gmail.com>
+Date:   Sun Sep 16 21:49:29 2012 -0700
+
+    *7915* fixed application registration link
+
+commit 88a84051270d32aac49a3dd47b58cdc425bf49a7
+Author: jmacgreg <jmacgreg@gmail.com>
+Date:   Mon Jul 30 14:06:18 2012 -0300
+
+    *7004* minor help text revisions
+
+commit 7fced80288e9df6981f033a94816d1163e266691
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon Jul 23 09:52:28 2012 -0700
+
+    *6021* Syncing with OJS
+
+commit 2ad7e6c0507f5a170d807c0126e0f70eabba8a68
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Mon Jul 23 09:12:34 2012 -0700
+
+    *7712* Fixed director to enter recommendation URL
+
+commit 1338517e1fec9a1ce49dcc57a908baacc198c8bb
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jul 18 09:45:41 2012 -0700
+
+    *7679* Fixed article redirect
+
+commit ccd3c95de055828b9e6e9a022e5c49db88a1a2a2
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Sun Jun 24 18:35:02 2012 -0400
+
+    *7623* Fixed paging error for memberships
+
+commit bb176213406d6f3a11387fe233abb822e2bdcaae
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Jun 21 18:03:16 2012 -0400
+
+    *7605* Fixed broken cancel link
+
+commit 2e7d26d6915e557c1a6ea4c7d558c742f371d140
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Tue Jun 19 10:56:50 2012 -0400
+
+    *6911* Removed unimplemented function
+
+commit 5d9b3a5479ef2d605b5fbb5be321abc56576992b
+Author: Matthew Crider <mattcrider@gmail.com>
+Date:   Thu Jun 7 15:18:46 2012 -0700
+
+    *7275* Fix MergeUsers error when updating comments
+
+commit 57958906bfb3a7a1229f29a387621dff512f1859
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri May 4 16:52:05 2012 -0700
+
+    *6495* Favicon doesn't display in IE (move mime type detection to setup upload)
+
+commit 99e6d67a10c258a0940a438374c80833b48ba4dd
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri May 4 14:35:16 2012 -0700
+
+    *6495* Favicon doesn't display in IE
+
+commit 57ca34f796fec15bd5727a48714f915ec6c85ef0
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri May 4 13:40:14 2012 -0700
+
+    *7427* Favicon missing on reading tools and editor comments pages
+
+commit 2e7c311743eb91bd544b1a8ff16fffadb27774cd
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Thu May 3 16:22:06 2012 -0700
+
+    *7425* Favicon missing on help and interstitial pages
+
+commit a92b7dcb13c5d86de3dc66d1bd4152f28f4c3978
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri Apr 27 11:05:29 2012 -0700
+
+    *6900* Submissions with tags in titles truncated to '...' in submission lists
+
+commit 643d7fe357f00f87d2ae0de9d5f0d17f4e874a19
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Sat Apr 14 09:05:31 2012 -0700
+
+    *7390* Added missing date formatting
+
+commit d4a845c58e7603465e3445edf7f812e9463dfa9f
+Author: Matthew Crider <mattcrider@gmail.com>
+Date:   Tue Apr 10 13:16:30 2012 -0700
+
+    *6718* Prevent review notifications from going to authors/reviewers
+commit 49a10208387c9cffcd8bd468c86370be95782e97
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 21 15:10:49 2014 -0700
+
+    *8771* Suppress out-of-bound array index warning
+
+commit 09a8b466212389d0ce0946d51b3a08855983725f
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 7 15:53:07 2014 -0700
+
+    PHP linting
+
+commit 2e6024b0e54bd160343823ef2a3dccb676d14b1a
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed May 7 12:00:48 2014 -0700
+
+    *8151* APC shutdown function ported to OCS
+
+commit e459356239fc415e50f1d614111324d14275c16c
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Jan 3 10:02:57 2014 -0300
+
+    *8525* PKP library part of notification contents fix
+
+commit 7ffb11de62fedfc5ed34775cff1a401c8804368f
+Author: jmacgreg <jmacgreg@gmail.com>
+Date:   Sat Nov 2 21:07:05 2013 -0700
+
+    *8226* Updates to it_IT countries list
+
+commit 0f41aa61360adb7efd6cb151a945449ae0bb2260
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Fri Aug 16 10:32:43 2013 -0700
+
+    *8400* Fix temporary file MIME typing with failing file tool
+
+commit be5189d450563e5e7caac322070f3a754e46d11f
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Jun 7 12:42:22 2012 -0400
+
+    *7544* Removed unnecessary session_... func calls
+
+commit 3aa6ef37ac451d0565d720b286925b0b7363c064
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Jul 11 11:44:04 2013 -0700
+
+    *8291* Fix OAIUtils::prepInput call (OCS 2.3.x)
+
+commit 2e5d956d9ff702f268c75d093e4061df8921c1b7
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Tue Mar 5 15:22:58 2013 -0500
+
+    *8144* PayPal payments never complete with site restriction enabled
+
+commit 717dc104195585742dd260f2afcbf6ada60d342e
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Thu Feb 28 07:40:55 2013 -0800
+
+    *8135* Standardize email key length
+
+commit a06c0be0947d8fe8ded2bda3b18697574ddc3670
+Author: jmacgreg <jmacgreg@gmail.com>
+Date:   Mon Jan 21 22:23:11 2013 -0800
+
+    *8089* Fixed incorrect notification function call
+
+commit 0b4609424605e986d98fbaa890be68ed336a9371
+Author: Bruno Beghelli <bruno.beghelli@gmail.com>
+Date:   Thu Nov 29 13:53:32 2012 -0200
+
+    Added getter for user inline help
+
+commit e277b342f0c219c5b44e2aecb02ff2c1585a3740
+Author: Bruno Beghelli <bruno.beghelli@gmail.com>
+Date:   Thu Nov 29 13:53:14 2012 -0200
+
+    Fixed method name to retrieve user notifications
+
+commit 82a1b25f21417bedf06d43d090d911750789875c
+Author: Bruno Beghelli <bruno.beghelli@gmail.com>
+Date:   Mon Nov 19 20:02:38 2012 -0200
+
+    *7969* Fixed getting user from request
+
+commit 133302d96536fd3e73dd6d8cc4e9bc3fad8d54a6
+Author: Bruno Beghelli <bruno.beghelli@gmail.com>
+Date:   Thu Oct 18 22:35:07 2012 -0300
+
+    *7969* Fixed showing form error notifications only in the next request
+
+commit 3ac650fc0c80e2e4c74702ddb1945c4da89a0099
+Author: Jason Nugent <jason.nugent@gmail.com>
+Date:   Thu Oct 11 07:50:04 2012 -0300
+
+    *7957* strip html from source parameter
+
+commit 1fdc85a0accc80cde20a0ac6f13858d793e7fe6f
+Author: Alec Smecher <alec@smecher.bc.ca>
+Date:   Wed Jun 6 15:58:49 2012 -0400
+
+    *7449* Added missing locale keys
+
+commit b06b810a0b03aa8f694248db3bfccba936380d07
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri May 4 16:50:46 2012 -0700
+
+    *6495* Favicon doesn't display in IE (move mime type detection to setup upload)
+
+commit 5c64ef0c816f453b5ea9e71cac9fac374b5b6d2c
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Fri May 4 14:34:15 2012 -0700
+
+    *6495* Favicon doesn't display in IE
+
+commit b140da8748418ebcb1654acda831921d405945f6
+Author: michael-pkp <michael.pkp@gmail.com>
+Date:   Thu May 3 16:19:56 2012 -0700
+
+    *7425* Favicon missing on help and interstitial pages
+
+commit c952fe31749dff540d5a5e9707f9b7b27192a2e5
+Author: Matthew Crider <mattcrider@gmail.com>
+Date:   Wed Apr 11 14:43:13 2012 -0700
+
+    *7381* Fix variable typo in TinyMCE image upload plugin

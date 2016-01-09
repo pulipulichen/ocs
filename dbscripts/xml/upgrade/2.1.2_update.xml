@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../lib/pkp/dtd/xmlData.dtd">
+
+<!--
+  * 2.2.3_update.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * 2.2.3 database updates XML file.
+  *
+  * $Id$
+  -->
+<data>
+	<!-- Bug #3791: Author country is sometimes null, sometimes empty. Disambiguate. -->
+	<sql>
+		<query>UPDATE paper_authors SET country = '' WHERE country IS NULL</query>
+	</sql>
+	<!-- Bug #3833:  Add new Conf. information listing settings to DB and set to 'On' -->
+	<sql>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postOverview', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postCFP', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postProposalSubmission', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postTrackPolicies', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postProgram', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postPresentations', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postAccommodation', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postSupporters', 1, 'bool' FROM sched_confs sc</query>
+		<query>INSERT INTO sched_conf_settings (sched_conf_id, setting_name, setting_value, setting_type) SELECT sc.sched_conf_id, 'postPayment', 1, 'bool' FROM sched_confs sc</query>
+	</sql>
+</data>

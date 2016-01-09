@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the eu_ES (Basque (Euskara)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="eu_ES" full_name="Euskara">
+	<!--
+	 * This file is organized into several major sections, separated
+	 * by comments like this one. These sections are called:
+	 *  COMMON - Contains frequently-used words
+	 *  ENTITIES - Contains terms pertaining to the system's major
+	 *             entities, e.g. Paper, Conference, Track
+	 *  INTERFACE - Contains phrases organized by the section of the
+	 *              user interface they appear in.
+	 *  LOG - Contains phrases related to log entries
+	 *  MISC - Entries that don't belong elsewhere.
+	 *  DEFAULT - Default settings for configuration items.
+	-->
+
+	<!-- review forms start -->
+
+	<!-- common -->
+	<message key="common.copy">Kopiatu</message>
+	<message key="common.preview">Aurrebista</message>
+	<message key="common.activate">Aktibatu</message>
+	<message key="common.deactivate">Desaktibatu</message>
+
+	<!-- Conference Management -->
+	<message key="manager.reviewForms">Ebaluazio-inprimakiak</message>
+
+	<message key="manager.reviewForms.list.description">Hemen sortzen diren ebaluazio-inprimakiak emango zaizkie adituei ebaluazioa egiteko, bi testu-koadroz ("egilearentzat eta editorearentzat" lehenengoa eta "editorearentzat" bigarrena) osatutako inprimaki lehenetsiaren ordez. Ebaluazio-inprimakiak kongresuaren atal jakin batean erabiltzeko jar daitezke, eta ataleko editoreek zein inprimaki erabili aukeratu ahal izango dute ebaluazioa esleitzean. Kasu guztietan, editoreek ebaluazioak sartzeko aukera izango dute egilearekin izaten duten korrespondentzian.</message>
+	<message key="manager.reviewForms.noneChosen">Bat ere ez / Inprimaki librea</message>
+	<message key="manager.reviewForms.noneCreated">Ez da ebaluazio-inprimakirik sortu</message>
+	<message key="manager.reviewForms.create">Sortu Ebaluazio-inprimakia</message>
+	<message key="manager.reviewForms.edit">Ebaluazio-inprimakia</message>
+	<message key="manager.reviewForms.title">Titulua</message>
+	<message key="manager.reviewForms.description">Azalpena eta Instrukzioak</message>
+	<message key="manager.reviewForms.preview">Inprimakiaren aurrebista</message>
+	<message key="manager.reviewForms.completed">Bukatuta</message>
+	<message key="manager.reviewForms.inReview">Ebaluatzen</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Ziur zaude argitaratu gabeko ebaluazio-inprimaki hau ezabatu nahi duzula?</message>
+	
+	<message key="manager.reviewForms.form.titleRequired">Titulua eman behar zaio ebaluazio-inprimakiari.</message>	
+	
+	<message key="manager.reviewFormElements">Inprimakiko elementuak</message>
+	<message key="manager.reviewFormElements.create">Sortu elementu berria</message>
+	<message key="manager.reviewFormElements.edit">Editatu inprimaki-elementua</message>
+	<message key="manager.reviewFormElements.noneCreated">Ez da inprimaki-elementurik sortu</message>
+	<message key="manager.reviewFormElements.confirmDelete">Ziur zaude ebaluazio-inprimaki argitaratu bateko elementu bat ezabatu nahi duzula?</message>
+	<message key="manager.reviewFormElements.copyTo">Kopiatu hona:</message>
+	<message key="manager.reviewFormElements.question">Elementua</message>
+	<message key="manager.reviewFormElements.required">Ebaluatzaileek bete egin behar dute elementua</message>
+	<message key="manager.reviewFormElements.elementType">Elementu mota</message>
+	<message key="manager.reviewFormElements.possibleResponse">Hautapena</message>
+	<message key="manager.reviewFormElements.addResponseItem">Gehitu hautapena</message>
+	<message key="manager.reviewFormElements.chooseType">Aukeratu elementu mota</message>
+	<message key="manager.reviewFormElement.changeType">Kontuz: Ebaluazio-inprimakiko elementu mota aldatzen baduzu aukera multzo bat izatetik irekia izatera, aukera multzoa ezabatu egingo da.</message>
+
+	<message key="manager.reviewFormElements.form.questionRequired">Inprimaki-elementu honek galdera bat behar du.</message>	
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Inprimaki-elementu honek elementu mota bat behar du.</message>	
+
+	<message key="manager.reviewFormElements.smalltextfield">Hitz bakarreko testu-koadroa</message>
+	<message key="manager.reviewFormElements.textfield">Lerro bakarreko testu-koadroa</message>
+	<message key="manager.reviewFormElements.textarea">Testu-koadro hedatua</message>
+	<message key="manager.reviewFormElements.checkboxes">Kontrol-laukiak (bat edo gehiago aukera daitezke)</message>
+	<message key="manager.reviewFormElements.radiobuttons">Aukera-botoiak (bakarra aukera daiteke)</message>
+	<message key="manager.reviewFormElements.dropdownbox">Goitibehera</message>
+
+	<!--  peer review -->
+	<message key="submission.reviewForm">Ebaluazio-inprimakia</message>
+	<message key="submission.reviewFormResponse">Ebaluazio-inprimakiaren erantzuna</message>
+
+	<message key="editor.paper.reviewForms">Ebaluazio-inprimakiak</message>	
+	<message key="editor.paper.selectReviewForm">Hautatu ebaluazio-inprimakia</message>	
+	<message key="editor.paper.clearReviewForm">Garbitu ebaluazio-Inprimakia</message>	
+	<message key="editor.paper.confirmChangeReviewForm">Kontuz: Ebaluazio-inprimakia aldatzen baduzu, eragina izango du ebaluatzaileek inprimaki honen bidez eman dituzten erantzunetan. Ziur zaude jarraitu nahi duzula?</message>	
+
+	<message key="reviewer.paper.enterReviewForm">Egin klik ikono batean ebaluazio-inprimakia betetzeko.</message>	
+	<message key="reviewer.paper.reviewFormResponse.form.responseRequired">Nahitaezko eremuak bete egin behar dira.</message>	
+	
+	<!-- review forms end -->
+
+	<!--
+	 *
+	 * COMMON - This section contains the most frequently-used words
+	 *
+	-->
+
+	<!-- Common Messages -->
+	<message key="common.openConferenceSystems">Open Conference Systems</message>
+	<message key="common.noDate">(data)</message>
+	<message key="common.time">Ordua</message>
+	<message key="common.days">egun</message>
+	<message key="common.timeZone">Ordu-zona</message>
+	<message key="common.ellipsis">...</message>
+	<message key="common.path">Bidea</message>
+	<message key="common.dateTimeSeparator">-</message>
+	<message key="common.ccLicense"><![CDATA[
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Lan honek <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a> lizentzia du.
+	]]></message>
+	<message key="common.sortBy">Ordenatu...</message>
+	<message key="common.sitePageHeader.altText">Gunearen goiburuko irudia</message>
+	<message key="common.pageHeader.altText">Orriaren goiburuko irudia</message>
+	<message key="common.homePageHeader.altText">Hasierako orriaren goiburuko irudia</message>
+	<message key="common.conferenceHomepageImage.altText">Kongresuaren hasierako orriko irudia</message>
+
+	<!-- Common Form Messages -->
+	<!-- Common Email Messages -->
+	<!-- Common Localization Terms -->
+	<!-- Common Error Messages -->
+	<!-- Navigation -->
+	<message key="navigation.conferenceHelp">Kongresuaren laguntza</message>
+	<message key="navigation.account">Kontua</message>
+	<message key="navigation.archive">Artxiboa</message>
+	<message key="navigation.current">Uneko kongresuak</message>
+	<message key="navigation.otherConferences">Beste kongresu batzuk</message>
+	<message key="navigation.browseByConference">Kongresuz</message>
+	<message key="navigation.infoForReviewers">Ebaluatzaileentzat</message>
+	<message key="navigation.infoForReviewers.long">Ebaluatzaileentzako informazioa</message>
+	<!-- Paper Queues -->
+	<message key="common.queue.long.submissionsUnassigned">Esleitu gabe</message>
+	<message key="common.queue.short.submissionsUnassigned">Esleitu gabe</message>
+	<message key="common.queue.long.submissionsInReview">Ebaluatzen ari diren bidalketak</message>
+	<message key="common.queue.short.submissionsInReview">Ebaluatzen</message>
+	<message key="common.queue.long.submissionsAccepted">Aurkezpenak</message>
+	<message key="common.queue.short.submissionsAccepted">Aurkezpenak</message>
+	<message key="common.queue.long.submissionsArchives">Artxiboak</message>
+	<message key="common.queue.short.submissionsArchives">Artxiboak</message>
+	<message key="common.queue.long.active">Bidalketa aktiboak</message>
+	<message key="common.queue.short.active">Aktibo</message>
+	<message key="common.queue.long.completed">Artxiboa</message>
+	<message key="common.queue.short.completed">Artxiboa</message>
+
+	<!--
+	 *
+	 * ENTITIES - This section contains terms pertaining to the system's
+	 *            major entities, e.g. Paper, Conference, Track
+	 *
+	-->
+
+	<!-- Common Track Terms -->
+	<message key="track.track">Atala</message>
+	<message key="track.tracks">Kongresuaren atalak</message>
+	<message key="track.title">Atalaren titulua</message>
+	<message key="track.abbreviation">Laburdura</message>
+	<message key="track.abbreviation.example">(Adibidez, Lan 
+orokorrak=OROK)</message>
+	<!-- Common Paper Terms -->
+	<message key="paper.papers">Lanak</message>
+	<message key="paper.submissionId">Bidalketa ID</message>
+	<message key="paper.title">Titulua</message>
+	<message key="paper.conferenceTrack">Kongresuaren atala</message>
+	<message key="paper.file">Fitxategia</message>
+	<message key="paper.suppFile">Fitxategi osagarria</message>
+	<message key="paper.suppFiles">Fitxategi osagarria(k)</message>
+	<message key="paper.suppFilesAbbrev">Fitxat. osag.</message>
+	<message key="paper.discipline">Diziplina eta azpidiziplina akademikoak</message>
+	<message key="paper.subjectClassification">Gaikako sailkapena</message>
+	<message key="paper.subject">Gako-hitzak</message>
+	<message key="paper.coverage">Estaldura</message>
+	<message key="paper.coverageGeo">Estaldura geo-espaziala</message>
+	<message key="paper.coverageChron">Estaldura kronologiko edo historikoa</message>
+	<message key="paper.coverageSample"> Ikerketa-adibideen ezaugarriak</message>
+	<message key="paper.type">Mota, metodoa edo hurbilketa</message>
+	<message key="paper.language">Hizkuntza</message>
+	<message key="paper.trackDirector">AZ</message>
+	<message key="paper.commentsToDirector">Egilearen oharrak</message>
+	<message key="paper.submission">Bidalketa</message>
+	<message key="paper.submissions">Bidalketak</message>
+	<message key="paper.abstract">Laburpena</message>
+	<message key="paper.details">Xehetasunak</message>
+	<message key="paper.location">Lekua</message>
+	<message key="paper.time">Ordua</message>
+	<message key="paper.comments.trackDefault">Lehenetsia</message>
+	<message key="paper.comments.disable">Desgaitu</message>
+	<message key="paper.comments.enable">Gaitu</message>
+	<message key="paper.fontSize">Letra-tamaina</message>
+	<message key="paper.fontSize.small.altText">Txikia</message>
+	<message key="paper.fontSize.medium.altText">Tartekoa</message>
+	<message key="paper.fontSize.large.altText">Handia</message>
+
+	<!-- Submission Tracking - Common -->
+	<message key="submission.fromTime">Noiztik</message>
+	<message key="submission.toTime">Noiz arte</message>
+	<message key="submission.abstractReview">Laburpenaren ebaluazioa</message>
+	<message key="submission.paperReview">Komunikazioaren ebaluazioa</message>
+	<message key="submission.page.abstractReview">{$id} Laburpenaren ebaluazioa</message>
+	<message key="submission.page.paperReview">{$id} Lanaren ebaluazioa</message>
+	<message key="submission.uploadFile">Kargatu lana</message>
+	<message key="submission.changeTrack">Aldatu hona:</message>
+	<message key="submission.acceptance">Ebaluatzeko onartua</message>
+	<message key="submission.complete.description">Gehitu bidalketa onartutako Aurkezpenen zerrendan.</message>
+	<message key="submission.directorDecision">Zuzendariaren erabakia</message>
+	<message key="submission.stage">{$stage}. fasea</message>
+	<message key="submission.directorReview">Zuzendariaren ebaluazioa</message>
+	<message key="submission.notifyDirector">Jakinarazi zuzendariari</message>
+	<message key="submission.directorVersion">Zuzendariaren bertsioa</message>
+	<message key="submission.layout.description">Aukerako urrats hau bidalketei formatua emateko edo fitxategi-formatua aldatzeko erabiltzen da, bidalketak Aurkezpenetara bidali aurretik nahiz ondoren.</message>
+	<message key="submissions.track">Atala</message>
+	<message key="submissions.queuedAbstractReview">Laburpena ebaluatzen</message>
+	<message key="submissions.queuedPaperReview">Lana ebaluatzen</message>
+	<message key="submissions.published">Argitaratuta</message>
+	<message key="submissions.accepted">Onartua</message>
+	<message key="submissions.reviewStage">Ebaluazio-fasea</message>
+	<message key="submissions.reviewType">Ebaluazio mota</message>
+	<message key="submissions.pendingPresentation">Kargatzeko zain</message>
+	<message key="submissions.expired">Iraungita</message>
+	<message key="submissions.directorDecision">Zuzendariaren erabakia</message>
+	<message key="submissions.directorRuling">Zuzendariaren ebazpena</message>
+	<message key="trackDirector.galley.replaceGalley">Ordeztu fitxategia</message>
+	<message key="submission.abstract">Laburpena</message>
+	<message key="submission.paper">Lana</message>
+
+	<!-- Submission list search engine -->
+	<!-- Submission Notes -->
+	<!-- Common Conference Terms -->
+	<message key="conference.conferences">Kongresuak</message>
+	<message key="conference.conference">Kongresua</message>
+
+	<!-- Common Scheduled Conference Terms -->
+	<message key="schedConf.scheduledConferences">Kongresu programatuak</message>
+	<message key="schedConf.noScheduledConferences">Kongresu programatu gabeak</message>
+	<message key="schedConf.schedConf">Kongresu programatua</message>
+	<message key="schedConf.contents">Kongresuari buruzko informazioa</message>
+	<message key="schedConf.overview">Azalpen orokorra</message>
+	<message key="schedConf.trackPolicies">Atalen politikak</message>
+	<message key="schedConf.schedule">Programazioa</message>
+	<message key="schedConf.program">Programa</message>
+	<message key="schedConf.cfp">Lanen eskaera</message>
+	<message key="schedConf.discussion">Eztabaida</message>
+	<message key="schedConf.registration">Izen-ematea</message>
+	<message key="schedConf.accommodation">Ostatua</message>
+	<message key="schedConf.supporters">Antolatzaileak eta bazkideak</message>
+	<message key="schedConf.timeline">Egutegia</message>
+	<message key="schedConf.schedule">Kongresuaren programazioa</message>
+	<message key="schedConf.links">Erlazionatutako estekak</message>
+	<message key="schedConf.presentations">Aurkezpenak eta egileak</message>
+	<message key="schedConf.presentations.short">Aurkezpenak</message>
+	<message key="schedConf.abstract">Laburpena</message>
+	<message key="schedConf.submission">Bidalketa</message>
+	<message key="schedConf.submissions">Bidalketak</message>
+
+	<message key="schedConf.cfp.title">Lanen eskaera</message>
+	<message key="schedConf.overview.title">Azalpen orokorra</message>
+	<message key="schedConf.presentations.title">Aurkezpenak eta egileak</message>
+	<message key="schedConf.schedule.title">Programazioa</message>
+	<message key="schedConf.program.title">Programa</message>
+	<message key="schedConf.accommodation.title">Ostatua</message>
+	<message key="schedConf.trackPolicies.title">Atalen politikak</message>
+
+	<!-- Reader interface for scheduler -->
+	<message key="schedConf.scheduler.locations">Kongresuaren lekua</message>
+
+	<!-- User self-registration form -->
+	<message key="schedConf.registration.alreadyRegistered">Kongresu honetarako izena eman duzu, baina ordainketa 
+ez dugu jaso oraindik. Erroreren bat gertatu bada edo izen-ematea aldatu nahi baduzu, jar zaitez harremanetan, 
+mesedez, "Kongresuari buruz" orriko kontaktu nagusiarekin.</message>
+	<message key="schedConf.registration.alreadyRegisteredAndPaid">Dagoeneko kongresuan izena emanda zaude eta 
+ordainketa eginda dago. Erroreren bat gertatu bada edo izen-ematea aldatu nahi baduzu, jar zaitez harremanetan, 
+mesedez, "Kongresuari buruz" orriko kontaktu nagusiarekin.</message>
+	<message key="schedConf.registration.noPaymentMethodAvailable">Zure izen-ematea erregistratu da. Egoki bada, zurekin harremanetan jarriko gara ordainketari buruz.</message>
+	<message key="schedConf.registration.conferenceFees">Kongresu-tarifak</message>
+	<message key="schedConf.registration.failed">Zure izen-emateak huts egin du.  Saiatu berriro.</message>
+	<message key="schedConf.registration.type">Izen-emate mota</message>
+	<message key="schedConf.registration.cost">Kostua</message>
+	<message key="schedConf.registration.register">Izena eman</message>
+	<message key="schedConf.registration.typeCloses">(Itxi: {$closingDate})</message>
+	<message key="schedConf.registration.typeClosed">(Izen-ematea itxi: {$closingDate})</message>
+	<message key="schedConf.registration.typeFuture">(Izen-ematea ireki: {$openingDate})</message>
+	<message key="schedConf.registration.optionCloses">(Itxi: {$closingDate})</message>
+	<message key="schedConf.registration.optionClosed">(Izen-ematea itxi: {$closingDate})</message>
+	<message key="schedConf.registration.optionFuture">(Izen-ematea ireki: {$openingDate})</message>
+	<message key="schedConf.registration.feeCode">Tarifa-kodea</message>
+	<message key="schedConf.registration.feeCode.description">Izena emateko kode sekretu bat eman bazizuten, sar ezazu hemen eta ziurtatu izen-emate mota egokia hautatu duzula goian. Bestela, utzi hutsik Tarifa-kodearen eremua.</message>
+	<message key="schedConf.registration.specialRequests">Eskakizun bereziak</message>
+	<message key="schedConf.registration.specialRequests.description">Mesedez, adierazi hemen eskakizun edo eskaera bereziak: dieta berezia, iristeko zailtasuna eta horrelakoak.</message>
+	<message key="schedConf.registration.account">Erabiltzaile-kontua</message>
+	<message key="schedConf.registration.loggedInAs"><![CDATA[Saioa hasita zaude. Egiaztatu beheko kontuaren datuak zuzenak direla. Ez badira, zuzendu <a href="{$profileUrl}">Nire profila</a>ren bidez edo <a href="{$logoutUrl}">amaitu saioa</a> beste kontu bat erabiltzeko.]]></message>
+	<message key="schedConf.registration.createAccount.description"><![CDATA[Ez zaude saioa hasita. Kongresu honetan izena emateko, kontu bat eduki behar duzu. Baldin badaukazu, <a href="{$loginUrl}">egin klik hemen</a> saioa hasteko; bestela, eman behean eskatzen diren datuak kontu berri bat sortzeko.]]></message>
+	<message key="schedConf.registration.options">Izen-emateko aukerak</message>
+
+	<!-- User -->
+	<message key="user.showAllConferences">Erakutsi nire kongresuak</message>
+	<message key="user.createAccount">Sortu</message>
+	<message key="user.createAccountForOtherConferences">Sortu beste Kongresu baterako kontua</message>
+	<message key="user.myConferences">Nire kongresuak</message>
+	<message key="user.noRoles.chooseConference">Zure kontua ez dago ezein kongresurekin lotuta. Aukeratu kongresu bat.</message>
+	<message key="user.noRoles.noRolesForConference">Zure kontuak ez du funtziorik kongresu honetan. Aukeratu beheko ekintzetako bat:</message>
+	<message key="user.noRoles.submitProposal">Bidali proposamen bat</message>
+	<message key="user.noRoles.submitProposalRegClosed">Bidali proposamen bat: Egile gisa izena ematea itxita dago orain.</message>
+	<message key="user.noRoles.submitProposalSubmissionsClosed">Bidali proposamen bat: Bidalketak itxita daude orain.</message>
+	<message key="user.noRoles.regReviewer">Eman izena Kongresuko ebaluatzaile gisa</message>
+	<message key="user.noRoles.regReviewerClosed">Eman izena Kongresuko ebaluatzaile gisa. Ebaluatzaile gisa izena ematea itxita dago orain.</message>
+	<message key="user.noRoles.register">Eman izena kongresura entzule gisa joateko</message>
+	<message key="user.noRoles.registerUnavailable">Eman izena kongresura entzule gisa joateko. Izen-emate hori ez da onartzen orain.</message>
+
+	<!-- Roles -->
+	<message key="user.role.manager">Kongresuaren kudeatzailea</message>
+	<message key="user.role.director">Zuzendaria</message>
+	<message key="user.role.trackDirector">Ataleko zuzendaria</message>
+	<message key="user.role.managers">Kongresu-kudeatzaileak</message>
+	<message key="user.role.directors">Zuzendariak</message>
+	<message key="user.role.trackDirectors">Ataleko zuzendariak</message>
+	<!--
+	 * LOG - This section contains entries related to log entries.
+	 *
+	-->
+	
+	<message key="event.logType.paper">Lana</message>
+	<message key="event.logType.director">Zuzendaria</message>
+	<message key="event.logType.review">Ebaluazioa</message>
+	<message key="event.logType.conference">Kongresua</message>
+
+	<message key="event.eventLog">Gertaeren loga</message>
+	<message key="event.logLevel">Maila</message>
+	
+	<message key="event.logLevel.info">Info</message>
+	<message key="event.logLevel.notice">Berri-ematea</message>
+	<message key="event.logLevel.warning">Abisua</message>
+	<message key="event.logLevel.error">Errorea</message>
+
+	<message key="event.general.defaultEvent">Bidalketako gertaera</message>
+	
+	<!-- Submission events -->
+	
+	<message key="submission.event.general.abstractSubmitted">Laburpena bidali</message>
+	<message key="submission.event.general.presentationSubmitted">Aurkezpena bidali</message>
+	<message key="submission.event.general.paperPublished">Lana argitaratu</message>
+
+	<message key="submission.event.director.directorAssigned">Zuzendaria izendatu</message>
+	<message key="submission.event.director.directorUnassigned">Zuzendaria kendu</message>
+	<message key="submission.event.director.directorDecision">Zuzendariaren erabakia bidali</message>
+	<message key="submission.event.director.directorFile">Zuzendari-fitxategia eguneratu</message>
+	<message key="submission.event.director.submissionArchived">Bidalketa artxibora bidali</message>
+	<message key="submission.event.director.submissionRestored">Bidalketa artxibotik leheneratu</message>
+
+	<!-- Conference events -->
+	<message key="conference.event.general.configuration">Kongresuaren konfigurazioa aldatu</message>
+	<message key="conference.event.general.deadline">Kongresuaren mugaeguna igaro</message>
+
+	<!--
+	 *
+	 * INTERFACE - Contains phrases organized by the section of the
+	 *             user interface they appear in.
+	 *
+	-->
+
+	<!-- Reader paper view -->
+	<message key="reader.fullTextNotAvailable">Kongresuko lanak ez daude erabilgarri orain.</message>
+	<message key="reader.accessDenied">Orain ez daukazu lan hau ikusteko baimenik. Kongresu honen webgunean kontua irekita badaukazu, saioa hasi beharko duzu edukia ikusteko.</message>
+	<message key="reader.fullTextRegistrationRequired">Kongresuan izena eman behar da lanak ikusi ahal izateko.</message>
+	<message key="reader.fullTextAccountRequired"><![CDATA[Webgunean kontua eduki behar da lanak ikusi ahal izateko. <a href="{$registerUrl}">Egin klik hemen</a> kontua sortzeko.]]></message>
+	<message key="reader.fullTextRegistrantsOnlyUntil">Kongresurako sarrera librearen hasiera: {$date}.</message>
+	<message key="reader.fullTextNotPostedYet">Kongresu honetako lanak argitaratzeko eguna: {$date}.</message>
+
+	<!-- Reader Comments -->
+	<message key="comments.authenticated">{$userName}</message>
+	<message key="comments.commentsOnPaper">Lanari buruzko iruzkinak</message>
+	<message key="comments.commentsClosed">Iruzkinen ixte-data: {$closeCommentsDate}.</message>
+	<!-- Site Administration -->
+	<message key="admin.settings.oaiRegistrationDescription"><![CDATA[Gune honetan ostatatutako kongresu guztien edukia datu-baseetan bilaketak egiteko sistema banatu batean indexatuta edukitzeko, <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">erregistratu</a> zuen gunearen URLa Public Knowledge Project-en <a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a> metadatu-biltzailean. Tresna horrek kongresu honetako elementu indexatu guztien metadatuak bilduko ditu, bilaketa zehatzak eta kolektiboak egin ahal izateko <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a> protokoloari atxikitako bilaketa-guneen bitartez.
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">Egin klik hemen</a> eta idatzi <span class="highlight">{$siteUrl}</span> <strong>Gunearen URLa</strong>n eta <span class="highlight">{$oaiUrl}</span> <strong>OAI Base URL</strong> eremuan.
+<br /><br />
+Kontuan izan OAI interfazea desgaitu daitekeela gune honetarako, OCS sistema-konfigurazioa editatuz. OCS bertsio berriagoetan aukera izango da gune barruko kongresuak banaka gaitzeko edo desgaitzeko.]]></message>
+
+
+	<!-- Site Administration Merge Users -->	
+	<!-- Languages -->
+	<message key="admin.auth.defaultSourceDescription"><![CDATA[<p>OCS ez den autentifikazio-iturburu bat lehenetsi gisa ezartzeak ondorio hauek izango ditu:</p>
+<ul>
+	<li>Erabiltzaile bat saiatzen bada gune honetan kontu berri bat sortzen, lehendik autentifikazio-iturburuan dagoen (baina OCS datu-basean ez dagoen) erabiltzaile-izen batekin, ematen den pasahitza erabiltzaile-kontu horrentzat baliozkoa bada bakarrik onartuko da erregistratzea.</li>
+</ul>]]></message>
+
+	<!-- System Information -->
+	<message key="admin.overwriteConfigFileInstructions"><![CDATA[<h4>ABISUA!</div>
+<p>Sistemak ezin izan du automatikoki gainidatzi konfigurazio-fitxategia. Konfigurazio-aldaketak aplikatzeko, testu-editore egoki batekin ireki beharko duzu <tt>config.inc.php</tt> eta bertako edukia aldatu beheko testu-eremuaren edukiarekin.</p>]]></message>
+	<!-- Registration Management -->
+	<!-- Scheduler -->
+	<!-- Payment Handling -->
+	<message key="payment.type.conferenceRegistration">Kongresuko  izen-ematea; {$schedConfTitle}; {$registrationTypeName}</message>
+
+	<!-- Conference Event Log -->
+	<message key="conference.event.confirmClearLog">Ziur zaude kongresu honen gertaeren loga garbitu nahi duzula?</message>
+	<message key="conference.event.confirmDeleteLogEntry">Ziur zaude gertaeren logeko sarrera hau ezabatu nahi duzula?</message>
+	<message key="conference.event.deleteLogEntry">Ezabatu logeko sarrera</message>
+	<message key="conference.event.backToEventLog">Itzuli Gertaeren logera</message>
+	<message key="conference.history.conferenceEventLog">Gertaeren loga</message>
+	<message key="conference.history.clearLog">Garbitu loga</message>
+	<message key="conference.history.noLogEntries">Ez dago sarrerarik logean.</message>
+
+	<!-- Scheduled Conference Management -->
+	<!-- Program settings -->
+	<!-- Accommodation settings -->
+	<!-- Conference Management -->
+	<!-- Statistics & Reports -->
+	<!-- Plugin Management -->
+	<!-- General plugin information -->
+	<message key="plugins.categories.generic.description">Plugin generikoek Open Conference Systems hedatzen dute, gainerako plugin kategoriek egin ezin dituzten hainbat gauzatarako.</message>
+	<message key="plugins.categories.auth.description">Baimena emateko pluginen bidez, erabiltzaile-autentifikazioa beste sistema batzuei delega diezaieke Open Conference Systems-ek, esate baterako LDAP zerbitzariei.</message>
+
+	<message key="plugins.categories.citationFormats.description">Aipamen-formatuen pluginen bidez, erabiltzaileek hainbat formatu izango dituzte aipamenak ikusteko.</message>
+ 
+	<!-- Files Browser -->
+	<!--
+	     ***
+	     *** Generic setup locale keys
+	     ***
+	-->
+	<message key="manager.setup.finalStepSavedNotes"><![CDATA[
+			<p>Ia-ia eginda!</p>
+			<p>Kongresu bat konfiguratuta dago orain, hemendik aurrera kongresu programatu bakar bat, edo urteroko kongresu bat, edo programatutako kongresu-sail bat kudeatu ahal izango dira kongresu-gune honetatik. Kongresu honen instantzia espezifiko bat programatzeko, joan <a href="{$schedConfSetupUrl}">Kongresu programatuetara</a>. Nahi duzunean joan ahal izango zara orri horretara Kongresuaren kudeatzailearen hasierako orritik.</p>
+			<p>Nahi duzunean itzuli ahal izango zara sei orri hauetara "Erabiltzailearen hasierako orria > Kongresuaren kudeatzailea > Konfigurazioa" hautatuta.</p>
+			<p>Kongresu programatuak kudeatzeko, hautatu "Erabiltzailearen hasierako orria > Kongresuaren kudeatzailea > Konfigurazioa".</p>
+	]]></message>
+	<!--
+	     ***
+	     *** Website Management (a.k.a. Conference Setup)
+	     ***
+	-->
+
+	<!-- Conference setup page 1 -->
+	<!-- Conference setup page 2 -->
+	<!-- Conference setup page 3 -->
+	<!-- Conference setup page 4 -->
+	<!-- Conference setup page 5 -->
+	<!-- Conference setup page 6 -->
+	<message key="manager.setup.indexing.registerConferenceForIndexing.description"><![CDATA[Kongresu honen edukia datu-baseetan bilaketak egiteko sistema banatu batean indexatuta edukitzeko, <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">erregistratu</a> zuen kongresuaren URLa Public Knowledge Project-en <a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a> metadatu-biltzailean. Tresna horrek kongresu honetako elementu indexatu guztien metadatuak bilduko ditu, bilaketa zehatzak eta kolektiboak egin ahal izateko <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a> protokoloari atxikitako bilaketa-guneen bitartez.
+<br /><br />
+Kontuan izan, zuen gune-administratzaileak dagoeneko gunea erregistratu badu PKP Harverster biltzailean, zuen kongresua automatikoki indexatuko dela eta ez daukazula kongresua erregistratu beharrik.
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">Egin klik hemen</a> eta idatzi <span class="highlight">{$siteUrl}</span> <strong>Gunearen URLa</strong>n eta <span class="highlight">{$oaiUrl}</span> <strong>OAI Base URL</strong> eremuan.]]></message>
+
+	<!-- 
+	     ***
+	     *** Scheduled Conference Setup
+	     ***
+	-->
+	<!-- Scheduled Conference Setup Step 1 -->
+	<!-- Scheduled Conference Setup Step 2 -->
+	<message key="manager.schedConfSetup.submissions.subjectClassificationDescription"><![CDATA[Interneten erabilgarri dagoen sistema bat erabiliko du kongresuak gaika sailkatzeko.<br />
+Sailkapen-sistemaren titulua]]></message>
+	<!-- Scheduled Conference Setup Step 3 -->
+	<!-- Languages -->
+	<!-- Track Management -->
+	<!-- Timeline management -->
+	<!-- Import/Export -->
+	<!-- Groups / Organizing Team -->
+	<!-- People Management -->
+	<message key="manager.people.confirmDisable">Erabiltzailea desgaitu? Ezingo da sisteman sartu aurrerantzean.
+
+Nahi baduzu, kontua zergatik desgaitu diozun azal diezaiokezu erabiltzaileari.</message>
+	<message key="manager.people.noAdministrativeRights"><![CDATA[Ez daukazu administratzaile-eskubiderik erabiltzaile horren gainean. Arrazoia izan daiteke:
+		<ul>
+			<li>Erabiltzaile hori gune-administratzailea izatea</li>
+			<li>Erabiltzaile hori zuk kudeatzen ez duzun kongresuren batean aktibo egotea.</li>
+		</ul>
+	Lan hau gune-administratzaile batek egin behar du.
+	]]></message>
+	<!-- Email Management -->
+	<!-- Registration Policy Management -->
+	<!-- Registration Type Management -->
+	<!-- Registration Option Management -->
+	<!-- Registration Management -->
+	<!-- Announcement Type Management -->
+	<!-- Announcements Management -->
+	<!-- Director -->
+	<!-- Navigation sidebar menu -->
+	<!-- Used by director in submission review / editing -->
+	<message key="director.paper.selectReviewerNotes"><![CDATA[Izena ebaluatzailearen profilerako esteka da.<br/>
+Balorazio-eskala: 1-5 (Bikaina).<br/>
+Asteak: ebaluazioa egiteko batez besteko denbora.<br/>
+Azkena: azkeneko onartutako ebaluazioaren data.<br/>
+Aktibo: une honetan kontsideratzen edo egiten ari diren ebaluazioen kopurua.]]></message>
+	<!-- Track Director -->
+	<message key="trackDirector.regrets.breadcrumb">Desenkusa</message>
+	<message key="trackDirector.regrets.title">{$paperId} lanaren Ebaluatzailearen Desenkusak eta Ezerezteak</message>
+	<message key="trackDirector.regrets">Desenkusa</message>
+	<message key="trackDirector.regrets.link">Ikusi Desenkusak eta Ezerezteak</message>
+	<message key="trackDirector.regrets.reviewStage">Adituen ebaluazioa, {$stage}. fasea</message>
+	<message key="trackDirector.regrets.decisionStage">Zuzendariaren erabakia, {$stage}. fasea</message>
+	<message key="trackDirector.regrets.regretsAndCancels">Ebaluatzailearen Desenkusak eta Ezerezteak</message>
+	<message key="trackDirector.regrets.regret">Desenkusa</message>
+	<message key="trackDirector.regrets.result">Emaitza</message>
+	<message key="trackDirector.review.enrollReviewer">Inskribatu erabiltzaile bat Ebaluatzaile gisa</message>
+	<message key="trackDirector.review.createReviewer">Sortu Ebaluatzaile berria</message>
+
+	<!-- Reviewer -->
+	<message key="reviewer.completedReviews">Eginda</message>
+	<message key="reviewer.averageQuality">Balorazioa</message>
+
+	<!-- Used in submission review -->
+	<message key="reviewer.paper.fileToBeReviewed">Ebaluatzeko fitxategia</message>
+	<message key="reviewer.paper.notifyTheDirector">Jakinarazi Zuzendariari</message>
+	<message key="reviewer.paper.canDoReview">Egingo du ebaluazioa</message>
+	<message key="reviewer.paper.cannotDoReview">Ezingo du egin ebaluazioa</message>
+	<message key="reviewer.paper.restrictedFileAccess">Ebaluazioa egitea onartzen denean bakarrik ikusi ahal izango da bidalketa.</message>
+	<message key="reviewer.paper.submissionDirector">Bidalketaren Zuzendaria</message>
+	<message key="reviewer.paper.reviewerCommentsDescription">Idatzi edo itsatsi ebaluazioko oharrak hemen</message>
+	<message key="reviewer.paper.directorToEnter">Zuzendariak sartzeko</message>
+	<message key="reviewer.paper.sendReminder">Bidali oroigarria</message>
+	<message key="reviewer.paper.automatic">(Auto)</message>
+	<message key="reviewer.paper.selectRecommendation">Hautatu gomendio bat</message>
+	<message key="reviewer.paper.recommendation">Gomendioa</message>
+	<message key="reviewer.paper.submitReview">Bidali Ebaluazioa Zuzendariari</message>
+	<message key="reviewer.paper.reviewerComments">Oharrak</message>
+	<message key="reviewer.paper.uploadedFile">Kargatutako fitxategiak</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersion">Ebaluatzaileak kargatutako bertsioa</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersionDescription">(Fitxategiari oharrak egin nahi badizkiozu zuzendariarentzat, gorde zure disko gogorrean eta erabili Arakatu/Kargatu)</message>
+	<message key="reviewer.paper.schedule.request">Zuzendariaren eskaera</message>
+	<message key="reviewer.paper.schedule.response">Zure erantzuna</message>
+	<message key="reviewer.paper.schedule.submitted">Ebaluazioa bidalita</message>
+	<message key="reviewer.paper.schedule.due">Ebaluazioaren epea</message>
+	<message key="reviewer.paper.decision.accept">Onartu bidalketa</message>
+	<message key="reviewer.paper.decision.pendingRevisions">Berrikusi egin behar da</message>
+	<message key="reviewer.paper.decision.resubmitElsewhere">Bidali beste norabait</message>
+	<message key="reviewer.paper.decision.decline">Ez onartu bidalketa</message>
+	<message key="reviewer.paper.decision.seeComments">Ikusi oharrak</message>
+	<message key="reviewer.paper.schedule">Programazioa</message>
+	<message key="reviewer.paper.submissionToBeReviewed">Ebaluatzeko bidalketa</message>
+	<message key="reviewer.paper.reviewSchedule">Ebaluazioen programazioa</message>
+	<message key="reviewer.paper.reviewSteps">Ebaluazioaren urratsak</message>
+	<message key="reviewer.paper.reviewerGuidelines">Ebaluatzaileen gidalerroak</message>
+	<message key="reviewer.paper.notifyEditorA">Jakinarazi bidalketaren zuzendariari</message>
+	<message key="reviewer.paper.notifyEditorB">ebaluazioa egiteko prest zauden ala ez.</message>
+	<message key="reviewer.paper.consultGuidelines">Ebaluazioa egin behar baduzu, irakurri behean ematen diren Ebaluatzailearen gidalerroak.</message>
+	<message key="reviewer.paper.downloadSubmissionAbstractOnly">Ebaluatu bidalketarekin batera etorritako laburpena.</message>
+	<message key="reviewer.paper.downloadSubmissionSubmission">Ebaluatu bidalketa.</message>
+	<message key="reviewer.paper.enterReviewA">Egin klik ikonoan bidalketari egin diozun ebaluazioa idazteko (edo itsasteko).</message>
+	<message key="reviewer.paper.uploadFile">Gainera, fitxategiak karga ditzakezu zuzendariak eta/edo egileak kontsulta ditzaten.</message>
+	<message key="reviewer.paper.selectRecommendation">Hautatu gomendio bat era bidali ebaluazioa prozesua osatzeko. Gomendio bat hautatu aurretik, ebaluazio bat sartu behar duzu edo fitxategi bat kargatu.</message>
+	<message key="reviewer.paper.mustSelectDecision">Ez da gomendiorik hautatu. Gomendio bat aukeratu behar duzu bidaltzeko.</message>
+	<message key="reviewer.paper.confirmDecision">Erabaki bat grabatzen duzunean, ezingo duzu aldaketarik egin ebaluazio honetan. Ziur zaude jarraitu nahi duzula?</message>
+	<message key="reviewer.paper.ensuringBlindReview">Ebaluazio anonimoa segurtatu</message>
+
+	<!-- Presenter -->
+	<!-- Paper Submission Step 1 -->
+	<!-- Paper Submission Step 2 -->
+	<!-- Paper Submission Step 3 -->
+	<!-- Paper Submission Step 4 -->
+	<!-- Paper Submission Step 4a: Supplementary Files -->
+	<!-- Paper Submission: upload file -->
+	<message key="submission.submissionFiles">Bidalketa-fitxategiak</message>
+	<!-- Paper Submission Step 5 -->
+	<!-- Used in submission review / editing -->
+	<!-- Submission Tracking - Layout Specific -->
+	<!-- Submission History -->
+	<!-- Submission Event Log -->
+	<!-- Submission Email Log -->
+	<!-- Submission Comments -->
+	<message key="submission.comments.viewableDescription"><![CDATA[Ohar hauek egileak ere ikus ditzake.<br />
+(Gorde ondoren, ohar gehiago erantsi ahal izango dira.)]]></message>
+	<message key="submission.comments.blindCcReviewers">Bidali ondoren, aurkeztu erabakiaren BCC kopia bat ebaluatzaileei bidaltzeko.</message>
+	<message key="submission.comments.forDirector">Zuzendariarentzat</message>
+	<message key="submission.comments.saveAndEmailDirector">Gorde eta bidali mezua Zuzendariari</message>
+
+	<!-- Login -->
+	<message key="user.login.createAccount">Ez zara erabiltzailea? Sortu kontua gune honetan</message>
+	<message key="user.login.resetPasswordInstructions"><![CDATA[Segurtasunagatik, lehengo pasahitza gogorarazi beharrean, mezu elektronikoan bidaltzen zaie pasahitz berria erabiltzaile erregistratuei.<br /><br />Idatzi zure helbide elektronikoa behean, pasahitz berria jasotzeko. Berrespen bat bidaliko da helbide elektroniko horretara.]]></message>
+	<!-- Profile -->
+	<!-- Registration -->
+	<message key="user.account.repeatPassword">Errepikatu pasahitza</message>
+	<message key="user.account.form.usernameExists">Hautatutako erabiltzaile-izena beste erabiltzaile batena da.</message>
+	<message key="user.account.form.usernameAlphaNumeric">Erabiltzaile-izenean alfazenbakizko karaktereak, azpimarra eta marratxoak bakarrik onartzen dira, eta lehen karakterea eta azkena alfazenbakizkoak izan behar dira.</message>
+	<message key="user.account.form.emailExists">Hautatutako helbide elektronikoa beste erabiltzaile batena da.</message>
+	<message key="user.account.form.passwordsDoNotMatch">Pasahitzak ez datoz bat.</message>
+	<message key="user.account.selectConference">Hautatu zein kongresutan sortu nahi duzun kontua</message>
+	<message key="user.account.noConferences">Gune honetan ez dago kontua sortzeko aukera ematen dizun kongresurik.</message>
+	<message key="user.account.selectSchedConf">Hautatu zein kongresu programatutan sortu nahi duzun kontua</message>
+	<message key="user.account.noSchedConfs">Gune honetan ez dago kontua sortzeko aukera ematen dizun kongresu programaturik.</message>
+	<message key="user.account.createAs">Sortu kontua honela:</message>
+	<message key="user.account.privacyStatement">Pribatutasun-deklarazioa</message>
+	<message key="user.account.completeForm">Kongresu honetan kontua sortzeko, inprimaki hau bete behar duzu.</message>
+	<message key="user.account.hasAccount"><![CDATA[Kongresu honetan edo gune honetako beste batean kontua badaukazu, <a href="{$accountUrl}">egin klik hemen</a>.]]></message>
+	<message key="user.account.hasNoAccount"><![CDATA[Kongresu honetan edo gune honetako besteren batean konturik <strong>ez</strong> badaukazu, <a href="{$accountUrl}">egin klik hemen</a>.]]></message>
+	<message key="user.account.loginToRegister">Kongresu honetan kontua sortzeko, sartu zure oraingo erabiltzaile-izena eta pasahitza.</message>
+	<message key="user.account.createAccountDisabled">Kongresu honek ez du erabiltzaile berririk onartzen orain.</message>
+	<message key="user.account.usernameRestriction">Erabiltzaile-izenak letra minuskulak, zenbakiak, eta marratxoak/azpimarrak bakarrik eduki ditzake.</message>
+	<message key="user.account.passwordLengthRestriction">Pasahitzak {$length} karaktere izan behar ditu gutxienez.</message>
+	<message key="user.account.form.passwordLengthTooShort">Sartu duzun pasahitza laburregia da.</message>
+	<message key="user.account.readerDescription">Posta elektronikoz jakinarazpena jaso aurkezpenak argitaratzen direnean.</message>
+	<message key="user.account.openAccessNotificationDescription">Posta elektronikoz jakinarazpena jaso kongresu bat sarrera libreko bihurtzen denean.</message>
+	<message key="user.account.reviewerDescriptionNoInterests">Kongresura bidalitako lanen aditu-ebaluazioa egiteko prest.</message>
+	<message key="user.account.reviewerDescription">Kongresura bidalitako lanen aditu-ebaluazioa egiteko prest. Adierazi ebaluatzeko interesak (arloak eta ikerketa-metodoak)</message>
+	<!-- Search -->
+	<message key="search.searchFor">Bilatu komunikazioetan</message>
+	<message key="search.inField">Eremua</message>
+	<message key="search.withinConference">Kongresua</message>
+	<message key="search.allConferences">Kongresu guztiak</message>
+	<message key="search.syntaxInstructions"><![CDATA[<p>Bilatzeko aholkuak:</p>
+<ul>
+<li>Bilatu beharreko hitzetan ez da maiuskula/minuskularik bereizten</li>
+<li>Hitz arruntei ez ikusi egiten zaie</li>
+<li>Lehenespenez, galderan sartutako termino <em>guztiak</em> dauzkaten lanak erakusten dira (hau da, <em>ETA</em> ulertzen da)</li>
+<li>Terminoetako bat daukaten lanak bilatzeko, erabili <em>EDO</em> hitzak konbinatzeko; adib. <em>hezkuntza EDO ikerketa</em></li>
+<li>Bilaketa konplexuagoak egiteko, erabili parentesiak; adib., <em>artxiboa ((aldizkaria EDO kongresua) EZ tesia)</em></li>
+<li>Esaldiak zehazki bilatzeko, idatzi komatxo artean; adib., <em>"sarrera libreko argitalpenak"</em></li>
+<li>Hitz bat bilaketatik kanpo uzteko, jarri aurretik <strong>-</strong> edo <em>EZ</em>; adib. <em>gizartea -politika</em> edo <em>gizartea EZ politika</em></li>
+<li>Komodin gisa, hainbat karaktere adierazteko, erabili <strong>*</strong>; adib. <em>soziologi*</em>, "soziologia" edo "soziologiko" bilatzeko, forma deklinatu guztiak barne.</li>
+</ul>]]></message>
+	<!-- Interstitial page for PDFs -->
+	<message key="paper.pdf.title">Portable Document Format (PDF)</message>
+	<message key="paper.pdf.note"><![CDATA[Zuk hautatutako PDF fitxategia hemen kargatuko da zure web-arakatzaileak PDFak irakurtzeko plugina instalatuta badauka (esate baterako <a href="http://www.adobe.com/products/acrobat/readstep2.html">Adobe Acrobat Reader</a>-en bertsio berri samar bat). Bestela, PDF fitxategia zure ordenagailura deskarga dezakezu, baina hor ere PDF irakurlearekin ireki beharko duzu. PDFak inprimatzeko, gordetzeko edo erabiltzeko informazio gehiago nahi baduzu, Highwire Press-ek <a href="http://highwire.stanford.edu/help/pdf-faq.dtl">Frequently Asked Questions about PDFs</a>orrian eskaintzen dituen azalpenak irakur ditzakezu.<br /><br />Fitxategia ez bada automatikoki deskargatzen, <a href="{$url}">egin klik hemen</a>.]]></message>
+
+	<!-- Interstitial page for non-PDF non-HTML galleys -->
+	<message key="paper.nonpdf.title">Lana deskargatu</message>
+	<message key="paper.nonpdf.note"><![CDATA[Zuk hautatutako fitxategia automatikoki hasi behar da deskargatzen. Ez bada hasten, egin klik beheko estekan. Kontuan izan, fitxategi hau ikusteko ikustaile edo plugin berezi bat behar dela.<br /><br />Fitxategia ez bada automatikoki deskargatzen, <a href="{$url}">egin klik hemen</a>.]]></message>
+
+	<!-- Site index -->
+	<message key="site.conferencesHosted">Gune honetan ostatatutako kongresuak</message>
+	<message key="site.conferenceView">Kongresua ikusi</message>
+	<message key="site.conferenceAccount">Kontua</message>
+	<message key="site.schedConfView">Kongresuaren xehetasunak ikusi</message>
+	<message key="site.schedConfCurrent">Uneko Kongresu programatua</message>
+
+	<!-- Conference page -->
+	<message key="conference.currentConferences">Uneko kongresuak</message>
+	<message key="conference.noCurrentConferences">Orain ez dago kongresu aktiborik. Artxiboetan aurkituko dituzu lehen egindako kongresu programatuak.</message>
+	<message key="conference.archive">Kongresuen Artxiboak</message>
+
+	<!-- Scheduled Conference page -->
+	<message key="schedConf.proposalSubmission">Proposamen-bidalketa</message>
+
+	<!-- Call-for-Papers (CFP) page -->
+	<message key="schedConf.cfp.submitHere">Hasi hemen kongresu honetara proposamen bat bidaltzeko.</message>
+
+	<!-- Conference Proceedings -->
+	<message key="presentations.notPermitted">Ez daukazu kongresu honetako aurkezpenetan sartzeko baimenik.</message>
+	<message key="presentations.trackEmpty">Atal honetan ez dago lan erabilgarririk.</message>
+	<message key="presentations.schedConfEmpty">Kongresu honetako aurkezpenak oraindik ez daude erabilgarri edo ez da bat datorrenik aurkitu.</message>
+	
+	<!-- Program page -->
+	<message key="schedConf.program.programFileInstructions">Kongresu honen programara ondorengo estekatik joaten da.</message>
+	<message key="schedConf.program.viewProgramFile">Ikusi programa</message>
+	
+	<!-- About The Conference -->
+	<message key="about.statistics">Estatistikak</message>
+	<message key="about.conferenceContact">Kongresuko kontaktua</message>
+	<message key="about.aboutTheConference">Kongresuari buruz</message>
+	<message key="about.organizingTeam">Antolakuntza-taldea</message>
+	<message key="about.submissions">Bidalketak</message>
+	<message key="about.sponsors">Babesleak</message>
+	<message key="about.contributors">Sostengatzaileak</message>
+	<message key="about.onlineSubmissions">Lineako bidalketak</message>
+	<message key="about.onlineSubmissions.haveAccount">Badaukazu {$conferenceTitle} kongresuan sartzeko izen eta pasahitzik?</message>
+	<message key="about.onlineSubmissions.login">Joan saioa hastera</message>
+	<message key="about.onlineSubmissions.needAccount">Erabiltzaile-izena eta Pasahitza behar dituzu?</message>
+	<message key="about.onlineSubmissions.registration">Joan erregistratzera</message>
+	<message key="about.onlineSubmissions.registrationRequired">Lanak linean bidaltzeko eta bidalitako lanen egoera ikusteko, erregistratuta egon behar da eta saioa hasi behar da.</message>
+	<message key="about.submissionPreparationChecklist">Bidalketa prestatzeko zerrenda</message>
+	<message key="about.copyrightNotice">Copyright informazioa</message>
+	<message key="about.privacyStatement">Pribatutasun-deklarazioa</message>
+	<message key="about.peerReviewProcess">Adituen ebaluazio-prozesua</message>
+	<message key="about.openAccessPolicy">Sarrera libreko politika</message>
+	<message key="about.archiveAccessPolicy">Artxiborako sarbidea</message>
+	<message key="about.delayedOpenAccess">Sarrera libre geroratua</message>
+	<message key="about.delayedOpenAccessDescription">Kongresu honen edukia sarrera librekoa izango da kongresu programatuko parte-hartzaileentzat argitaratu eta handik {$delayedOpenAccessDuration} hilabetera.</message>
+	<message key="about.archiving">Artxibatzea</message>
+	<message key="about.registration">Izen-ematea</message>
+	<message key="about.registrationContact">Izen-emateko kontaktua</message>
+	<message key="about.availableRegistrationTypes">Izen-emate mota</message>
+	<message key="about.aboutThisPublishingSystem">Kongresu-sistema honi buruz</message>
+	<message key="about.aboutThisPublishingSystem.altText">OCSren Bidalketa, Ebaluazio eta Argitaratze Prozesua</message>
+	<message key="about.currentConferences">Uneko kongresuak</message>
+	<message key="about.aboutOCSConference"><![CDATA[Kongresu honek Open Conference Systems {$ocsVersion} erabiltzen du. Kongresuak kudeatzeko iturburu irekiko software bat da OCS; <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> ekimenak garatzen eta sostengatzen du, eta doan banatzen du GNUren lizentzia publiko orokorrarekin (General Public License).]]></message>
+	<message key="about.aboutOCSSite"><![CDATA[Gune honek Open Conference Systems {$ocsVersion} erabiltzen du. Kongresuak kudeatzeko iturburu irekiko software bat da OCS; <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> ekimenak garatzen eta sostengatzen du, eta doan banatzen du GNUren lizentzia publiko orokorrarekin (General Public License).]]></message>
+
+	<!-- Announcement -->
+	<!-- Help -->
+	<message key="help.ocsHelp">Open Conference Systems-en laguntza</message>
+	<message key="help.ocsHelpAbbrev">OCS laguntza</message>
+	<!-- Installer -->
+	<message key="installer.ocsInstallation">OCS instalazioa</message>
+	<message key="installer.ocsUpgrade">OCS bertsio-berritzea</message>
+	<message key="installer.installationInstructions"><![CDATA[<h4>OCS {$version} bertsioa</h4>
+
+<p>Eskerrik asko Public Knowledge Project-en <strong>Open Conference Systems</strong> deskargatzeagatik. Aurrera egin aurretik, irakur ezazu mesedez software honekin batera ematen den <a href="{$baseUrl}/docs/README">README</a> fitxategia. Public Knowledge Project-i eta lantzen dituen software-proiektuei buruzko informazio gehiago nahi izanez gero, jo <a href="http://pkp.sfu.ca/" target="_blank">PKP webgunera</a>. Open Conference Systems-en akatsen berri emateko edo laguntza teknikoa eskatzeko, ikus <a href="http://pkp.sfu.ca/support/forum">laguntza teknikoko foroa</a> edo PKPren <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">akatsen berri emateko</a> lineako sistema. Laguntza teknikoko foroa hobetsi arren kontaktuetarako, mezua ere bidal diezaiokezu taldeari <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a> helbidera.</p>
+
+<h4>Bertsio-berritzea</h4>
+
+<p>Lehendik daukazun OCS 2.x bertsioa berritzera bazoaz, egin klik <a href="{$upgradeUrl}">hemen</a>.</p>
+
+<h4>Gomendatutako sistema-eskakizunak</h4>
+
+<ul>
+	<li><a href="http://www.php.net/" target="_blank">PHP</a> >= {$phpRequiredVersion} (PHP 5.x barne); orain PHP {$phpVersion}{$wrongPhpText} daukazu</li>
+	<li><a href="http://www.mysql.com/" target="_blank">MySQL</a> >= 3.23.23 (MySQL 4.x barne) edo <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> >= 7.1 (PostgreSQL 8.x barne)</li>
+	<li><a href="http://httpd.apache.org/" target="_blank">Apache</a> >= 1.3.2x edo >= 2.0.4x edo Microsoft IIS 6</li>
+	<li>Sistema eragilea: Goiko softwarea onartzen duen edozein SE, besteak beste: <a href="http://www.linux.org/" target="_blank">Linux</a>, <a href="http://www.bsd.org/" target="_blank">BSD</a>, <a href="http://www.sun.com/" target="_blank">Solaris</a>, <a href="http://www.apple.com/" target="_blank">Mac OS X</a>, <a href="http://www.microsoft.com/">Windows</a></li>
+</ul>
+
+<p>Hala ere, PKPk ez dauka software-bertsio eta plataforma konbinazio posible guztiak probatzeko adina baliabide eta, beraz, ezin du bermatu denek ondo funtzionatuko dutenik.</p>
+
+<p>Instalazioa egin ondoren ezarpen hauek aldatu ahal izango dira, OCSren oinarriko direktorioko <tt>config.inc.php</tt> fitxategia editatuz, edo gune-administratzailearen web interfazearen bidez.</p>
+
+<h4>Onartzen diren datu-base sistemak</h4>
+
+<p>OCS MySQL eta PostgreSQL sistemetan bakarrik probatu da oraingoz, baina <a href="http://adodb.sourceforge.net/" target="_blank">ADOdb</a>k onartzen dituen datu-baseak kudeatzeko beste sistema batzuek ere funtziona dezakete (guztiz edo zati batean). Beste DBMS batzuen bateragarritasunari buruzko txostenak eta/edo kode-adabakiak OCS taldeari bidal dakizkioke.</p>
+
+<h4>Instalatu aurreko urratsak</h4>
+
+<p>1. Ondorengo fitxategi eta direktorioetan (eta bertako edukian) idazteko baimena eduki behar da:</p>
+<ul>
+	<li><tt>config.inc.php</tt> idazgarria da (aukerakoa): {$writable_config}</li>
+	<li><tt>public/</tt> idazgarria da: {$writable_public}</li>
+	<li><tt>cache/</tt>idazgarria da: {$writable_cache}</li>
+	<li><tt>cache/t_cache/</tt> idazgarria da: {$writable_templates_cache}</li>
+	<li><tt>cache/t_compile/</tt> idazgarria da: {$writable_templates_compile}</li>
+	<li><tt>cache/_db</tt> idazgarria da: {$writable_db_cache}</li>
+</ul>
+
+<p>2. Direktorio idazgarri bat sortu behar da kargatutako fitxategiak gordetzeko (ikus "Fitxategi-ezarpenak" beherago).</p>
+
+<h4>Eskuzko instalazioa</h4>
+
+<p>Datu-basea eskuz instalatu ahal izateko, hautatu <strong>Eskuzko instalazioa</strong> OCS datu-basearen eskema eta hasierako datuak sortzeko SQL instrukzioak bistaratzeko. Aukera hau praktikoa da instalazioan sortzen diren problemak konpontzeko, batez ere euskarri gabeko plataformetan. Kontuan izan instalazio-metodo hau ez dela saiatuko datu-basea edo taulak sortzen, datu-basearen ezarpenak konfigurazio-fitxategian idatziko diren arren.</p>]]></message>
+	<message key="installer.upgradeInstructions"><![CDATA[<h4>OCS {$version} bertsioa</h4>
+
+<p>Eskerrik asko Public Knowledge Project-en <strong>Open Conference Systems</strong> deskargatzeagatik. Aurrera egin aurretik, irakur itzazu mesedez software honekin batera ematen diren <a href="{$baseUrl}/docs/README">README</a> eta <a href="{$baseUrl}/docs/UPGRADE">UPGRADE</a> fitxategiak. Public Knowledge Project-i eta lantzen dituen software-proiektuei buruzko informazio gehiago nahi izanez gero, jo <a href="http://pkp.sfu.ca/" target="_blank">PKP webgunera</a>. Open Conference Systems-en akatsen berri emateko edo laguntza teknikoa eskatzeko, ikus <a href="http://pkp.sfu.ca/support/forum">laguntza teknikoko foroa</a> edo PKPren <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">akatsen berri emateko</a> lineako sistema. Laguntza teknikoko foroa hobetsi arren kontaktuetarako, mezua ere bidal diezaiokezu taldeari <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a> helbidera.</p>
+<p>Aurrera jarraitu aurretik, <strong>biziki gomendatzen dizugu</strong> datu-basearen, fitxategiak dauden direktorioaren eta OCSren instalazio-direktorioaren kopiak egitea.</p>
+<p><a href="http://www.php.net/features.safe-mode" target="_blank">PHP modu seguruan</a> exekutatzen ari bazara, ziurtatu zure php.ini konfigurazio-fitxategiko max_execution_time direktibaren muga altu jarrita dagoela. Muga horretara edo besteren batera (adib. Apache-ren "Timeout" direktibarenera) heltzen bada eta bertsio-berritzeko prozesua geratzen bada, eskuz konpondu behar da.</p>]]></message>
+	<message key="installer.localeSettingsInstructions"><![CDATA[Unicode (UTF-8) euskarri osoa edukitzeko, hautatu UTF-8 karaktere-joko guztien ezarpenetan. Kontuan izan, euskarri horrek MySQL >= 4.1.1 edo PostgreSQL >= 7.1 datu-base zerbitzaria eskatzen duela. Kontuan izan, halaber, Unicode euskarri osoa edukitzeko, PHP >= 4.3.0 eduki behar dela <a href="http://www.php.net/mbstring" target="_blank">mbstring</a> liburutegirako euskarriarekin konpilatuta (lehenespenez gaitzen da PHP instalazio berrietan). Zure zerbitzariak baldintza horiek betetzen ez baditu, problemak izan ditzakezu karaktere-joko hedatuak erabiltzeko.
+<br /><br />
+Zure zerbitzariak mbstring hau onartzen du: <strong>{$supportsMBString}</strong>]]></message>
+	<message key="installer.localeInstructions">Sistema honetan erabiltzeko lehenengo hizkuntza: Zerrendan ez dagoen hizkuntzaren bat erabili nahi baduzu, kontsultatu OCS dokumentazioa.</message>
+	<message key="installer.additionalLocalesInstructions">Hautatu sistema honetan erabili nahi dituzun beste hizkuntzak. Hizkuntza horiek erabilgarri egongo dira gune honetan ostatatutako kongresuetan. Hizkuntzak edozein unetan instala daitezke gune-administratzailearen interfazetik.</message>
+	<message key="installer.filesDirInstructions"><![CDATA[Idatzi dagoeneko sortuta dagoen direktorio baten bide-izen osoa, kargatutako fitxategiak gordetzeko. Ez da komeni direktorio horretan zuzenean Internetetik sartu ahal izatea. <strong>Instalazioa egiten hasi aurretik, ziurtatu direktorio hori sortuta dagoela eta idazgarria dela.</strong> Windows-eko bide-izenetan barrak erabiltzen dira, adib.: "C:/kongresua/fitxategiak".]]></message>
+	<message key="installer.databaseSettingsInstructions">OCSk SQL datu-baserako sarbidea behar du datuak gordetzeko. Goian azaltzen dira onartutako datu-baseen sistema-eskakizunak. Zehaztu beheko eremuetan datu-basearekin konektatzeko erabiliko diren ezarpenak.</message>
+	<message key="installer.reinstallAfterDatabaseError"><![CDATA[<strong>Abisua:</strong> Datu-basea instalatzean huts egin badu instalazioak, zure OCS datu-basea edo datu-baseko taulak askatu beharko dituzu datu-basea instalatzen saiatu aurretik.]]></message>
+	<message key="installer.overwriteConfigFileInstructions"><![CDATA[<h4>GARRANTZITSUA!</h4>
+<p>Instalatzaileak ezin izan du automatikoki gainidatzi konfigurazio-fitxategia. Sistema erabiltzen saiatu aurretik, ireki <tt>config.inc.php</tt> testu-editore egoki batekin eta ordeztu bertako edukia beheko testu-eremuaren edukiarekin.</p>]]></message>
+	<message key="installer.installationComplete"><![CDATA[<p>OCS ondo instalatu da.</p>
+<p>Sistema erabiltzen hasteko, <a href="{$loginUrl}">hasi saioa</a> aurreko orrian sartutako erabiltzaile-izenarekin eta pasahitzarekin.</p>
+<p>Albisteen eta eguneratzeen berri jakin nahi baduzu, <strong>erregistratu <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a> helbidean.</strong> Galderarik edo oharrik egin nahi baduzu, bisitatu <a href="http://pkp.sfu.ca/support/forum" target="_new">laguntza teknikoko foroa</a>.</p>]]></message>
+	<message key="installer.upgradeComplete"><![CDATA[<p>Ondo berritu da OCS {$version} bertsiora.</p>
+<p>Ez ahaztu config.inc.php konfigurazio-fitxategiko "installed" ezarpena berriro ere <em>On</em> jartzeaz.</p>
+<p>Oraindik ez bazara erregistratu, eta albisteen eta eguneratzeen berri jakin nahi baduzu, <strong>erregistratu <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ojs/register</a> helbidean.</strong> Galderarik edo oharrik egin nahi baduzu, bisitatu <a href="http://pkp.sfu.ca/support/forum" target="_new">laguntza teknikoko foroa</a>.</p>]]></message>
+	<!-- Paper Logs -->
+	<message key="log.default.abstractPeriodExpired">Osatu gabeko {$paperId} lanaren laburpena bidaltzeko leihoa iraungi egin da. Lana ehortzi egin da.</message>
+	<message key="log.default.paperPeriodExpired">Osatu gabeko {$paperId} lana bidaltzeko leihoa iraungi egin da. Lana ehortzi egin da.</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} izendatu da {$paperId} lana ebaluatzeko {$stage}. fasean.</message>
+	<message key="log.review.reviewerUnassigned">{$reviewerName} ebaluatzaileari {$paperId} lana ebaluatzeko esleipena kendu zaio {$stage}. fasean.</message>
+	<message key="log.review.reviewInitiated">{$reviewerName} 
+{$paperId} lana {$stage}. fasean ebaluatzen hasi da.</message>
+	<message key="log.review.reviewReinitiated">{$reviewerName} 
+berriro hasi da {$paperId} lana {$stage}. fasean ebaluatzen.</message>
+	<message key="log.review.reviewCancelled">{$reviewerName} 
+ebaluatzailearen {$paperId} lanaren {$stage}. ebaluazio-fasea bertan 
+behera utzi da.</message>
+	<message key="log.review.reviewCleared">{$reviewerName} 
+ebaluatzailearen {$paperId} lanaren {$stage}. ebaluazio-fasea ezabatu 
+egin da.</message>
+	<message key="log.review.reviewerRated">{$reviewerName} 
+{$paperId} lanaren {$stage}. ebaluazio-faserako baloratu da.</message>
+	<message key="log.review.reviewDueDateSet">{$reviewerName} 
+ebaluatzailearen {$paperId} lanaren {$stage}. ebaluazio-fasearen 
+mugaeguna {$dueDate} izango da.</message>
+	<message key="log.review.reviewRecommendationSet">{$reviewerName} ebaluatzailearen {$paperId} lanaren {$stage}. ebaluazio-faseko gomendioa jarri da.</message>
+	<message key="log.review.reviewRecommendationSetByProxy">{$paperId} lanaren {$stage}. ebaluazio-faseko gomendioa {$directorName} zuzendariak jarri du, {$reviewerName} ebaluatzailearen izenean.</message>
+	<message key="log.review.resubmit">{$paperId} berriro bidali da ebaluatzeko.</message>
+	<message key="log.review.reviewDeclined">{$reviewerName} ebaluatzaileak ez du onartu {$paperId} lanaren {$stage}. ebaluazio-fasea egitea.</message>
+	<message key="log.review.reviewAccepted">{$reviewerName} ebaluatzaileak {$paperId} lanaren {$stage}. ebaluazio-fasea egitea onartu du.</message>
+	<message key="log.review.reviewAcceptedByProxy">{$reviewerName} 
+ebaluatzailearen izenean, {$userName}(e)k {$paperId} lanaren {$stage}. 
+ebaluazio-fasea egitea onartu du.</message>
+	<message key="log.review.reviewFileByProxy">{$userName} zuzendariak {$paperId} lanaren {$stage}. faseko ebaluazio-fitxategia kargatu du, {$reviewerName} ebaluatzailearen izenean.</message>
+	<message key="log.review.reviewerFile">Ebaluazio-fitxategi bat kargatu da.</message>
+	<message key="log.director.decision">{$directorName} zuzendariak 
+{$paperId} lanari buruzko erabakia ({$decision}) grabatu du.</message>
+	<message key="log.director.publish">Lana argitaratu 
+da.</message>
+	<message key="log.director.unpublish">Lana berriro ilarara eraman da.</message>
+
+	<message key="log.director.metadataModified">{$directorName} zuzendariak lan honen metadatuak aldatu ditu.</message>
+	<message key="log.director.directorFile">Bidalketa-fitxategiaren zuzendariaren bertsio bat kargatu da.</message>
+	<message key="log.director.archived">{$paperId} lana artxibatu da.</message>
+	<message key="log.director.restored">{$paperId} lana ilarara itzuli da.</message>
+	<message key="log.director.directorAssigned">{$directorName} zuzendariari esleitu zaio {$paperId} lana.</message>
+	<message key="log.director.submissionExpedited">{$directorName} zuzendariak bizkortu egin du {$paperId} lanaren edizio-prozesua.</message>
+	<message key="log.layout.layoutFileSet">{$directorName} zuzendariak {$paperId} lanaren maketazio-bertsioa jarri du.</message>
+
+	<!-- Conference log entries -->
+	<message key="log.deadline.submissionDeadlinePassed">Bidalketaren mugaeguna pasatu da.</message>
+	<message key="log.deadline.presentationsReleasedToParticipants">Aurkezpenak argitaratu dira parte-hartzaileentzat.</message>
+	<message key="log.deadline.presentationsReleasedToPublic">Aurkezpenak argitaratu dira jende guztiarentzat.</message>
+		
+	<message key="log.timeline.publicationStateChanged"><![CDATA[Argitalpen-egoera aldatu da: {$oldPublicationState} ->{$newPublicationState}.]]></message>
+	<message key="log.timeline.submissionStateChanged"><![CDATA[Bidalketaren egoera aldatu da: {$oldSubmissionState} -> {$newSubmissionState}.]]></message>
+	<message key="log.timeline.startDateChanged"><![CDATA[Kongresuaren hasiera-data aldatu da: {$oldStartDate} -> {$newStartDate}.]]></message>
+	<message key="log.timeline.endDateChanged"><![CDATA[Kongresuaren amaiera-data aldatu da: {$oldEndDate} -> {$newEndDate}.]]></message>
+	<message key="log.timeline.regReviewerOpenDateChanged"><![CDATA[Egileen izen-ematea irekitzeko data aldatu da: {$oldRegReviewerOpenDate} -> {$newRegReviewerOpenDate}.]]></message>
+	<message key="log.timeline.regReviewerCloseDateChanged"><![CDATA[Egileen izen-ematea ixteko data aldatu da: {$oldRegReviewerCloseDate} -> {$newRegReviewerCloseDate}.]]></message>
+	<message key="log.timeline.showCFPDateChanged"><![CDATA[Lanen eskaera (CFP) bistaratzeko data aldatu da: {$oldShowCFPDate} -> {$newShowCFPDate}.]]></message>
+	<message key="log.timeline.submissionsOpenDateChanged"><![CDATA[Bidalketak egiten hasteko data aldatu da: {$oldSubmissionsOpenDate} -> {$newSubmissionsOpenDate}]]></message>
+	<message key="log.timeline.submissionsCloseDateChanged"><![CDATA[Bidalketak egiteko itxiera-data aldatu da: {$oldSubmissionsCloseDate} -> {$newSubmissionsCloseDate}]]></message>
+	<message key="log.timeline.postAbstractsDateChanged"><![CDATA[Laburpenak jartzeko data aldatu da: {$oldPostAbstractsDate} -> {$newPostAbstractsDate}.]]></message>
+	<message key="log.timeline.postAbstractsChanged"><![CDATA[Laburpenak jartzeko ezarpena aldatu da: {$oldPostAbstracts} -> {$newPostAbstracts}.]]></message>
+	<message key="log.timeline.postScheduleDateChanged"><![CDATA[Programazioa jartzeko data aldatu da: {$oldPostScheduleDate} -> {$newPostScheduleDate}.]]></message>
+	<message key="log.timeline.postScheduleChanged"><![CDATA[Programazioa jartzeko ezarpena aldatu da: {$oldPostSchedule} -> {$newPostSchedule}.]]></message>
+	<message key="log.timeline.postPapersDateChanged"><![CDATA[Lanak jartzeko data aldatu da: {$oldPostPapersDate} -> {$newPostPapersDate}.]]></message>
+	<message key="log.timeline.postPapersChanged"><![CDATA[Lanak jartzeko ezarpena aldatu da: {$oldPostPapers} -> {$newPostPapers}.]]></message>
+	<message key="log.timeline.delayOpenAccessDateChanged"><![CDATA[Sarrera librea ematen hasteko data aldatu da: {$oldDelayOpenAccessDate} -> {$newDelayOpenAccessDate}]]></message>
+	<message key="log.timeline.delayOpenAccessChanged"><![CDATA[Sarrera librea emateko ezarpena aldatu da: {$oldDelayOpenAccess} -> {$newDelayOpenAccess}.]]></message>
+	<message key="log.timeline.closeCommentsDateChanged"><![CDATA[Iruzkinak egiteko itxiera-data aldatu da: {$oldCloseCommentsDate} -> {$newCloseCommentsDate}.]]></message>
+	<message key="log.timeline.closeCommentsChanged"><![CDATA[Iruzkinak egiteko ezarpena aldatu da: {$oldCloseComments} -> {$newCloseComments}.]]></message>
+	
+	<!-- Reading Tools entries -->
+	<!-- RT Settings -->
+	<message key="rt.admin.settings">Irakurtzeko tresnen ezarpenak</message>
+
+	<message key="rt.admin.settings.description">Irakurtzeko tresnak marko batean agertzen dira, indexatutako ataletan argitaratutako elementuen ondoan. Irakurtzeko tresnak bi multzotan banatzen dira, argitaratutako lanari buruzkoak batzuk (ikus beheko zerrenda), eta lan horrekin erlazionatutako elementuetara joatekoak beste batzuk (eremuz eta diziplinaz antolatuta).</message>
+	<message key="rt.admin.settings.enableReadingTools">Gaitu Irakurtzeko tresnak hautatutako ataletarako.</message>
+	<message key="rt.admin.settings.relatedItems">Erlazionatutako elementuen eremua</message>
+
+	<message key="rt.admin.options">Aukerako tresnak</message>
+
+	<message key="rt.admin.settings.addComment">Gehitu iruzkinak (iruzkinak bidaltzeko aukera ematen die irakurleei, baina Kongresu-zuzendariek ezaba ditzakete). Irakurleen iruzkinak webgunearen kudeaketan gaitu behar dira, 1.5 atalean).</message>
+	<!-- RT Versions -->
+	<!-- RT Contexts -->
+	<!-- RT Searches -->
+	<message key="rt.admin.validateUrls.description"><![CDATA[Behean erakusten dira bilaketa egiteko guneen URL baliogabeak ematen dutenak.<br/>
+Eskuz egiaztatu beharko dituzu baliogabeko gisa markatutako URLak, proba hau ez delako % 100 fidagarria.<br/>
+Balidazioak huts egin dezake bilaketa egiteko inprimaki-datuak bidaltzea eskatzen duten URLetan.]]></message>
+	<!-- RT Entities -->
+	<message key="rt.metadata.pkp.peerReviewed">Adituek ebaluatutako lana</message>
+	<message key="rt.thisConference">Bilatu kongresuan</message>
+
+	<message key="rt.comments.commentsClosed">† Iruzkinen ixte-data: {$closeCommentsDate}.</message>
+	<message key="rt.context.authorTermsDescription">Egile bat baino gehiago dituzten lanetan, utzi izen guztiak 
+hautatuta antzeko lankidetzan aurkeztutako lanak bilatzeko, edo bilatu banaka, izen bakarra hautatuta. Baliabideari 
+buruzko informazio gehiago ikusteko, sakatu KONGRESUARI BURUZ. Garrantziaren arabera eta eduki osoa edo zati bat 
+atzitzeko sarrera librearen (doakoaren) arabera hautatu dira baliabideak.</message>
+	<message key="manager.reviewFormElements.included">Egilearentzako mezuan erantsia</message>
+	<message key="navigation.browseByAuthor">Egilearena</message>
+	<message key="navigation.infoForAuthors">Egileentzat</message>
+	<message key="navigation.infoForAuthors.long">Egileentzako informazioa</message>
+	<message key="paper.authors">Egileak</message>
+	<message key="paper.sessionType">Saio-mota</message>
+	<message key="submission.notifyAuthor">Jakinarazi egileari</message>
+	<message key="submission.directorAuthorRecord">Zuzendariaren/Egilearen posta elektronikoen erregistroa</message>
+	<message key="submission.authorsRevisedVersion">Egileak zuzendutako fitxategiaren bertsioa</message>
+	<message key="submission.authorVersion">Egilearen bertsioa</message>
+	<message key="schedConf.registration.free">Erregistratzea gorde da eta ez da ordainketarik behar.</message>
+	<message key="schedConf.registrationTypes.noneAvailable">Erregistratze-motarik ez dago erabilgarri.</message>
+	<message key="schedConf.registrationOptions.noneAvailable">Erregistratze-aukerarik ez dago erabilgarri.</message>
+	<message key="schedConf.registration.landingPaid">Mila esker erregistratzeagatik! Zurekin harremanetan jarriko gara ordainketari buruzko informazio gehiago emateko.</message>
+	<message key="user.role.author">Egilea</message>
+	<message key="user.role.authors">Egileak</message>
+	<message key="event.logType.author">Egilea</message>
+	<message key="submission.event.presenter.authorRevision">Egilearen zuzenketa bidalia</message>
+	<message key="submission.event.general.authorRevision">Egilearen zuzenketa-fitxategia eguneratua</message>
+	<message key="manager.setup.citations">Baimendu egileak erreferentzien (aipuen) formatudun zerrenda bereizi emateko, bidalketaren zati gisa.</message>
+	<message key="trackDirector.author.confirmRenotify">Egile honi berriro jakinarazpena eginez gero, esleipena berrabiaraziko da. Ziur zaude aurrera egin nahi duzula?</message>
+	<message key="author.submit.uploadInstructions"><![CDATA[<p> Ekitaldi honi agiri bat eransteko, bete pauso hauek.</p>
+
+<ol>
+<li>Orrialde honetan, sakatu Browse (edo Choose File). Choose File lehioa irekiko da, zure ordenagailuko disko gogorrean fitxategia aurkitzeko.</li>
+<li>Aurkitu bidali nahi duzun fitxategia eta nabarmendu.</li>
+<li>Sakatu Open Choose File lehioan. Fitxategiaren izena orrialde horretan ipiniko du.</li>
+<li>Klikatu Upload orrialde honetan. Fitxategia ordenagailutik ekitaldiaren webgunera kargatuko du eta ekitaldiaren irizpideen arabera izendatuko du.</li>
+<li>Fitxategia kargatu ondoren, klikatu Save eta Continue orrialdearen beheko aldean.</li>
+</ol>]]></message>
+	<message key="submission.comments.directorAuthorCorrespondence">Zuzendariaren/Egilearen korrespondentzia</message>
+	<message key="submission.comments.canShareWithAuthor">Egilearentzat eta zuzendariarentzat</message>
+	<message key="submission.comments.cannotShareWithAuthor">Zuzendariarentzat</message>
+	<message key="submission.comments.forAuthorDirector">Egilearentzat eta zuzendariarentzat</message>
+	<message key="submission.comments.saveAndEmailAuthor">Gorde eta bidali posta elektronikoa egileari</message>
+	<message key="user.account.authorDescription">Gaitu elementuak ekitaldira bidaltzeko.</message>
+	<message key="user.account.authorRegistrationMessage">Gune honetan erabiltyzaile-kpontua izan arren, une honetan ez zara ekitaldi honetako egilea.</message>
+	<message key="search.browseAuthorIndex">Arakatu egilearen indizea</message>
+	<message key="search.author">Egileak</message>
+	<message key="search.authorIndex">Arakatu egilearen indizea</message>
+	<message key="search.authorDetails">Egilearen xehetasunak</message>
+	<message key="about.conferencePolicies">Ekitaldiaren arauak</message>
+	<message key="about.authorGuidelines">Egilearen jarraibideak</message>
+	<message key="about.authorSelfArchive">Egilearen artxibatzea</message>
+	<message key="installer.installApplication">Instalatu Open Conference Systems</message>
+	<message key="installer.upgradeApplication">Berritu Open Conference Systems</message>
+	<message key="log.author.abstractSubmitted">{$authorName} bidalketa abstraktu batean sartu da, ID {$submissionId}.</message>
+	<message key="log.author.presentationSubmitted">{$authorName} aurkezpen batean sartu da, ID {$submissionId}.</message>
+	<message key="log.author.documentRevised">{$authorName}-ek  {$paperId} agiria zuzendu du. Fitxategi berriaren ID {$fileId} da.</message>
+	<message key="log.timeline.regAuthorOpenDateChanged">Egilearen erregistratzearen hasiera-data {$oldRegAuthorOpenDate}-tik {$newRegAuthorOpenDate}-ra aldatu da.</message>
+	<message key="log.timeline.regAuthorCloseDateChanged">Egilearen erregistratze amaiera-data {$oldRegAuthorCloseDate}-tik {$newRegAuthorCloseDate}-ra aldatu da.</message>
+	<message key="rt.metadata.dublinCore.primaryAuthor">Sortzailea</message>
+	<message key="rt.metadata.pkp.primaryAuthor">Egilearen izena, afiliatzea, herrialdea</message>
+	<message key="notification.mailListDescription">Idatzi posta elektronikoko helbidea ekitaldiari erantsitako eduki berri garrantzitsuen berehalako jakinarazpenak jasotzeko.</message>
+	<message key="notification.notificationsPublicDescription"><![CDATA[Orrialde honek ekitaldi honi lotutako garrantzizko eguneratzeak ditu, hala nola agiriak eta iragarpenak. Jakinarazpen hauen harpidetza egin dezakezu RSS sarreren bidez (eskuineko irduan klik eginez), edo <a href="{$emailUrl}">through email.</a>-ren bidez.]]></message>
+	<message key="notification.type.paperSubmitted">Agiri berria,  "{$param}", bidali da.</message>
+	<message key="notification.type.editing">Edizio-gertaerak</message>
+	<message key="notification.type.directorDecisionComment">Iruzkin bat editorearen erabakiaren zain geratu da "{$param}"-erako.</message>
+	<message key="notification.type.galleyModified">Galerada aldatu egin da "{$param}"-erako.</message>
+	<message key="notification.type.metadataModified">"{$param}"-en metadatua aldatu egin da.</message>
+	<message key="notification.type.newAnnouncement">Iragarpen berria sortu da.</message>
+	<message key="notification.type.reviewerComment">Ikuskatzaile batek "{$param}"-i buruzko iruzkina egin du.</message>
+	<message key="notification.type.reviewerFormComment">Berrikuspen-agiri bat bidali da "{$param}"-era.</message>
+	<message key="notification.type.reviewing">Berrikuspen-gertaerak</message>
+	<message key="notification.type.site">Gunearen gertaerak</message>
+	<message key="notification.type.submissionComment">Zuzendari batek "{$param}"-i buruzkoiruzkina egin du.</message>
+	<message key="notification.type.submissions">Bidalketa-gertaerak</message>
+	<message key="notification.type.suppFileModified">"{$param}"-en fitxategi osagarria(k) aldatu da/dira.</message>
+	<message key="notification.type.userComment">Irakurle batek "{$param}"-i buruzko iruzkina egin du.</message>
+</locale>
+

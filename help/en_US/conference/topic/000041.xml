@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000041.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Conference Management - General Management - Reading Tools - Reading Tool Settings
+  *
+  * $Id$
+  -->
+
+<topic id="conference/topic/000041" locale="en_US" title="Reading Tool Settings" toc="conference/toc/000009" key="conference.generalManagement.readingTools.settings">
+	<section>
+		<![CDATA[<p>The Reading Tools can be enabled by checking the box on this settings page and choosing a relevant Related Items Field if desired. Other optional tools can be enabled by checking the box next to their name. All Reading Tools appear in a frame to the right of a presentation, providing that that particular track has indexing enabled. </p>
+		]]>
+	</section>
+</topic>

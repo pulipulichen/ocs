@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE install SYSTEM "../../lib/pkp/dtd/install.dtd">
+
+<!--
+  * install.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Installation descriptor file.
+  -->
+
+<install version="2.3.6">
+	<code function="createDirectories"/>
+	<code function="createDatabase"/>
+
+	<!-- PKP schema components -->
+	<schema file="lib/pkp/xml/schema/common.xml" />
+	<schema file="lib/pkp/xml/schema/groups.xml" />
+	<schema file="lib/pkp/xml/schema/controlledVocab.xml" />
+	<schema file="lib/pkp/xml/schema/scheduledTasks.xml" />
+	<schema file="lib/pkp/xml/schema/temporaryFiles.xml" />
+	<schema file="lib/pkp/xml/schema/announcements.xml" />
+	<schema file="lib/pkp/xml/schema/reviewForms.xml" />
+
+	<!-- OCS schema -->
+	<schema file="dbscripts/xml/ocs_schema.xml" />
+
+	<!-- Other install tasks -->
+	<code function="createData"/>
+	<code function="createConfig"/>
+</install>

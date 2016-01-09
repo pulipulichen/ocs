@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../lib/pkp/dtd/xmlData.dtd">
+
+<!--
+  * 2.3.1_update.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * 2.3.1 database updates XML file.
+  *
+  -->
+
+<data>
+	<!-- Bug #5009: Clarify submission acceptance emails -->
+	<sql>
+		<query>INSERT INTO email_templates_default (email_key, can_edit, can_disable) VALUES ('SUBMISSION_PAPER_INVITE', 1, 0)</query>
+		<query>INSERT INTO email_templates_default_data (locale, email_key, subject, body, description) VALUES ('en_US', 'SUBMISSION_PAPER_INVITE', 'Editorial Decision on Abstract', '{$authorName}:
+
+Congratulations, your abstract {$paperTitle} has been accepted for presentation at {$conferenceTitle} which is being held {$conferenceDate} at {$locationCity}. You may now submit your paper for furthe
+r review.
+
+Thank you and looking forward to your participation in this event.
+{$editorialContactSignature}', 'This email is sent by a Track Director to a submission''s Author to notify them that a decision has been reached in regard to an abstract and invite them to submit a paper for subsequent review.')</query>
+	</sql>
+
+	<!-- Bug #5124: port review forms to pkp-lib -->
+	<sql>
+		<query>UPDATE review_forms SET assoc_type = 256</query><!-- ASSOC_TYPE_CONFERENCE -->
+	</sql>
+	<!-- Bug #4888: add "included" flag to review form elements -->
+	<sql>
+		<query>UPDATE review_form_elements SET included = 1</query>
+	</sql>
+	<!-- Bug #5234: add JQuery-based notification support -->
+	<sql>
+		<query>UPDATE notifications SET level = 2</query><!-- NOTIFICATION_LEVEL_NORMAL -->
+	</sql>
+</data>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../lib/pkp/dtd/xmlData.dtd">
+
+<!--
+  * 2.3.0_preupdate.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * 2.3.0 database updates XML file, run prior schema sync.
+  *
+  -->
+
+<data>
+	<!-- Bug #3859: presenter to author rename -->
+	<sql>
+		<!-- Modify default value for PostgreSQL users -->
+		<query driver="postgres7">
+			DROP SEQUENCE IF EXISTS paper_presenters_presenter_id_seq CASCADE
+		</query>
+		
+		<rename table="paper_presenters" column="presenter_id" to="author_id" />
+		<rename table="paper_presenters" to="paper_authors" />
+		<rename table="paper_presenter_settings" column="presenter_id" to="author_id" />
+		<rename table="paper_presenter_settings" to="paper_author_settings" />
+	</sql>
+
+	<!-- Bug #3694: abstract user settings -->
+	<sql>
+		<rename table="user_settings" column="conference_id" to="assoc_id" />
+	</sql>
+
+	<!-- Bug #3941: abstract groups -->
+	<sql>
+		<rename table="groups" column="sched_conf_id" to="assoc_id" />
+	</sql>
+
+	<!-- Bug #4664: abstract announcements -->
+	<sql>
+		<query>ALTER TABLE announcements ADD COLUMN assoc_id INT</query>
+		<query>ALTER TABLE announcements ADD COLUMN assoc_type INT</query>
+		<query>UPDATE announcements SET assoc_type = 256, assoc_id = conference_id WHERE sched_conf_id IS NOT NULL</query>
+		<query>UPDATE announcements SET assoc_type = 257, assoc_id = sched_conf_id WHERE sched_conf_id IS NULL</query>
+		<rename table="announcement_types" column="conference_id" to="assoc_id" />
+	</sql>
+
+	<!-- Bug #4153: abstract email templates -->
+	<sql>
+		<rename table="email_templates" column="conference_id" to="assoc_id" />
+		<rename table="email_templates_data" column="conference_id" to="assoc_id" />
+	</sql>
+</data>

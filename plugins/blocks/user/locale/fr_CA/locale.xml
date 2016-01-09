@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the fr_CA locale.
+  *
+  * $Id$
+  -->
+ 
+<locale name="fr_CA" full_name="Français (Canada)">
+	<message key="plugins.block.user.displayName">Bloc de l'utilisateur</message>
+	<message key="plugins.block.user.description">Ce plugiciel fournit des outils reliés au compte utilisateur (par ex. se connecter, se déconnecter, lien vers le profil, etc).</message>
+	<message key="plugins.block.user.loggedInAs">Vous avez ouvert une session sous le nom de...</message>
+	<message key="plugins.block.user.myConferences">Mes conférences</message>
+	<message key="plugins.block.user.myProfile">Mon profil</message>
+	<message key="plugins.block.user.logout">Fermer la session</message>
+	<message key="plugins.block.user.signOutAsUser">Fermer la session utilisateur</message>
+	<message key="plugins.block.user.rememberMe">Conserver mes informations de connexion</message>
+</locale>

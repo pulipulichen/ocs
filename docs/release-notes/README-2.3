@@ -1,0 +1,76 @@
+OCS 2.3 Release Notes
+CVS tag: ojs-2_3_0-0
+Release date: Jan 18, 2010
+=================================
+
+Configuration Changes
+---------------------
+
+See config.TEMPLATE.inc.php for a description and examples of all supported
+configuration parameters.
+
+New Features
+------------
+	#3555# Add fixed due dates for reviews
+	#4083# "Abstract and Proposal Together" workflow more review flexibility
+	#4543# Back-ports from ABC (scheduler enhancements)
+	#4218# add Manual Payment Instructions to Manual Payment Plugin
+	#4535# If a single SchedConf exists, redirect there instead of the Conf
+	#4200# Include paper ID on export
+	#4839# Add Google Scholar functionality to OCS
+	#4884# Add Basque (eu_ES) locale
+	#4306# include a la carte (registration options) items in payment descr
+	#4260# Allow for customization of conference schedule listing
+	#4441# add word limit option for abstracts
+	#4474# put static pages and custom block manager plugins into CVS 
+
+Bug Fixes
+---------
+	#3860# when registering a new user, user block does not show logged in
+	#3884# deleting schedConf deletes announcements for the conference
+	#3997# Item added shows up as "Editorial Policies"
+	#3859# rename presenter back to author everywhere
+	#4481# Abstract followed by presentation workflow issues
+	#3108# Default settings not loaded for new locales when added 
+	#4994# Return value of new by reference is deprecated
+	#4054# '0' or 'free' registrations still call paypal
+	#4086# Refactor submission types to use Controlled Vocabulary structure
+	#4551# Schedule may not integrate display of special events and sessions
+	#4555# Suppress building display in scheduler if only one building
+	#4701# Director's empty "Accepted" presentations list missing headsep
+	#4710# Locale key help.ojsHelp in help pages
+	#4741# Go To URL link in Notifications produces error
+	#4743# Editing User Created Email Not Possible
+	#4752# Step 1 of Submission fails to complete, Session Type problem
+	#4783# Creating New Reviewer - Gender Missing
+	#4791# Add CDN, USD, and EUR to top of currency list
+	#4793# Registry path is hard coded when creating a new conference
+	#4794# Reviewer cannot save review comments
+	#4829# Adding/Deleting profile image removes TinyMCE
+	#4830# step 1.7 Add Item to Appear in "About the Conference" and TinyMCE
+	#4840# Missing () in calls to funcs in TD peerReview.tpl
+	#4841# Free registrations report error, but user is registered
+	#4850# Author Notification error
+	#4856# Designating a Principal Contact results in double listing
+	#4872# Adding Form Radio Buttons reset page position / TinyMCE
+	#4975# Timeline error messages don't link to date entries they relate to
+	#4988# OAI not working with path_info_disabled
+	#4990# URL escaping and validation problems
+	#4998# Conference creation and editing and path_info disabled
+	#4999# Scheduled conference creation and editing with path_info disabled
+	#5002# Remove dead "expedite" code
+	#5012# XSS scripting flaw in director paper notes (and elsewhere)
+	#5067# XML validation and fixes
+	#5069# Typo in translator handler: referencEmails
+	#4847# Add tar configuration parameter to config.inc.php
+	#5019# Postgres upgrades fail on paper_presenters table
+	#4159# Re-order author submission steps
+	#4160# Remove unused column "status" from article_files / paper_files
+	#4455# Saving track settings fails on setting track's review form ID
+	#4644# Issues with registration and information block
+	#4735# Text on screen change for 2.1 Scheduled Conference Redirect
+	#4747# Papers and Registrant Plugins not displaying on Report Plugins
+	#4785# Suggest Username doesn't work
+	#4787# Reviewer cannot access submission
+	#4843# "Registration Options" section appearing when it shouldn't
+	#5007# Review Forms are not available when creating track

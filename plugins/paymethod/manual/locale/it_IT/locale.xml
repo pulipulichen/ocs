@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the it_IT (Italian) locale.
+  *
+ -->
+ 
+<locale name="it_IT" full_name="Italiano">
+	<message key="plugins.paymethod.manual.displayName">Pagamento manuale</message>
+	<message key="plugins.paymethod.manual.description">L'amministratore della rivista o della conferenza registreranno la ricevuta di pagamento di un utente.</message>
+	<message key="plugins.paymethod.manual">Pagamento della registrazione</message>
+	<message key="plugins.paymethod.manual.settings">Impostazioni per i pagamenti manuali</message>
+	<message key="plugins.paymethod.manual.settings.instructions">Istruzioni</message>
+	<message key="plugins.paymethod.manual.sendNotificationOfPayment">Invia notifica di pagamento</message>
+	<message key="plugins.paymethod.manual.paymentNotification">Notifica di pagamento</message>
+	<message key="plugins.paymethod.manual.notificationSent">Notifica inviata</message>
+	<message key="plugins.paymethod.manual.purchase.title">Titolo</message>
+	<message key="plugins.paymethod.manual.purchase.fee">Tariffa</message>
+	<message key="plugins.paymethod.manual.settings.manualInstructions">Istruzioni per il pagamento, per gli utenti che hanno scelto il pagamento manuale.</message>
+</locale>
+

@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Cadenes per a ca_ES (català Espanya) locale.
+  * Traduït per Fermín Cueva Doñate 2008/06/05 19:17
+  * $Id: locale.xml,v 1.145 2007/05/16 21:51:17 asmecher Exp
+  * $
+  -->
+<locale name="ca_ES" full_name="Català (Espanya)">
+	<!--
+	 * This file is organized into several major sections, separated
+	 * by comments like this one. These sections are called:
+	 *  COMMON - Contains frequently-used words
+	 *  ENTITIES - Contains terms pertaining to the system's major
+	 *             entities, e.g. Paper, Conference, Track
+	 *  INTERFACE - Contains phrases organized by the section of the
+	 *              user interface they appear in.
+	 *  LOG - Contains phrases related to log entries
+	 *  MISC - Entries that don't belong elsewhere.
+	 *  DEFAULT - Default settings for configuration items.
+	-->
+
+	<!--
+	 *
+	 * COMMON - This section contains the most frequently-used words
+	 *
+	-->
+
+	<!-- Common Messages -->
+	<message key="common.openConferenceSystems">Open Conference Systems</message>
+	<message key="common.noDate">(data)</message>
+	<message key="common.days">Dies</message>
+	<message key="common.timeZone">Zona horària</message>
+	<message key="common.ellipsis">...</message>
+	<message key="common.path">Ruta</message>
+	<message key="common.dateTimeSeparator">Caràcter separador de la data</message>
+	<message key="common.ccLicense"><![CDATA[
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="{$ccLicenseImageUrl}"/>
+		</a>
+		<br/>
+		Aquest <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">treball</span> es distribueix sota la llicència <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+	]]></message>
+
+	<!-- Common Form Messages -->
+
+	<!-- Common Email Messages -->
+
+	<!-- Common Localization Terms -->
+
+	<!-- Common Error Messages -->
+
+	<!-- Navigation -->
+	<message key="navigation.conferenceHelp">Ajuda</message>
+	<message key="navigation.loggedInAs">Has entrat com...</message>
+	<message key="navigation.logout">Surt</message>
+	<message key="navigation.account">Compte</message>
+	<message key="navigation.archive">Arxiu</message>
+	<message key="navigation.current">Esdeveniments en curs</message>
+	<message key="navigation.otherConferences">Altres esdeveniments</message>
+	<message key="navigation.myProfile">El meu perfil</message>
+	<message key="navigation.myConferences">El meu esdeveniment</message>
+	<message key="navigation.conferenceContent">Contingut de la Conferència/Congrés</message>
+	<message key="navigation.browseByConference">Per esdeveniment</message>
+	<message key="navigation.browseByAuthor">Per autor</message>
+	<message key="navigation.info">Informació</message>
+	<message key="navigation.infoForAuthors">Per a autors</message>
+	<message key="navigation.infoForReviewers">Per a avaluadors</message>
+	<message key="navigation.infoForAuthors.long">Informació per a autors</message>
+	<message key="navigation.infoForReviewers.long">Informació per als avaluadors</message>
+	<message key="navigation.fontSize">Grandària de lletra</message>
+
+	<!-- Paper Queues -->
+	<message key="common.queue.long.submissionsUnassigned">Sense assignar</message>
+	<message key="common.queue.short.submissionsUnassigned">Sense assignar</message>
+	<message key="common.queue.long.submissionsInReview">Comunicació en revisió</message>
+	<message key="common.queue.short.submissionsInReview">En revisió</message>
+	<message key="common.queue.long.submissionsAccepted">Presentacions</message>
+	<message key="common.queue.short.submissionsAccepted">Presentacions</message>
+	<message key="common.queue.long.submissionsArchives">Arxius</message>
+	<message key="common.queue.short.submissionsArchives">arxius</message>
+	<message key="common.queue.long.active">Activa enviaments</message>
+	<message key="common.queue.short.active">Activa</message>
+	<message key="common.queue.long.completed">Arxiva</message>
+	<message key="common.queue.short.completed">Arxiva</message>
+
+	<!--
+	 *
+	 * ENTITIES - This section contains terms pertaining to the system's
+	 *            major entities, e.g. Paper, Conference, Track
+	 *
+	-->
+
+	<!-- Common Track Terms -->
+	<message key="track.track">Seccions</message>
+	<message key="track.tracks">Seccions de la conferència</message>
+	<message key="track.title">Títol de la secció</message>
+	<message key="track.abbreviation">Abreviatura</message>
+	<message key="track.abbreviation.example">(Per exemple, Treballs generals=GEN)</message>
+	<message key="track.default.title">Treballs generals</message>
+	<message key="track.default.abbrev">GEN</message>
+	<message key="track.default.policy"></message>
+
+	<!-- Common Paper Terms -->
+	<message key="paper.papers">Comunicacions</message>
+	<message key="paper.submissionId">ID enviament</message>
+	<message key="paper.title">Títol</message>
+	<message key="paper.authors">Autors</message>
+	<message key="paper.conferenceTrack">Seccions de la conferència</message>
+	<message key="paper.file">Arxiu</message>
+	<message key="paper.suppFile">Arxiu suplementari</message>
+	<message key="paper.suppFiles">Arxiu(s) suplementari(s)</message>
+	<message key="paper.suppFilesAbbrev">Arxius Supl.</message>
+	<message key="paper.discipline">Disciplina i subdisciplina</message>
+	<message key="paper.subjectClassification">Classificació per matèries</message>
+	<message key="paper.subject">Paraules clau</message>
+	<message key="paper.coverage">Cobertura</message>
+	<message key="paper.coverageGeo">Cobertura Geo-espaial</message>
+	<message key="paper.coverageChron">Cobertura cronològica o històrica</message>
+	<message key="paper.coverageSample">Característiques de les mostres</message>
+	<message key="paper.type">Tipus, mètode o aproximació</message>
+	<message key="paper.language">Idioma</message>
+	<message key="paper.trackDirector">DS</message>
+	<message key="paper.commentsToDirector">Comentaris de l'autor</message>
+	<message key="paper.submission">Enviament</message>
+	<message key="paper.submissions">Enviaments</message>
+	<message key="paper.abstract">Resum</message>
+	<message key="paper.details">Detalls</message>
+	<message key="paper.location">Lloc</message>
+	<message key="paper.time">Temps</message>
+
+	<!-- Submission Tracking - Common -->
+	<message key="submission.fromTime">De</message>
+	<message key="submission.toTime">Per a</message>
+	<message key="submission.abstractReview">Revisió del resum</message>
+	<message key="submission.paperReview">Revisió del treball</message>
+	<message key="submission.page.abstractReview">#{$id} revisió del resum</message>
+	<message key="submission.page.paperReview">#{$id} revisió del treball</message>
+	<message key="submission.uploadFile">Deposita l'arxiu</message>
+	<message key="submission.changeTrack">Canvia a</message>
+	<message key="submission.acceptance">Conforme a la revisió</message>
+	<message key="submission.complete.description">Afegeix el treball a la llista de comunicacions acceptades.</message>
+	<message key="submission.directorDecision">Director que pren decisions</message>
+	<message key="submission.stage">Estat de la tramesa&amp;nbsp;{$stage}</message>
+	<message key="submission.directorReview">Director de la revisió</message>
+	<message key="submission.notifyAuthor">Notifica a l'autor</message>
+	<message key="submission.notifyDirector">Notifica al director</message>
+	<message key="submission.directorAuthorRecord">Director/Autor Email</message>
+	<message key="submission.directorVersion">Director de la versió</message>
+	<message key="submission.authorsRevisedVersion">Arxiu corregit pels autors</message>
+	<message key="submission.authorVersion">Versió de l'autor</message>
+	<message key="submission.layout.description">aquest pas és opcional i serveix per a aplicar una plantilla als treballs enviats o canviar els formats dels fitxers abans o després que els manuscrits es passin a Presentacions .</message>
+
+	<message key="submission.paperType">Tipus de tramesa</message>
+	<message key="submission.paperType.single">Presentació individual</message>
+	<message key="submission.paperType.panel">Presentació col•lectiva (panell)</message>
+
+
+	<message key="submissions.track">Secció</message>
+	<message key="submissions.queuedAbstractReview">resum en revisió</message>
+	<message key="submissions.queuedPaperReview">Treball en revisió</message>
+	<message key="submissions.published">Remès</message>
+	<message key="submissions.accepted">Acceptat</message>
+	<message key="submissions.reviewStage">Estat de la revisió</message>
+	<message key="submissions.reviewType">Tipus de revisió</message>
+	<message key="submissions.pendingPresentation">Carregant</message>
+	<message key="submissions.expired">Ha expirat</message>
+	<message key="submissions.directorDecision">Director per a presa de decisions</message>
+	<message key="submissions.directorRuling">Regulador</message>
+	<message key="trackDirector.galley.replaceGalley">Reemplaça arxiu</message>
+	<message key="submission.abstract">Resum</message>
+	<message key="submission.paper">Trebal</message>
+
+	<!-- Submission list search engine -->
+
+	<!-- Submission Notes -->
+
+	<!-- Common Conference Terms -->
+	<message key="conference.conferences">Conferències/Congressos</message>
+	<message key="conference.conference">Conferència/Congrés</message>
+
+	<!-- Common Scheduled Conference Terms -->
+	<message key="schedConf.scheduledConferences">Conferències/Congressos programats</message>
+	<message key="schedConf.noScheduledConferences">No hi ha Conferències/Congressos programats</message>
+	<message key="schedConf.schedConf">Relació d'esdeveniments programats</message>
+	<message key="schedConf.contents">Informació de l'esdeveniment</message>
+	<message key="schedConf.overview">Descripció</message>
+	<message key="schedConf.trackPolicies">Polítiques de secció</message>
+	<message key="schedConf.program">Programa</message>
+	<message key="schedConf.cfp">Call for papers</message>
+	<message key="schedConf.discussion">Discussió</message>
+	<message key="schedConf.registration">Registre</message>
+	<message key="schedConf.supporters">Organitzadors i socis</message>
+	<message key="schedConf.timeline">Termini</message>
+	<message key="schedConf.schedule">Calendari d'esdeveniments</message>
+	<message key="schedConf.links">Enllaços relacionats</message>
+	<message key="schedConf.presentations">Presentacions i Autors</message>
+	<message key="schedConf.presentations.short">Presentacions</message>
+	<message key="schedConf.abstract">Resum</message>
+	<message key="schedConf.submission">Presentació</message>
+	<message key="schedConf.submissions">Presentacions</message>
+
+	<message key="schedConf.cfp.title">{$schedConfAbbrev} Call for papers</message>
+	<message key="schedConf.overview.title">{$schedConfAbbrev} Descripció</message>
+	<message key="schedConf.presentations.title">{$schedConfAbbrev} Presentacions i Autors</message>
+	<message key="schedConf.program.title">{$schedConfAbbrev} Programa</message>
+	<message key="schedConf.trackPolicies.title">{$schedConfAbbrev} Polítiques</message>
+
+	<!-- User self-registration form -->
+	<message key="schedConf.registration.alreadyRegistered">Vostè ja està inscrit, encara que el pagament encara no s'ha rebut. Si hi ha algun error o desitja canviar la seva inscripció, posi's en contacte amb la persona indicada a "Quant a".</message>
+	<message key="schedConf.registration.alreadyRegisteredAndPaid">Vostè ja està registrat en aquesta Conferència/Congrés i la seva inscripció ha estat abonada. Si hi ha algun error o desitja canviar la seva inscripció, posi's en contacte amb la persona indicada a "Quant a".</message>
+	<message key="schedConf.registration.noPaymentMethodAvailable">La seva inscripció s'ha registrat. Si escau, contactarem amb vostè en relació amb el pagament.</message>
+	<message key="schedConf.registration.conferenceFees">Taxes de la Conferència/Congrés</message>
+	<message key="schedConf.registration.type">Tipus d'inscripció</message>
+	<message key="schedConf.registration.cost">Import</message>
+	<message key="schedConf.registrationTypes.noneAvailable">No hi ha tipus d'inscripció disponibles.</message>
+	<message key="schedConf.registration.register">Inscripció</message>
+	<message key="schedConf.registration.typeCloses">(Tancats {$closingDate})</message>
+	<message key="schedConf.registration.typeClosed">(Registre tancat {$closingDate})</message>
+	<message key="schedConf.registration.feeCode">Codi de taxes</message>
+	<message key="schedConf.registration.feeCode.description">Si se li va donar un codi per a la inscripció, per favor, escrigui'l aquí i asseguri's que ha triat el tipus correcte. En cas contrari, deixi en blanc aquest camp.</message>
+	<message key="schedConf.registration.specialRequests">Requisit especial</message>
+	<message key="schedConf.registration.specialRequests.description">Per favor, indiqui algun requisit especial, dieta, accessibilitat, etc.</message>
+	<message key="schedConf.registration.account">Compte d'usuari</message>
+	<message key="schedConf.registration.loggedInAs"><![CDATA[Ara està connectat. Verifiqui si la informació de les seves comptes és correcta. Si no ho és  vagi a <a href="{$profileUrl}">El meu Perfil</a> o <a href="{$logoutUrl}">surt</a> per a utilitzar altre compte.]]></message>
+	<message key="schedConf.registration.createAccount.description"><![CDATA[Actualment no està connectat. Per a inscriure's en aquesta Conferència/Congrés, és necessari disposar d'un compte. Si ja te una, <a href="{$loginUrl}"> faci clic aquí </ a> per a accedir, en cas contrari, empleni la informació que apareix a continuació per a crear un nou compte.]]></message>
+	<message key="schedConf.registration.">Ok</message>
+
+	<!-- User -->
+	<message key="user.showAllConferences">Mostra els meus esdeveniments</message>
+	<message key="user.createAccount">Crea</message>
+	<message key="user.url.description">Això apareixerà com a hiperenllaç URL en la part inferior de la biografia a "Sobre l'autor" i a la pàgina "Grup de treball".</message>
+	<message key="user.createAccountForOtherConferences">Crea un compte per a altres esdeveniments</message>
+	<message key="user.myConferences">Els meus esdeveniments</message>
+
+	<!-- Roles -->
+	<message key="user.role.manager">Gestor de l'esdeveniment</message>
+	<message key="user.role.director">Director</message>
+	<message key="user.role.trackDirector">Director de la secció</message>
+	<message key="user.role.author">Autor</message>
+
+	<message key="user.role.managers">Gestors de l'esdeveniment</message>
+	<message key="user.role.directors">Directors</message>
+	<message key="user.role.trackDirectors">Directors de la secció</message>
+	<message key="user.role.authors">Autors</message>
+
+	<!--
+	 *
+	 * LOG - This section contains entries related to log entries.
+	 *
+	-->
+	
+	<message key="event.logType.paper">Tipus de Document</message>
+	<message key="event.logType.author">Autor</message>
+	<message key="event.logType.director">Director</message>
+	<message key="event.logType.review">Revisor</message>
+	<message key="event.logType.conference">Conferència/Congrés</message>
+
+	<message key="event.eventLog">Registres de l'esdeveneniment</message>
+	<message key="event.logLevel">Nivell</message>
+	
+	<message key="event.logLevel.info">Informació</message>
+	<message key="event.logLevel.notice">Notícia</message>
+	<message key="event.logLevel.warning">Atenció!</message>
+	<message key="event.logLevel.error">Error</message>
+
+	<message key="event.general.defaultEvent">Enviament d'esdeveniment</message>
+	
+	<!-- Submission events -->
+	
+	<message key="submission.event.general.abstractSubmitted">Resum enviat</message>
+	<message key="submission.event.general.presentationSubmitted">Presentació enviada</message>
+	<message key="submission.event.general.paperPublished">Article publicat</message>
+
+	<message key="submission.event.presenter.authorRevision">Treball revisat per l'autor</message>
+
+	<message key="submission.event.general.authorRevision">Arxiu actualitzat del treball revisat per l'autor</message>
+
+	<message key="submission.event.director.directorAssigned">Director assignat a la trameses</message>
+	<message key="submission.event.director.directorUnassigned">No s'ha assignat director des de la tramesa</message>
+	<message key="submission.event.director.directorDecision">S'ha tramés la decisió del Director</message>
+	<message key="submission.event.director.directorFile">Arxiu actualitzat lliurat pel director</message>
+	<message key="submission.event.director.submissionArchived">Tramesa arxivada</message>
+	<message key="submission.event.director.submissionRestored">Tramesa recuperada de l'arxiu</message>
+
+
+	<!-- Conference events -->
+	<message key="conference.event.general.configuration">Configuració de la Conferència/Congrés modificada</message>
+	<message key="conference.event.general.deadline">El termini de la Conferència/Congrés ha finalitzat</message>
+
+	<!--
+	 *
+	 * INTERFACE - Contains phrases organized by the section of the
+	 *             user interface they appear in.
+	 *
+	-->
+
+	<!-- Reader paper view -->
+	<message key="reader.fullTextNotAvailable">Els textos de la conferència/Congrés no estan disponibles actualment.</message>
+	<message key="reader.fullTextRegistroRequired">És necessari enregistrar-s'hi a la Conferència/Congrés per a veure els documents.</message>
+	<message key="reader.fullTextAccountRequired"><![CDATA[Es necessita un compte en aquest lloc per a poder veure els documents. <Un href = "($ registerUrl)"> Faci clic aquí </ a> per a crear un compte.]]></message>
+	<message key="reader.fullTextRegistrantsOnlyUntil">L'accés a aquest esdeveniment s'iniciarà el dia {$date}.</message>
+	<message key="reader.fullTextNotPostedYet">Els documents d'aquesta Conferència/Congrés es publicaran el dia {$date}.</message>
+
+	<!-- Reader Comments -->
+	<message key="comments.authenticated">{$userName}</message>
+	<message key="comments.commentsOnPaper">Comentaris al document</message>
+	<message key="comments.commentsClosed">Tancament de comentaris el dia {$closeCommentsDate}.</message>
+
+	<!-- Site Administration -->
+
+	<message key="admin.settings.oaiRegistrationDescription"><![CDATA[Per a que el contingut de totes les Confèrencies/Congressos estiguin indexats en un sistema distribuït de bases de dades d\'investigació, <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">registri</a> la seva URL al <a href="http://pkp.sfu.ca/harvester/" target="_blank">recolector de metadades del "Public Knowledge Project"</a>. Aquesta eina captura les metadades indexats en aquesta Conferència/Congrés, el que permet realitzar  una recerca precisa i col·lectiva entre els proveïdors de dades que compleixen amb <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">el protocol de recol·lecció de metadades de l'Open Archives Initiative</a>.
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">Faci clic aquí</a> i introdueixi <span class="highlight">{$siteUrl}</span> sota <b>la URL</b>, i <span class="highlight">{$oaiUrl}</span> sota <b>Base URL per a Arxius OAI</b>.
+<br /><br />
+Tingui en compte que la interfície OAI pot ser desactivada per a aquest lloc a l'editar la configuració del sistema. Les futures versions de l'OCS permetran que la interfície OAI pugui ser activada o desactivada per a cadascuna de les Conferències/Congressos del lloc.]]></message>
+
+
+
+	<!-- Languages -->
+	<message key="admin.languages.languageOptions">Opcions d'idiomes</message>
+	<message key="admin.languages.profileLocales">Quan s'assignin els rols (gestors, directors, revisors, etc.), han d'indicar-s'hi els idiomes de treball de cada persona en els seus perfils per a facilitar el treball dels directors de les Conferència.</message>
+
+	<message key="admin.auth.defaultSourceDescription"><![CDATA[Especificar per defecte una font d'autenticació que no sigui vàlida per a OCS té els següents efectes:
+<ul>
+	<li>Si un usuari intenta crear un nou compte amb aquest lloc amb un nom d'usuari que existeix en la font d'autenticació (però no en la base de dades OCS), l'intent de registre només estarà permès si la contrasenya proporcionada és vàlida per al compte d'usuari.</li>
+</ul>]]></message>
+
+	<!-- System Information -->
+	<message key="admin.overwriteConfigFileInstructions"><![CDATA[<h4>NOTA!</div>
+<p>El sistema no pot sobreescriure automàticament l'arxiu de configuració. Per a aplicar els canvis de configuració ha d'obrir  <tt>config.inc.php</ tt> amb un editor de text adequat i substituir els contingut dels següents camps de text.</p>]]></message>
+
+	<message key="admin.conferences.importRegistros">Importa registres</message>
+
+	<!-- Registro Management -->
+
+	<!-- Payment Handling -->
+
+	<message key="payment.type.registration">Inscripció a la Conferència/Congrés</message>
+
+	<!-- Conference Event Log -->
+	<message key="conference.event.confirmClearLog">Està segur que desitja esborrar el registre de la inscripció a la Conferència/Congrés?</message>
+	<message key="conference.event.confirmDeleteLogEntry">Està segur que vol eliminar aquestes entrades de registre d'esdeveniments?</message>
+	<message key="conference.event.deleteLogEntry">Esborra els registres d'entrada</message>
+	<message key="conference.event.backToEventLog">Torna als registres de l'esdeveniment</message>
+	<message key="conference.history.conferenceEventLog">Registres de l'esdeveniment</message>
+	<message key="conference.history.clearLog">Neteja registres</message>
+	<message key="conference.history.noLogEntries">No hi ha registres d'entrades.</message>
+
+	<!-- Scheduled Conference Management -->
+
+	<!-- Program settings -->
+
+	<!-- Conference Management -->
+
+	<!-- Statistics & Reports -->
+
+	<message key="manager.statistics.reports.dateFrom">De</message>
+	<message key="manager.statistics.reports.dateTo">Fins</message>
+	<message key="manager.statistics.reports.reportType">Tipus d'informe</message>
+	<message key="manager.statistics.reports.type.conference">Informe de la Conferència/Congrés</message>
+	<message key="manager.statistics.reports.type.schedConf">Informe de la Conferència/Congrés programada</message>
+	<message key="manager.statistics.reports.type.director">Informe del director</message>
+	<message key="manager.statistics.reports.type.reviewer">Informe del revisor</message>
+	<message key="manager.statistics.reports.type.track">Informe</message>
+	<message key="manager.statistics.reports.generate">Generar informe</message>
+	<message key="manager.statistics.reports.status">Estat (acceptat, rebutjat, altre)</message>
+	<message key="manager.statistics.reports.dateDecided">Data de decisió</message>
+	<message key="manager.statistics.reports.author">Autor #{$num}</message>
+	<message key="manager.statistics.reports.affiliation">Afiliació #{$num}</message>
+	<message key="manager.statistics.reports.country">Pais #{$num}</message>
+	<message key="manager.statistics.reports.reviewer">Revisor #{$num}</message>
+	<message key="manager.statistics.reports.director">Director #{$num}</message>
+	<message key="manager.statistics.reports.score">Resultat #{$num}</message>
+	<message key="manager.statistics.reports.singleScore">Resultat</message>
+	<message key="manager.statistics.reports.recommendation">Recomanacions #{$num}</message>
+	<message key="manager.statistics.reports.daysToDecision">Dies pendents per a la decisió sobre el treball</message>
+	<message key="manager.statistics.reports.daysToPublication">Dies pendents per a la publicació</message>
+
+	<!-- Plugin Management -->
+
+	<!-- General plugin information -->
+	<message key="plugins.categories.generic.description">Els plugins genèrics s'usen per a estendre el sistema del Open Conference de diferents maneres que altres categories de plugins no suporten.</message>
+	<message key="plugins.categories.auth.description">Els plugins d'autorització permeten al Open Conference System delegar tasques d'autenticació dels usuaris a altres sistemes, tals com servidors LDAP.</message>
+
+
+
+
+	<!-- Files Browser -->
+	<message key="manager.files.confirmDelete">Esborrar aquest arxiu o directori? Tingui en compte que un directori ha d'estar buit abans que pugui ser eliminat
+.</message>
+
+	<!--
+	     ***
+	     *** Generic setup locale keys
+	     ***
+	-->
+	<message key="manager.setup.homeHeaderTitleImageAlt1Invalid">Format d'imatge no vàlid per al títol de l'encapçalat de pàgina d'inici alternatiu. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeHeaderLogoImageAlt1Invalid">Format d'imatge no vàlid per al logo de l'encapçalat de pàgina de inici alternatiu. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageAlt1Invalid">Format d'imatge no vàlid per al títol de l'encapçalat de pàgina alternatiu. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderLogoImageAlt1Invalid">Format d'imatge no vàlid per a el logo de l'encapçalat de pàgina alternatiu. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeHeaderTitleImageAlt2Invalid">Format d'imatge no vàlid per al títol de l'encapçalat de la segona pàgina d'inici alternativa. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeHeaderLogoImageAlt2Invalid">Format d'imatge no vàlid per al logo de l'encapçalat de la segona pàgina d'inici alternativa. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageAlt2Invalid">Format d'imatge no vàlid per al títol de l'encapçalat de pàgina de la segona alternativa. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderLogoImageAlt2Invalid">Format d'imatge no vàlid per al títol de l'encapçalat de pàgina de la segona alternativa. Els formats permesos són .gif, .jpg, or .png.</message>
+	<message key="manager.setup.finalStepSavedNotes">
+		<![CDATA[
+			<p>Gairebé Fet!</p>
+			<p>S'ha creat una Conferència, que pot tractar-se d'única conferència, una conferència anual, o una sèrie de conferències programades, totes poden ser administrades des d'aquest lloc. Per a programar una Conferència específica, vagi a <a href="{$schedConfSetupUrl}">Conferència/Congressos programats</a>. Pot accedir a aquesta pàgina en qualsevol moment a través de la pàgina de Gestió de Conferència/Congrés.</p>
+			<p>Pot tornar a aquestes sis pàgines en qualsevol moment seguint els enllaços "Inicia > Gestor Conferència/Congrés > Engegada".</p>
+			<p>Pot administrar les conferències programades en "Usuari > Gestor de la Conferència/Congrés > Engegada"</p>
+			]]></message>
+
+
+	<!--
+	     ***
+	     *** Website Management (a.k.a. Conference Setup)
+	     ***
+	-->
+
+	<message key="manager.setup.styleSheet">Full d'estil de la Conferència/Congrés</message>
+
+	<message key="manager.setup.styleSheet.title">Pas 4. Full d'estil de la Conferència/Congrés</message>
+
+	<message key="manager.setup.styleSheet.brief">Full d'estil</message>
+
+	<message key="manager.setup.styleSheet.description">Fulls d'estils CSS per a les pàgines de la Conferència/Congrés</message>
+
+
+	<!-- Conference setup page 1 -->
+
+
+	<!-- Conference setup page 2 -->
+	<message key="manager.setup.additionalContent.homepageImage.description"></message>
+
+	<!-- Conference setup page 3 -->
+
+	<!-- Conference setup page 4 -->
+	<message key="manager.setup.styleSheet.conferenceStyleSheet.description">Per defecte, les conferències i aquesta web utilitzen un full d'estil comú (localitzada en el subdirectori "estils"). Aquest full d'estil pot substituir-se per un altre full propi de la conferència del tipus CCS.</message>
+	<message key="manager.setup.styleSheet.useConferenceStyleSheet">Full d'estil de la Conferència/Congrés</message>
+
+	<!-- Conference setup page 5 -->
+
+	<!-- Conference setup page 6 -->
+	<message key="manager.setup.indexing.registerConferenceForIndexing.description"><![CDATA[Perquè els continguts d'aquesta conferència s'indexin dintre d'un sistema distribuït de base de dades, <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">registri</a> la URL de la seva conferència en el <a href="http://pkp.sfu.ca/harvester/" target="_blank">recolector</a> de metadades del Public Knowledge Project. Aquest servei recol·lecta les metadades  de cada article indexat en aquesta conferència, permet  una cerca entre els llocs que compleixen amb el <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Protocol de Recol·lecció de metadades OAI (PMH-OAI)</a>.
+<br /><br />
+Observi que si l'administrador del sistema ja ha registrat aquest lloc en el recol·lector PKP, la seva conferència s'indexarà automàticament sense necessitat que la registri de nou .
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">Premi aquí</a> i entri <span class="highlight">{$siteUrl}</span> a la <b>URL</b>, i <span class="highlight">{$oaiUrl}</span> a la <b>URL d'Arxiu OAI</b>.]]></message>
+
+	<!-- 
+	     ***
+	     *** Scheduled Conference Setup
+	     ***
+	-->
+
+
+
+
+	<!-- Scheduled Conference Setup Pas 1 -->
+
+	<!-- Scheduled Conference Setup Pas 2 -->
+	<message key="manager.schedConfSetup.submissions.subjectClassificationDescription"><![CDATA[[la Conferència/Congrés utilitzarà un sistema de  classificació de matèries disponible a la web.<br />
+Nom del sistema de classificació]]></message>
+
+	<!-- Scheduled Conference Setup Pas 3 -->
+
+	<!-- Idiomes -->
+	<message key="manager.languages.languageInstructions"><![CDATA[OCS està disponible en diversos idiomes. També pot operar parcialment com un sistema multilingüe, facilitant als usuaris poder canviar d'idioma en cada pàgina, i permetent la introducció de certes dades en altres dos idiomes.
+Si en la llista d'idiomes, no apareix el que necessita, pregunti a l'administrador del seu sistema perquè ho instal·li des de la interfície de l'administrador. Consulti la documentació de OCS per a la instal·lació d'interfícies en nous idiomes .]]></message>
+	<message key="manager.languages.alternateLocale1">Interfície #1</message>
+	<message key="manager.languages.alternateLocale2">Interfície #2</message>
+	<message key="manager.languages.alternativeLanguageOptions">Opcions d'idioma</message>
+	<message key="manager.languages.conferenceTitleAltLanguages">La imatge per al nom, la capçalera de la pàgina, etc. es carregaran en cadascun dels idiomes oficials de la conferència.</message>
+    <message key="manager.languages.paperAltLanguages">Admet trameses en altres idiomes</message>
+	
+	<!-- Track Management -->
+	<message key="manager.tracks.submissionsToThisTrack">Les trameses fetes a aquesta secció</message>
+	<message key="manager.tracks.abstractsDisabled">No es requereix resum per a fer la tramesa.</message>
+
+	<!-- Timeline management -->
+
+	
+
+
+	
+
+	<!-- Import/Export -->
+
+	<!-- Groups / Organizing Team -->
+
+
+
+	<!-- People Management -->
+	<message key="manager.people.noAdministrativeRights"><![CDATA[ho sentim, vostè no te drets d'administració sobre aquest usuari. Això es degut a què:
+		<ul>
+			<li>L'usuari es l'administrador de la web</li>
+			<li>L'usuari està resgistrat en conferències que no gestiona</li>
+		</ul>
+	Aquesta tasca sols la pot realitzar l'administrador del sistema.
+	]]></message>
+
+
+	<message key="manager.people.signOutAsUser">Surt com a usuari</message>
+
+	<!-- Email Management -->
+
+	<!-- Registro Policy Management -->
+	
+	<message key="manager.registrationPolicies.registrationPoliciesSaved">La configuració de la política d'inscripció, s'ha actualitzat.</message>
+	<message key="manager.registrationPolicies.enableRegistroExpiryReminderBeforeMonthsValid">Per favor, utilitzi la casella de verificació prevista.</message>
+	<message key="manager.registrationPolicies.numMonthsBeforeRegistroExpiryReminderValid">Per favor, seleccioni un valor vàlid per al nombre de mesos abans que caduqui el seu registre.</message>
+	<message key="manager.registrationPolicies.numWeeksBeforeRegistroExpiryReminderValid">seleccioni un valor vàlid per al nombre de setmanes abans que caduqui el seu registre.</message>
+	<message key="manager.registrationPolicies.numMonthsAfterRegistroExpiryReminderValid">seleccioni un valor vàlid per al nombre de mesos després que caduqui el seu registre.</message>
+	<message key="manager.registrationPolicies.numWeeksAfterRegistroExpiryReminderValid">seleccioni un valor vàlid per al nombre de setmanes després que caduqui el seu registre.</message>
+
+	<!-- Registro Type Management -->
+
+	<!-- Registro Management -->
+
+	<!-- Announcement Type Management -->
+
+	<!-- Announcements Management -->
+
+	<!-- Director -->
+
+	<!-- Navigation sidebar menu -->
+
+	<!-- Used by director in submission review / editing -->
+	<message key="director.paper.selectReviewerNotes"><![CDATA[El nom enllaça amb el perfil del revisor.<br/>
+Qualificació superior a 5 (Excel·lent).<br/>
+Les setmanes es refereixen al període mig de temps per a fer la revisió.<br>
+La última, és la data corresponent a aquella revisió que s'ha compromès a fer mes recentment.<br>
+En actiu significa quantes revisions estan actualment en marxa.]]></message>
+	<message key="director.paper.designateDueDateDescription">
+Per a canviar la data assignada a aquest revisor, introdueixi altra o esborri la data i introdueixi el nombre de setmanes que es donen per a fer la revisió.</message>
+
+
+
+	<!-- Track Director -->
+	<message key="trackDirector.author.confirmRenotify">Notifica a l'autor que ha de reiniciar l'assignació d'avaluadors. Està segur que vol fer això?</message>
+
+	<message key="trackDirector.regrets.breadcrumb">Renúncies</message>
+	<message key="trackDirector.regrets.title">#{$paperId} Renúncies de revisors &amp; Cancel·lacions</message>
+	<message key="trackDirector.regrets">Renúncies</message>
+	<message key="trackDirector.regrets.link">Veure les renúncies, Cancel·lacions</message>
+	<message key="trackDirector.regrets.reviewStage">Etapa de revisió (Peer Review){$stage}</message>
+	<message key="trackDirector.regrets.decisionStage">Etapa de la decisió del Director {$stage}</message>
+	<message key="trackDirector.regrets.regretsAndCancels">Renúncia del Revisor &amp; Cancel·lacions</message>
+	<message key="trackDirector.regrets.regret">Renúncia</message>
+	<message key="trackDirector.regrets.result">Resultat</message>
+	<message key="trackDirector.review.enrollReviewer">Emprar a un usuari ja existent com revisor</message>
+	<message key="trackDirector.review.createReviewer">Introdueix nou revisor</message>
+
+	<!-- Reviewer -->
+	<message key="reviewer.completedReviews">Fet</message>
+	<message key="reviewer.averageQuality">Qualificació</message>
+
+	<!-- Used in submission review -->
+	<message key="reviewer.paper.fileToBeReviewed">Arxiu per a revisar</message>
+	<message key="reviewer.paper.notifyTheDirector">Notifica al director</message>
+	<message key="reviewer.paper.canDoReview">Farà la revisió</message>
+	<message key="reviewer.paper.cannotDoReview">No pot fer la revisió</message>
+	<message key="reviewer.paper.restrictedFileAccess">El treball només pot veure's si es realitza la revisió.</message>
+	<message key="reviewer.paper.submissionDirector">Director de la tramesa</message>
+	<message key="reviewer.paper.reviewerCommentsDescription">Escrigui o copiï aquí els comentaris de la seva revisió</message>
+	<message key="reviewer.paper.directorToEnter">Director a enviar</message>
+	<message key="reviewer.paper.sendReminder">Envia recordatori</message>
+	<message key="reviewer.paper.automatic">(Auto)</message>
+	<message key="reviewer.paper.selectRecommendation">Selecciona la recomanació</message>
+	<message key="reviewer.paper.recommendation">Recomanació</message>
+	<message key="reviewer.paper.submitReview">Envia la revisió al Director</message>
+	<message key="reviewer.paper.reviewerComments">Comentaris</message>
+	<message key="reviewer.paper.uploadedFile">Diposita arxius</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersion">Versió dipositada pel revisor</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersionDescription">(Si vol fer anotacions per al director a l'arxiu, guardi'l en el seu disc dur i utilitzi Explora / Actualitza.)</message>
+	<message key="reviewer.paper.schedule.request">Pregunta del Director</message>
+	<message key="reviewer.paper.schedule.response">La seva resposta</message>
+	<message key="reviewer.paper.schedule.submitted">Revisió tramesa</message>
+	<message key="reviewer.paper.schedule.due">Termini per a la revisió</message>
+	<message key="reviewer.paper.decision.accept">S'ha acceptat l'original</message>
+	<message key="reviewer.paper.decision.pendingRevisions">Es revisarà de nou</message>
+	<message key="reviewer.paper.decision.resubmitElsewhere">Enviï'l a altre mitjà</message>
+	<message key="reviewer.paper.decision.decline">S'ha rebutjat l'original</message>
+	<message key="reviewer.paper.decision.seeComments">Veure comentaris</message>
+	<message key="reviewer.paper.schedule">Calendari</message>
+	<message key="reviewer.paper.submissionToBeReviewed">Original per a revisar</message>
+	<message key="reviewer.paper.reviewSchedule">Termini per a la revisió</message>
+	<message key="reviewer.paper.reviewSteps">Passos de la revisió</message>
+	<message key="reviewer.paper.reviewerGuidelines">Instruccions per als revisors</message>
+	<message key="reviewer.paper.reviewerInstruction1a">Notifica al director de la tramesa</message>
+	<message key="reviewer.paper.reviewerInstruction1b">Sí, realitzarà la revisió.</message>
+	<message key="reviewer.paper.reviewerInstruction2">Si fa la revisió, consulti les instruccions per a revisors.</message>
+	<message key="reviewer.paper.reviewerInstruction3AbstractOnly">Revisi el resum facilitat amb l'original.</message>
+	<message key="reviewer.paper.reviewerInstruction3Submission">Revisa l'original.</message>
+	<message key="reviewer.paper.reviewerInstruction4a">Premi la icona per a introduir (o enganxar) la revisió d'aquest manuscrit.</message>
+	<message key="reviewer.paper.reviewerInstruction4b">D'acord amb les instruccions als revisors que s'indiquen.</message>
+	<message key="reviewer.paper.reviewerInstruction5">Addicionalment, pot dipositar fitxers perquè puguin consultar el director o els autors.</message>
+	<message key="reviewer.paper.reviewerInstruction6">Seleccionar una recomanació i trametre la revisió per a completar el procés d'avaluació. Ha d'introduir la revisió o dipositar un arxiu abans de seleccionar una recomanació.</message>
+	<message key="reviewer.paper.mustSelectDecision">No s'ha seleccionat una recomanació. Ha de triar una recomanació.</message>
+	<message key="reviewer.paper.confirmDecision">Una vegada hagi seleccionat i arxivat la seva decisió respecte al treball, no podrà fer canvis en la revisió. Està segur que vol continuar?</message>
+	<message key="reviewer.paper.ensuringBlindReview">Assegura una revisió anònima</message>
+
+	<!-- Presenter -->
+
+<message key="author.submissions.confirmDelete">Està segur que vol esborrar la tramesa incompleta?</message>
+
+	<!-- Paper Submission Step 1 -->
+
+
+	<!-- Paper Submission Step 2 -->
+	<message key="author.submit.metadataDescription">Aquesta Conferència recopila les metadades de cada treball, d'acord amb els estàndards de l'Open Arxives Initiative, que permeten la identificació objectes digitals. Això permet una recerca selectiva i precisa en bases de dades OAI, el que augmenta la probabilitat que els lectors trobin treballs com aquest. El Comitè organitzador ha d'insistir que les metadades convé enviar-los abans d'iniciar-se el procés editorial de manipulació d'originals </message>
+	<message key="presenter.submit.authorsDescription">Per a trameses amb més d'un autor, ordeni els noms tal com hagin d'aparèixer en la referència bibliogràfica
+.</message>
+	<message key="author.submit.reorderAuthorName">Reordena el nom de l'autor</message>
+
+	<!-- Paper Submission Step 3 -->
+	<message key="author.submit.uploadInstructions"><![CDATA[
+Per a dipositar un treball en aquesta conferència, segueixi els següents passos.
+
+<ol>
+<li>Premi llistar (o seleccionar arxiu) que obre una finestra per a localitzar els arxius en el disc dur del seu ordinador.</li>
+<li>Localitzi l'arxiu que desitja enviar i marqui'l.</li>
+<li>Premi Obre en la finestra de selecció d'arxius, que mostra el nom de l'arxiu.</li>
+<li>Premi Diposita, el que permet pujar l'arxiu al servidor de la conferència i reanomenar-lo seguint els criteris de la conferència .</li>
+<li>Quan hagi acabat, premi Desa i Segueix.</li>
+</ol>
+
+ L'arxiu pot visualitzar-se prement sobre el nom del fitxer. Pot dipositar-se un arxiu nou o revisat, així s'esborra l'anterior. Els arxius addicionals poden dipositar-se usant l'opció Arxius Suplementaris (pròxim pas). Si té problemes amb el dipòsit, contacti per correu electrònic o per telèfon amb <a href="mailto:{$supportEmail}">{$supportName}</a> {$supportPhone}. ]]></message>
+
+	<!-- Paper Submission Step 4 -->
+
+	<!-- Paper Submission Step 4a: Supplementary Files -->
+
+	<!-- Paper Submission: upload file -->
+	<message key="submission.submissionFiles">Arxius de la tramesa</message>
+
+	<!-- Paper Submission Step 5 -->
+
+	<!-- Used in submission review / editing -->
+
+	<!-- Submission Tracking - Layout Specific -->
+
+
+	<!-- Submission History -->
+
+	<!-- Submission Event Log -->
+
+	<!-- Submission Email Log -->
+
+	<!-- Submission Comments -->
+	<message key="submission.comments.directorAuthorCorrespondence">Director/Autor per a la correspondència</message>
+	<message key="submission.comments.viewableDescription"><![CDATA[Aquests comentaris poden compartir-se amb l'autor.<br />
+(Després de desar, poden afegir-se més comentaris.)]]></message>
+	<message key="submission.comments.canShareWithAuthor">Per a l'autor i el director</message>
+	<message key="submission.comments.cannotShareWithAuthor">Per al director</message>
+	<message key="submission.comments.blindCcReviewers">Després de la tramesa, faci una còpia de la decisió editorial, sense capçaleres ni noms, per a enviar-se-la als revisors .</message>
+	<message key="submission.comments.forAuthorDirector">Per a l'autor i el director</message>
+	<message key="submission.comments.forDirector">Per al director</message>
+	<message key="submission.comments.saveAndEmailAuthor">Desa i envia un correu electrònic a l'autor</message>
+	<message key="submission.comments.saveAndEmailDirector">Desa i envia un correu electrònic al director</message>
+
+	<!-- Login -->
+	<message key="user.login.createAccount">No és usuari? Creï un compte en aquest lloc</message>
+	<message key="user.login.resetPasswordInstructions"><![CDATA[Per raons de seguretat, aquest sistema envia per correu la nova contrasenya per a usuaris registrats, en lloc de sol·licitar l'actual contrasenya
+<br /><br />Escrigui la seva adreça de correu electrònic per a rebre la nova. S'enviarà la confirmació a aquesta adreça de correu electrònic.]]></message>
+	<message key="user.login.rememberMe">Recorda</message>
+
+	<!-- Profile -->
+
+	<!-- Registration -->
+	<message key="user.account.repeatPassword">Repeteixi la contrasenya</message>
+	<message key="user.account.form.usernameExists">El nom d'usuari triat ja està en ús.</message>
+	<message key="user.account.form.usernameAlphaNumeric">El nom d'usuari solament pot contenir caràcters alfanúmericos, guió baix, i guions, i ha de començar i acabar amb un caracter alfanumèric.</message>
+	<message key="user.account.form.emailExists">L'adreça de correu electrònic triada ja està en ús per altre usuari .</message>
+	<message key="user.account.form.passwordsDoNotMatch">La contrasenya no coincideix.</message>
+	<message key="user.account.selectConference">Selecccioni l'esdeveniment en el qual es vol inscriure</message>
+	<message key="user.account.noConferences">No existeixen esdeveniments en els pugui inscriure's des d'aquest lloc.</message>
+	<message key="user.account.selectSchedConf">Selecccione l'esdeveniment en el qual es vol inscriure</message>
+	<message key="user.account.noSchedConfs">No existeixen esdeveniments en els pugui inscriure's des d'aquest lloc.</message>
+	<message key="user.account.createAs">Crea un compte com a</message>
+	<message key="user.account.privacyStatement">Condicions de privacitat</message>
+	<message key="user.account.completeForm">Empleni aquest formulari per a crear-se un compte en aquest esdeveniment.</message>
+	<message key="user.account.hasAccount"><![CDATA[<a href="{$accountUrl}">Premi aquí</a> si té un compte en aquesta o altra conferència allotjada en aquest lloc.]]></message>
+	<message key="user.account.hasNoAccount"><![CDATA[<a href="{$accountUrl}">Premi aquí</a> si <b>no</b>disposa encara d'un compte en aquesta o altra conferència en aquest lloc.]]></message>
+	<message key="user.account.loginToRegister">Entri el seu nom d'usuari i contrasenya per a crear un compte en aquest esdeveniment.</message>
+	<message key="user.account.createAccountDisabled">Aquest esdeveniment no accepta actualment nous usuaris.</message>
+	<message key="user.account.usernameRestriction">El nom d'usuari ha de contenir només caràcters en minúscula, nombres i guions o guió baix.</message>
+	<message key="user.account.passwordLengthRestriction">La contrasenya ha de contenir almenys {$length} caràcters.</message>
+	<message key="user.account.form.passwordLengthTooShort">La contrasenya que ha introduït no és prou llarga.</message>
+	<message key="user.account.readerDescription">Notificar per correu electrònic quan es publiquin presentacions.</message>
+	<message key="user.account.openAccessNotificationDescription">Notificar per correu electrònic quan la conferència sigui d'accés obert.</message>
+	<message key="user.account.authorDescription">Poden enviar-se articles a la conferència.</message>
+	<message key="user.account.reviewerDescriptionNoInterests">Accepto fer la revisió de treballs d'aquesta conferència.</message>
+	<message key="user.account.reviewerDescription">Accepto fer la revisió de treballs d'aquesta conferència. Assenyali els temes del seu interès (àrees i mètodes de treball).</message>
+	<message key="user.account.authorRegistrationMessage">Encara que té un compte en d'usuari en aquest lloc, actualment no és autor de cap treball d'aquesta conferència.</message>
+
+
+
+	<!-- Search -->
+	<message key="search.browseAuthorIndex">Llistar l'índex d'autors</message>
+	<message key="search.searchFor">Recerca de treballs per</message>
+	<message key="search.inField">A</message>
+	<message key="search.author">Autors</message>
+	<message key="search.withinConference">A</message>
+	<message key="search.allConferences">Tots els esdeveniments</message>
+	<message key="search.authorIndex">Llistar per autors</message>
+	<message key="search.authorDetails">Detalls de l'autor</message>
+	<message key="search.syntaxInstructions"><![CDATA[Recomanacions per a les recerques: <ul>
+<li>Els termes de recerca són susceptibles a les majúscules i minúscules</li>
+<li>Les paraules comunes s'ignoren</li>
+<li>Per defecte, només es recuperen els treballs que continguin <i>tots</i> els termes de la mateixa (és a dir, implica l'operador <i>AND</i>)  </li>
+<li>Combini paraules amb <i>OR</i> per a buscar treballs que continguin alguns dels termes; p.ex. <i>educació OR investigació</i></li>
+<li>Utilitzi parèntesis per a crear peticions més complexes; p.ex. <i>arxius (revistes OR conferències) NOT tesis)</i></li>
+<li>Cerqui la frase exacta posant el text entre cometes; p.ex. <i>"publicacions de lliure accés"</i></li>
+<li>Exclogui una paraula amb el prefix<b>-</b> o <i>NOT</i>; p.ex. <i>online -política</i> o <i>online NOT política</i></li>
+<li>Utilitzi <b>*</b> com a comodí dintre d'una cadena de caràcters; p.ex. <i>soci*</i> s'ajusta a documents que contenen "sociològic" o "social"</li>
+</ul>]]></message>
+
+	<!-- Interstitial page for PDFs -->
+	<message key="paper.pdf.title">Format PDF</message>
+	<message key="paper.pdf.note"><![CDATA[L'arxiu PDF que ha seleccionat pot descarregar-se, si el seu navegador té instal·lat el visor per a llegir documents PDF (si no, pot obtenir-lo de <a href="http://www.adobe.com/products/acrobat/readstep2.html">Adobe Acrobat Reader</a>). Alternativament, pot descarregar-se el fitxer en el seu ordinador, on pot obrir-lo usant un lector de fitxers PDF. Si desitja més informació de com imprimir, desar i manejar fitxers PDF, Highwire Press li facilita una valuosa ajuda <a href="http://highwire.stanford.edu/help/pdf-faq.dtl">al menú de PMF sobre els PDF</a>.<br /><br />Si l'arxiu no es descarrega automàticament, <a href="{$url}">premi aquí</a>.]]></message>
+
+	<!-- Interstitial page for non-PDF non-HTML galleys -->
+	<message key="paper.nonpdf.title">Descàrrega de treball</message>
+	<message key="paper.nonpdf.note"><![CDATA[L'arxiu que ha seleccionat hauria de descarregar-se automàticament. Si no ho fa, premi en el següent enllaç. Tingui en compte que aquest fitxer pot necessitar un visor especial per a la seva visualització .<br /><br />Si l'arxiu no es descarrega automàticament, <a href="{$url}">premi aquí</a>.]]></message>
+
+	<!-- Site index -->
+	<message key="site.conferencesHosted">Esdeveniments allotjats en aquesta web</message>
+	<message key="site.conferenceView">Veure esdeveniment</message>
+	<message key="site.conferenceAccount">Comptes de l'usuari</message>
+	<message key="site.schedConfView">Veure els detalls de l'esdeveniment</message>
+	<message key="site.schedConfCurrent">Calendari actual d'esdeveniments</message>
+
+	<!-- Conference page -->
+	<message key="conference.currentConferences">Esdeveniments programats</message>
+	<message key="conference.noCurrentConferences">No existeixen esdeveniments actius actualment. Per favor comprovi els arxius d'anteriors esdeveniments programats.</message>
+	<message key="conference.archive">Arxius de l'esdeveniment</message>
+
+	<!-- Scheduled Conference page -->
+	<message key="schedConf.proposalSubmission">Proposta de tramesa</message>
+
+	<!-- Call-for-Papers (CFP) page -->
+	<message key="schedConf.cfp.submitHere">Aquí comença la tramesa a l'esdeveniment o conferència.</message>
+
+	<!-- Conference Proceedings -->
+	<message key="presentations.notPermitted">Vostè encara no té accés a les presentacions de l'esdeveniment.</message>
+	<message key="presentations.trackEmpty">No existeixen treballs disponibles.</message>
+	<message key="presentations.schedConfEmpty">Les presentacions d'aquesta conferència encara no estan disponibles o no s'ajusten a les existents.</message>
+	
+	<!-- Program page -->
+	<message key="schedConf.program.programFileInstructions">El programa d'aquest esdeveniment es troba disponible a través del següent enllaç.</message>
+	<message key="schedConf.program.viewProgramFile">Veure el programa</message>
+	
+	<!-- About The Conference -->
+	<message key="about.statistics">Estadístiques</message>
+	<message key="about.conferenceContact">Contacte</message>
+	<message key="about.aboutTheConference">Quant a l'esdeveniment</message>
+	<message key="about.organizingTeam">Organització</message>
+	<message key="about.submissions">Trameses</message>
+	<message key="about.sponsors">Patrocinadors</message>
+	<message key="about.contributors">Quant als col·laboradors</message>
+	<message key="about.onlineSubmissions">Trameses 'online'</message>
+	<message key="about.onlineSubmissions.haveAccount">Te ja un nom d'usuari o contrasenya per a la {$conferenceTitle}?</message>
+	<message key="about.onlineSubmissions.login">Vagi a la pàgina d'accés</message>
+	<message key="about.onlineSubmissions.needAccount">Li cal un usuari o contrasenya?</message>
+	<message key="about.onlineSubmissions.registration">Vagi a la pàgina d'inscripció</message>
+	<message key="about.onlineSubmissions.registrationRequired">Es necessita estar registrat i clau d'accés per a l'enviament online de treballs i poder consultar l'estatus dels mateixos.</message>
+	<message key="about.authorGuidelines">Instruccions per a autors</message>
+	<message key="about.submissionPreparationChecklist">Llista de requisits per a les trameses 'online'</message>
+	<message key="about.copyrightNotice">Termes sobre el 'Copyright'</message>
+	<message key="about.privacyStatement">Declaració de privacitat</message>
+	<message key="about.peerReviewProcess">Procés de revisió paritària</message>
+	<message key="about.openAccessPolicy">Política d'accés obert</message>
+	<message key="about.archiveAccessPolicy">Política sobre l'accés als arxius</message>
+	<message key="about.delayedOpenAccess">Accés obert posposat</message>
+	<message key="about.delayedOpenAccessDescription1">Els continguts d'aquesta conferència estaran disponibles en accés obert</message>
+	<message key="about.delayedOpenAccessDescription2">mesos després que els continguts de la conferència es distribueixin entre els participants.</message>
+	<message key="about.authorSelfArchive">Autoarxiu de l'autor</message>
+	<message key="about.archiving">Arxiu</message>
+	<message key="about.registration">Inscripció</message>
+	<message key="about.registrationContact">Contacte per a la inscripció</message>
+	<message key="about.availableRegistrationTypes">Tipus d'inscripció</message>
+	<message key="about.aboutThisPublishingSystem">Quant a aquest sistema</message>
+	<message key="about.currentConferences">Esdeveniments actuals</message>
+	<message key="about.aboutOCSConference"><![CDATA[Aquesta conferència utilitza Open Conference Systems {$ocsVersion}, el qual és un programari de codi obert per a la gestió 'online' de conferències i congressos creat, mantingut i distribuït gratuïtament pel <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> amb llicència GNU (General Public License).]]></message>
+	<message key="about.aboutOCSSite"><![CDATA[Aquest lloc web utilitza Open Conference Systems {$ocsVersion}, el qual és un programari de codi obert per a la gestió 'online' de conferències i congressos creat, mantingut i distribuït gratuïtament pel <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> amb llicència GNU (General Public License).]]></message>
+
+	<!-- Announcement -->
+
+	<!-- Help -->
+	<message key="help.ocsHelp">Ajuda de l''Open Conference Systems'</message>
+	<message key="help.ocsHelpAbbrev">Ajuda de l'OCS</message>
+
+	<!-- Installer -->
+	<message key="installer.ocsInstallation">Instal·lació de l'OCS</message>
+	<message key="installer.ocsUpgrade">Actualizació de l'OCS</message>
+	<message key="installer.installationInstructions"><![CDATA[<h4>OCS Versió {$version}</h4>
+
+<p>Gràcies per descarregar-se l'<strong>Open Conference Systems</strong> que forma part del 'Public Knowledge Project'. Abans d'iniciar la instalació, per favor legeixi el contingut de l'arxiu <a href="{$baseUrl}/docs/README">README</a> inclòs en el paquet de programari. Per a major informació sobre el 'Public Knowledge Project' i els seus altres projectes de desenvolupament de programari, per favor visiti la pàgina web del <a href="http://pkp.sfu.ca/" target="_blank">PKP</a>. Si té algun dubte sobre l''Open Conference Systems', dirigeixi's al <a href="http://pkp.sfu.ca/support/forum">fòrum de discussió</a> o visiti la web del PKP online <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">incidències del sistema</a>. A pesar que el fòrum és lloc recomanat per a les consultes, també pot dirigir-se a l'equip desenvolupador <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>.</p>
+
+<h4>Actualització</h4>
+
+<p>Si està actualitzant alguna versió de la instal·lació de l'OCS 2.x, <a href="{$upgradeUrl}">premi aquí</a> i segueixi els passos que s'indiquen.</p>
+
+<h4>Requisits del sistema</h4>
+
+<ul>
+	<li><a href="http://www.php.net/" target="_blank">PHP</a> >= 4.2.x (inclòs PHP 5.x)</li>
+	<li><a href="http://www.mysql.com/" target="_blank">MySQL</a> >= 3.23.23 (inclòs MySQL 4.x) o <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> >= 7.1 (inclòs PostgreSQL 8.x)</li>
+	<li><a href="http://httpd.apache.org/" target="_blank">Apache</a> >= 1.3.2x o >= 2.0.4x o Microsoft IIS 6</li>
+	<li>Sistema operatiu: qualsevol que suporti el software anterior, incloent <a href="http://www.linux.org/" target="_blank">Linux</a>, <a href="http://www.bsd.org/" target="_blank">BSD</a>, <a href="http://www.sun.com/" target="_blank">Solaris</a>, <a href="http://www.apple.com/" target="_blank">Mac OS X</a>, <a href="http://www.microsoft.com/">Windows</a></li>
+</ul>
+
+<p>PKP no disposa dels recursos per a provar les possibles combinacions de versions de programari i les diverses plataformes, per això no pot garantir el seu correcte funcionament o el seu manteniment.</p>
+
+<p>Els canvis de la configuració poden fer-se després de la instal·lació editant el fitxer <tt>config.inc.php</tt> en el directori base de l'OCS, o a través de la interfície web de l'administrador.</p>
+
+<h4>Bases de dades que poden utilitzar-se</h4>
+
+<p>L'OCS s'ha provat fins a ara amb MySQL i PostgreSQL, encara que altres sistemes de gestió de bases de dades com l'<a href="http://php.weblogs.com/adodb/" target="_blank">ADOdb</a> poden funcionar (total o parcialment). Si ho desitja pot enviar documents que parlin de la compatibilitat amb altres sistemes, o el codi font de pegats que la permetin, a l'equip desenvolupador de l'OCS.</p>
+
+<h4>Passos per a la Preinstal·lació</h4>
+
+<p>1. Els següents fitxers i directoris (i els seus continguts) han de tenir permisos d'escriptura:</p>
+<ul>
+	<li><tt>config.inc.php</tt> permís d'escriptura (opcional): {$writable_config}</li>
+	<li><tt>public/</tt> permís d'escriptura: {$writable_public}</li>
+	<li><tt>cache/</tt> permís d'escriptura: {$writable_cache}</li>
+	<li><tt>cache/t_cache/</tt> permís d'escriptura: {$writable_templates_cache}</li>
+	<li><tt>cache/t_compile/</tt> permís d'escriptura: {$writable_templates_compile}</li>
+	<li><tt>cache/_db</tt> permís d'escriptura: {$writable_db_cache}</li>
+</ul>
+
+<p>2. Ha de crear-se un directori amb permisos d'escriptura per a emmagatzemar els arxius dels treballs (veure "Configuració d'arxius" més abaix).</p>]]></message>
+	<message key="installer.upgradeInstructions"><![CDATA[<h4>OCS Versió {$version}</h4>
+<p>Gràcies per descarregar-se l'<strong>Open Conference Systems</strong> del Public Knowledge Project's. Abans d'iniciar la instal·lació, per favor legeixi els arxius <a href="{$baseUrl}/docs/README">LLEGEIX-ME</a> i <a href="{$baseUrl}/docs/UPGRADE">ACTUALITZA</a> inclosos en aquest paquet de programari. Para mes informació sobre 'Public Knowledge Project' i els seus projectes de programari, per favor visiti la web del <a href="http://pkp.sfu.ca/" target="_blank">PKP</a>. Si té algun dubte sobre l''Open Conference Systems', dirigeixi's al <a href="http://pkp.sfu.ca/support/forum">fòrum de discussió</a> o visiti la web PKP online <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">incidències del sistema</a>. A pesar que el fòrum és el lloc recomanat per a les consultes, també pot dirigir-se a l'equip desenvolupador <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>.</p>
+<p>És <strong>del tot recomanable</strong> que faci una còpia de seguretat de la seva base de dades, dels directoris, i del directori d'instal·lació de l'OCS abans de començar.</p>
+<p>Si utilitza <a href="http://www.php.net/features.safe-mode" target="_blank">el PHP en manera segura</a>, per favor asseguri's que l'opció <tt>max_execution_time</tt> de la configuració del seu fitxer <tt>php.ini</tt> estigui nivell alt (high limit). Si s'arriba a aquest o altre límit de temps (p.ex. Apache's "Timeout" directive) i s'interromp el procés d'actualització, caldrà intervenir manualment el sistema.</p>]]></message>
+	<message key="installer.localeSettingsInstructions"><![CDATA[Per a utilitzar completament Unicode (UTF-8), seleccioni UTF-8 per a totes les opcions de codi de caràcters. Per a aquesta opció es requereix una versió del MySQL >= 4.1.1 o PostgreSQL >= 7.1. tingui en compte també que per utilitzar completament l'Unicode és necessari el PHP >= 4.3.0 compilat per a suportar la llibreria <a href="http://www.php.net/mbstring" target="_blank">mbstring</a> (habilitat per defecte en les versions més recents de PHP). Pot tenir problemes amb sistemes de caràcters estesos si el seu servidor no complix amb aquests requisits .<br /><br />
+El seu servidor actualment suporta mbstring: <strong>{$supportsMBString}</strong>]]></message>
+	<message key="installer.localeInstructions">Idioma d'ús d'aquest sistema. Per favor consulti la documentació de l'OCS si està interessat en la traducció d'altres idiomes que no s'esmenten aquí.</message>
+	<message key="installer.additionalLocalesInstructions">Seleccioni altres idiomes per a aquest sistema. Aquests idiomes estaran disponibles per a l'ús d'esdeveniments albergats en aquest lloc. Poden instal·lar-se altres idiomes des de la interfície de l'administrador.</message>
+	<message key="installer.filesDirInstructions"><![CDATA[Introdueixi la ruta completa del directori existent per a guardar els fitxers carregats. aquest directori no hauria de ser accessible directament a través de la web. <strong>Per favor, asseguri's que aquest directori existeix i té permís d'escriptura abans de la instal·lació.</strong> Els noms dels directoris de les rutes en Windows han d'utilitzar barres, p.ex. "C:/myconference/files".]]></message>
+	<message key="installer.databaseSettingsInstructions">L'OCS requereix accés a la base de dades SQL per a emmagatzemar les seves dades. Consulti la llista de tipus de bases de dades que poden emprar-se. En els camps que vénen a continuació, ha d'indicar les opcions per a connectar a la base de dades.</message>
+	<message key="installer.installApplication">Instal·la l'Open Conference System</message>
+	<message key="installer.upgradeApplication">Actualitza l'Open Conference System</message>
+	<message key="installer.reinstallAfterDatabaseError"><![CDATA[<b>Atenció:</b> Si la instal·lació falla durant la creació de la base de dades, necessitarà retirar la base de dades de l'OCS o les taules de la base abans de reinstal·lar-la .]]></message>
+	<message key="installer.overwriteConfigFileInstructions"><![CDATA[<h4>¡IMPORTANTE!</h4>
+<p>L'instal·lador no ha pogut sobreescriure automàticament l'arxiu de configuració. Abans d'usar el sistema, per favor obri l'arxiu <tt>config.inc.php</tt> amb un editor de text i reemplaci el seu contingut amb el del text esmentat més avall.</p>]]></message>
+	<message key="installer.installationComplete"><![CDATA[<p>La instal·lació de l'OCS realizada amb éxit.</p>
+<p>Pot començar a utilitzar el sistema, <a href="{$loginUrl}">identificant-se</a> amb el nom d'usuari i contrasenya introduïts en la pàgina anterior.</p>
+<p>Si desitja rebre notícies i actualitzacions, <strong>per favor, registri's a <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>.</strong> Si té alguna pregunta o comentaris, per favor vagi al <a href="http://pkp.sfu.ca/support/forum" target="_new">fòrum de discussió</a>.</p>]]></message>
+	<message key="installer.upgradeComplete"><![CDATA[<p>L'actualització de l'OCS a la versió {$version} s'ha completat satisfactòriament.</p>
+<p>No oblidi posar l'opció "installed" del fitxer de configuració config.inc.php en <i>On</i>.</p>
+<p>Si encara no s'ha inscrit i desitja rebre notícies i actualitzacions, <strong>per favor, registri's a <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>.</strong> Si té alguna pregunta o comentari, per favor consulti <a href="http://pkp.sfu.ca/support/forum" target="_new">el fòrum de suport tècnic</a>.</p>]]></message>
+
+
+	<!-- Paper Logs -->
+	<message key="log.default.abstractPeriodExpired">La finestra per a l'enviament de resums de treballs incomplets {$paperId} ha expirat. El treball s'ha retirat.</message>
+	<message key="log.default.paperPeriodExpired">La finestra per a la tramesa de treballs incomplets {$paperId} ha expirat. El treball s'ha retirat.</message>
+	<message key="log.author.abstractSubmitted">{$authorName} ha enviat un resum, ID {$submissionId}.</message>
+	<message key="log.author.presentationSubmitted">{$authorName} ha dipositat una presentació, ID {$submissionId}.</message>
+	<message key="log.author.documentRevised">{$authorName} ha revisat el treball {$paperId}. El nou ID de l'arxiu és {$fileId}.</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} s'ha assignat {$paperId} per a revisió {$stage}.</message>
+	<message key="log.review.reviewerUnassigned">{$reviewerName} no s'ha assignat {$paperId} per a revisió {$stage}.</message>
+	<message key="log.review.reviewInitiated">El pas {$stage} de revisió {$reviewerName} de la tramesa {$paperId} ha començat.</message>
+	<message key="log.review.reviewReinitiated">El pas {$stage} de revisió per{$reviewerName} de la tramesa {$paperId} s'ha reiniciat.</message>
+	<message key="log.review.reviewCancelled">El pas {$stage} de revisió  per {$reviewerName} de la tramesa {$paperId} s'ha cancel·lat.</message>
+	<message key="log.review.reviewCleared">El pas {$stage} de revisió per {$reviewerName} de la tramesa {$paperId} ha finalitzat.</message>
+	<message key="log.review.reviewerRated">{$reviewerName} ha acceptat per al pas {$stage} de la revisió de la tramesa {$paperId}.</message>
+	<message key="log.review.reviewDueDateSet">La data per al pas {$stage} de revisió del treball {$paperId} per {$reviewerName} s'ha establert en {$dueDate}.</message>
+	<message key="log.review.reviewRecommendationSet">La recomanació per al pas {$stage} de la revisió del treball {$paperId} realitzada per {$reviewerName} ha estat efectuada.</message>
+	<message key="log.review.reviewRecommendationSetByProxy">La recomanació per al pas {$stage} de la revisió del treball {$paperId} s'ha enviat al director, {$directorName}, de part del revisor, {$reviewerName}.</message>
+	<message key="log.review.resubmit">El treball {$paperId} s'ha enviat de nou per a revisió.</message>
+	<message key="log.review.reviewDeclined">{$reviewerName} ha declinat la invitació {$stage} a revisar el treball {$paperId}.</message>
+	<message key="log.review.reviewAccepted">{$reviewerName} ha acceptat {$stage} la revisió del treball {$paperId}.</message>
+	<message key="log.review.reviewAcceptedByProxy">{$userName} ha acceptat {$stage} la revisió del trball {$paperId} en nom de {$reviewerName}.</message>
+	<message key="log.review.reviewFileByProxy">El Director, {$userName}, ha dipositat el fitxer de revisió {$stage} del treball {$paperId} en nom del revisor, {$reviewerName}.</message>
+	<message key="log.review.reviewerFile">S'ha dipositat un arxiu d'un revisor.</message>
+	<message key="log.director.decision">La decisió sobre la publicació ({$decision}) del treball {$paperId} la va enregistrar {$directorName}.</message>
+	<message key="log.director.publish">El treball s'ha publicat.</message>
+
+	<message key="log.director.metadataModified">Les metadades d'aquest treball les ha modificat {$directorName}.</message>
+	<message key="log.director.directorFile">S'ha dipositat una versió del director corresponent al seu treball.</message>
+	<message key="log.director.archived">El treball {$paperId} ha estat arxivat.</message>
+	<message key="log.director.restored">El treball {$paperId} està de nou a la cua.</message>
+	<message key="log.director.directorAssigned">{$directorName} ha estat assignat com a director de la tramesa {$paperId}.</message>
+	<message key="log.director.submissionExpedited">{$directorName} ha tramés la versió editada del treball {$paperId}.</message>
+	<message key="log.layout.layoutFileSet">{$directorName} ha formatat el treball {$paperId}.</message>
+
+	<!-- Conference log entries -->
+	<message key="log.deadline.submissionDeadlinePassed">La data de trameses de treballs ha expirat.</message>
+	<message key="log.deadline.presentationsReleasedToParticipants">Les presentacions estan disponibles per als participants.</message>
+	<message key="log.deadline.presentationsReleasedToPublic">Les presentacions s'han obert al públic en general.</message>
+		
+	<message key="log.timeline.publicationStateChanged">L'estat de la publicació ha passat de {$oldPublicationState} a {$newPublicationState}.</message>
+	<message key="log.timeline.submissionStateChanged">L'estat de la tramesa ha passat de {$oldSubmissionState} a {$newSubmissionState}.</message>
+	<message key="log.timeline.startDateChanged">La conferència ha canviat la data d'inici de {$oldStartDate} a {$newStartDate}.</message>
+	<message key="log.timeline.endDateChanged">La data de finalització de la conferència ha canviat de {$oldEndDate} a {$newEndDate}.</message>
+	<message key="log.timeline.regReviewerOpenDateChanged">La data d'inscripció ha canviat de {$oldRegReviewerOpenDate} a {$newRegReviewerOpenDate}.</message>
+	<message key="log.timeline.regReviewerCloseDateChanged">la data de tancament d'inscripció ha canviat de {$oldRegReviewerCloseDate} a {$newRegReviewerCloseDate}.</message>
+	<message key="log.timeline.regAuthorOpenDateChanged">La data d'inici d'inscripció per als autors ha canviat de {$oldRegAuthorOpenDate} a {$newRegAuthorOpenDate}.</message>
+	<message key="log.timeline.regAuthorCloseDateChanged">La data de tancament d'inscripció dels autors ha canviat de {$oldRegAuthorCloseDate} a {$newRegAuthorCloseDate}.</message>
+	<message key="log.timeline.showCFPDateChanged">La data del "call for papers" ha canviat de {$oldShowCFPDate} a {$newShowCFPDate}.</message>
+	<message key="log.timeline.submissionsOpenDateChanged">La data de tramesa de treballs ha canviat de {$oldSubmissionsOpenDate} a {$newSubmissionsOpenDate}</message>
+	<message key="log.timeline.submissionsCloseDateChanged">La data de tramesa de treballs ha canviat de {$oldSubmissionsCloseDate} a {$newSubmissionsCloseDate}</message>
+	<message key="log.timeline.postAbstractsDateChanged">La data de tramesa de resums ha canviat de {$oldPostAbstractsDate} a {$newPostAbstractsDate}.</message>
+	<message key="log.timeline.postAbstractsChanged">La publicació de resums ha canviat de {$oldPostAbstracts} a {$newPostAbstracts}.</message>
+	<message key="log.timeline.postPapersDateChanged">La data de publicació de treblls ha canviat de {$oldPostPapersDate} a {$newPostPapersDate}.</message>
+	<message key="log.timeline.postPapersChanged">Els treballs publicats han canviat de {$oldPostPapers} a {$newPostPapers}.</message>
+	<message key="log.timeline.delayOpenAccessDateChanged">La data per a l'accés obert ha canviat de {$oldDelayOpenAccessDate} a {$newDelayOpenAccessDate}.</message>
+	<message key="log.timeline.delayOpenAccessChanged">L'embargament dels treballs fins a l'accés obert ha canviat de {$oldDelayOpenAccess} a {$newDelayOpenAccess}.</message>
+	<message key="log.timeline.closeCommentsDateChanged">La data de finalització de comentaris ha canviat de {$oldCloseCommentsDate} a {$newCloseCommentsDate}.</message>
+	<message key="log.timeline.closeCommentsChanged">El tancament de comentaris ha canviat de {$oldCloseComments} a {$newCloseComments}.</message>
+	
+	<!-- Reading Tools entries -->
+
+
+	<!-- RT Settings -->
+	<message key="rt.admin.settings">Configuració de les lectures recomanades</message>
+
+	<message key="rt.admin.rtEnable">Per a activar les Eines de Lectura, seleccioni les opcions, trii el camp per als articles relacionats i faci els canvis que convingui.</message>
+	<message key="rt.admin.settings.description">Les Eines de Lectura apareixen en un marc, al costat dels articles publicats en les seccions de la conferència que s'han indexat. Les Eines de Lectura consisteixen en una sèrie d'eines opcionals relacionades amb els articles publicats, llistades abaix, i una sèrie d'eines que permeten l'accés als articles, organitzats per àrea i disciplina.</message>
+	<message key="rt.admin.settings.enableReadingTools">Activar Eines de Lectura per a determinades seccions de la conferència.</message>
+	<message key="rt.admin.settings.relatedItems">Articles relacionats amb aquesta disciplina</message>
+
+	<message key="rt.admin.options">Eines opcionals</message>
+
+	<message key="rt.admin.settings.bibFormat">Format de la bibliografia</message>
+	<message key="rt.admin.settings.addComment">Afegir comentari (permet als lectors enviar comentaris, que el Director pot esborrar. Aquesta opció ha d'activar-se en el pas 2 de la Configuració "Comentaris de Lectors").</message>
+
+	<!-- RT Versions -->
+
+	<!-- RT Contexts -->
+
+	<!-- RT Searches -->
+
+	<message key="rt.admin.validateUrls.description"><![CDATA[És probable que més abaix es mostrin URL no vàlides per als llocs de recerca.<br/>
+Ha de comprovar manualment que la URL assenyalada no és vàlida, ja que l'exactitud d'aquest test no ho és al 100%.<br/>
+La validacio d'URL pot fallar si es requereix la tramesa de dades.]]></message>
+
+	<!-- RT Entities -->
+
+
+
+
+	<message key="rt.metadata.dublinCore.primaryAuthor">Creador</message>
+
+	<message key="rt.metadata.pkp.primaryAuthor">Nom de l'autor, afiliació, país</message>
+	<message key="rt.metadata.pkp.peerReviewed">Treball revisat</message>
+
+
+	<message key="rt.captureCite.available">Disponible:</message>
+	<message key="rt.captureCite.capture">Descarrega la referència</message>
+	<message key="rt.captureCite.acaoLocation">Amèrica del Nord</message>
+	<message key="rt.captureCite.capture.endNote"><![CDATA[<a href="]]>{$url}<![CDATA[">EndNote</a> - Format EndNote  (Macintosh &amp; Windows)]]></message>
+	<message key="rt.captureCite.capture.referenceManager"><![CDATA[<a href="]]>{$url}<![CDATA[">Reference Manager</a> - Format RIS (Solament per al Windows)]]></message>
+	<message key="rt.captureCite.capture.proCite"><![CDATA[<a href="]]>{$url}<![CDATA[">ProCite</a> - Format RIS (Macintosh &amp; Windows)]]></message>
+
+	<message key="rt.beNotifiedWhen">Notifica quan...</message>
+
+	<message key="rt.thisConference">Cerca esdeveniment</message>
+
+	<message key="rt.comments.commentsClosed">† Els comentaris es varen tancar el {$closeCommentsDate}</message>
+
+	<message key="rt.context.authorTermsDescription">Per als articles amb més d'un autor, deixi tots els noms a cercar per similitud amb el treball compartit, o busqui d'un en un, seleccionant un sol nom. Per a saber més sobre les fonts oposades, seleccioni 'QUANT A'. La documentació s'ha seleccionat per la seva rellevància i pel seu accés obert (lliure) a tot o part dels seus continguts.</message>
+
+
+	<!--
+	 *
+	 * MISC - Entries that do not belong in the other sections.
+	 *
+	-->
+	<!-- Icons: Default "alt" text -->
+	<message key="icon.small.alt">Petit</message>
+	<message key="icon.medium.alt">Mitjà</message>
+	<message key="icon.large.alt">Gran</message>
+
+	<!-- Debug messages -->
+
+	<!--
+	 *
+	 * DEFAULT - Default settings for setup items.
+	 *
+	-->
+	<message key="default.conferenceSettings.copyrightNotice"><![CDATA[Els autors que enviïn algun treball a la conferència estan d'acord amb els següents termes:<br/>
+<b>a)</b>&nbsp; Els autors retenen el copyright dels seus treballs, i autoritzen a l'organització de la conferència que els seus treballs es publiquin amb la llicència <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons de Reconeixement</a>, que permet a tercers el lliure accés als fitxers, usar i compartir els treballs, amb el reconeixement de l'autoria i com primer punt de referència de la seva presentació, aquesta conferència.<br/>
+<b>b)</b>&nbsp;Els autors renuncien als termes de la llicència CC i en un text a part, assenyalen els termes de l'acord per a la distribució no exclusiva i ulterior publicació d'aquest treball (p.ex. publicar en una versió revisada en una revista, dipositar-lo en un repositori institucional o publicar-lo en un llibre), amb el reconeixement, com primer punt de referència de la seva presentació, aquesta conferència.<br/>
+<b>c)</b>&nbsp; Addicionalment, es recomana als autors, a dipositar i compartir els seus treballs a través de la web (p.ex. en repositoris institucionals o en les seves pàginas web) bé abans o després de la conferència.]]></message>
+
+	<message key="default.schedConfSettings.checklist.notPreviouslyPublished">El treball enviat ni s'ha publicat prèviament, ni s'ha enviat a altre congrés per a la seva avaluació (o es fa un aclariment en l'apartat comentaris al Director).</message>
+	<message key="default.schedConfSettings.checklist.fileFormat">El fitxer enviat està en format OpenOffice, Microsoft Word, RTF, WordPerfect o OpenOffice Writer.</message>
+	<message key="default.schedConfSettings.checklist.addressesLinked"><![CDATA[totes les adreces URL del text (p.ex. <a href="http://pkp.sfu.ca">http://pkp.sfu.ca</a>) estan actives llestes per a utilitzar.]]></message>
+	<message key="default.schedConfSettings.checklist.submissionAppearance">El text ha d'enviar-se amb interlineat senzill, amb una grandària de lletra de 12 punts; utilitzi cursiva, en lloc de subratllat (excepte amb adreces URL); totes les imatges, figures i taules s'insereixen en el text en el lloc adequat, en lloc de posar-les totes al final.</message>
+	<message key="default.schedConfSettings.checklist.anonymous">Quan s'envia a avaluar, els noms dels autors i l'any s'eliminen, s'utilitzarà "Autor" i any usat en la bibliografia i notes a peu de pàgina, en lloc dels noms dels autors, títol del treball, etc.</message>
+	<message key="default.schedConfSettings.checklist.personalInformationRemoved">Quan s'envia a revisió, tots els arxius de text (incloent els fitxers addicionals) es guarden anant al menú Arxius i seleccionant "Anomena i desa"; prement eines (o opcions en Mac); Prement Seguretat; seleccionant "Sostreure informació personal de les propietats del fitxer en desar-lo" i prement Desa.</message>
+	<message key="default.conferenceSettings.privacyStatement">Els noms i adreces de correu introduïts s'usaran exclusivament amb les fins d'aquesta Conferència i no es facilitaran a tercers.</message>
+	<message key="default.conferenceSettings.authorSelfArchivePolicy">Els autors estan autoritzats a dipositar els seus treballs en pàginas personals o repositoris institucionals abans i després d'aquesta Conferència (mentre es faciliti la referència bibliogràfica).</message>
+	<message key="default.conferenceSettings.emailSignature"><![CDATA[________________________________________________________________________
+{$conferenceName}
+{$conferenceUrl}
+]]></message>
+	<message key="default.conferenceSettings.forReaders"><![CDATA[Recomanem als lectors que acceptin el servei d'alerta dels treballs que es dipositen en aquesta conferència. Recomanem que llegeixi a <a href="{$aboutUrl}">"Quant a aquesta Conferència"</a> la pàgina sobre les polítiques de la conferència, i visiti la <a href="{$conferenceUrl}">Pàgina d'Inici</a> per a veure les conferències que s'acosten.]]></message>
+	<message key="default.conferenceSettings.forAuthors"><![CDATA[Està interessat a fer una tramesa a aquesta conferència? Recomanem que llegeixi <a href="{$aboutUrl}">"Quant a aquesta Conferència"</a> la pàgina sobre les polítiques de la conferència, i visiti la <a href="{$conferenceUrl}">Pàgina d'Inici</a> per a veure les conferències que s'acosten.]]></message>
+	<message key="default.conferenceSettings.lockssLicense"><![CDATA[Aquesta conferència utilitza el sistema LOCKSS per a crear un sistema d'arxius distribuïts entre les biblioteques participants, i permet a aquestes biblioteques crear fitxers permanents de la conferència amb fins de preservació i restabliment. <a href="http://lockss.stanford.edu/">Més...</a>]]></message>
+
+	<message key="default.schedConfSettings.emailSignature"><![CDATA[________________________________________________________________________
+{$conferenceName} {$schedConfName}
+{$schedConfUrl}
+]]></message>
+	<message key="default.schedConfSettings.checklist.bibliographicRequirements"><![CDATA[El text ha de tenir el format i estil de referències bibliogràfiques descrit a <a href="{$authorGuidelinesUrl}">Instruccions per a Autors</a>, que es troben al menú "Quant a aquesta Conferència".]]></message>
+	<message key="default.schedConfSettings.forReaders"><![CDATA[Recomanem que els lectors optin per l'enviament de notificació de l'enviament de nous treballs a aquesta conferència. Utilitzi l'enllaç <a href="{$accountUrl}">Compte</a> situat a la part superior de la pàgina d'inici del conferència. Això permet a la conferència una col·laboració a nivell d'usuaris-lectors. Consulti la <a href="{$privacyStatementUrl}"> Declaració de Privacitat</a> de la conferència, que assegura que la identitat dels lectors i la seva adreça electrònica no s'usaran amb altres fins.]]></message>
+	<message key="default.schedConfSettings.forAuthors"><![CDATA[està interessat a enviar un treball a aquesta conferència? li recomananem que consulti a <a href="{$aboutUrl}">"Quant a aquesta Conferència"</a> per a conèixer les polítiques de la mateixa, així com les <a href="{$authorGuidelinesUrl}">Instruccions per a Autors</a>. Els autors han de <a href="{$accountUrl}">crear un compte</a> a la web de la conferència abans de fer la tramesa, i si ja disposen d'ella, simplement han de <a href="{$loginUrl}">accedir</a> al sistema i iniciar la tramesa.]]></message>
+
+</locale>

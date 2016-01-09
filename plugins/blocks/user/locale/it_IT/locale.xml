@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the it_IT locale.
+  *
+  * $Id$
+  -->
+ 
+<locale name="it_IT" full_name="Italiano">
+	<message key="plugins.block.user.displayName">Blocco dell'utente</message>
+	<message key="plugins.block.user.description">Questo plugin fornisce strumenti per l'account dell'utente alla barra laterale (es. login, logout, link al profilo, ecc).</message>
+	<message key="plugins.block.user.loggedInAs">Hai effettuato il log in come...</message>
+	<message key="plugins.block.user.myConferences">Le mie conferenze</message>
+	<message key="plugins.block.user.myProfile">Il mio profilo</message>
+	<message key="plugins.block.user.logout">Log out</message>
+	<message key="plugins.block.user.signOutAsUser">Log out come utente</message>
+	<message key="plugins.block.user.rememberMe">Memorizzami</message>
+</locale>

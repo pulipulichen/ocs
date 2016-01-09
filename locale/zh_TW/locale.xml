@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the zh_TW (正體中文) locale.
+  *正體中文由 陳文誌 (長庚大學工業設計系) 與 莊惠茹 共同翻譯 (V1 @ 20080515)
+  * $Id$
+  -->
+
+<locale name="zh_TW" full_name="正體中文">
+	<!--
+	 * This file is organized into several major sections, separated
+	 * by comments like this one. These sections are called:
+	 *  COMMON - Contains frequently-used words
+	 *  ENTITIES - Contains terms pertaining to the system's major
+	 *             entities, e.g. Paper, Conference, Track
+	 *  INTERFACE - Contains phrases organized by the section of the
+	 *              user interface they appear in.
+	 *  LOG - Contains phrases related to log entries
+	 *  MISC - Entries that don't belong elsewhere.
+	 *  DEFAULT - Default settings for configuration items.
+	-->
+
+	<!--
+	 *
+	 * COMMON - This section contains the most frequently-used words
+	 *
+	-->
+
+	<!-- Common Messages -->
+	<message key="common.openConferenceSystems">OCS會議管理系統</message>
+	<message key="common.noDate">(日期)</message>
+	<message key="common.days">日</message>
+	<message key="common.timeZone">時差</message>
+	<message key="common.ellipsis">...</message>
+	<message key="common.path">路徑</message>
+	<message key="common.dateTimeSeparator">向</message>
+	<message key="common.ccLicense"><![CDATA[
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="{$ccLicenseImageUrl}"/>
+		</a>
+		<br/>
+		This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">本站內容</span> 採用創用 CC 權 <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/deed.zh_TW">Creative Commons Attribution 3.0  License</a>.
+	]]></message>
+
+	<!-- Common Form Messages -->
+
+	<!-- Common Email Messages -->
+
+	<!-- Common Localization Terms -->
+
+	<!-- Common Error Messages -->
+
+	<!-- Navigation -->
+	<message key="navigation.conferenceHelp">研討會協助</message>
+	<message key="navigation.loggedInAs">您登入的名稱為...</message>
+	<message key="navigation.logout">登出</message>
+	<message key="navigation.account">帳號</message>
+	<message key="navigation.archive">稿件檔案庫 (已歸檔)</message>
+	<message key="navigation.current">目前研討會</message>
+	<message key="navigation.otherConferences">其他研討會</message>
+	<message key="navigation.myProfile">我的個人資料</message>
+	<message key="navigation.myConferences">我的研討會</message>
+	<message key="navigation.conferenceContent">研討會內容</message>
+	<message key="navigation.browseByConference">根據研討會</message>
+	<message key="navigation.browseByAuthor">根據作者</message>
+	<message key="navigation.info">資訊</message>
+	<message key="navigation.infoForAuthors">給作者</message>
+	<message key="navigation.infoForReviewers">給審稿者</message>
+	<message key="navigation.infoForAuthors.long">給作者的相關資訊</message>
+	<message key="navigation.infoForReviewers.long">給審稿者的相關資訊</message>
+	<message key="navigation.fontSize">字型大小</message>
+
+	<!-- Paper Queues -->
+	<message key="common.queue.long.submissionsUnassigned">未派職務的</message>
+	<message key="common.queue.short.submissionsUnassigned">未派職務的</message>
+	<message key="common.queue.long.submissionsInReview">投稿建議</message>
+	<message key="common.queue.short.submissionsInReview">審查中</message>
+	<message key="common.queue.long.submissionsAccepted">發表</message>
+	<message key="common.queue.short.submissionsAccepted">發表</message>
+	<message key="common.queue.long.submissionsArchives">稿件檔案庫 (已歸檔)</message>
+	<message key="common.queue.short.submissionsArchives">稿件檔案庫 (已歸檔)</message>
+	<message key="common.queue.long.active">進行中的稿件</message>
+	<message key="common.queue.short.active">進行中的稿件</message>
+	<message key="common.queue.long.completed">稿件檔案庫 (已歸檔)</message>
+	<message key="common.queue.short.completed">稿件檔案庫 (已歸檔)</message>
+
+	<!--
+	 *
+	 * ENTITIES - This section contains terms pertaining to the system's
+	 *            major entities, e.g. Paper, Conference, Track
+	 *
+	-->
+
+	<!-- Common Track Terms -->
+	<message key="track.track">主題</message>
+	<message key="track.tracks">研討會主題</message>
+	<message key="track.title">主題名稱</message>
+	<message key="track.abbreviation">簡略</message>
+	<message key="track.abbreviation.example">(例如, General Papers=GEN)</message>
+	<message key="track.default.title">ㄧ般論文</message>
+	<message key="track.default.abbrev">GEN</message>
+	<message key="track.default.policy"></message>
+
+	<!-- Common Paper Terms -->
+	<message key="paper.papers">文章</message>
+	<message key="paper.submissionId">繳交身份</message>
+	<message key="paper.title">題目</message>
+	<message key="paper.authors">作者</message>
+	<message key="paper.conferenceTrack">研討會主題</message>
+	<message key="paper.file">檔案</message>
+	<message key="paper.suppFile">附加檔案</message>
+	<message key="paper.suppFiles">附加檔案</message>
+	<message key="paper.suppFilesAbbrev">附加檔案</message>
+	<message key="paper.discipline">學術領域及次領域</message>
+	<message key="paper.subjectClassification">主題分類</message>
+	<message key="paper.subject">關鍵字</message>
+	<message key="paper.coverage">含蓋範圍</message>
+	<message key="paper.coverageGeo">Geo-空間覆蓋範圍</message>
+	<message key="paper.coverageChron">依時間前後排列記載或歷史的覆蓋範圍coverage</message>
+	<message key="paper.coverageSample">研究實例特徵</message>
+	<message key="paper.type">類別</message>
+	<message key="paper.language">語言</message>
+	<message key="paper.trackDirector">主題主編</message>
+	<message key="paper.commentsToDirector">作者建議</message>
+	<message key="paper.submission">投稿</message>
+	<message key="paper.submissions">投稿</message>
+	<message key="paper.abstract">摘要</message>
+	<message key="paper.details">細節</message>
+	<message key="paper.location">位置</message>
+	<message key="paper.time">時間</message>
+
+	<!-- Submission Tracking - Common -->
+	<message key="submission.fromTime">從</message>
+	<message key="submission.toTime">給</message>
+	<message key="submission.abstractReview">摘要建議</message>
+	<message key="submission.paperReview">審查結果</message>
+	<message key="submission.page.abstractReview">#{$id} 摘要建議</message>
+	<message key="submission.page.paperReview">#{$id} 審查結果</message>
+	<message key="submission.uploadFile">上傳檔案</message>
+	<message key="submission.changeTrack">更改為</message>
+	<message key="submission.acceptance">同意審查</message>
+	<message key="submission.complete.description">在已接受發表者的名單上增加提議</message>
+	<message key="submission.directorDecision">審查結果</message>
+	<message key="submission.stage">步驟 {$stage}</message>
+	<message key="submission.directorReview">審查主編</message>
+	<message key="submission.notifyAuthor">通知作者</message>
+	<message key="submission.notifyDirector">通知主編</message>
+	<message key="submission.directorAuthorRecord">主編/作者電子郵件紀錄</message>
+	<message key="submission.directorVersion">主編改編後的版本</message>
+	<message key="submission.authorsRevisedVersion">作者修改後的版本</message>
+	<message key="submission.authorVersion">作者修改的版本</message>
+	<message key="submission.layout.description">這個步驟可以使用來編排計畫提案或者來改變檔案形式不管是在將提議寄給發表者之前或之後。</message>
+
+	<message key="submission.paperType">文章類別</message>
+	<message key="submission.paperType.single">個別發表</message>
+	<message key="submission.paperType.panel">專題小組發表</message>
+
+
+	<message key="submissions.track">主題</message>
+	<message key="submissions.queuedAbstractReview">摘要回顧</message>
+	<message key="submissions.queuedPaperReview">文章回顧</message>
+	<message key="submissions.published">投寄</message>
+	<message key="submissions.accepted">接受</message>
+	<message key="submissions.reviewStage">審查階段</message>
+	<message key="submissions.reviewType">審查類別</message>
+	<message key="submissions.pendingPresentation">等待上傳</message>
+	<message key="submissions.expired">終止</message>
+	<message key="submissions.directorDecision">主編判決</message>
+	<message key="submissions.directorRuling">主編規則</message>
+	<message key="trackDirector.galley.replaceGalley">取代檔案</message>
+	<message key="submission.abstract">摘要</message>
+	<message key="submission.paper">文章</message>
+
+	<!-- Submission list search engine -->
+
+	<!-- Submission Notes -->
+
+	<!-- Common Conference Terms -->
+	<message key="conference.conferences">研討會</message>
+	<message key="conference.conference">研討會</message>
+
+	<!-- Common Scheduled Conference Terms -->
+	<message key="schedConf.scheduledConferences">預定的會議</message>
+	<message key="schedConf.noScheduledConferences">無預定的會議</message>
+	<message key="schedConf.schedConf">預定的會議</message>
+	<message key="schedConf.contents">研討會資訊</message>
+	<message key="schedConf.overview">概要</message>
+	<message key="schedConf.trackPolicies">主題方針</message>
+	<message key="schedConf.program">議程</message>
+	<message key="schedConf.cfp">徵稿</message>
+	<message key="schedConf.discussion">商討</message>
+	<message key="schedConf.registration">註冊</message>
+	<message key="schedConf.supporters">組織者及協助與贊助單位</message>
+	<message key="schedConf.timeline">時間安排</message>
+	<message key="schedConf.schedule">研討會時間表</message>
+	<message key="schedConf.links">相關聯結</message>
+	<message key="schedConf.presentations">發表者及作者</message>
+	<message key="schedConf.presentations.short">發表</message>
+	<message key="schedConf.abstract">摘要</message>
+	<message key="schedConf.submission">投稿</message>
+	<message key="schedConf.submissions">提交</message>
+
+	<message key="schedConf.cfp.title">{$schedConfAbbrev} 徵稿</message>
+	<message key="schedConf.overview.title">{$schedConfAbbrev} 概要</message>
+	<message key="schedConf.presentations.title">{$schedConfAbbrev} 發表者及作者</message>
+	<message key="schedConf.program.title">{$schedConfAbbrev} 議程</message>
+	<message key="schedConf.trackPolicies.title">{$schedConfAbbrev} 主題方針</message>
+
+	<!-- User self-registration form -->
+	<message key="schedConf.registration.alreadyRegistered">您已在此研討會註冊，但仍未確認您的註冊費。若有錯誤或是您想變更您的註冊內容，請在“關於”內聯繫相關人員。</message>
+	<message key="schedConf.registration.alreadyRegisteredAndPaid">您已在此研討會註冊並付費。 若有錯誤或是您想變更您的註冊內容，請在“關於”內聯繫相關人員。</message>
+	<message key="schedConf.registration.noPaymentMethodAvailable">您的註冊被記錄了。 若有需要，本研討會將會主動聯絡您有關註冊費的繳交事宜。</message>
+	<message key="schedConf.registration.conferenceFees">註冊費</message>
+	<message key="schedConf.registration.type">註冊類別</message>
+	<message key="schedConf.registration.cost">費用</message>
+	<message key="schedConf.registrationTypes.noneAvailable">無可利用之註冊類別.</message>
+	<message key="schedConf.registration.register">註冊者</message>
+	<message key="schedConf.registration.typeCloses">(關閉 {$closingDate})</message>
+	<message key="schedConf.registration.typeClosed">(註冊關閉 {$closingDate})</message>
+	<message key="schedConf.registration.feeCode">費用代碼</message>
+	<message key="schedConf.registration.feeCode.description">如果您被給了一個秘密代碼來註冊, 請進入這裡並確認您已正確選擇了上面的註冊類型。</message>
+	<message key="schedConf.registration.specialRequests">特殊要求</message>
+	<message key="schedConf.registration.specialRequests.description">請描述任何特殊的要求或請求，例如飲食、通行等等。</message>
+	<message key="schedConf.registration.account">使用者帳號</message>
+	<message key="schedConf.registration.loggedInAs"><![CDATA[您目前已登入。下列的帳號訊息核對無誤，若為錯誤請改正 。 <a href="{$profileUrl}">我的簡介</a> 或 <a href="{$logoutUrl}">登出</a> 使用其他帳號。]]></message>
+	<message key="schedConf.registration.createAccount.description"><![CDATA[您目前未登入。若要註冊此研討會，您需要一個帳號。若您已經有一個帳號，<a href="{$loginUrl}">請點這裡</a>登入；否則請再下列欄位填入資訊來建立一個新帳號。]]></message>
+	<message key="schedConf.registration."></message>
+
+	<!-- User -->
+	<message key="user.showAllConferences">列出我的研討會</message>
+	<message key="user.createAccount">建立</message>
+	<message key="user.url.description">這將如同一個網路超連結，出現在 "關於作者" 內的聲明底部和 "組織團隊" 的彈出頁面。</message>
+	<message key="user.createAccountForOtherConferences">在其他研討會建立一個帳號?</message>
+	<message key="user.myConferences">我的研討會</message>
+
+	<!-- Roles -->
+	<message key="user.role.manager">會議管理者</message>
+	<message key="user.role.director">會議主席</message>
+	<message key="user.role.trackDirector">主題主編</message>
+	<message key="user.role.author">作者</message>
+
+	<message key="user.role.managers">會議管理者</message>
+	<message key="user.role.directors">會議主席</message>
+	<message key="user.role.trackDirectors">主題主編</message>
+	<message key="user.role.authors">作者</message>
+
+	<!--
+	 *
+	 * LOG - This section contains entries related to log entries.
+	 *
+	-->
+	
+	<message key="event.logType.paper">文章</message>
+	<message key="event.logType.author">作者</message>
+	<message key="event.logType.director">主編</message>
+	<message key="event.logType.review">審查</message>
+	<message key="event.logType.conference">研討會</message>
+
+	<message key="event.eventLog">結果日誌</message>
+	<message key="event.logLevel">等級</message>
+	
+	<message key="event.logLevel.info">資訊</message>
+	<message key="event.logLevel.notice">通告</message>
+	<message key="event.logLevel.warning">警示</message>
+	<message key="event.logLevel.error">錯誤</message>
+
+	<message key="event.general.defaultEvent">投稿結果</message>
+	
+	<!-- Submission events -->
+	
+	<message key="submission.event.general.abstractSubmitted">摘要繳交</message>
+	<message key="submission.event.general.presentationSubmitted">發表媒体繳交</message>
+	<message key="submission.event.general.paperPublished">已被發表之文章</message>
+
+	<message key="submission.event.presenter.authorRevision">作者修正後文稿</message>
+
+	<message key="submission.event.general.authorRevision">作者更新修正後的檔案</message>
+
+	<message key="submission.event.director.directorAssigned">主編被指派到的負責主題</message>
+	<message key="submission.event.director.directorUnassigned">主編尚未被指派負責的主題</message>
+	<message key="submission.event.director.directorDecision">主編決定遞交了</message>
+	<message key="submission.event.director.directorFile">主編的文件已被更新</message>
+	<message key="submission.event.director.submissionArchived">將論文歸檔</message>
+	<message key="submission.event.director.submissionRestored">從檔案庫中取出檔案</message>
+
+
+	<!-- Conference events -->
+	<message key="conference.event.general.configuration">研討會的配置已被改變</message>
+	<message key="conference.event.general.deadline">研討會通過最後期限</message>
+
+	<!--
+	 *
+	 * INTERFACE - Contains phrases organized by the section of the
+	 *             user interface they appear in.
+	 *
+	-->
+
+	<!-- Reader paper view -->
+	<message key="reader.fullTextNotAvailable">研討會論文尚未開放。</message>
+	<message key="reader.fullTextRegistrationRequired">本研討會需要註冊才能查看文章。</message>
+	<message key="reader.fullTextAccountRequired"><![CDATA[為了查看文章，必須在此網站有ㄧ個帳號。 <a href="{$registerUrl}">Click here</a> to create an account.]]></message>
+	<message key="reader.fullTextRegistrantsOnlyUntil">研討會將於 {$date} 開放使用.</message>
+	<message key="reader.fullTextNotPostedYet">研討會論文將於 {$date} 寄出.</message>
+
+	<!-- Reader Comments -->
+	<message key="comments.authenticated">{$userName}</message>
+	<message key="comments.commentsOnPaper">關於文章的建議</message>
+	<message key="comments.commentsClosed">建議已被關閉於 {$closeCommentsDate}.</message>
+
+	<!-- Site Administration -->
+
+	<message key="admin.settings.oaiRegistrationDescription"><![CDATA[在這一個研究資料庫的全球性地分配系統內，所有被主持過的會議內容都會在這個網站被標註，<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">註冊</a> 您的網址到開放性的全球知識專案案系統 <a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>. 這個系統會收集您的研討會系統中的metadata 傳送至 <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">點選這裡</a> 並輸入  <span class="highlight">{$siteUrl}</span> 到 <strong>Site URL</strong>, 以及 <span class="highlight">{$oaiUrl}</span> 到 <strong>Base URL for OAI Archive</strong>.
+<br /><br />
+注意OAI 接口可能因由OCS系統編輯而在此站點失效。為了各別的研討會，OCS系統的將來的版本將允許OAI接口在站點之內能啟動或失去能力。]]></message>
+
+
+
+	<!-- Languages -->
+	<message key="admin.languages.languageOptions">語言選項</message>
+	<message key="admin.languages.profileLocales">在註冊的人 (負責人、主編、審查者等等。)，為了研討會主編的利益工作語言應該包括他們的檔案資料。</message>
+
+	<message key="admin.auth.defaultSourceDescription"><![CDATA[除OCS 之外的以下作用，請詳細說明一個已確定的認證來源:
+<ul>
+	<li>如果用戶試圖在此站點使用一個使用者名稱產生一個新帳戶並在認證來源的用戶名內存在(但不是在OCS 資料庫內)，嘗試註冊只被允許在如果那個用戶帳號的密碼為合法密碼。</li>
+</ul>]]></message>
+
+	<!-- System Information -->
+	<message key="admin.overwriteConfigFileInstructions"><![CDATA[<h4>NOTE!</div>
+<p>此系統不能自動地重寫配置文件。若需要變更，您必須打開<tt>config.inc.php</tt>在適當的文本編輯程式，和用文本領域的內容替換它的內容，如下。</p>]]></message>
+
+
+	<!-- Registration Management -->
+
+	<!-- Payment Handling -->
+
+	<message key="payment.type.registration">研討會註冊</message>
+
+	<!-- Conference Event Log -->
+	<message key="conference.event.confirmClearLog">您是否確定要清除這個研討會的事件日誌嗎？</message>
+	<message key="conference.event.confirmDeleteLogEntry">您是否確定要刪除這個事件日誌的登錄嗎?</message>
+	<message key="conference.event.deleteLogEntry">刪除日誌記錄</message>
+	<message key="conference.event.backToEventLog">回到事件日誌</message>
+	<message key="conference.history.conferenceEventLog">事件日誌</message>
+	<message key="conference.history.clearLog">清除日誌</message>
+	<message key="conference.history.noLogEntries">沒有日誌記錄。</message>
+
+	<!-- Scheduled Conference Management -->
+
+	<!-- Program settings -->
+
+	<!-- Conference Management -->
+
+	<!-- Statistics & Reports -->
+
+	<message key="manager.statistics.reports.dateFrom">從</message>
+	<message key="manager.statistics.reports.dateTo">到</message>
+	<message key="manager.statistics.reports.reportType">報告類型</message>
+	<message key="manager.statistics.reports.type.conference">會議報告</message>
+	<message key="manager.statistics.reports.type.schedConf">預定的會議報告</message>
+	<message key="manager.statistics.reports.type.director">主管報告</message>
+	<message key="manager.statistics.reports.type.reviewer">審查者報告</message>
+	<message key="manager.statistics.reports.type.track">追蹤報告</message>
+	<message key="manager.statistics.reports.generate">ㄧ般報告</message>
+	<message key="manager.statistics.reports.status">狀態 (被接受、被刪除，其他)</message>
+	<message key="manager.statistics.reports.dateDecided">時間選擇</message>
+	<message key="manager.statistics.reports.author">作者 #{$num}</message>
+	<message key="manager.statistics.reports.affiliation">戶籍 #{$num}</message>
+	<message key="manager.statistics.reports.country">國家 #{$num}</message>
+	<message key="manager.statistics.reports.reviewer">審查者 #{$num}</message>
+	<message key="manager.statistics.reports.director">主管 #{$num}</message>
+	<message key="manager.statistics.reports.score">分數 #{$num}</message>
+	<message key="manager.statistics.reports.singleScore">分數</message>
+	<message key="manager.statistics.reports.recommendation">推薦 #{$num}</message>
+	<message key="manager.statistics.reports.daysToDecision">決策天數</message>
+	<message key="manager.statistics.reports.daysToPublication">出版 (處理) 天數</message>
+
+	<!-- Plugin Management -->
+
+	<!-- General plugin information -->
+	<message key="plugins.categories.generic.description">普通的插件在ㄧ個多變的方式，且無被其他類型插件所支持的情況下，是被用來延長開啟研討會的系統</message>
+	<message key="plugins.categories.auth.description">授權 Plugins允許開啟研討會系統來委派使用者認證任務到其他的系統，例如LDAP伺服器。</message>
+
+
+
+	
+	<!-- Files Browser -->
+
+	<!--
+	     ***
+	     *** Generic setup locale keys
+	     ***
+	-->
+	<message key="manager.setup.homeHeaderTitleImageAlt1Invalid">無效的變換網頁首頁題目圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.homeHeaderLogoImageAlt1Invalid">無效的變換網頁首頁商標圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.pageHeaderTitleImageAlt1Invalid">無效的變換頁首題目圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.pageHeaderLogoImageAlt1Invalid">無效的變換頁首題商標圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.homeHeaderTitleImageAlt2Invalid">無效的第二次變換頁首題目圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.homeHeaderLogoImageAlt2Invalid">無效的第二次變換網頁頁面標題圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.pageHeaderTitleImageAlt2Invalid">無效的第二次變換頁面標題圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.pageHeaderLogoImageAlt2Invalid">無效的第二次變換首頁商標圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+	<message key="manager.setup.finalStepSavedNotes">
+		<![CDATA[
+			<p>幾乎完成!</p>
+			<p>研討會現在已被設定，另外也許可再加上其他預定的研討會、年會，或一系列預定的研討會，這些可以從這個研討會站點一併管理。
+為了來設定此研討會的提議，請至<a href="{$schedConfSetupUrl}">Scheduled Conferences</a>。您可以在任何時候造訪研討會管理者的網頁。</p>
+			<p>您在任何時候都能跟隨連結回來至第六頁至 "使用者頁面  --> 研討會管理者 --> 安裝"。</p>
+			<p>您能通過 "使用者頁面 --> 研討會管理者 --> 安裝" 來處理預定的研討會</p>
+			]]></message>
+
+
+	<!--
+	     ***
+	     *** Website Management (a.k.a. Conference Setup)
+	     ***
+	-->
+
+	<message key="manager.setup.styleSheet">研討會樣式表</message>
+
+	<message key="manager.setup.styleSheet.title">步驟 4. 研討會樣式表</message>
+
+	<message key="manager.setup.styleSheet.brief">樣式表</message>
+
+	<message key="manager.setup.styleSheet.description">研討會頁面的串聯類型表格</message>
+
+
+	<!-- Conference setup page 1 -->
+	<message key="manager.setup.aboutConference.copyrightNotice.description"><![CDATA[著作權告示並且將會在後資料庫內，伴隨著張貼研討會的資料作聲明，作者必需讚成並傳送給研討會。
+The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">Creative Commons</a>執照，並且在下面提共一個著作權告示的樣本。]]></message>
+
+
+	<!-- Conference setup page 2 -->
+	<message key="manager.setup.additionalContent.homepageImage.description"></message>
+
+	<!-- Conference setup page 3 -->
+
+	<!-- Conference setup page 4 -->
+	<message key="manager.setup.styleSheet.conferenceStyleSheet.description">根據已預定的研討會及其站點，使用一個共同的樣式表 (位於 "風格" 站點的補充指南)。ㄧ個已預定的樣式規則可能會因上傳一個研討會特殊裝置樣式表而無效。</message>
+	<message key="manager.setup.styleSheet.useConferenceStyleSheet">研討會樣式表</message>
+
+	<!-- Conference setup page 5 -->
+
+	<!-- Conference setup page 6 -->
+	<message key="manager.setup.indexing.registerConferenceForIndexing.description"><![CDATA[在一個全球性地分配系統，被標註在研究資料庫之內而擁有這個研討會的內容<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">註冊</a>您的研討會網址與公開知識計劃的後資料庫<a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>。在這個研討會內，各個工具從各個被標註的索引項目內收集資料，使能在研究站點之中正確並共同的搜尋<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
+<br /><br />
+注意到如果您的站點管理員以PKP Harvester已經登記這個站點，您的研討會自動地被標註因而您不需要再註冊ㄧ次。
+<br /><br />
+<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">點選這裡</a> 輸入 <span class="highlight">{$siteUrl}</span> 到 <strong>Site URL</strong>, 並將 <span class="highlight">{$oaiUrl}</span> 輸入到 <strong>Base URL for OAI Archive</strong>.]]></message>
+
+	<!-- 
+	     ***
+	     *** Scheduled Conference Setup
+	     ***
+	-->
+
+
+
+
+	<!-- Scheduled Conference Setup Step 1 -->
+	<message key="manager.schedConfSetup.details.technicalSupportContact.description">這個人將會在研討會的聯絡頁內被列出供作者和評論者的使用，
+並且應有相關經驗。因為這個研討會系統要求技術上的支持不多，這應該被視為一個兼職的職務。而那裡也許是一個場合，例如：當作者和審查者有操作上或文件格式上的困難，或有其他需要來確保研討會能正常的在伺服器內被支持。</message>
+	<message key="manager.schedConfSetup.details.emailBounceAddressDisabled"><![CDATA[<strong>Note:</strong>爲啟動這個選擇，站點管理員必須
+ <tt>允許_信件_傳送者</tt>選擇在OCS 配置文件。另外伺服器配置也是必需支持此項功能(也有哪些是不可能在所有伺服器上)，會依照狀況被顯示在OCS 文獻內。]]></message>
+	<message key="manager.schedConfSetup.details.sponsors.description">組織名稱(如：學術性學會、學校研究單位，等等。)主辦研討會
+，會出現在研討會主頁，並且也可加入感謝詞的筆記。</message>
+
+	<!-- Scheduled Conference Setup Step 2 -->
+	<message key="manager.schedConfSetup.submissions.description"><![CDATA[作者可以投遞此研討會的摘要(簡短的描述演講內容)及/或較長的提案(如：論文全文、PPT簡報等等。) 投稿可以是爲一個單獨的演講 (一位或多位作者) 及/或爲一個綜合的演講單元，是由組織來分配。 除此之外，作者投遞摘要及/或演講稿時，能包括補充文件(如：資料集、參考來源資料, 相關文件等)。
+]]></message>
+	<message key="manager.schedConfSetup.submissions.subjectClassificationDescription"><![CDATA[[研討會將在網路上使用一個可利用的附屬的分類系統。.<br />
+分類系統的標題]]></message>
+
+	<!-- Scheduled Conference Setup Step 3 -->
+
+	<!-- Languages -->
+	<message key="manager.languages.alternateLocale1">供選擇地點 #1</message>
+	<message key="manager.languages.alternateLocale2">供選擇地點 #2</message>
+	<message key="manager.languages.alternativeLanguageOptions">語言選擇</message>
+	<message key="manager.languages.conferenceTitleAltLanguages">標題為圖像、頁首等將被上傳在每個研討會的語言上。</message>
+
+
+	<!-- Track Management -->
+	<message key="manager.tracks.submissionsToThisTrack">指定本主題成為研討會的投稿主題</message>
+	<message key="manager.tracks.abstractsDisabled">稿件不需摘要</message>
+
+	<!-- Timeline management -->
+
+	
+
+
+	
+
+	<!-- Import/Export -->
+
+	<!-- Groups / Organizing Team -->
+
+
+	<!-- People Management -->
+	<message key="manager.people.enrollUserAsDescription">如果沒有腳色被選擇，任一個角色在這個研討會之內使用者將被建立在系統內但不註冊。
+在任一點在使用者被建立之後角色可能是被分配或未派職務。</message>
+	<message key="manager.people.noAdministrativeRights"><![CDATA[抱歉, 您沒有本使用者的管理權限, 可能的原因為:
+		<ul>
+			<li>本使用者為網站管理員</li>
+			<li>本使用者已經在本研討會中啟用, 您不需要管理</li>
+		</ul>
+	本功能儘有網站管理員可以執行.
+	]]></message>
+
+
+	<message key="manager.people.signOutAsUser">使用者登出</message>
+
+	<!-- Email Management -->
+
+	<!-- Registration Policy Management -->
+	<message key="manager.registrationPolicies.registrationPoliciesSaved">您的註冊規範設置已被更新。</message>
+
+	<!-- Registration Type Management -->
+
+	<!-- Registration Management -->
+
+	<!-- Announcement Type Management -->
+
+	<!-- Announcements Management -->
+
+	<!-- Director -->
+
+	<!-- Navigation sidebar menu -->
+
+	<!-- Used by director in submission review / editing -->
+	<message key="director.paper.selectReviewerNotes"><![CDATA[姓名連結到審查者的個人資料。<br/>
+給分超過5 分 (Excellent).<br/>
+Weeks 為完成審查的平均時間。<br/>
+Latest 為最近一次接受審查工作的時間。<br/>
+Active 為目前被考慮或進行中的審查稿件數量。]]></message>
+
+
+
+	<!-- Track Director -->
+	<message key="trackDirector.author.confirmRenotify">通知作者他的稿件將重新開始程序。您是否確認執行此通知?</message>
+
+	<message key="trackDirector.regrets.breadcrumb">謝絕</message>
+	<message key="trackDirector.regrets.title">#{$paperId} 審查者謝絕 &amp; 取消</message>
+	<message key="trackDirector.regrets">謝絕</message>
+	<message key="trackDirector.regrets.link">觀看謝絕，取消</message>
+	<message key="trackDirector.regrets.reviewStage">同儕審查，步驟 {$stage}</message>
+	<message key="trackDirector.regrets.decisionStage">主編決策，步驟 {$stage}</message>
+	<message key="trackDirector.regrets.regretsAndCancels">審查者謝絕 &amp; 取消</message>
+	<message key="trackDirector.regrets.regret">謝絕</message>
+	<message key="trackDirector.regrets.result">結果</message>
+	<message key="trackDirector.review.enrollReviewer">登記現有使用者為審查者</message>
+	<message key="trackDirector.review.createReviewer">建立新審查者</message>
+
+	<!-- Reviewer -->
+	<message key="reviewer.completedReviews">完成</message>
+	<message key="reviewer.averageQuality">評分</message>
+
+	<!-- Used in submission review -->
+	<message key="reviewer.paper.fileToBeReviewed">審查用檔案</message>
+	<message key="reviewer.paper.notifyTheDirector">通知主編</message>
+	<message key="reviewer.paper.canDoReview">願意接受審查任務</message>
+	<message key="reviewer.paper.cannotDoReview">無法接受審查任務</message>
+	<message key="reviewer.paper.restrictedFileAccess">稿作只能在被接受審查的狀態下才可以觀看。</message>
+	<message key="reviewer.paper.submissionDirector">稿件主編</message>
+	<message key="reviewer.paper.reviewerCommentsDescription">在此輸入或貼上審查意見</message>
+	<message key="reviewer.paper.directorToEnter">主編進入</message>
+	<message key="reviewer.paper.sendReminder">寄發提醒通知</message>
+	<message key="reviewer.paper.automatic">(自動)</message>
+	<message key="reviewer.paper.selectRecommendation">選擇建議</message>
+	<message key="reviewer.paper.recommendation">建議</message>
+	<message key="reviewer.paper.submitReview">繳交番查結果給主編</message>
+	<message key="reviewer.paper.reviewerComments">意見</message>
+	<message key="reviewer.paper.uploadedFile">上傳檔案</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersion">審查者上傳的版本</message>
+	<message key="reviewer.paper.reviewersAnnotatedVersionDescription">(如果您要將您的註解檔案交給主編，請先儲存在您的硬碟中，再使用上傳功能上傳。)</message>
+	<message key="reviewer.paper.schedule.request">主編的要求</message>
+	<message key="reviewer.paper.schedule.response">您的要求</message>
+	<message key="reviewer.paper.schedule.submitted">繳交審查結果</message>
+	<message key="reviewer.paper.schedule.due">審查截止</message>
+	<message key="reviewer.paper.decision.accept">接受</message>
+	<message key="reviewer.paper.decision.pendingRevisions">需要修改</message>
+	<message key="reviewer.paper.decision.resubmitElsewhere">Submit Elsewhere</message>
+	<message key="reviewer.paper.decision.decline">拒絕</message>
+	<message key="reviewer.paper.decision.seeComments">觀看意見</message>
+	<message key="reviewer.paper.schedule">行事曆</message>
+	<message key="reviewer.paper.submissionToBeReviewed">稿件將審查</message>
+	<message key="reviewer.paper.reviewSchedule">審查行事曆</message>
+	<message key="reviewer.paper.reviewSteps">審查步驟</message>
+	<message key="reviewer.paper.reviewerGuidelines">審查原則</message>
+	<message key="reviewer.paper.reviewerInstruction1a">通知稿件主編</message>
+	<message key="reviewer.paper.reviewerInstruction1b">您將接受此審查任務。</message>
+	<message key="reviewer.paper.reviewerInstruction2">如果您接受此審查任務，請參閱以下的審查原則。</message>
+	<message key="reviewer.paper.reviewerInstruction3AbstractOnly">審查稿件所提供的摘要。</message>
+	<message key="reviewer.paper.reviewerInstruction3Submission">審查稿件。</message>
+	<message key="reviewer.paper.reviewerInstruction4a">點選圖像輸入 (或貼上) 您對本稿件的審查結果。</message>
+	<message key="reviewer.paper.reviewerInstruction4b">遵守以下的審查則。</message>
+	<message key="reviewer.paper.reviewerInstruction5">此外，您可以上傳檔案給主編或者作者參考。</message>
+	<message key="reviewer.paper.reviewerInstruction6">選擇您的建議並繳交審查結果以完成此審查程序。您必需在選擇建議前，輸入或上傳相關檔案。</message>
+	<message key="reviewer.paper.mustSelectDecision">未選擇建議，您必需選擇一個建議的選項。</message>
+	<message key="reviewer.paper.confirmDecision">當您記錄您的決策後，將無法再變更。您是否確認您將繼續?</message>
+	<message key="reviewer.paper.ensuringBlindReview">使用不具名審查機制</message>
+
+	<!-- Presenter -->
+
+
+	<!-- Paper Submission Step 1 -->
+
+
+	<!-- Paper Submission Step 2 -->
+	<message key="author.submit.metadataDescription">這個研討會會集有關各項投稿的metadata，根據由開放檔案現行的標準設置，這是&#29234;辨認研究資源設置的新線上標準。這使能橫跨OAI 資料庫集體的和準確的搜尋，增加讀者發現投稿的可能譬如這一個。主席或許堅持metadata 被提供在開始編輯建議過程之前。</message>
+	<message key="presenter.submit.authorsDescription">為了不只一位作者投稿，告知作者們他們將會出現在引用文內。</message>
+	<message key="author.submit.reorderAuthorName">重新安排作者的名字</message>
+
+	<!-- Paper Submission Step 3 -->
+	<message key="author.submit.uploadInstructions"><![CDATA[
+請完成下列步驟來上傳論文至此研討會。
+
+<ol>
+<li>在此頁面，請點選瀏覽(或選擇文件)可打開您的電腦硬碟來尋找文件檔案。</li>
+<li>確定此文件檔案是您希望投遞及最重要的投稿文件。</li>
+<li>請在此頁面檔案名稱的地方的選擇投稿文件內點選開啟。</li>
+<li>請在此頁面點選上傳，將檔案從電腦內上傳至研討會網站，並依照研討會的規定重新命名。</li>
+<li>ㄧ旦稿件上傳，請在此頁面的下方點選儲存並繼續。</li>
+</ol>
+
+文件檔案可以經由點選檔案名稱來查看。ㄧ份新的或修正過的檔案也能上傳，也能刪除目前所出現的檔案。附加檔案也能被增加為補充文件(下ㄧ步)。倘若您有上傳檔案的困難，請以電子郵件或電話聯絡尋求協助<a href="mailto:{$supportEmail}">{$supportName}</a>{$supportPhone}]]></message>
+ 
+	<!-- Paper Submission Step 4 -->
+
+	<!-- Paper Submission Step 4a: Supplementary Files -->
+
+	<!-- Paper Submission: upload file -->
+	<message key="submission.submissionFiles">投稿文件</message>
+
+	<!-- Paper Submission Step 5 -->
+
+	<!-- Used in submission review / editing -->
+
+	<!-- Submission Tracking - Layout Specific -->
+
+
+	<!-- Submission History -->
+
+	<!-- Submission Event Log -->
+
+	<!-- Submission Email Log -->
+
+	<!-- Submission Comments -->
+	<message key="submission.comments.directorAuthorCorrespondence">主編/作者 通信記錄</message>
+	<message key="submission.comments.viewableDescription"><![CDATA[本意見能夠分享給作者。<br />
+(在儲存之後仍可以再增加意見。)]]></message>
+	<message key="submission.comments.canShareWithAuthor">給作者與主編</message>
+	<message key="submission.comments.cannotShareWithAuthor">給主編</message>
+	<message key="submission.comments.blindCcReviewers">在件寄出後，同時寄送一個不具名的複本給審查者。</message>
+	<message key="submission.comments.forAuthorDirector">給作者與主編</message>
+	<message key="submission.comments.forDirector">給主編</message>
+	<message key="submission.comments.saveAndEmailAuthor">儲存並寄電子郵件給作者</message>
+	<message key="submission.comments.saveAndEmailDirector">儲存並寄電子郵件給主編</message>
+
+	<!-- Login -->
+	<message key="user.login.createAccount">還不是使用者？請在此網站建立一個帳號。</message>
+	<message key="user.login.resetPasswordInstructions"><![CDATA[為了安全起見，此系統會自動寄出ㄧ封重設密碼的信件給註冊者。
+<br /><br />請輸入您的電子郵件來重新設置您的密碼。確認信件將會送至您的電子郵件信箱內。]]></message>
+	<message key="user.login.rememberMe">記住我</message>
+
+	<!-- Profile -->
+
+	<!-- Registration -->
+	<message key="user.account.repeatPassword">重覆輸入密碼</message>
+	<message key="user.account.form.usernameExists">所選擇的使用者名稱已有其它使用者在使用。</message>
+	<message key="user.account.form.usernameAlphaNumeric">使用者名稱能包含唯一字母、數字字符、底線,，和連字號，且必須以一個字母或數字字符開始和結束。</message>
+	<message key="user.account.form.emailExists">所選擇的電子郵件已有其它使用者在使用。</message>
+	<message key="user.account.form.passwordsDoNotMatch">密碼錯誤</message>
+	<message key="user.account.selectConference">選擇一個研討會來登記</message>
+	<message key="user.account.noConferences">在這個網站裡沒有研討會可以讓您登記。</message>
+	<message key="user.account.selectSchedConf">選擇一個預定的研討會來登記</message>
+	<message key="user.account.noSchedConfs">在這個網站裡沒有預定的研討會可以讓您登記。</message>
+	<message key="user.account.createAs">創立帳號如同</message>
+	<message key="user.account.privacyStatement">保密聲明</message>
+	<message key="user.account.completeForm">請填妥以下表格來建立一個新帳號。</message>
+	<message key="user.account.hasAccount"><![CDATA[<a href="{$accountUrl}">點選這裡</a>若您已經有此研討會的帳號。]]></message>
+	<message key="user.account.hasNoAccount"><![CDATA[<a href="{$accountUrl}">點選這裡</a>若您 <strong>尚未</strong> 在此研討會設立帳號。]]></message>
+	<message key="user.account.loginToRegister">請輸入您目前的使用者名稱和密碼來建立一個新帳號。</message>
+	<message key="user.account.createAccountDisabled">這個研討會目前不接受新的使用者。</message>
+	<message key="user.account.usernameRestriction">使用者名稱必須包含唯一小寫字母、數字、和連字號/底線。</message>
+	<message key="user.account.passwordLengthRestriction">密碼必須是至少 {$length} 字符。</message>
+	<message key="user.account.form.passwordLengthTooShort">您輸入的密碼長度不夠長。</message>
+	<message key="user.account.readerDescription">由電子郵件公佈所介紹的出版物。</message>
+	<message key="user.account.openAccessNotificationDescription">當研討會已被開放時會以電子郵件來公佈。</message>
+	<message key="user.account.authorDescription">能遞交項目給研討會。</message>
+	<message key="user.account.reviewerDescriptionNoInterests">願意對於此研討會來管理同事審查投稿。</message>
+	<message key="user.account.reviewerDescription">願意對於此研討會來管理同儕審查投稿。對審查有興趣 (實質的領域和研究方法)。</message>
+	<message key="user.account.authorRegistrationMessage">雖然您在此網站擁有一個帳號，但並不表示您目前為此研討會的作者。</message>
+
+
+
+	<!-- Search -->
+	<message key="search.browseAuthorIndex">瀏覽作者索引</message>
+	<message key="search.searchFor">查尋文章為</message>
+	<message key="search.inField">在</message>
+	<message key="search.author">作者</message>
+	<message key="search.withinConference">內部研討會</message>
+	<message key="search.allConferences">所有研討會</message>
+	<message key="search.authorIndex">瀏覽作者索引</message>
+	<message key="search.authorDetails">作者詳述</message>
+	<message key="search.syntaxInstructions"><![CDATA[查尋要訣: <ul>
+<li>搜尋時英文關鍵字沒有大小寫的分別</li>
+<li>共通的字詞被忽略</li>
+<li>一般常用字會省略，如AND。</li>
+<li>系統預定是搜尋包含<em>所有</em>關鍵字的文章。 如<em>AND</em>)</li>
+<li>可以使用<em>OR</em>來搜尋包含單一個關鍵字的文章。如：<em>教育 OR 研究</em></li>
+<li>可用中括號搜尋複雜的組合，如<em> ((journal OR conference) NOT theses)，意思是可包含期刊與研討會，但是不包含論文。</em></li>
+<li>用雙引號可搜尋精確的字句，如<em>"公開發表且免費使用"。</em></li>
+<li>可用<strong>-</strong> - 和<em>NOT</em> 去除不需要的關鍵字，如<em>online -politics </em> or <em>online NOT politics</em></li>，線上但是不要政治相關。
+<li>可使用<strong>*萬用字元來包含所不確定的字詞，如<em>soci* morality</em>會包含"sociological" 或 "societal"。</li>
+<li>可用中括號搜尋複雜的組合，如： <em>"((journal OR conference) NOT theses)，意思是可包含期刊與研討會，但是不包含論文。"</em></li>
+<li>用雙引號可搜尋精確的字句，如<em>"公開發表且免費使用"</em><em>
+<li>在ㄧ個如字元符號的術語內使用<strong>*</strong>來和任何字元排列相符合; 如： <em>soci* morality</em> 將會和"sociological" or "societal"等文件相符合</li>
+</ul>]]></message>
+
+	<!-- Interstitial page for PDFs -->
+	<message key="paper.pdf.title">可攜式文件格式 (PDF)</message>
+	<message key="paper.pdf.note"><![CDATA[如果您的瀏灠器有 PDF 的閱讀軟體您所選擇的 PDF 檔案會在載入。如果沒有的話，該 PDF 檔案將會下載到您的腦。如果您希望取得有關 PDF 閱讀軟体與相關的說明，請參閱以下網站： <a href="http://www.adobe.com/products/acrobat/readstep2.html">Adobe Acrobat Reader</a> / <a href="http://highwire.stanford.edu/help/pdf-faq.dtl">Frequently Asked Questions about PDFs</a>.<br /><br />如果檔案沒有自動下載，<a href="{$url}">請點此下載</a>.]]></message>
+
+	<!-- Interstitial page for non-PDF non-HTML galleys -->
+	<message key="paper.nonpdf.title">文章下載</message>
+	<message key="paper.nonpdf.note"><![CDATA[您所選的檔案將自動下載，如果沒有的話，請點選下列的連結。注意：此檔案可能需要特別的閱讀軟體才能閱讀。<br /><br />如果您的檔案未自動下載，請 <a href="{$url}">點此下載</a>.]]></message>
+
+	<!-- Site index -->
+	<message key="site.conferencesHosted">此網站所屬的研討會</message>
+	<message key="site.conferenceView">進入研討會網站</message>
+	<message key="site.conferenceAccount">帳號</message>
+	<message key="site.schedConfView">查看研討會的細節</message>
+	<message key="site.schedConfCurrent">目前已預定的研討會</message>
+
+	<!-- Conference page -->
+	<message key="conference.currentConferences">目前研討會</message>
+	<message key="conference.noCurrentConferences">目前無研討會的活動。請在檔案內檢查過去預定的研討會。</message>
+	<message key="conference.archive">研討會檔案</message>
+
+	<!-- Scheduled Conference page -->
+	<message key="schedConf.proposalSubmission">論文投稿</message>
+
+	<!-- Call-for-Papers (CFP) page -->
+	<message key="schedConf.cfp.submitHere">在這裡開始投稿提案給此研討會。</message>
+
+	<!-- Conference Proceedings -->
+	<message key="presentations.notPermitted">您還不能進入至此研討會的介紹。</message>
+	<message key="presentations.trackEmpty">在這個主題裡無文章可利用。</message>
+	<message key="presentations.schedConfEmpty">這個研討會的介紹尚未開放或尚未被尋得。</message>
+	
+	<!-- Program page -->
+	<message key="schedConf.program.programFileInstructions">可利用經由以下連結至研討會的的議程。</message>
+	<message key="schedConf.program.viewProgramFile">查看議程</message>
+	
+	<!-- About The Conference -->
+	<message key="about.statistics">統計</message>
+	<message key="about.conferenceContact">研討會連絡</message>
+	<message key="about.aboutTheConference">關於研討會</message>
+	<message key="about.organizingTeam">組織團隊</message>
+	<message key="about.submissions">投稿</message>
+	<message key="about.sponsors">贊助</message>
+	<message key="about.contributors">支持來源</message>
+	<message key="about.onlineSubmissions">線上投稿</message>
+	<message key="about.onlineSubmissions.haveAccount">您已經有一個使用者名稱/密碼{$conferenceTitle}嗎？</message>
+	<message key="about.onlineSubmissions.login">至登入</message>
+	<message key="about.onlineSubmissions.needAccount">您需要一個使用者名稱/密碼嗎？</message>
+	<message key="about.onlineSubmissions.registration">至註冊</message>
+	<message key="about.onlineSubmissions.registrationRequired">您必須要在網站內註冊及登入才能投遞稿件及查詢目前的投稿狀態。</message>
+	<message key="about.authorGuidelines">作者指南</message>
+	<message key="about.submissionPreparationChecklist">投稿準備清單</message>
+	<message key="about.copyrightNotice">版權告示</message>
+	<message key="about.privacyStatement">保密性聲明</message>
+	<message key="about.peerReviewProcess">細看審查過程</message>
+	<message key="about.openAccessPolicy">開放存取方針</message>
+	<message key="about.archiveAccessPolicy">檔案存取方針</message>
+	<message key="about.delayedOpenAccess">延遲開放存取</message>
+	<message key="about.delayedOpenAccessDescription1">這個研討會內容將開放利用在一個開放存取格式內</message>
+	<message key="about.delayedOpenAccessDescription2">月在預定的研討會發布給參加者之後。</message>
+	<message key="about.authorSelfArchive">作者自行歸檔</message>
+	<message key="about.archiving">歸檔</message>
+	<message key="about.registration">註冊</message>
+	<message key="about.registrationContact">註冊連絡</message>
+	<message key="about.availableRegistrationTypes">註冊類別</message>
+	<message key="about.aboutThisPublishingSystem">關於此研討會的系統</message>
+	<message key="about.currentConferences">目前研討會</message>
+	<message key="about.aboutOCSConference"><![CDATA[此研討會是使用開放會議系統{$ocsVersion}，這系統是由會議管理軟體開發及支持，並自由地被分佈在the GNU General Public License之下 <a href="http://pkp.sfu.ca/">Public Knowledge Project</a>。]]></message>
+	<message key="about.aboutOCSSite"><![CDATA[此研討會是使用開放會議系統{$ocsVersion}， 這系統是由會議管理軟體開發及支持，並自由地被分佈在the GNU General Public License之下 <a href="http://pkp.sfu.ca/">Public Knowledge Project</a>。]]></message>
+
+	<!-- Announcement -->
+
+	<!-- Help -->
+	<message key="help.ocsHelp">開放研討會系統幫助</message>
+	<message key="help.ocsHelpAbbrev">OCS 幫助</message>
+
+	<!-- Installer -->
+	<message key="installer.ocsInstallation">OCS 安裝</message>
+	<message key="installer.ocsUpgrade">OCS 升級</message>
+	<message key="installer.installationInstructions"><![CDATA[<h4>OCS 版本 {$version}</h4>
+
+<p>感謝您下載公共知識專案 (the Public Knowledge Project) 所發展的 <strong>Open Conference Systems</strong> 系統。在您繼續之前請詳讀包含在本軟體內的 <a href="{$baseUrl}/docs/README">README</a> 檔案。如您需要更多有關於公共知識專案與其所發展的軟體，請訪問 <a href="http://pkp.sfu.ca/" target="_blank">PKP 網站</a>。如果您有關於Open Conference Systems 的錯誤回報或者需要技術援者，請造訪  <a href="http://pkp.sfu.ca/support/forum">支援論壇</a> 或者PKP 的線上 <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">錯誤回報系統</a>。您也可以選擇寄送電子郵件給本團隊 <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>.</p>
+
+<h4>升級</h4>
+
+<p>如果您要升級已經安裝的 OCS 2.x, <a href="{$upgradeUrl}">請點選這裡</a> 進行的程序。</p>
+
+<h4>系統規格建議</h4>
+
+<ul>
+	<li><a href="http://www.php.net/" target="_blank">PHP</a> >= 4.2.x (含 PHP 5.x)</li>
+	<li><a href="http://www.mysql.com/" target="_blank">MySQL</a> >= 3.23.23 (含 MySQL 4.x) or <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> >= 7.1 (含 PostgreSQL 8.x)</li>
+	<li><a href="http://httpd.apache.org/" target="_blank">Apache</a> >= 1.3.2x or >= 2.0.4x or Microsoft IIS 6</li>
+	<li>操作系統：本軟体是平台的軟體，可在任何的 OS 中執行，包含 <a href="http://www.linux.org/" target="_blank">Linux</a>, <a href="http://www.bsd.org/" target="_blank">BSD</a>, <a href="http://www.sun.com/" target="_blank">Solaris</a>, <a href="http://www.apple.com/" target="_blank">Mac OS X</a>, <a href="http://www.microsoft.com/">Windows</a></li>
+</ul>
+
+<p>PKP 團隊並未對所有的系統與軟体版本組合進行測試，因此不保證本軟體可以在您的系統中正常的運行同時提供完的技術支援。</p>
+
+<p>您可以在安裝後經由修改 OCS 資料匣中的 <tt>config.inc.php</tt> 設定檔案，或者經由網站管理者介面進行設定的修改。</p>
+
+<h4>支援的資料庫系統</h4>
+
+<p>OCS 目前僅在 MySQL 和 PostgreSQL 兩套資料庫系統下進行測試, 雖然其他旳資料庫系統如 <a href="http://php.weblogs.com/adodb/" target="_blank">ADOdb</a> 可能也可支援本軟體 (全部或部分)。如果您有其他資料庫系統的相容性測試報告，歡迎提供給 OCS 團隊。</p>
+
+<h4>先期安裝步驟</h4>
+
+<p>1. 下列的檔案與資料匣 (包含其內容) 的屬性必需設定為可寫入：</p>
+<ul>
+	<li><tt>config.inc.php</tt> 必需可寫入 (選擇性): {$writable_config}</li>
+	<li><tt>public/</tt>必需可寫入: {$writable_public}</li>
+	<li><tt>cache/</tt>必需可寫入: {$writable_cache}</li>
+	<li><tt>cache/t_cache/</tt>必需可寫入: {$writable_templates_cache}</li>
+	<li><tt>cache/t_compile/</tt>必需可寫入: {$writable_templates_compile}</li>
+	<li><tt>cache/_db</tt>必需可寫入: {$writable_db_cache}</li>
+</ul>
+
+<p>2. 必需建立一個可寫入的資料匣作為儲存上載檔案的位置 (參閱下方的 "檔案設定" 說明。</p>
+
+<h4>手動安裝</h4>
+
+<p>選擇 <strong>手動安裝</strong> 用來顯示 SQL 的指令，以運用手動方式建立 OCS 的資料庫與基本資料。本程序有助於用來檢查安裝時的錯誤，特別是安裝在不支援的作業平台中時。注意，此選項並不會主動建立任何的資料庫與資料表。 </p>]]></message>
+	<message key="installer.upgradeInstructions"><![CDATA[<h4>OCS 版本 {$version}</h4>
+
+<p>感謝您下載 Public Knowledge Project 所發展的 <strong>Open Conference Systems</strong>。在您進行下列的程序之前，請閱讀包含在檔案中的 <a href="{$baseUrl}/docs/README">讀我 (README)</a> 與 <a href="{$baseUrl}/docs/UPGRADE">升級 (UPGRADE)</a>檔案。如需更多有關 Public Knowledge Project 與相關軟體的資訊，請造訪 <a href="http://pkp.sfu.ca/" target="_blank">PKP 網站</a>。如果您有任何的錯誤要回報，或是需要技術支援，請參閱 <a href="http://pkp.sfu.ca/support/forum">支援論壇</a> 或者造訪 PKP 的線上 <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">錯誤回報系統</a>。您也可以透過電子郵件與本團隊連絡 <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>。</p>
+<p>本團隊 <strong>強烈建議</strong> 您在進行下列的程序之前，備份您的資料庫、檔案資料與 OCS 所安裝的資料匣。</p>
+<p>如果您是在 <a href="http://www.php.net/features.safe-mode" target="_blank">PHP 安全模式</a> 下進行，請確認 php.ini 中最長執行時間的設，因為有關此類時間的設定 (例如 Apache's "Timeout" 指今) 可能會影響升級程序，而導致中斷。</p>]]></message>
+	<message key="installer.localeSettingsInstructions"><![CDATA[如要取得完整的 Unicode (UTF-8) 支援，請選擇 UTF-8 作為所有字元的設定值。注意，要支援此設定必使用 MySQL >= 4.1.1 或者 PostgreSQL >= 7.1 版本的資料庫。同時也請注意，要得到全面性的 Unicode 支援，必需使用 PHP >= 4.3.0 同時結合 <a href="http://www.php.net/mbstring" target="_blank">mbstring</a> 庫的版本 (一般的 PHP 安裝時的預設值)。如您的伺服器未使用此編碼方式，可能會產生問題。
+<br /><br />
+您的伺服器目前支援 mbstring: <strong>{$supportsMBString}</strong>]]></message>
+	<message key="installer.localeInstructions">系統主要的操作語。如果您想使用作為本系統的主要語言不存在系統中，請參閱OCS的說明文件。</message>
+	<message key="installer.additionalLocalesInstructions">選擇附加的語言以支援本系統。這些語言可以讓不同的研討會來使用。不同語言的安裝可以隨時由系統管理員介面中進行。.</message>
+	<message key="installer.filesDirInstructions"><![CDATA[請輸入檔案上傳與保存的完整路徑，本資料匣不會直接經由 WEB 連結。<strong>請確認本資料匣已經存在並且在安裝期間設定為可寫入的屬性。</strong> Windows 的路徑必需使用斜線/，例如 "C:/myconference/files"。]]></message>
+	<message key="installer.databaseSettingsInstructions">OCS 需要連結到一個 SQL 資料庫，以儲存資料。請參閱上面的說明以了解可支援本軟體的資料系統。請在下方的欄位中入連結到資料庫的相關設定資訊。</message>
+	<message key="installer.installApplication">安裝開放研討會系統</message>
+	<message key="installer.upgradeApplication">升級開放研討會系統</message>
+	<message key="installer.reinstallAfterDatabaseError"><![CDATA[<strong>警告：</strong>如果安裝失敗部分是因為安裝資料庫的關係，在嘗試重新安裝資料庫之前，您可能需要刪除您的OCS資料庫或者資料表。]]></message>
+	<message key="installer.overwriteConfigFileInstructions"><![CDATA[<h4>重要!</h4>
+<p>安裝檔無法自動覆寫設定檔。在嘗試使用本系統之前，請以合適的編輯器開啟 <tt>config.inc.php</tt>並且變更其內容為下列文字欄位中的內容。</p>]]></message>
+	<message key="installer.installationComplete"><![CDATA[<p>OCS 已經成功安裝完成。</p>
+<p>要開始使用本系統，請以您在上一個網頁中輸入的使用者名稱和密碼進行 <a href="{$loginUrl}">登入</a> 。</p>
+<p>如果您希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>註冊。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>。</p>]]></message>
+	<message key="installer.upgradeComplete"><![CDATA[<p>OCS 已經成功升級 {$version} 版本。</p>
+<p>別忘了在您的config.inc.php設定檔中將 "installed" 設定改成 <em>On</em>.</p>
+<p>如果您尚未註冊但希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a> 註冊。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>.</p>]]></message>
+
+
+	<!-- Paper Logs -->
+	<message key="log.default.abstractPeriodExpired">論文編號 {$paperId} 的摘要繳交已經過期，該文章已經移到癈棄區。</message>
+	<message key="log.default.paperPeriodExpired">論文編號 {$paperId} 的稿件繳交已經過期，該文章已經移到癈棄區。</message>
+	<message key="log.author.abstractSubmitted">{$authorName} 已經繳交 {$submissionId} 文章的摘要。</message>
+	<message key="log.author.presentationSubmitted">{$authorName} 已經上傳發表媒體，文章編號 {$submissionId}.</message>
+	<message key="log.author.documentRevised">{$authorName} 已經修改編號 {$paperId} 的文章。新的檔案編號為 {$fileId}。</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} 已經指派審查 {$paperId} 稿件，目前進行審查步驟 {$stage}。</message>
+	<message key="log.review.reviewerUnassigned">{$reviewerName} 已經取消其審查 {$paperId} 稿件的任務，目前審查步驟 {$stage}。</message>
+	<message key="log.review.reviewInitiated">步驟 {$stage} 由審查者 {$reviewerName} 審查的 {$paperId} 稿件任務已經開始。</message>
+	<message key="log.review.reviewReinitiated">步驟 {$stage} 由審查者 {$reviewerName} 審查的 {$paperId} 稿件任務已經重新開始。</message>
+	<message key="log.review.reviewCancelled">步驟 {$stage} 由審查者 {$reviewerName} 審查的 {$paperId} 稿件任務已經取消。</message>
+	<message key="log.review.reviewCleared">步驟 {$stage} 由審查者 {$reviewerName} 審查的 {$paperId} 稿件任務已經清除。</message>
+	<message key="log.review.reviewerRated">{$reviewerName} 在步驟 {$stage} 審查 {$paperId} 稿件的任務已被評分。</message>
+	<message key="log.review.reviewDueDateSet">步驟 {$stage} 論文 {$paperId} 由 {$reviewerName} 審查，其截止日期被設定為 {$dueDate}。</message>
+	<message key="log.review.reviewRecommendationSet">步驟 {$stage} 論文 {$paperId} 由 {$reviewerName} 審查，其建議已經設定完成。</message>
+	<message key="log.review.reviewRecommendationSetByProxy">步驟 {$stage} 論文 {$paperId} 的建議已經由主編 {$directorName} 與審查者 {$reviewerName} 設定完成。</message>
+	<message key="log.review.resubmit">The submission {$paperId} 已經重新繳交提供審查。</message>
+	<message key="log.review.reviewDeclined">{$reviewerName} 謝絕步驟 {$stage} 的審查任務文章 {$paperId}。</message>
+	<message key="log.review.reviewAccepted">{$reviewerName} 接受步驟 {$stage} 的審查任務文章 {$paperId}。</message>
+	<message key="log.review.reviewAcceptedByProxy">{$userName} 已經接受步驟 {$stage} 的審查論文 {$paperId} 代表 {$reviewerName}。</message>
+	<message key="log.review.reviewFileByProxy">主編 {$userName} 已經上傳審查的檔案給步驟 {$stage} 的稿件 {$paperId} 給 {$reviewerName}。</message>
+	<message key="log.review.reviewerFile">審查者的檔案已經上傳。</message>
+	<message key="log.director.decision">論文 {$paperId} 的審查結果 ({$decision}) 已經由 {$directorName} 記錄。</message>
+	<message key="log.director.publish">論文已經出版。</message>
+
+	<message key="log.director.metadataModified">本論文的後設資料已經由 {$directorName} 修改。</message>
+	<message key="log.director.directorFile">主編版本的稿件已經上傳。</message>
+	<message key="log.director.archived">稿件 {$paperId} 已經歸檔。</message>
+	<message key="log.director.restored">稿件 {$paperId} 排入序列。</message>
+	<message key="log.director.directorAssigned">{$directorName} 已經被指派為稿件 {$paperId} 的主編。</message>
+	<message key="log.director.submissionExpedited">{$directorName} 已經催促稿件 {$paperId} 的編輯程序。</message>
+	<message key="log.layout.layoutFileSet">{$directorName} 已經設定稿件 {$paperId} 排版用的版本。</message>
+
+	<!-- Conference log entries -->
+	<message key="log.deadline.submissionDeadlinePassed">投稿日期已經過期。</message>
+	<message key="log.deadline.presentationsReleasedToParticipants">發表已經開放給參與者。</message>
+	<message key="log.deadline.presentationsReleasedToPublic">發表已經公開開放給大眾。</message>
+		
+	<message key="log.timeline.publicationStateChanged">出版步驟已經從 {$oldPublicationState} 變更為 {$newPublicationState}。</message>
+	<message key="log.timeline.submissionStateChanged">投稿步驟已經從 {$oldSubmissionState} 變更為 {$newSubmissionState}。</message>
+	<message key="log.timeline.startDateChanged">研討會開始日期已經從 {$oldStartDate} 變更為 {$newStartDate}。</message>
+	<message key="log.timeline.endDateChanged">研討會結束日期已經從 {$oldEndDate} 變更為 {$newEndDate}。</message>
+	<message key="log.timeline.regReviewerOpenDateChanged">開放作者註冊的日期已經從 {$oldRegReviewerOpenDate} 變更為 {$newRegReviewerOpenDate}。</message>
+	<message key="log.timeline.regReviewerCloseDateChanged">關閉作者註冊的日期已經從 {$oldRegReviewerCloseDate} 變更為 {$newRegReviewerCloseDate}。</message>
+	<message key="log.timeline.regAuthorOpenDateChanged">作者註冊開放日期已經從 {$oldRegAuthorOpenDate} 變更為 {$newRegAuthorOpenDate}。</message>
+	<message key="log.timeline.regAuthorCloseDateChanged">作者註冊關閉日期已經從 {$oldRegAuthorCloseDate} 變更為 {$newRegAuthorCloseDate}。</message>
+	<message key="log.timeline.showCFPDateChanged">徵稿顯示日期已經從 {$oldShowCFPDate} 變更為 {$newShowCFPDate}。</message>
+	<message key="log.timeline.submissionsOpenDateChanged">開放投稿日期已經從 {$oldSubmissionsOpenDate} 變更為 {$newSubmissionsOpenDate}。</message>
+	<message key="log.timeline.submissionsCloseDateChanged">關閉投稿日期已經從 {$oldSubmissionsCloseDate} 變更為 {$newSubmissionsCloseDate}。</message>
+	<message key="log.timeline.postAbstractsDateChanged">摘要張貼日期已經從 {$oldPostAbstractsDate} 變更為 {$newPostAbstractsDate}。</message>
+	<message key="log.timeline.postAbstractsChanged">"海報摘要" 設定已經從 {$oldPostAbstracts} 變更為 {$newPostAbstracts}。</message>
+	<message key="log.timeline.postPapersDateChanged">海報論文的日期已經從 {$oldPostPapersDate} 變更為 {$newPostPapersDate}。</message>
+	<message key="log.timeline.postPapersChanged">"海報論文" 設定已經從 {$oldPostPapers} 變更為 {$newPostPapers}。</message>
+	<message key="log.timeline.delayOpenAccessDateChanged">開放接受的日期已經從 {$oldDelayOpenAccessDate} 變更為 {$newDelayOpenAccessDate}。</message>
+	<message key="log.timeline.delayOpenAccessChanged">延長開放接受的設定已經從 {$oldDelayOpenAccess} 變更為 {$newDelayOpenAccess}。</message>
+	<message key="log.timeline.closeCommentsDateChanged">評論關閉的日期已經從 {$oldCloseCommentsDate} 變更為 {$newCloseCommentsDate}。</message>
+	<message key="log.timeline.closeCommentsChanged">評論的關閉設定已經從 {$oldCloseComments} 變更為 {$newCloseComments}。</message>
+	
+	<!-- Reading Tools entries -->
+
+
+	<!-- RT Settings -->
+	<message key="rt.admin.settings">閱讀工具設定</message>
+
+	<message key="rt.admin.rtEnable">要啟用本閱讀工具，請至閱讀工具選項。</message>
+	<message key="rt.admin.settings.description">閱讀工具以頁框的方式出現在文稿類型中已經指派索引項的出版項目的側邊。閱讀工具由一組與出版項目相關的選擇性工具（詳列在下），以及一組能夠存取相關項目、由欄位和學門所組成的工具所組成。</message>
+	<message key="rt.admin.settings.enableReadingTools">為指定研討會主題啟用閱讀工具。</message>
+	<message key="rt.admin.settings.relatedItems">相關項目領域</message>
+
+	<message key="rt.admin.options">選項工具</message>
+
+	<message key="rt.admin.settings.bibFormat">文獻格式</message>
+	<message key="rt.admin.settings.addComment">增加評論 (讓讀者發佈評論意見，而期刊管理員可以刪除。必須要啟用「設定」步驟2的「讀者評論」。)</message>
+
+	<!-- RT Versions -->
+
+	<!-- RT Contexts -->
+
+	<!-- RT Searches -->
+
+	<message key="rt.admin.validateUrls.description"><![CDATA[下面列出可能是無效的搜尋網站網址。<br/>
+您應該手動查證被標記成無效的任何網址，因為這個測試並非完全準確。<br/>
+驗證需要遞交表單資料的搜尋網址可能會失敗。]]></message>
+
+
+	<!-- RT Entities -->
+
+
+
+
+	<message key="rt.metadata.dublinCore.primaryAuthor">建立者</message>
+
+	<message key="rt.metadata.pkp.primaryAuthor">作者姓名、所屬單位、國家</message>
+	<message key="rt.metadata.pkp.peerReviewed">經審查之文章</message>
+
+
+	<message key="rt.captureCite.available">可用</message>
+	<message key="rt.captureCite.capture">下載引文格式</message>
+	<message key="rt.captureCite.acaoLocation">北美</message>
+	<message key="rt.captureCite.capture.endNote"><![CDATA[<a href="]]>{$url}<![CDATA[">EndNote</a> - EndNote格式 (Macintosh &amp; Windows)]]></message>
+	<message key="rt.captureCite.capture.referenceManager"><![CDATA[<a href="]]>{$url}<![CDATA[">文獻管理員</a> - RIS格式 (Windows only)]]></message>
+	<message key="rt.captureCite.capture.proCite"><![CDATA[<a href="]]>{$url}<![CDATA[">專業引用</a> - RIS格式 (Macintosh &amp; Windows)]]></message>
+
+	<message key="rt.beNotifiedWhen">通知我，當....</message>
+
+	<message key="rt.thisJournal">搜尋期刊</message>
+	
+
+	<message key="rt.context.authorTermsDescription">由於文章擁有一個以上的作者，請選取所有的姓名以搜尋類似的共同作者作品，或者選取單個姓名以一次搜尋一個人。要學習更多關於搜尋資源的資訊，請點擊「介紹」。這些資源是基於其關連性與開放 (自由) 閱讀所有或部分內容而被選取的。</message>
+
+
+
+	<!--
+	 *
+	 * MISC - Entries that do not belong in the other sections.
+	 *
+	-->
+	<!-- Icons: Default "alt" text -->
+	<message key="icon.small.alt">小</message>
+	<message key="icon.medium.alt">中</message>
+	<message key="icon.large.alt">大</message>
+
+	<!-- Debug messages -->
+
+	<!--
+	 *
+	 * DEFAULT - Default settings for setup items.
+	 *
+	-->
+	<message key="default.conferenceSettings.copyrightNotice"><![CDATA[作者在投稿前需先同意以下版權條款:<br/>
+<strong>a)</strong>&nbsp;當作者允許研討會安排尚未出版的作品在 <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>之下時，作者在執行工作時須保留版權，並允許研討會其他參加人員自由存取、使用、及分享其著作及介紹。<br/>
+<strong>b)</strong>&nbsp;作者能放棄CC執照並將其分開，並以最初在此研討會內的發表感言，另外?這尚未公開分配及之後的出版物來擬訂契約協議安排 (如：在期刊內出版一篇已修正的論文，將其張貼在學會的資料庫內或出版在ㄧ本書內)。<br/>
+<strong>c)</strong>&nbsp;除此之外，鼓勵作者在研討會前或後任何一時間點，在網路上張貼及分享他們的作品，(如：在學會的資料庫或他們的網站內)。]]></message>
+
+	<message key="default.schedConfSettings.checklist.notPreviouslyPublished">本稿件從未出版過，同時也未曾在其他研討會中發表過 (或者提供相燈的解釋與說明給主編)。</message>
+	<message key="default.schedConfSettings.checklist.fileFormat">本稿件的格式是以 OpenOffice, Microsoft Word, RTF, or WordPerfect 等的文件格式製作。</message>
+	<message key="default.schedConfSettings.checklist.addressesLinked"><![CDATA[所有在文字中的連結 (例如 <a href="http://pkp.sfu.ca">http://pkp.sfu.ca</a>) 已經設定完成並可以正常運作。]]></message>
+	<message key="default.schedConfSettings.checklist.submissionAppearance">文字內容為單行行距；使用12pt字體大小；採用斜體而不用底線 (除非是帶有網址)；而所有的圖解、圖示和表格都放在文中恰當位置，而非文末。</message>
+	<message key="default.schedConfSettings.checklist.anonymous">如果是投稿至同儕匿名審查的主題，請於稿件中移除所有與作者有關的資訊。</message>
+	<message key="default.schedConfSettings.checklist.personalInformationRemoved">如果是投稿到同儕匿名審查的稿件，所有稿件檔案 (包含補充檔案) 中關於作者的所有資訊都必須移除。</message>
+	<message key="default.conferenceSettings.privacyStatement">您在本網站所輸入的個人資料僅使用於本研討會的各項活動中，不會使用在其他非本研討會相關的活動中。</message>
+	<message key="default.conferenceSettings.authorSelfArchivePolicy">作者可以將自己的論文檔案放在自己或者所屬機構的網站上 (但需清楚標示該論文的出版資訊)。</message>
+	<message key="default.conferenceSettings.emailSignature"><![CDATA[________________________________________________________________________
+{$conferenceName}
+{$conferenceUrl}
+]]></message>
+	<message key="default.conferenceSettings.forReaders"><![CDATA[我們鼓勵讀者們登錄本站以收到有關本研討會論文的通知。同時建議您訪問 <a href="{$aboutUrl}">關於研討會</a> 的網頁了解相關的策略，以及訪問 <a href="{$conferenceUrl}">研討會首頁</a> 查看即將舉辦的研討會訊息。]]></message>
+	<message key="default.conferenceSettings.forAuthors"><![CDATA[如果您有興趣投稿本研討會，請造訪 <a href="{$aboutUrl}">關於研討會</a> 網頁了解相燈的策略與訊息，並訪問 <a href="{$conferenceUrl}">研討會首頁</a> 查看即將舉辦的研討會訊息。]]></message>
+	<message key="default.conferenceSettings.lockssLicense"><![CDATA[本研討會使用 LOCKSS 系統由參與的圖書館建立分散式典藏系統，同時充許這些圖書館在維護與典藏的目的下建立永久性的典藏檔案庫。<a href="http://lockss.stanford.edu/">更多...</a>]]></message>
+
+	<message key="default.schedConfSettings.emailSignature"><![CDATA[________________________________________________________________________
+{$conferenceName} {$schedConfName}
+{$schedConfUrl}
+]]></message>
+	<message key="default.schedConfSettings.checklist.bibliographicRequirements"><![CDATA[您可以在 <a href="{$authorGuidelinesUrl}">作者指引</a> 網頁中找到有關本研討會文章與文獻寫作格式與相關要求的說明。]]></message>
+	<message key="default.schedConfSettings.forReaders"><![CDATA[我們鼓勵讀者們登錄研討會網站以取得本研討會論文的相關通知。您可以點選 <a href="{$accountUrl}">帳號</a> 選單連結到研討會的首頁，本清單充許研討會要求特定的支援或者讀者們。請參閱研討會的 <a href="{$privacyStatementUrl}">穩私條款</a> 本研討會不會將您的姓名與電子郵件用在研討會以外的用途上。]]></message>
+	<message key="default.schedConfSettings.forAuthors"><![CDATA[有果您有興趣投稿本研討會，建議您訪問<a href="{$aboutUrl}">關於研討會</a> 網頁了解研討會的相關策略，以及 <a href="{$authorGuidelinesUrl}">作者指引</a> 網頁。作者們需要 <a href="{$accountUrl}">建立一個帳號</a> 以便在研討會網站中進行投稿。如果您已經擁有本網站的帳號，請 <a href="{$loginUrl}">登入</a> 並開始投稿的步驟。]]></message>
+
+	<message key="common.time">時間</message>
+	<message key="common.sortBy">排序依據...</message>
+	<message key="schedConf.accommodation">調適</message>
+	<message key="schedConf.schedule.title">行事曆</message>
+	<message key="schedConf.accommodation.title">調適</message>
+	<message key="schedConf.scheduler.locations">研討會地點</message>
+	<message key="schedConf.registration.typeFuture">(註冊開始日期 {$openingDate})</message>
+	<message key="user.noRoles.chooseConference">您的帳號目前並未參與任何的研討會，請選一個研討會：</message>
+	<message key="user.noRoles.noRolesForConference">您的帳號在本研討會中並未有任何的角色與權限，請從下列的角色中選擇：</message>
+	<message key="user.noRoles.submitProposal">投稿一個提案</message>
+	<message key="user.noRoles.submitProposalRegClosed">投稿一個提案：作者申請帳號功能已經關閉。</message>
+	<message key="user.noRoles.submitProposalSubmissionsClosed">投稿一個提案：投稿功能已經關閉。</message>
+	<message key="user.noRoles.regReviewer">申請成為研討會審查者</message>
+	<message key="user.noRoles.regReviewerClosed">申請成為研討會審查者：審查者申請帳號功能已經關閉。</message>
+	<message key="user.noRoles.register">註冊參與研討會</message>
+	<message key="user.noRoles.registerUnavailable">註冊參與研討會：註冊功能已經關閉。</message>
+	<message key="reader.accessDenied">您沒有權限觀看此篇文章。如果您擁有本研討會站的帳號，請先登入以觀看本篇文章。</message>
+</locale>

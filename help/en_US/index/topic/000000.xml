@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000000.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Index Help Page 
+  *
+  * $Id$
+  -->
+
+<topic id="index/topic/000000" locale="en_US" title="OCS Help" toc="index/toc/000000" key="index.index">
+	<section>
+		<![CDATA[<p>The online help for Open Conference Systems (OCS) is designed to assist users in the process of managing an entire conference - creating a conference web site, arranging times and locations for conference presentations and events, submitting, reviewing and posting conference papers, registering attendees, and indexing and sharing the resulting proceedings. It is also intended to serve as a manual for OCS that describes the scope and workflow of the software. This help document also provides editorial advice on common practices in scholarly conference publishing. In addition to this help document, users can contact the conference's technical support, which is listed under People on the About the Conference page. </p>
+		<p>Because OCS employs designated roles for particular tasks of a certain phase &mdash; from the Conference Manager who establishes the scheduled conference to the Author who uploads the presentation materials &mdash; each topic covered in this help document refers to each role performing each task. Online help is context-dependent: what one views depends on one's role, and where they are in the system.</p>
+		
+		<p>Searching and navigation are enabled within Help document:</p>
+		<p><em>Search</em> In the upper right hand corner of each help page is a "Search" box. Entering a key word and clicking "Search" will return a listing of all existing matches in the help document, a brief description of each item and a link to the item.</p>
+		<p><em>Table of Contents</em> Clicking on this link takes the user to a table of contents for this help document.</p>
+		<p><em>Up a Level</em> Clicking on this link moves you up one level in the hierarchical structure of this help document.</p>]]>
+   </section>
+</topic>

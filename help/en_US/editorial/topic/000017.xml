@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000017.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Editorial Process - Author's Role - Review
+  *
+  * $Id$
+  -->
+
+<topic id="editorial/topic/000017" locale="en_US" title="Review" toc="editorial/toc/000004" subtoc="editorial/toc/000017" key="editorial.authorsRole.review">
+	<section>
+		<![CDATA[<p>The Author is able to track the progress of their submission through the review process by visiting their Active Submissions page: there will be an indication as to where the submission is under Status, from Awaiting Assignment to Paper in Review. If the submission has been moved to the Archives, the Status in Archives will be either Posted or Declined/Archived.</p>
+		 <p>In addition, the Author is involved in the editorial process, including submitting a full paper, or uploading revised versions, or providing presentation files later as required. </p>
+          ]]>	
+	</section>
+</topic>

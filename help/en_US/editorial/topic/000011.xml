@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000011.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Editorial Process - Track Director's Role - Review 
+  *
+  * $Id$
+  -->
+
+<topic id="editorial/topic/000011" locale="en_US" title="Review" toc="editorial/toc/000002" subtoc="editorial/toc/000011" key="editorial.trackDirectorsRole.review">
+	<section>
+		<![CDATA[<p>The Review Page is a record of editorial process, including sections of Submission, Abstract Review/Paper Review, Reviewer, Director Decision, Complete, and Layout. </p>
+		<p>The Track Director's abilities and responsibilities mirror the Director's responsibilities laid out {help_topic key="editorial.directorsRole.reviewPage" text="here"} exactly. The only difference between a Director and a Track Director is that a Track Director is not authorized to act on a submission assigned to them one way or another.</p>]]>
+	</section>
+
+</topic>

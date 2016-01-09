@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000013.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Editorial Process - Track Director's Role - Archives
+  *
+  * $Id$
+  -->
+
+<topic id="editorial/topic/000013" locale="en_US" title="Archives" toc="editorial/toc/000002" key="editorial.trackDirectorsRole.archives">
+	<section>
+		<![CDATA[<p>Submissions in the Archives queue have been declined during the review process at one point or another. They can be declined immediately upon initial review by the Track Director, or they can be declined after a substantial peer review process. If a submission has been archived by mistake, they can be restored to an active state by clicking the submission title in the Archives queue; clicking on the submission Summary page; and clicking the Restore to Active List link.</p>]]>	
+	</section>
+</topic>

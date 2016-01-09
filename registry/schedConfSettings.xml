@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  * schedConfSettings.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Default scheduled conference settings.
+  *
+  * $Id$
+  -->
+
+<!DOCTYPE sched_conf_settings [
+	<!ELEMENT sched_conf_settings (setting+)>
+	<!ELEMENT setting (name, value)>
+	<!ATTLIST setting type (int|string|object|bool) #REQUIRED>
+	<!ATTLIST setting locale (0|1) #REQUIRED>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT value (#PCDATA | array)*>
+	<!ELEMENT element (#PCDATA | array)*>
+	<!ATTLIST element key CDATA #IMPLIED>
+	<!ELEMENT array (element+)>
+]>
+
+<sched_conf_settings>
+	<!-- Review settings -->
+	<setting type="int" locale="0">
+		<name>numWeeksPerReview</name>
+		<value>4</value>
+	</setting>
+	
+	<setting type="int" locale="0">
+		<name>reviewDeadlineType</name>
+		<value>4</value> <!-- REVIEW_DEADLINE_TYPE_RELATIVE -->
+	</setting>
+
+	<!-- Policy and default settings -->
+	<setting type="string" locale="1">
+		<name>emailSignature</name>
+		<value>{translate key="default.schedConfSettings.emailSignature"}</value>
+	</setting>
+
+	<!-- Submission checklist -->
+	<setting type="object" locale="1">
+		<name>submissionChecklist</name>
+		<value>
+			<array>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.notPreviouslyPublished"}</element>
+						<element key="order">1</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.fileFormat"}</element>
+						<element key="order">2</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.addressesLinked"}</element>
+						<element key="order">3</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.submissionAppearance"}</element>
+						<element key="order">4</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.bibliographicRequirements"}</element>
+						<element key="order">5</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.anonymous"}</element>
+						<element key="order">6</element>
+					</array>
+				</element>
+				<element>
+					<array>
+						<element key="content">{translate key="default.schedConfSettings.checklist.personalInformationRemoved"}</element>
+						<element key="order">7</element>
+					</array>
+				</element>
+			</array>
+		</value>
+	</setting>
+	<!-- Default payment method -->
+	<setting type="string" locale="0">
+		<name>paymentMethodPluginName</name>
+		<value>ManualPayment</value>
+	</setting>
+</sched_conf_settings>
