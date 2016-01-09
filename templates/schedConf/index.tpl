@@ -19,7 +19,18 @@
 {include file="common/header.tpl"}
 {/strip}
 
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/schedConfSetup/{$schedConfId}#location">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <h2>{$schedConf->getSetting('locationName')|nl2br}</h2>
+
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/timeline#scheduleEvents">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 {if $schedConf->getSetting('startDate')}
 	{assign var=startDate value=$schedConf->getSetting('startDate')|date_format:$dateFormatLong}
 	{assign var=endDate value=$schedConf->getSetting('endDate')|date_format:$dateFormatLong}
@@ -28,6 +39,11 @@
 
 <br />
 
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/schedConfSetup/{$schedConfId}#description">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <div>{$schedConf->getLocalizedSetting("introduction")|nl2br}</div>
 
 {if $enableAnnouncementsHomepage}
@@ -49,6 +65,7 @@
 <div id="homepageImage"><img src="{$publicFilesDir}/{$homepageImage.uploadName|escape}" width="{$homepageImage.width}" height="{$homepageImage.height}" {if $homepageImageAltText != ''}alt="{$homepageImageAltText|escape}"{else}alt="{translate key="common.conferenceHomepageImage.altText"}"{/if} /></div>
 {/if}
 
+<!--
 {if $schedConfPostOverview || $schedConfShowCFP
 			|| $schedConfPostPolicies || $schedConfShowProgram ||  $schedConfPostPresentations || $schedConfPostSchedule 
 			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline}
@@ -69,6 +86,7 @@
 	{if $schedConfPostTimeline}<li>&#187; <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
 </ul>
 {/if}
+-->
 {$additionalHomeContent}
 
 {include file="common/footer.tpl"}

@@ -58,6 +58,7 @@ class SchedConfHandler extends Handler {
 
 		$templateMgr->assign('schedConf', $schedConf);
 
+                AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER)); // FIXME: For timeline constants
                 $templateMgr->assign('pageHierarchyRoot', true);
 		$templateMgr->assign('pageHierarchy', array(
 			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true)));
@@ -65,6 +66,25 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('homepageImage', $conference->getLocalizedSetting('homepageImage'));
 		$templateMgr->assign('homepageImageAltText', $conference->getLocalizedSetting('homepageImageAltText'));
 		$templateMgr->assign('helpTopicId', 'user.currentArchives');
+                
+                
+                // ----------------------
+                $roleDao =& DAORegistry::getDAO('RoleDAO');
+                $user = Request::getUser();
+
+                $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
+                //print_r($roles);
+                //echo "1212";
+                $templateMgr->assign('isConferenceManager', (count($roles) > 0));
+                $templateMgr->assign('isIndex', true);
+                // -------------------------
+                $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
+                $templateMgr->assign("schedUrl", Request::url(null, $conference->getSetting('path'), "manager"));
+                $templateMgr->assign("conferenceId", $conference->getId());
+                $templateMgr->assign("schedConfId", $schedConf->getId());
+                // --------------------------
+                
 		$templateMgr->display('schedConf/index.tpl');
 
 	}
@@ -167,12 +187,18 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 		AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_AUTHOR));
 
+                //$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		$templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), AppLocale::Translate('schedConf.cfp.title'), true)));
+                
+                
 		$templateMgr->assign('cfpMessage', $schedConf->getLocalizedSetting('cfpMessage'));
 		$templateMgr->assign('authorGuidelines', $schedConf->getLocalizedSetting('authorGuidelines'));
 
@@ -359,6 +385,7 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('programFile', $schedConf->getSetting('programFile', AppLocale::getLocale()));
 		$templateMgr->assign('programFileTitle', $schedConf->getSetting('programFileTitle', AppLocale::getLocale()));
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.program');
+                
 		$templateMgr->display('schedConf/program.tpl');
 	}
 
@@ -582,7 +609,25 @@ class SchedConfHandler extends Handler {
 				Request::getBaseUrl() . '/' . $publicFileManager->getConferenceFilesPath($conference->getId()) . '/' . $styleFileName
 			);
 		}
+                $this->checkRole($conference, $schedConf);
+                
+                $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
+                $templateMgr->assign("conferenceId", $conference->getId());
+                $templateMgr->assign("schedConfId", $schedConf->getId());
+                $templateMgr->assign("schedUrl", Request::url(null, $conference->getSetting('path'), "manager"));
 	}
+        
+        function checkRole(&$conference, &$schedConf) {
+                $templateMgr =& TemplateManager::getManager();
+                $roleDao =& DAORegistry::getDAO('RoleDAO');
+                $user = Request::getUser();
+
+                $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
+                //print_r($roles);
+                //echo "1212";
+                $templateMgr->assign('isConferenceManager', (count($roles) > 0));
+        }
 
 	function validate() {
 		parent::validate();

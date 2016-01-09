@@ -15,6 +15,11 @@
 <div id="conferenceTimeline">
 <h3>{translate key="manager.timeline.conference"}</h3>
 
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/timeline">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <table width="100%" class="data">
 	<tr valign="top">
 		<td width="40%" class="label">{translate key="manager.timeline.schedConfStartsOn"}</td>

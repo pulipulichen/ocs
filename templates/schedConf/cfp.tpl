@@ -13,9 +13,19 @@
 {include file="common/header.tpl"}
 {/strip}
 <div id="cfp">
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#callForPapers">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <p>{$cfpMessage|nl2br}</p>
 
 {if $authorGuidelines != ''}
+    {if $isConferenceManager}
+        <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#authorGuidelinesInfo">
+            {translate key="manager.registrationOptions.editTitle"}
+        </a>
+    {/if}
 	<h3>{translate key="about.authorGuidelines"}</h3>
 	<p>{$authorGuidelines|nl2br}</p>
 {/if}

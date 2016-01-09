@@ -24,7 +24,11 @@
 <div class="separator"></div>
 {/if}
 
-
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/program">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <div>{$program|nl2br}</div>
 
 {include file="common/footer.tpl"}

@@ -206,11 +206,18 @@
 	<message key="schedConf.submission">投稿</message>
 	<message key="schedConf.submissions">提交</message>
 
+        <!--
 	<message key="schedConf.cfp.title">{$schedConfAbbrev} 徵稿</message>
 	<message key="schedConf.overview.title">{$schedConfAbbrev} 概要</message>
 	<message key="schedConf.presentations.title">{$schedConfAbbrev} 發表者及作者</message>
 	<message key="schedConf.program.title">{$schedConfAbbrev} 議程</message>
 	<message key="schedConf.trackPolicies.title">{$schedConfAbbrev} 主題方針</message>
+        -->
+        <message key="schedConf.cfp.title">徵稿</message>
+	<message key="schedConf.overview.title">概要</message>
+	<message key="schedConf.presentations.title">發表者及作者</message>
+	<message key="schedConf.program.title">議程</message>
+	<message key="schedConf.trackPolicies.title">主題方針</message>
 
 	<!-- User self-registration form -->
 	<message key="schedConf.registration.alreadyRegistered">您已在此研討會註冊，但仍未確認您的註冊費。若有錯誤或是您想變更您的註冊內容，請在“關於”內聯繫相關人員。</message>

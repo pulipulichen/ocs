@@ -65,6 +65,11 @@
 <div id="container">
 
 <div id="header">
+{if $isConferenceManager}
+    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <div id="headerTitle">
 <h1>
 <a href="{$currentConferenceHome}">
@@ -109,6 +114,11 @@
 <div id="main">
 {include file="common/breadcrumbs.tpl"}
 
+{if $isConferenceManager & $isIndex}
+    <a class="edit-link" href="{$conferenceUrl}/manager/editSchedConf/{$conferenceId}/{$schedConfId}">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 <h2>{$pageTitleTranslated}</h2>
 
 {if $pageSubtitle && !$pageSubtitleTranslated}{translate|assign:"pageSubtitleTranslated" key=$pageSubtitle}{/if}
