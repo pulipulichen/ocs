@@ -137,7 +137,8 @@ memcache_port = 11211
 [i18n]
 
 ; Default locale
-locale = zh_TW
+;locale = zh_TW
+locale = en_US
 
 ; Client output/input character set
 client_charset = utf-8
@@ -169,7 +170,7 @@ charset_normalization = On
 
 ; Complete path to directory to store uploaded files
 ; (This directory should not be directly web-accessible)
-files_dir = "D:/xampp/htdocs/ocs/files"
+files_dir = "/opt/lampp/htdocs/ocs/files"
 
 ; Path to the directory to store public uploaded files
 ; (This directory should be web-accessible and the specified path
