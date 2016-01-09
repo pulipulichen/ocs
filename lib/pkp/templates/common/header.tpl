@@ -107,8 +107,6 @@
 {/if}
 
 <div id="main">
-{include file="common/navbar.tpl"}
-
 {include file="common/breadcrumbs.tpl"}
 
 <h2>{$pageTitleTranslated}</h2>

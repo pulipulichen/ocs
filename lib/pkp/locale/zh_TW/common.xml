@@ -172,6 +172,8 @@
 	<message key="email.skip">跳過信件</message>
 	<message key="email.subject">主旨</message>
 	<message key="email.to">到</message>
+        <message key="form.formLanguage.description">To enter the information below in additional languages, first select the language.</message>
+	<message key="form.formLanguage">Form Language</message>
 	<message key="form.contains">包含</message>
 	<message key="form.errorsOccurred">處理表單時發生錯誤</message>
 	<message key="form.is">是</message>

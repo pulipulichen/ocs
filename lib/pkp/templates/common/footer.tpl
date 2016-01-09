@@ -15,6 +15,9 @@
 {$pageFooter}
 {/if}
 {call_hook name="Templates::Common::Footer::PageFooter"}
+
+{include file="common/navbar.tpl"}
+
 </div><!-- content -->
 </div><!-- main -->
 </div><!-- body -->
@@ -23,5 +26,7 @@
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
 
 </div><!-- container -->
+
+
 </body>
 </html>

@@ -13,6 +13,23 @@
   -->
 
 <locale name="zh_TW" full_name = "正體中文">
+    <message key="manager.accommodation">Accommodation</message>
+	<message key="manager.accommodation.form.accommodationFiles">Files</message>
+	<message key="manager.accommodation.form.accommodationFiles.description">Use this section to upload one or more files for registrants and potential registrants, such as maps, forms, etc.</message>
+	<message key="manager.accommodation.form.accommodationText">Accommodation Description</message>
+	<message key="manager.accommodation.form.accommodationText.description">Enter text describing conference accommodations in the field below.</message>
+	<message key="manager.accommodation.form.description">Enter information about accommodation, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
+	<message key="manager.people.allConferences">All Conferences</message>
+	<message key="manager.people.allEnrolledUsers">All Enrolled Users</message>
+	<message key="manager.people.allSiteUsers">Enroll a User from this Site in this Conference</message>
+	<message key="manager.people.allUsers">All Users</message>
+	<message key="manager.people.confirmRemove">Remove this user from this conference? This action will unenroll the user from all roles within this conference.</message>
+	<message key="manager.people.enrollExistingUser">Enroll Existing User</message>
+	<message key="manager.people.enrollSyncConference">With conference</message>
+	<message key="manager.people.mergeUsers.from.description">Select a user to merge into another user account (e.g., when someone has two user accounts). The account selected first will be deleted and its submissions, assignments, etc. will be attributed to the second account.</message>
+	<message key="manager.people.mergeUsers.into.description">Select a user to whom to attribute the previous users' authorships, editing assignments, etc.</message>
+	<message key="manager.people.syncUserDescription">Enrollment synchronization will enroll all users enrolled in the specified role in the specified conference into the same role in this conference. This function allows a common set of users (e.g., Reviewers) to be synchronized between conferences.</message>
+	
 	<message key="manager.people.confirmDisable">刪除此使用者？這將防止使用者登入系統。為使他們的帳號失去作用您可以選擇性的提供使用者一個原因。</message>
 	<message key="manager.announcements.form.schedConfId">已計畫的研討會</message>
 	<message key="manager.announcements.schedConf">已計畫的研討會</message>

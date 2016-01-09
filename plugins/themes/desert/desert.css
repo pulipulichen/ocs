@@ -55,7 +55,15 @@ a:hover {
 }
 
 #navbar {
-	border-bottom: 1px solid #898e79;
+	/*border-bottom: 1px solid #898e79;*/
+        border-bottom: 0px solid #898e79;
+}
+
+#navbar ul li {
+    border-right: 1px solid #898e79;
+}
+#navbar ul li:last-of-type {
+    border-right: 0px solid #898e79;
 }
 
 #content {

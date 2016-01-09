@@ -1044,4 +1044,21 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="user.noRoles.register">註冊參與研討會</message>
 	<message key="user.noRoles.registerUnavailable">註冊參與研討會：註冊功能已經關閉。</message>
 	<message key="reader.accessDenied">您沒有權限觀看此篇文章。如果您擁有本研討會站的帳號，請先登入以觀看本篇文章。</message>
+        
+        <message key="manager.reviewForms">Review Forms</message>
+
+	<message key="manager.reviewForms.list.description">The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific conference track, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</message>
+	<message key="manager.reviewForms.noneChosen">None / Free Form Review</message>
+	<message key="manager.reviewForms.noneCreated">No review forms have been created.</message>
+	<message key="manager.reviewForms.create">Create Review Form</message>
+	<message key="manager.reviewForms.edit">Review Form</message>
+	<message key="manager.reviewForms.title">Title</message>
+	<message key="manager.reviewForms.description">Description and Instructions</message>
+	<message key="manager.reviewForms.preview">Preview Form</message>
+	<message key="manager.reviewForms.completed">Completed</message>
+	<message key="manager.reviewForms.inReview">In Review</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Are you sure you wish to delete this unpublished review form?</message>
+
+	<message key="manager.reviewForms.form.titleRequired">A title is required for the review form.</message>
+
 </locale>

@@ -52,6 +52,7 @@
 		{/if}
 
 		{if $currentConference}
+                    <!--
 		<span class="blockSubtitle">{translate key="navigation.browse"}</span>
 		<ul>
 			<li><a href="{url page="search" op="schedConfs"}">{translate key="navigation.browseByConference"}</a></li>
@@ -61,6 +62,7 @@
 			<li><a href="{url conference="index"}">{translate key="navigation.otherConferences"}</a></li>
 			{/if}
 		</ul>
+                    -->
 		{/if}
 	</div>
 

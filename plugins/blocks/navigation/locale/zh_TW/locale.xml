@@ -13,7 +13,7 @@
   -->
  
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.block.navigation.displayName">Navigation Block</message>
+	<message key="plugins.block.navigation.displayName">導覽區塊</message>
 	<message key="plugins.block.navigation.description">This plugin provides sidebar navigation links.</message>
-	<message key="plugins.block.navigation.conferenceContent">Conference Content</message>
+	<message key="plugins.block.navigation.conferenceContent">功能導覽</message>
 </locale>

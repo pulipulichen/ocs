@@ -58,8 +58,10 @@ class SchedConfHandler extends Handler {
 
 		$templateMgr->assign('schedConf', $schedConf);
 
+                $templateMgr->assign('pageHierarchyRoot', true);
 		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true)));
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true)));
+                
 		$templateMgr->assign('homepageImage', $conference->getLocalizedSetting('homepageImage'));
 		$templateMgr->assign('homepageImageAltText', $conference->getLocalizedSetting('homepageImageAltText'));
 		$templateMgr->assign('helpTopicId', 'user.currentArchives');
@@ -132,12 +134,19 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 		AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER)); // FIXME: For timeline constants
 		import('manager.form.TimelineForm');
+                
+                $templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), AppLocale::Translate('schedConf.timeline'), true)));
+                
+                
 		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
 			$timelineForm = new TimelineForm(false, true);
 		} else {
@@ -334,11 +343,18 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
+                //AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME: director.allTracks
+                
+                $templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), AppLocale::Translate('schedConf.program.title'), true)));
+                
 		$templateMgr->assign('program', $schedConf->getSetting('program', AppLocale::getLocale()));
 		$templateMgr->assign('programFile', $schedConf->getSetting('programFile', AppLocale::getLocale()));
 		$templateMgr->assign('programFileTitle', $schedConf->getSetting('programFileTitle', AppLocale::getLocale()));
