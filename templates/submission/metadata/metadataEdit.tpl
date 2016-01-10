@@ -197,6 +197,7 @@ function moveAuthor(dir, authorIndex) {
 
 <div class="separator"></div>
 
+<!--
 <div id="indexing">
 <h3>{translate key="submission.indexing"}</h3>
 
@@ -313,7 +314,8 @@ function moveAuthor(dir, authorIndex) {
 </div>
 
 <div class="separator"></div>
-
+-->
+<!--
 <div id="supportingAgencies">
 <h3>{translate key="submission.supportingAgencies"}</h3>
 
@@ -330,6 +332,7 @@ function moveAuthor(dir, authorIndex) {
 </div>
 
 <div class="separator"></div>
+-->
 
 {if $currentSchedConf->getSetting('metaCitations')}
 <div id="metaCitations">

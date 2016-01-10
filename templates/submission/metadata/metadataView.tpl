@@ -68,7 +68,7 @@
 	</tr>
 </table>
 
-
+<!--
 <div class="separator"></div>
 
 
@@ -142,10 +142,10 @@
 		<td width="80%" class="value">{$language|escape|default:"&mdash;"}</td>
 	</tr>
 </table>
+-->
 
-
+<!--
 <div class="separator"></div>
-
 
 <h3>{translate key="submission.supportingAgencies"}</h3>
 	
@@ -155,5 +155,5 @@
 		<td width="80%" class="value">{$sponsor[$formLocale]|escape|default:"&mdash;"}</td>
 	</tr>
 </table>
-
+-->
 {include file="common/footer.tpl"}

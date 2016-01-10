@@ -164,8 +164,10 @@
 
 	{include file="trackDirector/submission/complete.tpl"}
 
+        <!--
 	<div class="separator"></div>
 
 	{include file="trackDirector/submission/layout.tpl"}
+        -->
 {/if}
 

@@ -78,6 +78,7 @@
 </table>
 </div><!-- titleAndAbstract -->
 
+<!--
 <div id="indexing">
 <h4>{translate key="submission.indexing"}</h4>
 	
@@ -146,8 +147,10 @@
 		<td width="80%" class="value">{$submission->getLanguage()|escape|default:"&mdash;"}</td>
 	</tr>
 </table>
-</div><!-- indexing -->
-
+</div>
+-->        
+<!-- indexing -->
+<!--
 <div id="supportingAgencies">
 <h4>{translate key="submission.supportingAgencies"}</h4>
 	
@@ -157,7 +160,9 @@
 		<td width="80%" class="value">{$submission->getLocalizedSponsor()|escape|default:"&mdash;"}</td>
 	</tr>
 </table>
-</div><!-- supportingAgencies -->
+</div>
+-->
+<!-- supportingAgencies -->
 
 {if $currentSchedConf->getSetting('metaCitations')}
 	<div id="citations">

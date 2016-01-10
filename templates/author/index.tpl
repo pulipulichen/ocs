@@ -21,7 +21,7 @@
 <br />
 
 {include file="author/$pageToDisplay.tpl"}
-
+<!--
 {if $acceptingSubmissions}
 	<p>
         <h3>{translate key="author.submit.startHere"}</h3>
@@ -32,5 +32,5 @@
 		{$notAcceptingSubmissionsMessage}
 	</p>
 {/if}
-
+-->
 {include file="common/footer.tpl"}

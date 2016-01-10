@@ -37,7 +37,7 @@ function moveAuthor(dir, authorIndex) {
 {/literal}
 
 {if count($formLocales) > 1}
-<div id="locales">
+    <div id="locales" style="display: none;">
 <table width="100%" class="data">
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>

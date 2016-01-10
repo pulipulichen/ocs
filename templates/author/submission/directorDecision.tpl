@@ -87,7 +87,9 @@
 	</tr>
 </table>
 </div>
+
+<!--                        
 <div class="separator"></div>
 
 {include file="author/submission/layout.tpl"}
-
+-->

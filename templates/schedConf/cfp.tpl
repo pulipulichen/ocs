@@ -33,15 +33,18 @@
 
 <div class="separator"></div>
 
+<div class="text-center">
 {if $acceptingSubmissions}
 	<p>
             <h3>{translate key="author.submit.startHere"}</h3>
-		<a href="{url page="author" op="submit" requiresAuthor=1}" class="action btn btn-primary">{translate key="author.submit.startHereLink"}</a><br />
+		<a href="{url page="author" op="submit" requiresAuthor=1}" class="action btn btn-primary">{translate key="author.submit.startHereLink"}</a>
 	</p>
 {else}
 	<p>
 		{$notAcceptingSubmissionsMessage}
 	</p>
 {/if}
+</div>
+
 </div>
 {include file="common/footer.tpl"}

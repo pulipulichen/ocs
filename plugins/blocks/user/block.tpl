@@ -19,8 +19,20 @@
 				<li><a href="{url conference="index" page="user"}">{translate key="plugins.block.user.myConferences"}</a></li>
 			{/if}
 			<li><a href="{url page="user" op="profile"}">{translate key="plugins.block.user.myProfile"}</a></li>
-                        {if $schedConfUrl}
-                            <li><a href="{$schedConfUrl}/author">{translate key="common.queue.long.active"}</a></li>
+                        {if $isConferenceManager}
+                            <li><a href="{$conferenceUrl}/manager">{translate key="manager.conferenceSiteManagement"}</a></li>
+                        {/if}
+                        {if $isDirector}
+                            <li><a href="{$directorUrl}">
+                                    {translate key="director.home"}</a></li>
+                        {/if}
+                        {if $isTrackDirector}
+                            <li><a href="{$trackDirectorUrl}">
+                                    {translate key="common.queue.long.submissionsInReview"}</a></li>
+                        {/if}
+                        {if $isAuthor}
+                            <li><a href="{$authorUrl}">
+                                    {translate key="common.queue.long.active"}</a></li>
                         {/if}
 			<li><a href="{url page="login" op="signOut"}">{translate key="plugins.block.user.logout"}</a></li>
 			{if $userSession->getSessionVar('signedInAs')}

@@ -54,7 +54,8 @@ a:hover {
  */
 
 #navbar a {
-	font-size: 0.65em;
+	/*font-size: 0.65em;*/
+        font-size: 1em;
 	letter-spacing: 0.05em;
 }
 

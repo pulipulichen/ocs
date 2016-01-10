@@ -143,11 +143,34 @@ class AuthorHandler extends Handler {
                 $user = Request::getUser();
 
                 $isConferenceManager = false;
+                $isDirector = false;
+                $isTrackDirector = false;
+                $isAuthor = false;
                 if (isset($user)) {
                     $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
-                    $isConferenceManager = (count($roles) > 0);
+                    foreach ($roles AS $role) {
+                        $roleId = $role->_data['roleId'];
+                        //echo $roleId . "|";
+                        if (intval($roleId) === 4096) {
+                            $isConferenceManager = true;
+                        }
+                        else if (intval($roleId) === 256) {
+                            $isDirector = true;
+                        }
+                        else if (intval($roleId) === 128) {
+                            $isTrackDirector = true;
+                        }
+                        else if (intval($roleId) === 64) {
+                            $isAuthor = true;
+                        }
+                    }
                 }
+                //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
+                //print_r($roles);
                 $templateMgr->assign('isConferenceManager', $isConferenceManager);
+                $templateMgr->assign('$isDirector', $isDirector);
+                $templateMgr->assign('$isTrackDirector', $isTrackDirector);
+                $templateMgr->assign('$isAuthor', $isAuthor);
                 // -------------------------
                 $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
                 $templateMgr->assign("schedConfUrl", Request::url(null, $conference->getSetting('path')));
