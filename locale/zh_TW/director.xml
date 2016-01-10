@@ -97,4 +97,5 @@
 	<message key="director.submissions.lastAssigned">最新</message>
 	<message key="director.submissions.averageTime">周</message>
 	<message key="director.submissions.lastCompleted">最近完成</message>
+        <message key="director.submissions.inTrack">所在主題</message>
 </locale>

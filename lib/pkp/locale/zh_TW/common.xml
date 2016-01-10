@@ -177,6 +177,7 @@
 	<message key="form.contains">包含</message>
 	<message key="form.errorsOccurred">處理表單時發生錯誤</message>
 	<message key="form.is">是</message>
+	<message key="form.startsWith">開頭是</message>
 	<message key="form.required">(*必須的)</message>
 	<message key="form.resubmit">重新送出</message>
 	<message key="form.saveToUpload">使用儲存來上傳檔案</message>

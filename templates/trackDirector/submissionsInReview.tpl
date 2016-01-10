@@ -13,7 +13,7 @@
 	<tr><td colspan="8" class="headseparator">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
 		<td width="5%">{sort_search key="common.id" sort="id"}</td>
-		<td width="5%"><span class="disabled">MM-DD</span><br />{sort_search key="submissions.submit" sort="submitDate"}</td>
+		<td width="5%"><!--<span class="disabled">MM-DD</span><br />-->{sort_search key="submissions.submit" sort="submitDate"}</td>
 		<td width="5%">{sort_search key="submissions.track" sort="track"}</td>
 		<td width="5%">{sort_search key="paper.sessionType" sort="sessionType"}</td>
 		<td width="20%">{sort_search key="paper.authors" sort="authors"}</td>

@@ -79,7 +79,7 @@
 	<!-- Paper Queues -->
 	<message key="common.queue.long.submissionsUnassigned">未派職務的</message>
 	<message key="common.queue.short.submissionsUnassigned">未派職務的</message>
-	<message key="common.queue.long.submissionsInReview">投稿建議</message>
+	<message key="common.queue.long.submissionsInReview">待審查的投稿</message>
 	<message key="common.queue.short.submissionsInReview">審查中</message>
 	<message key="common.queue.long.submissionsAccepted">發表</message>
 	<message key="common.queue.short.submissionsAccepted">發表</message>
@@ -134,7 +134,7 @@
 	<message key="paper.details">細節</message>
 	<message key="paper.location">位置</message>
 	<message key="paper.time">時間</message>
-        <message key="paper.sessionType">Session Type</message>
+        <message key="paper.sessionType">主題類型</message>
 
 	<!-- Submission Tracking - Common -->
 	<message key="submission.fromTime">從</message>
