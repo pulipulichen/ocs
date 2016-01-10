@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>currencies_compare 語系比較</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type='text/javascript' src='https://code.jquery.com/jquery-1.10.2.js'></script>
+    </head>
+    <body>
+        <h1>currencies_compare 語系比較</h1>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        <label for="input_locale">
+                            輸入的語系檔
+                        </label>
+                    </th>
+                    <th>
+                        <label for="target_locale">
+                            目標的語系檔
+                        </label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <textarea id="input_locale" style="width: 100%;height: 10em;" onclick="this.select()">
+<locale name="en_US" full_name = "English"><message key="manager.groups.enableBoard.description"><![CDATA[<a href="{$aboutOrganizingTeamUrl}">組織團隊</a>在關於研討會網頁內:]]></message></locale>                            
+
+                        </textarea>
+                    </td>
+                    <td>
+                        <textarea id="target_locale" style="width: 100%;height: 10em;" onclick="this.select()">
+                            <locale name="en_US" full_name = "English"><message key="manager.groups.enableBoard.description"><![CDATA[<a href="{$aboutOrganizingTeamUrl}">組織團隊</a>在關於研討會網頁內:]]></message></locale>
+                        </textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="parse_locale()">
+                            輸出
+                        </button>
+                        <div>
+                            <textarea id="result" style="width: 100%;height: 30em;" onclick="this.select()"></textarea>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="http://www.w3schools.com/xml/xml_validator.asp#xml1">檢查XML是否正確</a>
+        <script type="text/javascript">
+            var parse_locale = function () {
+                
+                var _tag_name = "currency";
+                var _footer_tag = "currencies";
+                
+                
+                var _get_message = function (_selector) {
+                    var _val = $(_selector).val();
+                    if (_val.substr(0,1) !== "<") {
+                        _val = _val.substring(_val.indexOf("<"), _val.length);
+                    }
+                    var _output = $.parseXML(_val);
+                    //var _output = _val;
+                    _output = $(_output).find(_tag_name);
+                    return _output;
+                };
+                
+                var _input = _get_message("#input_locale");
+                var _input_count = _input.length;
+                var _target = _get_message("#target_locale");
+                var _target_count = _target.length;
+                
+                var _to_json = function(_ele) {
+                    var _json = {};
+                    for (var _i = 0; _i < _ele.length; _i++) {
+                        var _message = _ele.eq(_i);
+                        var _key = _message.attr('code_numeric');
+                        //var _val = _message.html();
+                        var _val = [
+                            _message.attr("name"),
+                            _message.attr("code_alpha")
+                        ];
+                        //alert(_val);
+                        _json[_key] = _val;
+                    };
+                    return _json;
+                };
+                
+                var _input_json = _to_json(_input);
+                //console.log(_input_json);
+                var _target_json = _to_json(_target);
+                
+                for (var _key in _input_json) {
+                    if (typeof(_target_json[_key]) === "undefined") {
+                        _target_json[_key] = _input_json[_key];
+                    }
+                }
+                
+                var _keys = [];
+                for (var _k in _target_json) {
+                    if (_target_json.hasOwnProperty(_k)) {
+                        _keys.push(_k);
+                    }
+                }
+                _keys.sort();
+                
+                var _result = {};
+                for (var _i = 0; _i < _keys.length; _i++) {
+                    _k = _keys[_i];
+                    _result[_k] = _target_json[_k];
+                }
+                
+                var _result_text = $("#target_locale").val();
+                _result_text = _result_text.substr(_result_text.indexOf("<"), _result_text.indexOf("<"+_tag_name+" name=")-1);
+                
+                _result_text = $.trim(_result_text) + "\n";
+                
+                var _result_count = 0;
+                for (var _i in _result) {
+                    var _message = _result[_i];
+                    //<message key="manager.accommodation">Accommodation</message>
+                    _result_text = _result_text + '\t<'+_tag_name+' name="'+_message[0]+'" code_alpha="'+_message[1]+'" code="'+_i+'" />\n';
+                    _result_count++;
+                }
+                
+                _result_text = _result_text + "</"+_footer_tag+">";
+                $("#result").val(_result_text);
+                
+                var _xml_fail = false;
+                try {
+                    $.parseXML(_result_text);
+                }
+                catch (_e) {
+                    alert(_e);
+                    _xml_fail = true;
+                }
+                
+                if (_xml_fail === false) {
+                    alert("輸入語系檔：" + _input_count + "筆\n" 
+                            + "目標語系檔：" + _target_count + "筆\n" 
+                            + "結果語系檔：" + _result_count + "筆\n"
+                            + "新增了" + (_result_count - _target_count) + "筆\n");
+                }
+            };
+            
+        </script>
+    </body>
+</html>

@@ -13,6 +13,7 @@
   -->
 
 <currencies locale="zh_TW">
+        <currency name="New Taiwan dollar" code_alpha="TWD" code_numeric="901" />
 	<currency name="US dollar" code_alpha="USD" code_numeric="840" />
 	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Canadian dollar" code_alpha="CAD" code_numeric="124" />
@@ -155,7 +156,7 @@
 	<currency name="Pa'anga" code_alpha="TOP" code_numeric="776" />
 	<currency name="New Turkish lira" code_alpha="TRY" code_numeric="949" />
 	<currency name="Trinidad and Tobago dollar" code_alpha="TTD" code_numeric="780" />
-	<currency name="New Taiwan dollar" code_alpha="TWD" code_numeric="901" />
+	
 	<currency name="Tanzanian shilling" code_alpha="TZS" code_numeric="834" />
 	<currency name="Hryvnia" code_alpha="UAH" code_numeric="980" />
 	<currency name="Uganda shilling" code_alpha="UGX" code_numeric="800" />
