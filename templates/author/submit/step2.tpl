@@ -20,6 +20,12 @@
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
 
+<div id="cfp">
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#technicalSupportContact">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 {translate key="author.submit.uploadInstructions"}
 {if $currentSchedConf->getSetting('supportPhone')}
 	{assign var="howToKeyName" value="author.submit.howToSubmit"}

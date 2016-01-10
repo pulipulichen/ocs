@@ -80,7 +80,7 @@ class SubmitHandler extends AuthorHandler {
 
 		$this->validate($paperId, $step);
 		$this->setupTemplate(true);
-
+                
 		$paper =& $this->paper;
 
 		$formClass = "AuthorSubmitStep{$step}Form";

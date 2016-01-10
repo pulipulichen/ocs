@@ -134,6 +134,7 @@
 	<message key="paper.details">細節</message>
 	<message key="paper.location">位置</message>
 	<message key="paper.time">時間</message>
+        <message key="paper.sessionType">Session Type</message>
 
 	<!-- Submission Tracking - Common -->
 	<message key="submission.fromTime">從</message>

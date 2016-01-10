@@ -72,11 +72,15 @@ class SchedConfHandler extends Handler {
                 $roleDao =& DAORegistry::getDAO('RoleDAO');
                 $user = Request::getUser();
 
-                $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                $isConferenceManager = false;
+                if (isset($user)) {
+                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                    $isConferenceManager = (count($roles) > 0);
+                }
                 //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
                 //print_r($roles);
                 //echo "1212";
-                $templateMgr->assign('isConferenceManager', (count($roles) > 0));
+                $templateMgr->assign('isConferenceManager', $isConferenceManager);
                 $templateMgr->assign('isIndex', true);
                 // -------------------------
                 $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
@@ -622,11 +626,15 @@ class SchedConfHandler extends Handler {
                 $roleDao =& DAORegistry::getDAO('RoleDAO');
                 $user = Request::getUser();
 
-                $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                $isConferenceManager = false;
+                if (isset($user)) {
+                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                    $isConferenceManager = (count($roles) > 0);
+                }
                 //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
                 //print_r($roles);
                 //echo "1212";
-                $templateMgr->assign('isConferenceManager', (count($roles) > 0));
+                $templateMgr->assign('isConferenceManager', $isConferenceManager);
         }
 
 	function validate() {

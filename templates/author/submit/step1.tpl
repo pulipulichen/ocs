@@ -11,6 +11,12 @@
 {assign var="pageTitle" value="author.submit.step1"}
 {include file="author/submit/submitHeader.tpl"}
 
+{if $isConferenceManager}
+    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#technicalSupportContact">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
+
 {if $currentSchedConf->getSetting('supportPhone')}
 	{assign var="howToKeyName" value="author.submit.howToSubmit"}
 {else}
