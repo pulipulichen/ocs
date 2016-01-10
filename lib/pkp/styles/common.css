@@ -156,6 +156,7 @@ input.defaultButton {
 	margin-right: 0;
 	padding-bottom: 0.5em;
 	border-bottom: 2px dotted #000;
+        text-align: center;
 }
 
 #breadcrumb {
@@ -399,6 +400,7 @@ ul.steplist {
 	margin: 0;
 	padding: 0;
 	list-style-type: decimal;
+        margin-bottom: 0.5em;
 }
 
 ul.steplist li {
@@ -467,4 +469,17 @@ div.separator {
 }
 .edit-link:hover {
     color: black !important;
+}
+
+.need-support {
+    text-align: right;
+}
+
+table.data label {
+    color: black;
+}
+
+footer {
+    border-top: 1px solid #898e79 !important;
+    clear: both; padding: 1em;text-align: left;
 }

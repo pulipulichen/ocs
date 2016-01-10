@@ -61,3 +61,5 @@
 {/if}
 </table>
 </div>
+
+<div class="separator"></div>

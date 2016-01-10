@@ -19,6 +19,9 @@
 				<li><a href="{url conference="index" page="user"}">{translate key="plugins.block.user.myConferences"}</a></li>
 			{/if}
 			<li><a href="{url page="user" op="profile"}">{translate key="plugins.block.user.myProfile"}</a></li>
+                        {if $schedConfUrl}
+                            <li><a href="{$schedConfUrl}/author">{translate key="common.queue.long.active"}</a></li>
+                        {/if}
 			<li><a href="{url page="login" op="signOut"}">{translate key="plugins.block.user.logout"}</a></li>
 			{if $userSession->getSessionVar('signedInAs')}
 				<li><a href="{url page="login" op="signOutAsUser"}">{translate key="plugins.block.user.signOutAsUser"}</a></li>

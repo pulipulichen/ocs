@@ -14,15 +14,16 @@
 {/strip}
 <div id="cfp">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#callForPapers">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#callForPapers">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
 <p>{$cfpMessage|nl2br}</p>
 
 {if $authorGuidelines != ''}
+<div class="separator"></div>
     {if $isConferenceManager}
-        <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#authorGuidelinesInfo">
+        <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#authorGuidelinesInfo">
             {translate key="manager.registrationOptions.editTitle"}
         </a>
     {/if}
@@ -30,10 +31,12 @@
 	<p>{$authorGuidelines|nl2br}</p>
 {/if}
 
+<div class="separator"></div>
+
 {if $acceptingSubmissions}
 	<p>
-		{translate key="author.submit.startHere"}<br/>
-		<a href="{url page="author" op="submit" requiresAuthor=1}" class="action">{translate key="author.submit.startHereLink"}</a><br />
+            <h3>{translate key="author.submit.startHere"}</h3>
+		<a href="{url page="author" op="submit" requiresAuthor=1}" class="action btn btn-primary">{translate key="author.submit.startHereLink"}</a><br />
 	</p>
 {else}
 	<p>

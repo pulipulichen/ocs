@@ -135,6 +135,25 @@ class AuthorHandler extends Handler {
 			$pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
 		}
 		$templateMgr->assign('pageHierarchy', $pageHierarchy);
+                
+                // ----------------------
+                $conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+                $roleDao =& DAORegistry::getDAO('RoleDAO');
+                $user = Request::getUser();
+
+                $isConferenceManager = false;
+                if (isset($user)) {
+                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+                    $isConferenceManager = (count($roles) > 0);
+                }
+                $templateMgr->assign('isConferenceManager', $isConferenceManager);
+                // -------------------------
+                $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
+                $templateMgr->assign("schedConfUrl", Request::url(null, $conference->getSetting('path')));
+                $templateMgr->assign("conferenceId", $conference->getId());
+                $templateMgr->assign("schedConfId", $schedConf->getId());
+                // -------------------------
 	}
 }
 

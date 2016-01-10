@@ -7,25 +7,28 @@
  * Common site footer.
  *
  *}
+
+</div><!-- content -->
+</div><!-- main -->
+</div><!-- body -->
+
+</div><!-- container -->
+
+<footer>
 {if $displayCreativeCommons}
 {translate key="common.ccLicense"}
 {/if}
 {if $pageFooter}
-<br /><br />
+<!-- <br /><br /> -->
 {$pageFooter}
 {/if}
 {call_hook name="Templates::Common::Footer::PageFooter"}
 
 {include file="common/navbar.tpl"}
 
-</div><!-- content -->
-</div><!-- main -->
-</div><!-- body -->
-
 {get_debug_info}
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
-
-</div><!-- container -->
+</footer>
 
 
 </body>

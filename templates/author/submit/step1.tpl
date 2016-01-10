@@ -12,7 +12,7 @@
 {include file="author/submit/submitHeader.tpl"}
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#technicalSupportContact">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#technicalSupportContact">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
@@ -23,7 +23,7 @@
 	{assign var="howToKeyName" value="author.submit.howToSubmitNoPhone"}
 {/if}
 
-<p>{translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
+<p class="need-support">{translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
 
 <div class="separator"></div>
 
@@ -67,6 +67,7 @@
 			{assign var=firstSessionType value=1}
 			{foreach from=$sessionTypes item=sessionTypeObject}
 				<tr valign="top">
+                                        <!--
 					<td rowspan="2" width="20%" class="label">
 						{if $firstSessionType}
 							{fieldLabel name="sessionType" key="paper.sessionType"}
@@ -74,13 +75,26 @@
 							&nbsp;
 						{/if}
 					</td>
-					<td rowspan="2" width="5%" class="value">
+                                        -->
+					<td width="5%" class="value">
 						<input type="radio" class="radioButton" name="sessionType" value="{$sessionTypeObject->getId()}" {if ($sessionType == $sessionTypeObject->getId()) || ($firstSessionType && !$sessionType)}checked="checked" {/if} />
 					</td>
 					<td class="value" width="75%">
 						<strong>{$sessionTypeObject->getLocalizedName()}</strong>
+                                                <div class="valeu">
+						{$sessionTypeObject->getLocalizedDescription()}
+						{if $sessionTypeObject->getLength()}
+							<br/>
+							{translate key="manager.schedConfSetup.submissions.typeOfSubmission.length"}: {$sessionTypeObject->getLength()|escape}
+						{/if}
+						{if $sessionTypeObject->getAbstractLength()}
+							<br/>
+							{translate key="manager.schedConfSetup.submissions.typeOfSubmission.abstractLength"}: {$sessionTypeObject->getAbstractLength()|escape}
+						{/if}
+                                                </div>
 					</td>
 				</tr>
+                                <!--
 				<tr valign="top">
 					<td class="value">
 						{$sessionTypeObject->getLocalizedDescription()}
@@ -94,6 +108,7 @@
 						{/if}
 					</td>
 				</tr>
+                                -->
 				{assign var=firstSessionType value=0}
 			{/foreach}
 		</table>

@@ -20,14 +20,14 @@
 {/strip}
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/schedConfSetup/{$schedConfId}#location">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/{$schedConfId}#location">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
 <h2>{$schedConf->getSetting('locationName')|nl2br}</h2>
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/timeline#scheduleEvents">
+    <a class="edit-link" href="{$schedConfUrl}/manager/timeline#scheduleEvents">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
@@ -40,7 +40,7 @@
 <br />
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/schedConfSetup/{$schedConfId}#description">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/{$schedConfId}#description">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}

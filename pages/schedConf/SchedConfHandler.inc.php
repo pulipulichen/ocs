@@ -84,7 +84,7 @@ class SchedConfHandler extends Handler {
                 $templateMgr->assign('isIndex', true);
                 // -------------------------
                 $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
-                $templateMgr->assign("schedUrl", Request::url(null, $conference->getSetting('path'), "manager"));
+                $templateMgr->assign("schedConfUrl", Request::url(null, $conference->getSetting('path')));
                 $templateMgr->assign("conferenceId", $conference->getId());
                 $templateMgr->assign("schedConfId", $schedConf->getId());
                 // --------------------------
@@ -622,7 +622,7 @@ class SchedConfHandler extends Handler {
                 $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
                 $templateMgr->assign("conferenceId", $conference->getId());
                 $templateMgr->assign("schedConfId", $schedConf->getId());
-                $templateMgr->assign("schedUrl", Request::url(null, $conference->getSetting('path'), "manager"));
+                $templateMgr->assign("schedConfUrl", Request::url(null, $conference->getSetting('path')));
 	}
         
         function checkRole(&$conference, &$schedConf) {

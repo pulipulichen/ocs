@@ -205,6 +205,7 @@ function moveAuthor(dir, authorIndex) {
 </div>
 <div class="separator"></div>
 
+<!--
 <div id="indexing">
 <h3>{translate key="submission.indexing"}</h3>
 
@@ -226,7 +227,6 @@ function moveAuthor(dir, authorIndex) {
 	<td>&nbsp;</td>
 </tr>
 {/if}
-
 {if $currentSchedConf->getSetting('metaSubjectClass')}
 <tr valign="top">
 	<td rowspan="2" width="20%" class="label">{fieldLabel name="subjectClass" key="paper.subjectClassification"}</td>
@@ -356,6 +356,8 @@ function moveAuthor(dir, authorIndex) {
 
 <div class="separator"></div>
 {/if}
+
+-->
 
 <p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
 

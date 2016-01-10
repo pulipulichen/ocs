@@ -24,8 +24,8 @@
 
 {if $acceptingSubmissions}
 	<p>
-		{translate key="author.submit.startHere"}<br/>
-		<a href="{url op="submit"}" class="action">{translate key="author.submit.startHereLink"}</a><br />
+        <h3>{translate key="author.submit.startHere"}</h3>
+		<a href="{url op="submit"}" class="btn btn-primary action">{translate key="author.submit.startHereLink"}</a><br />
 	</p>
 {else}
 	<p>

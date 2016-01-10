@@ -20,9 +20,10 @@
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
 
+<div class="separator"></div>
 <div id="cfp">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedUrl}/schedConfSetup/2#technicalSupportContact">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#technicalSupportContact">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
@@ -33,7 +34,10 @@
 	{assign var="howToKeyName" value="author.submit.howToSubmitNoPhone"}
 {/if}
 
-<p>{translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
+<p class="alert alert-info" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
+
 
 <div class="separator"></div>
 

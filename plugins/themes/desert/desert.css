@@ -25,6 +25,10 @@ a:visited {
 	color: #898e79;
 }
 
+a.btn {
+    color: white !important;
+}
+
 a:hover {
 	color: #996633;
 	background: #e5e5c7;
@@ -37,8 +41,8 @@ a:hover {
 
 #headerTitle {
 	padding-bottom: 10px;
-	padding-top: 50px;
-	height: 97px;
+	/*padding-top: 50px;*/
+	/*height: 97px;*/
 	background: #e5e5c7;	
 }
 
