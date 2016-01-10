@@ -137,7 +137,7 @@
 	<message key="submission.review">審查</message>
 	<message key="submission.reviewVersion">審查版本</message>
 	<message key="submissions.active">進行中的</message>
-	<message key="submissions.archived">典藏</message>
+	<message key="submissions.archived">已封存</message>
 	<message key="submission.saveMetadata">儲存後設資料</message>
 	<message key="submissions.completed">完成</message>
 	<message key="submissions.declined">拒絕</message>

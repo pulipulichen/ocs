@@ -31,7 +31,7 @@
 	<message key="director.notifyUsers.interestedUsers">將這則與研討會相關的消息寄發給希望接受更新的使用者({$count} users)</message>
 	<message key="director.notifyUsers.includeToc">包括這個研討會的介紹：</message>
 	<message key="director.navigation.management">管理</message>
-	<message key="director.paper.sendToArchive">歸檔到檔案庫</message>
+	<message key="director.paper.sendToArchive">封存到檔案庫</message>
 	<message key="director.paper.designateReviewVersion">楆示原始檔案作為審查用版本</message>
 	<message key="director.paper.uploadReviewVersion">上傳修改後的檔案作為審查用的版本</message>
 	<message key="director.paper.uploadDirectorVersion">上傳主編的版本</message>

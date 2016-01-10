@@ -72,35 +72,35 @@ class SchedConfHandler extends Handler {
                 $roleDao =& DAORegistry::getDAO('RoleDAO');
                 $user = Request::getUser();
 
-                $isConferenceManager = false;
-                $isDirector = false;
-                $isTrackDirector = false;
-                $isAuthor = false;
-                if (isset($user)) {
-                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
-                    foreach ($roles AS $role) {
-                        $roleId = $role->_data['roleId'];
-                        //echo $roleId . "|";
-                        if (intval($roleId) === 4096) {
-                            $isConferenceManager = true;
-                        }
-                        else if (intval($roleId) === 256) {
-                            $isDirector = true;
-                        }
-                        else if (intval($roleId) === 128) {
-                            $isTrackDirector = true;
-                        }
-                        else if (intval($roleId) === 64) {
-                            $isAuthor = true;
-                        }
-                    }
-                }
+//                $isConferenceManager = false;
+//                $isDirector = false;
+//                $isTrackDirector = false;
+//                $isAuthor = false;
+//                if (isset($user)) {
+//                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
+//                    foreach ($roles AS $role) {
+//                        $roleId = $role->_data['roleId'];
+//                        //echo $roleId . "|";
+//                        if (intval($roleId) === 4096) {
+//                            $isConferenceManager = true;
+//                        }
+//                        else if (intval($roleId) === 256) {
+//                            $isDirector = true;
+//                        }
+//                        else if (intval($roleId) === 128) {
+//                            $isTrackDirector = true;
+//                        }
+//                        else if (intval($roleId) === 64) {
+//                            $isAuthor = true;
+//                        }
+//                    }
+//                }
                 //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
                 //print_r($roles);
-                $templateMgr->assign('isConferenceManager', $isConferenceManager);
-                $templateMgr->assign('isDirector', $isDirector);
-                $templateMgr->assign('isTrackDirector', $isTrackDirector);
-                $templateMgr->assign('isAuthor', $isAuthor);
+                $templateMgr->assign('isConferenceManager', Validation::isConferenceManager($conference->getId()));
+                $templateMgr->assign('isDirector', Validation::isDirector($conference->getId(), $schedConf->getId()));
+                $templateMgr->assign('isTrackDirector', Validation::isTrackDirector($conference->getId(), $schedConf->getId()));
+                $templateMgr->assign('isAuthor', Validation::isAuthor($conference->getId(), $schedConf->getId()));
                 $templateMgr->assign('isIndex', true);
                 // -------------------------
                 $templateMgr->assign("conferenceUrl", Request::url(null, 'index'));
@@ -110,6 +110,7 @@ class SchedConfHandler extends Handler {
                 $templateMgr->assign("directorUrl", Request::url(null, $conference->getSetting('path'), 'director'));
                 $templateMgr->assign("trackDirectorUrl", Request::url(null, $conference->getSetting('path'), 'trackDirector'));
                 $templateMgr->assign("authorUrl", Request::url(null, $conference->getSetting('path'), 'author'));
+                $templateMgr->assign("managerUrl", Request::url(null, $conference->getSetting('path'), 'manager'));
                 // --------------------------
                 
 		$templateMgr->display('schedConf/index.tpl');
@@ -651,38 +652,10 @@ class SchedConfHandler extends Handler {
         
         function checkRole(&$conference, &$schedConf) {
                 $templateMgr =& TemplateManager::getManager();
-                $roleDao =& DAORegistry::getDAO('RoleDAO');
-                $user = Request::getUser();
-
-                $isConferenceManager = false;
-                $isDirector = false;
-                $isTrackDirector = false;
-                $isAuthor = false;
-                if (isset($user)) {
-                    $roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId(), $schedConf->getId());
-                    foreach ($roles AS $role) {
-                        $roleId = $role->_data['roleId'];
-                        //echo $roleId . "|";
-                        if (intval($roleId) === 4096) {
-                            $isConferenceManager = true;
-                        }
-                        else if (intval($roleId) === 256) {
-                            $isDirector = true;
-                        }
-                        else if (intval($roleId) === 128) {
-                            $isTrackDirector = true;
-                        }
-                        else if (intval($roleId) === 64) {
-                            $isAuthor = true;
-                        }
-                    }
-                }
-                //$roles =& $roleDao->getRolesByUserId($user->getId(), $conference->getId());
-                //print_r($roles);
-                $templateMgr->assign('isConferenceManager', $isConferenceManager);
-                $templateMgr->assign('$isDirector', $isDirector);
-                $templateMgr->assign('$isTrackDirector', $isTrackDirector);
-                $templateMgr->assign('$isAuthor', $isAuthor);
+                $templateMgr->assign('isConferenceManager', Validation::isConferenceManager($conference->getId()));
+                $templateMgr->assign('isDirector', Validation::isDirector($conference->getId(), $schedConf->getId()));
+                $templateMgr->assign('isTrackDirector', Validation::isTrackDirector($conference->getId(), $schedConf->getId()));
+                $templateMgr->assign('isAuthor', Validation::isAuthor($conference->getId(), $schedConf->getId()));
         }
 
 	function validate() {

@@ -459,7 +459,7 @@ div.separator {
 .edit-link {
     font-size: 12px;
     float:right;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 5px;
     text-decoration: none;

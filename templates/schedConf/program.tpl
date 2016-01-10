@@ -25,7 +25,7 @@
 {/if}
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/program">
+    <a class="edit-link" href="{$schedConfUrl}/manager/program" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}

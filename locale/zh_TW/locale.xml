@@ -58,10 +58,10 @@
 
 	<!-- Navigation -->
 	<message key="navigation.conferenceHelp">研討會協助</message>
-	<message key="navigation.loggedInAs">您登入的名稱為...</message>
+	<message key="navigation.loggedInAs">您登入的帳號為...</message>
 	<message key="navigation.logout">登出</message>
 	<message key="navigation.account">帳號</message>
-	<message key="navigation.archive">稿件檔案庫 (已歸檔)</message>
+	<message key="navigation.archive">稿件檔案庫 (已封存)</message>
 	<message key="navigation.current">目前研討會</message>
 	<message key="navigation.otherConferences">其他研討會</message>
 	<message key="navigation.myProfile">我的個人資料</message>
@@ -83,12 +83,12 @@
 	<message key="common.queue.short.submissionsInReview">審查中</message>
 	<message key="common.queue.long.submissionsAccepted">發表</message>
 	<message key="common.queue.short.submissionsAccepted">發表</message>
-	<message key="common.queue.long.submissionsArchives">稿件檔案庫 (已歸檔)</message>
-	<message key="common.queue.short.submissionsArchives">稿件檔案庫 (已歸檔)</message>
+	<message key="common.queue.long.submissionsArchives">稿件檔案庫 (已封存)</message>
+	<message key="common.queue.short.submissionsArchives">稿件檔案庫 (已封存)</message>
 	<message key="common.queue.long.active">進行中的稿件</message>
 	<message key="common.queue.short.active">進行中的稿件</message>
-	<message key="common.queue.long.completed">稿件檔案庫 (已歸檔)</message>
-	<message key="common.queue.short.completed">稿件檔案庫 (已歸檔)</message>
+	<message key="common.queue.long.completed">稿件檔案庫 (已封存)</message>
+	<message key="common.queue.short.completed">稿件檔案庫 (已封存)</message>
 
 	<!--
 	 *
@@ -294,7 +294,7 @@
 	<message key="submission.event.director.directorUnassigned">主編尚未被指派負責的主題</message>
 	<message key="submission.event.director.directorDecision">主編決定遞交了</message>
 	<message key="submission.event.director.directorFile">主編的文件已被更新</message>
-	<message key="submission.event.director.submissionArchived">將論文歸檔</message>
+	<message key="submission.event.director.submissionArchived">將論文封存</message>
 	<message key="submission.event.director.submissionRestored">從檔案庫中取出檔案</message>
 
 
@@ -793,8 +793,8 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="about.delayedOpenAccess">延遲開放存取</message>
 	<message key="about.delayedOpenAccessDescription1">這個研討會內容將開放利用在一個開放存取格式內</message>
 	<message key="about.delayedOpenAccessDescription2">月在預定的研討會發布給參加者之後。</message>
-	<message key="about.authorSelfArchive">作者自行歸檔</message>
-	<message key="about.archiving">歸檔</message>
+	<message key="about.authorSelfArchive">作者自行封存</message>
+	<message key="about.archiving">封存</message>
 	<message key="about.registration">註冊</message>
 	<message key="about.registrationContact">註冊連絡</message>
 	<message key="about.availableRegistrationTypes">註冊類別</message>
@@ -906,7 +906,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 
 	<message key="log.director.metadataModified">本論文的後設資料已經由 {$directorName} 修改。</message>
 	<message key="log.director.directorFile">主編版本的稿件已經上傳。</message>
-	<message key="log.director.archived">稿件 {$paperId} 已經歸檔。</message>
+	<message key="log.director.archived">稿件 {$paperId} 已經封存。</message>
 	<message key="log.director.restored">稿件 {$paperId} 排入序列。</message>
 	<message key="log.director.directorAssigned">{$directorName} 已經被指派為稿件 {$paperId} 的主編。</message>
 	<message key="log.director.submissionExpedited">{$directorName} 已經催促稿件 {$paperId} 的編輯程序。</message>

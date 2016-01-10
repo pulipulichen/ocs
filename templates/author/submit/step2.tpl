@@ -33,7 +33,7 @@
 <div class="separator"></div>
 <div id="cfp">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#technicalSupportContact">
+    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#technicalSupportContact" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}

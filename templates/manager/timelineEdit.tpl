@@ -39,6 +39,7 @@
 			{translate key="manager.timeline.schedConfStartsOn"}
 		</td>
 		<td width="50%" class="value">
+                    {*$startDate*}
 			{html_select_date prefix="startDate" time=$startDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
 		</td>
 	</tr>
@@ -48,6 +49,7 @@
 			{translate key="manager.timeline.schedConfEndsOn"}
 		</td>
 		<td width="50%" class="value">
+                    {*$endDate*}
 			{html_select_date prefix="endDate" time=$endDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
 		</td>
 	</tr>

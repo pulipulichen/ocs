@@ -77,7 +77,7 @@
 
 <div id="header">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3">
+    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#homepageHeader" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
@@ -126,7 +126,7 @@
 {include file="common/breadcrumbs.tpl"}
 
 {if $isConferenceManager & $isIndex}
-    <a class="edit-link" href="{$conferenceUrl}/manager/editSchedConf/{$conferenceId}/{$schedConfId}">
+    <a class="edit-link" href="{$conferenceUrl}/manager/editSchedConf/{$conferenceId}/{$schedConfId}" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}

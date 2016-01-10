@@ -16,7 +16,7 @@
 <h3>{translate key="manager.timeline.conference"}</h3>
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/timeline">
+    <a class="edit-link" href="{$schedConfUrl}/manager/timeline" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}

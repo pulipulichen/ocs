@@ -20,6 +20,11 @@
 {/if}
 {if $pageFooter}
 <!-- <br /><br /> -->
+{if $isConferenceManager}
+    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#conferencePageFooterInfo" target="_blank">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{/if}
 {$pageFooter}
 {/if}
 {call_hook name="Templates::Common::Footer::PageFooter"}

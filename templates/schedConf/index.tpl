@@ -19,28 +19,30 @@
 {include file="common/header.tpl"}
 {/strip}
 
+<div class="scheduleInformation" style="font-size: 1.2em;padding: 0.5em 0; font-weight: bold">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/{$schedConfId}#location">
+    <a class="edit-link" href="{$managerUrl}/schedConfSetup/{$schedConfId}#location" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
-<h2>{$schedConf->getSetting('locationName')|nl2br}</h2>
+<div>{$schedConf->getSetting('locationName')|nl2br}</div>
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/timeline#scheduleEvents">
+    <a class="edit-link" href="{$managerUrl}/timeline#scheduleEvents" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
 {if $schedConf->getSetting('startDate')}
 	{assign var=startDate value=$schedConf->getSetting('startDate')|date_format:$dateFormatLong}
 	{assign var=endDate value=$schedConf->getSetting('endDate')|date_format:$dateFormatLong}
-	<h2>{$startDate}{if $startDate != $endDate} &ndash; {$endDate}{/if}</h2>
+	<div>{$startDate}{if $startDate != $endDate} &ndash; {$endDate}{/if}</div>
 {/if}
+</div>
 
 <br />
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/{$schedConfId}#description">
+    <a class="edit-link" href="{$managerUrl}/schedConfSetup/{$schedConfId}#description" target="_blank">
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
