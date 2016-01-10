@@ -42,6 +42,8 @@
 </div>
 	<div class="separator"></div>
 {/if}
+
+{if $registrationOptionCosts[$optionId] === 0}
 <div id="conferenceFees">
 <h3>{translate key="schedConf.registration.conferenceFees"}</h3>
 
@@ -100,13 +102,13 @@
 	</tr>
 </table>
 {/if}
-
 <p>
 	<label for="feeCode">{translate key="schedConf.registration.feeCode"}</label>&nbsp;&nbsp;<input id="feeCode" name="feeCode" type="text" value="{$feeCode|escape}" class="textField" /><br />
 	{translate key="schedConf.registration.feeCode.description"}
 </p>
 </div>
 <div class="separator"></div>
+{/if}
 <div id="account">
 <h3>{translate key="schedConf.registration.account"}</h3>
 {if $userLoggedIn}

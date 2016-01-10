@@ -238,7 +238,11 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$paymentManager =& OCSPaymentManager::getManager();
-		if (!$paymentManager->isConfigured()) Request::redirect(null, null, 'index');
+		if (!$paymentManager->isConfigured()) {
+                    //Request::redirect(null, null, 'index');
+                    echo "payment manager is not configured";
+                    return;
+                }
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('pageHierarchy', array(
