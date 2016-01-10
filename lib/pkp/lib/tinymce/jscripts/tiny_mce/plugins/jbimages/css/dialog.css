@@ -1,4 +1,4 @@
-body { text-align: center;}
+body { text-align: left;}
 #upload_target {border:0; margin:0; padding:0; width:0; height:0;}
 .upload_infobar {display:none; font-size:12pt; background:#fff; padding:5px;}
 .upload_infobar img.spinner {margin-right:10px;}
@@ -13,7 +13,12 @@ body { text-align: center;}
 #the_plugin_name a {text-decoration:none;}
 #the_plugin_name a:hover {color:#333;}
 #manage { margin-top: 10px;}
-#imageListing { width:330px; height:175px; overflow: auto; padding-bottom: 15px; }
+#imageListing { width:100%; height:auto; overflow: auto; padding-bottom: 15px; }
+#imageListing img {
+    margin: 0;
+    padding: 0;
+    border: 1px solid blue;
+}
 
 /*[DEBUG] this class makes the upload script output visible */
 .upload_target_visible {width:100%!important; height:200px!important; border:1px solid #000!important;}
