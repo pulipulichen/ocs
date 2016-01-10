@@ -12,7 +12,7 @@
   * $Id$
   -->
  
-<locale name="zh_TW" full_name="繁體中文">
+<locale name="zh_TW" full_name="正體中文">
 
 	<!-- Google Analytics -->
 	<message key="plugins.generic.googleAnalytics.description"><![CDATA[將 OCS 與 Google Analytics 的網站流量分析應用程式加以整合。要使用本功能，您需要先申請 Google Analytics 的帳號，並完成相關的設定。詳情請參閱 <a href="http://www.google.com/analytics/" title="Google Analytics site">Google Analytics site</a> 。]]></message>

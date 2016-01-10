@@ -12,7 +12,7 @@
   * $Id$
   -->
  
-<locale name="en_US" full_name="U.S. English">
+<locale name="zh_TW" full_name="正體中文">
 	<message key="plugins.generic.customLocale.availableLocales">可用的語系</message>
 	<message key="plugins.generic.customLocale.customize">客製化</message>
 	<message key="plugins.generic.customLocale.description">此客製化的插件可以讓您變更 OCS 使用者介面中的預設的文字內容.</message>

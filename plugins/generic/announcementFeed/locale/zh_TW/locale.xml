@@ -12,7 +12,7 @@
   * $Id$
   -->
  
-<locale name="en_US" full_name="U.S. English">
+<locale name="zh_TW" full_name="正體中文">
 	<message key="plugins.generic.announcementfeed.atom.altText">Atom 圖像</message>
 	<message key="plugins.generic.announcementfeed.description">本插件可以產生 RSS/Atom 網路聚合資料，提供其他網站同步取得本研討會的公告內容。</message>
 	<message key="plugins.generic.announcementfeed.disabled">The Announcement Feed Plugin has been disabled.</message>
