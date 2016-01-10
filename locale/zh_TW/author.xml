@@ -13,9 +13,9 @@
 
 <locale name="zh_TW" full_name = "正體中文">
 	<message key="author.submit">新投稿</message>
-	<message key="author.track">有效投稿</message>
-	<message key="author.submit.startHere">這裡開始投稿一份論文給研討會。</message>
-	<message key="author.submit.startHereLink">投稿過程的步驟一</message>
+	<message key="author.track">投稿完成</message>
+	<message key="author.submit.startHere">準備好投稿到研討會</message>
+	<message key="author.submit.startHereLink">進入投稿過程</message>
 	<message key="author.submit.step1">步驟 1. 開始投稿</message>
 	<message key="author.submit.step3">步驟 3. 輸入投稿的相關資料</message>
 	<message key="author.submit.step2">步驟 2.上載投稿</message>
@@ -29,31 +29,31 @@
 	<message key="author.submit.supplementaryFiles">4. 上載補充文件</message>
 	<message key="author.submit.confirmation">5. 確認</message>
 	<message key="author.submit.confirmationSkipSupp">4. 確認</message>
-	<message key="author.submit.cancelSubmission">經由從作者首頁選擇有效投稿，在之後的時間您能完成這項投稿。</message>
-	<message key="author.submit.notAcceptingYet">這個研討會尚未開始接受投稿。</message>
+	<message key="author.submit.cancelSubmission">您之後可以從作者頁面進入「進行中的投稿」繼續完成這份投稿流程。</message>
+	<message key="author.submit.notAcceptingYet">本研討會尚未開始接受投稿。</message>
 	<message key="author.submit.submissionDeadlinePassed">研討會投稿將會在 {$closedDate} 結束。</message>
 	<message key="author.submissions.confirmDelete">您確定要刪除這還未完成的投稿嗎？</message>
 	<message key="author.submissions.viewStatus">觀看狀態</message>
 	<message key="author.submissions.noSubmissions">無投稿。</message>
-        <message key="author.submit.howToSubmit"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance ({$supportPhone}).]]></message>
-	<message key="author.submit.howToSubmitNoPhone"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
+        <message key="author.submit.howToSubmit"><![CDATA[操作時遇到困難了嗎？請聯絡<a href="mailto:{$supportEmail}">{$supportName}</a> ({$supportPhone}) 來取得協助。]]></message>
+	<message key="author.submit.howToSubmitNoPhone"><![CDATA[操作時遇到困難了嗎？請聯絡<a href="mailto:{$supportEmail}">{$supportName}</a>來取得協助。]]></message>
 	<message key="author.submit.howToSubmit"><![CDATA[作者會經由此網站的一個多重步驟過程來上傳繳交和稿件有關的訊息(有些研討會允許作者上傳附加檔案，例如研究數據及工具)。若您在這過程中遇到任何的困難，請以電子郵件<a href="mailto:{$supportEmail}">{$supportName}</a>或電話聯絡 {$supportPhone} 尋求協助。]]></message>
 	<message key="author.submit.conferenceTrack">研討會主題</message>
 	<message key="author.submit.conferenceTrackDescription"><![CDATA[選擇您的稿件所欲投稿的主題 (請參閱 <a href="{$aboutUrl}" target="_new">主題方針</a>).]]></message>
 	<message key="author.submit.selectTrack">請選擇一個研討會主題...</message>
-	<message key="author.submit.submissionChecklist">投稿清單</message>
-	<message key="author.submit.submissionChecklistDescription">表示這項投稿已在此研討會之考慮檢查下準備好(給主席的建議將會在下面增加)。</message>
-	<message key="author.submit.verifyChecklist">在繼續進行之前您必須確定在投稿清單內所有項目都是滿意的。</message>
-	<message key="author.submit.copyrightNoticeAgree">作者讚成這個版權告示的期限，如果和當它由這個研討會出版時將適用於這項投稿(給主席的建議將會在下面增加)。</message>
+	<message key="author.submit.submissionChecklist">投稿查核表</message>
+	<message key="author.submit.submissionChecklistDescription">請確認投稿之前已經確實遵守以下規定：</message>
+	<message key="author.submit.verifyChecklist">在繼續進行下一個步驟之前，您必須同意本頁面中所有的項目。</message>
+	<message key="author.submit.copyrightNoticeAgree">我接受此授權書，願意將我的文章授權給本研討會以及未來研討會所出版的刊物。</message>
 	<message key="author.submit.copyrightNoticeAgreeRequired">在繼續進行之前您必須讚成版權告示的期限。</message>
 	<message key="author.submit.commentsForDirector">給研討會主席的建議</message>
-	<message key="author.submit.comments">建議 (如無可不填寫)</message>
+	<message key="author.submit.comments"><![CDATA[建議 (選填)]]></message>
 	<message key="author.submit.form.trackRequired">請為此投稿選擇一個適當的研討會主題。</message>
 	<message key="author.submit.form.abstractRequired">請輸入您的投稿摘要。</message>
 	<message key="author.submit.privacyStatement">研討會的保密性聲明</message>
 	<message key="author.submit.reorderInstructions">使用箭頭符號變更出現在投稿內的作者的名字。</message>
 	<message key="author.submit.selectPrincipalContact">主要聯絡作者</message>
-	<message key="author.submit.addAuthor">增加作者</message>
+	<message key="author.submit.addAuthor">增加其他作者</message>
 	<message key="author.submit.deleteAuthor">刪除作者</message>
 	<message key="author.submit.submissionIndexingDescription">提供一個或更多描述投稿內容的專有名詞。以分號來將這些專有名詞分開(專有名詞1；專有名詞2；專有名詞3)。</message>
 	<message key="author.submit.submissionSupportingAgencies">計畫補助單位</message>
@@ -66,7 +66,7 @@
 	<message key="author.submit.submissionFile">投稿文件</message>
 	<message key="author.submit.uploadSubmissionFile">上傳投稿文件</message>
 	<message key="author.submit.replaceSubmissionFile">替換投稿文件</message>
-	<message key="author.submit.noSubmissionFile">無投稿文件被上傳</message>
+	<message key="author.submit.noSubmissionFile">目前尚未上傳投稿文件。</message>
 	<message key="author.submit.noSubmissionConfirm">您確定您要繼續尚未上傳的投稿文件嗎?</message>
 	<message key="author.submit.supplementaryFilesInstructions">此投稿過程之選擇性步驟允許作者增加補充文件來使投稿的內容更豐富。補充文件也許包括(a) 研究儀器、(b)資料庫，遵照研究概念回顧的期限、(c) 尚未提共給讀者的資料來源，或(d) 圖表或表格未完整的呈現在原文裡。這些文件也已經由作者編列，標示著作者所有權和投稿稿件的相互關係。補充文件可以以任一個文件格式上傳並且能讓讀者在他們的原始格式內利用。若這些文件不會影響審查，也能和審查者依起分享。</message>
 	<message key="author.submit.noSupplementaryFiles">無補充文件未增加來這項投稿。</message>

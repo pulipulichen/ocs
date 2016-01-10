@@ -267,7 +267,12 @@
 	<message key="manager.schedConfSetup.review.numWeeksPerReview2">每週審查稿件</message>
 	<message key="manager.schedConfSetup.review.onQuality">主席能對審查者做五點等級的評價。</message>
 	<message key="manager.schedConfSetup.review.pageDescription">審查政策、指南、和路徑。</message>
-	<message key="manager.schedConfSetup.review.peerReview">同事審查</message>
+        <message key="manager.setup.finalSchedConfStepSavedNotes"><![CDATA[<p>排定的會議已經設定好了。<a href="{$conferenceManagementUrl}">請點我</a>回到會議管理。</p>]]></message>
+	<message key="manager.schedConfSetup.review.peerReview">同儕審查</message>
+        <message key="manager.schedConfSetup.review.numWeeksPerReview1">允許審查者使用</message>
+	<message key="manager.schedConfSetup.review.numWeeksPerReview2">週來審查投稿。</message>
+        <message key="manager.schedConfSetup.review.numWeeksPerReview1b">允許審查者在</message>
+	<message key="manager.schedConfSetup.review.numWeeksPerReview2b">之前都可以審查投稿</message>
 	<message key="manager.schedConfSetup.review.remindForInvite1">有誰尚未回信至審查請求內</message>
 	<message key="manager.schedConfSetup.review.remindForInvite2">天。</message>
 	<message key="manager.schedConfSetup.review.remindForSubmit1">有誰尚未投稿給審查審查者</message>
@@ -289,6 +294,11 @@
 	<message key="manager.schedConfSetup.submissions.allowIndividualSubmissions">使能獨自的介紹並由作者遞交</message>
 	<message key="manager.schedConfSetup.submissions.allowPanelSubmissions">使能在綜合演獎單元內，由專題討論小組投遞</message>
 	<message key="manager.schedConfSetup.submissions.bothTogether">摘要和全文一起</message>
+        <message key="manager.schedConfSetup.submissions.bothSequential">摘要審查之後，再審查全文。(需要兩階段審查：第一階段審查摘要；第二階段審查全文)</message>
+        <message key="manager.schedConfSetup.submissions.previewAbstracts">一旦摘要審查完成，立刻發佈摘要。</message>
+        <message key="manager.schedConfSetup.submissions.typeOfSubmission.length">發表時間限制(分鐘)</message>
+	<message key="manager.schedConfSetup.submissions.typeOfSubmission.abstractLength">摘要字數限制</message>
+	<message key="manager.schedConfSetup.submissions.typeOfSubmission.create">新增主題類型</message>
 	<message key="manager.schedConfSetup.submissions.callForPapers">徵稿 (CFP)</message>
 	<message key="manager.schedConfSetup.submissions.cfpMessage">徵稿訊息</message>
 	<message key="manager.schedConfSetup.submissions.cfpMessageDescription"><![CDATA[這個訊息以顯示在研討會網站主頁上的“徵稿”連結上。]]></message>
@@ -299,6 +309,9 @@
 	<message key="manager.schedConfSetup.submissions.coverageGeoExamples">(如：利比亞半島、統溫層、北方森林等。)</message>
 	<message key="manager.schedConfSetup.submissions.coverageGeoProvideExamples">為這個領域提供相關的geo-spatial或地理期限的例子</message>
 	<message key="manager.schedConfSetup.submissions.coverageResearchSampleExamples">(如：年齡、性別、倫理等。)</message>
+        <message key="manager.schedConfSetup.review.directorDecision">會議主席決策</message>
+	<message key="manager.schedConfSetup.review.notifyAllAuthorsOnDecision">當使用通知作者郵件時，收件人包含所有合著者，而不是只有遞交的作者。</message>
+	
 	<message key="manager.schedConfSetup.submissions.coverageResearchSampleProvideExamples">為這個領域提供研究樣品特徵的例子</message>
 	<message key="manager.schedConfSetup.submissions.discipline">學術學科和副學科</message>
 	<message key="manager.schedConfSetup.submissions.disciplineDescription">當研討會橫跨紀律範圍，及/或作者投遞多重學科的項目時能有效的使用。</message>
@@ -307,6 +320,7 @@
 	<message key="manager.schedConfSetup.submissions.enablePublicPaperId">識別號將會被增加來標示已被接收的演講稿。</message>
 	<message key="manager.schedConfSetup.submissions.enablePublicSuppFileId">識別號將增加來標示已被接收的演講稿的補充文件。</message>
 	<message key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork">投稿索引</message>
+        <message key="manager.schedConfSetup.submissions.typeOfSubmission.nameMissing">每個投稿主題都應該被包含在該研討會的主要語系中 ({$primaryLocale}).</message>
 	<message key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWorkDescription"><![CDATA[OCS遵守 <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>協定案為後資料庫收集的成果，它是目前最新的標準用來提供全球電子研究資源的很好通入。作者將使用一個相似的樣板來提供他們投稿的資料庫。研討會主管應該選擇索引類別，和呈獻作者以相關的例子來協助他們在標註上的工作，並以分號分開期間 (如：期間1; 期間2)。登入也應該被介紹如使用"如："或"例如"。]]></message>
 	<message key="manager.schedConfSetup.submissions.notifications.copyPrimaryContact">研討會主要聯絡人。</message>
 	<message key="manager.schedConfSetup.submissions.notifications.copySpecifiedAddress">電子郵件地址</message>

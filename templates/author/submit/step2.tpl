@@ -16,6 +16,16 @@
 {/if}
 {include file="author/submit/submitHeader.tpl"}
 
+{if $currentSchedConf->getSetting('supportPhone')}
+	{assign var="howToKeyName" value="author.submit.howToSubmit"}
+{else}
+	{assign var="howToKeyName" value="author.submit.howToSubmitNoPhone"}
+{/if}
+
+<p class="need-support">
+    {translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}
+</p>
+
 <form method="post" action="{url op="saveSubmit" path=$submitStep}" enctype="multipart/form-data">
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
@@ -27,18 +37,8 @@
         {translate key="manager.registrationOptions.editTitle"}
     </a>
 {/if}
-{translate key="author.submit.uploadInstructions"}
-{if $currentSchedConf->getSetting('supportPhone')}
-	{assign var="howToKeyName" value="author.submit.howToSubmit"}
-{else}
-	{assign var="howToKeyName" value="author.submit.howToSubmitNoPhone"}
-{/if}
 
-<p class="alert alert-info" role="alert">
-    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-    {translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
-
-
+{translate key="author.submit.uploadInstructions" supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}
 <div class="separator"></div>
 
 <div id="submissionFileInfo">
@@ -81,14 +81,25 @@
 			{fieldLabel name="submissionFile" key="author.submit.uploadSubmissionFile"}
 		{/if}
 	</td>
-	<td width="70%" class="value"><input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input name="uploadSubmissionFile" type="submit" class="button" value="{translate key="common.upload"}" /></td>
+	<td width="70%" class="value">
+            <input type="file" class="uploadField" name="submissionFile" id="submissionFile" />
+            <!--
+            <input name="uploadSubmissionFile" type="submit" class="button" value="{translate key="common.upload"}" />
+            -->
+        </td>
 </tr>
 </table>
 </div>
 
 <div class="separator"></div>
 
-<p><input type="submit"{if !$submissionFile} onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<p>
+    {if $submissionFile}
+        <input type="submit"{if !$submissionFile} onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> 
+    {/if}
+    <input name="uploadSubmissionFile" type="submit"  class="button defaultButton" class="button" value="{translate key="common.upload"}" />
+    <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
+</p>
 
 </form>
 

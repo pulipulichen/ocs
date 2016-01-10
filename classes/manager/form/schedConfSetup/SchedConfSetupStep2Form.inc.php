@@ -118,11 +118,12 @@ class SchedConfSetupStep2Form extends SchedConfSetupForm {
 			if (!is_array($paperTypes)) return false;
 
 			foreach ($paperTypes as $paperTypeId => $paperType) {
-				if (!isset($paperType['name'][$primaryLocale]) || empty($paperType['name'][$primaryLocale])) {
-					$fieldName = 'paperTypeName-' . $paperTypeId;
-					$this->addError($fieldName, __('manager.schedConfSetup.submissions.typeOfSubmission.nameMissing', array('primaryLocale' => $primaryLocale)));
-					$this->addErrorField($fieldName);
-				}
+                            // @author Pulipuli Chen 20160110
+//				if (!isset($paperType['name'][$primaryLocale]) || empty($paperType['name'][$primaryLocale])) {
+//					$fieldName = 'paperTypeName-' . $paperTypeId;
+//					$this->addError($fieldName, __('manager.schedConfSetup.submissions.typeOfSubmission.nameMissing', array('primaryLocale' => $primaryLocale)));
+//					$this->addErrorField($fieldName);
+//				}
 				if (isset($paperType['abstractLength']) && !empty($paperType['abstractLength']) && (!is_numeric($paperType['abstractLength']) || $paperType['abstractLength'] <= 0)) {
 					$fieldName = 'paperTypeAbstractLength-' . $paperTypeId;
 					$this->addError($fieldName, __('manager.schedConfSetup.submissions.typeOfSubmission.abstractLengthInvalid'));

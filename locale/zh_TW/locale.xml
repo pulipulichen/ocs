@@ -414,6 +414,7 @@
 	<message key="manager.setup.homeHeaderLogoImageAlt2Invalid">無效的第二次變換網頁頁面標題圖像格式。可被接受的格式有：gif, jpg,或png.</message>
 	<message key="manager.setup.pageHeaderTitleImageAlt2Invalid">無效的第二次變換頁面標題圖像格式。可被接受的格式有：gif, jpg,或png.</message>
 	<message key="manager.setup.pageHeaderLogoImageAlt2Invalid">無效的第二次變換首頁商標圖像格式。可被接受的格式有：gif, jpg,或png.</message>
+        <message key="manager.setup.citations">允許作者單獨提供參考資料的檔案，並附在投稿流程中。</message>
 	<message key="manager.setup.finalStepSavedNotes">
 		<![CDATA[
 			<p>幾乎完成!</p>
@@ -621,7 +622,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 
 
 	<!-- Paper Submission Step 2 -->
-	<message key="author.submit.metadataDescription">這個研討會會集有關各項投稿的metadata，根據由開放檔案現行的標準設置，這是&#29234;辨認研究資源設置的新線上標準。這使能橫跨OAI 資料庫集體的和準確的搜尋，增加讀者發現投稿的可能譬如這一個。主席或許堅持metadata 被提供在開始編輯建議過程之前。</message>
+	<message key="author.submit.metadataDescription">這個研討會會集有關各項投稿的metadata，根據由開放檔案現行的標準設置，這是&#29234;辨認研究資源設置的新線上標準。這使能橫跨OAI 資料庫集體的和準確的搜尋，增加讀者發現投稿的可能譬如這一個。主席或許堅持metadata 被提供在開始編輯建議流程之前。</message>
 	<message key="presenter.submit.authorsDescription">為了不只一位作者投稿，告知作者們他們將會出現在引用文內。</message>
 	<message key="author.submit.reorderAuthorName">重新安排作者的名字</message>
 
@@ -630,14 +631,15 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 請完成下列步驟來上傳論文至此研討會。
 
 <ol>
-<li>在此頁面，請點選瀏覽(或選擇文件)可打開您的電腦硬碟來尋找文件檔案。</li>
-<li>確定此文件檔案是您希望投遞及最重要的投稿文件。</li>
-<li>請在此頁面檔案名稱的地方的選擇投稿文件內點選開啟。</li>
-<li>請在此頁面點選上傳，將檔案從電腦內上傳至研討會網站，並依照研討會的規定重新命名。</li>
-<li>ㄧ旦稿件上傳，請在此頁面的下方點選儲存並繼續。</li>
+<li>請點選頁面下方的「瀏覽」(或「選擇文件」)，以此打開您的電腦，從硬碟來選擇要上傳的文件檔案。</li>
+<li>請確認此文件檔案是您要投稿的文件。</li>
+<!--<li>請在此頁面檔案名稱的地方的選擇投稿文件內點選開啟。</li>-->
+<li>請點選頁面下方的「上傳」按鈕，檔案將會從電腦內上傳至研討會網站。</li>
+<li>如果稿件上傳完成，請點選頁面下方的在此頁面的「儲存」以繼續接下來的投稿流程。</li>
 </ol>
 
-文件檔案可以經由點選檔案名稱來查看。ㄧ份新的或修正過的檔案也能上傳，也能刪除目前所出現的檔案。附加檔案也能被增加為補充文件(下ㄧ步)。倘若您有上傳檔案的困難，請以電子郵件或電話聯絡尋求協助<a href="mailto:{$supportEmail}">{$supportName}</a>{$supportPhone}]]></message>
+您可點選已經上傳的檔案名稱來檢視該檔案。您也可以上傳新的或修正過的檔案，或是刪除已經上傳的檔案。下一個步驟中可以上傳補充文件。<br />
+如果您在上傳檔案的時候遭遇困難，請以電子郵件或電話聯絡<a href="mailto:{$supportEmail}">{$supportName}</a>{$supportPhone}以取得協助。]]></message>
  
 	<!-- Paper Submission Step 4 -->
 
@@ -702,7 +704,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="user.account.readerDescription">由電子郵件公佈所介紹的出版物。</message>
 	<message key="user.account.openAccessNotificationDescription">當研討會已被開放時會以電子郵件來公佈。</message>
 	<message key="user.account.authorDescription">能遞交項目給研討會。</message>
-	<message key="user.account.reviewerDescriptionNoInterests">願意對於此研討會來管理同事審查投稿。</message>
+	<message key="user.account.reviewerDescriptionNoInterests">願意對於此研討會來管理同儕審查投稿。</message>
 	<message key="user.account.reviewerDescription">願意對於此研討會來管理同儕審查投稿。對審查有興趣 (實質的領域和研究方法)。</message>
 	<message key="user.account.authorRegistrationMessage">雖然您在此網站擁有一個帳號，但並不表示您目前為此研討會的作者。</message>
 
@@ -785,7 +787,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="about.submissionPreparationChecklist">投稿準備清單</message>
 	<message key="about.copyrightNotice">版權告示</message>
 	<message key="about.privacyStatement">保密性聲明</message>
-	<message key="about.peerReviewProcess">細看審查過程</message>
+	<message key="about.peerReviewProcess">細看審查流程</message>
 	<message key="about.openAccessPolicy">開放存取方針</message>
 	<message key="about.archiveAccessPolicy">檔案存取方針</message>
 	<message key="about.delayedOpenAccess">延遲開放存取</message>
@@ -1053,7 +1055,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="user.noRoles.registerUnavailable">註冊參與研討會：註冊功能已經關閉。</message>
 	<message key="reader.accessDenied">您沒有權限觀看此篇文章。如果您擁有本研討會站的帳號，請先登入以觀看本篇文章。</message>
         
-        <message key="manager.reviewForms">Review Forms</message>
+        <message key="manager.reviewForms">審查表格</message>
 
 	<message key="manager.reviewForms.list.description">The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific conference track, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</message>
 	<message key="manager.reviewForms.noneChosen">None / Free Form Review</message>
