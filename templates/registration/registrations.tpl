@@ -55,7 +55,7 @@ function sortSearch(heading, direction) {
 		<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 	</select>
 	<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />
-	<br/>
+	
 	<select name="dateSearchField" size="1" class="selectMenu">
 		{html_options_translate options=$dateFieldOptions selected=$dateSearchField}
 	</select>

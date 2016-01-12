@@ -22,14 +22,14 @@
 	<tr>
 		<td>{$announcement->getLocalizedDescription()|nl2br}</td>
 	</tr>
-        <tr class="details">
-            <td class="more">
-                <a href="javascript:history.back()">
-                    {translate key="common.back"}
-                </a>
-            </td>
-	</tr>
 </table>
+                
+<p>
+    » 
+    <a href="javascript:history.back()">
+        {translate key="common.back"}
+    </a>
+</p>
 
         
         

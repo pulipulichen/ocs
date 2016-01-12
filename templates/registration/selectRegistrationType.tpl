@@ -13,13 +13,19 @@
 
 <form action="{url op="registration"}" method="post">
 <div id="registrationType">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/registrationTypes?clearPageContext=1" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <table class="listing" width="100%">
 	<tr>
 		<td colspan="2" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr valign="top" class="heading">
-		<td width="60%">{translate key="schedConf.registration.type"}</td>
-		<td width="60%">{translate key="schedConf.registration.cost"}</td>
+		<td>{translate key="schedConf.registration.type"}</td>
+		<td>{translate key="schedConf.registration.cost"}</td>
 	</tr>
 	<tr>
 		<td colspan="2" class="headseparator">&nbsp;</td>
@@ -78,7 +84,24 @@
 </div>
 {if $currentSchedConf->getSetting('registrationName')}
 
+<p class="text-center">
+    <input type="submit" 
+           value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" 
+           class="button" {else}class="button btn btn-primary" {/if}/>
+</p>
+    
+<div class="separator"></div>
+
+
+{*---------------------------------------------------*}
+    
 <div id="registrationContact">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/registrationPolicies#registrationContact" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <h3>{translate key="manager.registrationPolicies.registrationContact"}</h3>
 
 <table class="data" width="100%">
@@ -105,8 +128,6 @@
 </table>
 </div>
 {/if}{* if displaying reg manager info *}
-
-<p><input type="submit" value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" class="button" {else}class="button defaultButton" {/if}/></p>
 
 </form>
 

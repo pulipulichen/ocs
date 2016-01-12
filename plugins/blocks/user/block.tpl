@@ -23,15 +23,15 @@
                             <li><a href="{$conferenceUrl}/manager">{translate key="manager.conferenceSiteManagement"}</a></li>
                         {/if}
                         {if $isDirector}
-                            <li><a href="{$directorUrl}">
+                            <li><a href="{url page="director"}">
                                     {translate key="director.home"}</a></li>
                         {/if}
                         {if $isTrackDirector}
-                            <li><a href="{$trackDirectorUrl}">
+                            <li><a href="{url page="trackDirector"}">
                                     {translate key="common.queue.long.submissionsInReview"}</a></li>
                         {/if}
                         {if $isAuthor}
-                            <li><a href="{$authorUrl}">
+                            <li><a href="{url page="author"}">
                                     {translate key="common.queue.long.active"}</a></li>
                         {/if}
 			<li><a href="{url page="login" op="signOut"}">{translate key="plugins.block.user.logout"}</a></li>

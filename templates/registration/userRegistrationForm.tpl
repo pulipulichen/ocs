@@ -36,6 +36,12 @@
 {assign var="registrationAdditionalInformation" value=$schedConf->getLocalizedSetting('registrationAdditionalInformation')}
 {if $registrationAdditionalInformation}
 <div id="registrationAdditionalInformation">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/registrationPolicies#registrationAdditionalInformationInfo" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 	<h3>{translate key="manager.registrationPolicies.registrationAdditionalInformation"}</h3>
 
 	<p>{$registrationAdditionalInformation|nl2br}</p>
@@ -53,8 +59,8 @@
 		<td colspan="2" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr valign="top" class="heading">
-		<td width="60%">{translate key="schedConf.registration.options"}</td>
-		<td width="60%">{translate key="schedConf.registration.cost"}</td>
+		<td>{translate key="schedConf.registration.options"}</td>
+		<td>{translate key="schedConf.registration.cost"}</td>
 	</tr>
 	<tr>
 		<td colspan="2" class="headseparator">&nbsp;</td>
@@ -261,10 +267,25 @@
 
 <p><textarea name="specialRequests" id="specialRequests" cols="60" rows="10" class="textArea">{$specialRequests|escape}</textarea></p>
 </div>
+
 <div class="separator"></div>
 
+<p class="text-center">
+    <input type="submit" 
+           value="{translate key="schedConf.registration.register"}" class="button btn btn-primary"/>
+</p>
+
 {if $currentSchedConf->getSetting('registrationName')}
+<div class="separator"></div>
+    
 <div id="registrationContact">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/registrationPolicies#registrationContact" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+
 <h3>{translate key="manager.registrationPolicies.registrationContact"}</h3>
 
 <table class="data" width="100%">
@@ -293,7 +314,6 @@
 <div class="separator"></div>
 {/if}{* if displaying reg manager info *}
 
-<p><input type="submit" value="{translate key="schedConf.registration.register"}" class="button defaultButton" /></p>
 
 </form>
 

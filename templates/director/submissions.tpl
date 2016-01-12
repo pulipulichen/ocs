@@ -52,7 +52,7 @@ function sortSearch(heading, direction) {
 		<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 	</select>
 	<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />
-	<br/>
+	
 	<input type="submit" value="{translate key="common.search"}" class="button" />
 </form>
 &nbsp;

@@ -486,7 +486,9 @@ div.separator {
     text-align: right;
 }
 
-table.data label {
+table.data label,
+table.listing strong,
+table.data .label {
     color: black;
     font-size: 1em;
 }
