@@ -12,10 +12,10 @@
   -->
 <email_texts locale="zh_TW">
 	<email_text key="DIRECTOR_ASSIGN">
-		<subject>主編任務</subject>
+		<subject>負責人任務</subject>
 		<body>{$editorialContactName}:
 
-投稿至 {$conferenceName} 的稿件 "{$paperTitle}" 將會分配給您來查看編輯過程，如同您擔任主題主編 (Track Director) 的角色。
+投稿至 {$conferenceName} 的稿件 "{$paperTitle}" 將會分配給您來查看編輯過程，如同您擔任主題負責人 (Track Director) 的角色。
 
 投稿網站: {$submissionUrl}
 使用者名稱: {$directorUsername}
@@ -23,7 +23,7 @@
 感謝您
 
 {$editorialContactSignature}</body>
-		<description>這電子郵件是通知主題主編，主編分配了他們在編輯過程中監督投稿作業。它也提供關於投稿的資訊和如何進入研討會站點。</description>
+		<description>這電子郵件是通知主題負責人，負責人分配了他們在編輯過程中監督投稿作業。它也提供關於投稿的資訊和如何進入研討會站點。</description>
 	</email_text>
 	<email_text key="MANUAL_PAYMENT_RECEIVED">
 		<subject>Your payment for {$conferenceName} has been received</subject>

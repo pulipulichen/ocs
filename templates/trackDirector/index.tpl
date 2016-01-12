@@ -28,7 +28,22 @@ function sortSearch(heading, direction) {
 
 
 <ul class="menu">
-	<li{if ($pageToDisplay == "submissionsInReview")} class="current"{/if}><a href="{url path="submissionsInReview"}">{translate key="common.queue.short.submissionsInReview"}</a></li>
+    
+    {if $isDirector}
+        <li>
+            <a href="{url page="director"}/submissions/submissionsUnassigned">
+                {translate key="common.queue.long.submissionsUnassigned"}
+            </a>
+        </li>
+    {/if}
+    
+    
+    
+	<li{if ($pageToDisplay == "submissionsInReview")} class="current"{/if}>
+            <a href="{url path="submissionsInReview"}">
+                {translate key="common.queue.long.submissionsInReview"}
+            </a>
+        </li>
 	<li{if ($pageToDisplay == "submissionsAccepted")} class="current"{/if}><a href="{url path="submissionsAccepted"}">{translate key="common.queue.short.submissionsAccepted}</a></li>
 	<li{if ($pageToDisplay == "submissionsArchives")} class="current"{/if}><a href="{url path="submissionsArchives"}">{translate key="common.queue.short.submissionsArchives"}</a></li>
 </ul>

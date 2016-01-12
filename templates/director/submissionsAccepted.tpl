@@ -12,28 +12,29 @@
 
 <table width="100%" class="listing">
 	<tr>
-		<td colspan="7" class="headseparator">&nbsp;</td>
+		<td colspan="8" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
-		<td width="3%">{sort_search key="common.id" sort="id"}</td>
-		<td width="4%">{sort_search key="submissions.track" sort="track"}</td>
-		<td width="4%">{sort_search key="paper.sessionType" sort="sessionType"}</td>
-		<td width="15%">{sort_search key="paper.authors" sort="authors"}</td>
-		<td width="56%">{sort_search key="paper.title" sort="title"}</td>
-		<td width="8%">{translate key="common.order"}</td>
-		<td width="10%" align="right">{sort_search key="common.status" sort="status"}</td>
+		<td width="5%">{sort_search key="common.id" sort="id"}</td>
+		<td>{sort_search key="submissions.track" sort="track"}</td>
+		<td>{sort_search key="paper.sessionType" sort="sessionType"}</td>
+		<td>{sort_search key="paper.authors" sort="authors"}</td>
+		<td>{sort_search key="paper.title" sort="title"}</td>
+		<td >{translate key="common.order"}</td>
+		<td>{sort_search key="common.status" sort="status"}</td>
+                <td>&nbsp;</td>
 	</tr>
 	
 	{iterate from=submissions item=submission}
 
 	<tr>
 		{if !$lastTrackId}
-			<td colspan="7" class="headseparator">&nbsp;</td>
+			<td colspan="8" class="headseparator">&nbsp;</td>
 			{assign var=notFirst value=1}
 		{elseif $lastTrackId != $submission->getTrackId()}
-			<td colspan="7" class="headseparator">&nbsp;</td>
+			<td colspan="8" class="headseparator">&nbsp;</td>
 		{else}
-			<td colspan="7" class="separator">&nbsp;</td>
+			<td colspan="8" class="separator">&nbsp;</td>
 		{/if}
 		{assign var=lastTrackId value=$submission->getTrackId()}
 	</tr>
@@ -47,7 +48,12 @@
 			{assign var="sessionTypeId" value=$submission->getData('sessionType')}
 			{if $sessionTypeId}
 				{assign var="sessionType" value=$sessionTypes.$sessionTypeId}
-				{$sessionType->getLocalizedName()|escape}
+				{assign var="sessionName" value=$sessionType->getLocalizedName()}
+                                {if $sessionName|strlen < 12}
+                                    {$sessionName|escape}
+                                    {else}
+                                    {$sessionName|escape|substr:0:12}...
+                                {/if}
 			{/if}
 		</td>
 		<td>{$submission->getAuthorString(true)|truncate:40:"..."|escape}</td>
@@ -56,7 +62,7 @@
 			<a href="{url op="movePaper" d=u paperId=$submission->getPaperId()}" class="plain">&uarr;</a>
 			<a href="{url op="movePaper" d=d paperId=$submission->getPaperId()}" class="plain">&darr;</a>
 		</td>
-		<td align="right">
+		<td>
 			{assign var="status" value=$submission->getStatus()}
 			{if $status == STATUS_ARCHIVED}
 				{translate key="submissions.archived"}&nbsp;&nbsp;<a href="{url op="deleteSubmission" path=$paperId}" onclick="return confirm('{translate|escape:"jsparam" key="director.submissionArchive.confirmDelete"}')" class="action">{translate key="common.delete"}</a>
@@ -66,24 +72,29 @@
 				{translate key="submissions.declined"}&nbsp;&nbsp;<a href="{url op="deleteSubmission" path=$paperId}" onclick="return confirm('{translate|escape:"jsparam" key="director.submissionArchive.confirmDelete"}')" class="action">{translate key="common.delete"}</a>
 			{/if}
 		</td>
+                <td>
+                    <a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$submission->getCurrentStage()}" class="action">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                </td>
 	</tr>
 {/iterate}
 {if $submissions->wasEmpty()}
 	<tr>
-		<td colspan="7" class="headseparator">&nbsp;</td>
+		<td colspan="8" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr>
-		<td colspan="7" class="nodata">{translate key="submissions.noSubmissions"}</td>
+		<td colspan="8" class="nodata">{translate key="submissions.noSubmissions"}</td>
 	</tr>
-	<tr>
-		<td colspan="6" class="endseparator">&nbsp;</td>
-	</tr>
-{else}
 	<tr>
 		<td colspan="7" class="endseparator">&nbsp;</td>
 	</tr>
+{else}
 	<tr>
-		<td colspan="4" align="left">{page_info iterator=$submissions}</td>
+		<td colspan="8" class="endseparator">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="left">{page_info iterator=$submissions}</td>
 		<td colspan="3" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions searchField=$searchField searchMatch=$searchMatch search=$search track=$track sort=$sort sortDirection=$sortDirection}</td>
 	</tr>
 {/if}

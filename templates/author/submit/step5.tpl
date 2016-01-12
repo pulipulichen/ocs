@@ -54,7 +54,10 @@
 
 <div class="separator"></div>
 
-<p><input type="submit" value="{translate key="author.submit.finishSubmission"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="author.submit.finishSubmission"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
+</p>
 
 </form>
 

@@ -194,7 +194,7 @@
 	<message key="submission.page.history">#{$id} 歷史</message>
 	<message key="submission.page.review">#{$id} 審查</message>
 	<message key="submission.page.summary">#{$id} 摘要</message>
-	<message key="submission.peerReview">審查</message>
+	<message key="submission.peerReview">審查時程</message>
 	<message key="submission.recommendation">推薦</message>
 	<message key="submission.rejected">退稿</message>
 	<message key="submission.request">要求</message>
@@ -229,6 +229,6 @@
 	<message key="submissions.queuedEditing">進行編輯程序</message>
 	<message key="submissions.queuedUnassigned">等待被指派</message>
 	<message key="submissions.ruling">裁決</message>
-	<message key="submissions.submit">送出</message>
+	<message key="submissions.submit">投稿日期</message>
 	<message key="submissions.submitted">已送出</message>
 </locale>

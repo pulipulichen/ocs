@@ -15,8 +15,8 @@
 <locale name="zh_TW" full_name = "正體中文">
 	<message key="director.allDirectors">All Directors</message>
 	<message key="director.allTracks">所有主題</message>
-	<message key="director.home">主席首頁</message>
-	<message key="director.me">Me</message>
+	<message key="director.home">研討會主席管理頁面</message>
+	<message key="director.me">我</message>
 	<message key="director.navigation.management">管理</message>
 	<message key="director.notifyUsers">通知使用者</message>
 	<message key="director.notifyUsers.allAuthors">All published presenters ({$count} users)</message>
@@ -29,11 +29,11 @@
 	<message key="director.paper.addReviewer">新增審查者</message>
 	<message key="director.paper.archiveSubmission">Reject and Archive Submission</message>
 	<message key="director.paper.assignDirector">增加主編</message>
-	<message key="director.paper.assignTrackDirector">增加主題主編</message>
+	<message key="director.paper.assignTrackDirector">增加主題負責人</message>
 	<message key="director.paper.cancelReview">取消審查要求</message>
-	<message key="director.paper.cannotRecord">無法記決策；主題主編尚未作決定或者尚未有審查的相關檔案上傳.</message>
+	<message key="director.paper.cannotRecord">無法記錄決策；主題負責人尚未作決定或者尚未有審查的相關檔案上傳.</message>
 	<message key="director.paper.cannotRecordTooLate">稿件已經完成查程序，您無法再變更決策的結果。</message>
-	<message key="director.paper.cannotRecordYet">在做出決策之前，稿件必需分配給主題主編，審查用的版本將預設成為主編的版本。</message>
+	<message key="director.paper.cannotRecordYet">在做出決策之前，稿件必需分配給主題負責人，審查用的版本將預設成為負責人的版本。</message>
 	<message key="director.paper.changeTrack">變更主題</message>
 	<message key="director.paper.clear">清除</message>
 	<message key="director.paper.clearReview">清除審查者</message>
@@ -98,9 +98,9 @@
 	<message key="director.submissionReview.notes">截止日標示審稿的剩餘天數，如為負數則表示已經超過審稿期限。此欄將在審查接接受審查此稿件後才會出現數數值。&lt;br /&gt;日期格式為MM-DD。</message>
 	<message key="director.submissions.accept">接受</message>
 	<message key="director.submissions.activeAssignments">啟動分配</message>
-	<message key="director.submissions.assignedTo">Assigned To</message>
+	<message key="director.submissions.assignedTo">檢視被安排的審查者</message>
 	<message key="director.submissions.averageTime">周</message>
-	<message key="director.submissions.inTrack">所在主題</message>
+	<message key="director.submissions.inTrack">檢視主題</message>
 	<message key="director.submissions.invite">邀請</message>
 	<message key="director.submissions.lastAssigned">最新</message>
 	<message key="director.submissions.lastCompleted">最近完成</message>

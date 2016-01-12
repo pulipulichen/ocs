@@ -15,16 +15,16 @@
 	<message key="author.paper.uploadAuthorVersion">上傳作者版本</message>
 	<message key="author.submissions.confirmDelete">您確定要刪除這還未完成的投稿嗎？</message>
 	<message key="author.submissions.noSubmissions">無投稿。</message>
-	<message key="author.submissions.queuedAbstractReviewRevisions">Abstract In Review: Revisions Required</message>
-	<message key="author.submissions.queuedPaperReviewRevisions">Paper In Review: Revisions Required</message>
+	<message key="author.submissions.queuedAbstractReviewRevisions">摘要審查中：需要修改</message>
+	<message key="author.submissions.queuedPaperReviewRevisions">全文審查中：需要修改</message>
 	<message key="author.submissions.viewStatus">觀看狀態</message>
 	<message key="author.submit">新投稿</message>
 	<message key="author.submit.addAuthor">增加其他作者</message>
 	<message key="author.submit.addSubmissionFile">增加一個補充文件</message>
 	<message key="author.submit.addSupplementaryFile">增加一個補充文件</message>
-	<message key="author.submit.authorRegistrationClosed">Author registration is closed for this conference.</message>
+	<message key="author.submit.authorRegistrationClosed">本研討會的作者註冊已經關閉。</message>
 	<message key="author.submit.backToSupplementaryFiles">回至補充文件</message>
-	<message key="author.submit.cancelSubmission">您之後可以從作者頁面進入「進行中的投稿」繼續完成這份投稿流程。</message>
+	<message key="author.submit.cancelSubmission">這份投稿已經暫存在左方的「作者投稿的稿件」，您可以稍後再回來完成這份投稿。</message>
 	<message key="author.submit.comments"><![CDATA[建議 (選填)]]></message>
 	<message key="author.submit.commentsForDirector">給研討會主席的建議</message>
 	<message key="author.submit.conferenceTrack">研討會主題</message>
@@ -42,11 +42,11 @@
 	<message key="author.submit.finishSubmission">完成投稿</message>
 	<message key="author.submit.forgottenSubmitSuppFile">Are you sure you wish to continue without uploading the supplementary file you have chosen?</message>
 	<message key="author.submit.form.abstractRequired">請輸入您的投稿摘要。</message>
-	<message key="author.submit.form.authorRequired">At least one author is required.</message>
-	<message key="author.submit.form.authorRequiredFields">The first name, last name, and email address of each author is required.</message>
+	<message key="author.submit.form.authorRequired">至少需要輸入一位作者。</message>
+	<message key="author.submit.form.authorRequiredFields">請輸入作者的中文姓名、西文姓名以及電子信箱(email)。</message>
 	<message key="author.submit.form.titleRequired">請輸入您的論文題目</message>
 	<message key="author.submit.form.trackRequired">請為此投稿選擇一個適當的研討會主題。</message>
-	<message key="author.submit.form.wordCountAlert">You have exceeded the maximum word limit for abstracts in this conference's track.</message>
+	<message key="author.submit.form.wordCountAlert">您輸入的摘要超過了本研討會的字數限制，請您縮減摘要的字數。</message>
 	<message key="author.submit.howToSubmit"><![CDATA[作者會經由此網站的一個多重步驟過程來上傳繳交和稿件有關的訊息(有些研討會允許作者上傳附加檔案，例如研究數據及工具)。若您在這過程中遇到任何的困難，請以電子郵件<a href="mailto:{$supportEmail}">{$supportName}</a>或電話聯絡 {$supportPhone} 尋求協助。]]></message>
 	<message key="author.submit.howToSubmitNoPhone"><![CDATA[操作時遇到困難了嗎？請聯絡<a href="mailto:{$supportEmail}">{$supportName}</a>來取得協助。]]></message>
 	<message key="author.submit.languageInstructions"><![CDATA[English=en; 中文=zh; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">查詢代碼</a>.]]></message>
@@ -56,10 +56,10 @@
 	<message key="author.submit.noSubmissionConfirm">您確定您要繼續尚未上傳的投稿文件嗎?</message>
 	<message key="author.submit.noSubmissionFile">目前尚未上傳投稿文件。</message>
 	<message key="author.submit.noSupplementaryFiles">無補充文件未增加來這項投稿。</message>
-	<message key="author.submit.notAccepting">This conference is not accepting submissions.</message>
+	<message key="author.submit.notAccepting">本研討會不接受投稿。</message>
 	<message key="author.submit.notAcceptingYet">本研討會尚未開始接受投稿。</message>
 	<message key="author.submit.privacyStatement">研討會的保密性聲明</message>
-	<message key="author.submit.reorder">Reorder author's name</message>
+	<message key="author.submit.reorder">記錄作者姓名</message>
 	<message key="author.submit.reorderInstructions">使用箭頭符號變更出現在投稿內的作者的名字。</message>
 	<message key="author.submit.replaceSubmissionFile">替換投稿文件</message>
 	<message key="author.submit.selectPrincipalContact">主要聯絡作者</message>
@@ -69,11 +69,11 @@
 	<message key="author.submit.startHereLink">進入投稿過程</message>
 	<message key="author.submit.step1">步驟 1. 開始投稿</message>
 	<message key="author.submit.step2">步驟 2.上載投稿</message>
-	<message key="author.submit.step2NoAbstracts">Step 3. Uploading the Submission</message>
+	<message key="author.submit.step2NoAbstracts">步驟3. 上傳投稿檔案</message>
 	<message key="author.submit.step3">步驟 3. 輸入投稿的相關資料</message>
-	<message key="author.submit.step3AbstOnly">Step 2. Entering the Submission's Metadata</message>
+	<message key="author.submit.step3AbstOnly">步驟2. 輸入投稿的資訊</message>
 	<message key="author.submit.step4">步驟 4. 上載補充文件</message>
-	<message key="author.submit.step4AbstOnly">Step 3. Uploading Supplementary Files</message>
+	<message key="author.submit.step4AbstOnly">步驟3. 上傳補充檔案</message>
 	<message key="author.submit.step4a">步驟 4a. 增加一個補充文件</message>
 	<message key="author.submit.step5">步驟 5. 投稿確認</message>
 	<message key="author.submit.step5SkipSupp">步驟 4. 投稿確認</message>
@@ -110,9 +110,9 @@
 	<message key="author.submit.supplementaryFileDataDescription">標註這補充資料，提供下列已被上傳的metadata補充文件。</message>
 	<message key="author.submit.supplementaryFileUpload">補充文件</message>
 	<message key="author.submit.supplementaryFiles">4. 上載補充文件</message>
-	<message key="author.submit.supplementaryFiles.saveToUpload">Click Save to upload file (after which additional files can be uploaded).</message>
-	<message key="author.submit.supplementaryFilesAbstractOnly">3. Upload Supplementary Files</message>
-	<message key="author.submit.supplementaryFilesInfoAbstractOnly">3a. Uploading Supplementary Files</message>
+	<message key="author.submit.supplementaryFiles.saveToUpload">按下「儲存」來上傳檔案(補充檔案可以在稍後上傳)。</message>
+	<message key="author.submit.supplementaryFilesAbstractOnly">3. 上傳補充檔案</message>
+	<message key="author.submit.supplementaryFilesInfoAbstractOnly">3a. 上傳補充檔案</message>
 	<message key="author.submit.supplementaryFilesInstructions">此投稿過程之選擇性步驟允許作者增加補充文件來使投稿的內容更豐富。補充文件也許包括(a) 研究儀器、(b)資料庫，遵照研究概念回顧的期限、(c) 尚未提共給讀者的資料來源，或(d) 圖表或表格未完整的呈現在原文裡。這些文件也已經由作者編列，標示著作者所有權和投稿稿件的相互關係。補充文件可以以任一個文件格式上傳並且能讓讀者在他們的原始格式內利用。若這些文件不會影響審查，也能和審查者依起分享。</message>
 	<message key="author.submit.upload">2. 上載投稿</message>
 	<message key="author.submit.uploadOnly">3. Upload Submission</message>

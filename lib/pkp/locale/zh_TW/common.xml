@@ -137,7 +137,7 @@
 	<message key="common.on">開</message>
 	<message key="common.options">選項</message>
 	<message key="common.or">或</message>
-	<message key="common.order">訂閱</message>
+	<message key="common.order">排序</message>
 	<message key="common.originalFileName">原始檔名</message>
 	<message key="common.other">其它</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
@@ -157,7 +157,7 @@
 	<message key="common.save">儲存</message>
 	<message key="common.saveAndContinue">儲存並繼續</message>
 	<message key="common.saveAndEmail">儲存並郵寄</message>
-	<message key="common.search">尋找</message>
+	<message key="common.search">搜尋</message>
 	<message key="common.second">秒</message>
 	<message key="common.select">選取</message>
 	<message key="common.selectAll">全部選取</message>
@@ -261,14 +261,14 @@
 	<message key="navigation.home">首頁</message>
 	<message key="navigation.infoForReaders">給讀者</message>
 	<message key="navigation.infoForReaders.long">給讀者的資訊</message>
-	<message key="navigation.items">第{$from} - {$to} 項；總共 {$total} 項</message>
+	<message key="navigation.items">第 {$from} - {$to} 項；總共 {$total} 項</message>
 	<message key="navigation.login">登入</message>
 	<message key="navigation.nextPage">&gt;&gt;</message>
 	<message key="navigation.nextStep">下一步</message>
 	<message key="navigation.previousPage">&lt;&lt;</message>
 	<message key="navigation.previousStep">上一步</message>
 	<message key="navigation.register">註冊</message>
-	<message key="navigation.search">尋找</message>
+	<message key="navigation.search">搜尋</message>
 	<message key="navigation.stepNumber"> 第{$step}步驟</message>
 	<message key="navigation.user">使用者</message>
 	<message key="navigation.userHome">使用者首頁</message>

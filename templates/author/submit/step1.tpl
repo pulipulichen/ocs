@@ -32,6 +32,13 @@
 {else}
 
 <form name="submit" method="post" action="{url op="saveSubmit" path=$submitStep}" onsubmit="return checkSubmissionChecklist()">
+
+    {if $isConferenceManager}
+        <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#typeOfSubmission" target="_blank">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </a>
+    {/if}
+    
 {if $paperId}<input type="hidden" name="paperId" value="{$paperId|escape}" />{/if}
 
 {if count($trackOptions) == 2}{* Only one track: don't display the selection dropdown *}
@@ -140,6 +147,12 @@ function checkSubmissionChecklist() {
 
 {if $currentSchedConf->getLocalizedSetting('submissionChecklist')}
 <div id="submissionChecklist">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#preparationChecklist" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+    
 {foreach name=checklist from=$currentSchedConf->getLocalizedSetting('submissionChecklist') key=checklistId item=checklistItem}
 	{if $checklistItem.content}
 		{if !$notFirstChecklistItem}
@@ -164,6 +177,11 @@ function checkSubmissionChecklist() {
 
 {if $currentConference->getLocalizedSetting('copyrightNotice') != ''}
 <div id="copyrightNotice">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/setup/1#copyrightNoticeInfo" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <h3>{translate key="about.copyrightNotice"}</h3>
 
 <p>{$currentConference->getLocalizedSetting('copyrightNotice')|nl2br}</p>
@@ -202,7 +220,15 @@ function checkSubmissionChecklist() {
 </div>
 <div class="separator"></div>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="{if $paperId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author"}'{/if}" /></p>
+
+<p class="text-center">
+    <input type="submit" 
+           value="{translate key="common.saveAndContinue"}" 
+           class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" 
+           class="btn btn-default" 
+           onclick="{if $paperId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author"}'{/if}" />
+</p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

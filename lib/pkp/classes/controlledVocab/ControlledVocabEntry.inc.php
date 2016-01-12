@@ -57,7 +57,18 @@ class ControlledVocabEntry extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedName() {
-		return $this->getLocalizedData('name');
+            $name = $this->getLocalizedData('name');
+            return $name;
+	}
+        
+        function getShortLocalizedName($limit = 5) {
+            $name = $this->getLocalizedData('name');
+            if (strlen($name) > $name) {
+                $oriName = $name;
+                $name = substr($name, 0, $limit) . "...";
+                $name = '<span title="'.$oriName.'">'.$name.'</span>';
+            }
+            return $name;
 	}
 
 	/**

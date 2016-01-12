@@ -272,7 +272,7 @@
 
 <p class="text-center">
     <input type="submit" 
-           value="{translate key="schedConf.registration.register"}" class="button btn btn-primary"/>
+           value="{translate key="schedConf.registration.register"}" class="btn btn-primary"/>
 </p>
 
 {if $currentSchedConf->getSetting('registrationName')}

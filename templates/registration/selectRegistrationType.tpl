@@ -87,7 +87,7 @@
 <p class="text-center">
     <input type="submit" 
            value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" 
-           class="button" {else}class="button btn btn-primary" {/if}/>
+           class="button" {else}class="btn btn-primary" {/if}/>
 </p>
     
 <div class="separator"></div>

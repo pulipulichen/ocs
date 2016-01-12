@@ -93,12 +93,17 @@
 
 <div class="separator"></div>
 
-<p>
+<p class="text-center">
     {if $submissionFile}
-        <input type="submit"{if !$submissionFile} onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> 
+        <input type="submit"{if !$submissionFile} 
+               onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} 
+               value="{translate key="common.saveAndContinue"}" 
+               class="btn btn-primary" /> 
     {/if}
-    <input name="uploadSubmissionFile" type="submit"  class="button defaultButton" class="button" value="{translate key="common.upload"}" />
-    <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
+    <input name="uploadSubmissionFile" type="submit"  
+           class="btn btn-primary" class="button" value="{translate key="common.upload"}" />
+    <input type="button" value="{translate key="common.cancel"}" 
+           class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
 </p>
 
 </form>

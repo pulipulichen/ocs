@@ -23,8 +23,17 @@
                             <li><a href="{$conferenceUrl}/manager">{translate key="manager.conferenceSiteManagement"}</a></li>
                         {/if}
                         {if $isDirector}
-                            <li><a href="{url page="director"}">
-                                    {translate key="director.home"}</a></li>
+                            <li>
+                                <a href="{url page="director"}">
+                                    {translate key="director.home"}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{url page="director"}/submissions/submissionsUnassigned">
+                                    {translate key="common.queue.long.submissionsUnassigned"}
+                                    
+                                </a>
+                            </li>
                         {/if}
                         {if $isTrackDirector}
                             <li><a href="{url page="trackDirector"}">
