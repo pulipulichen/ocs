@@ -11,7 +11,7 @@
 {if $currentConference}
 <div class="block" id="notification">
 	<span class="blockTitle">{translate key="notification.notifications"}</span>
-	<ul>
+	<ul class="nav nav-stacked">
 		{if $isUserLoggedIn}
 			<li><a href="{url page="notification"}">{translate key="common.view"}</a>
 				{if $unreadNotifications > 0}{translate key="notification.notificationsNew" numNew=$unreadNotifications}{/if}</li>

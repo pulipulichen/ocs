@@ -9,18 +9,18 @@
  * $Id$
  *}
 <div class="block" id="sidebarUser">
-	<span class="blockTitle">{translate key="navigation.user"}</span>
+	<!-- <span class="blockTitle">{translate key="navigation.user"}</span> -->
 	{if $isUserLoggedIn}
 		{translate key="plugins.block.user.loggedInAs"}<br />
 		<strong>{$loggedInUsername|escape}</strong>
 
-		<ul>
+		<ul class="nav nav-stacked">
 			{if $hasOtherConferences}
 				<li><a href="{url conference="index" page="user"}">{translate key="plugins.block.user.myConferences"}</a></li>
 			{/if}
 			<li><a href="{url page="user" op="profile"}">{translate key="plugins.block.user.myProfile"}</a></li>
                         {if $isConferenceManager}
-                            <li><a href="{$conferenceUrl}/manager">{translate key="manager.conferenceSiteManagement"}</a></li>
+                            <li><a href="{url page="manager"}">{translate key="manager.conferenceSiteManagement"}</a></li>
                         {/if}
                         {if $isDirector}
                             <li>
@@ -31,7 +31,6 @@
                             <li>
                                 <a href="{url page="director"}/submissions/submissionsUnassigned">
                                     {translate key="common.queue.long.submissionsUnassigned"}
-                                    
                                 </a>
                             </li>
                         {/if}

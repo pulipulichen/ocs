@@ -39,6 +39,10 @@ class TemplateManager extends PKPTemplateManager {
 			$conference =& Request::getConference();
 			$schedConf =& Request::getSchedConf();
 			$site =& Request::getSite();
+                        if (isset($schedConf)) {
+                            $this->assign('schedConfAcronym', $schedConf->getLocalizedSetting('acronym'));
+                        }
+                        
 			$this->assign('siteTitle', $site->getLocalizedTitle());
 
 			$siteFilesDir = Request::getBaseUrl() . '/' . PublicFileManager::getSiteFilesPath();

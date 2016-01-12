@@ -9,9 +9,9 @@
  * $Id$
  *}
 	<div class="block" id="sidebarNavigation">
-		<span class="blockTitle">{translate key="plugins.block.navigation.conferenceContent"}</span>
+		<!-- <span class="blockTitle">{translate key="plugins.block.navigation.conferenceContent"}</span> -->
 		
-		<span class="blockSubtitle">{translate key="navigation.search"}</span>
+		<!-- <span class="blockSubtitle">{translate key="navigation.search"}</span> -->
 		<form method="post" action="{url page="search" op="results"}">
 		<table>
 		<tr>
@@ -33,29 +33,29 @@
 		{if $currentSchedConf && ($schedConfPostOverview || $schedConfShowCFP
 			|| $schedConfPostPolicies || $schedConfShowProgram ||  $schedConfPostPresentations || $schedConfPostSchedule 
 			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline)}
-		<span class="blockSubtitle">{translate key="schedConf.contents"}</span>
+		<!-- <span class="blockSubtitle">{translate key="schedConf.contents"}</span> -->
 
-		<ul class="plain">
-			{if $schedConfPostOverview}<li>&#187; <a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
-			<li>&#187; <a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
+		<ul class="nav nav-stacked">
+			{if $schedConfPostOverview}<li><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
+			<li><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
                         {if $schedConfShowCFP}
-                        <li>&#187; <a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>{if $submissionsOpenDate} <br />({$submissionsOpenDate|date_format:$dateFormatLong} <br />~ {$submissionsCloseDate|date_format:$dateFormatLong}){/if}</li>
+                        <li><a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>{if $submissionsOpenDate}({$submissionsOpenDate|date_format:$dateFormatLong} <br />~ {$submissionsCloseDate|date_format:$dateFormatLong}){/if}</li>
 			{/if}
-			{if $schedConfPostTrackPolicies}<li>&#187; <a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}
-			{if $schedConfShowProgram}<li>&#187; <a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a></li>{/if}
-			{if $schedConfPostPresentations}<li>&#187; <a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a></li>{/if}
-			{if $schedConfPostSchedule}<li>&#187; <a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
-			{if $schedConfPostPayment}<li>&#187; <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
-			{if $schedConfPostAccommodation}<li>&#187; <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
-			{if $schedConfPostSupporters}<li>&#187; <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
-			{if $schedConfPostTimeline}<li>&#187; <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
+			{if $schedConfPostTrackPolicies}<li><a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}
+			{if $schedConfShowProgram}<li><a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a></li>{/if}
+			{if $schedConfPostPresentations}<li><a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a></li>{/if}
+			{if $schedConfPostSchedule}<li><a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
+			{if $schedConfPostPayment}<li><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
+			{if $schedConfPostAccommodation}<li><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
+			{if $schedConfPostSupporters}<li><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
+			{if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
 		</ul>
 		{/if}
 
 		{if $currentConference}
                     <!--
 		<span class="blockSubtitle">{translate key="navigation.browse"}</span>
-		<ul>
+		<ul class="nav nav-stacked">
 			<li><a href="{url page="search" op="schedConfs"}">{translate key="navigation.browseByConference"}</a></li>
 			<li><a href="{url page="search" op="authors"}">{translate key="navigation.browseByAuthor"}</a></li>
 			<li><a href="{url page="search" op="titles"}">{translate key="navigation.browseByTitle"}</a></li>

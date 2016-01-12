@@ -28,6 +28,9 @@
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
+        
+        <link href="{$baseUrl}/lib/affix-sidebar/css/styles.css" rel="stylesheet">
+        <script src="{$baseUrl}/lib/affix-sidebar/js/scripts.js"></script>
 	
 	<!-- Base Jquery -->
 	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
@@ -72,46 +75,100 @@
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
 	{$additionalHeadData}
 </head>
+
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a href="{$currentConferenceHome}"  class="navbar-brand">
+                    {if $schedConfAcronym}
+                            {$schedConfAcronym}
+                    {elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
+                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+                    {elseif $displayPageHeaderTitle}
+                            {$displayPageHeaderTitle}
+                    {elseif $alternatePageHeader}
+                            {$alternatePageHeader}
+                    {elseif $customLogoTemplate}
+                            {include file=$customLogoTemplate}
+                    {elseif $siteTitle}
+                            {$siteTitle}
+                    {else}
+                            {$applicationName}
+                    {/if}
+        </a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#sec">Get Started</a>
+        </li>
+        <li>
+          <a href="#sec">Edit</a>
+        </li>
+        <li>
+          <a href="#sec">Visualize</a>
+        </li>
+        <li>
+          <a href="#sec">Prototype</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+
 <div id="container">
 
-<div id="header">
+<div id="masthead">  
 {if $isConferenceManager}
     <a class="edit-link" href="{url page="manager"}/setup/3#homepageHeader" target="_blank">
         {*translate key="manager.registrationOptions.editTitle"*}
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
-<div id="headerTitle">
-<h1>
-<a href="{$currentConferenceHome}">
-{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-{/if}
-{if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-{elseif $displayPageHeaderTitle}
-	{$displayPageHeaderTitle}
-{elseif $alternatePageHeader}
-	{$alternatePageHeader}
-{elseif $customLogoTemplate}
-	{include file=$customLogoTemplate}
-{elseif $siteTitle}
-	{$siteTitle}
-{else}
-	{$applicationName}
-{/if}
-</a>
-</h1>
-</div>
-</div>
+<div class="container">
+        <div class="row"
+             style="{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}min-height: 250px;
+             background-image:url({$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"});background-repeat:no-repeat;background-size: 100%
+             {/if}">
+            <div class="col-md-9 well well-lg">
+                <h1>
+                    <a href="{$currentConferenceHome}">
+                    {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
+                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+                    {elseif $displayPageHeaderTitle}
+                            {$displayPageHeaderTitle}
+                    {elseif $alternatePageHeader}
+                            {$alternatePageHeader}
+                    {elseif $customLogoTemplate}
+                            {include file=$customLogoTemplate}
+                    {elseif $siteTitle}
+                            {$siteTitle}
+                    {else}
+                            {$applicationName}
+                    {/if}
+                    </a>
+                </h1>    
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+         </div>
+    </div> {*<div class="container">*}
+</div> {*<div id="header">*}
 
-<div id="body">
+<div id="body" class="container">
 
 {if $leftSidebarCode || $rightSidebarCode}
-	<div id="sidebar">
+    <div class="col-md-3" id="leftCol">
 		{if $leftSidebarCode}
-			<div id="leftSidebar">
+			<div id="sidebar">
 				{$leftSidebarCode}
 			</div>
 		{/if}
@@ -123,7 +180,7 @@
 	</div>
 {/if}
 
-<div id="main">
+<div class="col-md-9">
 {include file="common/breadcrumbs.tpl"}
 
 {if $isConferenceManager & $isIndex}

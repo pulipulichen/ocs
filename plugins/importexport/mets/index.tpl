@@ -15,7 +15,7 @@
 <br/>
 
 <h3>{translate key="plugins.importexport.METSExport.export"}</h3>
-<ul class="plain">
+<ul class="nav nav-stacked">
 	<li>&#187; <a href="{plugin_url path="schedConfs"}">{translate key="plugins.importexport.METSExport.export.schedConfs"}</a></li>
 </ul>
 
