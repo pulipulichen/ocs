@@ -56,31 +56,43 @@
 		 * show the abstract, and show any review files or
 		 * supplementary files.
 		 *}
+                <tr valign="top"><td colspan="2">&nbsp;</td></tr>
 		<tr valign="top">
-			<td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
-			{if $reviewFile}
-				<td width="80%" class="value">
-					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" class="file">{$reviewFile->getFileName()|escape}</a>&nbsp;&nbsp;
-					{$reviewFile->getDateModified()|date_format:$dateFormatShort}<!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
-				</td>
-			{else}
-				<td width="80%" class="nodata">{translate key="common.none"}</td>
-			{/if}
+                    <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr valign="top">
+                    {if $reviewFile}
+                            <td colspan="2" class="value">
+                                <a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                                   class="file btn btn-default">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {$reviewFile->getFileName()|escape}&nbsp;&nbsp;
+                                    ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
+                                </a>
+                            </td>
+                    {else}
+                            <td colspan="2" class="nodata">{translate key="common.none"}</td>
+                    {/if}
 		</tr>
 		{if not $isStageDisabled}
 		<tr valign="top">
 			<td colspan="2">
 				<form method="post" action="{url op="uploadReviewVersion"}" enctype="multipart/form-data">
 					{translate key="director.paper.uploadReviewVersion"}
-					<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
-					<input type="file" name="upload" class="uploadField" />
-					<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+                                        <div>
+                                            <input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
+                                            <input type="file" name="upload" class="uploadField" />
+                                            <input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+                                        </div>
 				</form>
 			</td>
 		</tr>
 		{/if}
 		{foreach from=$suppFiles item=suppFile}
-			<tr valign="top">
+                    <tr valign="top"><td colspan="2">&nbsp;</td></tr>
+                    	<tr valign="top">
 				{if !$notFirstSuppFile}
 					<td class="label" rowspan="{$suppFiles|@count}">{translate key="paper.suppFilesAbbrev"}</td>
 						{assign var=notFirstSuppFile value=1}
@@ -137,11 +149,20 @@
 				{/if}
 			</td>
 			<td width="70%" class="nowrap">
-				<a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="action">{translate key="director.paper.selectReviewer"}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="action">{translate|escape key="trackDirector.regrets.link"}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				
 			</td>
 		</tr>
 	</table>
+        <div class="text-align">
+            <a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                {translate key="director.paper.selectReviewer"}
+            </a>
+            <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">
+                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                {translate|escape key="trackDirector.regrets.link"}
+            </a>
+        </div>
 
 	{assign var="start" value="A"|ord}
 	{foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}

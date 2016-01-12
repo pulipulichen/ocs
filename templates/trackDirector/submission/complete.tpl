@@ -14,7 +14,14 @@
 <form method="post" action="{url op="completePaper"}">
 	<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 	{translate key="submission.complete.description"}
-	<input name="complete" {if $submission->getStatus() == STATUS_PUBLISHED}disabled="disabled" {/if}type="submit" value="{translate key="submission.complete"}" class="button" />
-	<input name="remove" {if $submission->getStatus() != STATUS_PUBLISHED}disabled="disabled" {/if}type="submit" value="{translate key="common.remove"}" class="button" />
+        <div>
+            {if $submission->getStatus() == STATUS_PUBLISHED}
+                <input name="remove" {if $submission->getStatus() != STATUS_PUBLISHED}disabled="disabled" {/if}type="submit" value="{translate key="submission.button.remove"}" 
+                   class="btn btn-default" />
+            {else}
+                <input name="complete" {if $submission->getStatus() == STATUS_PUBLISHED}disabled="disabled" {/if}type="submit" value="{translate key="submission.button.complete"}" 
+                   class="btn btn-primary" />
+            {/if}
+        </div>
 </form>
 </div>

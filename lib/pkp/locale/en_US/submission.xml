@@ -235,4 +235,6 @@
 
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
+        
+        <message key="submission.button.remove">從已經接受的稿件清單中移除</message>
 </locale>

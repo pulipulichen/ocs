@@ -14,15 +14,20 @@
 <table width="100%" class="data">
 <tr valign="top">
 	<td class="label" width="20%">{translate key="director.paper.selectDecision"}</td>
-	<td width="80%" class="value" colspan="2">
+        <td colspan="2" class="value">
 		<form method="post" action="{url op="recordDecision" path=$stage}">
 			<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
-			<select name="decision" size="1" class="selectMenu"{if not $allowRecommendation} disabled="disabled"{/if}>
+			<select name="decision" class="btn btn-default"{if not $allowRecommendation} disabled="disabled"{/if}>
 				{assign var=availableDirectorDecisionOptions value=$submission->getDirectorDecisionOptions($currentSchedConf,$stage)}
 				{html_options_translate options=$availableDirectorDecisionOptions selected=$lastDecision}
 			</select>
-			<input type="submit" onclick="return confirm('{translate|escape:"jsparam" key="director.submissionReview.confirmDecision"}')" name="submit" value="{translate key="director.paper.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} class="button" />
-			{if not $allowRecommendation and $isCurrent}<br />{translate key="director.paper.cannotRecord}{/if}
+			<input type="submit" 
+                               onclick="return confirm('{translate|escape:"jsparam" key="director.submissionReview.confirmDecision"}')" name="submit" value="{translate key="director.paper.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} 
+                               class="btn btn-primary" />
+			{if not $allowRecommendation and $isCurrent}
+                            <br />
+                            {translate key="director.paper.cannotRecord}
+                        {/if}
 		</form>
 	</td>
 </tr>
@@ -30,7 +35,7 @@
 	<td class="label">{translate key="director.paper.decision"}</td>
 	<td class="value" colspan="2">
 		{foreach from=$directorDecisions item=directorDecision key=decisionKey}
-			{if $decisionKey neq 0} | {/if}
+			{if $decisionKey neq 0} <br /> {/if}
 			{assign var="decision" value=$directorDecision.decision}
 			{translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;{$directorDecision.dateDecided|date_format:$dateFormatShort}
 		{foreachelse}
@@ -39,17 +44,30 @@
 	</td>
 </tr>
 <tr valign="top">
-	<td class="label">{translate key="submission.notifyAuthor"}</td>
+	<td class="label">
+            {translate key="submission.notifyAuthor"}
+        </td>
 	<td class="value" colspan="2">
 		{url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
-		{icon name="mail" url=$notifyAuthorUrl}
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		{translate key="submission.directorAuthorRecord"}
+		
+                <a class="btn btn-default" href="{$notifyAuthorUrl}">
+                    {translate key="submission.notifyAuthor"}
+                    {icon name="mail"}
+                </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<br />
 		{if $submission->getMostRecentDirectorDecisionComment()}
 			{assign var="comment" value=$submission->getMostRecentDirectorDecisionComment()}
-			<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId() anchor=$comment->getId()}');" class="icon">{icon name="comment"}</a>&nbsp;&nbsp;{$comment->getDatePosted()|date_format:$dateFormatShort}
+			<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId() anchor=$comment->getId()}');" class="icon">
+                            {icon name="comment"}
+                            {translate key="submission.directorAuthorRecord"}
+                        </a>
+                        &nbsp;&nbsp;{$comment->getDatePosted()|date_format:$dateFormatShort}
 		{else}
-			<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId()}');" class="icon">{icon name="comment"}</a>{translate key="common.noComments"}
+			<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId()}');" class="icon">
+                            {icon name="comment"}
+                            {translate key="submission.directorAuthorRecord"}
+                        </a>
+                        ({translate key="common.noComments"})
 		{/if}
 		{if $lastDecision == SUBMISSION_DIRECTOR_DECISION_DECLINE}
 			<br />
@@ -127,29 +145,36 @@
 				<td width="80%" colspan="3" class="nodata">{translate key="common.none"}</td>
 			</tr>
 		{/foreach}
+                {if $isCurrent}
+                    <tr valign="top">
+                        <td class="label">
+                            {translate key="director.paper.uploadDirectorVersion"}
+                        </td>
+                        <td colspan="3">
+                            <input type="file" name="upload" class="uploadField" />
+                            <input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+                        </td>
+                </div>
+                {/if}
 	</table>
 
-	{if $isCurrent}
-	<div>
-		{translate key="director.paper.uploadDirectorVersion"}
-		<input type="file" name="upload" class="uploadField" />
-		<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
-	</div>
-	{/if}
+	
 
 	{if $sendableVersionExists}
 		<table class="data" width="100%">
 			<tr valign="top">
-				<td width="20%">&nbsp;</td>
+				<td width="20%" class="label">{translate key="director.paper.moveToLayout"}</td>
 				<td width="80%">
-					{translate key="director.paper.moveToLayout"}
-					<input type="submit" name="setEditingFile" onclick="return window.confirm('{translate|escape:"jsparam" key="director.submissionReview.confirmToLayout"}')" value="{translate key="form.send"}" class="button" />
+					
 					{if $submission->getDateToPresentations()}{$submission->getDateToPresentations()|date_format:$dateFormatShort}{/if}
 					{if !$submission->getGalleys()}
-						<br />
 						<input type="checkbox" checked="checked" name="createGalley" value="1" />
 						{translate key="director.paper.createGalley"}
 					{/if}
+                                        <div>
+                                            <input type="submit" name="setEditingFile" onclick="return window.confirm('{translate|escape:"jsparam" key="director.submissionReview.confirmToLayout"}')" value="{translate key="form.send"}" 
+                                                class="btn btn-primary" />
+                                        </div>
 				</td>
 			</tr>
 		</table>

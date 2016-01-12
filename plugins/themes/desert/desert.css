@@ -28,6 +28,9 @@ a:visited {
 a.btn {
     color: white !important;
 }
+a.btn.btn-default {
+    color: black !important;
+}
 
 a:hover {
 	color: #996633;

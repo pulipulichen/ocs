@@ -158,7 +158,7 @@
 	<message key="submission.submissionManuscript">投稿物の原稿</message>
 	<message key="submission.submissionReview">投稿物の査読</message>
 	<message key="submission.submitter">投稿者</message>
-	<message key="submission.summary">概要</message>
+	<message key="submission.summary">稿件資訊</message>
 	<message key="submission.supplementaryFiles">補足ファイル</message>
 	<message key="submission.supportingAgencies">支援機関</message>
 	<message key="submission.titleAndAbstract">タイトルと要旨</message>

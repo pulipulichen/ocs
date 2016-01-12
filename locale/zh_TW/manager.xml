@@ -289,7 +289,7 @@
 	<message key="manager.schedConfSetup.review">審查</message>
 	<message key="manager.schedConfSetup.review.automatedReminders">電子郵件提示將自動化的傳送給審查者</message>
 	<message key="manager.schedConfSetup.review.automatedRemindersDisabled"><![CDATA[<strong>Note:</strong> To activate these options, the site administrator must enable the <tt>scheduled_tasks</tt> option in the OCS configuration file. Additional server configuration may be required to support this functionality (which may not be possible on all servers), as indicated in the OCS documentation.]]></message>
-	<message key="manager.schedConfSetup.review.directorDecision">會議主席決策</message>
+	<message key="manager.schedConfSetup.review.directorDecision">會議主席稿件處理結果管理</message>
 	<message key="manager.schedConfSetup.review.notifyAllAuthorsOnDecision">當使用通知作者郵件時，收件人包含所有合著者，而不是只有遞交的作者。</message>
 	<message key="manager.schedConfSetup.review.numWeeksPerReview1">允許審查者使用</message>
 	<message key="manager.schedConfSetup.review.numWeeksPerReview1b">允許審查者在</message>
@@ -605,7 +605,7 @@
 	<message key="manager.statistics.statistics.count.decline">拒絕 (%):</message>
 	<message key="manager.statistics.statistics.daysPerReview">複審天數：</message>
 	<message key="manager.statistics.statistics.daysToPublication">出版 (處理) 天數：</message>
-	<message key="manager.statistics.statistics.description">OCS 中各個預定的研討會計算以下統計。 在最初的主編決策“複審的天數”已從繳交日期開始統計 (或複審版本的指定)， “出版 (處理) 天數” 的計算是從接受原稿日期到出版期之間的天數。</message>
+	<message key="manager.statistics.statistics.description">OCS 中各個預定的研討會計算以下統計。 在最初的負責人處理稿件結果“複審的天數”已從繳交日期開始統計 (或複審版本的指定)， “出版 (處理) 天數” 的計算是從接受原稿日期到出版期之間的天數。</message>
 	<message key="manager.statistics.statistics.itemsPublished">項目已出版:</message>
 	<message key="manager.statistics.statistics.makePublic">在研討會內可以位讀者設計檢查項目並利用。</message>
 	<message key="manager.statistics.statistics.note">注意：同儕審查提案文件百分比不得加至100%， 如同項目再傳送或者被接受，被拒絕，或仍在傳送中.</message>

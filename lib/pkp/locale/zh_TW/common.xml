@@ -145,7 +145,7 @@
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">出版者</message>
 	<message key="common.re">Re:</message>
-	<message key="common.record">記錄</message>
+	<message key="common.record">儲存</message>
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">相關的</message>
 	<message key="common.remove">移除</message>
