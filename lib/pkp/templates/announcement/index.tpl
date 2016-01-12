@@ -14,6 +14,12 @@
 {/strip}
 
 <div id="announcementList">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/announcements?clearPageContext=1" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+
 <table class="announcements">
 {if $announcementsIntroduction != null}
 	<tr class="intro">
@@ -22,19 +28,20 @@
 {/if}
 {iterate from=announcements item=announcement}
 	<tr class="title">
-	{if $announcement->getTypeId() != null}
-		<td class="title">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                    {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+            <td class="title">
+                {if $isConferenceManager}
+                    <a class="edit-link" href="{url page="manager" }/editAnnouncement/{$announcement->getId()}" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
+                <span class="glyphicon glyphicon-calendar"></span>
+                {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+                {if $announcement->getTypeId() != null}
                     <h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4>
-                </td>
-	{else}
-		<td class="title">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                    {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+                {else}
                     <h4>{$announcement->getLocalizedTitle()|escape}</h4>
-                </td>
-	{/if}
+                {/if}    
+            </td>
 	</tr>
 	<tr class="description">
 		<td class="description">{$announcement->getLocalizedDescriptionShort()|nl2br}</td>
@@ -65,11 +72,5 @@
 {/if}
 </table>
 </div>
-
-{*if $isConferenceManager*}
-    <a class="edit-link" href="{url page="manager" }/announcements?clearPageContext=1" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
-    </a>
-{*/if*}
 
 {include file="common/footer.tpl"}

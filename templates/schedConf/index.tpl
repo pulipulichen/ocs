@@ -21,15 +21,15 @@
 
 <div class="scheduleInformation" style="font-size: 1.2em;padding: 0.5em 0; font-weight: bold">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$managerUrl}/schedConfSetup/{$schedConfId}#location" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/{$schedConfId}#location" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 <div>{$schedConf->getSetting('locationName')|nl2br}</div>
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$managerUrl}/timeline#scheduleEvents" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/timeline#scheduleEvents" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 {if $schedConf->getSetting('startDate')}
@@ -42,8 +42,8 @@
 <br />
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{$managerUrl}/schedConfSetup/{$schedConfId}#description" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/{$schedConfId}#description" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 <div>{$schedConf->getLocalizedSetting("introduction")|nl2br}</div>
@@ -51,6 +51,11 @@
 {if $enableAnnouncementsHomepage}
 	{* Display announcements *}
 	<div id="announcementsHome">
+                {if $isConferenceManager}
+                    <a class="edit-link" href="{url page="manager" }/announcements?clearPageContext=1" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
 		<h3>{translate key="announcement.announcementsHome"}</h3>
 		{include file="announcement/list.tpl"}	
 		<table class="announcementsMore">

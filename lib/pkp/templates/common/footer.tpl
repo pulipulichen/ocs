@@ -23,7 +23,7 @@
 <!-- <br /><br /> -->
 {if $isConferenceManager}
     <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#conferencePageFooterInfo" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 {$pageFooter}

@@ -13,33 +13,40 @@
 	</tr>
 {iterate from=announcements item=announcement}
 	<tr class="title">
-	{if $announcement->getTypeId() != null}
-		<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4></td>
-	{else}
-		<td class="title"><h4>{$announcement->getLocalizedTitle()|escape}</h4></td>
-	{/if}
-		<td class="more">&nbsp;</td>
+            <td class="title">
+                {if $isConferenceManager}
+                    <a class="edit-link" href="{url page="manager" }/editAnnouncement/{$announcement->getId()}" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
+                <span class="glyphicon glyphicon-calendar"></span>
+                {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+                {if $announcement->getTypeId() != null}
+                    <h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4>
+                {else}
+                    <h4>{$announcement->getLocalizedTitle()|escape}</h4>
+                {/if}
+            </td>
 	</tr>
 	<tr class="description">
 		<td class="description">{$announcement->getLocalizedDescriptionShort()|nl2br}</td>
-		<td class="more">&nbsp;</td>
 	</tr>
 	<tr class="details">
-		<td class="posted">{translate key="announcement.posted"}: {$announcement->getDatePosted()}</td>
+		
 		{if $announcement->getLocalizedDescription() != null}
 			<td class="more"><a href="{url page="announcement" op="view" path=$announcement->getId()}">{translate key="announcement.viewLink"}</a></td>
 		{/if}
 	</tr>
 	<tr>
-		<td colspan="2" class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>
+		<td class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>
 	</tr>
 {/iterate}
 {if $announcements->wasEmpty()}
 	<tr>
-		<td colspan="2" class="nodata">{translate key="announcement.noneExist"}</td>
+		<td class="nodata">{translate key="announcement.noneExist"}</td>
 	</tr>
 	<tr>
-		<td colspan="2" class="endseparator">&nbsp;</td>
+		<td class="endseparator">&nbsp;</td>
 	</tr>
 {/if}
 </table>

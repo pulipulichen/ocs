@@ -302,7 +302,7 @@ class PKPTemplateManager extends Smarty {
                         $instance->assign('isAuthor', Validation::isAuthor($conference->getId(), $schedConf->getId()));
                     }
                 }
-                
+                AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME: For timeline constants
 		return $instance;
 	}
 

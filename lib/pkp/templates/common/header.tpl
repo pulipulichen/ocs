@@ -127,8 +127,8 @@
 {include file="common/breadcrumbs.tpl"}
 
 {if $isConferenceManager & $isIndex}
-    <a class="edit-link" href="{$conferenceUrl}/manager/editSchedConf/{$conferenceId}/{$schedConfId}" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/editSchedConf/{$conferenceId}/{$schedConfId}" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 <h2>{$pageTitleTranslated}</h2>

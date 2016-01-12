@@ -13,10 +13,25 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<table id="announcementDescription" width="100%">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/editAnnouncement/{$announcement->getId()}" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+<table class="announcements" id="announcementDescription" width="100%">
 	<tr>
 		<td>{$announcement->getLocalizedDescription()|nl2br}</td>
 	</tr>
+        <tr class="details">
+            <td class="more">
+                <a href="javascript:history.back()">
+                    {translate key="common.back"}
+                </a>
+            </td>
+	</tr>
 </table>
+
+        
+        
 
 {include file="common/footer.tpl"}

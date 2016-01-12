@@ -14,8 +14,8 @@
 {/strip}
 <div id="cfp">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#callForPapers" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#callForPapers" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 <p>{$cfpMessage|nl2br}</p>
@@ -23,8 +23,8 @@
 {if $authorGuidelines != ''}
 <div class="separator"></div>
     {if $isConferenceManager}
-        <a class="edit-link" href="{$schedConfUrl}/manager/schedConfSetup/2#authorGuidelinesInfo" target="_blank">
-            {translate key="manager.registrationOptions.editTitle"}
+        <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#authorGuidelinesInfo" target="_blank">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </a>
     {/if}
 	<h3>{translate key="about.authorGuidelines"}</h3>
