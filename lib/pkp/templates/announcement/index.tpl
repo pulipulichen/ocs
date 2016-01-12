@@ -23,29 +23,36 @@
 {iterate from=announcements item=announcement}
 	<tr class="title">
 	{if $announcement->getTypeId() != null}
-		<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4></td>
+		<td class="title">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+                    <h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4>
+                </td>
 	{else}
-		<td class="title"><h4>{$announcement->getLocalizedTitle()|escape}</h4></td>
+		<td class="title">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    {translate key="announcement.posted"}: {$announcement->getDatePosted()}
+                    <h4>{$announcement->getLocalizedTitle()|escape}</h4>
+                </td>
 	{/if}
-		<td class="more">&nbsp;</td>
 	</tr>
 	<tr class="description">
 		<td class="description">{$announcement->getLocalizedDescriptionShort()|nl2br}</td>
-		<td class="more">&nbsp;</td>
 	</tr>
+        {if $announcement->getAnnouncementDescription() != null}
 	<tr class="details">
-		<td class="posted">{translate key="announcement.posted"}: {$announcement->getDatePosted()}</td>
-		{if $announcement->getAnnouncementDescription() != null}
-			<td class="more"><a href="{url op="view" path=$announcement->getAnnouncementId()}">{translate key="announcement.viewLink"}</a></td>
-		{/if}
+		
+            <td class="more"><a href="{url op="view" path=$announcement->getAnnouncementId()}">{translate key="announcement.viewLink"}</a></td>
+		
 	</tr>
+        {/if}
 	<tr>
-		<td colspan="2" class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>
+		<td class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>
 	</tr>
 {/iterate}
 {if $announcements->wasEmpty()}
 	<tr>
-		<td colspan="2" class="nodata">{translate key="announcement.noneExist"}</td>
+		<td class="nodata">{translate key="announcement.noneExist"}</td>
 	</tr>
 	<tr>
 		<td colspan="2" class="endseparator">&nbsp;</td>
@@ -58,5 +65,11 @@
 {/if}
 </table>
 </div>
+
+{*if $isConferenceManager*}
+    <a class="edit-link" href="{url page="manager" }/announcements?clearPageContext=1" target="_blank">
+        {translate key="manager.registrationOptions.editTitle"}
+    </a>
+{*/if*}
 
 {include file="common/footer.tpl"}

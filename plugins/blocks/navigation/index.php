@@ -16,5 +16,3 @@
 require_once('NavigationBlockPlugin.inc.php');
 
 return new NavigationBlockPlugin();
-
-?> 

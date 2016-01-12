@@ -98,7 +98,7 @@ input.defaultButton {
 
 #header {
 	width: 100%;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #headerTitle {
@@ -106,6 +106,8 @@ input.defaultButton {
 	margin: 0 auto;
 	padding: 0;
 	width: 100%;
+        max-width: 1024px;
+        /*margin: 0 auto;*/
 }
 
 #headerTitle a {
@@ -114,8 +116,10 @@ input.defaultButton {
 }
 
 #header h1 {
-	margin: 0 auto;
-	padding: 0.5em 0 0.25em 10%;
+	/*margin: 0 auto;*/
+        margin:0;
+	/*padding: 0.5em 0 0.25em 10%;*/
+        padding: 0.5em;
 	font-family: Georgia,'Times New Roman',Times,serif;
 	font-weight: normal;
 }
@@ -466,14 +470,16 @@ div.separator {
     cursor: pointer;
     background-color: black;
     color: white !important;
-    position: absolute;
-    right: 0;
+    /*position: absolute;
+    right: 0;*/
 }
 .edit-link:visited {
     color: white;
 }
 .edit-link:hover {
     color: black !important;
+    border-color: black;
+    background-color: white;
 }
 
 .need-support {
@@ -487,5 +493,12 @@ table.data label {
 
 footer {
     border-top: 1px solid #898e79 !important;
-    clear: both; padding: 1em;text-align: left;
+    clear: both; 
+    padding: 1em;
+    text-align: left;
+}
+
+footer > .footer-container {
+    max-width: 1024px;
+    margin:0 auto;
 }

@@ -77,8 +77,9 @@
 
 <div id="header">
 {if $isConferenceManager}
-    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#homepageHeader" target="_blank">
-        {translate key="manager.registrationOptions.editTitle"}
+    <a class="edit-link" href="{url page="manager"}/setup/3#homepageHeader" target="_blank">
+        {*translate key="manager.registrationOptions.editTitle"*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 <div id="headerTitle">

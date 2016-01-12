@@ -37,7 +37,8 @@
 
 		<ul class="plain">
 			{if $schedConfPostOverview}<li>&#187; <a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
-			{if $schedConfShowCFP}
+			<li>&#187; <a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
+                        {if $schedConfShowCFP}
 				<li>&#187; <a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>{if $submissionsOpenDate} ({$submissionsOpenDate|date_format:$dateFormatLong} - {$submissionsCloseDate|date_format:$dateFormatLong}){/if}</li>
 			{/if}
 			{if $schedConfPostTrackPolicies}<li>&#187; <a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}

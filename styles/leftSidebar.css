@@ -20,25 +20,30 @@
 #body {
 	vertical-align: top;
 	height: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
 }
 
 #leftSidebar {
 	float: left;
-	width: 14%;
+	/*width: 14%;*/
+        width: 200px;
 	padding: 1em 0em 1em 0em;
 	/*font-size: 0.65em;*/
         font-size: 1em;
 	height: 100%;
-	margin-left: 10%;
-	margin-right: 2%;
+	/*margin-left: 10%;*/
+        margin-left: 1em;
+	margin-right: 1em;
 	display: inline;
 	overflow: hidden;
 }
 
 #main {
 	float: right;
-	width: 63%;
-	margin-right: 10%;
+	/*width: 63%;*/
+        width: calc(100% - 200px - 3em);
+	margin-right: 1em;
 	overflow: hidden;
 }
 

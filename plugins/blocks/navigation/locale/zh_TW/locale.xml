@@ -16,4 +16,5 @@
 	<message key="plugins.block.navigation.displayName">導覽區塊</message>
 	<message key="plugins.block.navigation.description">This plugin provides sidebar navigation links.</message>
 	<message key="plugins.block.navigation.conferenceContent">功能導覽</message>
+        <message key="plugins.block.navigation.announcement">公告</message>
 </locale>

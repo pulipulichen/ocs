@@ -15,6 +15,7 @@
 </div><!-- container -->
 
 <footer>
+    <div class="footer-container">
 {if $displayCreativeCommons}
 {translate key="common.ccLicense"}
 {/if}
@@ -33,6 +34,7 @@
 
 {get_debug_info}
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
+    </div>
 </footer>
 
 

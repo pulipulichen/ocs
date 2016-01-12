@@ -16,4 +16,5 @@
 	<message key="plugins.block.navigation.displayName">Navigation Block</message>
 	<message key="plugins.block.navigation.description">This plugin provides sidebar navigation links.</message>
 	<message key="plugins.block.navigation.conferenceContent">Conference Content</message>
+        <message key="plugins.block.navigation.announcement">Announcement</message>
 </locale>

@@ -290,6 +290,19 @@ class PKPTemplateManager extends Smarty {
 		if ($instance === null) {
 			$instance = new TemplateManager($request);
 		}
+                
+                $conference =& Request::getConference();
+                if (isset($conference)) {
+                    $instance->assign('isConferenceManager', Validation::isConferenceManager($conference->getId()));
+                    
+                    $schedConf =& Request::getSchedConf();
+                    if (isset($schedConf)) {
+                        $instance->assign('isDirector', Validation::isDirector($conference->getId(), $schedConf->getId()));
+                        $instance->assign('isTrackDirector', Validation::isTrackDirector($conference->getId(), $schedConf->getId()));
+                        $instance->assign('isAuthor', Validation::isAuthor($conference->getId(), $schedConf->getId()));
+                    }
+                }
+                
 		return $instance;
 	}
 
