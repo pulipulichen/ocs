@@ -15,15 +15,20 @@
 		<form method="post" action="{url page="search" op="results"}">
 		<table>
 		<tr>
-			<td><input type="text" id="query" name="query" size="15" maxlength="255" value="" class="textField" /></td>
+			<td><input type="text" id="query" name="query" size="15" maxlength="255" value="" class="form-control" /></td>
 		</tr>
 		<tr>
-			<td><select name="searchField" size="1" class="selectMenu">
+                    <td>
+                                <select name="searchField" size="1" class="form-control" style="width:calc(100% - 3.5em);display:inline">
 				{html_options_translate options=$paperSearchByOptions}
-			</select></td>
-		</tr>
-		<tr>
-			<td><input type="submit" value="{translate key="common.search"}" class="button" /></td>
+			</select>
+                            <button type="submit" value="{translate key="common.search"}" class="btn btn-default input-sm">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                        </div>
+                        
+                        
+                    </td>
 		</tr>
 		</table>
 		</form>

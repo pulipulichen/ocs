@@ -528,3 +528,7 @@ footer > .footer-container {
 #content input[type=file] {
     display: inline;
 }
+
+#leftCol {
+    margin-top: 1em;
+}

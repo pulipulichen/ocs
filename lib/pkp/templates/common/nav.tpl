@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top" role="banner">
+<nav class="navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,7 +47,7 @@
                 <div class="form-group">
                      <input type="text" class="form-control" placeholder="{translate key="common.search"}">
                 </div>
-                <select name="searchField" class="btn btn-default">
+                <select name="searchField" class="form-control">
                     {html_options_translate options=$paperSearchByOptions}
                 </select>
                 <button type="submit" class="btn btn-default">

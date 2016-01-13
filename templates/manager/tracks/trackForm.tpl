@@ -141,6 +141,7 @@
 	</td>
 </tr>
 <tr valign="top">
+    <td class="label">&nbsp;</td>
 	<td class="value">
 		<input type="checkbox" name="metaNotReviewed" id="metaNotReviewed" value="1" {if $metaNotReviewed}checked="checked"{/if} />
 		{fieldLabel name="metaNotReviewed" key="manager.tracks.submissionNotReviewed"}
