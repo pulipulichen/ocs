@@ -13,9 +13,9 @@
   -->
 
 <locale name="zh_TW" full_name="正體中文">
-	<message key="default.paperType.individual.name">Individual Submission</message>
+	<message key="default.paperType.individual.name">個人投稿</message>
 	<message key="default.paperType.individual.description"></message>
-	<message key="default.paperType.panel.name">Panel Submission</message>
+	<message key="default.paperType.panel.name">主題名稱</message>
 	<message key="default.paperType.panel.description"></message>
 	<message key="track.default.title">General Papers</message>
 	<message key="track.default.abbrev">GEN</message>
@@ -31,7 +31,7 @@
 	<message key="default.schedConfSettings.checklist.submissionAppearance">The text is single-spaced; uses a 12-point font; employs italics, rather than underlining (except with URL addresses); and all illustrations, figures, and tables are placed within the text at the appropriate points, rather than at the end.</message>
 	<message key="default.schedConfSettings.checklist.anonymous">If submitting to a peer-reviewed track of the conference, authors' names are removed from submission, with "Author" and year used in the bibliography and footnotes, instead of authors' name, paper title, etc.</message>
 	<message key="default.schedConfSettings.checklist.personalInformationRemoved">If submitting to peer review, all Microsoft Office documents (including Supplementary Files) have been saved by going to File and selecting Save As; clicking Tools (or Options in a Mac); clicking Security; selecting "Remove personal information from file properties on save"; clicking Save.</message>
-	<message key="default.conferenceSettings.privacyStatement">The names and email addresses entered in this conference site will be used exclusively for the stated purposes of this conference and will not be made available for any other purpose or to any other party.</message>
+	<message key="default.conferenceSettings.privacyStatement">本研討會保存的姓名與電子信箱只會用於本次研討會中，而不會用於其他目的或交給其他人。</message>
 	<message key="default.conferenceSettings.authorSelfArchivePolicy">Authors are permitted to post their papers on personal or institutional websites prior to and after publication by this conference (while providing the bibliographic details of that publication).</message>
 	<message key="default.conferenceSettings.emailSignature"><![CDATA[________________________________________________________________________
 {$conferenceName}

@@ -49,20 +49,24 @@
 		</ul>
 	{else}
 		<form method="post" action="{$userBlockLoginUrl}">
-			<table>
+			<table width="100%">
 				<tr>
-					<td><label for="sidebar-username">{translate key="user.username"}</label></td>
-					<td><input type="text" id="sidebar-username" name="username" value="" size="12" maxlength="32" class="textField" /></td>
+					<td colspan="2"  class="form-group">
+                                            <label for="sidebar-username" class="control-label">
+                                                {translate key="user.username"}
+                                            </label>
+                                                <input type="text" id="sidebar-username" name="username" value="" size="12" maxlength="32" class="form-control" />
+                                        </td>
 				</tr>
 				<tr>
-					<td><label for="sidebar-password">{translate key="user.password"}</label></td>
-					<td><input type="password" id="sidebar-password" name="password" value="{$password|escape}" size="12" maxlength="32" class="textField" /></td>
+                                    <td colspan="2"  class="form-group"><label for="sidebar-password">{translate key="user.password"}</label>
+					<input type="password" id="sidebar-password" name="password" value="{$password|escape}" size="12" maxlength="32" class="form-control" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="checkbox" id="remember" name="remember" value="1" /> <label for="remember">{translate key="plugins.block.user.rememberMe"}</label></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="{translate key="user.login"}" class="button" /></td>
+                                    <td colspan="2" class="text-center"><input type="submit" value="{translate key="user.login"}" class="btn btn-default" /></td>
 				</tr>
 			</table>
 		</form>

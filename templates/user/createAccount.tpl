@@ -13,28 +13,18 @@
 {include file="common/header.tpl"}
 {/strip}
 
+{include file="common/formErrors.tpl"}
+
 <form name="createAccount" method="post" action="{url op="createAccount"}">
 
-<p>{translate key="user.account.completeForm"}</p>
 
-{if !$existingUser}
-	{url|assign:"url" page="user" op="account" existingUser=1}
-	<p>{translate key="user.account.hasAccount" accountUrl=$url}</p>
-{else}
-	{url|assign:"url" page="user" op="account"}
-	<p>{translate key="user.account.hasNoAccount" accountUrl=$url}</p>
-	<input type="hidden" name="existingUser" value="1"/>
-{/if}
-
-{if $source}
-	<input type="hidden" name="source" value="{$source|escape}" />
-{/if}
-
-<h3>{translate key="user.profile"}</h3>
-{include file="common/formErrors.tpl"}
+    
+<!-- <h3>{translate key="user.profile"}</h3> -->
 
 {if $existingUser}
 <p>{translate key="user.account.loginToRegister"}</p>
+{else}
+    <p>{translate key="user.account.completeForm"}</p>
 {/if}
 
 {* NOTE: The absolutely required fields in following form should be synced
@@ -210,14 +200,42 @@
 {/if}
 </table>
 
-<p><input type="submit" value="{translate key="user.createAccount"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="index"}'" /></p>
+<p>
+    <input type="submit" value="{if $existingUser}{translate key="user.logIn"}{else}{translate key="user.createAccount"}{/if}" class="btn btn-primary" />
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="index"}'" />
+</p>
+
+
+{*-----------------------------*}
+
+{if !$existingUser}
+	{url|assign:"url" page="user" op="account" existingUser=1}
+	<p>{translate key="user.account.hasAccount" accountUrl=$url}</p>
+{else}
+	{url|assign:"url" page="user" op="account"}
+	<p>{translate key="user.account.hasNoAccount" accountUrl=$url}</p>
+	<input type="hidden" name="existingUser" value="1"/>
+{/if}
+
+{if $source}
+	<input type="hidden" name="source" value="{$source|escape}" />
+{/if}
+
+
+{*-----------------------------*}
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
+{*-----------------------------*}
+
 {if $privacyStatement}
+<div class="separator"></div>
 <h3>{translate key="user.account.privacyStatement"}</h3>
 <p>{$privacyStatement|nl2br}</p>
 {/if}
+
+{*-----------------------------*}
+
 </form>
 
 {include file="common/footer.tpl"}

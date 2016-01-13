@@ -108,7 +108,7 @@
 	<message key="manager.registration.form.membership">會員身分</message>
 	<message key="manager.registration.form.membershipInstructions">如果註冊類別要求已註冊者需屬於協會或組織，請輸入會員資格資訊。</message>
 	<message key="manager.registration.form.membershipRequired">被選擇的註冊類型需要會員資格資訊。</message>
-	<message key="manager.registration.form.notifyEmail">將使用者名稱和註冊細節以電子郵件寄發給使用者。</message>
+	<message key="manager.registration.form.notifyEmail">將帳號和註冊細節以電子郵件寄發給使用者。</message>
 	<message key="manager.registration.form.notifyEmailValid">請使用所提供的複選框。</message>
 	<message key="manager.registration.form.notifyPaymentEmail">Send the user an email stating that their payment was received.</message>
 	<message key="manager.registration.form.payment">已收到付費款項</message>

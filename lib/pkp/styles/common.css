@@ -532,3 +532,7 @@ footer > .footer-container {
 #leftCol {
     margin-top: 1em;
 }
+
+.label .error {
+    color: red;
+}

@@ -91,8 +91,8 @@
 	<message key="submission.comments.review">審查人意見</message>
 	<message key="submission.comments.sendDecisionToReviewers">將編輯決定寄給審查人</message>
 	<message key="submission.comments.subject">主旨</message>
-	<message key="submission.complete">加入已經接受的稿件清單</message>
-        <message key="submission.button.complete">加入已經接受的稿件清單</message>
+	<message key="submission.complete">將此稿件發佈到已經接受的稿件清單</message>
+        <message key="submission.button.complete">發佈到已經接受的稿件清單</message>
         <message key="submission.button.remove">從已經接受的稿件清單中移除</message>
 	<message key="submission.currentAgencies">Current Agencies</message>
 	<message key="submission.done">完成</message>

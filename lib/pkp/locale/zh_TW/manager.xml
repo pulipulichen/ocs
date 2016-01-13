@@ -98,7 +98,7 @@
 	<message key="manager.people.confirmUnenroll">取消這個使用者所擁有的角色？</message>
 	<message key="manager.people.createUser">建立新的使用者</message>
 	<message key="manager.people.createUserGeneratePassword">產生一個隨機的密碼。</message>
-	<message key="manager.people.createUserSendNotify">送出一封含使用者名稱及使用者密碼的歡迎信件給使者。</message>
+	<message key="manager.people.createUserSendNotify">送出一封含使用者帳號及使用者密碼的歡迎信件給使者。</message>
 	<message key="manager.people.disable">停用</message>
 	<message key="manager.people.doNotEnroll">沒有角色</message>
 	<message key="manager.people.editProfile">編輯個人帳號</message>

@@ -8,7 +8,7 @@
  *
  *}
 {if $isError}
-<div id="formErrors">
+<div id="formErrors" class="alert alert-danger" role="alert">
 	<p>
 	<span class="formError">{translate key="form.errorsOccurred"}:</span>
 	<ul class="formErrorList">

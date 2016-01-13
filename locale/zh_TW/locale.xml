@@ -53,9 +53,9 @@
 	<message key="about.delayedOpenAccessDescription1">這個研討會內容將開放利用在一個開放存取格式內</message>
 	<message key="about.delayedOpenAccessDescription2">月在預定的研討會發布給參加者之後。</message>
 	<message key="about.onlineSubmissions">線上投稿</message>
-	<message key="about.onlineSubmissions.haveAccount">您已經有一個使用者名稱/密碼{$conferenceTitle}嗎？</message>
+	<message key="about.onlineSubmissions.haveAccount">您已經有一個帳號/密碼{$conferenceTitle}嗎？</message>
 	<message key="about.onlineSubmissions.login">至登入</message>
-	<message key="about.onlineSubmissions.needAccount">您需要一個使用者名稱/密碼嗎？</message>
+	<message key="about.onlineSubmissions.needAccount">您需要一個帳號/密碼嗎？</message>
 	<message key="about.onlineSubmissions.registration">至註冊</message>
 	<message key="about.onlineSubmissions.registrationRequired">您必須要在網站內註冊及登入才能投遞稿件及查詢目前的投稿狀態。</message>
 	<message key="about.openAccessPolicy">開放存取方針</message>
@@ -70,7 +70,7 @@
 	<message key="about.submissions">投稿</message>
 	<message key="admin.auth.defaultSourceDescription"><![CDATA[除OCS 之外的以下作用，請詳細說明一個已確定的認證來源:
 <ul>
-	<li>如果用戶試圖在此站點使用一個使用者名稱產生一個新帳戶並在認證來源的用戶名內存在(但不是在OCS 資料庫內)，嘗試註冊只被允許在如果那個用戶帳號的密碼為合法密碼。</li>
+	<li>如果用戶試圖在此站點使用一個帳號產生一個新帳戶並在認證來源的用戶名內存在(但不是在OCS 資料庫內)，嘗試註冊只被允許在如果那個用戶帳號的密碼為合法密碼。</li>
 </ul>]]></message>
 	<message key="admin.languages.languageOptions">語言選項</message>
 	<message key="admin.languages.profileLocales">在註冊的人 (負責人、主編、審查者等等。)，為了研討會主編的利益工作語言應該包括他們的檔案資料。</message>
@@ -206,7 +206,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="installer.filesDirInstructions"><![CDATA[請輸入檔案上傳與保存的完整路徑，本資料匣不會直接經由 WEB 連結。<strong>請確認本資料匣已經存在並且在安裝期間設定為可寫入的屬性。</strong> Windows 的路徑必需使用斜線/，例如 "C:/myconference/files"。]]></message>
 	<message key="installer.installApplication">安裝開放研討會系統</message>
 	<message key="installer.installationComplete"><![CDATA[<p>OCS 已經成功安裝完成。</p>
-<p>要開始使用本系統，請以您在上一個網頁中輸入的使用者名稱和密碼進行 <a href="{$loginUrl}">登入</a> 。</p>
+<p>要開始使用本系統，請以您在上一個網頁中輸入的帳號和密碼進行 <a href="{$loginUrl}">登入</a> 。</p>
 <p>如果您希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>註冊。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>。</p>]]></message>
 	<message key="installer.installationInstructions"><![CDATA[<h4>OCS 版本 {$version}</h4>
 
@@ -586,9 +586,9 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="rt.admin.settings">閱讀工具設定</message>
 	<message key="rt.admin.settings.addComment">增加評論 (讓讀者發佈評論意見，而期刊管理員可以刪除。必須要啟用「設定」步驟2的「讀者評論」。)</message>
 	<message key="rt.admin.settings.bibFormat">文獻格式</message>
-	<message key="rt.admin.settings.description">閱讀工具以頁框的方式出現在文稿類型中已經指派索引項的出版項目的側邊。閱讀工具由一組與出版項目相關的選擇性工具（詳列在下），以及一組能夠存取相關項目、由欄位和學門所組成的工具所組成。</message>
+	<message key="rt.admin.settings.description">閱讀工具以頁框的方式出現在文稿類型中已經指派索引項的出版投稿的側邊。閱讀工具由一組與出版稿件相關的選擇性工具（詳列在下），以及一組能夠存取相關稿件、由欄位和學門所組成的工具所組成。</message>
 	<message key="rt.admin.settings.enableReadingTools">為指定研討會主題啟用閱讀工具。</message>
-	<message key="rt.admin.settings.relatedItems">相關項目領域</message>
+	<message key="rt.admin.settings.relatedItems">稿件的相關領域</message>
 	<message key="rt.admin.validateUrls.description"><![CDATA[下面列出可能是無效的搜尋網站網址。<br/>
 您應該手動查證被標記成無效的任何網址，因為這個測試並非完全準確。<br/>
 驗證需要遞交表單資料的搜尋網址可能會失敗。]]></message>
@@ -662,7 +662,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="schedConf.submission">投稿</message>
 	<message key="schedConf.submissions">提交</message>
 	<message key="schedConf.supporters">組織者及協助與贊助單位</message>
-	<message key="schedConf.timeline">大會重要時間表</message>
+	<message key="schedConf.timeline">重要時程表</message>
 	<message key="schedConf.trackPolicies">主題方針</message>
 	<message key="schedConf.trackPolicies.title">主題方針</message>
 	<message key="search.allConferences">所有研討會</message>
@@ -773,19 +773,19 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="trackDirector.regrets.title">#{$paperId} 審查者拒絕稿件</message>
 	<message key="trackDirector.review.createReviewer">建立新審查者</message>
 	<message key="trackDirector.review.enrollReviewer">登記現有使用者為審查者</message>
-	<message key="user.account.authorDescription">能遞交項目給研討會。</message>
+	<message key="user.account.authorDescription">能投稿到研討會。</message>
 	<message key="user.account.authorRegistrationMessage">雖然您在此網站擁有一個帳號，但並不表示您目前為此研討會的作者。</message>
-	<message key="user.account.completeForm">請填妥以下表格來建立一個新帳號。</message>
+	<message key="user.account.completeForm">請輸入以下帳號資訊登入。</message>
 	<message key="user.account.createAccountDisabled">這個研討會目前不接受新的使用者。</message>
-	<message key="user.account.createAs">創立帳號如同</message>
+	<message key="user.account.createAs">帳號身份</message>
 	<message key="user.account.form.emailExists">所選擇的電子郵件已有其它使用者在使用。</message>
 	<message key="user.account.form.passwordLengthTooShort">您輸入的密碼長度不夠長。</message>
 	<message key="user.account.form.passwordsDoNotMatch">密碼錯誤</message>
-	<message key="user.account.form.usernameAlphaNumeric">使用者名稱能包含唯一字母、數字字符、底線,，和連字號，且必須以一個字母或數字字符開始和結束。</message>
-	<message key="user.account.form.usernameExists">所選擇的使用者名稱已有其它使用者在使用。</message>
-	<message key="user.account.hasAccount"><![CDATA[<a href="{$accountUrl}">點選這裡</a>若您已經有此研討會的帳號。]]></message>
-	<message key="user.account.hasNoAccount"><![CDATA[<a href="{$accountUrl}">點選這裡</a>若您 <strong>尚未</strong> 在此研討會設立帳號。]]></message>
-	<message key="user.account.loginToRegister">請輸入您目前的使用者名稱和密碼來建立一個新帳號。</message>
+	<message key="user.account.form.usernameAlphaNumeric">帳號能包含唯一字母、數字字符、底線,，和連字號，且必須以一個字母或數字字符開始和結束。</message>
+	<message key="user.account.form.usernameExists">所選擇的帳號已有其它使用者在使用。</message>
+	<message key="user.account.hasAccount"><![CDATA[若您已經有此研討會的帳號，<a href="{$accountUrl}">請從這裡登入</a>。]]></message>
+	<message key="user.account.hasNoAccount"><![CDATA[如果您尚未在此研討會建立帳號，<a href="{$accountUrl}">請點選這裡建立帳號</a>。]]></message>
+	<message key="user.account.loginToRegister">請輸入您的帳號與密碼來註冊本研討會。</message>
 	<message key="user.account.noConferences">在這個網站裡沒有研討會可以讓您登記。</message>
 	<message key="user.account.noSchedConfs">在這個網站裡沒有預定的研討會可以讓您登記。</message>
 	<message key="user.account.openAccessNotificationDescription">當研討會已被開放時會以電子郵件來公佈。</message>
@@ -797,7 +797,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.reviewerDescriptionNoInterests">願意對於此研討會來管理同儕審查投稿。</message>
 	<message key="user.account.selectConference">選擇一個研討會來登記</message>
 	<message key="user.account.selectSchedConf">選擇一個預定的研討會來登記</message>
-	<message key="user.account.usernameRestriction">使用者名稱必須包含唯一小寫字母、數字、和連字號/底線。</message>
+	<message key="user.account.usernameRestriction">帳號必須包含唯一小寫字母、數字、和連字號/底線。</message>
 	<message key="user.createAccount">建立</message>
 	<message key="user.createAccountForOtherConferences">在其他研討會建立一個帳號?</message>
 	<message key="user.login.createAccount">還不是使用者？請在此網站建立一個帳號。</message>

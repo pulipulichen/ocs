@@ -44,7 +44,12 @@
 			{if $schedConfPostOverview}<li><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
 			<li><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
                         {if $schedConfShowCFP}
-                        <li><a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>{if $submissionsOpenDate}({$submissionsOpenDate|date_format:$dateFormatLong} <br />~ {$submissionsCloseDate|date_format:$dateFormatLong}){/if}</li>
+                        <li><a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>
+                            {if $submissionsOpenDate}
+                                <div class="text-center">
+                                    ({$submissionsOpenDate|date_format:$dateFormatShort} ~ {$submissionsCloseDate|date_format:$dateFormatShort}){/if}
+                                </div>
+                            </li>
 			{/if}
 			{if $schedConfPostTrackPolicies}<li><a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}
 			{if $schedConfShowProgram}<li><a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a></li>{/if}
