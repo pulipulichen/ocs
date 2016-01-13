@@ -494,10 +494,30 @@ table.data .label {
 }
 
 footer {
-    border-top: 1px solid #898e79 !important;
+    /*border-top: 1px solid #898e79 !important;*/
     clear: both; 
     padding: 1em;
     text-align: left;
+    color: white;
+    background-color: #68A4C4;
+    margin-top: 1em;
+}
+footer a {
+    color: white !important;
+    /*font-weight: bold;*/
+}
+footer a:hover {
+    background: none;
+    color:white;
+}
+
+footer #navbar ul.menu li {
+    /*border-right-width: 0; */
+    /*padding: 0;*/
+    border-right-color: white;
+}
+footer #navbar {
+    text-align:left;
 }
 
 footer > .footer-container {

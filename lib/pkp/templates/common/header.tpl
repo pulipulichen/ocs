@@ -77,57 +77,13 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a href="{$currentConferenceHome}"  class="navbar-brand">
-                    {if $schedConfAcronym}
-                            {$schedConfAcronym}
-                    {elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-                    {elseif $displayPageHeaderTitle}
-                            {$displayPageHeaderTitle}
-                    {elseif $alternatePageHeader}
-                            {$alternatePageHeader}
-                    {elseif $customLogoTemplate}
-                            {include file=$customLogoTemplate}
-                    {elseif $siteTitle}
-                            {$siteTitle}
-                    {else}
-                            {$applicationName}
-                    {/if}
-        </a>
-    </div>
-    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#sec">Get Started</a>
-        </li>
-        <li>
-          <a href="#sec">Edit</a>
-        </li>
-        <li>
-          <a href="#sec">Visualize</a>
-        </li>
-        <li>
-          <a href="#sec">Prototype</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</nav>
+{include file="common/nav.tpl"}
 
 <div id="container">
 
 <div id="masthead">  
 {if $isConferenceManager}
-    <a class="edit-link" href="{url page="manager"}/setup/3#homepageHeader" target="_blank">
+    <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageHeaderInfo" target="_blank">
         {*translate key="manager.registrationOptions.editTitle"*}
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
