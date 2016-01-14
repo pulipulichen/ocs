@@ -10,9 +10,22 @@
 
 </div><!-- content -->
 </div><!-- main -->
+
+{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
+{if $rightSidebarCode}
+    <div class="col-md-3">
+        {if $rightSidebarCode}
+            <div id="rightSidebar">
+                {$rightSidebarCode}
+            </div>
+        {/if}
+    </div>
+{/if}
+
 </div><!-- body -->
 
 </div><!-- container -->
+
 
 <footer>
     <div class="footer-container">

@@ -164,7 +164,7 @@ input.defaultButton {
 }
 
 #breadcrumb {
-	padding-top: 1em;
+	margin-top: 1em;
 	/*font-size: 0.7em;*/
 }
 
@@ -529,10 +529,17 @@ footer > .footer-container {
     display: inline;
 }
 
-#leftCol {
+#leftCol,#rightSidebar, #leftSidebar {
     margin-top: 1em;
 }
 
 .label .error {
     color: red;
+}
+
+#body {
+	vertical-align: top;
+	height: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
 }

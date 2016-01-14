@@ -24,13 +24,14 @@
 }
 
 #rightSidebar {
-	float: right;
+	/*float: right;
 	width: 14%;
 	padding: 1em 0em 1em 0em;
 	font-size: 0.65em;
 	height: 100%;
 	margin-right: 10%;
 	margin-left: 2%;
+        */
 }
 
 * html #rightSidebar { margin-right: 5%; }

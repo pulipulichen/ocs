@@ -90,8 +90,11 @@
 {/if}
 <div class="container">
         <div class="row"
-             style="{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}min-height: 250px;
-             background-image:url({$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"});background-repeat:no-repeat;background-size: 100%
+             style="min-height: 250px;background-repeat:no-repeat;background-size: 100%;
+             {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+             background-image:url({$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"});
+             {else}
+             background-image:url({$baseUrl}/lib/pkp/styles/images/book-978880_1920.gif);
              {/if}">
             <div class="col-md-9 well well-lg">
                 <h1>
@@ -121,19 +124,14 @@
 
 <div id="body" class="container">
 
-{if $leftSidebarCode || $rightSidebarCode}
+{if $leftSidebarCode}
     <div class="col-md-3" id="leftCol">
-		{if $leftSidebarCode}
-			<div id="sidebar">
-				{$leftSidebarCode}
-			</div>
-		{/if}
-		{if $rightSidebarCode}
-			<div id="rightSidebar">
-				{$rightSidebarCode}
-			</div>
-		{/if}
-	</div>
+        {if $leftSidebarCode}
+                <div id="sidebar">
+                        {$leftSidebarCode}
+                </div>
+        {/if}
+    </div>
 {/if}
 
 <div class="col-md-9">

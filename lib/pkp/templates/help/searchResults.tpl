@@ -17,9 +17,9 @@
 
 	<div class="thickSeparator"></div>
 
-	<div id="breadcrumb">
-		<a href="{get_help_id key="index.index" url="true"}">{translate key="navigation.home"}</a>
-	</div>
+        <ol id="breadcrumb" class="breadcrumb">
+            <li class="active"><a href="{get_help_id key="index.index" url="true"}">{translate key="navigation.home"}</a></li>
+	</ol>
 
 	<h2>{translate key="help.searchResults"}</h2>
 

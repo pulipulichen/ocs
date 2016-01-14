@@ -21,17 +21,21 @@
 
 	<div class="thickSeparator"></div>
 
-	<div id="breadcrumb">
+	<ol id="breadcrumb" class="breadcrumb">
 		{if $topic->getId() == "index/topic/000000"}
-			<a href="{get_help_id key="index.index" url="true"}" class="current">{translate key="navigation.home"}</a>
+                    <li class="active"><a href="{get_help_id key="index.index" url="true"}" class="current">{translate key="navigation.home"}</a></li>
 		{else}
+                    </li>
 			<a href="{get_help_id key="index.index" url="true"}">{translate key="navigation.home"}</a>
+                    </li>
 			{foreach name=breadcrumbs from=$breadcrumbs item=breadcrumb key=key}
 				{if $breadcrumb != $topic->getId()}
-				 &gt; <a href="{url op="view" path=$breadcrumb|explode:"/"}">{$key|escape}</a>
+                                    <li>
+                                        <a href="{url op="view" path=$breadcrumb|explode:"/"}">{$key|escape}</a>
+                                    </li>
 				{/if}
 			{/foreach}
-			&gt; <a href="{url op="view" path=$topic->getId()|explode:"/"}" class="current">{$topic->getTitle()}</a>
+                        <li class="active"><a href="{url op="view" path=$topic->getId()|explode:"/"}" class="current">{$topic->getTitle()}</a></li>
 		{/if}
 	</div>
 
