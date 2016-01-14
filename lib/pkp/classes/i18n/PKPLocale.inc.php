@@ -274,12 +274,12 @@ class PKPLocale {
 		$allLocales = array();
 
 		foreach ($rawContents as $locale => $contents) {
-			$allLocales[$locale] = $contents['name'];
+                    $allLocales[$locale] = $contents['name'];
 		}
 
 		// if client encoding is set to iso-8859-1, transcode locales from utf8
 		if (LOCALE_ENCODING == "iso-8859-1") {
-			$allLocales = array_map('utf8_decode', $allLocales);
+                    $allLocales = array_map('utf8_decode', $allLocales);
 		}
 
 		return $allLocales;

@@ -66,7 +66,7 @@
                 </a>
             {else}
                 <a href="{url page="login"}">
-                    {translate key="user.login"}/{translate key="user.register"}
+                    {translate key="user.login"} / {translate key="user.register"}
                 </a>
             {/if}
             

@@ -361,7 +361,7 @@
 	<message key="manager.schedConfSetup.submissions.submissionLayout.toggle">由負責投遞工具的主管來安排格式 (PDF, HTML等) </message>
 	<message key="manager.schedConfSetup.submissions.submissionMaterials">投稿工具</message>
 	<message key="manager.schedConfSetup.submissions.submissionProcess">投稿過程</message>
-	<message key="manager.schedConfSetup.submissions.suppFiles">補充工具</message>
+	<message key="manager.schedConfSetup.submissions.suppFiles">補充檔案</message>
 	<message key="manager.schedConfSetup.submissions.title">步驟 2. 投稿</message>
 	<message key="manager.schedConfSetup.submissions.typeExamples">(如：歷史詢問、Quasi-實驗、文學分析、調查/訪問)</message>
 	<message key="manager.schedConfSetup.submissions.typeMethodApproach">型態 (步驟/方法)</message>
