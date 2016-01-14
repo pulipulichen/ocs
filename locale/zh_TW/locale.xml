@@ -824,4 +824,5 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.role.trackDirectors">主題負責人</message>
 	<message key="user.showAllConferences">列出我的研討會</message>
 	<message key="user.url.description">這將如同一個網路超連結，出現在 "關於作者" 內的聲明底部和 "組織團隊" 的彈出頁面。</message>
+        <message key="nav.helloUsername">{$username}，您好！</message>
 </locale>

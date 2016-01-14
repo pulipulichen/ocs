@@ -159,7 +159,7 @@ input.defaultButton {
 #navbar {
 	margin-right: 0;
 	padding-bottom: 0.5em;
-	border-bottom: 2px dotted #000;
+	/*border-bottom: 2px dotted #000;*/
         text-align: center;
 }
 

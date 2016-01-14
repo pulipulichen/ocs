@@ -40,20 +40,36 @@
         {if $schedConfPostPayment}<li><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
         {if $schedConfPostAccommodation}<li><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
         {if $schedConfPostSupporters}<li><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
-        {if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
+        <!-- {if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if} -->
+        <!--
         <li>
             <form class="navbar-form navbar-left" role="search" 
                   method="post" action="{url page="search" op="results"}">
                 <div class="form-group">
-                     <input type="text" class="form-control" placeholder="{translate key="common.search"}">
+                     <input type="text" class="form-control" placeholder="{translate key="common.search"}" size="9">
                 </div>
-                <select name="searchField" class="form-control">
+                <select name="searchField" class="form-control" style="display: none;">
                     {html_options_translate options=$paperSearchByOptions}
                 </select>
                 <button type="submit" class="btn btn-default">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
             </form>
+        </li>
+        -->
+        <li>
+            
+            {if $isUserLoggedIn}
+                <a href="{url page="user"}">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    {translate key="nav.helloUsername" username=$loggedInUsername|escape}
+                </a>
+            {else}
+                <a href="{url page="login"}">
+                    {translate key="user.login"}/{translate key="user.register"}
+                </a>
+            {/if}
+            
         </li>
       </ul>
       

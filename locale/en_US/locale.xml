@@ -858,5 +858,5 @@ Validation may fail on search URLs that require posted form data.]]></message>
 	<message key="rt.comments.commentsClosed">† Comments closed on {$closeCommentsDate}</message>
 
 	<message key="rt.context.authorTermsDescription">For items with more than one author, leave all names checked to search for similarly co-presented work, or search one at a time by checking only a single name. To learn more about the resource searched, click on ABOUT. These resources have been selected because of their relevance and their open (free) access to all or part of their contents.</message>
-        
+        <message key="nav.helloUsername">Hello, {$username}!</message>
 </locale>
