@@ -323,4 +323,5 @@
 	<message key="common.preview">Preview</message>
 	<message key="common.activate">Activate</message>
 	<message key="common.deactivate">Deactivate</message>
+        <message key="common.uploadAnotherFile">上傳其他檔案</message>
 </locale>

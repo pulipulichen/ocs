@@ -99,9 +99,13 @@
                onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} 
                value="{translate key="common.saveAndContinue"}" 
                class="btn btn-primary" /> 
-    {/if}
-    <input name="uploadSubmissionFile" type="submit"  
+        <input name="uploadSubmissionFile" type="submit"  
+           class="btn btn-default" class="button" value="{translate key="common.uploadAnotherFile"}" />
+    {else}
+        <input name="uploadSubmissionFile" type="submit"  
            class="btn btn-primary" class="button" value="{translate key="common.upload"}" />
+    {/if}
+    
     <input type="button" value="{translate key="common.cancel"}" 
            class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
 </p>

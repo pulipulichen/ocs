@@ -113,7 +113,7 @@
 	<message key="author.submit.supplementaryFiles.saveToUpload">按下「儲存」來上傳檔案(補充檔案可以在稍後上傳)。</message>
 	<message key="author.submit.supplementaryFilesAbstractOnly">3. 上傳補充檔案</message>
 	<message key="author.submit.supplementaryFilesInfoAbstractOnly">3a. 上傳補充檔案</message>
-	<message key="author.submit.supplementaryFilesInstructions">此投稿過程之選擇性步驟允許作者增加補充文件來使投稿的內容更豐富。補充文件也許包括(a) 研究儀器、(b)資料庫，遵照研究概念回顧的期限、(c) 尚未提共給讀者的資料來源，或(d) 圖表或表格未完整的呈現在原文裡。這些文件也已經由作者編列，標示著作者所有權和投稿稿件的相互關係。補充文件可以以任一個文件格式上傳並且能讓讀者在他們的原始格式內利用。若這些文件不會影響審查，也能和審查者依起分享。</message>
+	<message key="author.submit.supplementaryFilesInstructions">此投稿過程之選擇性步驟允許作者增加補充文件來使投稿的內容更豐富。補充文件也許包括(a) 研究儀器、(b)資料庫，遵照研究概念回顧的期限、(c) 尚未提共給讀者的資料來源，或(d) 圖表或表格未完整的呈現在原文裡。這些文件也已經由作者編列，標示著作者所有權和投稿稿件的相互關係。補充文件可以以任一個文件格式上傳並且能讓讀者在他們的原始格式內利用。若這些文件不會影響審查，也能和審查者一起分享。</message>
 	<message key="author.submit.upload">2. 上載投稿</message>
 	<message key="author.submit.uploadOnly">3. Upload Submission</message>
 	<message key="author.submit.uploadSubmissionFile">上傳投稿文件</message>
