@@ -458,6 +458,7 @@ div.separator {
 	border-bottom: 1px dotted #000;
 	font-size: 0.5em;
 	line-height: 25%;
+        opacity: 0.7;
 }
 
 .edit-link {
@@ -465,11 +466,13 @@ div.separator {
     float:right;
     border: 1px solid white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px !important;
     text-decoration: none;
     cursor: pointer;
     background-color: black;
     color: white !important;
+    position: relative !important;
+    z-index: 999;
     /*position: absolute;
     right: 0;*/
 }

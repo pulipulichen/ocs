@@ -45,9 +45,17 @@
 			<li><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
                         {if $schedConfShowCFP}
                         <li>
-                            <a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}
-                                {if $submissionsOpenDate}
+                            {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/timeline#submissionsTimeline" target="_blank">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        </a>
+                                    {/if}
+                            <a href="{url page="schedConf" op="cfp"}">
+                                
+                                    {translate key="schedConf.cfp"}
+                                
                                 <br />
+                                {if $submissionsOpenDate}    
                                     ({$submissionsOpenDate|date_format:$dateFormatShort} ~ {$submissionsCloseDate|date_format:$dateFormatShort})
                                 {/if}
                             </a>

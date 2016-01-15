@@ -82,12 +82,6 @@
 <div id="container">
 
 <div id="masthead">  
-{if $isConferenceManager}
-    <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageHeaderInfo" target="_blank">
-        {*translate key="manager.registrationOptions.editTitle"*}
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-    </a>
-{/if}
 <div class="container">
         <div class="row"
              style="min-height: 250px;background-repeat:no-repeat;background-size: 100%;
@@ -96,7 +90,14 @@
              {else}
              background-image:url({$baseUrl}/lib/pkp/styles/images/book-978880_1920.gif);
              {/if}">
+
             <div class="col-md-9 well well-lg">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageHeaderInfo" target="_blank">
+        {*translate key="manager.registrationOptions.editTitle"*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
                 <h1>
                     <a href="{$currentConferenceHome}">
                     {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
