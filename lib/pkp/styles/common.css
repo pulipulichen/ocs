@@ -546,3 +546,7 @@ footer > .footer-container {
         max-width: 1024px;
         margin: 0 auto;
 }
+
+label[for] {
+    cursor: pointer;
+}

@@ -614,7 +614,7 @@
 	<message key="manager.statistics.statistics.readers">讀者：</message>
 	<message key="manager.statistics.statistics.registrations">註冊：</message>
 	<message key="manager.statistics.statistics.reviewerCount">分配編：</message>
-	<message key="manager.statistics.statistics.reviewerScore">主編獲得：</message>
+	<message key="manager.statistics.statistics.reviewerScore">審查評分：</message>
 	<message key="manager.statistics.statistics.reviewers">審查者:</message>
 	<message key="manager.statistics.statistics.reviewsPerReviewer">複審編號：</message>
 	<message key="manager.statistics.statistics.selectTracks">為計算這個研討會的被回顧的統計而選擇軌道。</message>
@@ -668,11 +668,11 @@
 	<message key="manager.timeline.submissionsOpen">接受投稿</message>
 	<message key="manager.timeline.website">研討會網站</message>
 	<message key="manager.timeline.websitePosting">網站公開</message>
-	<message key="manager.tracks.assignDirector">指定主編</message>
+	<message key="manager.tracks.assignDirector">指定研討會主席</message>
 	<message key="manager.tracks.assigned">本主題負責人</message>
 	<message key="manager.tracks.confirmDelete">是否確認永久的刪除本主題?</message>
 	<message key="manager.tracks.create">建立主題</message>
-	<message key="manager.tracks.directorRestriction">僅能接受主編與主題負責人投稿。</message>
+	<message key="manager.tracks.directorRestriction">僅能接受研討會主席與主題負責人投稿。</message>
 	<message key="manager.tracks.directors">主題負責人</message>
 	<message key="manager.tracks.disableComments">關閉本主題的讀者評論。</message>
 	<message key="manager.tracks.form.abbrevRequired">本主題需要一個簡短的代號</message>

@@ -84,11 +84,14 @@
 					</td>
                                         -->
 					<td width="5%" class="value">
-						<input type="radio" class="radioButton" name="sessionType" value="{$sessionTypeObject->getId()}" {if ($sessionType == $sessionTypeObject->getId()) || ($firstSessionType && !$sessionType)}checked="checked" {/if} />
+						<input type="radio" class="radioButton" name="sessionType" 
+                                                       id="sessionType{$sessionTypeObject->getId()}" 
+                                                       value="{$sessionTypeObject->getId()}" {if ($sessionType == $sessionTypeObject->getId()) || ($firstSessionType && !$sessionType)}checked="checked" {/if} />
 					</td>
 					<td class="value" width="75%">
+                                            <label for="sessionType{$sessionTypeObject->getId()}">
 						<strong>{$sessionTypeObject->getLocalizedName()}</strong>
-                                                <div class="valeu">
+                                                <div class="value">
 						{$sessionTypeObject->getLocalizedDescription()}
 						{if $sessionTypeObject->getLength()}
 							<br/>
@@ -99,6 +102,7 @@
 							{translate key="manager.schedConfSetup.submissions.typeOfSubmission.abstractLength"}: {$sessionTypeObject->getAbstractLength()|escape}
 						{/if}
                                                 </div>
+                                            </label>
 					</td>
 				</tr>
                                 <!--

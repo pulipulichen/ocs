@@ -26,7 +26,7 @@
 	<message key="author.submit.backToSupplementaryFiles">回至補充文件</message>
 	<message key="author.submit.cancelSubmission">這份投稿已經暫存在左方的「作者投稿的稿件」，您可以稍後再回來完成這份投稿。</message>
 	<message key="author.submit.comments"><![CDATA[建議 (選填)]]></message>
-	<message key="author.submit.commentsForDirector">給研討會主席的建議</message>
+	<message key="author.submit.commentsForDirector">給研討會主席的其他建議</message>
 	<message key="author.submit.conferenceTrack">研討會主題</message>
 	<message key="author.submit.conferenceTrackDescription"><![CDATA[選擇您的稿件所欲投稿的主題 (請參閱 <a href="{$aboutUrl}" target="_new">主題方針</a>).]]></message>
 	<message key="author.submit.confirmDeleteSuppFile">您確定要刪除此補充文件？</message>
