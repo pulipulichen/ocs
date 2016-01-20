@@ -91,7 +91,16 @@
                         {/if}
 			{if $schedConfPostPresentations}<li><a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a></li>{/if}
 			{if $schedConfPostSchedule}<li><a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
-			{if $schedConfPostPayment}<li><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
+			{if $schedConfPostPayment}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/registration?clearPageContext=1" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a>
+                            </li>
+                        {/if}
 			{if $schedConfPostAccommodation}<li><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
 			{if $schedConfPostSupporters}<li><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
 			{if $schedConfPostTimeline}
