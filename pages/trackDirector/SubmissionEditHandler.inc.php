@@ -217,6 +217,11 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		}
 
 		$templateMgr =& TemplateManager::getManager();
+                
+                $controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+                $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+                $templateMgr->assign('sessionTypes', $sessionTypes);
+                $templateMgr->assign('sessionType', $sessionTypes[intval($submission->getData('sessionType'))]);
 
 		$templateMgr->assign_by_ref('submission', $submission);
 		$templateMgr->assign_by_ref('reviewIndexes', $reviewAssignmentDao->getReviewIndexesForStage($paperId, $stage));
@@ -255,6 +260,129 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
 
 		$templateMgr->display('trackDirector/submissionReview.tpl');
+	}
+        
+        function submissionAssignReviewer($args) {
+		$paperId = (isset($args[0]) ? $args[0] : null);
+
+		$this->validate($paperId, TRACK_DIRECTOR_ACCESS_REVIEW);
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+		$submission =& $this->submission;
+		
+		$stage = (isset($args[1]) ? (int) $args[1] : null);
+		$reviewMode = $submission->getReviewMode();
+		switch ($reviewMode) {
+			case REVIEW_MODE_ABSTRACTS_ALONE:
+				$stage = REVIEW_STAGE_ABSTRACT;
+				break;
+			case REVIEW_MODE_BOTH_SIMULTANEOUS:
+			case REVIEW_MODE_PRESENTATIONS_ALONE:
+				$stage = REVIEW_STAGE_PRESENTATION;
+				break;
+			case REVIEW_MODE_BOTH_SEQUENTIAL:
+				if ($stage != REVIEW_STAGE_ABSTRACT && $stage != REVIEW_STAGE_PRESENTATION) $stage = $submission->getCurrentStage();
+				break;
+		}
+
+		$this->setupTemplate(true, $paperId);
+
+		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
+
+		$trackDao =& DAORegistry::getDAO('TrackDAO');
+		$tracks =& $trackDao->getSchedConfTracks($schedConf->getId());
+
+		$directorDecisions = $submission->getDecisions($stage);
+		$lastDecision = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['decision'] : null;
+
+		$editAssignments =& $submission->getEditAssignments();
+		$isCurrent = ($stage == $submission->getCurrentStage());
+		$showPeerReviewOptions = $isCurrent && $submission->getReviewFile() != null ? true : false;
+
+		$allowRecommendation = ($isCurrent  || ($stage == REVIEW_STAGE_ABSTRACT && $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL)) &&
+			!empty($editAssignments);
+
+		$reviewingAbstractOnly = ($reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL && $stage == REVIEW_STAGE_ABSTRACT) || $reviewMode == REVIEW_MODE_ABSTRACTS_ALONE;
+
+		// Prepare an array to store the 'Notify Reviewer' email logs
+		$notifyReviewerLogs = array();
+		if($submission->getReviewAssignments($stage)) {
+			foreach ($submission->getReviewAssignments($stage) as $reviewAssignment) {
+				$notifyReviewerLogs[$reviewAssignment->getId()] = array();
+			}
+		}
+
+		// Parse the list of email logs and populate the array.
+		import('paper.log.PaperLog');
+		$emailLogEntries =& PaperLog::getEmailLogEntries($paperId);
+		foreach ($emailLogEntries->toArray() as $emailLog) {
+			if ($emailLog->getEventType() == PAPER_EMAIL_REVIEW_NOTIFY_REVIEWER) {
+				if (isset($notifyReviewerLogs[$emailLog->getAssocId()]) && is_array($notifyReviewerLogs[$emailLog->getAssocId()])) {
+					array_push($notifyReviewerLogs[$emailLog->getAssocId()], $emailLog);
+				}
+			}
+		}
+
+		// get conference published review form titles
+		$reviewFormTitles =& $reviewFormDao->getTitlesByAssocId(ASSOC_TYPE_CONFERENCE, $conference->getId(), 1);
+
+		$reviewFormResponseDao =& DAORegistry::getDAO('ReviewFormResponseDAO');
+		$reviewFormResponses = array();
+
+		$reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
+		$reviewFormTitles = array();
+
+		if ($submission->getReviewAssignments($stage)) {
+			foreach ($submission->getReviewAssignments($stage) as $reviewAssignment) {
+				$reviewForm =& $reviewFormDao->getReviewForm($reviewAssignment->getReviewFormId());
+				if ($reviewForm) {
+					$reviewFormTitles[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
+				}
+				unset($reviewForm);
+				$reviewFormResponses[$reviewAssignment->getId()] = $reviewFormResponseDao->reviewFormResponseExists($reviewAssignment->getId());
+			}
+		}
+
+		$templateMgr =& TemplateManager::getManager();
+
+		$templateMgr->assign_by_ref('submission', $submission);
+		$templateMgr->assign_by_ref('reviewIndexes', $reviewAssignmentDao->getReviewIndexesForStage($paperId, $stage));
+		$templateMgr->assign('stage', $stage);
+		$templateMgr->assign_by_ref('reviewAssignments', $submission->getReviewAssignments($stage));
+		$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
+		$templateMgr->assign('reviewFormTitles', $reviewFormTitles);
+		$templateMgr->assign_by_ref('notifyReviewerLogs', $notifyReviewerLogs);
+		$templateMgr->assign_by_ref('submissionFile', $submission->getSubmissionFile());
+		$templateMgr->assign_by_ref('suppFiles', $submission->getSuppFiles());
+		$templateMgr->assign_by_ref('reviewFile', $submission->getReviewFile());
+		$templateMgr->assign_by_ref('revisedFile', $submission->getRevisedFile());
+		$templateMgr->assign_by_ref('directorFile', $submission->getDirectorFile());
+		$templateMgr->assign('rateReviewerOnQuality', $schedConf->getSetting('rateReviewerOnQuality'));
+		$templateMgr->assign('showPeerReviewOptions', $showPeerReviewOptions);
+		$templateMgr->assign_by_ref('tracks', $tracks->toArray());
+		$templateMgr->assign_by_ref('directorDecisionOptions', TrackDirectorSubmission::getDirectorDecisionOptions());
+		$templateMgr->assign_by_ref('lastDecision', $lastDecision);
+		$templateMgr->assign_by_ref('directorDecisions', $directorDecisions);
+
+		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
+			$templateMgr->assign('isFinalReview', true);
+		}
+
+		import('submission.reviewAssignment.ReviewAssignment');
+		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
+		$templateMgr->assign_by_ref('reviewerRatingOptions', ReviewAssignment::getReviewerRatingOptions());
+
+		$templateMgr->assign('isCurrent', $isCurrent);
+		$templateMgr->assign('allowRecommendation', $allowRecommendation);
+		$templateMgr->assign('reviewingAbstractOnly', $reviewingAbstractOnly);
+
+		$templateMgr->assign('helpTopicId', 'editorial.trackDirectorsRole.review');
+
+		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
+
+		$templateMgr->display('trackDirector/submissionAssignReviewer.tpl');
 	}
 
 	/**

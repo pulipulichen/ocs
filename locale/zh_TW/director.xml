@@ -27,7 +27,7 @@
 	<message key="director.notifyUsers.includeToc">包括這個研討會的介紹：</message>
 	<message key="director.notifyUsers.interestedUsers">將這則與研討會相關的消息寄發給希望接受更新的使用者({$count} users)</message>
 	<message key="director.paper.addReviewer">新增審查者</message>
-	<message key="director.paper.archiveSubmission">Reject and Archive Submission</message>
+	<message key="director.paper.archiveSubmission">拒絕並封存這份稿件</message>
 	<message key="director.paper.assignDirector">增加會議主席</message>
 	<message key="director.paper.assignTrackDirector">增加主題負責人</message>
 	<message key="director.paper.cancelReview">取消審查要求</message>
@@ -92,7 +92,7 @@
 	<message key="director.submissionQueue">投稿排列</message>
 	<message key="director.submissionQueue.noSubmissions">無投稿排列’</message>
 	<message key="director.submissionQueue.saveChanges">儲存投稿排列的變更？</message>
-	<message key="director.submissionReview.confirmDecision">您確定希望記錄這個決定嗎?</message>
+	<message key="director.submissionReview.confirmDecision">您確定要儲存這個處理結果嗎?</message>
 	<message key="director.submissionReview.confirmToArchive">作者有被通報了這個決定嗎?若沒有，請在移動這項投稿檔案之前先按取消和使用通報作者工具。</message>
 	<message key="director.submissionReview.confirmToLayout">作者有被通報了這個決定?若沒有，在移動這項投稿之前請先按取消和使用通報作者工具。</message>
 	<message key="director.submissionReview.notes">截止日標示審稿的剩餘天數，如為負數則表示已經超過審稿期限。此欄將在審查接接受審查此稿件後才會出現數數值。&lt;br /&gt;日期格式為MM-DD。</message>

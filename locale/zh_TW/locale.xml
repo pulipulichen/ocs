@@ -280,7 +280,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<message key="log.director.decision">論文 {$paperId} 的審查結果 ({$decision}) 已經由 {$directorName} 記錄。</message>
 	<message key="log.director.directorAssigned">{$directorName} 已經被指派為稿件 {$paperId} 的會議主席。</message>
 	<message key="log.director.directorFile">會議主席版本的稿件已經上傳。</message>
-	<message key="log.director.metadataModified">本論文的後設資料已經由 {$directorName} 修改。</message>
+	<message key="log.director.metadataModified">本投稿的相關資料已經由 {$directorName} 修改。</message>
 	<message key="log.director.publish">論文已經出版。</message>
 	<message key="log.director.restored">稿件 {$paperId} 排入序列。</message>
 	<message key="log.director.submissionExpedited">{$directorName} 已經催促稿件 {$paperId} 的編輯程序。</message>
@@ -699,7 +699,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.authorVersion">作者修改的版本</message>
 	<message key="submission.authorsRevisedVersion">作者修改後的版本</message>
 	<message key="submission.changeTrack">更改為</message>
-	<message key="submission.comments.blindCcReviewers">在件寄出後，同時寄送一個不具名的複本給審查者。</message>
+	<message key="submission.comments.blindCcReviewers">在件寄出後，同時寄送一個不具名的副本給審查者。</message>
 	<message key="submission.comments.canShareWithAuthor">給作者與會議主席</message>
 	<message key="submission.comments.cannotShareWithAuthor">給會議主席</message>
 	<message key="submission.comments.directorAuthorCorrespondence">會議主席/作者 通信記錄</message>

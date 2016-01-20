@@ -199,14 +199,14 @@
 	<message key="email.addToRecipient">增加收件者</message>
 	<message key="email.attachments">附件</message>
 	<message key="email.bcc">密件副本</message>
-	<message key="email.bccSender">送一份到我的信箱({$address})</message>
+	<message key="email.bccSender">寄送副本到我的信箱({$address})</message>
 	<message key="email.body">內文</message>
 	<message key="email.cc">副本</message>
 	<message key="email.compose">送出信件</message>
 	<message key="email.compose.tooManyRecipients">The message you are attempting to send has too many recipients.</message>
 	<message key="email.compose.tooSoon">You are attempting to send a message too recently after your last message was sent. Please wait before sending another message.</message>
 	<message key="email.email">電子郵件</message>
-	<message key="email.from">從</message>
+	<message key="email.from">寄件者</message>
 	<message key="email.invalid">{$email}是無效的電子信箱。</message>
 	<message key="email.multipart">這是分成幾個部分的MIME格式信息。</message>
 	<message key="email.recipient">收件者</message>
@@ -215,7 +215,7 @@
 	<message key="email.sender">送件者</message>
 	<message key="email.skip">跳過信件</message>
 	<message key="email.subject">主旨</message>
-	<message key="email.to">到</message>
+	<message key="email.to">收件者</message>
 	<message key="form.contains">包含</message>
 	<message key="form.errorsOccurred">處理表單時發生錯誤</message>
 	<message key="form.formLanguage">格式語言</message>

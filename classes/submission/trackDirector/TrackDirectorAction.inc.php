@@ -1481,11 +1481,13 @@ import('file.PaperFileManager');
 				$templateName = $isAbstract?'SUBMISSION_ABSTRACT_DECLINE':'SUBMISSION_PAPER_DECLINE';
 				break;
 		}
-
+                
 		$user =& Request::getUser();
 		import('mail.PaperMailTemplate');
 		$email = new PaperMailTemplate($trackDirectorSubmission, $templateName);
-
+                
+                $submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
+                
 		if ($send && !$email->hasErrors()) {
 			HookRegistry::call('TrackDirectorAction::emailDirectorDecisionComment', array(&$trackDirectorSubmission, &$send));
 			$email->send();
@@ -1506,6 +1508,7 @@ import('file.PaperFileManager');
 		} else {
 			if (!Request::getUserVar('continued')) {
 				$authorUser =& $userDao->getUser($trackDirectorSubmission->getUserId());
+                                $submissionUrl = $submissionUrl . '?u=' . $authorUser->getUserId();
 				$authorEmail = $authorUser->getEmail();
 				$email->addRecipient($authorEmail, $authorUser->getFullName());
 				if ($schedConf->getSetting('notifyAllAuthorsOnDecision')) foreach ($trackDirectorSubmission->getAuthors() as $author) {
@@ -1519,7 +1522,8 @@ import('file.PaperFileManager');
 					'conferenceTitle' => $conference->getConferenceTitle(),
 					'editorialContactSignature' => $user->getContactSignature(),
 					'locationCity' => $schedConf->getSetting('locationCity'),
-					'paperTitle' => $trackDirectorSubmission->getLocalizedTitle()
+					'paperTitle' => $trackDirectorSubmission->getLocalizedTitle(),
+                                        'submissionUrl' => $submissionUrl
 				));
 			} elseif (Request::getUserVar('importPeerReviews')) {
 				$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -1597,7 +1601,7 @@ import('file.PaperFileManager');
 				} // foreach
 			}
 
-			$email->displayEditForm(Request::url(null, null, null, 'emailDirectorDecisionComment', 'send'), array('paperId' => $trackDirectorSubmission->getPaperId()), 'submission/comment/directorDecisionEmail.tpl', array('isADirector' => true));
+			$email->displayEditForm(Request::url(null, null, null, 'emailDirectorDecisionComment', 'send'), array('paperId' => $trackDirectorSubmission->getPaperId()), 'submission/comment/directorDecisionEmail.tpl', array('isADirector' => true, 'templateName' => $templateName));
 
 			return false;
 		}

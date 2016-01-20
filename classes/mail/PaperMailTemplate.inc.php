@@ -60,6 +60,7 @@ class PaperMailTemplate extends MailTemplate {
 
 		$paramArray['paperTitle'] = strip_tags($paper->getLocalizedTitle());
 		$paramArray['conferenceName'] = strip_tags($conference->getConferenceTitle());
+                $paramArray['conferenceName'] = preg_replace('/\s+/', '', $paramArray['conferenceName']);
 		$paramArray['schedConfName'] = strip_tags($schedConf->getSchedConfTitle());
 		$paramArray['trackName'] = strip_tags($paper->getTrackTitle());
 		$paramArray['paperAbstract'] = strip_tags($paper->getLocalizedAbstract());

@@ -46,8 +46,8 @@
 </script>
 {/literal}
 
-<ul class="menu">
-	<li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+<ul class="nav nav-tabs">
+	
 	{if $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL}
 		<li><a href="{url op="submissionReview" path=$submission->getPaperId()}">
 			{translate key="submission.abstractReview"}</a>
@@ -58,7 +58,23 @@
 	{else}
 		<li><a href="{url op="submissionReview" path=$submission->getPaperId()}">{translate key="submission.review"}</a></li>
 	{/if}
-	<li class="current"><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
+        <li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+        {if $submission->getReviewMode() == REVIEW_MODE_BOTH_SEQUENTIAL}
+		<li>
+			<a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">
+                            {translate key="director.paper.selectReviewer"}
+                        </a>
+                </li>
+		<li>
+			<a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_PRESENTATION}">
+				{translate key="director.paper.selectReviewer"}</a>
+		</li>
+	{else}
+		<li>
+                    <a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()}">{translate key="director.paper.selectReviewer"}</a>
+                </li>
+	{/if}
+	<li class="current active"><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>
 
 <ul class="menu">

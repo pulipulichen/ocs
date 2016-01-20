@@ -113,14 +113,46 @@ function deleteAttachment(fileId) {
 			<br/>
 			<input type="checkbox" name="bccSender" id="bccSender" value="1"{if $bccSender} checked{/if} />&nbsp;&nbsp;<label for="bccSender">{translate key="email.bccSender" address=$senderEmail|escape}</label>
 		{/if}
+                {if $isADirector}
+                    <br />
+                    <input type="checkbox" name="blindCcReviewers" value="1" id="blindCcReviewers"/>&nbsp;&nbsp;<label for="blindCcReviewers">{translate key="submission.comments.blindCcReviewers"}</label>
+                {/if}
 	</td>
 </tr>
 {/if}{* addressFieldsEnabled *}
 
-{if $attachmentsEnabled}
 <tr valign="top">
 	<td colspan="2">&nbsp;</td>
 </tr>
+<tr valign="top">
+	<td class="label">{translate key="email.from"}</td>
+	<td class="value">{$from|escape}</td>
+</tr>
+<tr valign="top">
+	<td width="20%" class="label">{fieldLabel name="subject" key="email.subject"}</td>
+	<td width="80%" class="value"><input type="text" id="subject" name="subject" value="{$subject|escape}" size="60" maxlength="120" class="textField" /></td>
+</tr>
+<tr valign="top">
+	<td class="label">
+            {if $isConferenceManager}
+            <a class="edit-link" href="{url page="manager"}/editEmail/{$templateName}" target="_blank">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </a>
+            {/if}
+            {fieldLabel name="body" key="email.body"}
+        </td>
+	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
+</tr>
+{if $isADirector}
+	<tr valign="top">
+		<td class="label">&nbsp;</td>
+		<td class="value">
+			<input type="submit" name="importPeerReviews" class="btn btn-primary" value="{translate key="submission.comments.importPeerReviews"}"/>
+		</td>
+	</tr>
+{/if}
+
+{if $attachmentsEnabled}
 <tr valign="top">
 	<td class="label">{translate key="email.attachments"}</td>
 	<td class="value">
@@ -139,37 +171,13 @@ function deleteAttachment(fileId) {
 	</td>
 </tr>
 {/if}
-{if $isADirector}
-	<tr valign="top">
-		<td colspan="2">&nbsp;</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">&nbsp;</td>
-		<td class="value">
-			<input type="submit" name="importPeerReviews" class="button defaultButton" value="{translate key="submission.comments.importPeerReviews"}"/>
-		</td>
-	</tr>
-{/if}
-<tr valign="top">
-	<td colspan="2">&nbsp;</td>
-</tr>
-<tr valign="top">
-	<td class="label">{translate key="email.from"}</td>
-	<td class="value">{$from|escape}</td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="subject" key="email.subject"}</td>
-	<td width="80%" class="value"><input type="text" id="subject" name="subject" value="{$subject|escape}" size="60" maxlength="120" class="textField" /></td>
-</tr>
-<tr valign="top">
-	<td class="label">{fieldLabel name="body" key="email.body"}</td>
-	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
-</tr>
 </table>
 
-{if $isADirector}<input type="checkbox" name="blindCcReviewers" value="1" id="blindCcReviewers"/>&nbsp;&nbsp;<label for="blindCcReviewers">{translate key="submission.comments.blindCcReviewers"}</label>{/if}
-
-<p><input name="send" type="submit" value="{translate key="email.send"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" />{if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="button" />{/if}</p>
+<p class="text-center">
+    <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
+    {if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="btn btn-default" />{/if}
+</p>
 </form>
 
 {include file="common/footer.tpl"}
