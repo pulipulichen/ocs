@@ -26,12 +26,10 @@
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
+	
+        <link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
         
-        <link href="{$baseUrl}/lib/affix-sidebar/css/styles.css" rel="stylesheet">
-        <script src="{$baseUrl}/lib/affix-sidebar/js/scripts.js"></script>
-	
 	<!-- Base Jquery -->
 	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -53,7 +51,12 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="{$baseUrl}/lib/bootstrap/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        
+
+        <!-- affix-sidebar -->
+        <link href="{$baseUrl}/lib/affix-sidebar/css/styles.css" rel="stylesheet">
+        <script src="{$baseUrl}/lib/affix-sidebar/js/scripts.js"></script>
+	
+
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>	
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/fontController.js" ></script>
 	<script type="text/javascript">{literal}

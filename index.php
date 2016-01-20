@@ -63,4 +63,3 @@ require('lib/pkp/includes/bootstrap.inc.php');
 // Serve the request
 $application =& PKPApplication::getApplication();
 $application->execute();
-?>

@@ -69,6 +69,27 @@ class PKPUserDAO extends DAO {
 		unset($result);
 		return $returner;
 	}
+        
+        /**
+	 * Retrieve a user by username.
+	 * @param $username string
+	 * @param $allowDisabled boolean
+	 * @return User
+	 */
+	function &getUserByUserID($user_id, $allowDisabled = true) {
+		$result =& $this->retrieve(
+			'SELECT * FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
+			array($user_id)
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		unset($result);
+		return $returner;
+	}
 
 	/**
 	 * Get the user by the TDL ID (implicit authentication).

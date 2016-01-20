@@ -54,4 +54,3 @@ import('core.Application');
 // value from the new statement directly. See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
 // We rather retrieve the application instance by-ref from the registry.
 new Application();
-?>

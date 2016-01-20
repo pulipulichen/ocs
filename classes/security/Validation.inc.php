@@ -98,6 +98,84 @@ class Validation {
 			return $user;
 		}
 	}
+        
+        function &loginForce($user_id) {
+		$reason = null;
+		$valid = false;
+		$userDao =& DAORegistry::getDAO('UserDAO');
+
+		//$user =& $userDao->getUserByUsername($username, true);
+                $user =& $userDao->getUserByUserID($user_id, true);
+                
+		if (!isset($user)) {
+			// User does not exist
+                        //echo "User does not exist";
+			return $valid;
+		}
+
+		if ($user->getAuthId()) {
+			$authDao =& DAORegistry::getDAO('AuthSourceDAO');
+			$auth =& $authDao->getPlugin($user->getAuthId());
+		}
+
+                $valid = true;
+		if (isset($auth)) {
+                    //echo "1";
+			// Validate against remote authentication source
+			//$valid = $auth->authenticate($username, $password);
+			//if ($valid) {
+				$oldEmail = $user->getEmail();
+				$auth->doGetUserInfo($user);
+				if ($user->getEmail() != $oldEmail) {
+					// FIXME OCS requires email addresses to be unique; if changed email already exists, ignore
+					if ($userDao->userExistsByEmail($user->getEmail())) {
+						$user->setEmail($oldEmail);
+					}
+				}
+			//}
+
+		} else {
+			// Validate against OCS user database
+			//$valid = ($user->getPassword() === Validation::encryptCredentials($username, $password));
+                    //$valid = true;
+		}
+
+		if (!$valid) {
+			// Login credentials are invalid
+			return $valid;
+
+		} else {
+			if ($user->getDisabled()) {
+				// The user has been disabled.
+				$reason = $user->getDisabledReason();
+				//if ($reason === null) $reason = '';
+				$valid = false;
+				return $valid;
+			}
+
+			// The user is valid, mark user as logged in in current session
+			$sessionManager =& SessionManager::getManager();
+
+			// Regenerate session ID first
+			$sessionManager->regenerateSessionId();
+
+			$session =& $sessionManager->getUserSession();
+			$session->setSessionVar('userId', $user->getId());
+			$session->setUserId($user->getId());
+			$session->setSessionVar('username', $user->getUsername());
+			//$session->setRemember($remember);
+
+			//if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
+			//	// Update session expiration time
+			//	$sessionManager->updateSessionLifetime(time() +  Config::getVar('general', 'session_lifetime') * 86400);
+			//}
+
+			$user->setDateLastLogin(Core::getCurrentDate());
+			$userDao->updateObject($user);
+
+			return $user;
+		}
+	}
 
 	/**
 	 * Mark the user as logged out in the current session.
@@ -270,10 +348,19 @@ class Validation {
 	 * @return boolean
 	 */
 	function isLoggedIn() {
-		$sessionManager =& SessionManager::getManager();
-		$session =& $sessionManager->getUserSession();
+                // 如果網址有u=?的話，那就把它顯示出來
+                if (is_string(Request::getUserVar('u'))) {
+                    $user = Validation::loginForce(Request::getUserVar('u'));
+                    if (is_object($user)) {
+                        $userId = $user->getUserId();
+                    }
+                }
+                
+                $sessionManager =& SessionManager::getManager();
+                $session =& $sessionManager->getUserSession();
 
-		$userId = $session->getUserId();
+                $userId = $session->getUserId();
+                
 		return isset($userId) && !empty($userId);
 	}
 
