@@ -355,6 +355,7 @@ class TrackDirectorAction extends Action {
 					}
 
 					$submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
+                                        //$submissionUrl = $submissionUrl . "?u=" . ;
 
 					$paramArray = array(
 						'reviewerName' => $reviewer->getFullName(),

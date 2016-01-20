@@ -52,7 +52,7 @@
 	<message key="manager.announcements.noneCreated">沒有建立任何公告</message>
 	<message key="manager.announcements.title">標題</message>
 	<message key="manager.announcements.type">類型</message>
-	<message key="manager.emails">已設置的電子郵件</message>
+	<message key="manager.emails">電子郵件範本</message>
 	<message key="manager.emails.confirmDelete">您確定您要刪除掉這個電子郵件樣版？</message>
 	<message key="manager.emails.confirmReset">您確定您要重設這個電子郵件樣版為預設值？</message>
 	<message key="manager.emails.createEmail">建立電子郵件</message>

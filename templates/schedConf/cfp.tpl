@@ -12,6 +12,31 @@
 {translate|assign:"pageTitleTranslated" key="schedConf.cfp.title"}
 {include file="common/header.tpl"}
 {/strip}
+
+{if $isConferenceManager}
+    <div class="panel panel-default">
+        <h3 class="panel-heading">{translate key="manager.conferenceSiteManagement"}</h3>
+        <div class="panel-body">
+
+            <ul>
+                <li>
+                    <a href="{url page="manager"}/schedConfSetup/1#principalContact">
+                        {translate key="common.edit"}
+                        {translate key="about.contact.principalContact"}
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="manager"}/emails?clearPageContext=1">
+                        {translate key="common.edit"}
+                        {translate key="manager.emails"}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="separator"></div>
+{/if}
+
 <div id="cfp">
 {if $isConferenceManager}
     <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#callForPapers" target="_blank">

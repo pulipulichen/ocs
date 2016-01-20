@@ -28,7 +28,7 @@
 	<message key="manager.files.note">注意:文件瀏覽器是一個先進的特點能允許直接觀看和操作與研討會有相關的文件和目錄。</message>
 	<message key="manager.groups">組織團隊</message>
 	<message key="manager.groups.create">建立組織團隊標題</message>
-	<message key="manager.groups.disableBoard">系統將在他們的被分配的角色之下產生人選名單 (研討會主席、審查者等等。)</message>
+	<message key="manager.groups.disableBoard">系統將在他們的被分配的角色之下產生人選名單 (會議主席、審查者等等。)</message>
 	<message key="manager.groups.enableBoard">研討會管理者將建立組織團隊標題，並在各個標題之下增加適當的人選。</message>
 	<message key="manager.groups.enableBoard.description"><![CDATA[<a href="{$aboutOrganizingTeamUrl}">組織團隊</a>在關於研討會網頁內:]]></message>
 	<message key="manager.groups.noneCreated">組織團隊尚未被建立。</message>
@@ -132,7 +132,7 @@
 	<message key="manager.registration.registrationType">註冊類型</message>
 	<message key="manager.registration.select">登記已註冊者</message>
 	<message key="manager.registration.selectRegistrant">選擇已註冊者</message>
-	<message key="manager.registration.selectRegistrant.desc">註冊訪問權限自動地授予給研討會的研討會主席、主管, 和路徑主席。</message>
+	<message key="manager.registration.selectRegistrant.desc">註冊訪問權限自動地授予給研討會的會議主席、主管, 和路徑主席。</message>
 	<message key="manager.registration.user">使用者</message>
 	<message key="manager.registrationManagement">註冊管理</message>
 	<message key="manager.registrationOptions">註冊選項</message>
@@ -669,11 +669,11 @@
 	<message key="manager.timeline.submissionsOpen">接受投稿</message>
 	<message key="manager.timeline.website">研討會網站</message>
 	<message key="manager.timeline.websitePosting">網站公開</message>
-	<message key="manager.tracks.assignDirector">指定研討會主席</message>
+	<message key="manager.tracks.assignDirector">指定會議主席</message>
 	<message key="manager.tracks.assigned">本主題負責人</message>
 	<message key="manager.tracks.confirmDelete">是否確認永久的刪除本主題?</message>
 	<message key="manager.tracks.create">建立主題</message>
-	<message key="manager.tracks.directorRestriction">僅能接受研討會主席與主題負責人投稿。</message>
+	<message key="manager.tracks.directorRestriction">僅能接受會議主席與主題負責人投稿。</message>
 	<message key="manager.tracks.directors">主題負責人</message>
 	<message key="manager.tracks.disableComments">關閉本主題的讀者評論。</message>
 	<message key="manager.tracks.form.abbrevRequired">本主題需要一個簡短的代號</message>

@@ -39,7 +39,7 @@
 	<message key="admin.conferences.importOCS1.conflict.desc">有些使用者的帳號有矛盾的資訊。OCS 1.x 允許多個用戶帳號去分享同樣電子郵件， 當OCS 2.x不行時。在這個名單如下，被列出的第二個帳戶有一個臨時電子郵件被分配到在裡面。這些應該用手合併改正，或被分配至另外ㄧ個電子郵件或帳戶。</message>
 	<message key="admin.conferences.importOCS1.editMigratedConference">編輯轉移的會議</message>
 	<message key="admin.conferences.importOCS1.errors.desc">以下錯誤是遇到當OCS 1.x 研討會移入OCS 2.x 。</message>
-	<message key="admin.conferences.importOCS1Instructions"><![CDATA[與OCS 諮詢關於升級文件對於詳細的資訊被分佈，將資料從OCS 1 移至OCS 2。注意這個過程將不會創造一個完全地配置的OCS 2 研討會；只有某些項目(如論文)將被轉入。<strong>所有被轉入的使用者將需要重新設置他們的密碼。強烈建議研討會主席在公佈研討會之前，應審查所有被轉入的資訊。</strong>]]></message>
+	<message key="admin.conferences.importOCS1Instructions"><![CDATA[與OCS 諮詢關於升級文件對於詳細的資訊被分佈，將資料從OCS 1 移至OCS 2。注意這個過程將不會創造一個完全地配置的OCS 2 研討會；只有某些項目(如論文)將被轉入。<strong>所有被轉入的使用者將需要重新設置他們的密碼。強烈建議會議主席在公佈研討會之前，應審查所有被轉入的資訊。</strong>]]></message>
 	<message key="admin.conferences.importRegistrations">輸入註冊</message>
 	<message key="admin.conferences.noneCreated">無研討會被建立。</message>
 	<message key="admin.conferences.scheduleConferenceInstructions">Proceed to schedule a conference next.</message>

@@ -361,7 +361,7 @@ function moveAuthor(dir, authorIndex) {
 
 -->
 
-<p>
+<p class="text-center">
     <input type="submit" value="{translate key="common.saveAndContinue"}" 
            class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" 

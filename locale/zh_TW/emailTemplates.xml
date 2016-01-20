@@ -155,7 +155,7 @@ Your password for disabling notification emails is: {$password}
 倘若您有其他任何的的問題，請聯絡我。
 
 {$editorialContactSignature}</body>
-		<description>這封信件是由研討會主席寄發通知給取消審查過程的審查者。</description>
+		<description>這封信件是由會議主席寄發通知給取消審查過程的審查者。</description>
 	</email_text>
 	<email_text key="REVIEW_COMPLETE">
 		<subject>論文審查已完成</subject>
@@ -306,7 +306,7 @@ Your password for disabling notification emails is: {$password}
 
 摘要
 {$paperAbstract}</body>
-		<description>這封由研討會主席寄給審查者的電子郵件，內容是要求審查者接受或婉拒審查論文的任務。他提供有關論文的資訊，如題目和摘要、審查截止日期、及如何進入審查。當標準的審查過程已被定案在研討會的設定，步驟2，及點選進入功能能被使用時，這個訊息則可開始使用。</description>
+		<description>這封由會議主席寄給審查者的電子郵件，內容是要求審查者接受或婉拒審查論文的任務。他提供有關論文的資訊，如題目和摘要、審查截止日期、及如何進入審查。當標準的審查過程已被定案在研討會的設定，步驟2，及點選進入功能能被使用時，這個訊息則可開始使用。</description>
 	</email_text>
 	<email_text key="SUBMISSION_ABSTRACT_ACCEPT">
 		<subject>關於編輯論文決定</subject>
@@ -340,14 +340,18 @@ Your password for disabling notification emails is: {$password}
 	</email_text>
 	<email_text key="SUBMISSION_ACK">
 		<subject>投稿感謝函</subject>
-		<body>{$authorName}:
+		<body>{$authorName}您好:
 
-感謝您投稿 "{$paperTitle}" 至 {$conferenceName|strip_tags}。我們所使用的線上研討會管理系統，在登入後您能夠透過編輯審查來追蹤作業進展以及通過審查的過程。請由下列網址登錄到會議網站:
+感謝您投稿「{$paperTitle}」至 {$conferenceName|strip_tags}。
+您可以使用我們的線上研討會管理系統來追蹤稿件審查作業的進度，請由下列網址進入研討會網站:
 
-投稿網站: {$submissionUrl}
-帳號: {$authorUsername}
+稿件審查進度: {$submissionUrl}
+您的帳號: {$authorUsername}
 
-倘若您有任何的疑問，請聯絡我們。謝謝您將此研討會視為您的工作之一。
+倘若您有任何的疑問，請聯絡我們。
+再次感謝您投稿到本研討會。
+                    
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給發表者。它提供關於投稿過程的資訊和感謝發表者投稿。</description>

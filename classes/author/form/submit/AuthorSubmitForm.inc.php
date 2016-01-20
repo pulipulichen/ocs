@@ -120,11 +120,13 @@ class AuthorSubmitForm extends Form {
 				unset($editAssignment);
 			}
 
+                        $submissionUrl = Request::url(null, null, 'author', 'submission', $paper->getId());
+                        $submissionUrl = $submissionUrl . "?u=" . $user->getUserId();
 			$mail->assignParams(array(
 				'authorName' => $user->getFullName(),
 				'authorUsername' => $user->getUsername(),
 				'editorialContactSignature' => $schedConf->getSetting('contactName') . "\n" . $conference->getConferenceTitle(),
-				'submissionUrl' => Request::url(null, null, 'author', 'submission', $paper->getId())
+				'submissionUrl' => $submissionUrl
 			));
 			$mail->send();
 		}
