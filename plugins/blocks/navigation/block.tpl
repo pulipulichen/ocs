@@ -42,35 +42,78 @@
 		<!-- <span class="blockSubtitle">{translate key="schedConf.contents"}</span> -->
 
 		<ul class="nav nav-stacked">
-			{if $schedConfPostOverview}<li><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
-			<li><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
-                        {if $schedConfShowCFP}
-                        <li>
-                            {if $isConferenceManager}
-                                    <a class="edit-link" href="{url page="manager"}/timeline#submissionsTimeline" target="_blank">
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                        </a>
-                                    {/if}
-                            <a href="{url page="schedConf" op="cfp"}">
-                                
-                                    {translate key="schedConf.cfp"}
-                                
-                                <br />
-                                {if $submissionsOpenDate}    
-                                    ({$submissionsOpenDate|date_format:$dateFormatShort} ~ {$submissionsCloseDate|date_format:$dateFormatShort})
+			{if $schedConfPostOverview}
+                            <li>
+                                {if $isConferenceManager}
+                                <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#description" target="_blank">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
                                 {/if}
-                            </a>
-                        </li>
+                                <a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a>
+                            </li>
+                        {/if}
+                            <li>
+                                {if $isConferenceManager}
+                                <a class="edit-link" href="{url page="manager"}/announcements?clearPageContext=1" target="_blank">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                                {/if}
+                                <a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a>
+                            </li>
+                        {if $schedConfShowCFP}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/timeline#submissionsTimeline" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="cfp"}">
+
+                                        {translate key="schedConf.cfp"}
+
+                                    <br />
+                                    {if $submissionsOpenDate}    
+                                        ({$submissionsOpenDate|date_format:$dateFormatShort} ~ {$submissionsCloseDate|date_format:$dateFormatShort})
+                                    {/if}
+                                </a>
+                            </li>
 			{/if}
 			{if $schedConfPostTrackPolicies}<li><a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}
-			{if $schedConfShowProgram}<li><a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a></li>{/if}
+			{if $schedConfShowProgram}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/program" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a>
+                            </li>
+                        {/if}
 			{if $schedConfPostPresentations}<li><a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a></li>{/if}
 			{if $schedConfPostSchedule}<li><a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
 			{if $schedConfPostPayment}<li><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
 			{if $schedConfPostAccommodation}<li><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
 			{if $schedConfPostSupporters}<li><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
-			{if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
-                        {if $schedConfContactEmail}<li><a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a></li>{/if}
+			{if $schedConfPostTimeline}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/timeline" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a>
+                            </li>
+                        {/if}
+                        {if $schedConfContactEmail}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a>
+                            </li>
+                        {/if}
 		</ul>
 		{/if}
 
