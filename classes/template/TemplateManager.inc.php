@@ -135,6 +135,10 @@ class TemplateManager extends PKPTemplateManager {
 					if ($schedConf->getSetting('postProgram') && ($schedConf->getSetting('program') || $schedConf->getSetting('programFile'))) {
 						$this->assign('schedConfShowProgram', true);
 					}
+                                        
+                                        if ($schedConf->getSetting('contactEmail') && ($schedConf->getSetting('contactEmail') || $schedConf->getSetting('contactEmail'))) {
+						$this->assign('schedConfContactEmail', $schedConf->getSetting('contactEmail'));
+					}
 
 					// Submissions open
 					$submissionsOpenDate = $schedConf->getSetting('submissionsOpenDate');

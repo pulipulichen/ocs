@@ -286,7 +286,21 @@ class SchedConfHandler extends Handler {
 			if (!$paymentManager->isConfigured() || !$registration || $registration->getDatePaid()) {
 				// If the system isn't fully configured or the registration is already paid,
 				// display a message and block the user from going further.
-				$templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredAndPaid');
+                                
+                                //echo $registration->getTypeId();
+                                $registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
+				$registrationType =& $registrationTypeDao->getRegistrationType(
+					$registration->getTypeId()
+				);
+                                if ($registrationType->getCost() > 0) {
+                                    $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredAndPaid');
+                                }
+                                else {
+                                    $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredNoPaid');
+                                    //$schedConf
+                                }
+                                
+                                //$templateMgr->assign('email', $schedConf->getSetting('contactEmail'));
 				$templateMgr->assign('backLinkLabel', 'common.back');
 				$templateMgr->assign('backLink', Request::url(null, null, 'index'));
 				return $templateMgr->display('common/message.tpl');

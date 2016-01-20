@@ -11,6 +11,14 @@
 {assign var="pageTitle" value="schedConf.registration"}
 {include file="common/header.tpl"}
 
+{if $isConferenceManager}
+    <a href="{url page="manager" }/registrationTypes?clearPageContext=1">
+    <button type="button">
+        {translate key="manager.registrationList"}
+    </button>
+    </a>
+{/if}
+
 <form action="{url op="registration"}" method="post">
 <div id="registrationType">
 {if $isConferenceManager}

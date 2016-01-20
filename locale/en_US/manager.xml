@@ -690,5 +690,5 @@
 	<message key="manager.tracks.wordCount">Word Count</message>
 	<message key="manager.tracks.wordCountInstructions">Limit abstract word counts for this section (0 for no limit): </message>
 	<message key="manager.websiteManagement">Website Management</message>
-
+<message key="manager.registrationList">註冊名單</message>
 </locale>

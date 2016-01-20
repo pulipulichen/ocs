@@ -37,7 +37,8 @@
 	
 		{if $currentSchedConf && ($schedConfPostOverview || $schedConfShowCFP
 			|| $schedConfPostPolicies || $schedConfShowProgram ||  $schedConfPostPresentations || $schedConfPostSchedule 
-			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline)}
+			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline
+                        || $schedConfContactEmail)}
 		<!-- <span class="blockSubtitle">{translate key="schedConf.contents"}</span> -->
 
 		<ul class="nav nav-stacked">
@@ -69,6 +70,7 @@
 			{if $schedConfPostAccommodation}<li><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
 			{if $schedConfPostSupporters}<li><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
 			{if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
+                        {if $schedConfContactEmail}<li><a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a></li>{/if}
 		</ul>
 		{/if}
 

@@ -27,7 +27,7 @@ function sortSearch(heading, direction) {
 </script>
 
 <ul class="menu">
-	<li class="current"><a href="{url op="registration" clearPageContext=1}">{translate key="manager.registration"}</a></li>
+	<li class="current"><a href="{url op="registration" clearPageContext=1}">{translate key="manager.registrationList"}</a></li>
 	<li><a href="{url op="registrationTypes" clearPageContext=1}">{translate key="manager.registrationTypes"}</a></li>
 	<li><a href="{url op="registrationPolicies"}">{translate key="manager.registrationPolicies"}</a></li>
 	<li><a href="{url op="registrationOptions"}">{translate key="manager.registrationOptions"}</a></li>
