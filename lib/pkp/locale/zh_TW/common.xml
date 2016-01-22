@@ -123,7 +123,7 @@
 	<message key="common.modify">修改</message>
 	<message key="common.month">月</message>
 	<message key="common.no">否</message>
-	<message key="common.noComments">No Comments</message>
+	<message key="common.noComments">沒有資料</message>
 	<message key="common.none">無</message>
 	<message key="common.noneAssigned">沒有指派</message>
 	<message key="common.notApplicable">不適用</message>
@@ -140,13 +140,13 @@
 	<message key="common.order">排序</message>
 	<message key="common.originalFileName">原始檔名</message>
 	<message key="common.other">其它</message>
-	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
+	<message key="common.pageHeaderLogo.altText">頁首圖示</message>
 	<message key="common.plugin">插入的</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">出版者</message>
 	<message key="common.re">Re:</message>
 	<message key="common.record">儲存</message>
-	<message key="common.refresh">Refresh</message>
+	<message key="common.refresh">重新整理</message>
 	<message key="common.related">相關的</message>
 	<message key="common.remove">移除</message>
 	<message key="common.removeSelection">移除選取</message>

@@ -9,7 +9,8 @@
  * $Id$
  *}
 <div id="directors">
-<h3>{translate key="user.role.directors"}</h3>
+<h3>{translate key="submissions.assignDirector"}</h3>
+{if $editAssignment}
 <table width="100%" class="listing">
 	<tr class="heading" valign="bottom">
 		<td width="{if $isDirector}20%{else}25%{/if}">&nbsp;</td>
@@ -38,12 +39,18 @@
 		<tr><td colspan="{if $isDirector}4{else}3{/if}" class="nodata">{translate key="common.noneAssigned"}</td></tr>
 	{/foreach}
 </table>
+{/if}
 {if $isDirector}
+    <div style="margin-top: 1rem">
         {if !$selfAssigned}
-            <a href="{url page="director" op="assignDirector" path="director" directorId=$userId paperId=$submission->getPaperId()}" class="action">{translate key="common.addSelf"}</a> |&nbsp;
+            <a href="{url page="director" op="assignDirector" path="director" directorId=$userId paperId=$submission->getPaperId()}" class="action">
+                {translate key="submissions.addSelf"}
+            </a> 
+            |
         {/if}
 	<a href="{url page="director" op="assignDirector" path="trackDirector" paperId=$submission->getPaperId()}" class="action">{translate key="director.paper.assignTrackDirector"}</a>
-	|&nbsp;<a href="{url page="director" op="assignDirector" path="director" paperId=$submission->getPaperId()}" class="action">{translate key="director.paper.assignDirector"}</a>
-	
+	|
+        <a href="{url page="director" op="assignDirector" path="director" paperId=$submission->getPaperId()}" class="action">{translate key="director.paper.assignDirector"}</a>
+    </div>
 {/if}
 </div>

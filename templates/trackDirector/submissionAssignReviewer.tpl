@@ -38,7 +38,6 @@
                     <a href="{url op="submissionReview" path=$submission->getPaperId()}">{translate key="submission.review"}</a>
                 </li>
 	{/if}
-        <li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
         
         {if $submission->getReviewMode() == REVIEW_MODE_BOTH_SEQUENTIAL}
 		<li class="current active">
@@ -55,13 +54,24 @@
                     <a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()}">{translate key="director.paper.selectReviewer"}</a>
                 </li>
 	{/if}
+        
+        <li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+        
 	<li><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>
 
 {include file="trackDirector/submission/submissionInfo.tpl"}
 
 <div class="separator"></div>
-        
+
+{include file="trackDirector/submission/directors.tpl"}
+
+{if $editAssignment}
+    
+<div class="separator"></div>
+
 {include file="trackDirector/submission/assignReviewer.tpl"}
+{/if}
+
 
 {include file="common/footer.tpl"}

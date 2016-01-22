@@ -18,8 +18,9 @@
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$submission->getAuthorEmails() subject=$submission->getLocalizedTitle() paperId=$submission->getPaperId()}
 			{*icon name="mail" url=$url*}
                         <a href="$url" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$submission->getAuthorString()|escape} 
-                            {icon name="mail"}
+                            {*icon name="mail"*}
                         </a>
 		</td>
 	</tr>
@@ -68,13 +69,13 @@
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
-                        <a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                        <a class="btn btn-default" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
                                    class="file">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {$reviewFile->getFileName()|escape}&nbsp;&nbsp;
                                     ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
                                     <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
-                                </a>
+                        </a>
                     </td>
                 </tr>
 		{if not $isStageDisabled}
@@ -119,5 +120,47 @@
 			</tr>
 		{/foreach}
 	{/if}
+        <tr>
+		<td class="label">{translate key="submissions.status"}</td>
+		<td class="value">
+                    {assign var="status" value=$submission->getSubmissionStatus()}
+                    {if $status == STATUS_ARCHIVED}
+                        <span style="color:gray">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            {translate key="submissions.archived"}
+                        </span>
+                    {elseif $status == STATUS_QUEUED_UNASSIGNED}
+                        <span class="text-warning">
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            {translate key="submissions.queuedUnassigned"}
+                        </span>
+                    {elseif $status == STATUS_QUEUED_EDITING}
+                        <span class="text-primary">
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            {translate key="submissions.queuedEditing"}
+                        </span>
+                    {elseif $status == STATUS_QUEUED_REVIEW}
+                        <span class="text-warning">
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            {if $submission->getCurrentStage()==REVIEW_STAGE_PRESENTATION}
+                                    {translate key="submissions.queuedPaperReview"}
+                            {else}
+                                    {translate key="submissions.queuedAbstractReview"}
+                            {/if}
+                        </span>
+                    {elseif $status == STATUS_PUBLISHED}
+                        <span class="text-success">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            {translate key="submissions.published"}
+                        </span>
+                    {elseif $status == STATUS_DECLINED}
+                        <span style="color:gray">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            {translate key="submissions.declined"}
+                        </span>
+                    {/if}
+                    ({$submission->getLastModified()|date_format:$dateFormatShort})
+                </td>
+	</tr>
 </table>
 </div>

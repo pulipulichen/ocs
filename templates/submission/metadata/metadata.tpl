@@ -11,10 +11,6 @@
 <div id="metadata">
 <h3>{translate key="submission.metadata"}</h3>
 
-{if $mayEditPaper}
-	<p><a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action">{translate key="submission.editMetadata"}</a></p>
-{/if}
-
 <div id="authors">
 <h4>{translate key="paper.authors"}</h4>
 	
@@ -25,7 +21,11 @@
 		<td width="80%" class="value">
 			{assign var=emailString value=$author->getFullName()|concat:" <":$author->getEmail():">"}
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle()|strip_tags paperId=$submission->getPaperId()}
-			{$author->getFullName()|escape} {icon name="mail" url=$url}
+                        <a href="$url" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            {$author->getFullName()|escape} 
+                            {*icon name="mail" url=$url*}
+                        </a>
 		</td>
 	</tr>
 	{if $author->getUrl()}
@@ -60,7 +60,7 @@
 </table>
 </div><!-- authors -->
 
-<div id="titleAndAbstract">
+<div id="titleAndAbstract" style="margin-top: 20px;">
 <h4>{translate key="submission.titleAndAbstract"}</h4>
 
 <table width="100%" class="data">
@@ -175,6 +175,14 @@
 		</tr>
 	</table>
 	</div><!-- citations -->
+{/if}
+
+
+{if $mayEditPaper}
+	<a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-primary">
+            <span class="glyphicon glyphicon-pencil"></span>
+            {translate key="submission.editMetadata"}
+        </a>
 {/if}
 
 </div>

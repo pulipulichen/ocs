@@ -11,10 +11,10 @@
 <div id="complete">
 <h3>{translate key="submission.complete"}</h3>
 
-<form method="post" action="{url op="completePaper"}">
+<form method="post" action="{url op="completePaper"}" class="text-center">
 	<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 	{translate key="submission.complete.description"}
-        <div>
+        <div class="text-center">
             {if $submission->getStatus() == STATUS_PUBLISHED}
                 <input name="remove" {if $submission->getStatus() != STATUS_PUBLISHED}disabled="disabled" {/if}type="submit" value="{translate key="submission.button.remove"}" 
                    class="btn btn-default" />

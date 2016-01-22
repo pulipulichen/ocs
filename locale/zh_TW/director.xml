@@ -27,11 +27,11 @@
 	<message key="director.notifyUsers.includeToc">包括這個研討會的介紹：</message>
 	<message key="director.notifyUsers.interestedUsers">將這則與研討會相關的消息寄發給希望接受更新的使用者({$count} users)</message>
 	<message key="director.paper.addReviewer">新增審查者</message>
-	<message key="director.paper.archiveSubmission">拒絕並封存這份稿件</message>
+	<message key="director.paper.archiveSubmission">取消審查並封存這份稿件</message>
 	<message key="director.paper.assignDirector">增加會議主席</message>
 	<message key="director.paper.assignTrackDirector">增加主題負責人</message>
 	<message key="director.paper.cancelReview">取消審查要求</message>
-	<message key="director.paper.cannotRecord">無法記錄稿件處理結果；主題負責人尚未作決定或者尚未有審查的相關檔案上傳.</message>
+	<message key="director.paper.cannotRecord">無法決定稿件處理結果。這是因為尚未決定審查負責人，或者未上傳可供審查的稿件。</message>
 	<message key="director.paper.cannotRecordTooLate">稿件已經完成查程序，您無法再變更稿件處理結果。</message>
 	<message key="director.paper.cannotRecordYet">在選擇稿件處理結果之前，稿件必需分配給主題負責人，審查用的版本將預設成為負責人的版本。</message>
 	<message key="director.paper.changeTrack">變更主題</message>
@@ -42,7 +42,7 @@
 	<message key="director.paper.commentsRequired">意見欄不可以空白。</message>
 	<message key="director.paper.completeReview">標記已完成審查</message>
 	<message key="director.paper.createGalley">本檔案已經完成編輯，以公開發佈。</message>
-	<message key="director.paper.decision">稿件處理結果</message>
+	<message key="director.paper.decision">稿件處理結果記錄</message>
 	<message key="director.paper.decision.accept">接受</message>
 	<message key="director.paper.decision.decline">拒絕</message>
 	<message key="director.paper.decision.invitePresentation">邀請稿件</message>
@@ -65,14 +65,14 @@
 	<message key="director.paper.recordDecision">儲存</message>
 	<message key="director.paper.replaceReviewer">取代審查者</message>
 	<message key="director.paper.requestedByDate">依日期進行要求</message>
-	<message key="director.paper.restoreToQueue">移至啟動清單中</message>
+	<message key="director.paper.restoreToQueue">恢復可審查狀態</message>
 	<message key="director.paper.reviewerRating.average">3 一般</message>
 	<message key="director.paper.reviewerRating.good">4</message>
 	<message key="director.paper.reviewerRating.poor">2</message>
 	<message key="director.paper.reviewerRating.veryGood">5 高</message>
 	<message key="director.paper.reviewerRating.veryPoor">1 低</message>
 	<message key="director.paper.scheduleSubmission">寄出</message>
-	<message key="director.paper.selectDecision">設定稿件處理結果</message>
+	<message key="director.paper.selectDecision">決定稿件處理結果</message>
 	<message key="director.paper.selectDirector">選擇 {$roleName}</message>
 	<message key="director.paper.selectReviewer">選擇審查者</message>
 	<message key="director.paper.sendToArchive">封存到檔案庫</message>
@@ -107,4 +107,5 @@
 	<message key="director.submissions.noSubmissions">未投稿</message>
 	<message key="director.submissions.showBy">展示依</message>
 	<message key="director.submissions.submitMMDD">投稿 MM-DD</message>
+        <message key="director.submission.status">稿件處理現況</message>
 </locale>
