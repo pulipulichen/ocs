@@ -126,11 +126,15 @@
 	<message key="common.queue.long.submissionsInReview">待審查的投稿</message>
 	<message key="common.queue.long.submissionsUnassigned">等待安排審查的稿件</message>
 	<message key="common.queue.short.active">作者投稿的稿件</message>
+        <message key="common.queue.count.active">篇 稿件</message>
 	<message key="common.queue.short.completed">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsAccepted">已經接受的稿件</message>
+        <message key="common.queue.count.submissionsAccepted">篇 已經接受的稿件</message>
 	<message key="common.queue.short.submissionsArchives">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsInReview">等待審查的稿件</message>
+        <message key="common.queue.count.submissionsInReview">篇 等待審查</message>
 	<message key="common.queue.short.submissionsUnassigned">等待安排審查的稿件</message>
+        <message key="common.queue.count.submissionsUnassigned">篇 等待安排審查</message>
 	<message key="common.sitePageHeader.altText">網站標頭的圖片</message>
 	<message key="common.sortBy">排序依據...</message>
 	<message key="common.time">時間</message>
