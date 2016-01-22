@@ -345,6 +345,11 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		}
 
 		$templateMgr =& TemplateManager::getManager();
+                
+                $controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+                $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+                $templateMgr->assign('sessionTypes', $sessionTypes);
+                $templateMgr->assign('sessionType', $sessionTypes[intval($submission->getData('sessionType'))]);
 
 		$templateMgr->assign_by_ref('submission', $submission);
 		$templateMgr->assign_by_ref('reviewIndexes', $reviewAssignmentDao->getReviewIndexesForStage($paperId, $stage));

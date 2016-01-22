@@ -129,12 +129,12 @@
         <message key="common.queue.count.active">篇 稿件</message>
 	<message key="common.queue.short.completed">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsAccepted">已經接受的稿件</message>
-        <message key="common.queue.count.submissionsAccepted">篇 已經接受的稿件</message>
+        <message key="common.queue.count.submissionsAccepted"><![CDATA[篇 <br />已經接受]]></message>
 	<message key="common.queue.short.submissionsArchives">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsInReview">等待審查的稿件</message>
-        <message key="common.queue.count.submissionsInReview">篇 等待審查</message>
+        <message key="common.queue.count.submissionsInReview"><![CDATA[篇 <br />等待審查]]></message>
 	<message key="common.queue.short.submissionsUnassigned">等待安排審查的稿件</message>
-        <message key="common.queue.count.submissionsUnassigned">篇 等待安排審查</message>
+        <message key="common.queue.count.submissionsUnassigned"><![CDATA[篇 <br />等待安排審查]]></message>
 	<message key="common.sitePageHeader.altText">網站標頭的圖片</message>
 	<message key="common.sortBy">排序依據...</message>
 	<message key="common.time">時間</message>
@@ -272,22 +272,22 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 <p>感謝您下載 Public Knowledge Project 所發展的 <strong>Open Conference Systems</strong>。在您進行下列的程序之前，請閱讀包含在檔案中的 <a href="{$baseUrl}/docs/README">讀我 (README)</a> 與 <a href="{$baseUrl}/docs/UPGRADE">升級 (UPGRADE)</a>檔案。如需更多有關 Public Knowledge Project 與相關軟體的資訊，請造訪 <a href="http://pkp.sfu.ca/" target="_blank">PKP 網站</a>。如果您有任何的錯誤要回報，或是需要技術支援，請參閱 <a href="http://pkp.sfu.ca/support/forum">支援論壇</a> 或者造訪 PKP 的線上 <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">錯誤回報系統</a>。您也可以透過電子郵件與本團隊連絡 <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>。</p>
 <p>本團隊 <strong>強烈建議</strong> 您在進行下列的程序之前，備份您的資料庫、檔案資料與 OCS 所安裝的資料匣。</p>
 <p>如果您是在 <a href="http://www.php.net/features.safe-mode" target="_blank">PHP 安全模式</a> 下進行，請確認 php.ini 中最長執行時間的設，因為有關此類時間的設定 (例如 Apache's "Timeout" 指今) 可能會影響升級程序，而導致中斷。</p>]]></message>
-	<message key="log.author.abstractSubmitted">{$authorName} 已經繳交 {$submissionId} 文章的摘要。</message>
-	<message key="log.author.documentRevised">{$authorName} 已經修改編號 {$paperId} 的文章。新的檔案編號為 {$fileId}。</message>
-	<message key="log.author.presentationSubmitted">{$authorName} 已經上傳發表媒體，文章編號 {$submissionId}.</message>
-	<message key="log.deadline.presentationsReleasedToParticipants">發表已經開放給參與者。</message>
-	<message key="log.deadline.presentationsReleasedToPublic">發表已經公開開放給大眾。</message>
-	<message key="log.deadline.submissionDeadlinePassed">投稿日期已經過期。</message>
-	<message key="log.default.abstractPeriodExpired">論文編號 {$paperId} 的摘要繳交已經過期，該文章已經移到癈棄區。</message>
-	<message key="log.default.paperPeriodExpired">論文編號 {$paperId} 的稿件繳交已經過期，該文章已經移到癈棄區。</message>
-	<message key="log.director.archived">稿件 {$paperId} 已經封存。</message>
-	<message key="log.director.decision">論文 {$paperId} 的審查結果 ({$decision}) 已經由 {$directorName} 記錄。</message>
-	<message key="log.director.directorAssigned">{$directorName} 已經被指派為稿件 {$paperId} 的會議主席。</message>
-	<message key="log.director.directorFile">會議主席版本的稿件已經上傳。</message>
-	<message key="log.director.metadataModified">本投稿的相關資料已經由 {$directorName} 修改。</message>
-	<message key="log.director.publish">論文已經出版。</message>
-	<message key="log.director.restored">稿件 {$paperId} 排入序列。</message>
-	<message key="log.director.submissionExpedited">{$directorName} 已經催促稿件 {$paperId} 的編輯程序。</message>
+	<message key="log.author.abstractSubmitted">{$authorName} 已經繳交 {$submissionId} 稿件的摘要</message>
+	<message key="log.author.documentRevised">{$authorName} 已經修改編號 {$paperId} 的稿件。新的稿件編號為 {$fileId}</message>
+	<message key="log.author.presentationSubmitted">{$authorName} 已經上傳稿件，稿件編號 {$submissionId}</message>
+	<message key="log.deadline.presentationsReleasedToParticipants">發表已經開放給參與者</message>
+	<message key="log.deadline.presentationsReleasedToPublic">發表已經公開開放給大眾</message>
+	<message key="log.deadline.submissionDeadlinePassed">投稿日期已經過期</message>
+	<message key="log.default.abstractPeriodExpired">論文編號 {$paperId} 的摘要繳交已經過期，該文章已經移到癈棄區</message>
+	<message key="log.default.paperPeriodExpired">論文編號 {$paperId} 的稿件繳交已經過期，該文章已經移到癈棄區</message>
+	<message key="log.director.archived">稿件 {$paperId} 已經封存</message>
+	<message key="log.director.decision">論文 {$paperId} 的審查結果 ({$decision}) 已經由 {$directorName} 記錄</message>
+	<message key="log.director.directorAssigned">{$directorName} 已經被指派為稿件 {$paperId} 的會議主席</message>
+	<message key="log.director.directorFile">會議主席版本的稿件已經上傳</message>
+	<message key="log.director.metadataModified">本投稿的相關資料已經由 {$directorName} 修改</message>
+	<message key="log.director.publish">論文已經出版</message>
+	<message key="log.director.restored">稿件 {$paperId} 排入序列</message>
+	<message key="log.director.submissionExpedited">{$directorName} 已經催促稿件 {$paperId} 的編輯程序</message>
 	<message key="log.director.unpublish">The paper was moved back into the queue.</message>
 	<message key="log.layout.layoutFileSet">{$directorName} 已經設定稿件 {$paperId} 排版用的版本。</message>
 	<message key="log.review.resubmit">The submission {$paperId} 已經重新繳交提供審查。</message>

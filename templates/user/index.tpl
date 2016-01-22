@@ -55,6 +55,7 @@
                 {/if}
 
 		<table width="100%" class="info table table-striped">
+                    {* @TODO 語系需要修改 *}
                     <thead>
                         <tr>
                             <th rowspan="2">
@@ -93,7 +94,9 @@
 					</td>
 					<td>
 						{if $directorSubmissionsCount[1]}
-							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsInReview"}">{$directorSubmissionsCount[1]} {translate key="common.queue.count.submissionsInReview"}</a>
+							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsInReview"}">
+                                                            {$directorSubmissionsCount[1]} {translate key="common.queue.count.submissionsInReview"}
+                                                        </a>
 						{else}
 							<span class="disabled">0 {translate key="common.queue.count.submissionsInReview"}</span>
 						{/if}
@@ -101,8 +104,8 @@
                                         <td>
                                             {if $directorSubmissionsCount[1]}
                                                 <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsAccepted"}">
-                                                    ?
-                                                    {translate key="common.queue.short.submissionsAccepted"}
+                                                    {$directorSubmissionsCount[2]}
+                                                    {translate key="common.queue.count.submissionsAccepted"}
                                                 </a>
                                             {else}
                                                 <span class="disabled">0 {translate key="common.queue.short.submissionsAccepted"}</span>

@@ -450,7 +450,23 @@ class DirectorSubmissionDAO extends DAO {
 			array((int) $schedConfId)
 		);
 		$submissionsCount[1] = $result->Fields('review_count');
+                
+                $result =& $this->retrieve(
+			'SELECT	COUNT(*) AS review_count
+			FROM	papers p
+				LEFT JOIN edit_assignments e ON (p.paper_id = e.paper_id)
+				LEFT JOIN edit_assignments e2 ON (p.paper_id = e2.paper_id AND e.edit_id < e2.edit_id)
+			WHERE	p.sched_conf_id = ?
+				AND p.status = ' . STATUS_PUBLISHED . '
+				AND e2.edit_id IS NULL
+				AND e.edit_id IS NOT NULL
+				AND (p.submission_progress = 0 OR (p.review_mode = ' . REVIEW_MODE_BOTH_SEQUENTIAL . ' AND p.submission_progress <> 1))',
+			array((int) $schedConfId)
+		);
+                $submissionsCount[2] = $result->Fields('review_count');
 		$result->Close();
+                
+                
 
 		return $submissionsCount;
 	}

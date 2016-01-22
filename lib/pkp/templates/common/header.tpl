@@ -31,7 +31,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
         
 	<!-- Base Jquery -->
-	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
+	{*if $allowCDN}<script src="http://www.google.com/jsapi"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script>
 		//google.load("jquery", "1.9.0");
@@ -40,7 +40,12 @@
 	{else}
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
-	{/if}
+	{/if*}
+        {**
+         * @author Pulipuli Chen 不使用CDN 20160122
+         *}
+        <script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	<!-- Add javascript required for font sizer -->
         
 <!-- Latest compiled and minified CSS -->

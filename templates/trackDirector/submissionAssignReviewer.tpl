@@ -58,6 +58,10 @@
 	<li><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>
 
+{include file="trackDirector/submission/submissionInfo.tpl"}
+
+<div class="separator"></div>
+        
 {include file="trackDirector/submission/assignReviewer.tpl"}
 
 {include file="common/footer.tpl"}
