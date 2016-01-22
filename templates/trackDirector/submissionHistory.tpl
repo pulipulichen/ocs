@@ -99,7 +99,7 @@
 		<td>{translate key="common.type"}</td>
 		<td>{translate key="common.user"}</td>
 		<td>{translate key="common.event"}</td>
-		<td align="right">{translate key="common.action"}</td>
+		<td align="right" width="80">{translate key="common.action"}</td>
 	</tr>
 	<tr><td class="headseparator" colspan="6">&nbsp;</td></tr>
 {iterate from=eventLogEntries item=logEntry}
@@ -117,9 +117,10 @@
 				{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$titleTrans|translate body=$logEntry->getMessage() paperId=$submission->getPaperId()}
 			{/if}
 			{*$logEntry->getUserFullName()|escape} {icon name="mail" url=$url*}
-                        <a href="$url" class="btn btn-default">
+                        <a href="{$url}" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$logEntry->getUserFullName()|escape} 
-                            {icon name="mail"}
+                            {*icon name="mail"*}
                         </a>
 		</td>
 		<td>
@@ -133,14 +134,14 @@
 			{/if}
                     </a>
 		</td>
-		<td align="right">
-                    <a style="display:block" href="{url op="submissionEventLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action">{translate key="common.view"}</a>
+                <td align="right" style="padding:0;">
+                    <a class="btn btn-default btn-xs" href="{url op="submissionEventLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action">{translate key="common.view"}</a>
                     {if $isDirector}
                         <!-- &nbsp;|&nbsp; -->
-                        <a style="display:block" href="{url op="clearSubmissionEventLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action" onclick="return confirm('{translate|escape:"jsparam" key="submission.event.confirmDeleteLogEntry"}')">{translate key="common.delete"}</a>
+                        <a class="btn btn-default btn-xs" href="{url op="clearSubmissionEventLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action" onclick="return confirm('{translate|escape:"jsparam" key="submission.event.confirmDeleteLogEntry"}')">{translate key="common.delete"}</a>
                     {/if}
                     {if $logEntry->getAssocType()}
-                        <a style="display:block" href="{url op="submissionEventLogType" path=$submission->getPaperId()|to_array:$logEntry->getAssocType():$logEntry->getAssocId()}" class="action">{translate key="submission.related"}</a>
+                        <a class="btn btn-default btn-xs" href="{url op="submissionEventLogType" path=$submission->getPaperId()|to_array:$logEntry->getAssocType():$logEntry->getAssocId()}" class="action">{translate key="submission.related"}</a>
                         <!-- &nbsp;|&nbsp; -->
                     {/if}
                 </td>
@@ -182,7 +183,7 @@
 		<td>{translate key="email.sender"}</td>
 		<td>{translate key="email.recipients"}</td>
 		<td>{translate key="common.subject"}</td>
-		<td width="70" align="right">{translate key="common.action"}</td>
+		<td width="80" align="right">{translate key="common.action"}</td>
 	</tr>
 	<tr><td class="headseparator" colspan="6">&nbsp;</td></tr>
 {iterate from=emailLogEntries item=logEntry}
@@ -192,25 +193,28 @@
 		<td>
 			{url|assign:"url" page="user" op="email" to=$logEntry->getFrom() redirectUrl=$currentUrl subject=$logEntry->getSubject() body=$logEntry->getBody() paperId=$submission->getPaperId()}
                         <a href="{$url}" class="btn btn-default">
-                            {$logEntry->getFrom()|truncate:40:"..."|escape} {icon name="mail"}
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            {$logEntry->getFrom()|truncate:20:"..."|escape} 
+                            {*icon name="mail"*}
                         </a>
 		</td>
-		<td>{$logEntry->getRecipients()|truncate:40:"..."|escape}</td>
+		<td>{$logEntry->getRecipients()|truncate:20:"..."|escape}</td>
 		<td>
                     <a style="display:block;" href="{url op="submissionEmailLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action">
                         <strong>{$logEntry->getSubject()|truncate:60:"..."|escape}</strong>
                     </a>
                 </td>
-		<td align="right">
-                    {if $logEntry->getAssocType()}
-                        <a style="display: block;" href="{url op="submissionEmailLogType" path=$submission->getPaperId()|to_array:$logEntry->getAssocType():$logEntry->getAssocId()}" class="action">{translate key="common.related"}</a>
-                        <!-- &nbsp;|&nbsp; -->
-                    {/if}
-                    <a style="display:block;" href="{url op="submissionEmailLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action">{translate key="common.view"}</a>
+                <td align="right" style="padding:0;">
+                    <a class="btn btn-default btn-xs" href="{url op="submissionEmailLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" class="action">{translate key="common.view"}</a>
                     {if $isDirector}
                         <!-- &nbsp;|&nbsp;-->
-                        <a style="display:block" href="{url op="clearSubmissionEmailLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" onclick="return confirm('{translate|escape:"jsparam" key="submission.email.confirmDeleteLogEntry"}')" class="action">{translate key="common.delete"}</a>{/if}
-                    </td>
+                        <a class="btn btn-default btn-xs" href="{url op="clearSubmissionEmailLog" path=$submission->getPaperId()|to_array:$logEntry->getLogId()}" onclick="return confirm('{translate|escape:"jsparam" key="submission.email.confirmDeleteLogEntry"}')" class="action">{translate key="common.delete"}</a>
+                    {/if}
+                    {if $logEntry->getAssocType()}
+                        <a class="btn btn-default btn-xs" href="{url op="submissionEmailLogType" path=$submission->getPaperId()|to_array:$logEntry->getAssocType():$logEntry->getAssocId()}" class="action">{translate key="submission.related"}</a>
+                        <!-- &nbsp;|&nbsp; -->
+                    {/if}
+                </td>
 	</tr>
 	<tr valign="top">
 		<td colspan="6" class="{if $emailLogEntries->eof()}end{/if}separator">&nbsp;</td>

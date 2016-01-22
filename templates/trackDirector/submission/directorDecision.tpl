@@ -17,26 +17,26 @@
     <!-- 稿件處理結果記錄 -->
     <tr valign="top">
         <td class="label" width="20%">{translate key="director.paper.decision"}</td>
-        <td class="value" width="80%">
+        <td class="value director-decisions" width="80%">
             {foreach from=$directorDecisions item=directorDecision key=decisionKey}
                 {assign var="decision" value=$directorDecision.decision}
                 {if $decision === '2'}
                     <div>
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;{$directorDecision.dateDecided|date_format:$dateFormatShort}
-                        {$decision}
+                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                        ({$directorDecision.dateDecided|date_format:$dateFormatShort})
                     </div>
                 {elseif $decision === '3'}
                     <div>
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;{$directorDecision.dateDecided|date_format:$dateFormatShort}
-                        {$decision}
+                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                        ({$directorDecision.dateDecided|date_format:$dateFormatShort})
                     </div>
                 {elseif $decision === '4'}
                     <div>
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;{$directorDecision.dateDecided|date_format:$dateFormatShort}
-                        {$decision}
+                        {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                        ({$directorDecision.dateDecided|date_format:$dateFormatShort})
                     </div>
                 {/if}
             {foreachelse}
@@ -222,17 +222,18 @@
         {url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
         
                 <a class="btn btn-default" href="{$notifyAuthorUrl}">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                     {translate key="submission.notifyAuthor"}
-                    {icon name="mail"}
+                    {*icon name="mail"*}
                 </a>
-        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;
         {if $submission->getMostRecentDirectorDecisionComment()}
             {assign var="comment" value=$submission->getMostRecentDirectorDecisionComment()}
             <a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId() anchor=$comment->getId()}');" class="icon">
                             {icon name="comment"}
                             {translate key="submission.directorAuthorRecord"}
                         </a>
-                        &nbsp;&nbsp;{$comment->getDatePosted()|date_format:$dateFormatShort}
+                        &nbsp;&nbsp;({$comment->getDatePosted()|date_format:$dateFormatShort})
         {else}
             <a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId()}');" class="icon">
                             {icon name="comment"}

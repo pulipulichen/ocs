@@ -11,11 +11,11 @@
 <div id="submissions">
 <table width="100%" class="listing">
 	<tr>
-		<td colspan="10" class="headseparator">&nbsp;</td>
+		<td colspan="9" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
 		<td>{sort_search key="common.id" sort="id"}</td>
-		<td><!--<span class="disabled">MM-DD</span><br />-->{sort_search key="submissions.submit" sort="submitDate"}</td>
+		{*}<td><!--<span class="disabled">MM-DD</span><br />-->{sort_search key="submissions.submit" sort="submitDate"}</td>{*}
 		<td>{sort_search key="submissions.track" sort="track"}</td>
 		<td>{sort_search key="paper.sessionType" sort="sessionType"}</td>
 		<td>{sort_search key="paper.authors" sort="authors"}</td>
@@ -33,16 +33,16 @@
 		</td>
 		<td>{translate key="submissions.ruling"}</td>
 		<td>{translate key="paper.trackDirector"}</td>
-                <td>&nbsp;</td>
+                <td>{translate key="submissions.manage"}</td>
 	</tr>
 	<tr>
-		<td colspan="10" class="headseparator">&nbsp;</td>
+		<td colspan="9" class="headseparator">&nbsp;</td>
 	</tr>
 	
 	{iterate from=submissions item=submission}
 	<tr valign="top">
 		<td>{$submission->getPaperId()}</td>
-		<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>
+		{*}<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>{*}
 		<td>{$submission->getTrackAbbrev()|escape}</td>
 		<td>
 			{assign var="sessionTypeId" value=$submission->getData('sessionType')}
@@ -89,21 +89,27 @@
 			</table>
 		</td>
 		<td> 
-			{foreach from=$submission->getDecisions() item=decisions}
+                        {assign var="decisionsArray" value=$submission->getDecisions() }
+			{foreach from=$decisionsArray item=decisions}
+                            {if $smarty.foreach.decisionsArray.last}
 				{foreach from=$decisions item=decision name=decisionList}
 					{if $smarty.foreach.decisionList.last}
-                                                {$decision.dateDecided|date_format:$dateFormatTrunc}
+                                            {$decision.dateDecided|date_format:$dateFormatTrunc}
 					{/if}
 				{foreachelse}
-					&mdash;
+                                    &mdash;
 				{/foreach}
+                            {/if}
 			{foreachelse}
 				&mdash;
 			{/foreach}
 		</td>
 		<td>
 			{assign var="editAssignments" value=$submission->getEditAssignments()}
-			{foreach from=$editAssignments item=editAssignment}{$editAssignment->getDirectorInitials()|escape} {/foreach}
+			{foreach from=$editAssignments item=editAssignment}
+                            {*$editAssignment->getDirectorInitials()|escape*} 
+                            {$editAssignment->getDirectorFirstName()|escape} 
+                        {/foreach}
 		</td>
                 <td>
                     <a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$submission->getCurrentStage()}" class="action">
@@ -112,15 +118,15 @@
                 </td>
 	</tr>
 	<tr>
-		<td colspan="10" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
+		<td colspan="9" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
 	</tr>
 {/iterate}
 {if $submissions->wasEmpty()}
 	<tr>
-		<td colspan="10" class="nodata">{translate key="submissions.noSubmissions"}</td>
+		<td colspan="9" class="nodata">{translate key="submissions.noSubmissions"}</td>
 	</tr>
 	<tr>
-		<td colspan="10" class="endseparator">&nbsp;</td>
+		<td colspan="9" class="endseparator">&nbsp;</td>
 	</tr>
 {else}
 	<tr>

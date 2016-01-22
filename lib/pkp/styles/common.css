@@ -550,3 +550,8 @@ footer > .footer-container {
 label[for] {
     cursor: pointer;
 }
+
+.director-decisions > div:last-of-type {
+    font-weight: bold;
+    text-decoration: underline;
+}

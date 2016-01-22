@@ -59,13 +59,13 @@
                     <thead>
                         <tr>
                             <th rowspan="2">
-                                角色
+                                {translate key="user.roles"}
                             </th>
                             <th colspan="4">
                                 審查進度
                             </th>
-                            <th rowspan="2">
-                                操作
+                            <th rowspan="2" style="text-align:right">
+                                {translate key="submissions.manage"}
                             </th>
                         </tr>
                         <tr>
@@ -83,14 +83,30 @@
                             </th> 
                         </tr>
                     </thead>
+                    <tbody>
+                        {if $isValid.Author.$conferenceId.$schedConfId}
+				{assign var="authorSubmissionsCount" value=$submissionsCount.Author.$conferenceId.$schedConfId}
+				<tr>
+					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{translate key="user.role.author"}</a></th>
+					<td>{if $authorSubmissionsCount[0]}
+							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{$authorSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
+						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
+					</td>
+                                        <td colspan="3"></td>
+					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
+				</tr>
+			{/if}
 			{if $isValid.Director.$conferenceId.$schedConfId}
 				<tr>
 					{assign var="directorSubmissionsCount" value=$submissionsCount.Director.$conferenceId.$schedConfId}
 					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  schedConf=$schedConfPath page="director"}">{translate key="user.role.director"}</a></th>
                                         <td>&nbsp;</td>
-					<td>{if $directorSubmissionsCount[0]}
-							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsUnassigned"}">{$directorSubmissionsCount[0]} {translate key="common.queue.count.submissionsUnassigned"}</a>
-						{else}<span class="disabled">0 {translate key="common.queue.count.submissionsUnassigned"}</span>{/if}
+					<td>
+                                            {if $directorSubmissionsCount[0]}
+                                                <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsUnassigned"}">{$directorSubmissionsCount[0]} {translate key="common.queue.count.submissionsUnassigned"}</a>
+                                            {else}
+                                                <span class="disabled">0 {translate key="common.queue.count.submissionsUnassigned"}</span>
+                                            {/if}
 					</td>
 					<td>
 						{if $directorSubmissionsCount[1]}
@@ -131,27 +147,17 @@
 			{*if $isValid.Author.$conferenceId.$schedConfId || $isValid.Reviewer.$conferenceId.$schedConfId}
 				<tr><td class="separator" width="100%" colspan="5">&nbsp;</td></tr>
 			{/if*}
-			{if $isValid.Author.$conferenceId.$schedConfId}
-				{assign var="authorSubmissionsCount" value=$submissionsCount.Author.$conferenceId.$schedConfId}
-				<tr>
-					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{translate key="user.role.author"}</a></th>
-					<td>{if $authorSubmissionsCount[0]}
-							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{$authorSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
-						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
-					</td>
-                                        <td colspan="3"></td>
-					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
-				</tr>
-			{/if}
+			
 			{if $isValid.Reviewer.$conferenceId.$schedConfId}
 				{assign var="reviewerSubmissionsCount" value=$submissionsCount.Reviewer.$conferenceId.$schedConfId}
 				<tr>
 					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{translate key="user.role.reviewer"}</a></th>
+                                        <td colspan="2">&nbsp;</td>
                                         <td>{if $reviewerSubmissionsCount[0]}
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{$reviewerSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
 					</td>
-                                        <td colspan="3">&nbsp;</td>
+                                        <td colspan="1">&nbsp;</td>
 					<td align="right">&nbsp;</td>
 				</tr>
 			{/if}
@@ -163,7 +169,7 @@
 				<td width="14%"></td>
 				<td width="33%"></td>
 			</tr>{*}
-				
+                    </tbody>	
 		</table>
 	</div>
 	{/foreach}

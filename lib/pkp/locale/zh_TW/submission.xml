@@ -121,10 +121,11 @@
 	<message key="submission.event.reviewer.reviewRecommendation">審查推薦檔案</message>
 	<message key="submission.event.reviewer.reviewReinitiated">重新開始的審查作業</message>
 	<message key="submission.event.reviewer.reviewResubmitted">送出的審查結果</message>
-	<message key="submission.event.reviewer.reviewRevision">更新的審查修訂檔案</message>
+	<message key="submission.event.reviewer.reviewRevision">審查委員上傳修正後的稿件</message>
 	<message key="submission.event.reviewer.reviewerAssigned">指派給稿件的審查委員</message>
 	<message key="submission.event.reviewer.reviewerRated">送出的審查委員評分</message>
 	<message key="submission.event.reviewer.reviewerUnassigned">不指派給稿件的審查委員</message>
+        <message key="submission.event.author.authorRevision">作者上傳修正後的稿件</message>
 	<message key="submission.fileDetails">File Details</message>
 	<message key="submission.files">檔案</message>
 	<message key="submission.galley">Galley</message>
@@ -231,13 +232,12 @@
 	<message key="submissions.queued">排序</message>
 	<message key="submissions.queuedEditing">稿件正在等待編輯</message>
 	<message key="submissions.queuedUnassigned">稿件正在等待審查安排</message>
-	<message key="submissions.ruling">裁決</message>
+	<message key="submissions.ruling">修改日期</message>
 	<message key="submissions.submit">投稿日期</message>
 	<message key="submissions.submitted">已送出</message>
         <message key="submissions.status">稿件處理現況</message>
         <message key="submissions.manage">管理</message>
         
         <message key="submissions.assignDirector">安排審查負責人</message>
-        <message key="submissions.addSelf">將自己加入審查負責人</message>
         <message key="submissions.addSelf">將自己加入審查負責人</message>
 </locale>

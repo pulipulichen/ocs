@@ -21,7 +21,7 @@
 		<td width="80%" class="value">
 			{assign var=emailString value=$author->getFullName()|concat:" <":$author->getEmail():">"}
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle()|strip_tags paperId=$submission->getPaperId()}
-                        <a href="$url" class="btn btn-default">
+                        <a href="{$url}" class="btn btn-default">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$author->getFullName()|escape} 
                             {*icon name="mail" url=$url*}

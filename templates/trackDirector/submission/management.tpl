@@ -19,7 +19,7 @@
 		<td width="20%" class="label">{translate key="paper.authors"}</td>
 		<td width="80%" colspan="2" class="value">
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$submission->getAuthorEmails() subject=$submission->getLocalizedTitle() paperId=$submission->getPaperId()}
-                        <a href="$url" class="btn btn-default">
+                        <a href="{$url}" class="btn btn-default">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$submission->getAuthorString()|escape} 
                             {*icon name="mail" url=$url*}
@@ -76,7 +76,7 @@
 			{assign var="submitter" value=$submission->getUser()}
 			{assign var=emailString value=$submitter->getFullName()|concat:" <":$submitter->getEmail():">"}
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
-			<a href="$url" class="btn btn-default">
+			<a href="{$url}" class="btn btn-default">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$submitter->getFullName()|escape} 
                             {*icon name="mail" url=$url*}

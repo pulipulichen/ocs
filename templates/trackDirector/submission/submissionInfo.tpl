@@ -17,7 +17,7 @@
 		<td width="80%">
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$submission->getAuthorEmails() subject=$submission->getLocalizedTitle() paperId=$submission->getPaperId()}
 			{*icon name="mail" url=$url*}
-                        <a href="$url" class="btn btn-default">
+                        <a href="{$url}" class="btn btn-default">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {$submission->getAuthorString()|escape} 
                             {*icon name="mail"*}
