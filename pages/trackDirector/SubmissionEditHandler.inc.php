@@ -271,6 +271,8 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
+                
+                $templateMgr->assign('mayEditPaper', true);
 
                 //echo $_SERVER['HTTP_USER_AGENT'];
 		$templateMgr->display('trackDirector/submissionReview.tpl');
@@ -402,6 +404,24 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
 
+                
+                // @author Pulipuli Chen 20160123
+                $reviseFile = $submission->getRevisedFile();
+                $directorFile = $submission->getDirectorFile();
+                $lastFile = $reviseFile;
+                $lastFileType = 0;
+                //echo $reviseFile->getDateModified();
+                if (strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                    $lastFile = $directorFile;
+                    $lastFileType = 1;
+                }
+                $templateMgr->assign_by_ref('lastFile', $lastFile);
+                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
+
+		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
+			$templateMgr->assign('isFinalReview', true);
+		}
+                
 		$templateMgr->display('trackDirector/submissionAssignReviewer.tpl');
 	}
 
@@ -526,11 +546,18 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 				case SUBMISSION_DIRECTOR_DECISION_PENDING_REVISIONS:
 				case SUBMISSION_DIRECTOR_DECISION_DECLINE:
 					TrackDirectorAction::recordDecision($submission, $decision, $stage);
+                                        if ($decision === SUBMISSION_DIRECTOR_DECISION_ACCEPT) {
+                                            $this->completePaperWithoutRedirect($args, "complete");
+                                        }
+                                        else {
+                                            $this->completePaperWithoutRedirect($args, "remove");
+                                        }
 					break;
 			}
 		}
 
-		Request::redirect(null, null, null, 'submissionReview', array($paperId, $stage));
+		//Request::redirect(null, null, null, 'submissionReview', array($paperId, $stage));
+                Request::redirect(null, null, 'director', 'emailDirectorDecisionComment', null, array('paperId' => $submission->getPaperId()));
 	}
 
 	function completePaper($args) {
@@ -547,6 +574,22 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		TrackDirectorAction::completePaper($submission, $complete);
 
 		Request::redirect(null, null, null, 'submissions', array($complete?'submissionsAccepted':'submissionsInReview'));
+	}
+        
+        function completePaperWithoutRedirect($args, $result = "complete") {
+		$paperId = Request::getUserVar('paperId');
+		$this->validate($paperId, TRACK_DIRECTOR_ACCESS_EDIT);
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+		$submission =& $this->submission;
+
+		if ($result === "complete") $complete = true;
+		elseif ($result === "remove") $complete = false;
+		else Request::redirect(null, null, null, 'index');
+
+		TrackDirectorAction::completePaper($submission, $complete);
+
+		//Request::redirect(null, null, null, 'submissions', array($complete?'submissionsAccepted':'submissionsInReview'));
 	}
 
 	//

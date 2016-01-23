@@ -41,7 +41,7 @@
 	<message key="director.paper.comments">意見</message>
 	<message key="director.paper.commentsRequired">意見欄不可以空白。</message>
 	<message key="director.paper.completeReview">標記已完成審查</message>
-	<message key="director.paper.createGalley">本檔案已經完成編輯，以公開發佈。</message>
+	<message key="director.paper.createGalley">本檔案已經完成編輯，可以公開發佈。</message>
 	<message key="director.paper.decision">稿件處理結果記錄</message>
 	<message key="director.paper.decision.accept">接受</message>
 	<message key="director.paper.decision.decline">拒絕</message>
@@ -92,7 +92,7 @@
 	<message key="director.submissionQueue">投稿排列</message>
 	<message key="director.submissionQueue.noSubmissions">無投稿排列’</message>
 	<message key="director.submissionQueue.saveChanges">儲存投稿排列的變更？</message>
-	<message key="director.submissionReview.confirmDecision">您確定要儲存這個處理結果嗎?</message>
+	<message key="director.submissionReview.confirmDecision">您確定要決定這項稿件處理結果，並寄信給作者嗎？</message>
 	<message key="director.submissionReview.confirmToArchive">作者有被通報了這個決定嗎?若沒有，請在移動這項投稿檔案之前先按取消和使用通報作者工具。</message>
 	<message key="director.submissionReview.confirmToLayout">作者有被通報了這個決定?若沒有，在移動這項投稿之前請先按取消和使用通報作者工具。</message>
 	<message key="director.submissionReview.notes">截止日標示審稿的剩餘天數，如為負數則表示已經超過審稿期限。此欄將在審查接接受審查此稿件後才會出現數數值。&lt;br /&gt;日期格式為MM-DD。</message>

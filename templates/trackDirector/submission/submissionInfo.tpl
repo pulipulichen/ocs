@@ -129,6 +129,23 @@
 			</tr>
 		{/foreach}
 	{/if}
+
+                
+{if $mayEditPaper}
+    <tr>
+        <td class="label">
+            {translate key="submission.summaryEdit"}
+        </td>
+        <td class="value">
+            <a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-default">
+                <span class="glyphicon glyphicon-pencil"></span>
+                {translate key="submission.editMetadata"}
+            </a>
+        </td>
+    </tr>
+	
+{/if}
+
         <tr>
 		<td class="label">{translate key="submissions.status"}</td>
 		<td class="value">
@@ -173,5 +190,6 @@
                     ({$submission->getLastModified()|date_format:$dateFormatShort})
                 </td>
 	</tr>
+
 </table>
 </div>

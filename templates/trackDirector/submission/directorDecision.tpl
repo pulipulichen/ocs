@@ -152,7 +152,7 @@
                 {/if}
     </table>
 
-    {if $sendableVersionExists}
+    {*if $sendableVersionExists}
         <table class="data" width="100%">
             <tr valign="top">
                 <td width="20%" class="label">{translate key="director.paper.moveToLayout"}</td>
@@ -171,7 +171,7 @@
             </tr>
         </table>
 
-    {/if}
+    {/if*}
 {/if}
 </form>
 
@@ -263,6 +263,7 @@
 </tr>
 {/if}
 {if $isFinalReview and $allowRecommendation and $isCurrent and $directorDecisions and $lastDecision == 2}
+    <!--
     <tr>
         <td class="label">
             &nbsp;
@@ -280,8 +281,38 @@
             </form>
         </td>
     </tr>
+    -->
 {/if}
 {***}
+
+{**** 正式發佈 ****}
+{if $sendableVersionExists}
+<!--
+<tr valign="top">
+    <td width="20%" class="label">
+        {*translate key="director.paper.moveToLayout"*}
+    </td>
+    <td width="80%" colspan="2">
+        <form method="post" action="{url op="directorReview" path=$stage}" enctype="multipart/form-data">
+        
+            
+        {if !$submission->getGalleys()}
+            <label>
+                <input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
+                <input type="checkbox" checked="checked" name="createGalley" value="1" onchange="this.form.submit();" />
+                {translate key="director.paper.createGalley"}
+                <input type="hidden" name="setEditingFile" onclick="return window.confirm('{translate|escape:"jsparam" key="director.submissionReview.confirmToLayout"}')" value="{translate key="form.send"}" />
+                {if $submission->getDateToPresentations()}
+                    ({$submission->getDateToPresentations()|date_format:$dateFormatShort})
+                {/if}
+            </label>
+        {/if}
+        </form>
+    </td>
+</tr>
+-->
+{/if}
+{**** 正式發佈 ****}
 </table>
 
 {if $isFinalReview}

@@ -65,6 +65,9 @@ class PKPMailTemplate extends Mail {
 
 		// Record whether or not to BCC the sender when sending message
 		$this->bccSender = Request::getUserVar('bccSender');
+                if (isset($this->bccSender) === FALSE) {
+                    $this->bccSender = true;
+                }
 
 		// If enableAttachments is null, use the default value from the
 		// configuration file
