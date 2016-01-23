@@ -555,6 +555,7 @@ label[for] {
 .director-decisions > div:last-of-type,
 .value.highlight-last > div:last-of-type  {
     font-weight: bold;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
+    background-color: yellow;
 }
 

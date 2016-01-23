@@ -204,6 +204,20 @@ class TrackSubmissionHandler extends AuthorHandler {
                 $templateMgr->assign('sessionTypes', $sessionTypes);
                 $templateMgr->assign('sessionType', $sessionTypes[intval($submission->getData('sessionType'))]);
                 
+                // @author Pulipuli Chen 20160123
+                $reviseFile = $authorSubmission->getRevisedFile();
+                $directorFiles = $authorSubmission->getDirectorFileRevisions($authorSubmission->getCurrentStage());
+                $directorFile = $directorFiles[(count($directorFiles) - 1)];
+                $lastFile = $reviseFile;
+                $lastFileType = 0;
+                //echo $reviseFile->getDateModified();
+                if (strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                    $lastFile = $directorFile;
+                    $lastFileType = 1;
+                }
+                $templateMgr->assign_by_ref('lastFile', $lastFile);
+                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
+                
 		// FIXME: Author code should not use track director object
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
 		$trackDirectorSubmission =& $trackDirectorSubmissionDao->getTrackDirectorSubmission($authorSubmission->getPaperId());

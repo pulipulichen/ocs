@@ -241,6 +241,19 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign_by_ref('directorDecisionOptions', TrackDirectorSubmission::getDirectorDecisionOptions());
 		$templateMgr->assign_by_ref('lastDecision', $lastDecision);
 		$templateMgr->assign_by_ref('directorDecisions', $directorDecisions);
+                
+                // @author Pulipuli Chen 20160123
+                $reviseFile = $submission->getRevisedFile();
+                $directorFile = $submission->getDirectorFile();
+                $lastFile = $reviseFile;
+                $lastFileType = 0;
+                //echo $reviseFile->getDateModified();
+                if (strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                    $lastFile = $directorFile;
+                    $lastFileType = 1;
+                }
+                $templateMgr->assign_by_ref('lastFile', $lastFile);
+                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
 
 		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
 			$templateMgr->assign('isFinalReview', true);

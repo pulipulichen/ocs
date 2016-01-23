@@ -73,9 +73,16 @@
                                    class="file">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {*$reviewFile->getFileName()|escape*}
-                                    {$revisedFile->getOriginalFileName()|escape}
+                                    {$lastFile->getOriginalFileName()|escape}
                                     &nbsp;&nbsp;
-                                    ({$revisedFile->getDateModified()|date_format:$dateFormatShort})
+                                    
+                                    {* @TODO 語系 *}
+                                            {if $lastFileType == 0}
+                                                [作者]
+                                            {elseif $lastFileType == 1}
+                                                [負責人修改]
+                                            {/if}
+                                    ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                     <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
                         </a>
                     </td>

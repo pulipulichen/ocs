@@ -49,9 +49,16 @@
                                            class="file btn btn-primary">
                                             <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                             {*$reviewFile->getFileName()|escape*}
-                                            {$reviewFile->getOriginalFileName()|escape}
+                                            {$lastFile->getOriginalFileName()|escape}
                                             &nbsp;&nbsp;
-                                            ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                            {* @TODO 語系 *}
+                                            {if $lastFileType == 0}
+                                                [作者]
+                                            {elseif $lastFileType == 1}
+                                                [負責人修改]
+                                            {/if}
+                                            ({$lastFile->getDateModified()|date_format:$dateFormatShort})
+                                            
                                         </a>
 				{else}
 					{translate key="common.none"}

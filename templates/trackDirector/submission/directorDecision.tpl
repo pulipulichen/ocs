@@ -72,21 +72,18 @@
                 </td>
             </tr>
         {/if*}
-        {foreach from=$authorFiles item=authorFile key=key}
-            <tr valign="top" class="author-revision highlight-last">
-                {if !$authorRevisionExists}
-                    {assign var="authorRevisionExists" value=true}
-                    <td width="20%" class="label">{translate key="submission.authorVersion"}</td>
-                {else}
-                    <td width="20%" class="label">&nbsp;</td>
-                {/if}
-                <td width="80%" class="value" colspan="2">
+        
+        <tr valign="top" class="author-revision highlight-last">
+            <td width="20%" class="label">{translate key="submission.authorVersion"}</td>
+            
+            <td width="80%" class="value highlight-last" colspan="2">
+                {foreach from=$authorFiles item=authorFile key=key}
                     <div>
                     {if $lastDecision == SUBMISSION_DIRECTOR_DECISION_ACCEPT}
                         <input type="radio" name="directorDecisionFile" value="{$authorFile->getFileId()},{$authorFile->getRevision()}" />
                         {assign var="sendableVersionExists" value=true}
                     {/if}
-                    
+
                     <a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$authorFile->getFileId():$authorFile->getRevision()}" class="file">
                         <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                         {$authorFile->getOriginalFileName()|escape}
@@ -94,43 +91,38 @@
                     &nbsp;&nbsp;
                         ({$authorFile->getDateModified()|date_format:$dateFormatShort})
                     </div>
-                </td>
-            </tr>
-        {foreachelse}
-            <tr valign="top">
-                <td width="20%" class="label">{translate key="submission.authorVersion"}</td>
-                <td width="80%" colspan="2" class="nodata">{translate key="common.none"}</td>
-            </tr>
-        {/foreach}
-        {foreach from=$directorFiles item=directorFile key=key}
-            <tr valign="top" class="director-revision highlight-last">
-                {if !$directorRevisionExists}
-                    {assign var="directorRevisionExists" value=true}
-                    <td width="20%" class="label">{translate key="submission.directorVersion"}</td>
-                {else}
-                    <td width="20%" class="label">&nbsp;</td>
-                {/if}
-                <td width="50%" class="value highlight-last">
-                    {if $lastDecision == SUBMISSION_DIRECTOR_DECISION_ACCEPT}
-                        <input type="radio" name="directorDecisionFile" value="{$directorFile->getFileId()},{$directorFile->getRevision()}" />
-                        {assign var="sendableVersionExists" value=true}
-                    {/if}
-                    <a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="file">
-                        <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                        {*$directorFile->getFileName()|escape*}
-                        {$directorFile->getOriginalFileName()|escape}
-                    </a>
-                    &nbsp;&nbsp;
-                    ({$directorFile->getDateModified()|date_format:$dateFormatShort})
-                </td>
-                <td width="30%" class="value"><a href="{url op="deletePaperFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="action">{translate key="common.delete"}</a></td>
-            </tr>
-        {foreachelse}
-            <tr valign="top">
-                <td width="20%" class="label">{translate key="submission.directorVersion"}</td>
-                <td width="80%" colspan="3" class="nodata">{translate key="common.none"}</td>
-            </tr>
-        {/foreach}
+                {foreachelse}
+                    {translate key="common.none"}
+                {/foreach}
+                
+            </td>
+        </tr>
+        
+        <tr valign="top">
+            <td width="20%" class="label">{translate key="submission.directorVersion"}</td>
+            <td width="80%" class="value highlight-last">
+                {foreach from=$directorFiles item=directorFile key=key}
+                    <div>
+                        {if $lastDecision == SUBMISSION_DIRECTOR_DECISION_ACCEPT}
+                            <input type="radio" name="directorDecisionFile" value="{$directorFile->getFileId()},{$directorFile->getRevision()}" />
+                            {assign var="sendableVersionExists" value=true}
+                        {/if}
+                        <a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="file">
+                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                            {*$directorFile->getFileName()|escape*}
+                            {$directorFile->getOriginalFileName()|escape}
+                        </a>
+                        &nbsp;&nbsp;
+                        ({$directorFile->getDateModified()|date_format:$dateFormatShort})
+                        <a href="{url op="deletePaperFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="action">
+                            {translate key="common.delete"}</a>
+                    </div>
+                {foreachelse}
+                    {translate key="common.none"}
+                {/foreach}
+            </td>
+        </tr>
+        
                 {if $isCurrent}
                     <tr valign="top">
                         <td class="label">
