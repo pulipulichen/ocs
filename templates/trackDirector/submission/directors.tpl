@@ -10,7 +10,8 @@
  *}
 <div id="directors">
 <h3>{translate key="submissions.assignDirector"}</h3>
-{if $editAssignment}
+{if $editAssignments}
+    
 <table width="100%" class="listing">
 	<tr class="heading" valign="bottom">
 		<td width="{if $isDirector}20%{else}25%{/if}">&nbsp;</td>
@@ -42,7 +43,7 @@
 {/if}
 {if $isDirector}
     <div style="margin-top: 1rem">
-        {if !$selfAssigned}
+        {if !$selfAssigned and $userId}
             <a href="{url page="director" op="assignDirector" path="director" directorId=$userId paperId=$submission->getPaperId()}" class="action">
                 {translate key="submissions.addSelf"}
             </a> 

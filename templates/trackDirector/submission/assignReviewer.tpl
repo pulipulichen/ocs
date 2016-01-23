@@ -41,18 +41,6 @@
 			</td>
 		</tr>
 	</table>
-        <div class="text-align">
-            <a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="btn btn-primary">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                {translate key="director.paper.selectReviewer"}
-            </a>
-            <!--
-            <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">
-                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                {translate|escape key="trackDirector.regrets.link"}
-            </a>
-            -->
-        </div>
 
 	{assign var="start" value="A"|ord}
 	{foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}
@@ -60,7 +48,7 @@
 
 	{if not $reviewAssignment->getCancelled()}
 		{assign var="reviewIndex" value=$reviewIndexes[$reviewId]}
-		<div class="separator"></div>
+		<!--div class="separator"></div-->
 
 		<table class="data" width="100%">
 		<tr>
@@ -251,4 +239,17 @@
 	{/if}
 	{/foreach}
 {/if}
+
+        <div class="text-center">
+            <a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                {translate key="director.paper.selectReviewer"}
+            </a>
+            <!--
+            <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">
+                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                {translate|escape key="trackDirector.regrets.link"}
+            </a>
+            -->
+        </div>
 </div>

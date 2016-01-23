@@ -9,7 +9,7 @@
  * $Id$
  *}
 {strip}
-{assign var="pageTitle" value="user.role.reviewers"}
+{assign var="pageTitle" value="director.paper.selectReviewer"}
 {include file="common/header.tpl"}
 {/strip}
 
@@ -25,7 +25,7 @@ function sortSearch(heading, direction) {
 {/literal}
 </script> 
 
-<h3>{translate key="director.paper.selectReviewer"}</h3>
+<!--<h3>{translate key="director.paper.selectReviewer"}</h3>-->
 <form name="submit" method="post" action="{url op="selectReviewer" path=$paperId}">
 	<input type="hidden" name="sort" value="name"/>
 	<input type="hidden" name="sortDirection" value="ASC"/>
@@ -57,11 +57,11 @@ function sortSearch(heading, direction) {
 	{if $rateReviewerOnQuality}
 		<td width="7%">{sort_search key="reviewer.averageQuality" sort="quality"}</td>
 	{/if}
-	<td width="7%">{sort_search key="reviewer.completedReviews" sort="done"}</td>
-	<td width="7%">{sort_search key="director.submissions.averageTime" sort="average"}</td>
-	<td width="13%">{sort_search key="director.submissions.lastAssigned" sort="latest"}</td>
-	<td width="5%">{sort_search key="common.active" sort="active"}</td>
-	<td width="7%" class="heading">{translate key="common.action"}</td>
+	<td>{sort_search key="reviewer.completedReviews" sort="done"}</td>
+	<td>{sort_search key="director.submissions.averageTime" sort="average"}</td>
+	<td>{sort_search key="director.submissions.lastAssigned" sort="latest"}</td>
+	<td>{sort_search key="director.submissions.active" sort="active"}</td>
+	<td class="heading">{translate key="common.action"}</td>
 </tr>
 <tr><td colspan="{$numCols|escape}" class="headseparator">&nbsp;</td></tr>
 {iterate from=reviewers item=reviewer}

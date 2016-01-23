@@ -31,8 +31,8 @@
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.view">檢視公告消息</message>
 	<message key="announcement.viewLink">更多訊息...</message>
-	<message key="common.action">功能</message>
-	<message key="common.activate">Activate</message>
+	<message key="common.action">動作</message>
+	<message key="common.activate">啟用</message>
 	<message key="common.active">進行中的</message>
 	<message key="common.add">Add</message>
 	<message key="common.addSelf">加入自已</message>
@@ -142,7 +142,7 @@
 	<message key="common.other">其它</message>
 	<message key="common.pageHeaderLogo.altText">頁首圖示</message>
 	<message key="common.plugin">插入的</message>
-	<message key="common.preview">Preview</message>
+	<message key="common.preview">預覽</message>
 	<message key="common.publisher">出版者</message>
 	<message key="common.re">Re:</message>
 	<message key="common.record">儲存</message>

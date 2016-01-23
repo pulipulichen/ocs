@@ -64,7 +64,7 @@
 				{$submission->getLocalizedAbstract()|strip_unsafe_html}
 			</td>
 		</tr>
-	{else}
+	{elseif $lastFile}
 		{**
 		 * This is an abstract-and-paper or paper-only review. Don't
 		 * show the abstract, and show any review files or
@@ -73,7 +73,7 @@
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
-                        <a class="btn btn-primary" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$revisedFile->getFileId():$revisedFile->getRevision()}" 
+                        <a class="btn btn-primary" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$lastFile->getFileId():$lastFile->getRevision()}" 
                                    class="file">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {*$reviewFile->getFileName()|escape*}

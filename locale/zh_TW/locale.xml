@@ -118,7 +118,7 @@
 	<message key="common.openConferenceSystems">OCS會議管理系統</message>
 	<message key="common.pageHeader.altText">頁面標頭的圖片</message>
 	<message key="common.path">路徑</message>
-	<message key="common.preview">Preview</message>
+	<message key="common.preview">預覽</message>
 	<message key="common.queue.long.active">作者投稿的稿件</message>
 	<message key="common.queue.long.completed">已經封存的稿件</message>
 	<message key="common.queue.long.submissionsAccepted">已經接受的稿件</message>
@@ -180,14 +180,14 @@
 	<message key="default.schedConfSettings.forAuthors"><![CDATA[有果您有興趣投稿本研討會，建議您訪問<a href="{$aboutUrl}">關於研討會</a> 網頁了解研討會的相關策略，以及 <a href="{$authorGuidelinesUrl}">作者指引</a> 網頁。作者們需要 <a href="{$accountUrl}">建立一個帳號</a> 以便在研討會網站中進行投稿。如果您已經擁有本網站的帳號，請 <a href="{$loginUrl}">登入</a> 並開始投稿的步驟。]]></message>
 	<message key="default.schedConfSettings.forReaders"><![CDATA[我們鼓勵讀者們登錄研討會網站以取得本研討會論文的相關通知。您可以點選 <a href="{$accountUrl}">帳號</a> 選單連結到研討會的首頁，本清單充許研討會要求特定的支援或者讀者們。請參閱研討會的 <a href="{$privacyStatementUrl}">穩私條款</a> 本研討會不會將您的姓名與電子郵件用在研討會以外的用途上。]]></message>
 	<message key="director.paper.selectReviewerNotes"><![CDATA[姓名連結到審查者的個人資料。<br/>
-給分超過5 分 (Excellent).<br/>
-Weeks 為完成審查的平均時間。<br/>
-Latest 為最近一次接受審查工作的時間。<br/>
-Active 為目前被考慮或進行中的審查稿件數量。]]></message>
-	<message key="editor.paper.clearReviewForm">Clear Review Form</message>
-	<message key="editor.paper.confirmChangeReviewForm">Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</message>
-	<message key="editor.paper.reviewForms">Review Forms</message>
-	<message key="editor.paper.selectReviewForm">Select Review Form</message>
+「評分」範圍為1到5分，5分最高。<br/>
+「週」 為完成審查的平均時間。<br/>
+「最近審查時間」為最近一次接受審查工作的時間。<br/>
+「審查中稿件」：為目前正在考慮或進行中的審查稿件數量。]]></message>
+	<message key="editor.paper.clearReviewForm">清除審查表</message>
+	<message key="editor.paper.confirmChangeReviewForm">警告！改變審查表將會影響已經填寫的審查意見。您確定要繼續？</message>
+	<message key="editor.paper.reviewForms">審查表</message>
+	<message key="editor.paper.selectReviewForm">選擇審查表</message>
 	<message key="event.eventLog">結果日誌</message>
 	<message key="event.general.defaultEvent">投稿結果</message>
 	<message key="event.logLevel">等級</message>
@@ -367,19 +367,19 @@ You may optionally provide the user with a reason for disabling their account.</
 	<message key="manager.reviewFormElements.smalltextfield">Single word text box</message>
 	<message key="manager.reviewFormElements.textarea">Extended text box</message>
 	<message key="manager.reviewFormElements.textfield">Single line text box</message>
-	<message key="manager.reviewForms">審查表格</message>
+	<message key="manager.reviewForms">審查表</message>
 	<message key="manager.reviewForms.completed">Completed</message>
 	<message key="manager.reviewForms.confirmDeleteUnpublished">Are you sure you wish to delete this unpublished review form?</message>
-	<message key="manager.reviewForms.create">Create Review Form</message>
-	<message key="manager.reviewForms.description">Description and Instructions</message>
-	<message key="manager.reviewForms.edit">Review Form</message>
-	<message key="manager.reviewForms.form.titleRequired">A title is required for the review form.</message>
-	<message key="manager.reviewForms.inReview">In Review</message>
+	<message key="manager.reviewForms.create">建立審查表</message>
+	<message key="manager.reviewForms.description">說明</message>
+	<message key="manager.reviewForms.edit">審查表</message>
+	<message key="manager.reviewForms.form.titleRequired">審查表需要設定標題。</message>
+	<message key="manager.reviewForms.inReview">審查中</message>
 	<message key="manager.reviewForms.list.description">The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific conference track, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</message>
-	<message key="manager.reviewForms.noneChosen">None / Free Form Review</message>
-	<message key="manager.reviewForms.noneCreated">No review forms have been created.</message>
-	<message key="manager.reviewForms.preview">Preview Form</message>
-	<message key="manager.reviewForms.title">Title</message>
+	<message key="manager.reviewForms.noneChosen">沒有使用審查表 / 任意格式</message>
+	<message key="manager.reviewForms.noneCreated">沒有預先建立好的審查表。</message>
+	<message key="manager.reviewForms.preview">預覽審查表</message>
+	<message key="manager.reviewForms.title">標題</message>
 	<message key="manager.schedConfSetup.details.emailBounceAddressDisabled"><![CDATA[<strong>Note:</strong>爲啟動這個選擇，站點管理員必須
  <tt>允許_信件_傳送者</tt>選擇在OCS 配置文件。另外伺服器配置也是必需支持此項功能(也有哪些是不可能在所有伺服器上)，會依照狀況被顯示在OCS 文獻內。]]></message>
 	<message key="manager.schedConfSetup.details.sponsors.description">組織名稱(如：學術性學會、學校研究單位，等等。)主辦研討會
@@ -544,7 +544,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reviewer.paper.decision.pendingRevisions">需要修改</message>
 	<message key="reviewer.paper.decision.resubmitElsewhere">Submit Elsewhere</message>
 	<message key="reviewer.paper.decision.seeComments">觀看意見</message>
-	<message key="reviewer.paper.directorToEnter">會議主席進入</message>
+	<message key="reviewer.paper.directorToEnter">會議主席的意見</message>
 	<message key="reviewer.paper.downloadSubmissionAbstractOnly">審查投稿與摘要</message>
 	<message key="reviewer.paper.downloadSubmissionSubmission">審查投稿</message>
 	<message key="reviewer.paper.ensuringBlindReview">使用不具名審查機制</message>
@@ -699,7 +699,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="site.schedConfCurrent">目前已預定的研討會</message>
 	<message key="site.schedConfView">查看研討會的細節</message>
 	<message key="submission.abstract">摘要</message>
-	<message key="submission.abstractReview">進行審查</message>
+	<message key="submission.abstractReview">摘要審查作業</message>
 	<message key="submission.acceptance">同意審查</message>
 	<message key="submission.authorVersion">作者修改的版本</message>
 	<message key="submission.authorsRevisedVersion">作者修改後的版本</message>
@@ -737,11 +737,11 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.page.abstractReview">編號 #{$id} 摘要的審查作業</message>
 	<message key="submission.page.paperReview">編號 #{$id} 稿件的審查作業</message>
 	<message key="submission.paper">全文</message>
-	<message key="submission.paperReview">進行審查</message>
+	<message key="submission.paperReview">全文審查作業</message>
 	<message key="submission.paperType">全文類別</message>
 	<message key="submission.paperType.panel">專題小組發表</message>
 	<message key="submission.paperType.single">個別發表</message>
-	<message key="submission.reviewForm">Review Form</message>
+	<message key="submission.reviewForm">審查表</message>
 	<message key="submission.reviewFormResponse">Review Form Response</message>
 	<message key="submission.stage">步驟 {$stage}</message>
 	<message key="submission.submissionFiles">投稿文件</message>
@@ -777,8 +777,8 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="trackDirector.regrets.result">結果</message>
 	<message key="trackDirector.regrets.reviewStage">同儕審查，步驟 {$stage}</message>
 	<message key="trackDirector.regrets.title">#{$paperId} 審查者拒絕稿件</message>
-	<message key="trackDirector.review.createReviewer">建立新審查者</message>
-	<message key="trackDirector.review.enrollReviewer">登記現有使用者為審查者</message>
+	<message key="trackDirector.review.createReviewer">建立新帳號並加入為審查委員</message>
+	<message key="trackDirector.review.enrollReviewer">將現有使用者加入為審查委員</message>
 	<message key="user.account.authorDescription">能投稿到研討會。</message>
 	<message key="user.account.authorRegistrationMessage">雖然您在此網站擁有一個帳號，但並不表示您目前為此研討會的作者。</message>
 	<message key="user.account.completeForm">請輸入以下帳號資訊登入。</message>

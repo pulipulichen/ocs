@@ -255,23 +255,14 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign_by_ref('lastDecision', $lastDecision);
 		$templateMgr->assign_by_ref('directorDecisions', $directorDecisions);
                 
-                // @author Pulipuli Chen 20160123
-                $reviseFile = $submission->getRevisedFile();
-                $directorFile = $submission->getDirectorFile();
-                $lastFile = $reviseFile;
-                $lastFileType = 0;
-                //echo $reviseFile->getDateModified();
-                if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
-                    $lastFile = $directorFile;
-                    $lastFileType = 1;
+                $latestFileAry = $this->_getLatestFile($submission);
+                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                
+                if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
+                        $templateMgr->assign('isFinalReview', true);
                 }
-                $templateMgr->assign_by_ref('lastFile', $lastFile);
-                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
-
-		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
-			$templateMgr->assign('isFinalReview', true);
-		}
-
+                
 		import('submission.reviewAssignment.ReviewAssignment');
 		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 		$templateMgr->assign_by_ref('reviewerRatingOptions', ReviewAssignment::getReviewerRatingOptions());
@@ -291,6 +282,30 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->display('trackDirector/submissionReview.tpl');
                 
 	}
+        
+        function _getLatestFile($submission) {
+            // @author Pulipuli Chen 20160123
+            
+            $lastFile = $submission->getSubmissionFile();
+            
+            $reviseFile = $submission->getRevisedFile();
+            if (isset($reviseFile)) {
+                $lastFile = $reviseFile;
+            }
+            
+            $directorFile = $submission->getDirectorFile();
+            $lastFileType = 0;
+            //echo $reviseFile->getDateModified();
+            if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                $lastFile = $directorFile;
+                $lastFileType = 1;
+            }
+            //echo $lastFile->getFileId();
+            return array(
+                "lastFile" => $lastFile,
+                "lastFileType" => $lastFileType,
+            );
+        }
         
         function submissionAssignReviewer($args) {
 		$paperId = (isset($args[0]) ? $args[0] : null);
@@ -419,21 +434,18 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
                 
                 // @author Pulipuli Chen 20160123
-                $reviseFile = $submission->getRevisedFile();
-                $directorFile = $submission->getDirectorFile();
-                $lastFile = $reviseFile;
-                $lastFileType = 0;
-                //echo $reviseFile->getDateModified();
-                if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
-                    $lastFile = $directorFile;
-                    $lastFileType = 1;
-                }
-                $templateMgr->assign_by_ref('lastFile', $lastFile);
-                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
-
+                $latestFileAry = $this->_getLatestFile($submission);
+                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                
 		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
 			$templateMgr->assign('isFinalReview', true);
 		}
+                
+                $user =& Request::getUser();
+                if (isset($user)) {
+                    $templateMgr->assign_by_ref('userId', $user->getUserId());
+                }
                 
 		$templateMgr->display('trackDirector/submissionAssignReviewer.tpl');
 	}
