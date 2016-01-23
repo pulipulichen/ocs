@@ -90,17 +90,49 @@
 			{/foreach}
 		</td>
 	</tr>
+        <tr valign="top">
+			<td class="label" width="20%">
+				{translate key="submission.reviewVersion"}
+			</td>
+			<td class="value" width="80%">
+				{*assign var="reviewFile" value=$reviewFilesByStage[$stage]*}
+                                {assign var="reviewFile" value=$revisedFile}
+                                
+				{if $reviewFile}
+					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                                           class="file btn btn-primary">
+                                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                            {*$reviewFile->getFileName()|escape*}
+                                            {$lastFile->getOriginalFileName()|escape}
+                                            &nbsp;&nbsp;
+                                            {* @TODO 語系 *}
+                                            {if $lastFileType == 0}
+                                                [作者]
+                                            {elseif $lastFileType == 1}
+                                                [負責人修改]
+                                            {/if}
+                                            ({$lastFile->getDateModified()|date_format:$dateFormatShort})
+                                            
+                                        </a>
+				{else}
+					{translate key="common.none"}
+				{/if}
+			</td>
+		</tr>
 	<tr valign="top">
 		<td class="label" width="20%">
 			{translate key="author.paper.uploadAuthorVersion"}
 		</td>
 		<td class="value" width="80%">
+                    {if $mayEditPaper}
 			<form method="post" action="{url op="uploadRevisedVersion"}#directorDecision" enctype="multipart/form-data">
 				<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 				<input type="file" {if !$mayEditPaper}disabled="disabled" {/if}name="upload" class="uploadField" />
 				<input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.upload"}" class="button" />
 			</form>
-
+                    {else}
+                        稿件已經封存，無法更新
+                    {/if}
 		</td>
 	</tr>
 	<tr valign="top">
@@ -109,7 +141,7 @@
 		</td>
 		<td class="value" width="80%">
 			{url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
-                        {if $authorFiles}
+                        {if $authorFiles and $mayEditPaper}
                         <a href="{$notifyAuthorUrl}" class="btn btn-primary">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             {translate key="submission.notifyDirector"}

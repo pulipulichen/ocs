@@ -548,10 +548,19 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 					TrackDirectorAction::recordDecision($submission, $decision, $stage);
                                         if ($decision === SUBMISSION_DIRECTOR_DECISION_ACCEPT) {
                                             $this->completePaperWithoutRedirect($args, "complete");
+                                            
                                         }
                                         else {
                                             $this->completePaperWithoutRedirect($args, "remove");
                                         }
+                                        
+                                        if ($decision === SUBMISSION_DIRECTOR_DECISION_DECLINE) {
+                                            $this->unsuitableSubmissionNoRedirect($args);
+                                        }
+                                        else {
+                                            //$this->restoreToQueueNoRedirect($args);
+                                        }
+                                        
 					break;
 			}
 		}
@@ -1402,6 +1411,16 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		Request::redirect(null, null, null, 'submission', $paperId);
 	}
+        
+        function restoreToQueueNoRedirect($args) {
+		$paperId = isset($args[0]) ? (int) $args[0] : 0;
+		$this->validate($paperId);
+		$submission =& $this->submission;
+		
+		TrackDirectorAction::restoreToQueue($submission);
+
+		//Request::redirect(null, null, null, 'submission', $paperId);
+	}
 
 	function unsuitableSubmission($args) {
 		$paperId = Request::getUserVar('paperId');
@@ -1413,6 +1432,19 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if (TrackDirectorAction::unsuitableSubmission($submission, $send)) {
 			Request::redirect(null, null, null, 'submission', $paperId);
+		}
+	}
+        
+        function unsuitableSubmissionNoRedirect($args) {
+		$paperId = Request::getUserVar('paperId');
+		$this->validate($paperId);
+		$submission =& $this->submission;
+		
+		//$send = Request::getUserVar('send')?true:false;
+		//$this->setupTemplate(true, $paperId, 'summary');
+
+		if (TrackDirectorAction::unsuitableSubmission($submission, false)) {
+			//Request::redirect(null, null, null, 'submission', $paperId);
 		}
 	}
 

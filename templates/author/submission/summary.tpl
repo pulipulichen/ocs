@@ -36,6 +36,7 @@
 		<td>{$sessionType|escape}</td>
 	</tr>
         {if $stage == REVIEW_STAGE_PRESENTATION}
+            <!--
 		<tr valign="top">
 			<td class="label" width="20%">
 				{translate key="submission.reviewVersion"}
@@ -65,6 +66,7 @@
 				{/if}
 			</td>
 		</tr>
+            -->
 	{/if}
 	<tr>
 		<td class="label">{translate key="user.role.director"}</td>

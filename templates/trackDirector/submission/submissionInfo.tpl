@@ -66,6 +66,7 @@
 		 * show the abstract, and show any review files or
 		 * supplementary files.
 		 *}
+                <!--
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
@@ -83,10 +84,11 @@
                                                 [負責人修改]
                                             {/if}
                                     ({$lastFile->getDateModified()|date_format:$dateFormatShort})
-                                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
+                                    {*} &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> {*}
                         </a>
                     </td>
                 </tr>
+                -->
 		{if not $isStageDisabled}
                 <!--
 		<tr valign="top">

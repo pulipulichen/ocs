@@ -716,7 +716,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 (在儲存之後仍可以再增加意見。)]]></message>
 	<message key="submission.complete.description">將這份稿件加入已經接受的稿件清單中。</message>
 	<message key="submission.directorAuthorRecord">電子郵件往返記錄</message>
-	<message key="submission.directorDecision">最終審查結果管理</message>
+	<message key="submission.directorDecision">管理審查進度</message>
 	<message key="submission.directorReview">審查負責人</message>
 	<message key="submission.directorVersion">負責人修改後的版本</message>
 	<message key="submission.event.director.directorAssigned">負責人被指派到的負責主題</message>

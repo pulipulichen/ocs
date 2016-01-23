@@ -123,6 +123,27 @@
             </td>
         </tr>
         
+                <tr valign="top">
+                    <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$revisedFile->getFileId():$revisedFile->getRevision()}" 
+                                   class="file">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {*$reviewFile->getFileName()|escape*}
+                                    {$lastFile->getOriginalFileName()|escape}
+                                    &nbsp;&nbsp;
+                                    
+                                    {* @TODO 語系 *}
+                                            {if $lastFileType == 0}
+                                                [作者]
+                                            {elseif $lastFileType == 1}
+                                                [負責人修改]
+                                            {/if}
+                                    ({$lastFile->getDateModified()|date_format:$dateFormatShort})
+                                    {*} &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> {*}
+                        </a>
+                    </td>
+                </tr>
                 {if $isCurrent}
                     <tr valign="top">
                         <td class="label">
@@ -134,7 +155,7 @@
                             <input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
                             <br />
                             {assign var="status" value=$submission->getSubmissionStatus()}
-                            {if $status != STATUS_ARCHIVED}
+                            {*if $status != STATUS_ARCHIVED}
                                     <a class="btn btn-danger btn-sm" 
                                        href="{url op="unsuitableSubmission" paperId=$submission->getPaperId()}" class="action">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -146,7 +167,7 @@
                                         <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
                                         {translate key="director.paper.restoreToQueue"}
                                     </a>
-                            {/if}
+                            {/if*}
                         </td>
                 </div>
                 {/if}
