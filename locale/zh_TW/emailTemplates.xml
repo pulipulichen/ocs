@@ -12,15 +12,17 @@
   -->
 <email_texts locale="zh_TW">
 	<email_text key="DIRECTOR_ASSIGN">
-		<subject>負責人任務</subject>
-		<body>{$editorialContactName}:
+		<subject>邀請您來審查稿件</subject>
+		<body>{$editorialContactName}您好，
 
-投稿至 {$conferenceName} 的稿件 "{$paperTitle}" 將會分配給您來查看編輯過程，如同您擔任主題負責人 (Track Director) 的角色。
+有一位作者投稿到「{$conferenceName}」。
+我們希望邀請您來審查該作者的投稿。
+                    
+請您使用線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
 
-投稿網站: {$submissionUrl}
-帳號: {$directorUsername}
-
-感謝您
+感謝您的參與。
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>這電子郵件是通知主題負責人，負責人分配了他們在編輯過程中監督投稿作業。它也提供關於投稿的資訊和如何進入研討會站點。</description>
