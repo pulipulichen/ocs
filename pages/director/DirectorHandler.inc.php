@@ -64,6 +64,7 @@ class DirectorHandler extends TrackDirectorHandler {
 		$this->validate();
 		$this->setupTemplate(DIRECTOR_TRACK_SUBMISSIONS);
 
+                $conference =& Request::getConference();
 		$schedConf =& Request::getSchedConf();
 		$schedConfId = $schedConf->getId();
 		$user =& Request::getUser();
@@ -223,7 +224,50 @@ class DirectorHandler extends TrackDirectorHandler {
                 $trackDao =& DAORegistry::getDAO('TrackDAO');
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
+                // @author Pulipuli Chen 20160123
+                $submissionsCount = array();
+                $isValid = array();
+                $this->getRoleDataForConference($user->getUserId(), $conference->getId(), $schedConfId, $submissionsCount, $isValid);
+                $templateMgr->assign('conferenceId', $conference->getId());
+                $templateMgr->assign('schedConfId', $schedConfId);
+                $templateMgr->assign('submissionsCount', $submissionsCount);
+                
 		$templateMgr->display('director/submissions.tpl');
+	}
+        
+        /**
+	 * Gather information about a user's role within a conference.
+	 * @param $userId int
+	 * @param $conferenceId int 
+	 * @param $submissionsCount array reference
+	 * @param $isValid array reference
+	
+	 */
+	function getRoleDataForConference($userId, $conferenceId, $schedConfId, &$submissionsCount, &$isValid) {
+		if (Validation::isConferenceManager($conferenceId)) {
+			$conferenceDao =& DAORegistry::getDAO('ConferenceDAO');
+			$isValid["ConferenceManager"][$conferenceId][$schedConfId] = true;
+		}
+		if (Validation::isDirector($conferenceId, $schedConfId)) {
+			$isValid["Director"][$conferenceId][$schedConfId] = true;
+			$directorSubmissionDao =& DAORegistry::getDAO('DirectorSubmissionDAO');
+			$submissionsCount["Director"][$conferenceId][$schedConfId] = $directorSubmissionDao->getDirectorSubmissionsCount($schedConfId);
+		}
+		if (Validation::isTrackDirector($conferenceId, $schedConfId)) {
+			$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
+			$submissionsCount["TrackDirector"][$conferenceId][$schedConfId] = $trackDirectorSubmissionDao->getTrackDirectorSubmissionsCount($userId, $schedConfId);
+			$isValid["TrackDirector"][$conferenceId][$schedConfId] = true;
+		}
+		if (Validation::isReviewer($conferenceId, $schedConfId)) {
+			$reviewerSubmissionDao =& DAORegistry::getDAO('ReviewerSubmissionDAO');
+			$submissionsCount["Reviewer"][$conferenceId][$schedConfId] = $reviewerSubmissionDao->getSubmissionsCount($userId, $schedConfId);
+			$isValid["Reviewer"][$conferenceId][$schedConfId] = true;
+		} 
+		if (Validation::isAuthor($conferenceId, $schedConfId)) {
+			$authorSubmissionDao =& DAORegistry::getDAO('AuthorSubmissionDAO');
+			$submissionsCount["Author"][$conferenceId][$schedConfId] = $authorSubmissionDao->getSubmissionsCount($userId, $schedConfId);
+			$isValid["Author"][$conferenceId][$schedConfId] = true;
+		}
 	}
 
 	/**

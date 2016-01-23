@@ -118,7 +118,7 @@
 						{/if}
 					</td>
                                         <td>
-                                            {if $directorSubmissionsCount[1]}
+                                            {if $directorSubmissionsCount[2]}
                                                 <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsAccepted"}">
                                                     {$directorSubmissionsCount[2]}
                                                     {translate key="common.queue.count.submissionsAccepted"}

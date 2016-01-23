@@ -25,12 +25,48 @@ function sortSearch(heading, direction) {
 {/literal}
 </script> 
 
-
-<ul class="menu">
-	<li{if $pageToDisplay == "submissionsUnassigned"} class="current"{/if}><a href="{url op="submissions" path="submissionsUnassigned"}">{translate key="common.queue.short.submissionsUnassigned"}</a></li>
-	<li{if $pageToDisplay == "submissionsInReview"} class="current"{/if}><a href="{url op="submissions" path="submissionsInReview"}">{translate key="common.queue.short.submissionsInReview"}</a></li>
-	<li{if $pageToDisplay == "submissionsAccepted"} class="current"{/if}><a href="{url op="submissions" path="submissionsAccepted"}">{translate key="common.queue.short.submissionsAccepted"}</a></li>
-	<li{if $pageToDisplay == "submissionsArchives"} class="current"{/if}><a href="{url op="submissions" path="submissionsArchives"}">{translate key="common.queue.short.submissionsArchives"}</a></li>
+{assign var="directorSubmissionsCount" value=$submissionsCount.Director.$conferenceId.$schedConfId}
+<ul class="nav nav-tabs">
+	<li{if $pageToDisplay == "submissionsUnassigned"} class="current active"{/if}>
+            <a href="{url op="submissions" path="submissionsUnassigned"}">
+                {translate key="common.queue.short.submissionsUnassigned"}
+                {if $directorSubmissionsCount[0]}
+                    ({$directorSubmissionsCount[0]})
+                {else}
+                    (0)
+                {/if}
+            </a>
+        </li>
+	<li{if $pageToDisplay == "submissionsInReview"} class="current active"{/if}>
+            <a href="{url op="submissions" path="submissionsInReview"}">
+                {translate key="common.queue.short.submissionsInReview"}
+                {if $directorSubmissionsCount[1]}
+                    ({$directorSubmissionsCount[1]})
+                {else}
+                    (0)
+                {/if}
+            </a>
+        </li>
+	<li{if $pageToDisplay == "submissionsAccepted"} class="current active"{/if}>
+            <a href="{url op="submissions" path="submissionsAccepted"}">
+                {translate key="common.queue.short.submissionsAccepted"}
+                {if $directorSubmissionsCount[2]}
+                    ({$directorSubmissionsCount[2]})
+                {else}
+                    (0)
+                {/if}
+            </a>
+        </li>
+	<li{if $pageToDisplay == "submissionsArchives"} class="current active"{/if}>
+            <a href="{url op="submissions" path="submissionsArchives"}">
+                {translate key="common.queue.short.submissionsArchives"}
+                {if $directorSubmissionsCount[3]}
+                    ({$directorSubmissionsCount[3]})
+                {else}
+                    (0)
+                {/if}
+            </a>
+        </li>
 </ul>
 
 <form action="#">
