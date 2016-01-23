@@ -259,7 +259,9 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
 
+                //echo $_SERVER['HTTP_USER_AGENT'];
 		$templateMgr->display('trackDirector/submissionReview.tpl');
+                
 	}
         
         function submissionAssignReviewer($args) {

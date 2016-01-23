@@ -15,7 +15,9 @@
 
 {if $isConferenceManager}
     <div class="panel panel-default">
-        <h3 class="panel-heading">{translate key="manager.conferenceSiteManagement"}</h3>
+        <h3 class="panel-heading">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            {translate key="manager.conferenceSiteManagement"}</h3>
         <div class="panel-body">
 
             <ul>
@@ -29,6 +31,12 @@
                     <a href="{url page="manager"}/emails?clearPageContext=1">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="user"}">
+                        {* @TODO 設定語系 *}
+                        管理投稿與審查進度
                     </a>
                 </li>
             </ul>

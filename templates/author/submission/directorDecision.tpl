@@ -18,9 +18,28 @@
 	<tr valign="top">
 		<td class="label">{translate key="director.paper.decision"}</td>
 		<td>
+                   
 			{if $lastDirectorDecision}
 				{assign var="decision" value=$lastDirectorDecision.decision}
-				{translate key=$directorDecisionOptions.$decision} {$lastDirectorDecision.dateDecided|date_format:$dateFormatShort}
+                            {if $decision === '2'}
+                                <div class="text-success">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                                    ({$lastDirectorDecision.dateDecided|date_format:$dateFormatShort})
+                                </div>
+                            {elseif $decision === '3'}
+                                <div class="text-danger">
+                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                                    ({$lastDirectorDecision.dateDecided|date_format:$dateFormatShort})
+                                </div>
+                            {elseif $decision === '4'}
+                                <div>
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    {translate key=$directorDecisionOptions.$decision}&nbsp;&nbsp;
+                                    ({$lastDirectorDecision.dateDecided|date_format:$dateFormatShort})
+                                </div>
+                            {/if}
 			{else}
 				&mdash;
 			{/if}
@@ -28,28 +47,18 @@
 	</tr>
 	<tr valign="top">
 		<td class="label" width="20%">
-			{translate key="submission.notifyDirector"}
-		</td>
-		<td class="value" width="80%">
-			{url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
-			{icon name="mail" url=$notifyAuthorUrl}
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			{translate key="submission.directorAuthorRecord"}
-			{if $submission->getMostRecentDirectorDecisionComment()}
-				{assign var="comment" value=$submission->getMostRecentDirectorDecisionComment()}
-				<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId() anchor=$comment->getId()}');" class="icon">{icon name="comment"}</a> {$comment->getDatePosted()|date_format:$dateFormatShort}
-			{else}
-				<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId()}');" class="icon">{icon name="comment"}</a>{translate key="common.noComments"}
-			{/if}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" width="20%">
 			{translate key="submission.directorVersion"}
 		</td>
-		<td class="value" width="80%">
+		<td class="value highlight-last" width="80%">
 			{foreach from=$directorFiles item=directorFile key=key}
-				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="file">{$directorFile->getFileName()|escape}</a>&nbsp;&nbsp;{$directorFile->getDateModified()|date_format:$dateFormatShort}<br />
+                            <div>
+				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="file">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {$directorFile->getFileName()|escape}
+                                </a>
+                                &nbsp;&nbsp;
+                                ({$directorFile->getDateModified()|date_format:$dateFormatShort})
+                            </div>    
 			{foreachelse}
 				{translate key="common.none"}
 			{/foreach}
@@ -59,14 +68,23 @@
 		<td class="label" width="20%">
 			{translate key="submission.authorVersion"}
 		</td>
-		<td class="value" width="80%">
+		<td class="value highlight-last" width="80%">
 			{foreach from=$authorFiles item=authorFile key=key}
-				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$authorFile->getFileId():$authorFile->getRevision()}" class="file">{$authorFile->getFileName()|escape}</a>&nbsp;&nbsp;{$authorFile->getDateModified()|date_format:$dateFormatShort}
+                            <div>
+				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$authorFile->getFileId():$authorFile->getRevision()}" class="file">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {*$authorFile->getFileName()|escape*}
+                                    {$authorFile->getOriginalFileName()|escape}
+                                </a>
+                                &nbsp;&nbsp;
+                                ({$authorFile->getDateModified()|date_format:$dateFormatShort})
 				{if $mayEditPaper}
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="{url op="deletePaperFile" path=$submission->getPaperId()|to_array:$authorFile->getFileId():$authorFile->getRevision()}" class="action">{translate key="common.delete"}</a>
+					<a href="{url op="deletePaperFile" path=$submission->getPaperId()|to_array:$authorFile->getFileId():$authorFile->getRevision()}" class="action">
+                                            {translate key="common.delete"}
+                                        </a>
 				{/if}
-				<br />
+                            </div>
 			{foreachelse}
 				{translate key="common.none"}
 			{/foreach}
@@ -77,12 +95,43 @@
 			{translate key="author.paper.uploadAuthorVersion"}
 		</td>
 		<td class="value" width="80%">
-			<form method="post" action="{url op="uploadRevisedVersion"}" enctype="multipart/form-data">
+			<form method="post" action="{url op="uploadRevisedVersion"}#directorDecision" enctype="multipart/form-data">
 				<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 				<input type="file" {if !$mayEditPaper}disabled="disabled" {/if}name="upload" class="uploadField" />
 				<input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.upload"}" class="button" />
 			</form>
 
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" width="20%">
+			{*translate key="submission.notifyDirector"*}
+		</td>
+		<td class="value" width="80%">
+			{url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
+                        {if $authorFiles}
+                        <a href="{$notifyAuthorUrl}" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            {translate key="submission.notifyDirector"}
+                        </a>
+			{*icon name="mail" url=$notifyAuthorUrl*}
+			&nbsp;&nbsp;&nbsp;&nbsp;
+                        {/if}
+			
+			{if $submission->getMostRecentDirectorDecisionComment()}
+				{assign var="comment" value=$submission->getMostRecentDirectorDecisionComment()}
+				<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId() anchor=$comment->getId()}');" class="icon">
+                                    {icon name="comment"}
+                                    {translate key="submission.directorAuthorRecord"}
+                                </a> 
+                                ({$comment->getDatePosted()|date_format:$dateFormatShort})
+			{else}
+				<a href="javascript:openComments('{url op="viewDirectorDecisionComments" path=$submission->getPaperId()}');" class="icon">
+                                    {icon name="comment"}
+                                    {translate key="submission.directorAuthorRecord"}
+                                </a>
+                                ({translate key="common.noComments"})
+			{/if}
 		</td>
 	</tr>
 </table>

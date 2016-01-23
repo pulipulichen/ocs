@@ -53,7 +53,7 @@
 	{/if}
         
         
-        <li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+        <li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summaryEdit"}</a></li>
         
 	<li><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>

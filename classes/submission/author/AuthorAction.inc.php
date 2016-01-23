@@ -111,7 +111,9 @@ class AuthorAction extends Action {
 		} else {
 			$fileId = $paperFileManager->uploadDirectorDecisionFile($fileName);
 		}
-		if (!$fileId) return false;
+		if (!$fileId) {
+                    return false;
+                }
 
 		$authorSubmission->setRevisedFileId($fileId);
 		$authorSubmissionDao->updateAuthorSubmission($authorSubmission);
@@ -121,6 +123,9 @@ class AuthorAction extends Action {
 		import('paper.log.PaperLog');
 		import('paper.log.PaperEventLogEntry');
 		PaperLog::logEvent($authorSubmission->getPaperId(), PAPER_LOG_AUTHOR_REVISION, LOG_TYPE_AUTHOR, $user->getId(), 'log.author.documentRevised', array('authorName' => $user->getFullName(), 'fileId' => $fileId, 'paperId' => $authorSubmission->getPaperId()));
+                
+                //Request::redirect(null, null, 'author', 'submissionReview', $authorSubmission->getPaperId(), array(), "directorDecision");
+                Request::redirect(null, null, 'author', 'emailDirectorDecisionComment', null, array('paperId' => $authorSubmission->getPaperId()));
 	}
 
 	//
@@ -153,14 +158,18 @@ class AuthorAction extends Action {
 
 		$user =& Request::getUser();
 		import('mail.PaperMailTemplate');
-		$email = new PaperMailTemplate($authorSubmission);
+
+                $templateName = 'SUBMISSION_REVISION_ACK';
+                //$templateName = 'SUBMISSION_PAPER_ACCEPT';
+
+		$email = new PaperMailTemplate($authorSubmission, $templateName);
 
 		$editAssignments = $authorSubmission->getEditAssignments();
 		$directors = array();
 		foreach ($editAssignments as $editAssignment) {
 			array_push($directors, $userDao->getUser($editAssignment->getDirectorId()));
 		}
-
+                
 		if ($send && !$email->hasErrors()) {
 			HookRegistry::call('AuthorAction::emailDirectorDecisionComment', array(&$authorSubmission, &$email));
 			$email->send();
@@ -189,9 +198,37 @@ class AuthorAction extends Action {
 				} else {
 					$email->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
 				}
-			}
+                                
+                                
+                                //--------------------------
+                                $authorUser =& $userDao->getUser($authorSubmission->getUserId());
+                                //$submissionUrl = $submissionUrl . '?u=' . $authorUser->getUserId();
+				$authorEmail = $authorUser->getEmail();
+				$email->addRecipient($authorEmail, $authorUser->getFullName());
+				if ($schedConf->getSetting('notifyAllAuthorsOnDecision')) {
+                                    foreach ($authorSubmission->getAuthors() as $author) {
+                                        if ($author->getEmail() != $authorEmail) {
+                                            $email->addCc ($author->getEmail(), $author->getFullName());
+                                        }
+                                    }
+                                }
+                                $submissionUrl = Request::url(null, null, 'director', 'submissionReview', $authorSubmission->getPaperId());
+				$email->assignParams(array(
+                                        'contactName' => $director->getFullName(),
+					'conferenceDate' => strftime(Config::getVar('general', 'date_format_short'), $schedConf->getSetting('startDate')),
+					'authorName' => $authorUser->getFullName(),
+					'conferenceTitle' => $conference->getConferenceTitle(),
+					'editorialContactSignature' => $user->getContactSignature(),
+					'locationCity' => $schedConf->getSetting('locationCity'),
+					'paperTitle' => $authorSubmission->getLocalizedTitle(),
+                                        'submissionUrl' => $submissionUrl
+				));
+                                // ---------------------------
 
-			$email->displayEditForm(Request::url(null, null, null, 'emailDirectorDecisionComment', 'send'), array('paperId' => $authorSubmission->getPaperId()), 'submission/comment/directorDecisionEmail.tpl');
+			}
+                        
+			$email->displayEditForm(Request::url(null, null, null, 'emailDirectorDecisionComment', 'send'), array('paperId' => $authorSubmission->getPaperId())
+                                , 'submission/comment/directorDecisionEmail.tpl', array('isADirector' => false, 'templateName' => $templateName));
 
 			return false;
 		}
@@ -268,7 +305,7 @@ class AuthorAction extends Action {
 			$reviewFilesByStage =& $reviewAssignmentDao->getReviewFilesByStage($paper->getId());
 			$reviewFile = @$reviewFilesByStage[$paper->getCurrentStage()];
 			if ($reviewFile && $fileId == $reviewFile->getFileId()) {
-				$canDownload = true;
+                            $canDownload = true;
 			}
 
 			// Check director version

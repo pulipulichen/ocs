@@ -283,8 +283,9 @@ class PaperFileManager extends FileManager {
 		if (isset($paperFile)) {
 			$fileType = $paperFile->getFileType();
 			$filePath = $this->filesDir . $paperFile->getType() . '/' . $paperFile->getFileName();
+                        //$filePath = $this->filesDir . $paperFile->getType() . '/' . urlencode($paperFile->getOriginalFileName());
 
-			return parent::downloadFile($filePath, $fileType, $inline);
+			return parent::downloadFile($filePath, $fileType, $inline, $paperFile->getOriginalFileName());
 
 		} else {
 			return false;

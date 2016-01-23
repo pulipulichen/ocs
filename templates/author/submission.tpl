@@ -14,8 +14,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
-	<li class="current"><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+<ul class="nav nav-tabs">
 	{if $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL}
 		<li><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">
 			{translate key="submission.abstractReview"}</a>
@@ -26,9 +25,15 @@
 	{else}
 		<li><a href="{url op="submissionReview" path=$submission->getPaperId()}">{translate key="submission.review"}</a></li>
 	{/if}
+        <li class="current active"><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summaryEdit"}</a></li>
 </ul>
 
 {include file="author/submission/management.tpl"}
+
+<div class="separator"></div>
+
+{include file="submission/metadata/metadata.tpl"}
+
 
 <div class="separator"></div>
 
@@ -36,6 +41,6 @@
 
 <div class="separator"></div>
 
-{include file="submission/metadata/metadata.tpl"}
+{include file="author/submission/peerReview.tpl"}
 
 {include file="common/footer.tpl"}

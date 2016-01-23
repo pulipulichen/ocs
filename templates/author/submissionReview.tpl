@@ -22,27 +22,32 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
-	<li><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
+<ul class="nav nav-tabs">
+	
 	{if $submission->getReviewMode() == REVIEW_MODE_BOTH_SEQUENTIAL}
-		<li {if $stage==REVIEW_STAGE_ABSTRACT}class="current"{/if}><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">
+		<li {if $stage==REVIEW_STAGE_ABSTRACT}class="current active"{/if}><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">
 			{translate key="submission.abstractReview"}</a>
 		</li>
-		<li {if $stage==REVIEW_STAGE_PRESENTATION}class="current"{/if}><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_PRESENTATION}">
+		<li {if $stage==REVIEW_STAGE_PRESENTATION}class="current active"{/if}><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_PRESENTATION}">
 			{translate key="submission.paperReview"}</a>
 		</li>
 	{else}
-		<li><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">{translate key="submission.review"}</a></li>
+            <li class="active"><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$smarty.const.REVIEW_STAGE_ABSTRACT}">{translate key="submission.review"}</a></li>
 	{/if}
+        
+        <li>
+            <a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summaryEdit"}</a>
+        </li>
 </ul>
 
 
 {include file="author/submission/summary.tpl"}
 
+<!--
 <div class="separator"></div>
 
 {include file="author/submission/peerReview.tpl"}
-
+-->
 <div class="separator"></div>
 
 {include file="author/submission/directorDecision.tpl"}

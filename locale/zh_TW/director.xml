@@ -75,7 +75,7 @@
 	<message key="director.paper.selectDecision">決定稿件處理結果</message>
 	<message key="director.paper.selectDirector">選擇 {$roleName}</message>
 	<message key="director.paper.selectReviewer">選擇審查者</message>
-	<message key="director.paper.sendToArchive">封存到檔案庫</message>
+	<message key="director.paper.sendToArchive">稿件封存</message>
 	<message key="director.paper.setDueDate">設定截止日</message>
 	<message key="director.paper.showAuthor">作者觀看檔案</message>
 	<message key="director.paper.showSuppFile">提供檔案給審查者</message>

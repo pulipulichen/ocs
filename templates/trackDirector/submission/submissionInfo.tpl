@@ -69,11 +69,13 @@
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
-                        <a class="btn btn-default" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                        <a class="btn btn-primary" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$revisedFile->getFileId():$revisedFile->getRevision()}" 
                                    class="file">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                                    {$reviewFile->getFileName()|escape}&nbsp;&nbsp;
-                                    ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                    {*$reviewFile->getFileName()|escape*}
+                                    {$revisedFile->getOriginalFileName()|escape}
+                                    &nbsp;&nbsp;
+                                    ({$revisedFile->getDateModified()|date_format:$dateFormatShort})
                                     <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> -->
                         </a>
                     </td>
@@ -131,11 +133,13 @@
                         </span>
                     {elseif $status == STATUS_QUEUED_UNASSIGNED}
                         <span class="text-warning">
+                            3
                             <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                             {translate key="submissions.queuedUnassigned"}
                         </span>
                     {elseif $status == STATUS_QUEUED_EDITING}
                         <span class="text-primary">
+                            2
                             <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                             {translate key="submissions.queuedEditing"}
                         </span>

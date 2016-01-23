@@ -11,6 +11,19 @@
 <div id="submission">
 <h3>{translate key="paper.submission"}</h3>
 <table width="100%" class="data">
+	<tr>
+		<td class="label">{translate key="submission.submitter"}</td>
+		<td colspan="2" class="value">
+			{assign var="submitter" value=$submission->getUser()}
+			{assign var=emailString value=$submitter->getFullName()|concat:" <":$submitter->getEmail():">"}
+			{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
+			<a href="{$url}" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            {$submitter->getFullName()|escape} 
+                            {*icon name="mail" url=$url*}
+                        </a>
+		</td>
+	</tr>
 	<tr valign="top">
 		<td width="20%" class="label">{translate key="paper.authors"}</td>
 		<td width="80%" colspan="2" class="data">{$submission->getAuthorString(false)|escape}</td>
@@ -32,7 +45,12 @@
 		<td width="20%" class="label">{translate key="submission.originalFile"}</td>
 		<td width="80%" colspan="2" class="data">
 			{if $submissionFile}
-				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$submissionFile->getFileId():$submissionFile->getRevision()}" class="file">{$submissionFile->getFileName()|escape}</a>&nbsp;&nbsp;{$submissionFile->getDateModified()|date_format:$dateFormatShort}
+				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$submissionFile->getFileId():$submissionFile->getRevision()}" 
+                                   class="file btn btn-default">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {$submissionFile->getFileName()|escape}
+                                    &nbsp;&nbsp;({$submissionFile->getDateModified()|date_format:$dateFormatShort})
+                                </a>
 			{else}
 				{translate key="common.none"}
 			{/if}
@@ -40,7 +58,7 @@
 	</tr>
 	<tr valign="top">
 		<td class="label">{translate key="paper.suppFilesAbbrev"}</td>
-		<td width="30%" class="value">
+                <td width="80%" colspan="2" class="value">
 			{foreach name="suppFiles" from=$suppFiles item=suppFile}
 				{if $mayEditPaper}
 					{assign var="suppFileOp" value="editSuppFile"}
@@ -51,22 +69,15 @@
 			{foreachelse}
 				{translate key="common.none"}
 			{/foreach}
-		</td>
-		<td width="50%" class="value">
 			{if $mayEditPaper}
-				<a href="{url op="addSuppFile" path=$submission->getPaperId()}" class="action">{translate key="submission.addSuppFile"}</a>
+                            <br />
+				<a href="{url op="addSuppFile" path=$submission->getPaperId()}" class="action btn btn-default">
+                                    <span class="glyphicon glyphicon-upload"></span>
+                                    {translate key="submission.addSuppFile"}
+                                </a>
 			{else}
 				&nbsp;
 			{/if}
-		</td>
-	</tr>
-	<tr>
-		<td class="label">{translate key="submission.submitter"}</td>
-		<td colspan="2" class="value">
-			{assign var="submitter" value=$submission->getUser()}
-			{assign var=emailString value=$submitter->getFullName()|concat:" <":$submitter->getEmail():">"}
-			{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
-			{$submitter->getFullName()|escape} {icon name="mail" url=$url}
 		</td>
 	</tr>
 	<tr>
@@ -78,13 +89,19 @@
 		<td width="80%" colspan="2" class="data">{$submission->getTrackTitle()|escape}</td>
 	</tr>
 	<tr valign="top">
-		<td width="20%" class="label">{translate key="user.role.director"}</td>
+		<td width="20%" class="label">
+                    {translate key="user.role.director"}
+                </td>
 		{assign var="editAssignments" value=$submission->getEditAssignments()}
 		<td width="80%" colspan="2" class="data">
 			{foreach from=$editAssignments item=editAssignment}
 				{assign var=emailString value=$editAssignment->getDirectorFullName()|concat:" <":$editAssignment->getDirectorEmail():">"}
 				{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
-				{$editAssignment->getDirectorFullName()|escape} {icon name="mail" url=$url}
+                                <a href="{$url}" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                    {$editAssignment->getDirectorFullName()|escape} 
+                                    {*icon name="mail" url=$url*}
+                                </a>
 				({if $editAssignment->getIsDirector()}{translate key="user.role.director"}{else}{translate key="user.role.trackDirector"}{/if})
 				<br/>
 			{foreachelse}

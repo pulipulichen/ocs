@@ -26,7 +26,11 @@
 			<td class="value" width="80%">
 				{assign var="reviewFile" value=$reviewFilesByStage[$stage]}
 				{if $reviewFile}
-					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" class="file">{$reviewFile->getFileName()|escape}</a>&nbsp;&nbsp;{$reviewFile->getDateModified()|date_format:$dateFormatShort}
+					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" class="file btn btn-default">
+                                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                            {$reviewFile->getFileName()|escape}&nbsp;&nbsp;
+                                            ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                        </a>
 				{else}
 					{translate key="common.none"}
 				{/if}

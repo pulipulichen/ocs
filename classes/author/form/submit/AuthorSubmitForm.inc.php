@@ -131,6 +131,46 @@ class AuthorSubmitForm extends Form {
 			$mail->send();
 		}
 	}
+        
+        function confirmSubmissionBBC(&$paper, $user, &$schedConf, &$conference, $mailTemplate = 'SUBMISSION_ACK_BBC') {
+		// Update search index
+		import('search.PaperSearchIndex');
+		PaperSearchIndex::indexPaperMetadata($paper);
+		PaperSearchIndex::indexPaperFiles($paper);
+
+		// Send author notification email
+		import('mail.PaperMailTemplate');
+		$mail = new PaperMailTemplate($paper, $mailTemplate, null, null, null, null, false, true);
+		$mail->setFrom($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+		if ($mail->isEnabled()) {
+			$mail->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+                        
+			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
+			$editAssignments =& $editAssignmentDao->getEditAssignmentsByPaperId($paper->getId());
+			while ($editAssignment =& $editAssignments->next()) {
+				$mail->addBcc($editAssignment->getDirectorEmail(), $editAssignment->getDirectorFullName());
+				unset($editAssignment);
+			}
+
+                        $submissionUrl = Request::url(null, null, 'author', 'submission', $paper->getId());
+                        
+                        // 嘗試找看看有沒有這位使用者
+                        $userDao =& DAORegistry::getDAO('UserDAO');
+                        $contactUser = $userDao->getUserByEmail($schedConf->getSetting('contactEmail'));
+                        if (isset($contactUser)) {
+                            $submissionUrl = $submissionUrl . "?u=" . $contactUser->getUserId();
+                        }
+                        
+			$mail->assignParams(array(
+                                'contactName' => $schedConf->getSetting('contactName'),
+				'authorName' => $user->getFullName(),
+				'authorUsername' => $user->getUsername(),
+				'editorialContactSignature' => $schedConf->getSetting('contactName') . "\n" . $conference->getConferenceTitle(),
+				'submissionUrl' => $submissionUrl
+			));
+			$mail->send();
+		}
+	}
 
 	/**
 	 * Automatically assign Track Directors to new submissions.

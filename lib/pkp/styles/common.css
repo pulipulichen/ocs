@@ -233,7 +233,7 @@ span.disabled, label.disabled {
 a.action, a.file {
 	/*font-size: 0.85em;*/
         font-size: 1em;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 a.icon {
@@ -328,7 +328,8 @@ table.data td {
 }
 
 table.data td.label {
-	padding-right: 1em;
+    padding-right: 1em;
+    text-align: left;
 }
 
 table.data td.value {
@@ -551,7 +552,9 @@ label[for] {
     cursor: pointer;
 }
 
-.director-decisions > div:last-of-type {
+.director-decisions > div:last-of-type,
+.value.highlight-last > div:last-of-type  {
     font-weight: bold;
     text-decoration: underline;
 }
+

@@ -100,7 +100,7 @@
 	<message key="user.roles">角色</message>
 	<message key="user.salutation">稱呼</message>
 	<message key="user.sendPassword">確認</message>
-	<message key="user.sendPassword.description">講我的帳號和密碼寄一封確認電子信件(email)</message>
+	<message key="user.sendPassword.description">將我的帳號和密碼寄到我的電子信件(email)作為備忘</message>
 	<message key="user.signature">簽名檔</message>
 	<message key="user.title">職稱</message>
 	<message key="user.url">個人網頁</message>

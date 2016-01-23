@@ -92,7 +92,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">將編輯決定寄給審查人</message>
 	<message key="submission.comments.subject">主旨</message>
 	<message key="submission.complete">將此稿件發佈到已經接受的稿件清單</message>
-        <message key="submission.button.complete">發佈到已經接受的稿件清單</message>
+        <message key="submission.button.complete">稿件已經編輯完成，發佈到已經接受的稿件清單</message>
         <message key="submission.button.remove">從已經接受的稿件清單中移除</message>
 	<message key="submission.currentAgencies">Current Agencies</message>
 	<message key="submission.done">完成</message>
@@ -213,6 +213,7 @@
 	<message key="submission.submissionReview">稿件審查</message>
 	<message key="submission.submitter">通訊作者</message>
 	<message key="submission.summary">稿件資訊</message>
+        <message key="submission.summaryEdit">修改稿件資訊</message>
 	<message key="submission.supplementaryFiles">補充檔案</message>
 	<message key="submission.supportingAgencies">支持單位</message>
 	<message key="submission.titleAndAbstract">篇名和摘要</message>

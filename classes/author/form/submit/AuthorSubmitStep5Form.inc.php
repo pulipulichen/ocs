@@ -87,6 +87,10 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
 		}
 
 		$this->confirmSubmission($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK':'SUBMISSION_ACK');
+                
+                // 同時寄一封給大會主席
+                $this->confirmSubmissionBBC($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK_BBC':'SUBMISSION_ACK_BBC');
+                
 
 		import('paper.log.PaperLog');
 		import('paper.log.PaperEventLogEntry');

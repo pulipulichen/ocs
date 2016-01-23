@@ -71,6 +71,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 	 * Display a summary of the status of an author's submission.
 	 */
 	function submission($args) {
+            echo 1212;
 		$user =& Request::getUser();
 		$paperId = (int) array_shift($args);
 		$stage = (int) array_shift($args);
@@ -126,6 +127,12 @@ class TrackSubmissionHandler extends AuthorHandler {
 
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
+                
+                $reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewModifiedByStage = $reviewAssignmentDao->getLastModifiedByStage($paperId);
+		$reviewEarliestNotificationByStage = $reviewAssignmentDao->getEarliestNotificationByStage($paperId);
+		$reviewFilesByStage =& $reviewAssignmentDao->getReviewFilesByStage($paperId);
+                $templateMgr->assign_by_ref('reviewFilesByStage', $reviewFilesByStage);
 
 		// FIXME: Author code should not use track director object
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
@@ -141,6 +148,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 	 */
 	function submissionReview($args) {
 		import('paper.Paper'); // for REVIEW_PROGRESS constants
+                
 		$user =& Request::getUser();
 		$paperId = (int) array_shift($args);
 		$stage = (int) array_shift($args);
@@ -160,7 +168,9 @@ class TrackSubmissionHandler extends AuthorHandler {
 				$stage = REVIEW_STAGE_PRESENTATION;
 				break;
 			case REVIEW_MODE_BOTH_SEQUENTIAL:
-				if ($stage != REVIEW_STAGE_ABSTRACT && $stage != REVIEW_STAGE_PRESENTATION) $stage = $submission->getCurrentStage();
+				if ($stage != REVIEW_STAGE_ABSTRACT && $stage != REVIEW_STAGE_PRESENTATION) {
+                                    $stage = $submission->getCurrentStage();
+                                }
 				break;
 		}
 
@@ -185,7 +195,15 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('revisedFile', $authorSubmission->getRevisedFile());
 		$templateMgr->assign_by_ref('suppFiles', $authorSubmission->getSuppFiles());
 		$templateMgr->assign('lastDirectorDecision', $lastDecision);
-
+                
+                // @KEY 主題
+                $schedConf =& Request::getSchedConf();
+                $submission =& $this->submission;
+                $controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+                $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+                $templateMgr->assign('sessionTypes', $sessionTypes);
+                $templateMgr->assign('sessionType', $sessionTypes[intval($submission->getData('sessionType'))]);
+                
 		// FIXME: Author code should not use track director object
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
 		$trackDirectorSubmission =& $trackDirectorSubmissionDao->getTrackDirectorSubmission($authorSubmission->getPaperId());

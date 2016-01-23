@@ -52,7 +52,7 @@
 	<message key="manager.people.allUsers">所有使用者</message>
 	<message key="manager.people.confirmDisable">刪除此使用者？這將防止使用者登入系統。為使他們的帳號失去作用您可以選擇性的提供使用者一個原因。</message>
 	<message key="manager.people.confirmRemove">從此研討會移除此使用者？這動作在這個研討會內使用者從所有角色將無法註冊。</message>
-	<message key="manager.people.enrollExistingUser">登記現有的使用者</message>
+	<message key="manager.people.enrollExistingUser">加入現有的使用者</message>
 	<message key="manager.people.enrollSyncConference">和研討會</message>
 	<message key="manager.people.mergeUsers.from.description">選擇一名使用者來合併入其它帳號。您在這裡所精選的帳號將被刪除且任何投稿、編輯任務等等，都將認為是其它帳號所做的。</message>
 	<message key="manager.people.mergeUsers.into.description">選擇一名使用者歸因於早先使用者的介紹、編輯任務等等。</message>
@@ -90,7 +90,7 @@
 	<message key="manager.registration">註冊</message>
         <message key="manager.registrationList">註冊名單</message>
 	<message key="manager.registration.confirmDelete">您確定要刪除此註冊嗎？?</message>
-	<message key="manager.registration.create">建立新的註冊</message>
+	<message key="manager.registration.create">選擇使用者註冊本研討會</message>
 	<message key="manager.registration.createTitle">建立</message>
 	<message key="manager.registration.datePaid">已付費</message>
 	<message key="manager.registration.dateRegistered">已註冊</message>

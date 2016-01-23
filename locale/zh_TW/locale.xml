@@ -249,7 +249,7 @@ Active 為目前被考慮或進行中的審查稿件數量。]]></message>
 	<li><tt>cache/_db</tt>必需可寫入: {$writable_db_cache}</li>
 </ul>
 
-<p>2. 必需建立一個可寫入的資料匣作為儲存上載檔案的位置 (參閱下方的 "檔案設定" 說明。</p>
+<p>2. 必需建立一個可寫入的資料匣作為儲存上傳檔案的位置 (參閱下方的 "檔案設定" 說明。</p>
 
 <h4>手動安裝</h4>
 
@@ -733,7 +733,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.fromTime">從</message>
 	<message key="submission.layout.description">這個步驟可以使用來編排計畫提案或者來改變檔案形式不管是在將提議寄給發表者之前或之後。</message>
 	<message key="submission.notifyAuthor">將處理結果寄信通知作者</message>
-	<message key="submission.notifyDirector">通知會議主席</message>
+	<message key="submission.notifyDirector">將稿件修正通知寄信告知負責人</message>
 	<message key="submission.page.abstractReview">編號 #{$id} 摘要的審查作業</message>
 	<message key="submission.page.paperReview">編號 #{$id} 稿件的審查作業</message>
 	<message key="submission.paper">全文</message>
@@ -753,8 +753,8 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submissions.expired">終止</message>
 	<message key="submissions.pendingPresentation">等待上傳</message>
 	<message key="submissions.published">已發佈</message>
-	<message key="submissions.queuedAbstractReview">摘要回顧</message>
-	<message key="submissions.queuedPaperReview">稿件等待審查中</message>
+	<message key="submissions.queuedAbstractReview">摘要稿件正在進行審查程序</message>
+	<message key="submissions.queuedPaperReview">全文稿件正在進行審查程序</message>
 	<message key="submissions.reviewStage">審查階段</message>
 	<message key="submissions.reviewType">審查類別</message>
 	<message key="submissions.track">主題</message>

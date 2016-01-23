@@ -179,7 +179,7 @@
 
 
 {if $mayEditPaper}
-	<a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-primary">
+	<a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-default">
             <span class="glyphicon glyphicon-pencil"></span>
             {translate key="submission.editMetadata"}
         </a>

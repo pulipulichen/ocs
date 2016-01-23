@@ -222,20 +222,30 @@ class FileManager {
 	 * @param $inline print file as inline instead of attachment, optional
 	 * @return boolean
 	 */
-	function downloadFile($filePath, $type = null, $inline = false) {
+	function downloadFile($filePath, $type = null, $inline = false, $filename = null) {
+                if (is_null($filename)) {
+                    $filename = basename($filePath);
+                }
+                $u_agent = $_SERVER['HTTP_USER_AGENT']; 
+                if((preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)) || strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false) {
+                    $filename = iconv('utf8', 'big5', $filename);
+                }
+                //$filename = basename($filePath);
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$type, &$inline, &$result))) return $result;
 		if (is_readable($filePath)) {
 			if ($type == null) {
 				$type = String::mime_content_type($filePath);
-				if (empty($type)) $type = 'application/octet-stream';
+				if (empty($type)) {
+                                    $type = 'application/octet-stream';
+                                }
 			}
 
 			Registry::clear(); // Free some memory
 
 			header("Content-Type: $type");
 			header("Content-Length: ".filesize($filePath));
-			header("Content-Disposition: " . ($inline ? 'inline' : 'attachment') . "; filename=\"" .basename($filePath)."\"");
+			header("Content-Disposition: " . ($inline ? 'inline' : 'attachment') . "; filename=\"" . $filename ."\"");
 			header("Cache-Control: private"); // Workarounds for IE weirdness
 			header("Pragma: public");
 

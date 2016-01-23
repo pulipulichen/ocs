@@ -16,7 +16,11 @@
 		<td width="20%" class="label">{translate key="paper.authors"}</td>
 		<td width="80%">
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$submission->getAuthorEmails() subject=$submission->getLocalizedTitle() paperId=$submission->getPaperId()}
-			{$submission->getAuthorString()|escape} {icon name="mail" url=$url}
+                        <a href="{$url}" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            {$submission->getAuthorString()|escape} 
+                            {*icon name="mail" url=$url*}
+                        </a>
 		</td>
 	</tr>
 	<tr>
@@ -27,6 +31,34 @@
 		<td class="label">{translate key="track.track"}</td>
 		<td>{$submission->getTrackTitle()|escape}</td>
 	</tr>
+        <tr>
+		<td class="label">{translate key="paper.sessionType"}</td>
+		<td>{$sessionType|escape}</td>
+	</tr>
+        {if $stage == REVIEW_STAGE_PRESENTATION}
+		<tr valign="top">
+			<td class="label" width="20%">
+				{translate key="submission.reviewVersion"}
+			</td>
+			<td class="value" width="80%">
+				{*assign var="reviewFile" value=$reviewFilesByStage[$stage]*}
+                                {assign var="reviewFile" value=$revisedFile}
+                                
+				{if $reviewFile}
+					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                                           class="file btn btn-primary">
+                                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                            {*$reviewFile->getFileName()|escape*}
+                                            {$reviewFile->getOriginalFileName()|escape}
+                                            &nbsp;&nbsp;
+                                            ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                        </a>
+				{else}
+					{translate key="common.none"}
+				{/if}
+			</td>
+		</tr>
+	{/if}
 	<tr>
 		<td class="label">{translate key="user.role.director"}</td>
 		<td>
@@ -34,7 +66,11 @@
 			{foreach from=$editAssignments item=editAssignment}
 				{assign var=emailString value=$editAssignment->getDirectorFullName()|concat:" <":$editAssignment->getDirectorEmail():">"}
 				{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle()|strip_tags paperId=$submission->getPaperId()}
-				{$editAssignment->getDirectorFullName()|escape} {icon name="mail" url=$url}
+                                <a href="{$url}" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				{$editAssignment->getDirectorFullName()|escape} 
+                                {*icon name="mail" url=$url*}
+                                </a>
 				<br/>
 			{foreachelse}
 				{translate key="common.noneAssigned"}

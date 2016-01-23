@@ -15,7 +15,7 @@
 		<subject>負責人任務</subject>
 		<body>{$editorialContactName}:
 
-投稿至 {$conferenceName|strip_tags} 的稿件 "{$paperTitle}" 將會分配給您來查看編輯過程，如同您擔任主題負責人 (Track Director) 的角色。
+投稿至 {$conferenceName} 的稿件 "{$paperTitle}" 將會分配給您來查看編輯過程，如同您擔任主題負責人 (Track Director) 的角色。
 
 投稿網站: {$submissionUrl}
 帳號: {$directorUsername}
@@ -26,10 +26,10 @@
 		<description>這電子郵件是通知主題負責人，負責人分配了他們在編輯過程中監督投稿作業。它也提供關於投稿的資訊和如何進入研討會站點。</description>
 	</email_text>
 	<email_text key="MANUAL_PAYMENT_RECEIVED">
-		<subject>Your payment for {$conferenceName|strip_tags} has been received</subject>
+		<subject>Your payment for {$conferenceName} has been received</subject>
 		<body>{$registrantName}:
 
-Your payment for {$conferenceName|strip_tags} has been received and recorded in your account.
+Your payment for {$conferenceName} has been received and recorded in your account.
 
 If you have any questions, please feel free to contact me.
 
@@ -87,7 +87,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>公佈現在開放進入</subject>
 		<body>Readers:
 
-{$conferenceName|strip_tags}以依照下列問題在ㄧ個開放進入的格式內被製作利用。我們邀請您來查看表格內的內容並且參觀我們的網站({$conferenceUrl})來查閱論文及有趣的項目。
+{$conferenceName}以依照下列問題在ㄧ個開放進入的格式內被製作利用。我們邀請您來查看表格內的內容並且參觀我們的網站({$conferenceUrl})來查閱論文及有趣的項目。
 
 感謝您對我們的作業持續感到有興趣，
 {$editorialContactSignature}</body>
@@ -118,7 +118,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>註冊通知信函</subject>
 		<body>{$registrantName}:
 
-您已在我們的網上研討會管理系統{$conferenceName|strip_tags}內登記註冊，以下註冊為：
+您已在我們的網上研討會管理系統{$conferenceName}內登記註冊，以下註冊為：
  
 
 {$registrationType}
@@ -139,7 +139,7 @@ Your password for disabling notification emails is: {$password}
 		<body>{$reviewerName}:
 
 感謝您完成論文審查作業。我們非常感謝您對於提昇我們的工作品質有所貢獻。
-{$conferenceName|strip_tags}
+{$conferenceName}
 {$paperTitle}
 
 
@@ -150,7 +150,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>要求取消審查</subject>
 		<body>{$reviewerName}:
 
-我們決定在此時取消對您提出爲 {$conferenceName|strip_tags} 審查稿件 "{$paperTitle}" 的要求， 。造成您的不便深感抱歉，並希望未來您還能協助研討會的審查過程。
+我們決定在此時取消對您提出爲 {$conferenceName} 審查稿件 "{$paperTitle}" 的要求， 。造成您的不便深感抱歉，並希望未來您還能協助研討會的審查過程。
 
 倘若您有其他任何的的問題，請聯絡我。
 
@@ -161,7 +161,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>論文審查已完成</subject>
 		<body>{$editorialContactName}:
 
-我已完成爲 {$conferenceName|strip_tags} 審查的 "{$paperTitle}" 稿件，並且已傳送我的建議：
+我已完成爲 {$conferenceName} 審查的 "{$paperTitle}" 稿件，並且已傳送我的建議：
 "{$recommendation}"
 
 {$reviewerName}</body>
@@ -171,7 +171,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>接受番稿任務</subject>
 		<body>{$editorialContactName}:
 
-我能夠且很願意爲 {$conferenceName|strip_tags} 審查論文 "{$paperTitle}"。謝謝您的認同，我計劃在 {$reviewDueDate} 之前，或更早來完成審查作業。
+我能夠且很願意爲 {$conferenceName} 審查論文 "{$paperTitle}"。謝謝您的認同，我計劃在 {$reviewDueDate} 之前，或更早來完成審查作業。
 
 {$reviewerName}</body>
 		<description>這封信件是由審查者寄給Track Director來對Track Director通知有關審查要求回應，表示接受審查請求並且將在指定日期之前完成。</description>
@@ -180,7 +180,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>審查進行中的確認通知</subject>
 		<body>{$reviewerName}:
 
-感謝您同意爲 {$conferenceName|strip_tags} 審查投稿稿件 "{$paperTitle}" ，審查期限為 {$reviewDueDate}。
+感謝您同意爲 {$conferenceName} 審查投稿稿件 "{$paperTitle}" ，審查期限為 {$reviewDueDate}。
 
 {$editorialContactSignature}</body>
 		<description>這封電子郵件是從Track Director寄給審查者感謝他們接受審查或鼓勵他們完成審查。</description>
@@ -189,7 +189,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>無法審查</subject>
 		<body>{$editorialContactName}:
 
-我很抱歉在這個時間點無法爲 {$conferenceName|strip_tags} 審查稿件 "{$paperTitle}" 。感謝您的認同，及希望往後隨時都能聯絡我。
+我很抱歉在這個時間點無法爲 {$conferenceName} 審查稿件 "{$paperTitle}" 。感謝您的認同，及希望往後隨時都能聯絡我。
 
 {$reviewerName}</body>
 		<description>此封電子郵件由審查者寄出給Track Director來對審查要求做回應，告知Track Director審查要求被婉拒。</description>
@@ -198,7 +198,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>稿件審查提醒</subject>
 		<body>{$reviewerName}:
 
-只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName|strip_tags} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
+只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
 
 倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
 
@@ -213,7 +213,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>自動稿件審查提醒</subject>
 		<body>{$reviewerName}:
 
-是一個溫和提醒我們對稿件審查者要求，您爲 {$conferenceName|strip_tags} 審查的文章為 "{$paperTitle}" 。我們希望這個審查在 {$reviewDueDate} 之前完成，此電子郵件會自動產生並在會在截止日期後寄出。我們仍希望您能願意接受並盡快地準備好。
+是一個溫和提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們希望這個審查在 {$reviewDueDate} 之前完成，此電子郵件會自動產生並在會在截止日期後寄出。我們仍希望您能願意接受並盡快地準備好。
 
 倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
 
@@ -228,7 +228,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>自動稿件審查提醒</subject>
 		<body>{$reviewerName}:
 
-是一個溫和提醒我們對稿件審查者要求，您爲 {$conferenceName|strip_tags} 審查的文章為 "{$paperTitle}" 。我們希望這個審查在 {$reviewDueDate} 之前完成，此電子郵件會自動產生並在會在截止日期後寄出。我們仍希望您能願意接受並盡快地準備好。
+是一個溫和提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們希望這個審查在 {$reviewDueDate} 之前完成，此電子郵件會自動產生並在會在截止日期後寄出。我們仍希望您能願意接受並盡快地準備好。
 
 倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
 
@@ -243,7 +243,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>稿件審查提醒</subject>
 		<body>{$reviewerName}:
 
-只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName|strip_tags} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
+只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
 
 倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
 
@@ -258,7 +258,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>論文審查請求</subject>
 		<body>{$reviewerName}:
 
-本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName|strip_tags} 的論文 "{$paperTitle}" 。
+本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName} 的論文 "{$paperTitle}" 。
 
 
 請您於 {$weekLaterDate} 前登入研討會網站，表示您是否願意從事審查工作，並且進入投稿和記錄您的評論和建議。研討會的網址是 {$conferenceUrl}
@@ -285,7 +285,7 @@ Your password for disabling notification emails is: {$password}
 		<subject>論文審查請求</subject>
 		<body>{$reviewerName}:
 
-本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName|strip_tags} 的論文 "{$paperTitle}" 。
+本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName} 的論文 "{$paperTitle}" 。
 
 
 請您於 {$weekLaterDate} 前登入研討會網站，表示您是否願意從事審查工作，並且進入投稿和記錄您的評論和建議。研討會的網址是 {$conferenceUrl}
@@ -331,10 +331,10 @@ Your password for disabling notification emails is: {$password}
 		<subject>關於摘要投稿審查結果</subject>
 		<body>{$authorName}您好:
 
-我們仔細審查了您的稿件「{$paperTitle}」，並提供以下建議供您修正您的稿件。
+我們仔細審查了您的稿件「{$paperTitle}」，以下是供您修正稿件的建議：
 
 如果稿件已經修正完成，您可以從以下網址進入研討會網站重新上傳修正後的稿件：
-上傳修正的稿件: {$submissionUrl}
+{$submissionUrl}
 
 在我們審查您的投稿後，將可以在{$conferenceTitle}發表。
 
@@ -345,14 +345,12 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件是由Track Director寄給發表者，通知他們對於稿件已做出了決定。</description>
 	</email_text>
 	<email_text key="SUBMISSION_ACK">
-		<subject>投稿感謝函</subject>
-		<body>{$authorName}您好:
+		<subject>感謝您的投稿</subject>
+		<body>{$authorName}您好，
 
-感謝您投稿「{$paperTitle}」至 {$conferenceName|strip_tags}。
-您可以使用我們的線上研討會管理系統來追蹤稿件審查作業的進度，請由下列網址進入研討會網站：
-
-稿件審查進度: {$submissionUrl}
-您的帳號: {$authorUsername}
+感謝您將大作「{$paperTitle}」投稿到「{$conferenceName}」。
+您可以使用我們的線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
 
 倘若您有任何的疑問，請聯絡我們。
 再次感謝您投稿到本研討會。
@@ -362,18 +360,31 @@ Your password for disabling notification emails is: {$password}
 {$editorialContactSignature}</body>
 		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給發表者。它提供關於投稿過程的資訊和感謝發表者投稿。</description>
 	</email_text>
+        <email_text key="SUBMISSION_ACK_BBC">
+		<subject>收到稿件通知</subject>
+		<body>{$contactName}您好，
+
+作者 {$authorName} 已經將稿件「{$paperTitle}」投稿至「{$conferenceName}」。
+請您使用線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
+                    
+敬祝教安，
+
+{$editorialContactSignature}</body>
+		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給大會主席。這包含投稿過程的資訊和感謝發表者投稿。</description>
+	</email_text>
 	<email_text key="SUBMISSION_COMMENT">
 		<subject>稿件評論</subject>
 		<body>{$name}:
 
-{$commentName} 有增加一個評論至 {$conferenceName|strip_tags} 的稿件 "{$paperTitle}" :
+{$commentName} 有增加一個評論至 {$conferenceName} 的稿件 "{$paperTitle}" :
 
 {$comments}</body>
 		<description>這封電子郵件通知所有人有關一個新評論被張貼在投稿編輯的過程。</description>
 	</email_text>
 	<email_text key="SUBMISSION_DECISION_REVIEWERS">
 		<subject>審查結果：{$paperTitle}</subject>
-		<body>感謝您協助審查 {$conferenceName|strip_tags},  的稿件：{$paperTitle}。
+		<body>感謝您協助審查 {$conferenceName},  的稿件：{$paperTitle}。
 該稿件已經完成審查，並寄發給發表者有關論文的評論和編輯決定。再次感謝您在這整個過程所付出的重要貢獻。
 
  
@@ -383,21 +394,27 @@ Your password for disabling notification emails is: {$password}
 		<description>這封電子郵件是通知稿件的審查者其審查過程已完成。這包括關於論文資訊及已作出的決定，及感謝審查者所付出的貢獻。</description>
 	</email_text>
 	<email_text key="SUBMISSION_PAPER_ACCEPT">
-		<subject>關於全文投稿審查結果</subject>
-		<body>{$authorName}:
+		<subject>關於投稿的審查結果：接受</subject>
+		<body>{$authorName}您好，
 
-恭喜您，您的論文{$paperTitle}已被接受並會在{$conferenceTitle}發表，研討會將會在{$conferenceDate}地點{$locationCity}舉行。
+恭喜您，您的稿件「{$paperTitle}」已被接受，並會在「{$conferenceTitle}」發表。
+研討會舉行的日期為{$conferenceDate}，地點是{$locationCity}。
 
-謝謝您和期盼您的參與。
+感謝您的參與。
+敬祝教安，
+                    
 {$editorialContactSignature}</body>
 		<description>此封電子郵件是由Track Director寄給發表者，通知他們對於稿件已做出了決定。</description>
 	</email_text>
 	<email_text key="SUBMISSION_PAPER_DECLINE">
-		<subject>關於全文投稿審查結果</subject>
-		<body>{$authorName}:
+		<subject>關於投稿的審查結果：不適合</subject>
+		<body>{$authorName}您好:
 
-我們已完成審查您的稿件"{$paperTitle}." 結果為...
-
+我們已完成審查您的稿件「{$paperTitle}」，結果並不適合本研討會。
+                    
+感謝您的參與。
+敬祝教安，
+                    
 {$editorialContactSignature}</body>
 		<description>此封電子郵件是由Track Director寄給發表者，通知他們對於稿件已做出了決定。</description>
 	</email_text>
@@ -412,15 +429,15 @@ Thank you and looking forward to your participation in this event.
 		<description>This email is sent by a Track Director to a submission's Author to notify them that a decision has been reached in regard to an abstract and invite them to submit a paper for subsequent review.</description>
 	</email_text>
 	<email_text key="SUBMISSION_PAPER_REVISE">
-		<subject>關於全文投稿審查結果</subject>
-		<body>{$authorName}:
+		<subject>關於稿件的審查結果：需要修改</subject>
+		<body>{$authorName}您好，
 
-我們仔細審查了您的稿件「{$paperTitle}」，並提供以下建議供您修正您的稿件。
+我們仔細審查了您的稿件「{$paperTitle}」，以下是供您修正稿件的建議：
 
 如果稿件已經修正完成，您可以從以下網址進入研討會網站重新上傳修正後的稿件：
-上傳修正的稿件: {$submissionUrl}
+{$submissionUrl}
 
-在我們審查您的投稿後，將可以在{$conferenceTitle}發表。
+當我們確認您已經修正完成之後，本稿件將可以在「{$conferenceTitle}」發表。
 
 感謝您的配合。
 敬祝教安，
@@ -430,30 +447,60 @@ Thank you and looking forward to your participation in this event.
 	</email_text>
 	<email_text key="SUBMISSION_UNSUITABLE">
 		<subject>您的投稿不適合本研討會</subject>
-		<body>{$authorName}:
+		<body>{$authorName}您好:
 
-您的稿件「{$paperTitle}」經過初審發現其不符合 {$conferenceName|strip_tags} 的範圍和焦點。建議您查詢關於研討會的內容，及任何已預定的研討會來學習更多關於我們可以接受的作業。抑或您可以投稿您的論文或摘要至其他或更適當的研討會。
+您的稿件「{$paperTitle}」經過初審發現其不符合 {$conferenceName} 的範圍和焦點。
+建議您查詢關於研討會的內容，及任何已預定的研討會來學習更多關於我們可以接受的作業。抑或您可以投稿您的論文或摘要至其他或更適當的研討會。
 
 {$editorialContactSignature}</body>
 		<description/>
 	</email_text>
 	<email_text key="SUBMISSION_UPLOAD_ACK">
-		<subject>投稿感謝函</subject>
-		<body>{$authorName}:
+		<subject>感謝您上傳稿件</subject>
+		<body>{$authorName}您好，
 
-感謝您將稿件「{$paperTitle}」投稿至 {$conferenceName|strip_tags}。我們所使用的線上研討會管理系統，在登入後您能夠透過編輯審查來追蹤作業進展以及通過審查的過程。請由下列網址登錄到會議網站:
+感謝您將稿件「{$paperTitle}」上傳到「{$conferenceName}」。
+您可以使用我們的線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
 
-投稿網站: {$submissionUrl}
-帳號: {$authorUsername}
-
-倘若您有任何的疑問，請聯絡我們。謝謝您將此研討會視為您的工作之一。
+倘若您有任何的疑問，請聯絡我們。
+再次感謝您投稿到本研討會。
+                    
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給發表者。它提供關於投稿過程的資訊和感謝發表者投稿。</description>
 	</email_text>
+        <email_text key="SUBMISSION_UPLOAD_ACK_BBC">
+		<subject>收到稿件通知</subject>
+        <body>{$contactName}您好，
+
+作者 {$authorName} 已經將稿件「{$paperTitle}」投稿至「{$conferenceName}」。
+請您使用線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
+
+敬祝教安，
+
+{$editorialContactSignature}</body>
+        <description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給大會主席。這包含投稿過程的資訊和感謝發表者投稿。</description>
+    </email_text>
+        <email_text key="SUBMISSION_REVISION_ACK">
+		<subject>稿件已經修正通知</subject>
+        <body>{$contactName}您好，
+
+我是作者 {$authorName} 。我已經將修正後的稿件「{$paperTitle}」上傳至研討會網站「{$conferenceName}」。
+
+請您使用線上研討會管理系統來追蹤稿件審查作業的進度：
+{$submissionUrl}
+
+敬祝教安，
+
+{$editorialContactSignature}</body>
+        <description>當作者已經修改完稿件之後，通知負責人的信件範本。</description>
+    </email_text>
 	<email_text key="USER_REGISTER">
 		<subject>新使用者註冊</subject>
-		<body>感謝您在 {$conferenceName|strip_tags} 註冊。請記錄您的帳號和密碼，因所有和研討會有關的作業都需要使用此帳號名稱和密碼。
+		<body>感謝您在 {$conferenceName} 註冊。請記錄您的帳號和密碼，因所有和研討會有關的作業都需要使用此帳號名稱和密碼。
 
 帳號: {$username}
 密碼: {$password}
@@ -466,7 +513,7 @@ Thank you and looking forward to your participation in this event.
 		<subject>確認您的帳號</subject>
 		<body>{$userFullName}
 
-您已經在 {$conferenceName|strip_tags} 申請帳號，在您正式使用本帳號前，需要點選下列連結進行電子郵件認證，以啟動您的帳號。請點選下列連結完成認證並啟動帳號：
+您已經在 {$conferenceName} 申請帳號，在您正式使用本帳號前，需要點選下列連結進行電子郵件認證，以啟動您的帳號。請點選下列連結完成認證並啟動帳號：
 
 {$activateUrl}
 

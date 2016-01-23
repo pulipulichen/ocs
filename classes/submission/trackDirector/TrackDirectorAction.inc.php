@@ -1486,8 +1486,6 @@ import('file.PaperFileManager');
 		import('mail.PaperMailTemplate');
 		$email = new PaperMailTemplate($trackDirectorSubmission, $templateName);
                 
-                $submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
-                
 		if ($send && !$email->hasErrors()) {
 			HookRegistry::call('TrackDirectorAction::emailDirectorDecisionComment', array(&$trackDirectorSubmission, &$send));
 			$email->send();
@@ -1508,13 +1506,17 @@ import('file.PaperFileManager');
 		} else {
 			if (!Request::getUserVar('continued')) {
 				$authorUser =& $userDao->getUser($trackDirectorSubmission->getUserId());
+                                
+                                $submissionUrl = Request::url(null, null, 'author', 'submissionReview', $trackDirectorSubmission->getPaperId());
                                 $submissionUrl = $submissionUrl . '?u=' . $authorUser->getUserId();
 				$authorEmail = $authorUser->getEmail();
 				$email->addRecipient($authorEmail, $authorUser->getFullName());
-				if ($schedConf->getSetting('notifyAllAuthorsOnDecision')) foreach ($trackDirectorSubmission->getAuthors() as $author) {
+				if ($schedConf->getSetting('notifyAllAuthorsOnDecision')) {
+                                    foreach ($trackDirectorSubmission->getAuthors() as $author) {
 					if ($author->getEmail() != $authorEmail) {
 						$email->addCc ($author->getEmail(), $author->getFullName());
 					}
+                                    }
 				}
 				$email->assignParams(array(
 					'conferenceDate' => strftime(Config::getVar('general', 'date_format_short'), $schedConf->getSetting('startDate')),
