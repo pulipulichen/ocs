@@ -208,6 +208,8 @@ class PKPMailTemplate extends Mail {
 		foreach ($additionalParameters as $key => $value) {
 			$form->setData($key, $value);
 		}
+                
+                $form->setData('templateName', $this->emailKey);
 
 		$form->display();
 	}

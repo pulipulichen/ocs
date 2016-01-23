@@ -13,7 +13,7 @@
 {assign var="pageCrumbTitle" value="email.email"}
 {include file="common/header.tpl"}
 {/strip}
-
+[people]
 <script type="text/javascript">
 {literal}
 <!--
@@ -145,8 +145,18 @@ function deleteAttachment(fileId) {
 	<td width="80%" class="value"><input type="text" id="subject" name="subject" value="{$subject|escape}" size="60" maxlength="120" class="textField" /></td>
 </tr>
 <tr valign="top">
-	<td class="label">{fieldLabel name="body" key="email.body"}</td>
-	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
+	<td class="label">
+            {if $isConferenceManager}
+            <a class="edit-link" href="{url page="manager"}/editEmail/{$templateName}" target="_blank">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </a>
+            {/if}
+            {fieldLabel name="body" key="email.body"}
+        </td>
+	<td class="value">
+            
+            <textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea>
+        </td>
 </tr>
 </table>
 

@@ -78,12 +78,14 @@ class DirectorAction extends TrackDirectorAction {
 		} else {
 			if (!Request::getUserVar('continued')) {
 				$email->addRecipient($trackDirector->getEmail(), $trackDirector->getFullName());
+                                $submissionUrl = Request::url(null, null, $isDirector?'director':'trackDirector', 'submissionReview', $paperId);
+                                $submissionUrl = $submissionUrl . "?u=" . $trackDirector->getUserId();
 				$paramArray = array(
 					'editorialContactName' => $trackDirector->getFullName(),
 					'directorUsername' => $trackDirector->getUsername(),
 					'directorPassword' => $trackDirector->getPassword(),
 					'editorialContactSignature' => $user->getContactSignature(),
-					'submissionUrl' => Request::url(null, null, $isDirector?'director':'trackDirector', 'submissionReview', $paperId)
+					'submissionUrl' => $submissionUrl
 				);
 				$email->assignParams($paramArray);
 			}
