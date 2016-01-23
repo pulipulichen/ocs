@@ -132,7 +132,7 @@ class AuthorSubmitForm extends Form {
 		}
 	}
         
-        function confirmSubmissionBBC(&$paper, $user, &$schedConf, &$conference, $mailTemplate = 'SUBMISSION_ACK_BBC') {
+        function confirmSubmissionBBC(&$paper, $user, &$schedConf, &$conference, $mailTemplate = 'SUBMISSION_ACK_BCC') {
 		// Update search index
 		import('search.PaperSearchIndex');
 		PaperSearchIndex::indexPaperMetadata($paper);

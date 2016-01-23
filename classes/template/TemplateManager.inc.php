@@ -265,32 +265,34 @@ class TemplateManager extends PKPTemplateManager {
 		$pageBase = max($page - floor($numPageLinks / 2), 1);
 		$paramName = $name . 'Page';
 
-		if ($pageCount<=1) return '';
+		if ($pageCount<=1) {
+                    return '';
+                }
 
 		$value = '';
 
 		if ($page>1) {
 			$params[$paramName] = 1;
-			$value .= '<a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
+			$value .= '<li><a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&lt;&lt;</a></li>';
 			$params[$paramName] = $page - 1;
-			$value .= '<a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&lt;</a>&nbsp;';
+			$value .= '<li><a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&lt;</a></li>';
 		}
 
 		for ($i=$pageBase; $i<min($pageBase+$numPageLinks, $pageCount+1); $i++) {
 			if ($i == $page) {
-				$value .= "<strong>$i</strong>&nbsp;";
+				$value .= '<li class="active"><a href="#">'. $i . "</a></li>";
 			} else {
 				$params[$paramName] = $i;
-				$value .= '<a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
+				$value .= '<li><a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>' . $i . '</a></li>';
 			}
 		}
 		if ($page < $pageCount) {
 			$params[$paramName] = $page + 1;
-			$value .= '<a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&gt;</a>&nbsp;';
+			$value .= '<li><a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&gt;</a></li>';
 			$params[$paramName] = $pageCount;
-			$value .= '<a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
+			$value .= '<li><a href="' . Request::url(null, null, null, null, Request::getRequestedArgs(), $params, $anchor, true) . '"' . $allExtra . '>&gt;&gt;</a></li>';
 		}
-
+                $value = '<nav><ul class="pagination">' . $value . "</ul></nav>";
 		return $value;
 	}
 }

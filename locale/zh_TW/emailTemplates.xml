@@ -360,7 +360,7 @@ Your password for disabling notification emails is: {$password}
 {$editorialContactSignature}</body>
 		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給發表者。它提供關於投稿過程的資訊和感謝發表者投稿。</description>
 	</email_text>
-        <email_text key="SUBMISSION_ACK_BBC">
+        <email_text key="SUBMISSION_ACK_BCC">
 		<subject>收到稿件通知</subject>
 		<body>{$contactName}您好，
 
@@ -471,7 +471,7 @@ Thank you and looking forward to your participation in this event.
 {$editorialContactSignature}</body>
 		<description>當發表者已完成繳交全文或摘要給研討會的過程，此電子郵件會自動地寄送給發表者。它提供關於投稿過程的資訊和感謝發表者投稿。</description>
 	</email_text>
-        <email_text key="SUBMISSION_UPLOAD_ACK_BBC">
+        <email_text key="SUBMISSION_UPLOAD_ACK_BCC">
 		<subject>收到稿件通知</subject>
         <body>{$contactName}您好，
 

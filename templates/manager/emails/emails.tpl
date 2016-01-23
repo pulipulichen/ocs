@@ -60,7 +60,9 @@
 {else}
 	<tr>
 		<td colspan="3" align="left">{page_info iterator=$emailTemplates}</td>
-		<td align="right" colspan="2">{page_links name="emails" iterator=$emailTemplates}</td>
+		<td align="right" colspan="2">
+                    {page_links name="emails" iterator=$emailTemplates}
+                </td>
 	</tr>
 {/if}
 </table>

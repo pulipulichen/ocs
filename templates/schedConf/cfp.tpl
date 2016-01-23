@@ -28,9 +28,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="manager"}/emails?clearPageContext=1">
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
+                        SUBMISSION_ACK
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK">
+                        {translate key="common.edit"}
+                        {translate key="manager.emails"}
+                        SUBMISSION_UPLOAD_ACK
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK_BCC">
+                        {translate key="common.edit"}
+                        {translate key="manager.emails"}
+                        SUBMISSION_ACK_BCC
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK_BCC">
+                        {translate key="common.edit"}
+                        {translate key="manager.emails"}
+                        SUBMISSION_UPLOAD_ACK_BCC
                     </a>
                 </li>
                 <li>

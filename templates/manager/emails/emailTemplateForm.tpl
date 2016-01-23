@@ -25,9 +25,6 @@
 	<input type="hidden" name="emailKey" value="{$emailKey|escape}" />
 {/if}
 
-{if $description}
-	<p>{$description|escape}</p>
-{/if}
 
 <br/>
 
@@ -40,6 +37,21 @@
 		<td width="20%" class="label">{fieldLabel name="emailKey" key="manager.emails.emailKey"}</td>
 		<td width="80%" class="value"><input type="text" name="emailKey" value="{$emailKey|escape}" id="emailKey" size="20" maxlength="120" class="textField" /><br/>&nbsp;</td>
 	</tr>
+{else}
+    
+        <tr valign="top">
+		<td width="20%" class="label">{fieldLabel name="emailKey" key="manager.emails.emailKey"}</td>
+		<td width="80%" class="value">{$emailKey|escape}</td>
+	</tr>
+        
+{/if}
+
+{if $description}
+        <tr valign="top">
+		<td width="20%" class="label">{fieldLabel name="emailKey" key="manager.emails.description"}</td>
+		<td width="80%" class="value"><p>{$description|escape}</p></td>
+	</tr>
+	
 {/if}
 
 {foreach from=$supportedLocales item=localeName key=localeKey}
@@ -72,10 +84,17 @@
 </table>
 
 {if $canDisable}
-<p><input type="checkbox" name="enabled" id="emailEnabled" value="1"{if $enabled} checked="checked"{/if} /> <label for="emailEnabled">{translate key="manager.emails.enabled"}</label></p>
+<p>
+    <input type="checkbox" name="enabled" id="emailEnabled" value="1"{if $enabled} checked="checked"{/if} /> 
+    <label for="emailEnabled">{translate key="manager.emails.enabled"}</label>
+</p>
 {/if}
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="emails"}'" /> <input type="reset" class="button" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="emails"}'" /> 
+    <input type="reset" class="btn btn-default" />
+</p>
 </form>
 
 {include file="common/footer.tpl"}
