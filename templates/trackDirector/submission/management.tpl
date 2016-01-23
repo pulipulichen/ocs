@@ -34,10 +34,25 @@
 	<tr>
 		<td class="label">{translate key="submission.originalFile"}</td>
 		<td colspan="2" class="value">
-			{if $submissionFile}
+			{*if $submissionFile}
 				<a class="file btn btn-default" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$submissionFile->getFileId()}">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {$submissionFile->getFileName()|escape}&nbsp;&nbsp;({$submissionFile->getDateModified()|date_format:$dateFormatShort})
+                                </a>
+                                
+			{else*}
+                        {if $lastFile}
+				<a class="file btn btn-default" href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$lastFile->getFileId()}">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {$lastFile->getOriginalFileName()|escape}
+                                    &nbsp;&nbsp;
+                                    {* @TODO 語系 *}
+                                    {if $lastFileType == 0}
+                                        [作者]
+                                    {elseif $lastFileType == 1}
+                                        [負責人修改]
+                                    {/if}
+                                    ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                 </a>
                                 
 			{else}
@@ -87,6 +102,7 @@
 		<td class="label">{translate key="common.dateSubmitted"}</td>
 		<td>{$submission->getDateSubmitted()|date_format:$dateFormatShort}</td>
 	</tr>
+        {if $tracks|@count > 1}
 	<tr>
 		<td class="label">{translate key="track.track"}</td>
 		<td class="value">
@@ -98,7 +114,7 @@
 			</form>
 		</td>
 	</tr>
-
+        {/if}
 	{assign var=sessionType value=$submission->getData('sessionType')}
 	{if is_array($sessionTypes) && !empty($sessionTypes) && !(count($sessionTypes) == 1 && !empty($sessionType) && isset($sessionTypes[$sessionType]))}
 		<tr valign="top">

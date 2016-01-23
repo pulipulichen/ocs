@@ -218,6 +218,11 @@ class DirectorHandler extends TrackDirectorHandler {
 		$templateMgr->assign('helpTopicId', $helpTopicId);
 		$templateMgr->assign('sort', $sort);
 		$templateMgr->assign('sortDirection', $sortDirection);
+                
+                // @author Pulipuli Chen 20160123
+                $trackDao =& DAORegistry::getDAO('TrackDAO');
+		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
+                
 		$templateMgr->display('director/submissions.tpl');
 	}
 

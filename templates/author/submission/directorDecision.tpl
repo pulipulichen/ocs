@@ -131,6 +131,7 @@
 				<input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.upload"}" class="button" />
 			</form>
                     {else}
+                        {* @TODO 語系 *}
                         稿件已經封存，無法更新
                     {/if}
 		</td>

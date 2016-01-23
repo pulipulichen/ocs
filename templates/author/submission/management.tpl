@@ -44,12 +44,27 @@
 	<tr valign="top">
 		<td width="20%" class="label">{translate key="submission.originalFile"}</td>
 		<td width="80%" colspan="2" class="data">
-			{if $submissionFile}
+			{*if $submissionFile}
 				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$submissionFile->getFileId():$submissionFile->getRevision()}" 
                                    class="file btn btn-default">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {$submissionFile->getFileName()|escape}
                                     &nbsp;&nbsp;({$submissionFile->getDateModified()|date_format:$dateFormatShort})
+                                </a>
+			{else*}
+                        {if $lastFile}
+				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$lastFile->getFileId():$lastFile->getRevision()}" 
+                                   class="file btn btn-default">
+                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                    {$lastFile->getOriginalFileName()|escape}
+                                    &nbsp;&nbsp;
+                                    {* @TODO 語系 *}
+                                    {if $lastFileType == 0}
+                                        [作者]
+                                    {elseif $lastFileType == 1}
+                                        [負責人修改]
+                                    {/if}
+                                    ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                 </a>
 			{else}
 				{translate key="common.none"}
@@ -84,10 +99,12 @@
 		<td class="label">{translate key="common.dateSubmitted"}</td>
 		<td colspan="2">{$submission->getDateSubmitted()|date_format:$datetimeFormatLong}</td>
 	</tr>
+        {if $tracks|@count > 1}
 	<tr valign="top">
 		<td width="20%" class="label">{translate key="track.track"}</td>
 		<td width="80%" colspan="2" class="data">{$submission->getTrackTitle()|escape}</td>
 	</tr>
+        {/if}
 	<tr valign="top">
 		<td width="20%" class="label">
                     {translate key="user.role.director"}

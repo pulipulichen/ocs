@@ -71,7 +71,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 	 * Display a summary of the status of an author's submission.
 	 */
 	function submission($args) {
-            echo 1212;
+                //echo 1212;
 		$user =& Request::getUser();
 		$paperId = (int) array_shift($args);
 		$stage = (int) array_shift($args);
@@ -140,6 +140,26 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('directorDecisionOptions', $trackDirectorSubmission->getDirectorDecisionOptions());
 
 		$templateMgr->assign('helpTopicId','editorial.authorsRole');
+                
+                // @author Pulipuli Chen 20160123
+                $trackDao =& DAORegistry::getDAO('TrackDAO');
+		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
+                
+                // @author Pulipuli Chen 20160123
+                $authorSubmission = $submission;
+                $reviseFile = $authorSubmission->getRevisedFile();
+                $directorFiles = $authorSubmission->getDirectorFileRevisions($authorSubmission->getCurrentStage());
+                $directorFile = $directorFiles[(count($directorFiles) - 1)];
+                $lastFile = $reviseFile;
+                $lastFileType = 0;
+                //echo $reviseFile->getDateModified();
+                if (strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                    $lastFile = $directorFile;
+                    $lastFileType = 1;
+                }
+                $templateMgr->assign_by_ref('lastFile', $lastFile);
+                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
+                
 		$templateMgr->display('author/submission.tpl');
 	}
 
@@ -203,6 +223,9 @@ class TrackSubmissionHandler extends AuthorHandler {
                 $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
                 $templateMgr->assign('sessionTypes', $sessionTypes);
                 $templateMgr->assign('sessionType', $sessionTypes[intval($submission->getData('sessionType'))]);
+                
+                $trackDao =& DAORegistry::getDAO('TrackDAO');
+		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
                 $reviseFile = $authorSubmission->getRevisedFile();

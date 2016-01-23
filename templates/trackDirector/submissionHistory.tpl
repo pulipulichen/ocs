@@ -46,6 +46,8 @@
 </script>
 {/literal}
 
+<!---------------------->
+
 <ul class="nav nav-tabs">
 	
 	{if $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL}
@@ -78,6 +80,8 @@
         
 	<li class="current active"><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>
+
+<!---------------------->
 
 <ul class="menu">
 	<li><a href="{url op="submissionEventLog" path=$submission->getPaperId()}">{translate key="submission.history.submissionEventLog"}</a></li>

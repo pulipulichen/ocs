@@ -87,6 +87,19 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
 
 		$templateMgr->assign('mayEditPaper', true);
+                
+                // @author Pulipuli Chen 20160123
+                $reviseFile = $submission->getRevisedFile();
+                $directorFile = $submission->getDirectorFile();
+                $lastFile = $reviseFile;
+                $lastFileType = 0;
+                //echo $reviseFile->getDateModified();
+                if (strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                    $lastFile = $directorFile;
+                    $lastFileType = 1;
+                }
+                $templateMgr->assign_by_ref('lastFile', $lastFile);
+                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
 
 		$templateMgr->display('trackDirector/submission.tpl');
 	}
