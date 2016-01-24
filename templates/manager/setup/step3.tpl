@@ -198,7 +198,23 @@
 <h3>3.4 {translate key="manager.setup.layout.navigationBar"}</h3>
 
 <p>{translate key="manager.setup.layout.itemsDescription"}</p>
-
+<script type="text/javascript">
+{literal}
+var _linkTypeChange = function (_select) {
+    _select = $(_select);
+    var _survey_config = _select.parents("tr:first").nextAll(".survey-config");
+    var _url = _select.parents("tr:first").nextAll(".url");
+    if (_select.val() === "4") {
+        _survey_config.show();
+        _url.hide();
+    }
+    else {
+        _survey_config.hide();
+        _url.show();
+    }
+};
+{/literal}
+</script>
 <table width="100%" class="data">
 	{foreach name=navItems from=$navItems[$formLocale] key=navItemId item=navItem}
 		<tr valign="top">
@@ -211,18 +227,63 @@
 						<td width="95%">{fieldLabel name="navItems-$navItemId-isLiteral" key="manager.setup.layout.navItemIsLiteral"}</td>
 					</tr>
 				</table>
-			</td>
-		</tr>
-		<tr valign="top">
-			<td width="20%" class="label">{fieldLabel name="navItems-$navItemId-url" key="common.url"}</td>
-			<td width="80%" class="value">
-				<input type="text" name="navItems[{$formLocale|escape}][{$navItemId}][url]" id="navItems-{$navItemId}-url" value="{$navItem.url|escape}" size="60" maxlength="255" class="textField" />
-                                <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
-                                    <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
-                                    <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
-                                    <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
-                                </select>
-                                <table width="100%" class="hidden">
+                                <table width="100%">
+                                        <tr valign="top">
+                                                <th>
+                                                   {*fieldLabel name="navItems-$navItemId-url" value=""*} 
+                                                   可見權限
+                                                </th>
+						<td>
+                                                    <select name="navItems[{$formLocale|escape}][{$navItemId}][visibility]" id="navItems[{$formLocale|escape}][{$navItemId}][visibility]" class="selectMenu">
+                                                        <option value="1" {if $navItem.visibility == '1'}selected{/if}>公開</option>
+                                                        <option value="2" {if $navItem.visibility == '2'}selected{/if}>已登入</option>
+                                                        <option value="3" {if $navItem.visibility == '3'}selected{/if}>已註冊</option>
+                                                        <option value="4" {if $navItem.visibility == '4'}selected{/if}>網站管理者</option>
+                                                        <option value="0" {if $navItem.visibility == '0'}selected{/if}>隱藏</option>
+                                                    </select>
+                                                </td>
+					</tr>
+                                        <tr valign="top">
+                                                <th>
+                                                   {*fieldLabel name="navItems-$navItemId-url" value="連結形式"*} 
+                                                   連結形式
+                                                </th>
+						<td>
+                                                    <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" onchange="_linkTypeChange(this);" class="selectMenu">
+                                                        <option value="1" {if $navItem.urlType == '1'}selected{/if}>普通連結</option>
+                                                        <option value="2" {if $navItem.urlType == '2'}selected{/if}>開新網頁</option>
+                                                        <option value="3" {if $navItem.urlType == '3'}selected{/if}>內嵌網頁</option>
+                                                        <option value="4" {if $navItem.urlType == '4'}selected{/if}>問卷調查</option>
+                                                    </select>
+                                                </td>
+					</tr>
+					<tr valign="top" class="url">
+						<th>
+                                                   {fieldLabel name="navItems-$navItemId-url" key="common.url"} 
+                                                </th>
+						<td>
+                                                    <input type="text" name="navItems[{$formLocale|escape}][{$navItemId}][url]" id="navItems-{$navItemId}-url" value="{$navItem.url|escape}" size="60" maxlength="255" class="textField" />
+                                                </td>
+                                        </tr>
+                                        <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
+                                                <th>
+                                                   問卷設定 
+                                                </th>
+                                                <td>
+                                                    <textarea name="navItems[{$formLocale|escape}][{$navItemId}][survey]" rows="10" cols="60" class="textArea">{$navItem.survey}</textarea>
+                                                </td>
+                                        </tr>
+                                        <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
+                                                <th>
+                                                   匯出
+                                                </th>
+                                                <td>
+                                                    <a href="#{$conferenceId}_{$navItem.name|escape}" class="btn btn-default">匯出問卷結果</a>
+                                                </td>
+                                        </tr>
+                                    </table> 
+                                                
+                                    <table width="100%" class="hidden">
 					<tr valign="top">
 						<td width="5%">
                                                     <input type="checkbox" name="navItems[{$formLocale|escape}][{$navItemId}][isAbsolute]" id="navItems-{$navItemId}-isAbsolute" value="1"{if $navItem.isAbsolute} checked="checked"{/if} />
@@ -256,11 +317,24 @@
 			<td width="20%" class="label">{fieldLabel name="navItems-0-url" key="common.url"}</td>
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][0][url]" id="navItems-0-url" size="60" maxlength="255" class="textField" />
-                                <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
-                                    <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
-                                    <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
-                                    <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
-                                </select>
+                                <label>
+                                    權限
+                                    <select name="navItems[{$formLocale|escape}][{$navItemId}][visibility]" id="navItems[{$formLocale|escape}][{$navItemId}][visibility]" class="selectMenu">
+                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>公開</option>
+                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>已登入</option>
+                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>已註冊</option>
+                                        <option value="4" {if $navItem.urlType == 4}selected{/if}>網站管理者</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    連結形式
+                                    <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
+                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
+                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
+                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
+                                    </select>
+                                </label>
+                                
 				<table width="100%" class="hidden">
 					<tr valign="top">
 						<td width="5%"><input type="checkbox" name="[{$formLocale|escape}]navItems[0][isAbsolute]" id="navItems-0-isAbsolute" value="1" /></td>

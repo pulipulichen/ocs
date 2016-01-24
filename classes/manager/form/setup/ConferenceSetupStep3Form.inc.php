@@ -58,6 +58,7 @@ class ConferenceSetupStep3Form extends ConferenceSetupForm {
 		// Ensure upload file settings are reloaded when the form is displayed.
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign(array(
+                        'conferenceId' => $conference->getId(),
 			'homeHeaderTitleImage' => $conference->getSetting('homeHeaderTitleImage'),
 			'homeHeaderLogoImage'=> $conference->getSetting('homeHeaderLogoImage'),
 			'pageHeaderTitleImage' => $conference->getSetting('pageHeaderTitleImage'),

@@ -300,6 +300,12 @@ class PKPTemplateManager extends Smarty {
                         $instance->assign('isDirector', Validation::isDirector($conference->getId(), $schedConf->getId()));
                         $instance->assign('isTrackDirector', Validation::isTrackDirector($conference->getId(), $schedConf->getId()));
                         $instance->assign('isAuthor', Validation::isAuthor($conference->getId(), $schedConf->getId()));
+                        
+                        $registrationDao =& DAORegistry::getDAO('RegistrationDAO');
+                        $user = Request::getUser();
+                        if (isset($user)) {
+                            $instance->assign('isRegistrationUser', $registrationDao->isValidRegistrationByUser($user->getUserId(), $schedConf->getId()));
+                        }
                     }
                 }
                 AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_OCS_DIRECTOR, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION)); // FIXME: For timeline constants

@@ -137,11 +137,21 @@
                     </a>
                 {/if}
                 <ul class="nav nav-stacked">
-                {foreach from=$navMenuItems item=navItem}
-			{if $navItem.url != '' && $navItem.name != ''}
+                {foreach from=$navMenuItems key=navItemId item=navItem}
+			{if $navItem.name != '' 
+                            && $navItem.visibility !== '0' && ($navItem.visibility === '1' 
+                                || ($navItem.visibility === '2' && $isUserLoggedIn)
+                                || ($navItem.visibility === '3' && $isRegistrationUser)
+                                || ($navItem.visibility === '4' && $isConferenceManager)) }
 				<li>
-                                    <a href="{if $navItem.urlType!=3}{$navItem.url|escape}{else}{url page="schedConf"}/page?title={if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}&url={$navItem.url|escape}{/if}"
-                                       {if $navItem.urlType==2} target="_blank"{/if}>
+                                    <a {if $navItem.urlType=='3'}
+                                            href="{url page="schedConf"}/page?title={if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}&url={$navItem.url|escape}"
+                                        {elseif $navItem.urlType=='4'}
+                                            href="{url page="schedConf"}/survey?id={$navItemId}"
+                                        {else}
+                                            href="{$navItem.url|escape}"
+                                        {/if}
+                                       {if $navItem.urlType=='2'} target="_blank"{/if}>
                                         {if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}
                                     </a>
                                 </li>
