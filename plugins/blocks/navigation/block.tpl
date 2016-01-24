@@ -150,7 +150,8 @@
                 {foreach from=$navMenuItems item=navItem}
 			{if $navItem.url != '' && $navItem.name != ''}
 				<li>
-                                    <a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">
+                                    <a href="{if $navItem.urlType!=3}{$navItem.url|escape}{else}{url page="schedConf"}/page?title={if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}&url={$navItem.url|escape}{/if}"
+                                       {if $navItem.urlType==2} target="_blank"{/if}>
                                         {if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}
                                     </a>
                                 </li>

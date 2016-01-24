@@ -436,6 +436,39 @@ class SchedConfHandler extends Handler {
                 
 		$templateMgr->display('schedConf/program.tpl');
 	}
+        
+        /**
+	 * Display conference program page
+	 */
+	function page() {
+		$this->addCheck(new HandlerValidatorSchedConf($this));
+		$this->validate();
+
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+                
+                $url = Request::getUserVar('url');
+                $title = Request::getUserVar('title');
+
+		$templateMgr =& TemplateManager::getManager();
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		SchedConfHandler::setupTemplate($conference,$schedConf);
+
+                //AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME: director.allTracks
+                
+                $templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), $title, true)));
+                
+		$templateMgr->assign('title', $title);
+                $templateMgr->assign('url', $url);
+		$templateMgr->assign('helpTopicId', 'conference.currentConferences.page');
+                
+		$templateMgr->display('schedConf/page.tpl');
+	}
 
 	/**
 	 * Display conference schedule page

@@ -217,10 +217,19 @@
 			<td width="20%" class="label">{fieldLabel name="navItems-$navItemId-url" key="common.url"}</td>
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][{$navItemId}][url]" id="navItems-{$navItemId}-url" value="{$navItem.url|escape}" size="60" maxlength="255" class="textField" />
-				<table width="100%">
+                                <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
+                                    <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
+                                    <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
+                                    <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
+                                </select>
+                                <table width="100%" class="hidden">
 					<tr valign="top">
-						<td width="5%"><input type="checkbox" name="navItems[{$formLocale|escape}][{$navItemId}][isAbsolute]" id="navItems-{$navItemId}-isAbsolute" value="1"{if $navItem.isAbsolute} checked="checked"{/if} /></td>
-						<td width="95%">{fieldLabel name="navItems-$navItemId-isAbsolute" key="manager.setup.layout.navItemIsAbsolute"}</label></td>
+						<td width="5%">
+                                                    <input type="checkbox" name="navItems[{$formLocale|escape}][{$navItemId}][isAbsolute]" id="navItems-{$navItemId}-isAbsolute" value="1"{if $navItem.isAbsolute} checked="checked"{/if} />
+                                                </td>
+						<td width="95%">
+                                                    {fieldLabel name="navItems-$navItemId-isAbsolute" key="manager.setup.layout.navItemIsAbsolute"}</label>
+                                                </td>
 					</tr>
 				</table>
 			</td>
@@ -247,7 +256,12 @@
 			<td width="20%" class="label">{fieldLabel name="navItems-0-url" key="common.url"}</td>
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][0][url]" id="navItems-0-url" size="60" maxlength="255" class="textField" />
-				<table width="100%">
+                                <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
+                                    <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
+                                    <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
+                                    <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
+                                </select>
+				<table width="100%" class="hidden">
 					<tr valign="top">
 						<td width="5%"><input type="checkbox" name="[{$formLocale|escape}]navItems[0][isAbsolute]" id="navItems-0-isAbsolute" value="1" /></td>
 						<td width="95%">{fieldLabel name="navItems-0-isAbsolute" key="manager.setup.layout.navItemIsAbsolute"}</td>
