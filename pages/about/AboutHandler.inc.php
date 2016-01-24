@@ -359,6 +359,8 @@ class AboutHandler extends Handler {
 		$templateMgr->assign('submissionChecklist', $submissionChecklist);
 		if ($schedConf) {
 			$templateMgr->assign('authorGuidelines', $schedConf->getLocalizedSetting('authorGuidelines'));
+                        $templateMgr->assign('addSuppFileMessage', $schedConf->getLocalizedSetting('addSuppFileMessage'));
+                        $templateMgr->assign('stepFinalMessage', $schedConf->getLocalizedSetting('stepFinalMessage'));
 		}
 		$templateMgr->assign('copyrightNotice', $conference->getLocalizedSetting('copyrightNotice'));
 		$templateMgr->assign('privacyStatement', $conference->getLocalizedSetting('privacyStatement'));

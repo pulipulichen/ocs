@@ -17,6 +17,8 @@
 
 <p><a href="{url op="submit" path=4 paperId=$paperId}">&lt;&lt; {translate key="author.submit.backToSupplementaryFiles"}</a></p>
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <form name="submit" method="post" action="{url op="saveSubmitSuppFile" path=$suppFileId}" enctype="multipart/form-data">
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
@@ -156,8 +158,6 @@
 <div class="separator"></div>
 
 <p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="submit" path="4" paperId=$paperId}'" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

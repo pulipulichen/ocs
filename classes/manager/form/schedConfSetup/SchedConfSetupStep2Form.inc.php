@@ -28,6 +28,8 @@ class SchedConfSetupStep2Form extends SchedConfSetupForm {
 			'copySubmissionAckAddress' => 'string',
 			'cfpMessage' => 'string',
 			'authorGuidelines' => 'string',
+                        'addSuppFileMessage' => 'string',
+                        'stepFinalMessage' => 'string',
 			'submissionChecklist' => 'object',
 			'metaDiscipline' => 'bool',
 			'metaDisciplineExamples' => 'string',
@@ -90,7 +92,7 @@ class SchedConfSetupStep2Form extends SchedConfSetupForm {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('cfpMessage', 'authorGuidelines', 'submissionChecklist', 'metaDisciplineExamples', 'metaSubjectClassTitle', 'metaSubjectExamples', 'metaCoverageGeoExamples', 'metaCoverageChronExamples', 'metaCoverageResearchSampleExamples', 'metaTypeExamples', 'paperTypes');
+		return array('cfpMessage', 'authorGuidelines', 'addSuppFileMessage', 'stepFinalMessage', 'submissionChecklist', 'metaDisciplineExamples', 'metaSubjectClassTitle', 'metaSubjectExamples', 'metaCoverageGeoExamples', 'metaCoverageChronExamples', 'metaCoverageResearchSampleExamples', 'metaTypeExamples', 'paperTypes');
 	}
 
 	function display() {
@@ -102,7 +104,6 @@ class SchedConfSetupStep2Form extends SchedConfSetupForm {
 		if ($mail->isEnabled()) {
 			$templateMgr->assign('submissionAckEnabled', true);
 		}
-
 		parent::display();
 	}
 

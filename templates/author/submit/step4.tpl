@@ -36,7 +36,19 @@ function confirmForgottenUpload() {
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
 
-<p>{translate key="author.submit.supplementaryFilesInstructions"}</p>
+
+<div>
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#addSuppFileMessageTr" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+{if $addSuppFileMessage}
+    {$addSuppFileMessage}
+{else}
+    <p>{translate key="author.submit.supplementaryFilesInstructions"}</p>
+{/if}
+</div>
 
 <table class="listing" width="100%">
 <tr>

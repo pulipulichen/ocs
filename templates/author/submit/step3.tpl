@@ -15,7 +15,7 @@
 {/if}
 {include file="author/submit/submitHeader.tpl"}
 
-<div class="separator"></div>
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 <form name="submit" method="post" action="{url op="saveSubmit" path=$submitStep}">
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
@@ -37,7 +37,7 @@ function moveAuthor(dir, authorIndex) {
 {/literal}
 
 {if count($formLocales) > 1}
-    <div id="locales" style="display: none;">
+<div id="locales" style="display: none;">
 <table width="100%" class="data">
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
@@ -366,8 +366,6 @@ function moveAuthor(dir, authorIndex) {
            class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" 
            class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

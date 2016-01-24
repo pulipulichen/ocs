@@ -30,6 +30,8 @@
 {if count($trackOptions) <= 1}
 	<p>{translate key="author.submit.notAccepting"}</p>
 {else}
+    
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 <form name="submit" method="post" action="{url op="saveSubmit" path=$submitStep}" onsubmit="return checkSubmissionChecklist()">
 
@@ -234,7 +236,6 @@ function checkSubmissionChecklist() {
            onclick="{if $paperId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author"}'{/if}" />
 </p>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

@@ -17,7 +17,19 @@
 {/if}
 {include file="author/submit/submitHeader.tpl"}
 
-<p>{translate key="author.submit.confirmationDescription" conferenceTitle=$conference->getConferenceTitle()}</p>
+<div>
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#stepFinalMessageTr" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+{if $stepFinalMessage}
+    {$stepFinalMessage}
+{else}
+    <p>{translate key="author.submit.confirmationDescription" conferenceTitle=$conference->getConferenceTitle()}</p>
+{/if}
+</div>
+
 
 <form method="post" action="{url op="saveSubmit" path=$submitStep}">
 <input type="hidden" name="paperId" value="{$paperId|escape}" />

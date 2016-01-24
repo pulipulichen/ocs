@@ -425,13 +425,13 @@
 <h3>2.7 {translate key="submission.stepMessage"}</h3>
 
 <table width="100%" class="data">
-	<tr valign="top">
+	<tr valign="top" id="addSuppFileMessageTr">
 		<td width="10%" class="label">{fieldLabel name="addSuppFileMessage" key="submission.addSuppFile"}</td>
 		<td width="90%" class="value">
 			<textarea name="addSuppFileMessage[{$formLocale|escape}]" id="addSuppFileMessage" rows="10" cols="80" class="textArea">{$addSuppFileMessage[$formLocale]|escape}</textarea>
 		</td>
 	</tr>
-        <tr valign="top">
+        <tr valign="top" id="stepFinalMessageTr">
 		<td width="10%" class="label">{fieldLabel name="stepFinalMessage" key="submission.stepFile"}</td>
 		<td width="90%" class="value">
 			<textarea name="stepFinalMessage[{$formLocale|escape}]" id="stepFinalMessage" rows="10" cols="80" class="textArea">{$stepFinalMessage[$formLocale]|escape}</textarea>

@@ -50,7 +50,7 @@
 	<message key="author.submit.howToSubmit"><![CDATA[作者會經由此網站的一個多重步驟過程來上傳繳交和稿件有關的訊息(有些研討會允許作者上傳附加檔案，例如研究數據及工具)。若您在這過程中遇到任何的困難，請以電子郵件<a href="mailto:{$supportEmail}">{$supportName}</a>或電話聯絡 {$supportPhone} 尋求協助。]]></message>
 	<message key="author.submit.howToSubmitNoPhone"><![CDATA[操作時遇到困難了嗎？請聯絡<a href="mailto:{$supportEmail}">{$supportName}</a>來取得協助。]]></message>
 	<message key="author.submit.languageInstructions"><![CDATA[English=en; 中文=zh; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">查詢代碼</a>.]]></message>
-	<message key="author.submit.metadata">3.輸入後資料</message>
+	<message key="author.submit.metadata">3.輸入稿件資訊</message>
 	<message key="author.submit.metadataOnly">2. Enter Metadata</message>
 	<message key="author.submit.noFiles">文件內未附有這項投稿。</message>
 	<message key="author.submit.noSubmissionConfirm">您確定您要繼續尚未上傳的投稿文件嗎?</message>
