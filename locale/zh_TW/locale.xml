@@ -118,6 +118,7 @@
 	<message key="common.openConferenceSystems">OCS會議管理系統</message>
 	<message key="common.pageHeader.altText">頁面標頭的圖片</message>
 	<message key="common.path">路徑</message>
+        <message key="common.more">顯示更多...</message>
 	<message key="common.preview">預覽</message>
 	<message key="common.queue.long.active">作者投稿的稿件</message>
 	<message key="common.queue.long.completed">已經封存的稿件</message>
@@ -544,7 +545,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reviewer.paper.decision.pendingRevisions">需要修改</message>
 	<message key="reviewer.paper.decision.resubmitElsewhere">Submit Elsewhere</message>
 	<message key="reviewer.paper.decision.seeComments">觀看意見</message>
-	<message key="reviewer.paper.directorToEnter">會議主席的意見</message>
+	<message key="reviewer.paper.directorToEnter">上傳審查意見</message>
 	<message key="reviewer.paper.downloadSubmissionAbstractOnly">審查投稿與摘要</message>
 	<message key="reviewer.paper.downloadSubmissionSubmission">審查投稿</message>
 	<message key="reviewer.paper.ensuringBlindReview">使用不具名審查機制</message>

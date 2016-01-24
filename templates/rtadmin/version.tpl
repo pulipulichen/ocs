@@ -14,8 +14,8 @@
 {/strip}
 
 {if $versionId}
-	<ul class="menu">
-		<li class="current"><a href="{url op="editVersion" path=$versionId}" class="action">{translate key="rt.admin.versions.metadata"}</a></li>
+	<ul class="nav nav-tabs">
+		<li class="current active"><a href="{url op="editVersion" path=$versionId}" class="action">{translate key="rt.admin.versions.metadata"}</a></li>
 		<li><a href="{url op="contexts" path=$versionId}" class="action">{translate key="rt.contexts"}</a></li>
 	</ul>
 {/if}

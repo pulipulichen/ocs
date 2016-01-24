@@ -14,9 +14,9 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="createIssue"}">{translate key="director.navigation.createIssue"}</a></li>
-	<li class="current"><a href="{url op="schedulingQueue"}">{translate key="common.queue.short.submissionsInScheduling"}</a></li>
+	<li class="current active"><a href="{url op="schedulingQueue"}">{translate key="common.queue.short.submissionsInScheduling"}</a></li>
 	<li><a href="{url op="futureIssues"}">{translate key="director.navigation.futureIssues"}</a></li>
 	<li><a href="{url op="backIssues"}">{translate key="director.navigation.issueArchive"}</a></li>
 </ul>

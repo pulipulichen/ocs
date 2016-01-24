@@ -13,9 +13,9 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="editContext" path=$version->getVersionId()|to_array:$context->getContextId()}" class="action">{translate key="rt.admin.contexts.metadata"}</a></li>
-	<li class="current"><a href="{url op="searches" path=$version->getVersionId()|to_array:$context->getContextId()}" class="action">{translate key="rt.searches"}</a></li>
+	<li class="current active"><a href="{url op="searches" path=$version->getVersionId()|to_array:$context->getContextId()}" class="action">{translate key="rt.searches"}</a></li>
 </ul>
 
 <br />

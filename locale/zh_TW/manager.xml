@@ -348,8 +348,8 @@
 	<message key="manager.schedConfSetup.submissions.notifications.description">對於電子郵件確認信件的拷貝，投稿者應該去以下：</message>
 	<message key="manager.schedConfSetup.submissions.notifications.submissionAckDisabled"><![CDATA[<strong>注意：</strong> 投稿確認信件目前無法使用。要使用此功能，請使用SUBMISSION_ACK 電子信件，在 <a class="action" href="{$preparedEmailsUrl}">Prepared Emails</a>內。]]></message>
 	<message key="manager.schedConfSetup.submissions.pageDescription">投稿過程及型態、投稿、方針、索引、和證明。</message>
-	<message key="manager.schedConfSetup.submissions.preparationChecklist">投稿準備清單</message>
-	<message key="manager.schedConfSetup.submissions.preparationChecklist.description">在此研討會投稿上，請作者必須檢查投稿準備清單上的項目。 檢查項目列表同時也會出現在作者指南上。下面列表可被編輯。在稿件被接受之前，所有在列表內的項目必須由作者本人檢查。</message>
+	<message key="manager.schedConfSetup.submissions.preparationChecklist">稿件查核表</message>
+	<message key="manager.schedConfSetup.submissions.preparationChecklist.description">如果作者要投稿到此研討會，必須先確認並勾選以下稿件查核表，表示投稿前已經妥善檢查。稿件查核表會在作者指南底下出現。以下您可以編輯稿件查核表的項目。</message>
 	<message key="manager.schedConfSetup.submissions.presentationsAlone">提案全文</message>
 	<message key="manager.schedConfSetup.submissions.previewAbstracts">一旦摘要審查完成，立刻發佈摘要。</message>
 	<message key="manager.schedConfSetup.submissions.publicIdentifier">研討會內容確認</message>

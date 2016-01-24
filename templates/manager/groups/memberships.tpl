@@ -20,9 +20,9 @@ $(document).ready(function() { setupTableDND("#dragTable", {/literal}"{url op=mo
 {/literal}
 </script>
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="editGroup" path=$group->getId()}">{translate key="manager.groups.editTitle"}</a></li>
-	<li class="current"><a href="{url op="groupMembership" path=$group->getId() clearPageContext=1}">{translate key="manager.groups.membership}</a></li>
+	<li class="current active"><a href="{url op="groupMembership" path=$group->getId() clearPageContext=1}">{translate key="manager.groups.membership}</a></li>
 </ul>
 
 <br/>

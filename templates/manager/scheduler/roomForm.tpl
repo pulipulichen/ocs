@@ -21,8 +21,8 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
-	<li class="current"><a href="{$roomUrl}">{$pageTitle|translate}</a></li>
+<ul class="nav nav-tabs">
+	<li class="current active"><a href="{$roomUrl}">{$pageTitle|translate}</a></li>
 	{if $roomId}
 		<li><a href="{url op="rooms" path=$roomId}">{translate key="manager.scheduler.rooms"}</a></li>
 	{/if}

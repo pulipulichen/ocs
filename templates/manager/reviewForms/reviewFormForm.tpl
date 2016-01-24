@@ -10,8 +10,8 @@
 {include file="common/header.tpl"}
 
 {if $reviewFormId}
-	<ul class="menu">
-		<li class="current"><a href="{url op="editReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
+	<ul class="nav nav-tabs">
+		<li class="current active"><a href="{url op="editReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
 		<li><a href="{url op="reviewFormElements" path=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
 		<li><a href="{url op="previewReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
 	</ul>

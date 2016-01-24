@@ -117,8 +117,8 @@ function sortBy(sortName) {
 
 {assign var=enableTimeBlocks value=$currentSchedConf->getSetting('enableTimeBlocks')}
 {if $enableTimeBlocks}
-	<ul class="menu">
-		<li class="current"><a href="{url op="schedule"}">{translate key="manager.scheduler.schedule"}</a></li>
+	<ul class="nav nav-tabs">
+		<li class="current active"><a href="{url op="schedule"}">{translate key="manager.scheduler.schedule"}</a></li>
 		<li><a onclick="return (document.schedule.changes.value == ''?true:confirm('Are you sure you wish to leave the Scheduler? You will lose any changes you have made.'))" href="{url op="timeBlocks"}">{translate key="manager.scheduler.timeBlocks"}</a></li>
 	</ul>
 {/if}{* $enableTimeBlocks *}

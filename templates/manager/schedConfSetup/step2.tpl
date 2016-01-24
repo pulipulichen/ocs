@@ -199,7 +199,7 @@
 <p>{translate key="manager.schedConfSetup.submissions.authorGuidelinesDescription"}</p>
 
 <p>
-	<textarea name="authorGuidelines[{$formLocale|escape}]" id="authorGuidelines" rows="12" cols="60" class="textArea">{$authorGuidelines[$formLocale]|escape}</textarea>
+    <textarea name="authorGuidelines[{$formLocale|escape}]" id="authorGuidelines" rows="12" style="width: 100%;" class="textArea">{$authorGuidelines[$formLocale]|escape}</textarea>
 </p>
 
 <table width="100%" class="data">
@@ -229,7 +229,9 @@
 
 	<tr valign="top">
 		<td width="5%" class="label"><input type="text" name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][order]" value="{$checklistItem.order|escape}" size="3" maxlength="2" class="textField" /></td>
-		<td class="value"><textarea name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][content]" id="submissionChecklist-{$checklistId|escape}" rows="3" cols="40" class="textArea">{$checklistItem.content|escape}</textarea></td>
+		<td class="value">
+                    <textarea name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][content]" id="submissionChecklist-{$checklistId|escape}" rows="3" cols="40" class="textArea">{$checklistItem.content|escape}</textarea>
+                </td>
 		<td width="100%"><input type="submit" name="delChecklist[{$checklistId|escape}]" value="{translate key="common.delete"}" class="button" /></td>
 	</tr>
 {/foreach}
@@ -239,13 +241,17 @@
 </div>
 </div>
 
-<div style="display:none;">
 
 <div class="separator"></div>
 
 <div id="forAuthorsToIndexTheirWork">
-<h3>2.4 {translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork"}</h3>
-
+<h3>
+    2.6 {translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork"}
+</h3>
+<button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
+    {translate key="common.more"}
+</button>
+<div style="display:none;">
 <p>{translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWorkDescription"}</p>
 
 <table width="100%" class="data">
@@ -390,11 +396,15 @@
 	</tr>
 </table>
 </div>
+</div>
 <div class="separator"></div>
 
 <div id="publicIdentifier">
 <h3>2.5 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
-
+<button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
+    {translate key="common.more"}
+</button>
+<div style="display:none;">
 <p>{translate key="manager.schedConfSetup.submissions.uniqueIdentifierDescription"}</p>
 
 <table width="100%" class="data">
@@ -408,13 +418,33 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
 </div>
+<div class="separator"></div>
+
+<div id="publicIdentifier">
+    {*@ TODO 語系*}
+<h3>2.4 投稿步驟說明</h3>
+
+<p>投稿步驟說明</p>
+
+<p>
+    <textarea name="authorGuidelines1[{$formLocale|escape}]" id="authorGuidelines1" rows="12" style="width: 100%;" class="textArea">{$authorGuidelines1[$formLocale]|escape}</textarea>
+</p>
+
+</div>
+<div class="separator"></div>
+
+</div>
+
         
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="schedConfSetup"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="schedConfSetup"}'" />
+</p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
+
 
 {include file="common/footer.tpl"}

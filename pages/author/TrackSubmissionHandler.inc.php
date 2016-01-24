@@ -146,19 +146,9 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
-                $authorSubmission = $submission;
-                $reviseFile = $authorSubmission->getRevisedFile();
-                $directorFiles = $authorSubmission->getDirectorFileRevisions($authorSubmission->getCurrentStage());
-                $directorFile = $directorFiles[(count($directorFiles) - 1)];
-                $lastFile = $reviseFile;
-                $lastFileType = 0;
-                //echo $reviseFile->getDateModified();
-                if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
-                    $lastFile = $directorFile;
-                    $lastFileType = 1;
-                }
-                $templateMgr->assign_by_ref('lastFile', $lastFile);
-                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
+                $latestFileAry = $this->_getLatestFile($authorSubmission);
+                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 
 		$templateMgr->display('author/submission.tpl');
 	}
@@ -228,18 +218,9 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
-                $reviseFile = $authorSubmission->getRevisedFile();
-                $directorFiles = $authorSubmission->getDirectorFileRevisions($authorSubmission->getCurrentStage());
-                $directorFile = $directorFiles[(count($directorFiles) - 1)];
-                $lastFile = $reviseFile;
-                $lastFileType = 0;
-                //echo $reviseFile->getDateModified();
-                if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
-                    $lastFile = $directorFile;
-                    $lastFileType = 1;
-                }
-                $templateMgr->assign_by_ref('lastFile', $lastFile);
-                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
+                $latestFileAry = $this->_getLatestFile($authorSubmission);
+                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 
 		// FIXME: Author code should not use track director object
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
@@ -252,6 +233,30 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign('helpTopicId', 'editorial.authorsRole.review');
 		$templateMgr->display('author/submissionReview.tpl');
 	}
+        
+        function _getLatestFile($submission) {
+            // @author Pulipuli Chen 20160123
+            
+            $lastFile = $submission->getSubmissionFile();
+            
+            $reviseFile = $submission->getRevisedFile();
+            if (isset($reviseFile)) {
+                $lastFile = $reviseFile;
+            }
+            
+            $directorFile = $submission->getDirectorFile();
+            $lastFileType = 0;
+            //echo $reviseFile->getDateModified();
+            if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+                $lastFile = $directorFile;
+                $lastFileType = 1;
+            }
+            //echo $lastFile->getFileId();
+            return array(
+                "lastFile" => $lastFile,
+                "lastFileType" => $lastFileType,
+            );
+        }
 
 	/**
 	 * Add a supplementary file.

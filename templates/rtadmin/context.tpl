@@ -14,8 +14,8 @@
 {/strip}
 
 {if $contextId}
-	<ul class="menu">
-		<li class="current"><a href="{url op="editContext" path=$versionId|to_array:$contextId}" class="action">{translate key="rt.admin.contexts.metadata"}</a></li>
+	<ul class="nav nav-tabs">
+		<li class="current active"><a href="{url op="editContext" path=$versionId|to_array:$contextId}" class="action">{translate key="rt.admin.contexts.metadata"}</a></li>
 		<li><a href="{url op="searches" path=$versionId|to_array:$contextId}" class="action">{translate key="rt.searches"}</a></li>
 	</ul>
 {/if}

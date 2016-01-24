@@ -18,7 +18,7 @@
 	<message key="director.home">會議主席管理頁面</message>
 	<message key="director.me">我</message>
 	<message key="director.navigation.management">管理</message>
-	<message key="director.notifyUsers">通知使用者</message>
+	<message key="director.notifyUsers">群組寄信通知</message>
 	<message key="director.notifyUsers.allAuthors">All published presenters ({$count} users)</message>
 	<message key="director.notifyUsers.allPaidRegistrants">All paid registrants ({$count} users)</message>
 	<message key="director.notifyUsers.allReaders">All readers ({$count} users)</message>

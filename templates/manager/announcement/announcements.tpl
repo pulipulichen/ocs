@@ -14,8 +14,8 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
-	<li class="current"><a href="{url op="announcements" clearPageContext=1}">{translate key="manager.announcements"}</a></li>
+<ul class="nav nav-tabs">
+	<li class="current active"><a href="{url op="announcements" clearPageContext=1}">{translate key="manager.announcements"}</a></li>
 	<li><a href="{url op="announcementTypes" clearPageContext=1}">{translate key="manager.announcementTypes"}</a></li>
 </ul>
 

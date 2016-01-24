@@ -14,9 +14,9 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="editBuilding" path=$buildingId}">{translate key="manager.scheduler.building.editBuilding"}</a></li>
-	<li class="current"><a href="{url op="rooms" path=$buildingId}">{translate key="manager.scheduler.rooms"}</a></li>
+	<li class="current active"><a href="{url op="rooms" path=$buildingId}">{translate key="manager.scheduler.rooms"}</a></li>
 </ul>
 
 <br />

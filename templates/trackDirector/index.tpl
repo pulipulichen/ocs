@@ -27,7 +27,7 @@ function sortSearch(heading, direction) {
 </script> 
 
 
-<ul class="menu">
+<ul class="nav nav-tabs">
     
     {if $isDirector}
         <li>
@@ -39,13 +39,13 @@ function sortSearch(heading, direction) {
     
     
     
-	<li{if ($pageToDisplay == "submissionsInReview")} class="current"{/if}>
+	<li{if ($pageToDisplay == "submissionsInReview")} class="current active"{/if}>
             <a href="{url path="submissionsInReview"}">
                 {translate key="common.queue.long.submissionsInReview"}
             </a>
         </li>
-	<li{if ($pageToDisplay == "submissionsAccepted")} class="current"{/if}><a href="{url path="submissionsAccepted"}">{translate key="common.queue.short.submissionsAccepted}</a></li>
-	<li{if ($pageToDisplay == "submissionsArchives")} class="current"{/if}><a href="{url path="submissionsArchives"}">{translate key="common.queue.short.submissionsArchives"}</a></li>
+	<li{if ($pageToDisplay == "submissionsAccepted")} class="current active"{/if}><a href="{url path="submissionsAccepted"}">{translate key="common.queue.short.submissionsAccepted"}</a></li>
+	<li{if ($pageToDisplay == "submissionsArchives")} class="current active"{/if}><a href="{url path="submissionsArchives"}">{translate key="common.queue.short.submissionsArchives"}</a></li>
 </ul>
 
 <form action="#">

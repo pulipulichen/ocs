@@ -12,10 +12,10 @@
 {include file="common/header.tpl"}
 
 {if $reviewForm->getCompleteCount()==0 && $reviewForm->getIncompleteCount()==0}
-	<ul class="menu">
+	<ul class="nav nav-tabs">
 		<li><a href="{url op="editReviewForm" path=$reviewForm->getId()}">{translate key="manager.reviewForms.edit"}</a></li>
 		<li><a href="{url op="reviewFormElements" path=$reviewForm->getId()}">{translate key="manager.reviewFormElements"}</a></li>
-		<li class="current"><a href="{url op="previewReviewForm" path=$reviewForm->getId()}">{translate key="manager.reviewForms.preview"}</a></li>
+		<li class="current active"><a href="{url op="previewReviewForm" path=$reviewForm->getId()}">{translate key="manager.reviewForms.preview"}</a></li>
 	</ul>
 {/if}
 

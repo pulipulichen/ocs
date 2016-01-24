@@ -25,9 +25,9 @@ function toggleChecked() {
 {/literal}
 </script>
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="editReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
-	<li class="current"><a href="{url op="reviewFormElements" path=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
+	<li class="current active"><a href="{url op="reviewFormElements" path=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
 	<li><a href="{url op="previewReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
 </ul>
 

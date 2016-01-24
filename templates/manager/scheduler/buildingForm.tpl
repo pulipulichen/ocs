@@ -21,8 +21,8 @@
 {include file="common/header.tpl"}
 {/strip}
 <div id="buildingForm">
-<ul class="menu">
-	<li class="current"><a href="{$buildingUrl}">{$pageTitle|translate}</a></li>
+<ul class="nav nav-tabs">
+	<li class="current active"><a href="{$buildingUrl}">{$pageTitle|translate}</a></li>
 	{if $buildingId}
 		<li><a href="{url op="rooms" path=$buildingId}">{translate key="manager.scheduler.rooms"}</a></li>
 	{/if}

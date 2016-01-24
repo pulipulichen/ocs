@@ -13,8 +13,8 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<ul class="menu">
-	<li class="current"><a href="{url op="edit" path=$locale}">{translate key="common.edit"}</a></li>
+<ul class="nav nav-tabs">
+	<li class="current active"><a href="{url op="edit" path=$locale}">{translate key="common.edit"}</a></li>
 	<li><a href="{url op="check" path=$locale}">{translate key="plugins.generic.translator.check"}</a></li>
 </ul>
 

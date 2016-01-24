@@ -15,8 +15,8 @@
 {/strip}
 
 {if $group}
-	<ul class="menu">
-		<li class="current"><a href="{url op="editGroup" path=$group->getId()}">{translate key="manager.groups.editTitle"}</a></li>
+	<ul class="nav nav-tabs">
+		<li class="current active"><a href="{url op="editGroup" path=$group->getId()}">{translate key="manager.groups.editTitle"}</a></li>
 		<li><a href="{url op="groupMembership" path=$group->getId() clearPageContext=1}">{translate key="manager.groups.membership}</a></li>
 	</ul>
 {/if}

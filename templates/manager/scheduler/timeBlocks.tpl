@@ -14,9 +14,9 @@
 {/strip}
 {include file="common/header.tpl"}
 
-<ul class="menu">
+<ul class="nav nav-tabs">
 	<li><a href="{url op="schedule"}">{translate key="manager.scheduler.schedule"}</a></li>
-	<li class="current"><a href="{url op="timeBlocks"}">{$pageTitle|translate}</a></li>
+	<li class="current active"><a href="{url op="timeBlocks"}">{$pageTitle|translate}</a></li>
 </ul>
 
 <br />
