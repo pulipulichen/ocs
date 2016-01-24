@@ -125,7 +125,7 @@
                         {/if}
 		</ul>
 		{/if}
-
+                    
 		{if $currentConference}
                     <!--
 		<span class="blockSubtitle">{translate key="navigation.browse"}</span>
@@ -139,5 +139,24 @@
 		</ul>
                     -->
 		{/if}
+                
+                <div>
+                {if $isConferenceManager}
+                    <a class="edit-link" href="{url page="manager"}/setup/3#navigationBar" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
+                <ul class="nav nav-stacked">
+                {foreach from=$navMenuItems item=navItem}
+			{if $navItem.url != '' && $navItem.name != ''}
+				<li>
+                                    <a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">
+                                        {if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}
+                                    </a>
+                                </li>
+			{/if}
+		{/foreach}
+                </ul>
+                </div>
 	</div>
 

@@ -474,7 +474,7 @@ div.separator {
     padding: 5px !important;
     text-decoration: none;
     cursor: pointer;
-    background-color: black;
+    background-color: #337ab7;
     color: white !important;
     position: relative !important;
     z-index: 999;

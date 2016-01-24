@@ -30,10 +30,10 @@
 			{call_hook name="Templates::Common::Header::Navbar::CurrentConference"}
 		{/if}{* $currentConference *}
 
-		{foreach from=$navMenuItems item=navItem}
+		{*foreach from=$navMenuItems item=navItem}
 			{if $navItem.url != '' && $navItem.name != ''}
 				<li><a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">{if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}</a></li>
 			{/if}
-		{/foreach}
+		{/foreach*}
 	</ul>
 </div>

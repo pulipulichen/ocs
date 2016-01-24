@@ -571,12 +571,12 @@
 	<message key="manager.setup.layout.homepageHeader.altText">Conference Homepage Header</message>
 	<message key="manager.setup.layout.homepageHeader.description">一個會議的標題及圖示的圖表版本 (如一個 .gif, .jpg, or .png檔) 能在主頁內被上傳，它將替換文本的版本來發表。</message>
 	<message key="manager.setup.layout.homepageTitle">研討會首頁標題</message>
-	<message key="manager.setup.layout.itemsDescription">導航條項目能被加入在目前的設定內 (首頁、關於研討會、使用者、使用者頁面，其他) 並會出現在頁面的上方。</message>
+	<message key="manager.setup.layout.itemsDescription">其他導航選單將會顯示在畫面左方選單之中。</message>
 	<message key="manager.setup.layout.itemsPerPage">每頁的項目</message>
 	<message key="manager.setup.layout.labelName">標示名稱</message>
 	<message key="manager.setup.layout.lists">名單</message>
 	<message key="manager.setup.layout.lists.description">輸入此項目的最大數字 (例如：投稿、使用者，或編輯任務) 在各頁的名單內，並且頁的數連接顯示在各頁內。</message>
-	<message key="manager.setup.layout.navItemIsAbsolute">網址是一個正確的網址 (如："http://www.example.com")而不是只有一個相關性的站點 (如： "/manager/setup")。</message>
+	<message key="manager.setup.layout.navItemIsAbsolute">這是絕對網址 (如："http://www.example.com")，而不是相對路徑 (如： "/manager/setup")。</message>
 	<message key="manager.setup.layout.navItemIsLiteral">該名稱不是語系關鍵字(如："manager.setup")，而是實際顯示的文字(如：「管理者設定」)</message>
 	<message key="manager.setup.layout.navigationBar">導航條</message>
 	<message key="manager.setup.layout.noImageFileUploaded">無圖示檔上傳</message>

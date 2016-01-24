@@ -1,6 +1,12 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container">
     <div class="navbar-header">
+        {if $isConferenceManager}
+            <a class="edit-link" href="{url page="manager"}/editSchedConf/{$conferenceId}/{$schedConfId}#content" target="_blank">
+                {*translate key="manager.registrationOptions.editTitle"*}
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </a>
+        {/if}
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
