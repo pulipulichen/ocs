@@ -96,42 +96,50 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件是寄給已註冊的讀者有關當問題變成開放通入時他們會被要求去接收一封電子通知信件。</description>
 	</email_text>
 	<email_text key="PASSWORD_RESET">
-		<subject>密碼重新設定</subject>
-		<body>您在 {$siteTitle} 網站的密碼已成功地被重新設定了。請保留這個帳號和密碼，這組帳號與密碼是用來執行研討會的所有作業。
+		<subject>您的密碼已經重新設定</subject>
+		<body>{$username}您好，
 
-您的帳號: {$username}
-您的新密碼: {$password}
+您在 {$siteTitle} 網站的密碼已經重新設定。您可以用以下這組帳號與密碼來管理研討會網站的所有動作。
+
+您的帳號：{$username}
+您的新密碼：{$password}
+研討會網址：{$conferenceUrl}
+
+感謝您的參與。
+敬祝教安，
 
 {$principalContactSignature}</body>
 		<description>當使用者成功地重新設定了他們的密碼時，所有的過程會被描述在密碼_ 被重新設定_ 確認電子郵件信件內，電子信件也會送到使用者的電子信箱內。</description>
 	</email_text>
 	<email_text key="PASSWORD_RESET_CONFIRM">
 		<subject>密碼重新設定確認</subject>
-		<body>我們收到了一個請求為網站重新設定您的密碼{$siteTitle} 。
+		<body>{$username}您好，
 
-如果您沒有提出這個請求，請忽略此電子郵件，且您的密碼不會被改變。如果您希望重新設定您的密碼，請點選下面網址。
+{$siteTitle} 收到了一個您希望重新設定密碼的請求。
+如果您沒有提出這個請求，請忽略此電子郵件，您的密碼不會被改變。
 
-重新設定我的密碼: {$url}
+如果您希望重新設定您的密碼，請點選下面網址以重新設定密碼：
+{$url}
+
+感謝您的參與。
+敬祝教安，
 
 {$principalContactSignature}</body>
 		<description>當使用者表明忘記了他們的密碼或無法登錄時，此電子郵件會被寄送給使用者。它提供了ㄧ個網址讓使用者可以跟隨著步驟來重新設定密碼。</description>
 	</email_text>
 	<email_text key="REGISTRATION_NOTIFY">
-		<subject>註冊通知信函</subject>
-		<body>{$registrantName}:
+		<subject>您已經成功註冊本研討會</subject>
+		<body>{$registrantName}您好，
 
-您已在我們的網上研討會管理系統{$conferenceName}內登記註冊，以下註冊為：
- 
+您已經在 {$conferenceName} 中登記註冊，註冊類型為：「{$registrationType}」
 
-{$registrationType}
+如果遇到需要登入才能查看的網站內容，您可以使用以下帳號登入：
+您的帳號：{$username}
+研討會網址：{$conferenceUrl}
 
-只有註冊者可以進入網站查看內容，簡單的使用您的帳號登入，"{$username}"。
+登入本研討會網站之後，您可以修改您的基本資料或是設定密碼。
 
-每ㄧ次您登入此系統，您可以在任何時刻來變更您的簡介描述及密碼。
-
-請注意若您有學會的註冊紀錄，您不需要在學會內登入因為您的註冊內容此系統會自動幫您確認。
-
-如果您有任何問題，請隨時與我聯繫。
+如果您有任何問題，歡迎與我們聯繫。
 
 {$registrationContactSignature}</body>
 		<description>此電子郵件是通知已註冊的讀者管理員已位他們建立註冊登記。此封信件也提共有關研討會網站及進入網站的指示。</description>
@@ -501,26 +509,36 @@ Thank you and looking forward to your participation in this event.
         <description>當作者已經修改完稿件之後，通知負責人的信件範本。</description>
     </email_text>
 	<email_text key="USER_REGISTER">
-		<subject>新使用者註冊</subject>
-		<body>感謝您在 {$conferenceName} 註冊。請記錄您的帳號和密碼，因所有和研討會有關的作業都需要使用此帳號名稱和密碼。
+		<subject>您已經成功註冊為新使用者</subject>
+		<body>{$username}您好，
 
-帳號: {$username}
-密碼: {$password}
+感謝您在 {$conferenceName} 註冊。
 
-謝謝您,
+以下是您的帳號與密碼，：
+
+您的帳號：{$username}
+您的密碼：{$password}
+研討會網址：{$conferenceUrl}
+
+大部分與本研討會的相關操作都必須要登入之後才能進行，包括投稿與註冊。
+
+感謝您對本研討會的關注。
+敬祝教安，
+
 {$principalContactSignature}</body>
 		<description>此電子郵件寄送給新的使用者包含歡迎他們加入及提供他們的帳號和密碼紀錄。</description>
 	</email_text>
 	<email_text key="USER_VALIDATE">
-		<subject>確認您的帳號</subject>
-		<body>{$userFullName}
+		<subject>帳號確認函</subject>
+		<body>{$userFullName}您好，
 
-您已經在 {$conferenceName} 申請帳號，在您正式使用本帳號前，需要點選下列連結進行電子郵件認證，以啟動您的帳號。請點選下列連結完成認證並啟動帳號：
-
+您已經在 {$conferenceName} 申請帳號。
+在您正式使用本帳號前，請您點選下列連結以啟動您的帳號：
 {$activateUrl}
 
-感謝您
-敬祝 大安
+感謝您的配合。
+敬祝教安，
+
 {$principalContactSignature}</body>
 		<description>本郵件是寄給新申請帳號者作為電子郵件認證與帳號啟動的通知。</description>
 	</email_text>

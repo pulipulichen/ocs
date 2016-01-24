@@ -113,16 +113,6 @@
                                 <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a>
                             </li>
                         {/if}
-                        {if $schedConfContactEmail}
-                            <li>
-                                {if $isConferenceManager}
-                                    <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
-                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    </a>
-                                {/if}
-                                <a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a>
-                            </li>
-                        {/if}
 		</ul>
 		{/if}
                     
@@ -159,5 +149,18 @@
 		{/foreach}
                 </ul>
                 </div>
+                
+                <ul class="nav nav-stacked">
+                        {if $schedConfContactEmail}
+                            <li>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a>
+                            </li>
+                        {/if}
+                </ul>
 	</div>
 
