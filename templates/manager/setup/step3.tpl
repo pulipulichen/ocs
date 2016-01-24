@@ -278,7 +278,7 @@ var _linkTypeChange = function (_select) {
                                                    匯出
                                                 </th>
                                                 <td>
-                                                    <a href="#{$conferenceId}_{$navItem.name|escape}" class="btn btn-default">匯出問卷結果</a>
+                                                    <a href="{url page="schedConf" op="surveyExport"}?id={$navItemId}" class="btn btn-default">匯出問卷結果</a>
                                                 </td>
                                         </tr>
                                     </table> 

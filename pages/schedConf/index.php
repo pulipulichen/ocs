@@ -28,6 +28,8 @@ switch ($op) {
 	case 'register':
 	case 'program':
         case 'page':
+        case 'survey':
+        case 'surveyExport':
 	case 'schedule':
 	case 'accommodation':
 	case 'presentations':

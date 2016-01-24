@@ -469,6 +469,81 @@ class SchedConfHandler extends Handler {
                 
 		$templateMgr->display('schedConf/page.tpl');
 	}
+        
+        function survey() {
+                if (Validation::isLoggedIn() === FALSE) {
+                    Validation::redirectLogin();
+		}
+            
+		$this->addCheck(new HandlerValidatorSchedConf($this));
+		$this->validate();
+
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+                
+                $id = Request::getUserVar('id');
+                $navItems = $conference->getLocalizedSetting('navItems');
+                $navItem = $navItems[intval($id)];
+                $title = $navItem["name"];
+
+		$templateMgr =& TemplateManager::getManager();
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		SchedConfHandler::setupTemplate($conference,$schedConf);
+
+                //AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME: director.allTracks
+                
+                $templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), $title, true)));
+                
+                //$data = Request::getUserVar('data');
+                $user = Request::getUser();
+                
+                
+                
+                if ($user) {
+                    $settingKey = 'survey_' . $conference->getId() . "_" . $id;
+                    if (Request::getUserVar('save') !== null) {
+                        $data = Request::getUserVar('data');
+                        $user->updateSetting($settingKey, $data, 'string', $conference->getId());
+                    }
+                    else {
+                        $data = $user->getSetting($settingKey);
+                    }
+                }
+                if (!$data) {
+                    $data = '{}';
+                }
+                
+		$templateMgr->assign('title', $title);
+                $templateMgr->assign('survey', $navItem["survey"]);
+                $templateMgr->assign('data', $data);
+		$templateMgr->assign('helpTopicId', 'conference.currentConferences.survey');
+                
+		$templateMgr->display('schedConf/survey.tpl');
+	}
+        
+        function surveyExport() {
+            
+            $id = Request::getUserVar('id');
+            
+            $conferenceSettingsDao =& DAORegistry::getDAO('ConferenceSettingsDAO');
+            $conference =& Request::getConference();
+            $output = $conferenceSettingsDao->getSurvey($conference->getId(), $id);
+            
+            
+            //print_r($output);
+            
+            header('Content-Disposition: attachment; filename="export_survey_'.$conference->getId().'_'.$id.'.cvs"');
+            header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+            header('Content-Length: ' . strlen($output));
+            header('Connection: close');
+            
+            echo $output;
+        }
 
 	/**
 	 * Display conference schedule page

@@ -90,7 +90,59 @@ class ConferenceSettingsDAO extends SettingsDAO {
 
 		return $conferenceSettings;
 	}
+        
+        /**
+	 * Retrieve and cache all settings for a conference.
+	 * @param $conferenceId int
+	 * @return array
+	 */
+	function &getSurvey($conferenceId, $id) {
+                
+                $settingKey = 'survey_' . $conferenceId . '_' . $id;
+		$result =& $this->retrieve(
+			'SELECT user_id, setting_value FROM user_settings WHERE assoc_type = 256 AND assoc_id = ? AND setting_name = ?'
+                        , array($conferenceId, $settingKey)
+		);
 
+                $output = array();
+		while (!$result->EOF) {
+                    $row =& $result->getRowAssoc(false);
+                    $data = array_merge(array('user_id'=>$row['user_id']), json_decode($row['setting_value'], true));
+                    $output[] = $data;
+                    $result->MoveNext();
+		}
+		$result->Close();
+		unset($result);
+
+                //$output = json_encode($output, JSON_UNESCAPED_UNICODE);
+                $cvs = '';
+                $delimiter = "\t";
+                if (count($output) > 0) {
+                    $fields = array_keys($output[0]);
+                    $line = '';
+                    foreach ($fields AS $field) {
+                        if ($line !== '') {
+                            $line .= $delimiter;
+                        }
+                        $line .= $field;
+                    }
+                    $cvs = $line;
+                    
+                    foreach ($output AS $row) {
+                        $line = '';
+                        foreach ($row AS $col) {
+                            if ($line !== '') {
+                                $line .= $delimiter;
+                            }
+                            $line .= $col;
+                        }
+                        $cvs .= "\n" . $line;
+                    }
+                }
+                
+		return $cvs;
+	}
+        
 	/**
 	 * Add/update a conference setting.
 	 * @param $conferenceId int
