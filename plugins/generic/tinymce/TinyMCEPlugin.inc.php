@@ -161,6 +161,7 @@ class TinyMCEPlugin extends GenericPlugin {
 						$fields[] = 'contactMailingAddress';
 						$fields[] = 'sponsorNote';
 						$fields[] = 'contributorNote';
+                                                
 						$count = max(1, count($templateMgr->get_template_vars('sponsors')));
 						for ($i=0; $i<$count; $i++) {
 							$fields[] = "sponsors-$i-address";
@@ -169,6 +170,8 @@ class TinyMCEPlugin extends GenericPlugin {
 					case 2:
 						$fields[] = 'cfpMessage';
 						$fields[] = 'authorGuidelines';
+                                                $fields[] = 'addSuppFileMessage';
+                                                $fields[] = 'stepFinalMessage';
 						$submissionChecklist = $templateMgr->get_template_vars('submissionChecklist');
 						$count = max(1, isset($submissionChecklist[$formLocale])?count($submissionChecklist[$formLocale]):0);
 						for ($i=0; $i<$count; $i++) {

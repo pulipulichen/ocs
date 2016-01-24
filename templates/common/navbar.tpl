@@ -8,7 +8,7 @@
  *
  *}
 <div id="navbar">
-	<ul class="nav nav-tabs">
+	<ul class="menu">
 		<li><a href="{url context=$homeContext op="index"}">{translate key="navigation.home"}</a></li>
 		<li><a href="{url page="about"}">{translate key="navigation.about"}</a></li>
 		{if $isUserLoggedIn}

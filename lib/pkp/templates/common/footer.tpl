@@ -32,13 +32,13 @@
 {if $displayCreativeCommons}
 {translate key="common.ccLicense"}
 {/if}
-{if $pageFooter}
-<!-- <br /><br /> -->
 {if $isConferenceManager}
     <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#conferencePageFooterInfo" target="_blank">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
+{if $pageFooter}
+<!-- <br /><br /> -->
 {$pageFooter}
 {/if}
 {call_hook name="Templates::Common::Footer::PageFooter"}

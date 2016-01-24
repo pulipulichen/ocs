@@ -244,6 +244,28 @@
 
 <div class="separator"></div>
 
+<div id="publicIdentifier">
+<h3>2.5 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
+<button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
+    {translate key="common.more"}
+</button>
+<div style="display:none;">
+<p>{translate key="manager.schedConfSetup.submissions.uniqueIdentifierDescription"}</p>
+
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="5%" class="label"><input type="checkbox" name="enablePublicPaperId" id="enablePublicPaperId" value="1"{if $enablePublicPaperId} checked="checked"{/if} /></td>
+		<td width="95%" class="value">{fieldLabel name="enablePublicPaperId" key="manager.schedConfSetup.submissions.enablePublicPaperId"}</td>
+	</tr>
+	<tr valign="top">
+		<td width="5%" class="label"><input type="checkbox" name="enablePublicSuppFileId" id="enablePublicSuppFileId" value="1"{if $enablePublicSuppFileId} checked="checked"{/if} /></td>
+		<td width="95%" class="value">{fieldLabel name="enablePublicSuppFileId" key="manager.schedConfSetup.submissions.enablePublicSuppFileId"}</td>
+	</tr>
+</table>
+</div>
+</div>
+<div class="separator"></div>
+
 <div id="forAuthorsToIndexTheirWork">
 <h3>
     2.6 {translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork"}
@@ -399,37 +421,23 @@
 </div>
 <div class="separator"></div>
 
-<div id="publicIdentifier">
-<h3>2.5 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
-<button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
-    {translate key="common.more"}
-</button>
-<div style="display:none;">
-<p>{translate key="manager.schedConfSetup.submissions.uniqueIdentifierDescription"}</p>
+<div id="stepMessage">
+<h3>2.7 {translate key="submission.stepMessage"}</h3>
 
 <table width="100%" class="data">
 	<tr valign="top">
-		<td width="5%" class="label"><input type="checkbox" name="enablePublicPaperId" id="enablePublicPaperId" value="1"{if $enablePublicPaperId} checked="checked"{/if} /></td>
-		<td width="95%" class="value">{fieldLabel name="enablePublicPaperId" key="manager.schedConfSetup.submissions.enablePublicPaperId"}</td>
+		<td width="10%" class="label">{fieldLabel name="addSuppFileMessage" key="submission.addSuppFile"}</td>
+		<td width="90%" class="value">
+			<textarea name="addSuppFileMessage[{$formLocale|escape}]" id="addSuppFileMessage" rows="10" cols="80" class="textArea">{$addSuppFileMessage[$formLocale]|escape}</textarea>
+		</td>
 	</tr>
-	<tr valign="top">
-		<td width="5%" class="label"><input type="checkbox" name="enablePublicSuppFileId" id="enablePublicSuppFileId" value="1"{if $enablePublicSuppFileId} checked="checked"{/if} /></td>
-		<td width="95%" class="value">{fieldLabel name="enablePublicSuppFileId" key="manager.schedConfSetup.submissions.enablePublicSuppFileId"}</td>
+        <tr valign="top">
+		<td width="10%" class="label">{fieldLabel name="stepFinalMessage" key="submission.stepFile"}</td>
+		<td width="90%" class="value">
+			<textarea name="stepFinalMessage[{$formLocale|escape}]" id="stepFinalMessage" rows="10" cols="80" class="textArea">{$stepFinalMessage[$formLocale]|escape}</textarea>
+		</td>
 	</tr>
 </table>
-</div>
-</div>
-<div class="separator"></div>
-
-<div id="publicIdentifier">
-    {*@ TODO 語系*}
-<h3>2.4 投稿步驟說明</h3>
-
-<p>投稿步驟說明</p>
-
-<p>
-    <textarea name="authorGuidelines1[{$formLocale|escape}]" id="authorGuidelines1" rows="12" style="width: 100%;" class="textArea">{$authorGuidelines1[$formLocale]|escape}</textarea>
-</p>
 
 </div>
 <div class="separator"></div>

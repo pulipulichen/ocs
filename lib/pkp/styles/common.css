@@ -71,6 +71,10 @@ input.textField, select.selectMenu, textarea.textArea, input.uploadField {
 	font-size: 1em;
 }
 
+textarea.textArea {
+    width: 100%;
+}
+
 input.button {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
@@ -559,3 +563,7 @@ label[for] {
     background-color: yellow;
 }
 
+#conferenceLogoInfo img, #conferenceLogo img {
+    width: 100%;
+    height: auto;
+}

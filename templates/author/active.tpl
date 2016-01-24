@@ -8,18 +8,23 @@
  *
  * $Id$
  *}
+{assign var="colspan" value=7}
+{if $tracks|@count < 2}
+    {assign var="colspan" value=$colspan-1}
+{/if}
 <div id="submissions">
 <table class="listing" width="100%">
-	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
+	<tr><td colspan="{$colspan}" class="headseparator">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
-		<td width="5%">{sort_heading key="common.id" sort="id"}</td>
-		<td width="5%"><!--<span class="disabled">MM-DD</span><br />-->{sort_heading key="submissions.submit" sort="submitDate"}</td>
-		<td width="5%">{sort_heading key="submissions.track" sort="track"}</td>
-		<td width="25%">{sort_heading key="paper.authors" sort="authors"}</td>
-		<td width="35%">{sort_heading key="paper.title" sort="title"}</td>
-		<td width="25%" align="right">{sort_heading key="common.status" sort="status"}</td>
+		<td>{sort_heading key="common.id" sort="id"}</td>
+		<td><!--<span class="disabled">MM-DD</span><br />-->{sort_heading key="submissions.submit" sort="submitDate"}</td>
+		<td>{sort_heading key="submissions.track" sort="track"}</td>
+		<td>{sort_heading key="paper.authors" sort="authors"}</td>
+		<td>{sort_heading key="paper.title" sort="title"}</td>
+		<td align="right">{sort_heading key="common.status" sort="status"}</td>
+                <td>{translate key="submissions.manage"}</td>
 	</tr>
-	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
+	<tr><td colspan="{$colspan}" class="headseparator">&nbsp;</td></tr>
 
 {iterate from=submissions item=submission}
 	{assign var="paperId" value=$submission->getPaperId()}
@@ -35,7 +40,9 @@
 		{if $submissionProgress == 0}
 			<td><a href="{url op="submission" path=$paperId}" class="action">{if $submission->getLocalizedTitle()}{$submission->getLocalizedTitle()|strip_tags|truncate:60:"..."}{else}{translate key="common.untitled"}{/if}</a></td>
 			<td align="right">
-				{if $status == STATUS_QUEUED_UNASSIGNED}{translate key="submissions.queuedUnassigned"}
+				{if $status == STATUS_QUEUED_UNASSIGNED}
+                                    {translate key="submissions.queuedUnassigned"}
+                                    {assign var="submitUrl" value=0}
 				{elseif $status == STATUS_QUEUED_REVIEW}
 					{assign var=decision value=$submission->getMostRecentDecision()}
 					{if $currentStage==REVIEW_STAGE_PRESENTATION}
@@ -52,10 +59,22 @@
 							{/if}
 						</a>
 					{/if}
+                                        {url|assign:"submitUrl" op="submissionReview" path=$paperId|to_array}
 				{elseif $status == STATUS_QUEUED_EDITING}
 					<a href="{url op="submissionReview" path=$paperId|to_array}" class="action">{translate key="submissions.queuedEditing"}</a>
+                                        {url|assign:"submitUrl" op="submissionReview" path=$paperId|to_array}
 				{/if}
 			</td>
+                        <td>
+                            {if $submitUrl !== 0}
+                                <a href="{$submitUrl}" class="action">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                            {else}
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            {/if}
+                                
+                        </td>
 		{else}
 			{url|assign:"submitUrl" op="submit" path=$submission->getSubmissionProgress() paperId=$paperId}
 			<td><a href="{$submitUrl}" class="action">{if $submission->getLocalizedTitle()}{$submission->getLocalizedTitle()|strip_tags|truncate:60:"..."}{else}{translate key="common.untitled"}{/if}</a></td>
@@ -70,24 +89,28 @@
 					<a class="action" href="{$submitUrl}">{translate key="submissions.pendingPresentation"}</a>
 				{/if}	
 			</td>
+                        <td>
+                            <a href="{$submitUrl}" class="action">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                        </td>
 		{/if}
-
 	</tr>
 
 	<tr>
-		<td colspan="6" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
+		<td colspan="{$colspan}" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
 	</tr>
 {/iterate}
 {if $submissions->wasEmpty()}
 	<tr>
-		<td colspan="6" class="nodata">{translate key="submissions.noSubmissions"}</td>
+		<td colspan="{$colspan}" class="nodata">{translate key="submissions.noSubmissions"}</td>
 	</tr>
 	<tr>
-		<td colspan="6" class="endseparator">&nbsp;</td>
+		<td colspan="{$colspan}" class="endseparator">&nbsp;</td>
 	</tr>
 {else}
 	<tr>
-		<td colspan="4" align="left">{page_info iterator=$submissions}</td>
+		<td colspan="{$colspan-2}" align="left">{page_info iterator=$submissions}</td>
 		<td colspan="2" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions sort=$sort sortDirection=$sortDirection}</td>
 	</tr>
 {/if}

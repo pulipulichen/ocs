@@ -77,6 +77,7 @@
 	<message key="author.submit.step4a">步驟 4a. 上傳附加檔案</message>
 	<message key="author.submit.step5">步驟 5. 投稿確認</message>
 	<message key="author.submit.step5SkipSupp">步驟 4. 投稿確認</message>
+        <message key="author.submit.stepFinal">投稿確認</message>
 	<message key="author.submit.subjectClassInstructions">使用高連接的分類系統去選擇分類專有名詞和適當的數字。</message>
 	<message key="author.submit.submissionChecklist">投稿查核表</message>
 	<message key="author.submit.submissionChecklistDescription">請確認投稿之前已經確實遵守以下規定：</message>
