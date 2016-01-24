@@ -475,6 +475,15 @@ class DirectorSubmissionDAO extends DAO {
 			array((int) $schedConfId)
 		);
                 $submissionsCount[3] = $result->Fields('review_count');
+                
+                $result =& $this->retrieve(
+			'SELECT	COUNT(*) AS review_count
+			FROM	registrations
+			WHERE	sched_conf_id = ?',
+			array((int) $schedConfId)
+		);
+                $submissionsCount[4] = $result->Fields('review_count');
+                
 		$result->Close();
                 
                 

@@ -78,11 +78,11 @@ function sortSearch(heading, direction) {
 		<td colspan="5" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
-		<td width="32%">{sort_search key="manager.registration.user" sort="user"}</td>
-		<td width="25%">{sort_search key="manager.registration.registrationType" sort="type"}</td>
-		<td width="15%">{sort_search key="manager.registration.dateRegistered" sort="registered"}</td>
-		<td width="15%">{sort_search key="manager.registration.datePaid" sort="paid"}</td>
-		<td width="13%">{translate key="common.action"}</td>
+		<td>{sort_search key="manager.registration.user" sort="user"}</td>
+		<td>{sort_search key="manager.registration.registrationType" sort="type"}</td>
+		<td>{sort_search key="manager.registration.dateRegistered" sort="registered"}</td>
+		<td>{sort_search key="manager.registration.datePaid" sort="paid"}</td>
+		<td>{translate key="common.action"}</td>
 	</tr>
 	<tr>
 		<td colspan="5" class="headseparator">&nbsp;</td>

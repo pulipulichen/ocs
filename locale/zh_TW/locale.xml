@@ -128,6 +128,8 @@
 	<message key="common.queue.long.submissionsUnassigned">等待安排審查的稿件</message>
 	<message key="common.queue.short.active">作者投稿的稿件</message>
         <message key="common.queue.count.active">篇 稿件</message>
+        <message key="common.queue.count.registration">人 註冊</message>
+        <message key="common.queue.short.registration">註冊名單</message>
 	<message key="common.queue.short.completed">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsAccepted">已經接受的稿件</message>
         <message key="common.queue.count.submissionsAccepted"><![CDATA[篇 <br />已經接受]]></message>

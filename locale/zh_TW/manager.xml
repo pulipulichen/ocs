@@ -89,6 +89,7 @@
 	<message key="manager.program.form.programText.description">請基於此版本在此輸入您的研討會議程。</message>
 	<message key="manager.registration">註冊</message>
         <message key="manager.registrationList">註冊名單</message>
+        <message key="manager.registrationListCount">人註冊</message>
 	<message key="manager.registration.confirmDelete">您確定要刪除此註冊嗎？?</message>
 	<message key="manager.registration.create">選擇使用者註冊本研討會</message>
 	<message key="manager.registration.createTitle">建立</message>

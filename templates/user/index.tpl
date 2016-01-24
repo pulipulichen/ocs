@@ -64,6 +64,9 @@
                             <th colspan="4">
                                 審查進度
                             </th>
+                            <th rowspan="2">
+                                {translate key="common.queue.short.registration"}
+                            </th>
                             <th rowspan="2" style="text-align:right">
                                 {translate key="submissions.manage"}
                             </th>
@@ -79,7 +82,7 @@
                                 等待審查
                             </th> 
                             <th>
-                                接受的稿件
+                                接受稿件
                             </th> 
                         </tr>
                     </thead>
@@ -92,7 +95,7 @@
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{$authorSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
 					</td>
-                                        <td colspan="3"></td>
+                                        <td colspan="4"></td>
 					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
 				</tr>
 			{/if}
@@ -127,6 +130,17 @@
                                                 <span class="disabled">0 {translate key="common.queue.short.submissionsAccepted"}</span>
                                             {/if}
                                         </td>
+                                        <td>
+                                            {if $directorSubmissionsCount[4]}
+                                                <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="manager" op="registration"}">
+                                                    {$directorSubmissionsCount[4]}
+                                                    {translate key="common.queue.count.registration"}
+                                                </a>
+                                            {else}
+                                                <span class="disabled">0 {translate key="common.queue.count.registration"}</span>
+                                            {/if}
+                                            
+                                        </td>
 					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="notifyUsers"}">{translate key="director.notifyUsers"}</a>]</td>
 				</tr>
 			{/if}
@@ -157,8 +171,7 @@
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{$reviewerSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
 					</td>
-                                        <td colspan="1">&nbsp;</td>
-					<td align="right">&nbsp;</td>
+                                        <td colspan="3">&nbsp;</td>
 				</tr>
 			{/if}
 			{* Add a row to the bottom of each table to ensure all have same width*}
