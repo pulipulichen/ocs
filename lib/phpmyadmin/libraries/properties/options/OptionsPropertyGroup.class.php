@@ -96,3 +96,4 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem
         return count($this->_properties);
     }
 }
+?>

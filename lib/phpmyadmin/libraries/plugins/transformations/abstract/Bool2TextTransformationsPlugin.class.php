@@ -66,3 +66,4 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
         return "Bool2Text";
     }
 }
+?>

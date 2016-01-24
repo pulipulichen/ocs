@@ -41,3 +41,4 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
         return "OctetStream";
     }
 }
+?>

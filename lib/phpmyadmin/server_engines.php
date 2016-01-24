@@ -30,3 +30,5 @@ $response->addHTML(PMA_getHtmlForSubPageHeader('engines'));
 $response->addHTML(PMA_getHtmlForServerEngines());
 
 exit;
+
+?>

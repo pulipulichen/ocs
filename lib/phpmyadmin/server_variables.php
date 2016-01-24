@@ -46,49 +46,15 @@ $doc_link = PMA_Util::showMySQLDocu('server_system_variables');
 $response->addHtml(PMA_getHtmlForSubPageHeader('variables', $doc_link));
 
 /**
- * Sends the queries and buffers the results
+ * Link templates
  */
-$serverVarsResult = $GLOBALS['dbi']->tryQuery('SHOW SESSION VARIABLES;');
+$response->addHtml(PMA_getHtmlForLinkTemplates());
 
-if ($serverVarsResult !== false) {
-
-    $serverVarsSession = array();
-    while ($arr = $GLOBALS['dbi']->fetchRow($serverVarsResult)) {
-        $serverVarsSession[$arr[0]] = $arr[1];
-    }
-    $GLOBALS['dbi']->freeResult($serverVarsResult);
-
-    $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-
-    /**
-     * Link templates
-     */
-    $response->addHtml(PMA_getHtmlForLinkTemplates());
-
-    /**
-     * Displays the page
-     */
-    $response->addHtml(
-        PMA_getHtmlForServerVariables(
-            $variable_doc_links, $serverVars, $serverVarsSession
-        )
-    );
-} else {
-    /**
-     * Display the error message
-     */
-    $response->addHTML(
-        PMA_Message::error(
-            sprintf(
-                __('Not enough privilege to view server variables and settings. %s'),
-                PMA_Util::showMySQLDocu(
-                    'server-system-variables',
-                    false,
-                    'sysvar_show_compatibility_56'
-                )
-            )
-        )->getDisplay()
-    );
-}
+/**
+ * Displays the page
+ */
+$response->addHtml(PMA_getHtmlForServerVariables($variable_doc_links));
 
 exit;
+
+?>

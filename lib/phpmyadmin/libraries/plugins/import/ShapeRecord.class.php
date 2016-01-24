@@ -31,7 +31,7 @@ class PMA_ShapeRecord extends ShapeRecord
      * @return void
      * @see ShapeRecord::loadFromFile()
      */
-    public function loadFromFile(&$SHPFile, &$DBFFile)
+    function loadFromFile(&$SHPFile, &$DBFFile)
     {
         $this->DBFFile = $DBFFile;
         $this->_loadHeaders();
@@ -72,7 +72,7 @@ class PMA_ShapeRecord extends ShapeRecord
      * @return void
      * @see ShapeRecord::_loadHeaders()
      */
-    public function _loadHeaders()
+    function _loadHeaders()
     {
         $this->recordNumber = loadData("N", ImportShp::readFromBuffer(4));
         ImportShp::readFromBuffer(4);
@@ -85,7 +85,7 @@ class PMA_ShapeRecord extends ShapeRecord
      * @return array
      * @see ShapeRecord::_loadPoint()
      */
-    public function _loadPoint()
+    function _loadPoint()
     {
         $data = array();
 
@@ -101,7 +101,7 @@ class PMA_ShapeRecord extends ShapeRecord
      * @return void
      * @see ShapeRecord::_loadMultiPointRecord()
      */
-    public function _loadMultiPointRecord()
+    function _loadMultiPointRecord()
     {
         $this->SHPData = array();
         $this->SHPData["xmin"] = loadData("d", ImportShp::readFromBuffer(8));
@@ -122,7 +122,7 @@ class PMA_ShapeRecord extends ShapeRecord
      * @return void
      * @see ShapeRecord::_loadPolyLineRecord()
      */
-    public function _loadPolyLineRecord()
+    function _loadPolyLineRecord()
     {
         $this->SHPData = array();
         $this->SHPData["xmin"] = loadData("d", ImportShp::readFromBuffer(8));
@@ -158,3 +158,4 @@ class PMA_ShapeRecord extends ShapeRecord
         }
     }
 }
+?>

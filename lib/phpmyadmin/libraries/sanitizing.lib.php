@@ -188,3 +188,4 @@ function PMA_sanitizeFilename($filename, $replaceDots = false)
     return $filename;
 }
 
+?>

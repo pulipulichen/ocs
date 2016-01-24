@@ -482,3 +482,4 @@ class PMA_Theme
         return implode("\n", $result);
     }
 }
+?>

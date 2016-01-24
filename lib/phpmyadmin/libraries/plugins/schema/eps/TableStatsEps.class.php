@@ -32,8 +32,6 @@ class Table_Stats_Eps extends TableStats
     /**
      * The "Table_Stats_Eps" constructor
      *
-     * @param object  $diagram          The EPS diagram
-     * @param string  $db               The database name
      * @param string  $tableName        The table name
      * @param string  $font             The font  name
      * @param integer $fontSize         The font size
@@ -44,15 +42,19 @@ class Table_Stats_Eps extends TableStats
      * @param boolean $offline          Whether the coordinates are sent
      *                                  from the browser
      *
+     * @global object  $eps         The current eps document
+     *
+     * @access private
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      Table_Stats_Eps::Table_Stats_setHeight
      */
-    public function __construct(
-        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+    function __construct(
+        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
+        global $eps;
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName,
+            $eps, $GLOBALS['db'], $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 
@@ -88,6 +90,7 @@ class Table_Stats_Eps extends TableStats
      *
      * @return void
      *
+     * @access private
      * @see PMA_EPS
      */
     private function _setWidthTable($font,$fontSize)
@@ -115,6 +118,7 @@ class Table_Stats_Eps extends TableStats
      * @param integer $fontSize The font size
      *
      * @return void
+     * @access private
      */
     private function _setHeightTable($fontSize)
     {
@@ -127,22 +131,27 @@ class Table_Stats_Eps extends TableStats
      *
      * @param boolean $showColor Whether to display color
      *
+     * @global object $eps The current eps document
+     *
      * @return void
      *
+     * @access public
      * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
      */
     public function tableDraw($showColor)
     {
+        global $eps;
         //echo $this->tableName.'<br />';
-        $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
+        $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
+        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
-            $this->diagram->rect(
+            $eps->rect(
                 $this->x, $this->y + 12  + $this->currentCell,
                 $this->width, $this->heightCell, 1
             );
-            $this->diagram->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
+            $eps->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
         }
     }
 }
+?>

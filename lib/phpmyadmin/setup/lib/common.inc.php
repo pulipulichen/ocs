@@ -53,3 +53,4 @@ $GLOBALS['ConfigFile']->setPersistKeys(
 // allows for redirection even after sending some data
 ob_start();
 
+?>

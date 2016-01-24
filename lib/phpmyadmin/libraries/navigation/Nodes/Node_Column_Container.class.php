@@ -18,6 +18,8 @@ class Node_Column_Container extends Node
 {
     /**
      * Initialises the class
+     *
+     * @return Node_Column_Container
      */
     public function __construct()
     {
@@ -52,3 +54,4 @@ class Node_Column_Container extends Node
     }
 }
 
+?>

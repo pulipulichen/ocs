@@ -15,281 +15,6 @@ if (! defined('PHPMYADMIN')) {
 $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 
 /**
- * Check if user has required privileges for
- * performing 'FLUSH PRIVILEGES' operation
- *
- * @return void
- */
-function PMA_checkRequiredPrivilegesForFlushing()
-{
-    if (PMA_Util::cacheExists('flush_priv')) {
-        $GLOBALS['flush_priv'] = PMA_Util::cacheGet(
-            'flush_priv'
-        );
-        return;
-    }
-
-    $GLOBALS['flush_priv'] = $GLOBALS['dbi']->tryQuery(
-            'FLUSH PRIVILEGES'
-    );
-
-    // must also cacheUnset() them in
-    // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('flush_priv', $GLOBALS['flush_priv']);
-}
-
-/**
- * Check if user has required privileges for
- * performing 'Adjust privileges' operations
- *
- * @return void
- */
-function PMA_checkRequiredPrivilegesForAdjust()
-{
-    if (PMA_Util::cacheExists('db_priv')) {
-        $GLOBALS['db_priv'] = PMA_Util::cacheGet(
-            'db_priv'
-        );
-        $GLOBALS['col_priv'] = PMA_Util::cacheGet(
-            'col_priv'
-        );
-        $GLOBALS['table_priv'] = PMA_Util::cacheGet(
-            'table_priv'
-        );
-        $GLOBALS['proc_priv'] = PMA_Util::cacheGet(
-            'proc_priv'
-        );
-        return;
-    }
-
-    $privs_available = true;
-    // FOR DB PRIVS
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`db` LIMIT 1'
-    );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`db` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = ""'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`db`(`host`, `Db`, `User`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`db` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user"'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`db` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = ""'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-    }
-    // save the value
-    $GLOBALS['db_priv'] = $privs_available;
-    // reset the value
-    $privs_available = true;
-
-    // FOR COLUMNS_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`columns_priv` LIMIT 1'
-    );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`columns_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = ""'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`columns_priv`(`host`, `Db`, `User`, `Table_name`,'
-            . ' `Column_name`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`columns_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-                . ' AND Column_name = ""'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`columns_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Column_name = "" AND Table_name = ""'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-
-    }
-    // Save the value
-    $GLOBALS['col_priv'] = $privs_available;
-    // Reset the value
-    $privs_available = true;
-
-    // FOR TABLES_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`tables_priv` LIMIT 1'
-    );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`tables_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = ""'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`tables_priv`(`host`, `Db`, `User`, `Table_name`'
-            . ') VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`tables_priv` WHERE host = "pma_test_host" AND '
-                . 'Db = "mysql" AND User = "pma_test_user" AND Table_name = ""'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`tables_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND Table_name = ""'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-
-    }
-    // Save the value
-    $GLOBALS['table_priv'] = $privs_available;
-    // Reset the value
-    $privs_available = true;
-
-    // FOR PROCS_PRIV
-    $select_privs_available = $GLOBALS['dbi']->tryQuery(
-        'SELECT * FROM `mysql`.`procs_priv` LIMIT 1'
-    );
-
-    $privs_available = $select_privs_available && $privs_available;
-
-    if ($privs_available) {
-        $delete_privs_available = $GLOBALS['dbi']->tryQuery(
-            'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND `Routine_name` = ""'
-            . ' AND `Routine_type` = ""'
-        );
-        $privs_available = $delete_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        // unset the `foreign_key_checks` temporarily
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 0
-        ');
-
-        $insert_privs_available = $GLOBALS['dbi']->tryQuery(
-            'INSERT INTO `mysql`.`procs_priv`(`host`, `Db`, `User`, `Routine_name`,'
-            . ' `Routine_type`) VALUES("pma_test_host", '
-            . '"mysql", "pma_test_user", "", "PROCEDURE")'
-        );
-
-        // set the `foreign_key_checks` back
-        $GLOBALS['dbi']->tryQuery('
-            SET @@session.foreign_key_checks = 1
-        ');
-
-        // If successful test insert, delete the test row
-        if ($insert_privs_available) {
-            $GLOBALS['dbi']->tryQuery(
-                'DELETE FROM `mysql`.`procs_priv` WHERE `host` = "pma_test_host" AND '
-                . '`Db` = "mysql" AND `User` = "pma_test_user" AND `Routine_name` = ""'
-                . ' AND `Routine_type` = "PROCEDURE"'
-            );
-        }
-        $privs_available = $insert_privs_available && $privs_available;
-    }
-
-    if ($privs_available) {
-        $update_privs_available = $GLOBALS['dbi']->tryQuery(
-            'UPDATE `mysql`.`procs_priv` SET `host` = "" WHERE `host` = "" AND '
-            . '`Db` = "" AND `User` = "" AND `Routine_name` = ""'
-        );
-        $privs_available = $update_privs_available && $privs_available;
-    }
-    // Save the value
-    $GLOBALS['proc_priv'] = $privs_available;
-
-    // must also cacheUnset() them in
-    // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
-    PMA_Util::cacheSet('table_priv', $GLOBALS['table_priv']);
-    PMA_Util::cacheSet('col_priv', $GLOBALS['col_priv']);
-    PMA_Util::cacheSet('db_priv', $GLOBALS['db_priv']);
-}
-
-/**
  * sets privilege information extracted from SHOW GRANTS result
  *
  * Detection for some CREATE privilege.
@@ -313,6 +38,9 @@ function PMA_analyseShowGrant()
         $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
             'is_create_db_priv'
         );
+        $GLOBALS['is_process_priv'] = PMA_Util::cacheGet(
+            'is_process_priv'
+        );
         $GLOBALS['is_reload_priv'] = PMA_Util::cacheGet(
             'is_reload_priv'
         );
@@ -330,6 +58,7 @@ function PMA_analyseShowGrant()
 
     // defaults
     $GLOBALS['is_create_db_priv']  = false;
+    $GLOBALS['is_process_priv']    = true;
     $GLOBALS['is_reload_priv']     = false;
     $GLOBALS['db_to_create']       = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array();
@@ -440,6 +169,7 @@ function PMA_analyseShowGrant()
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
     PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv']);
     PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
     PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
     PMA_Util::cacheSet(
@@ -450,30 +180,16 @@ function PMA_analyseShowGrant()
 } // end function
 
 if (!PMA_DRIZZLE) {
-    $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
-    if ($user == '@') { // MySQL is started with --skip-grant-tables
-        $GLOBALS['is_create_db_priv'] = true;
-        $GLOBALS['is_reload_priv']    = true;
-        $GLOBALS['db_to_create']      = '';
-        $GLOBALS['dbs_where_create_table_allowed'] = array('*');
-        $GLOBALS['dbs_to_test']       = false;
-    } else {
-        PMA_analyseShowGrant();
-    }
-
-    // Check if privileges to 'mysql'.col_privs, 'mysql'.db,
-    // 'mysql'.table_privs, 'mysql'.proc_privs and privileges for
-    // flushing the privileges are available
-    PMA_checkRequiredPrivilegesForFlushing();
-    PMA_checkRequiredPrivilegesForAdjust();
-
+    PMA_analyseShowGrant();
 } else {
     // todo: for simple_user_policy only database with user's login can be created
     // (unless logged in as root)
     $GLOBALS['is_create_db_priv'] = $GLOBALS['is_superuser'];
+    $GLOBALS['is_process_priv']   = false;
     $GLOBALS['is_reload_priv']    = false;
     $GLOBALS['db_to_create']      = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array('*');
     $GLOBALS['dbs_to_test']       = false;
 }
 
+?>

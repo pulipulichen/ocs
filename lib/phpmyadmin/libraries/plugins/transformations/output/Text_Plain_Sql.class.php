@@ -22,9 +22,6 @@ require_once 'libraries/plugins/transformations/abstract/'
  */
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
@@ -57,3 +54,4 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
         return "Plain";
     }
 }
+?>

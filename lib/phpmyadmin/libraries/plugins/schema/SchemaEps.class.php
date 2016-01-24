@@ -95,7 +95,8 @@ class SchemaEps extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Eps_Relation_Schema($db);
+        $export = new PMA_Eps_Relation_Schema();
         $export->showOutput();
     }
 }
+?>

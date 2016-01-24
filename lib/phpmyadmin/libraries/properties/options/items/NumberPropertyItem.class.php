@@ -32,3 +32,4 @@ class NumberPropertyItem extends OptionsPropertyOneItem
         return "number";
     }
 }
+?>

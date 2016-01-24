@@ -27,3 +27,4 @@ function PMA_logUser($user, $status = 'ok')
     }
 }
 
+?>

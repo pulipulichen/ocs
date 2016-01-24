@@ -42,3 +42,4 @@ class Image_JPEG_Link extends ImageLinkTransformationsPlugin
         return "JPEG";
     }
 }
+?>

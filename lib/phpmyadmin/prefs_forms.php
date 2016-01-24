@@ -23,7 +23,7 @@ PMA_userprefsPageInit($cf);
 
 // handle form processing
 
-$form_param = isset($_GET['form']) ? $_GET['form'] : null;
+$form_param = filter_input(INPUT_GET, 'form');
 if (! isset($forms[$form_param])) {
     $forms_keys = array_keys($forms);
     $form_param = array_shift($forms_keys);
@@ -57,8 +57,7 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
-        $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
-        $hash = ltrim($tabHash, '#');
+        $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
         PMA_userprefsRedirect(
             'prefs_forms.php',
             array('form' => $form_param),
@@ -84,17 +83,10 @@ if ($form_display->hasErrors()) {
     // form has errors
     ?>
     <div class="error config-form">
-        <b>
-            <?php echo __('Cannot save settings, submitted form contains errors!') ?>
-        </b>
-        <?php echo $form_display->displayErrors(); ?>
+        <b><?php echo __('Cannot save settings, submitted form contains errors!') ?></b>
+        <?php $form_display->displayErrors(); ?>
     </div>
     <?php
 }
-echo $form_display->getDisplay(true, true);
-
-if ($response->isAjax()) {
-    $response->addJSON('_disableNaviSettings', true);
-} else {
-    define('PMA_DISABLE_NAVI_SETTINGS', true);
-}
+$form_display->display(true, true);
+?>

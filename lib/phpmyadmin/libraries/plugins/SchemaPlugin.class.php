@@ -30,7 +30,7 @@ abstract class SchemaPlugin
     /**
      * Gets the export specific format plugin properties
      *
-     * @return SchemaPluginProperties
+     * @return array
      */
     public function getProperties()
     {
@@ -73,3 +73,4 @@ abstract class SchemaPlugin
         $propertyGroup->addProperty($leaf);
     }
 }
+?>

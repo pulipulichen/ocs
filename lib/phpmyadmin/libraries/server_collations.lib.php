@@ -97,3 +97,4 @@ function PMA_getHtmlForCollationCurrentCharset(
     }
     return $html;
 }
+?>

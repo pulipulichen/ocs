@@ -63,7 +63,12 @@ function PMA_EVN_main()
     /**
      * Display a list of available events
      */
-    $items = $GLOBALS['dbi']->getEvents($db);
+    $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
+    $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+             . "'" . PMA_Util::sqlAddSlashes($db) . "'";
+    $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
+             . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
+    $items   = $GLOBALS['dbi']->fetchResult($query);
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if
@@ -179,8 +184,14 @@ function PMA_EVN_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
-                $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
-                $event = $events[0];
+                $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
+                $where   = "EVENT_SCHEMA " . PMA_Util::getCollateForIS() . "="
+                    . "'" . PMA_Util::sqlAddSlashes($db) . "' "
+                    . "AND EVENT_NAME='"
+                    . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
+                $query   = "SELECT " . $columns
+                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where . ";";
+                $event   = $GLOBALS['dbi']->fetchSingleRow($query);
                 $response->addJSON(
                     'name',
                     htmlspecialchars(
@@ -420,8 +431,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     } else {
         $retval .= "        <input name='item_type' type='hidden' \n";
         $retval .= "               value='{$item['item_type']}' />\n";
-        $retval .= "        <div class='floatleft' style='width: 49%; "
-            . "text-align: center; font-weight: bold;'>\n";
+        $retval .= "        <div style='width: 49%; float: left; text-align: center;"
+                                . " font-weight: bold;'>\n";
         $retval .= "            {$item['item_type']}\n";
         $retval .= "        </div>\n";
         $retval .= "        <input style='width: 49%;' type='submit'\n";
@@ -604,3 +615,4 @@ function PMA_EVN_getQueryFromRequest()
     return $query;
 } // end PMA_EVN_getQueryFromRequest()
 
+?>

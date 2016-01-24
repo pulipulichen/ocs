@@ -63,3 +63,4 @@ class PMA_GIS_Factory
         }
     }
 }
+?>

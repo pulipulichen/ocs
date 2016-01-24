@@ -17,12 +17,10 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
-require_once 'libraries/display_create_table.lib.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
@@ -72,7 +70,6 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
 
         include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
-        /* @var $export_sql_plugin ExportSql */
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",
@@ -119,12 +116,6 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
         PMA_duplicateBookmarks($_error, $GLOBALS['db']);
 
         if (! $_error && $move) {
-            if (isset($_REQUEST['adjust_privileges'])
-                && ! empty($_REQUEST['adjust_privileges'])
-            ) {
-                PMA_AdjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
-            }
-
             /**
              * cleanup pmadb stuff for this db
              */
@@ -143,12 +134,6 @@ if (/*overload*/mb_strlen($GLOBALS['db'])
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
-            if (isset($_REQUEST['adjust_privileges'])
-                && ! empty($_REQUEST['adjust_privileges'])
-            ) {
-                PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
-            }
-
             $message = PMA_Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
@@ -211,19 +196,7 @@ $url_query .= '&amp;goto=db_operations.php';
 
 // Gets the database structure
 $sub_part = '_structure';
-
-list(
-    $tables,
-    $num_tables,
-    $total_num_tables,
-    $sub_part,
-    $is_show_stats,
-    $db_is_system_schema,
-    $tooltip_truename,
-    $tooltip_aliasname,
-    $pos
-) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
-
+require 'libraries/db_info.inc.php';
 echo "\n";
 
 if (isset($message)) {
@@ -245,7 +218,11 @@ if (!$is_information_schema) {
     }
 
     $response->addHTML('<div class="operations_half_width">');
-    $response->addHTML(PMA_getHtmlForCreateTable($db));
+    ob_start();
+    include 'libraries/display_create_table.lib.php';
+    $content = ob_get_contents();
+    ob_end_clean();
+    $response->addHTML($content);
     $response->addHTML('</div>');
 
     /**
@@ -279,10 +256,7 @@ if (!$is_information_schema) {
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
         $message = PMA_Message::notice(
-            __(
-                'The phpMyAdmin configuration storage has been deactivated. ' .
-                '%sFind out why%s.'
-            )
+            __('The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.')
         );
         $message->addParam(
             '<a href="' . $cfg['PmaAbsoluteUri']
@@ -313,3 +287,5 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         PMA_DatabaseInterface::QUERY_STORE
     );
 } // end if
+
+?>

@@ -32,8 +32,6 @@ class Table_Stats_Svg extends TableStats
     /**
      * The "Table_Stats_Svg" constructor
      *
-     * @param object  $diagram          The current SVG image document
-     * @param string  $db               The database name
      * @param string  $tableName        The table name
      * @param string  $font             Font face
      * @param integer $fontSize         The font size
@@ -42,17 +40,22 @@ class Table_Stats_Svg extends TableStats
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $tableDimension   Whether to display table position or not
      * @param boolean $offline          Whether the coordinates are sent
+     *                                  from the browser
      *
+     * @global object  $svg         The current SVG image document
+     *
+     * @access private
      *
      * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
      *       Table_Stats_Svg::Table_Stats_setHeight
      */
-    public function __construct(
-        $diagram, $db, $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
+    function __construct(
+        $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
         $showKeys = false, $tableDimension = false, $offline = false
     ) {
+        global $svg;
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName,
+            $svg, $GLOBALS['db'], $pageNumber, $tableName,
             $showKeys, $tableDimension, $offline
         );
 
@@ -86,6 +89,8 @@ class Table_Stats_Svg extends TableStats
      * @param string  $font     The font size
      * @param integer $fontSize The font size
      *
+     * @global object $svg The current SVG image document
+     *
      * @return void
      * @access private
      *
@@ -118,8 +123,9 @@ class Table_Stats_Svg extends TableStats
      * @param integer $fontSize font size
      *
      * @return void
+     * @access private
      */
-    private function _setHeightTable($fontSize)
+    function _setHeightTable($fontSize)
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
@@ -130,6 +136,8 @@ class Table_Stats_Svg extends TableStats
      *
      * @param boolean $showColor Whether to display color
      *
+     * @global object $svg The current SVG image document
+     *
      * @access public
      * @return void
      *
@@ -137,33 +145,36 @@ class Table_Stats_Svg extends TableStats
      */
     public function tableDraw($showColor)
     {
-        $this->diagram->printElement(
+        global $svg;
+
+        $svg->printElement(
             'rect', $this->x, $this->y, $this->width,
-            $this->heightCell, null, 'fill:#007;stroke:black;'
+            $this->heightCell, null, 'fill:red;stroke:black;'
         );
-        $this->diagram->printElement(
+        $svg->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->getTitle(), 'fill:#fff;'
+            $this->getTitle(), 'fill:none;stroke:black;'
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
             $fillColor    = 'none';
             if ($showColor) {
                 if (in_array($field, $this->primary)) {
-                    $fillColor = '#aea';
+                    $fillColor = '#0c0';
                 }
                 if ($field == $this->displayfield) {
                     $fillColor = 'none';
                 }
             }
-            $this->diagram->printElement(
+            $svg->printElement(
                 'rect', $this->x, $this->y + $this->currentCell, $this->width,
                 $this->heightCell, null, 'fill:' . $fillColor . ';stroke:black;'
             );
-            $this->diagram->printElement(
+            $svg->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
-                $this->width, $this->heightCell, $field, 'fill:black;'
+                $this->width, $this->heightCell, $field, 'fill:none;stroke:black;'
             );
         }
     }
 }
+?>

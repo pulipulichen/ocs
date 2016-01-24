@@ -142,3 +142,4 @@ class PMA_Font
         return (int)ceil($textWidth * $modifier);
     }
 }
+?>

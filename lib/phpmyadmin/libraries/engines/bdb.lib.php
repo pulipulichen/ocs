@@ -84,3 +84,4 @@ class PMA_StorageEngine_Bdb extends PMA_StorageEngine
     }
 }
 
+?>

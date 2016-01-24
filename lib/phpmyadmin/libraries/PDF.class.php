@@ -59,7 +59,7 @@ class PMA_PDF extends TCPDF
      *
      * @return void
      */
-    public function Footer()
+    function Footer()
     {
         // Check if footer for this page already exists
         if (!isset($this->footerset[$this->page])) {
@@ -87,7 +87,7 @@ class PMA_PDF extends TCPDF
      *
      * @return void
      */
-    public function SetAlias($name, $value)
+    function SetAlias($name, $value)
     {
         $name = TCPDF_FONTS::UTF8ToUTF16BE(
             $name, false, true, $this->CurrentFont
@@ -102,7 +102,7 @@ class PMA_PDF extends TCPDF
      *
      * @return void
      */
-    public function _putpages()
+    function _putpages()
     {
         if (count($this->Alias) > 0) {
             $nbPages = count($this->pages);
@@ -120,7 +120,7 @@ class PMA_PDF extends TCPDF
      *
      * @return void
      */
-    public function Error($error_message = '')
+    function Error($error_message = '')
     {
         PMA_Message::error(
             __('Error while creating PDF:') . ' ' . $error_message
@@ -135,7 +135,7 @@ class PMA_PDF extends TCPDF
      *
      * @return void
      */
-    public function Download($filename)
+    function Download($filename)
     {
         $pdfData = $this->getPDFData();
         PMA_Response::getInstance()->disable();

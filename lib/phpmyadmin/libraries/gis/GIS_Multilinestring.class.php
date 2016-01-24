@@ -391,3 +391,4 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         return $params;
     }
 }
+?>

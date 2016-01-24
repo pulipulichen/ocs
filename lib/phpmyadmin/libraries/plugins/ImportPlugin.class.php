@@ -38,7 +38,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return ImportPluginProperties
+     * @return array
      */
     public function getProperties()
     {
@@ -74,3 +74,4 @@ abstract class ImportPlugin
         return array($db_name, $options);
     }
 }
+?>

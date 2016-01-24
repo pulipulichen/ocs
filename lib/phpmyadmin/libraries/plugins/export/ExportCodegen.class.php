@@ -120,7 +120,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader()
+    public function exportHeader ()
     {
         return true;
     }
@@ -130,7 +130,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter()
+    public function exportFooter ()
     {
         return true;
     }
@@ -143,7 +143,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader ($db, $db_alias = '')
     {
         return true;
     }
@@ -155,7 +155,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter($db)
+    public function exportDBFooter ($db)
     {
         return true;
     }
@@ -163,13 +163,12 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $db_alias = '')
     {
         return true;
     }
@@ -248,7 +247,6 @@ class ExportCodegen extends ExportPlugin
             )
         );
         if ($result) {
-            /** @var TableProperty[] $tableProperties */
             $tableProperties = array();
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
@@ -433,3 +431,4 @@ class ExportCodegen extends ExportPlugin
         $this->_cgHandlers = $CG_HANDLERS;
     }
 }
+?>

@@ -41,3 +41,4 @@ class Text_Plain_Link extends TextLinkTransformationsPlugin
         return "Plain";
     }
 }
+?>

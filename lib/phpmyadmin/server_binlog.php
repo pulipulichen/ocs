@@ -50,3 +50,5 @@ $response->addHTML(PMA_getLogSelector($binary_logs, $url_params));
 $response->addHTML(PMA_getLogInfo($url_params));
 
 exit;
+
+?>

@@ -37,8 +37,10 @@ class PMA_EPS
      * it shows/tells that the Post Script document is purely under
      * Document Structuring Convention [DSC] and is Compliant
      * Encapsulated Post Script Document
+     *
+     * @access public
      */
-    public function __construct()
+    function __construct()
     {
         $this->stringCommands = "";
         $this->stringCommands .= "%!PS-Adobe-3.0 EPSF-3.0 \n";
@@ -50,8 +52,10 @@ class PMA_EPS
      * @param string $value sets the title text
      *
      * @return void
+     *
+     * @access public
      */
-    public function setTitle($value)
+    function setTitle($value)
     {
         $this->stringCommands .= '%%Title: ' . $value . "\n";
     }
@@ -62,8 +66,10 @@ class PMA_EPS
      * @param string $value sets the author
      *
      * @return void
+     *
+     * @access public
      */
-    public function setAuthor($value)
+    function setAuthor($value)
     {
         $this->stringCommands .= '%%Creator: ' . $value . "\n";
     }
@@ -74,8 +80,10 @@ class PMA_EPS
      * @param string $value sets the date
      *
      * @return void
+     *
+     * @access public
      */
-    public function setDate($value)
+    function setDate($value)
     {
         $this->stringCommands .= '%%CreationDate: ' . $value . "\n";
     }
@@ -86,8 +94,10 @@ class PMA_EPS
      * @param string $orientation sets the orientation
      *
      * @return void
+     *
+     * @access public
      */
-    public function setOrientation($orientation)
+    function setOrientation($orientation)
     {
         $this->stringCommands .= "%%PageOrder: Ascend \n";
         if ($orientation == "L") {
@@ -111,8 +121,10 @@ class PMA_EPS
      * @param integer $size  sets the size of the font e.g 10
      *
      * @return void
+     *
+     * @access public
      */
-    public function setFont($value, $size)
+    function setFont($value, $size)
     {
         $this->font = $value;
         $this->fontSize = $size;
@@ -127,8 +139,9 @@ class PMA_EPS
      * Get the font
      *
      * @return string return the font name e.g Arial
+     * @access public
      */
-    public function getFont()
+    function getFont()
     {
         return $this->font;
     }
@@ -137,8 +150,9 @@ class PMA_EPS
      * Get the font Size
      *
      * @return string return the size of the font e.g 10
+     * @access public
      */
-    public function getFontSize()
+    function getFontSize()
     {
         return $this->fontSize;
     }
@@ -160,10 +174,11 @@ class PMA_EPS
      * @param integer $lineWidth Sets the width of the line e.g 2
      *
      * @return void
+     *
+     * @access public
      */
-    public function line($x_from = 0, $y_from = 0, $x_to = 0, $y_to = 0,
-        $lineWidth = 0
-    ) {
+    function line($x_from = 0, $y_from = 0, $x_to = 0, $y_to = 0, $lineWidth = 0)
+    {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= $x_from . ' ' . $y_from  . " moveto \n";
         $this->stringCommands .= $x_to . ' ' . $y_to  . " lineto \n";
@@ -177,18 +192,20 @@ class PMA_EPS
      * width of the line. rectangles drawn around the text shown of fields
      *
      * @param integer $x_from    The x_from attribute defines the start
-     *                           left position of the element
+                                 left position of the element
      * @param integer $y_from    The y_from attribute defines the start
-     *                           right position of the element
+                                 right position of the element
      * @param integer $x_to      The x_to attribute defines the end
-     *                           left position of the element
+                                 left position of the element
      * @param integer $y_to      The y_to attribute defines the end
-     *                           right position of the element
+                                 right position of the element
      * @param integer $lineWidth Sets the width of the line e.g 2
      *
      * @return void
+     *
+     * @access public
      */
-    public function rect($x_from, $y_from, $x_to, $y_to, $lineWidth)
+    function rect($x_from, $y_from, $x_to, $y_to, $lineWidth)
     {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= "newpath \n";
@@ -211,8 +228,10 @@ class PMA_EPS
      * @param integer $y The y attribute defines the right position of the element
      *
      * @return void
+     *
+     * @access public
      */
-    public function moveTo($x, $y)
+    function moveTo($x, $y)
     {
         $this->stringCommands .= $x . ' ' . $y . " moveto \n";
     }
@@ -223,8 +242,10 @@ class PMA_EPS
      * @param string $text The string to be displayed
      *
      * @return void
+     *
+     * @access public
      */
-    public function show($text)
+    function show($text)
     {
         $this->stringCommands .=  '(' . $text  . ") show \n";
     }
@@ -237,8 +258,10 @@ class PMA_EPS
      * @param integer $y    Y attribute defines the right position of the element
      *
      * @return void
+     *
+     * @access public
      */
-    public function showXY($text, $x, $y)
+    function showXY($text, $x, $y)
     {
         $this->moveTo($x, $y);
         $this->show($text);
@@ -248,8 +271,9 @@ class PMA_EPS
      * Ends EPS Document
      *
      * @return void
+     * @access public
      */
-    public function endEpsDoc()
+    function endEpsDoc()
     {
         $this->stringCommands .= "showpage \n";
     }
@@ -260,8 +284,10 @@ class PMA_EPS
      * @param string $fileName name of the eps document
      *
      * @return void
+     *
+     * @access public
      */
-    public function showOutput($fileName)
+    function showOutput($fileName)
     {
         // if(ob_get_clean()){
             //ob_end_clean();
@@ -293,12 +319,7 @@ class PMA_EPS
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 {
-    /**
-     * @var Table_Stats_Dia[]|Table_Stats_Eps[]|Table_Stats_Pdf[]|Table_Stats_Svg[]
-     */
     private $_tables = array();
-
-    /** @var Relation_Stats_Dia[] Relations */
     private $_relations = array();
 
     /**
@@ -307,13 +328,13 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
-     * @param string $db database name
-     *
      * @see PMA_EPS
      */
-    public function __construct($db)
+    function __construct()
     {
-        parent::__construct($db, new PMA_EPS());
+        parent::__construct();
+
+        global $eps;
 
         $this->setShowColor(isset($_REQUEST['eps_show_color']));
         $this->setShowKeys(isset($_REQUEST['eps_show_keys']));
@@ -321,26 +342,25 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setAllTablesSameWidth(isset($_REQUEST['eps_all_tables_same_width']));
         $this->setOrientation($_REQUEST['eps_orientation']);
 
-        $this->diagram->setTitle(
+        $eps = new PMA_EPS();
+        $eps->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $this->db,
+                $GLOBALS['db'],
                 $this->pageNumber
             )
         );
-        $this->diagram->setAuthor('phpMyAdmin ' . PMA_VERSION);
-        $this->diagram->setDate(date("j F Y, g:i a"));
-        $this->diagram->setOrientation($this->orientation);
-        $this->diagram->setFont('Verdana', '10');
+        $eps->setAuthor('phpMyAdmin ' . PMA_VERSION);
+        $eps->setDate(date("j F Y, g:i a"));
+        $eps->setOrientation($this->orientation);
+        $eps->setFont('Verdana', '10');
 
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats_Eps(
-                    $this->diagram, $this->db,
-                    $table, $this->diagram->getFont(),
-                    $this->diagram->getFontSize(), $this->pageNumber,
+                    $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys,
                     $this->tableDimension, $this->offline
                 );
@@ -353,7 +373,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = PMA_getForeigners($GLOBALS['db'], $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
@@ -368,7 +388,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation(
-                            $one_table, $this->diagram->getFont(), $this->diagram->getFontSize(),
+                            $one_table, $eps->getFont(), $eps->getFontSize(),
                             $master_field, $rel['foreign_table'],
                             $rel['foreign_field'], $this->tableDimension
                         );
@@ -385,8 +405,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                         as $index => $one_field
                     ) {
                         $this->_addRelation(
-                            $one_table, $this->diagram->getFont(),
-                            $this->diagram->getFontSize(),
+                            $one_table, $eps->getFont(),
+                            $eps->getFontSize(),
                             $one_field, $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
                             $this->tableDimension
@@ -400,17 +420,19 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         $this->_drawTables();
-        $this->diagram->endEpsDoc();
+        $eps->endEpsDoc();
     }
 
     /**
      * Output Eps Document for download
      *
      * @return void
+     * @access public
      */
-    public function showOutput()
+    function showOutput()
     {
-        $this->diagram->showOutput($this->getFileName('.eps'));
+        global $eps;
+        $eps->showOutput($this->getFileName('.eps'));
     }
 
     /**
@@ -426,6 +448,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @return void
      *
+     * @access private
      * @see _setMinMax,Table_Stats_Eps::__construct(),
      * Relation_Stats_Eps::__construct()
      */
@@ -435,22 +458,19 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Eps(
-                $this->diagram, $this->db, $masterTable, $font, $fontSize,
-                $this->pageNumber, $this->_tablewidth, false, $tableDimension
+                $masterTable, $font, $fontSize, $this->pageNumber,
+                $this->_tablewidth, false, $tableDimension
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Eps(
-                $this->diagram, $this->db, $foreignTable, $font, $fontSize,
-                $this->pageNumber, $this->_tablewidth, false, $tableDimension
+                $foreignTable, $font, $fontSize, $this->pageNumber,
+                $this->_tablewidth, false, $tableDimension
             );
         }
         $this->_relations[] = new Relation_Stats_Eps(
-            $this->diagram,
-            $this->_tables[$masterTable],
-            $masterField,
-            $this->_tables[$foreignTable],
-            $foreignField
+            $this->_tables[$masterTable], $masterField,
+            $this->_tables[$foreignTable], $foreignField
         );
     }
 
@@ -460,6 +480,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @return void
      *
+     * @access private
      * @see Relation_Stats_Eps::relationDraw()
      */
     private function _drawRelations()
@@ -474,6 +495,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @return void
      *
+     * @access private
      * @see Table_Stats_Eps::Table_Stats_tableDraw()
      */
     private function _drawTables()
@@ -483,3 +505,4 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         }
     }
 }
+?>

@@ -65,7 +65,7 @@ class TableProperty
      *
      * @param array $row table row
      */
-    public function __construct($row)
+    function __construct($row)
     {
         $this->name = trim($row[0]);
         $this->type = trim($row[1]);
@@ -80,7 +80,7 @@ class TableProperty
      *
      * @return string type
      */
-    public function getPureType()
+    function getPureType()
     {
         $pos = /*overload*/mb_strpos($this->type, "(");
         if ($pos > 0) {
@@ -94,7 +94,7 @@ class TableProperty
      *
      * @return bool true if the key is not null, false otherwise
      */
-    public function isNotNull()
+    function isNotNull()
     {
         return $this->nullable == "NO" ? "true" : "false";
     }
@@ -104,7 +104,7 @@ class TableProperty
      *
      * @return bool true if the key is unique, false otherwise
      */
-    public function isUnique()
+    function isUnique()
     {
         return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
     }
@@ -114,7 +114,7 @@ class TableProperty
      *
      * @return string type
      */
-    public function getDotNetPrimitiveType()
+    function getDotNetPrimitiveType()
     {
         if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "int";
@@ -148,7 +148,7 @@ class TableProperty
      *
      * @return string type
      */
-    public function getDotNetObjectType()
+    function getDotNetObjectType()
     {
         if (/*overload*/mb_strpos($this->type, "int") === 0) {
             return "Int32";
@@ -182,7 +182,7 @@ class TableProperty
      *
      * @return string containing the name of the index
      */
-    public function getIndexName()
+    function getIndexName()
     {
         if (/*overload*/mb_strlen($this->key) > 0) {
             return "index=\""
@@ -197,9 +197,9 @@ class TableProperty
      *
      * @return bool true if the key is primary, false otherwise
      */
-    public function isPK()
+    function isPK()
     {
-        return $this->key == "PRI";
+        return $this->key=="PRI";
     }
 
     /**
@@ -209,7 +209,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function formatCs($text)
+    function formatCs($text)
     {
         $text = str_replace(
             "#name#",
@@ -226,7 +226,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function formatXml($text)
+    function formatXml($text)
     {
         $text = str_replace(
             "#name#",
@@ -248,7 +248,7 @@ class TableProperty
      *
      * @return string formatted text
      */
-    public function format($text)
+    function format($text)
     {
         $text = str_replace(
             "#ucfirstName#",
@@ -283,3 +283,4 @@ class TableProperty
         return $text;
     }
 }
+?>

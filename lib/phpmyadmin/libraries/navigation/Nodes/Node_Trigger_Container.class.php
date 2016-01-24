@@ -18,6 +18,8 @@ class Node_Trigger_Container extends Node
 {
     /**
      * Initialises the class
+     *
+     * @return Node_Trigger_Container
      */
     public function __construct()
     {
@@ -52,3 +54,4 @@ class Node_Trigger_Container extends Node
 
 }
 
+?>

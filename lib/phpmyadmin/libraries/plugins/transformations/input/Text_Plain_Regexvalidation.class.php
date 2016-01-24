@@ -43,3 +43,4 @@ class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
         return "Plain";
     }
 }
+?>

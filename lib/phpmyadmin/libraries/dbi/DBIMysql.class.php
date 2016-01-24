@@ -260,7 +260,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return bool false
      */
@@ -276,7 +276,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return boolean false
      */
@@ -466,3 +466,4 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
         return false;
     }
 }
+?>

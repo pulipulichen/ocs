@@ -69,3 +69,4 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
         return "Hex";
     }
 }
+?>

@@ -42,3 +42,4 @@ class Text_Plain_External extends ExternalTransformationsPlugin
         return "Plain";
     }
 }
+?>

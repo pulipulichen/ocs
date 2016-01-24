@@ -23,6 +23,8 @@ class Node_Column extends Node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
+     *
+     * @return Node_Column
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -42,3 +44,4 @@ class Node_Column extends Node
     }
 }
 
+?>

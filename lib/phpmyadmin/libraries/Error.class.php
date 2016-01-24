@@ -288,8 +288,9 @@ class PMA_Error extends PMA_Message
      * @param string $lines     Lines separator to use
      *
      * @return string formatted backtrace
+     * @static
      */
-    public static function formatBacktrace($backtrace, $separator, $lines)
+    static function formatBacktrace($backtrace, $separator, $lines)
     {
         $retval = '';
 
@@ -315,8 +316,9 @@ class PMA_Error extends PMA_Message
      * @param string $separator Arguments separator to use
      *
      * @return string
+     * @static
      */
-    public static function getFunctionCall($step, $separator)
+    static function getFunctionCall($step, $separator)
     {
         $retval = $step['function'] . '(';
         if (isset($step['args'])) {
@@ -347,8 +349,9 @@ class PMA_Error extends PMA_Message
      * @param string $function function name
      *
      * @return string
+     * @static
      */
-    public static function getArg($arg, $function)
+    static function getArg($arg, $function)
     {
         $retval = '';
         $include_functions = array(
@@ -428,8 +431,9 @@ class PMA_Error extends PMA_Message
      * @param string $dest path to be shorten
      *
      * @return string shortened path
+     * @static
      */
-    public static function relPath($dest)
+    static function relPath($dest)
     {
         $dest = realpath($dest);
 
@@ -463,3 +467,4 @@ class PMA_Error extends PMA_Message
         );
     }
 }
+?>

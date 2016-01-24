@@ -42,3 +42,4 @@ class Application_Octetstream_Hex extends HexTransformationsPlugin
         return "OctetStream";
     }
 }
+?>

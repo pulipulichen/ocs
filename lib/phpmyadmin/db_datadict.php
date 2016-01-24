@@ -13,17 +13,7 @@ require_once 'libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
     include 'libraries/db_common.inc.php';
-    list(
-        $tables,
-        $num_tables,
-        $total_num_tables,
-        $sub_part,
-        $is_show_stats,
-        $db_is_system_schema,
-        $tooltip_truename,
-        $tooltip_aliasname,
-        $pos
-    ) = PMA_Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    include 'libraries/db_info.inc.php';
 }
 
 $response = PMA_Response::getInstance();
@@ -55,8 +45,8 @@ if ($cfgRelation['commwork']) {
      * Displays DB comment
      */
     if ($comment) {
-        echo '<p>' . __('Database comment')
-            . '<br /><i>' . htmlspecialchars($comment) . '</i></p>';
+        echo '<p>' . __('Database comment:')
+            . ' <i>' . htmlspecialchars($comment) . '</i></p>';
     } // end if
 }
 
@@ -75,10 +65,9 @@ foreach ($tables as $table) {
     echo '<h2>' . htmlspecialchars($table) . '</h2>' . "\n";
 
     /**
-     * Gets table information
+     * Gets table informations
      */
-    $show_comment = $GLOBALS['dbi']->getTable($db, $table)
-        ->getStatusInfo('TABLE_COMMENT');
+    $show_comment = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_COMMENT');
 
     /**
      * Gets table keys and retains them
@@ -134,7 +123,14 @@ foreach ($tables as $table) {
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
+        if ('set' == $extracted_columnspec['type']
+            || 'enum' == $extracted_columnspec['type']
+        ) {
+            $type_nowrap  = '';
 
+        } else {
+            $type_nowrap  = ' class="nowrap"';
+        }
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         $attribute     = $extracted_columnspec['attribute'];
         if (! isset($row['Default'])) {
@@ -156,12 +152,7 @@ foreach ($tables as $table) {
             echo ' <em>(' . __('Primary') . ')</em>';
         }
         echo '</td>';
-        echo '<td'
-            . PMA_Util::getClassForType(
-                $extracted_columnspec['type']
-            )
-            . ' lang="en" dir="ltr">' . $type . '</td>';
-
+        echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
         echo '<td>';
         echo (($row['Null'] == 'NO') ? __('No') : __('Yes'));
         echo '</td>';
@@ -204,7 +195,7 @@ foreach ($tables as $table) {
     echo '</table>';
     // display indexes information
     if (count(PMA_Index::getFromTable($table, $db)) > 0) {
-        echo PMA_Index::getHtmlForIndexes($table, $db, true);
+        echo PMA_Index::getView($table, $db, true);
     }
     echo '</div>';
 } //ends main while
@@ -213,3 +204,5 @@ foreach ($tables as $table) {
  * Displays the footer
  */
 echo PMA_Util::getButton();
+
+?>

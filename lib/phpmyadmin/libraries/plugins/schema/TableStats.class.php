@@ -176,3 +176,4 @@ abstract class TableStats
         . ' ' . $this->tableName;
     }
 }
+?>

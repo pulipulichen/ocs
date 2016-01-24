@@ -26,7 +26,7 @@ $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
 /**
- * Gets tables information
+ * Gets tables informations
  */
 
 require './libraries/tbl_info.inc.php';
@@ -71,7 +71,7 @@ if (isset($result)) {
         unset($warning_messages);
     }
     echo PMA_Util::getMessage(
-        $_message, $sql_query, $_type
+        $_message, $sql_query, $_type, $is_view = true
     );
     unset($_message, $_type);
 }
@@ -136,3 +136,4 @@ echo PMA_getDeleteDataOrTableLink(
 echo '</ul>';
 echo '</fieldset>';
 echo '</div>';
+?>

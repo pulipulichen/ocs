@@ -87,9 +87,7 @@ function PMA_buildHtmlForDb(
         $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '<a href="' . PMA_Util::getScriptNameForOption(
-               $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-           )
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
            . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf(
@@ -178,8 +176,9 @@ function PMA_buildHtmlForDb(
                )
                . '">'
                . ' '
-               . PMA_Util::getIcon('s_rights.png', __('Check privileges'))
+               . PMA_Util::getIcon('s_rights.png', __('Check Privileges'))
                . '</a></td>';
     }
     return array($column_order, $out);
 }
+?>

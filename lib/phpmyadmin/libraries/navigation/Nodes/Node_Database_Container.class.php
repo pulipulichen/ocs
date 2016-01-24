@@ -22,6 +22,8 @@ class Node_Database_Container extends Node
      * Initialises the class
      *
      * @param string $name An identifier for the new node
+     *
+     * @return Node_Database_Container
      */
     public function __construct($name)
     {
@@ -46,3 +48,4 @@ class Node_Database_Container extends Node
         }
     }
 }
+?>

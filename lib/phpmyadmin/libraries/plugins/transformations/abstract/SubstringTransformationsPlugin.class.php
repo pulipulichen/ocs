@@ -89,3 +89,4 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         return "Substring";
     }
 }
+?>

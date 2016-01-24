@@ -23,3 +23,4 @@ class PMA_StorageEngine_Berkeleydb extends PMA_StorageEngine_Bdb
 {
 }
 
+?>

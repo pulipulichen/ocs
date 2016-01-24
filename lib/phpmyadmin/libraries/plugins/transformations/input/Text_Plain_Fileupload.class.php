@@ -42,3 +42,4 @@ class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
         return "Plain";
     }
 }
+?>

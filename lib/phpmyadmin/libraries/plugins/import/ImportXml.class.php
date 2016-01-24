@@ -193,15 +193,12 @@ class ImportXml extends ImportPlugin
         if (isset($namespaces['pma'])) {
             /**
              * Get structures for all tables
-             * @var SimpleXMLElement $struct
              */
             $struct = $xml->children($namespaces['pma']);
 
             $create = array();
 
-            /** @var SimpleXMLElement $val1 */
             foreach ($struct as $val1) {
-                /** @var SimpleXMLElement $val2 */
                 foreach ($val1 as $val2) {
                     // Need to select the correct database for the creation of
                     // tables, views, triggers, etc.
@@ -248,15 +245,14 @@ class ImportXml extends ImportPlugin
                 $tbl_attr = $v1->attributes();
 
                 $isInTables = false;
-                $num_tables = count($tables);
-                for ($i = 0; $i < $num_tables; ++$i) {
+                for ($i = 0; $i < count($tables); ++$i) {
                     if (! strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
                         $isInTables = true;
                         break;
                     }
                 }
 
-                if (!$isInTables) {
+                if ($isInTables == false) {
                     $tables[] = array((string)$tbl_attr['name']);
                 }
 
@@ -281,10 +277,9 @@ class ImportXml extends ImportPlugin
             /**
              * Bring accumulated rows into the corresponding table
              */
-            $num_tables = count($tables);
-            for ($i = 0; $i < $num_tables; ++$i) {
-                $num_rows = count($rows);
-                for ($j = 0; $j < $num_rows; ++$j) {
+            $num_tbls = count($tables);
+            for ($i = 0; $i < $num_tbls; ++$i) {
+                for ($j = 0; $j < count($rows); ++$j) {
                     if (! strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
                         if (! isset($tables[$i][COL_NAMES])) {
                             $tables[$i][] = $rows[$j][COL_NAMES];

@@ -32,3 +32,4 @@ class TextPropertyItem extends OptionsPropertyOneItem
         return "text";
     }
 }
+?>

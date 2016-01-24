@@ -10,31 +10,22 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Represents a node that is a child of a database node
- * This may either be a concrete child such as table or a container
- * such as table container
+ * Represents a node that is a concrete child of a database node
  *
  * @package PhpMyAdmin-Navigation
  */
 abstract class Node_DatabaseChild extends Node
 {
     /**
-     * Returns the type of the item represented by the node.
+     * Returns HTML for hide button displayed infront of the database child node
      *
-     * @return string type of the item
-     */
-    protected abstract function getItemType();
-
-    /**
-     * Returns HTML for control buttons displayed infront of a node
-     *
-     * @return String HTML for control buttons
+     * @return String HTML for hide button
      */
     public function getHtmlForControlButtons()
     {
         $ret = '';
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
             $db   = $this->realParent()->real_name;
             $item = $this->real_name;
             $ret  = '<span class="navItemControls">'
@@ -50,4 +41,12 @@ abstract class Node_DatabaseChild extends Node
         }
         return $ret;
     }
+
+    /**
+     * Returns the type of the item represented by the node.
+     *
+     * @return string type of the item
+     */
+    protected abstract function getItemType();
 }
+?>

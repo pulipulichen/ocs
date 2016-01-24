@@ -187,7 +187,6 @@ class PMA_Tracker
 
         // get Export SQL instance
         include_once "libraries/plugin_interface.lib.php";
-        /* @var $export_sql_plugin ExportSql */
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",
@@ -439,7 +438,7 @@ class PMA_Tracker
 
         $result = PMA_queryAsControlUser($sql_query);
 
-        return (boolean) $result;
+        return $result;
     }
 
     /**
@@ -542,7 +541,7 @@ class PMA_Tracker
         $ddl_date_from = $date = date('Y-m-d H:i:s');
 
         $ddlog = array();
-        $first_iteration = true;
+        $i = 0;
 
         // Iterate tracked data definition statements
         // For each log entry we want to get date, username and statement
@@ -552,15 +551,15 @@ class PMA_Tracker
                 $username  = /*overload*/mb_substr(
                     $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
                 );
-                if ($first_iteration) {
+                if ($i == 0) {
                     $ddl_date_from = $date;
-                    $first_iteration = false;
                 }
                 $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $ddlog[] = array( 'date' => $date,
                                   'username'=> $username,
                                   'statement' => $statement );
+                $i++;
             }
         }
 
@@ -570,7 +569,7 @@ class PMA_Tracker
         $dml_date_from = $date_from;
 
         $dmlog = array();
-        $first_iteration = true;
+        $i = 0;
 
         // Iterate tracked data manipulation statements
         // For each log entry we want to get date, username and statement
@@ -580,15 +579,15 @@ class PMA_Tracker
                 $username  = /*overload*/mb_substr(
                     $log_entry, 20, /*overload*/mb_strpos($log_entry, "\n") - 20
                 );
-                if ($first_iteration) {
+                if ($i == 0) {
                     $dml_date_from = $date;
-                    $first_iteration = false;
                 }
                 $statement = rtrim(/*overload*/mb_strstr($log_entry, "\n"));
 
                 $dmlog[] = array( 'date' => $date,
                                   'username' => $username,
                                   'statement' => $statement );
+                $i++;
             }
         }
 
@@ -1028,3 +1027,4 @@ class PMA_Tracker
             . '.' . PMA_Util::backquote($cfgRelation['tracking']);
     }
 }
+?>

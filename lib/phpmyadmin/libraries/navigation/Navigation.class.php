@@ -60,11 +60,6 @@ class PMA_Navigation
         if (! PMA_Response::getInstance()->isAjax()) {
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
-            $retval .= '<div id="pma_navi_settings_container">';
-            if (!defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $retval .= PMA_PageSettings::getNaviSettings();
-            }
-            $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
             $retval .= $this->_getDropHandler();
             $retval .= '</div>'; // pma_navigation
@@ -189,7 +184,6 @@ class PMA_Navigation
         $GLOBALS['dbi']->freeResult($result);
 
         $typeMap = array(
-            'group' => __('Groups:'),
             'event' => __('Events:'),
             'function' => __('Functions:'),
             'procedure' => __('Procedures:'),
@@ -231,3 +225,4 @@ class PMA_Navigation
         return $html;
     }
 }
+?>

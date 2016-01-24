@@ -4,12 +4,6 @@
  *
  * @package PhpMyAdmin-String
  */
-
-/**
- * Defines a set of specialized string functions.
- *
- * @package PhpMyAdmin-String
- */
 interface PMA_StringByte
 {
     /**
@@ -19,6 +13,7 @@ interface PMA_StringByte
      *
      * @return int|false string length
      */
+
     public function strlen($string);
 
     /**
@@ -175,3 +170,4 @@ interface PMA_StringByte
      */
     public function chr($ascii);
 }
+?>

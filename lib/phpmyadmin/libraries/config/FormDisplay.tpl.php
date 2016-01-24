@@ -13,7 +13,7 @@
  * @param string $method        'post' or 'get'
  * @param array  $hidden_fields array of form hidden fields (key: field name)
  *
- * @return string
+ * @return void
  */
 function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = null)
 {
@@ -25,19 +25,18 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
     if ($method != 'post') {
         $method = 'get';
     }
-    $htmlOutput = '<form method="' . $method . '" action="'
+    echo '<form method="' . $method . '" action="'
         . htmlspecialchars($action) . '" class="config-form disableAjax">';
-    $htmlOutput .= '<input type="hidden" name="tab_hash" value="" />';
+    echo '<input type="hidden" name="tab_hash" value="" />';
     // we do validation on page refresh when browser remembers field values,
     // add a field with known value which will be used for checks
     if (! $has_check_page_refresh) {
         $has_check_page_refresh = true;
-        $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
+        echo '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    $htmlOutput .= PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
-    $htmlOutput .= PMA_getHiddenFields((array)$hidden_fields);
-    return $htmlOutput;
+    echo PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
+    echo PMA_getHiddenFields((array)$hidden_fields);
 }
 
 /**
@@ -46,30 +45,18 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
  *
  * @param array $tabs tab names
  *
- * @return string
+ * @return void
  */
 function PMA_displayTabsTop($tabs)
 {
-    $items = array();
+    echo '<ul class="tabs">';
     foreach ($tabs as $tab_id => $tab_name) {
-        $items[] = array(
-            'content' => htmlspecialchars($tab_name),
-            'url' => array(
-                'href' => '#' . $tab_id,
-            ),
-        );
+        echo '<li><a href="#' . $tab_id . '">'
+            . htmlspecialchars($tab_name) . '</a></li>';
     }
-
-    include_once './libraries/Template.class.php';
-    $htmlOutput = PMA\Template::get('list/unordered')->render(
-        array(
-            'class' => 'tabs',
-            'items' => $items,
-        )
-    );
-    $htmlOutput .= '<br clear="right" />';
-    $htmlOutput .= '<div class="tabs_contents">';
-    return $htmlOutput;
+    echo '</ul>';
+    echo '<br clear="right" />';
+    echo '<div class="tabs_contents">';
 }
 
 
@@ -81,7 +68,7 @@ function PMA_displayTabsTop($tabs)
  * @param array  $errors      error messages to display
  * @param array  $attributes  optional extra attributes of fieldset
  *
- * @return string
+ * @return void
  */
 function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
     $attributes = array()
@@ -95,21 +82,20 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
         $attr = $k . '="' . htmlspecialchars($attr) . '"';
     }
 
-    $htmlOutput = '<fieldset ' . implode(' ', $attributes) . '>';
-    $htmlOutput .= '<legend>' . $title . '</legend>';
+    echo '<fieldset ' . implode(' ', $attributes) . '>';
+    echo '<legend>' . $title . '</legend>';
     if (!empty($description)) {
-        $htmlOutput .= '<p>' . $description . '</p>';
+        echo '<p>' . $description . '</p>';
     }
     // this must match with displayErrors() in scripts.js
     if (is_array($errors) && count($errors) > 0) {
-        $htmlOutput .= '<dl class="errors">';
+        echo '<dl class="errors">';
         foreach ($errors as $error) {
-            $htmlOutput .= '<dd>' . $error . '</dd>';
+            echo '<dd>' . $error . '</dd>';
         }
-        $htmlOutput .= '</dl>';
+        echo '</dl>';
     }
-    $htmlOutput .= '<table width="100%" cellspacing="0">';
-    return $htmlOutput;
+    echo '<table width="100%" cellspacing="0">';
 }
 
 /**
@@ -123,7 +109,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * o userprefs_allow - whether user preferences are enabled for this field
  *                    (null - no support, true/false - enabled/disabled)
  * o userprefs_comment - (string) field comment
- * o values - key - value pairs for <select> fields
+ * o values - key - value paris for <select> fields
  * o values_escaped - (boolean) tells whether values array is already escaped
  *                    (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
@@ -138,7 +124,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * @param bool   $value_is_default whether value is default
  * @param array  $opts             see above description
  *
- * @return string
+ * @return void
  */
 function PMA_displayInput($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
@@ -212,63 +198,56 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     }
     $tr_class = $tr_class ? ' class="' . $tr_class . '"' : '';
 
-    $htmlOutput = '<tr' . $tr_class . '>';
-    $htmlOutput .= '<th>';
-    $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name
-        . '</label>';
+    echo '<tr' . $tr_class . '>';
+    echo '<th>';
+    echo '<label for="' . htmlspecialchars($path) . '">' . $name . '</label>';
 
     if (! empty($opts['doc'])) {
-        $htmlOutput .= '<span class="doc">';
-        $htmlOutput .= '<a href="' . $opts['doc']
+        echo '<span class="doc">';
+        echo '<a href="' . $opts['doc']
             . '" target="documentation">' . $icons['help'] . '</a>';
-        $htmlOutput .= "\n";
-        $htmlOutput .= '</span>';
+        echo "\n";
+        echo '</span>';
     }
 
     if ($option_is_disabled) {
-        $htmlOutput .= '<span class="disabled-notice" title="';
-        $htmlOutput .= __(
+        echo '<span class="disabled-notice" title="';
+        echo __(
             'This setting is disabled, it will not be applied to your configuration.'
         );
-        $htmlOutput .= '">' . __('Disabled') . "</span>";
+        echo '">' . __('Disabled') . "</span>";
     }
 
     if (!empty($description)) {
-        $htmlOutput .= '<small>' . $description . '</small>';
+        echo '<small>' . $description . '</small>';
     }
 
-    $htmlOutput .= '</th>';
-    $htmlOutput .= '<td>';
+    echo '</th>';
+    echo '<td>';
 
     switch ($type) {
     case 'text':
-        $htmlOutput .= '<input type="text" size="40" ' . $name_id . $field_class
+        echo '<input type="text" size="60" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'password':
-        $htmlOutput .= '<input type="password" size="40" ' . $name_id . $field_class
+        echo '<input type="password" size="60" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'short_text':
-        // As seen in the reporting server (#15042) we sometimes receive
-        // an array here. No clue about its origin nor content, so let's avoid
-        // a notice on htmlspecialchars().
-        if (! is_array($value)) {
-            $htmlOutput .= '<input type="text" size="25" ' . $name_id
-                . $field_class . ' value="' . htmlspecialchars($value)
-                . '" />';
-        }
+        echo '<input type="text" size="25" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'number_text':
-        $htmlOutput .= '<input type="number" ' . $name_id . $field_class
+        echo '<input type="number" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'checkbox':
-        $htmlOutput .= '<span' . $field_class . '><input type="checkbox" ' . $name_id
+        echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
           . ($value ? ' checked="checked"' : '') . ' /></span>';
         break;
     case 'select':
-        $htmlOutput .= '<select ' . $name_id . $field_class . '>';
+        echo '<select ' . $name_id . $field_class . '>';
         $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
         $values_disabled = isset($opts['values_disabled'])
             ? array_flip($opts['values_disabled']) : array();
@@ -292,20 +271,21 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             $selected = is_bool($value)
                 ? (int) $value === $opt_value_key
                 : $opt_value_key === $value;
-            $htmlOutput .= '<option value="' . $display_value . '"';
+            echo '<option value="' . $display_value . '"';
             if ($selected) {
-                $htmlOutput .= ' selected="selected"';
+                echo ' selected="selected"';
             }
             if (isset($values_disabled[$opt_value_key])) {
-                $htmlOutput .= ' disabled="disabled"';
+                echo ' disabled="disabled"';
             }
-            $htmlOutput .= '>' . $display . '</option>';
+            echo '>' . $display . '</option>';
         }
-        $htmlOutput .= '</select>';
+        echo '</select>';
         break;
     case 'list':
-        $htmlOutput .= '<textarea cols="40" rows="5" ' . $name_id . $field_class
-            . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
+        echo '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
+            . htmlspecialchars(implode("\n", $value))
+            . '</textarea>';
         break;
     }
     if (isset($opts['comment']) && $opts['comment']) {
@@ -313,52 +293,50 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         if (isset($opts['comment_warning']) && $opts['comment_warning']) {
             $class .= ' field-comment-warning';
         }
-        $htmlOutput .= '<span class="' . $class . '" title="'
+        echo '<span class="' . $class . '" title="'
             . htmlspecialchars($opts['comment']) . '">i</span>';
     }
     if ($is_setup_script
         && isset($opts['userprefs_comment'])
         && $opts['userprefs_comment']
     ) {
-        $htmlOutput .= '<a class="userprefs-comment" title="'
+        echo '<a class="userprefs-comment" title="'
             . htmlspecialchars($opts['userprefs_comment']) . '">'
             . $icons['tblops'] . '</a>';
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
-        $htmlOutput .= '<a class="set-value" href="#'
+        echo '<a class="set-value" href="#'
             . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
             . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
             . '" style="display:none">' . $icons['edit'] . '</a>';
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-        $htmlOutput .= '<a class="restore-default" href="#' . $path . '" title="'
+        echo '<a class="restore-default" href="#' . $path . '" title="'
             .  __('Restore default value') . '" style="display:none">'
             . $icons['reload'] . '</a>';
     }
     // this must match with displayErrors() in scripts/config.js
     if ($has_errors) {
-        $htmlOutput .= "\n        <dl class=\"inline_errors\">";
+        echo "\n        <dl class=\"inline_errors\">";
         foreach ($opts['errors'] as $error) {
-            $htmlOutput .= '<dd>' . htmlspecialchars($error) . '</dd>';
+            echo '<dd>' . htmlspecialchars($error) . '</dd>';
         }
-        $htmlOutput .= '</dl>';
+        echo '</dl>';
     }
-    $htmlOutput .= '</td>';
+    echo '</td>';
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
-        $htmlOutput .= '<td class="userprefs-allow" title="' .
+        echo '<td class="userprefs-allow" title="' .
             __('Allow users to customize this value') . '">';
-        $htmlOutput .= '<input type="checkbox" name="' . $path
-            . '-userprefs-allow" ';
+        echo '<input type="checkbox" name="' . $path . '-userprefs-allow" ';
         if ($opts['userprefs_allow']) {
-            $htmlOutput .= 'checked="checked"';
+            echo 'checked="checked"';
         };
-        $htmlOutput .= '/>';
-        $htmlOutput .= '</td>';
+        echo '/>';
+        echo '</td>';
     } else if ($is_setup_script) {
-        $htmlOutput .= '<td>&nbsp;</td>';
+        echo '<td>&nbsp;</td>';
     }
-    $htmlOutput .= '</tr>';
-    return $htmlOutput;
+    echo '</tr>';
 }
 
 /**
@@ -366,7 +344,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
  *
  * @param string $header_text Text of header
  *
- * @return string|void
+ * @return void
  */
 function PMA_displayGroupHeader($header_text)
 {
@@ -374,18 +352,16 @@ function PMA_displayGroupHeader($header_text)
 
     $_FormDisplayGroup++;
     if (! $header_text) {
-        return null;
+        return;
     }
     $colspan = defined('PMA_SETUP')
         ? 3
         : 2;
-    $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup
-        . '">';
-    $htmlOutput .= '<th colspan="' . $colspan . '">';
-    $htmlOutput .= $header_text;
-    $htmlOutput .= '</th>';
-    $htmlOutput .= '</tr>';
-    return $htmlOutput;
+    echo '<tr class="group-header group-header-' . $_FormDisplayGroup . '">';
+    echo '<th colspan="' . $colspan . '">';
+    echo $header_text;
+    echo '</th>';
+    echo '</tr>';
 }
 
 /**
@@ -403,64 +379,55 @@ function PMA_displayGroupFooter()
 /**
  * Displays bottom part of a fieldset
  *
- * @param bool $show_buttons whether show submit and reset button
- *
- * @return string
+ * @return void
  */
-function PMA_displayFieldsetBottom($show_buttons = true)
+function PMA_displayFieldsetBottom()
 {
     $colspan = 2;
     if (defined('PMA_SETUP')) {
         $colspan++;
     }
-    $htmlOutput = '';
-    if ($show_buttons) {
-        $htmlOutput .= '<tr>';
-        $htmlOutput .= '<td colspan="' . $colspan . '" class="lastrow">';
-        $htmlOutput .= '<input type="submit" name="submit_save" value="'
-            . __('Apply') . '" class="green" />';
-        $htmlOutput .= '<input type="button" name="submit_reset" value="'
-            . __('Reset') . '" />';
-        $htmlOutput .= '</td>';
-        $htmlOutput .= '</tr>';
-    }
-    $htmlOutput .= '</table>';
-    $htmlOutput .= '</fieldset>';
-    return $htmlOutput;
+    echo '<tr>';
+    echo '<td colspan="' . $colspan . '" class="lastrow">';
+    echo '<input type="submit" name="submit_save" value="'
+        . __('Apply') . '" class="green" />';
+    echo '<input type="button" name="submit_reset" value="'
+        . __('Reset') . '" />';
+    echo '</td>';
+    echo '</tr>';
+    echo '</table>';
+    echo '</fieldset>';
 }
 
 /**
  * Displays simple bottom part of a fieldset (without submit buttons)
  *
- * @return string
+ * @return void
  */
 function PMA_displayFieldsetBottomSimple()
 {
-    $htmlOutput = '</table>';
-    $htmlOutput .= '</fieldset>';
-    return $htmlOutput;
+    echo '</table>';
+    echo '</fieldset>';
 }
 
 /**
  * Closes form tabs
  *
- * @return string
+ * @return void
  */
 function PMA_displayTabsBottom()
 {
-    $htmlOutput = "</div>\n";
-    return $htmlOutput;
+    echo "</div>\n";
 }
 
 /**
  * Displays bottom part of the form
  *
- * @return string
+ * @return void
  */
 function PMA_displayFormBottom()
 {
-    $htmlOutput = "</form>\n";
-    return $htmlOutput;
+    echo "</form>\n";
 }
 
 /**
@@ -492,19 +459,16 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
  *
  * @param array $js_array lines of javascript code
  *
- * @return string
+ * @return void
  */
 function PMA_displayJavascript($js_array)
 {
     if (empty($js_array)) {
-        return null;
+        return;
     }
-
-    include_once './libraries/Template.class.php';
-
-    return PMA\Template::get('javascript/display')->render(
-        array('js_array' => $js_array,)
-    );
+    echo '<script type="text/javascript">' . "\n";
+    echo implode(";\n", $js_array) . ";\n";
+    echo '</script>' . "\n";
 }
 
 /**
@@ -513,15 +477,15 @@ function PMA_displayJavascript($js_array)
  * @param string $name       name of item with errors
  * @param array  $error_list list of errors to show
  *
- * @return string HTML for errors
+ * @return void
  */
 function PMA_displayErrors($name, $error_list)
 {
-    $htmlOutput = '<dl>';
-    $htmlOutput .= '<dt>' . htmlspecialchars($name) . '</dt>';
+    echo '<dl>';
+    echo '<dt>' . htmlspecialchars($name) . '</dt>';
     foreach ($error_list as $error) {
-        $htmlOutput .= '<dd>' . htmlspecialchars($error) . '</dd>';
+        echo '<dd>' . htmlspecialchars($error) . '</dd>';
     }
-    $htmlOutput .= '</dl>';
-    return $htmlOutput;
+    echo '</dl>';
 }
+?>

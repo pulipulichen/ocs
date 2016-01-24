@@ -29,19 +29,22 @@ class Table_Stats_Dia extends TableStats
     /**
      * The "Table_Stats_Dia" constructor
      *
-     * @param object  $diagram    The current dia document
-     * @param string  $db         The database name
      * @param string  $tableName  The table name
      * @param integer $pageNumber The current page number (from the
      *                            $cfg['Servers'][$i]['table_coords'] table)
      * @param boolean $showKeys   Whether to display ONLY keys or not
      * @param boolean $offline    Whether the coordinates are sent from the browser
+     *
+     * @global object $dia         The current dia document
+     *
+     * @see PMA_DIA
      */
-    public function __construct(
-        $diagram, $db, $tableName, $pageNumber, $showKeys = false, $offline = false
+    function __construct(
+        $tableName, $pageNumber, $showKeys = false, $offline = false
     ) {
+        global $dia;
         parent::__construct(
-            $diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline
+            $dia, $GLOBALS['db'], $pageNumber, $tableName, $showKeys, false, $offline
         );
 
         /**
@@ -81,11 +84,15 @@ class Table_Stats_Dia extends TableStats
      *
      * @return void
      *
+     * @global object $dia The current Dia document
+     *
      * @access public
      * @see PMA_DIA
      */
     public function tableDraw($showColor)
     {
+        global $dia;
+
         if ($showColor) {
             $listOfColors = array(
                 'FF0000',
@@ -100,11 +107,11 @@ class Table_Stats_Dia extends TableStats
 
         $factor = 0.1;
 
-        $this->diagram->startElement('dia:object');
-        $this->diagram->writeAttribute('type', 'Database - Table');
-        $this->diagram->writeAttribute('version', '0');
-        $this->diagram->writeAttribute('id', '' . $this->tableId . '');
-        $this->diagram->writeRaw(
+        $dia->startElement('dia:object');
+        $dia->writeAttribute('type', 'Database - Table');
+        $dia->writeAttribute('version', '0');
+        $dia->writeAttribute('id', '' . $this->tableId . '');
+        $dia->writeRaw(
             '<dia:attribute name="obj_pos">
                 <dia:point val="'
             . ($this->x * $factor) . ',' . ($this->y * $factor) . '"/>
@@ -176,11 +183,11 @@ class Table_Stats_Dia extends TableStats
             </dia:attribute>'
         );
 
-        $this->diagram->startElement('dia:attribute');
-        $this->diagram->writeAttribute('name', 'attributes');
+        $dia->startElement('dia:attribute');
+        $dia->writeAttribute('name', 'attributes');
 
         foreach ($this->fields as $field) {
-            $this->diagram->writeRaw(
+            $dia->writeRaw(
                 '<dia:composite type="table_attribute">
                     <dia:attribute name="name">
                 <dia:string>#' . $field . '#</dia:string>
@@ -200,7 +207,7 @@ class Table_Stats_Dia extends TableStats
             if ($field == $this->displayfield) {
                 $pm = 'false';
             }
-            $this->diagram->writeRaw(
+            $dia->writeRaw(
                 '<dia:attribute name="primary_key">
                     <dia:boolean val="' . $pm . '"/>
                 </dia:attribute>
@@ -213,7 +220,8 @@ class Table_Stats_Dia extends TableStats
                 </dia:composite>'
             );
         }
-        $this->diagram->endElement();
-        $this->diagram->endElement();
+        $dia->endElement();
+        $dia->endElement();
     }
 }
+?>

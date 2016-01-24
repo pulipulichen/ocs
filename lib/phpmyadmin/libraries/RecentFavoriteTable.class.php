@@ -390,3 +390,4 @@ class PMA_RecentFavoriteTable
         return null;
     }
 }
+?>

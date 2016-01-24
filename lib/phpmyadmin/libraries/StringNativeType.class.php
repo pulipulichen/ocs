@@ -135,3 +135,4 @@ class PMA_StringNativeType extends PMA_StringAbstractType
             || $this->numberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
     } // end of the "isHexDigit()" function
 }
+?>

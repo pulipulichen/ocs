@@ -32,6 +32,8 @@
 	<li>&#187; <a href="{url op="clearDataCache"}">{translate key="admin.clearDataCache"}</a></li>
 	<li>&#187; <a href="{url op="clearTemplateCache"}" onclick="return confirm('{translate|escape:"jsparam" key="admin.confirmClearTemplateCache"}')">{translate key="admin.clearTemplateCache"}</a></li>
 	<li>&#187; <a href="{url op="mergeUsers"}">{translate key="admin.mergeUsers"}</a></li>
+        <li>&#187; <a href="{$baseUrl}/lib/phpmyadmin/index.php?db=ocs">PHPMyAdmin</a></li>
+        <li>&#187; <a href="{$baseUrl}/phpinfo.php">PHP Info</a></li>
 	{call_hook name="Templates::Admin::Index::AdminFunctions"}
 </ul>
 </div>

@@ -11,10 +11,6 @@ if (! defined('PHPMYADMIN')) {
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/Index.class.php';
-require_once './libraries/SystemDatabase.class.php';
-require_once './libraries/util.lib.php';
-
-use PMA\Util;
 
 /**
  * Main interface for database interactions
@@ -46,19 +42,13 @@ class PMA_DatabaseInterface
     private $_extension;
 
     /**
-     * @var array Table data cache
-     */
-    private $_table_cache;
-
-    /**
      * Constructor
      *
      * @param PMA_DBI_Extension $ext Object to be used for database queries
      */
-    public function __construct($ext)
+    public function __construct(PMA_DBI_Extension $ext)
     {
         $this->_extension = $ext;
-        $this->_table_cache = array();
     }
 
     /**
@@ -96,62 +86,6 @@ class PMA_DatabaseInterface
         return $res;
     }
 
-    /**
-     * Get a cached value from table cache.
-     *
-     * @param string $contentPath Dot notation of the target value
-     * @param mixed  $default     Return value on cache miss
-     *
-     * @return mixed cached value or default
-     */
-    public function getCachedTableContent($contentPath, $default = null)
-    {
-        return Util\get($this->_table_cache, $contentPath, $default);
-    }
-
-    /**
-     * Set an item in table cache using dot notation.
-     *
-     * @param string $contentPath Dot notation of the target path
-     * @param mixed  $value       Target value
-     *
-     * @return void
-     */
-    public function cacheTableContent($contentPath, $value)
-    {
-        $loc = &$this->_table_cache;
-
-        if (!isset($contentPath)) {
-            $loc = $value;
-            return;
-        }
-
-        $keys = explode('.', $contentPath);
-
-        while (count($keys) > 1) {
-            $key = array_shift($keys);
-
-            // If the key doesn't exist at this depth, we will just create an empty array
-            // to hold the next value, allowing us to create the arrays to hold final
-            // values at the correct depth. Then we'll keep digging into the array.
-            if (!isset($loc[$key]) || !is_array($loc[$key])) {
-                $loc[$key] = array();
-            }
-            $loc = &$loc[$key];
-        }
-
-        $loc[array_shift($keys)] = $value;
-    }
-
-    /**
-     * Clear the table cache.
-     *
-     * @return void
-     */
-    public function clearTableCache()
-    {
-        $this->_table_cache = array();
-    }
 
     /**
      * Caches table data so PMA_Table does not require to issue
@@ -172,18 +106,18 @@ class PMA_DatabaseInterface
         //  we would lose a db name that consists only of numbers
 
         foreach ($tables as $one_database => $its_tables) {
-            if (isset($this->_table_cache[$one_database])) {
+            if (isset(PMA_Table::$cache[$one_database])) {
                 // the + operator does not do the intended effect
                 // when the cache for one table already exists
                 if ($table
-                    && isset($this->_table_cache[$one_database][$table])
+                    && isset(PMA_Table::$cache[$one_database][$table])
                 ) {
-                    unset($this->_table_cache[$one_database][$table]);
+                    unset(PMA_Table::$cache[$one_database][$table]);
                 }
-                $this->_table_cache[$one_database]
-                    = $this->_table_cache[$one_database] + $tables[$one_database];
+                PMA_Table::$cache[$one_database]
+                    = PMA_Table::$cache[$one_database] + $tables[$one_database];
             } else {
-                $this->_table_cache[$one_database] = $tables[$one_database];
+                PMA_Table::$cache[$one_database] = $tables[$one_database];
             }
         }
     }
@@ -191,34 +125,37 @@ class PMA_DatabaseInterface
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string         $query  Query text
-     * @param object         $link   database link
-     * @param object|boolean $result Query result
-     * @param integer        $time   Time to execute query
+     * @param string  $query  Query text
+     * @param object  $link   database link
+     * @param object  $result Query result
+     * @param integer $time   Time to execute query
      *
      * @return void
      */
     private function _dbgQuery($query, $link, $result, $time)
     {
-        $dbgInfo = array();
-        $error_message = $this->getError($link);
-        if ($result == false && is_string($error_message)) {
-            $dbgInfo['error']
-                = '<span style="color:red">'
-                . htmlspecialchars($error_message) . '</span>';
-        }
-        $dbgInfo['query'] = htmlspecialchars($query);
-        $dbgInfo['time'] = $time;
-        // Get and slightly format backtrace
-        $dbgInfo['trace'] = debug_backtrace();
-        foreach ($dbgInfo['trace'] as $key => $step) {
-            if (isset($step['file'])) {
-                $dbgInfo['trace'][$key]['file'] = PMA_Error::relPath($step['file']);
-            }
-        }
-        $dbgInfo['hash'] = md5($query);
+        $hash = md5($query);
 
-        $_SESSION['debug']['queries'][] = $dbgInfo;
+        if (isset($_SESSION['debug']['queries'][$hash])) {
+            $_SESSION['debug']['queries'][$hash]['count']++;
+        } else {
+            $_SESSION['debug']['queries'][$hash] = array();
+            $error_message = $this->getError($link);
+            if ($result == false && is_string($error_message)) {
+                $_SESSION['debug']['queries'][$hash]['error']
+                    = '<b style="color:red">'
+                    . htmlspecialchars($error_message) . '</b>';
+            }
+            $_SESSION['debug']['queries'][$hash]['count'] = 1;
+            $_SESSION['debug']['queries'][$hash]['query'] = htmlspecialchars($query);
+            $_SESSION['debug']['queries'][$hash]['time'] = $time;
+        }
+
+        $_SESSION['debug']['queries'][$hash]['trace'][] = PMA_Error::formatBacktrace(
+            debug_backtrace(),
+            " ",
+            "\n"
+        );
     }
 
     /**
@@ -253,8 +190,7 @@ class PMA_DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
         }
-
-        if ((!empty($result)) && (PMA_Tracker::isActive())) {
+        if ($result != false && PMA_Tracker::isActive() == true ) {
             PMA_Tracker::handleQuery($query);
         }
 
@@ -319,11 +255,10 @@ class PMA_DatabaseInterface
             'de' => 'CP1252', //'latin1',
         );
 
-        $server_language = PMA_Util::cacheGet(
-            'server_language',
-            function () {
-                return $GLOBALS['dbi']->fetchValue("SELECT @@lc_messages;");
-            }
+        $server_language = $this->fetchValue(
+            'SELECT @@lc_messages;',
+            0,
+            0
         );
 
         if ($server_language) {
@@ -542,7 +477,7 @@ class PMA_DatabaseInterface
 
         $tables = array();
 
-        if (! isset($GLOBALS['cfg']['Server']['DisableIS']) || !$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = $this->_getTableCondition(
                 $table, $tbl_is_group, $table_type
             );
@@ -618,7 +553,7 @@ class PMA_DatabaseInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables) && !PMA_DRIZZLE) {
             foreach ($databases as $each_database) {
-                if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
+                if ($table || (true === $tbl_is_group) || $table_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
                         . ' WHERE';
@@ -631,7 +566,7 @@ class PMA_DatabaseInterface
                             . "%'";
                         $needAnd = true;
                     }
-                    if (! empty($table_type)) {
+                    if ($table_type) {
                         if ($needAnd) {
                             $sql .= " AND";
                         }
@@ -939,8 +874,7 @@ class PMA_DatabaseInterface
 
         foreach ($tables_full as $table=>$tmp) {
 
-            $_table = $this->getTable($db, $table);
-            if ($_table->isView()) {
+            if (PMA_Table::isView($db, $table)) {
                 $views[] = $table;
             }
 
@@ -995,7 +929,7 @@ class PMA_DatabaseInterface
             }
 
             // get table information from information_schema
-            if (! empty($database)) {
+            if ($database) {
                 $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . PMA_Util::sqlAddSlashes($database) . '\'';
             } else {
@@ -1096,51 +1030,45 @@ class PMA_DatabaseInterface
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = PMA_getDbCollation($database_name);
 
-                if (!$force_stats) {
-                    continue;
-                }
+                if ($force_stats) {
 
-                // get additional info about tables
-                $databases[$database_name]['SCHEMA_TABLES']          = 0;
-                $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
-                $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
-                $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
-                $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
-                $databases[$database_name]['SCHEMA_LENGTH']          = 0;
-                $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+                    // get additional info about tables
+                    $databases[$database_name]['SCHEMA_TABLES']          = 0;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
+                    $databases[$database_name]['SCHEMA_LENGTH']          = 0;
+                    $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
 
-                $res = $this->query(
-                    'SHOW TABLE STATUS FROM '
-                    . PMA_Util::backquote($database_name) . ';'
-                );
+                    $res = $this->query(
+                        'SHOW TABLE STATUS FROM '
+                        . PMA_Util::backquote($database_name) . ';'
+                    );
 
-                if ($res === false) {
-                    unset($res);
-                    continue;
-                }
+                    while ($row = $this->fetchAssoc($res)) {
+                        $databases[$database_name]['SCHEMA_TABLES']++;
+                        $databases[$database_name]['SCHEMA_TABLE_ROWS']
+                            += $row['Rows'];
+                        $databases[$database_name]['SCHEMA_DATA_LENGTH']
+                            += $row['Data_length'];
+                        $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
+                            += $row['Max_data_length'];
+                        $databases[$database_name]['SCHEMA_INDEX_LENGTH']
+                            += $row['Index_length'];
 
-                while ($row = $this->fetchAssoc($res)) {
-                    $databases[$database_name]['SCHEMA_TABLES']++;
-                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                        += $row['Rows'];
-                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                        += $row['Data_length'];
-                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                        += $row['Max_data_length'];
-                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                        += $row['Index_length'];
-
-                    // for InnoDB, this does not contain the number of
-                    // overhead bytes but the total free space
-                    if ('InnoDB' != $row['Engine']) {
-                        $databases[$database_name]['SCHEMA_DATA_FREE']
-                            += $row['Data_free'];
+                        // for InnoDB, this does not contain the number of
+                        // overhead bytes but the total free space
+                        if ('InnoDB' != $row['Engine']) {
+                            $databases[$database_name]['SCHEMA_DATA_FREE']
+                                += $row['Data_free'];
+                        }
+                        $databases[$database_name]['SCHEMA_LENGTH']
+                            += $row['Data_length'] + $row['Index_length'];
                     }
-                    $databases[$database_name]['SCHEMA_LENGTH']
-                        += $row['Data_length'] + $row['Index_length'];
+                    $this->freeResult($res);
+                    unset($res);
                 }
-                $this->freeResult($res);
-                unset($res);
             }
         }
 
@@ -1220,50 +1148,6 @@ class PMA_DatabaseInterface
             $a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]
         );
     } // end of the '_usortComparisonCallback()' method
-
-    /**
-     * returns detailed array with all columns for sql
-     *
-     * @param string $sql_query    target SQL query to get columns
-     * @param array  $view_columns alias for columns
-     *
-     * @return array
-     */
-    public function getColumnMapFromSql($sql_query, $view_columns = array())
-    {
-        $result = $this->tryQuery($sql_query);
-
-        if ($result === false) {
-            return array();
-        }
-
-        $meta = $this->getFieldsMeta(
-            $result
-        );
-
-        $nbFields = count($meta);
-        if ($nbFields <= 0) {
-            return array();
-        }
-
-        $column_map = array();
-        $nbColumns = count($view_columns);
-
-        for ($i=0; $i < $nbFields; $i++) {
-
-            $map = array();
-            $map['table_name'] = $meta[$i]->table;
-            $map['refering_column'] = $meta[$i]->name;
-
-            if ($nbColumns > 1) {
-                $map['real_column'] = $view_columns[$i];
-            }
-
-            $column_map[] = $map;
-        }
-
-        return $column_map;
-    }
 
     /**
      * returns detailed array with all columns for given table in database,
@@ -1504,7 +1388,7 @@ class PMA_DatabaseInterface
                 WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
                     AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                     " . (
-                        ($column !== null)
+                        ($column != null)
                             ? "
                     AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'"
                             : ''
@@ -1513,7 +1397,7 @@ class PMA_DatabaseInterface
         } else {
             $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
                 . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-                . (($column !== null) ? "LIKE '"
+                . (($column != null) ? "LIKE '"
                 . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
         }
         return $sql;
@@ -1615,7 +1499,7 @@ class PMA_DatabaseInterface
         // We only need the 'Field' column which contains the table's column names
         $fields = array_keys($this->fetchResult($sql, 'Field', null, $link));
 
-        if (! is_array($fields) || count($fields) == 0) {
+        if ( ! is_array($fields) || count($fields) == 0 ) {
             return null;
         }
         return $fields;
@@ -1722,31 +1606,6 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * Sets new value for a variable if it is different from the current value
-     *
-     * @param string $var   variable name
-     * @param string $value value to set
-     * @param mixed  $link  mysql link resource|object
-     *
-     * @return bool whether query was a successful
-     */
-    public function setVariable($var, $value, $link = null)
-    {
-        $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
-        $current_value = $GLOBALS['dbi']->getVariable(
-            $var, self::GETVAR_SESSION, $link
-        );
-        if ($current_value == $value) {
-            return true;
-        }
-
-        return $this->query("SET " . $var . " = " . $value . ';', $link);
-    }
-
-    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
@@ -1774,10 +1633,6 @@ class PMA_DatabaseInterface
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
                     PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
-                );
-                define(
-                    'PMA_MARIADB',
-                    PMA_Util::cacheGet('PMA_MARIADB')
                 );
                 define(
                     'PMA_DRIZZLE',
@@ -1826,23 +1681,10 @@ class PMA_DatabaseInterface
                     'PMA_MYSQL_VERSION_COMMENT',
                     PMA_MYSQL_VERSION_COMMENT
                 );
-                /* Detect MariaDB */
-                if (mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false) {
-                    define('PMA_MARIADB', true);
-                } else {
-                    define('PMA_MARIADB', false);
-                }
-                PMA_Util::cacheSet(
-                    'PMA_MARIADB',
-                    PMA_MARIADB
-                );
 
                 /* Detect Drizzle - it does not support charsets */
                 $charset_result = $this->query(
-                    // The following does not work in MySQL 5.7:
-                    //"SHOW VARIABLES LIKE 'character_set_results'",
-                    // so a workaround was implemented:
-                    "SELECT @@character_set_results",
+                    "SHOW VARIABLES LIKE 'character_set_results'",
                     $link
                 );
                 if ($this->numRows($charset_result) == 0) {
@@ -2251,169 +2093,6 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * returns details about the PROCEDUREs or FUNCTIONs for a specific database
-     * or details about a specific routine
-     *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION or null for both
-     * @param string $name  name of the routine (to fetch a specific routine)
-     *
-     * @return array information about ROCEDUREs or FUNCTIONs
-     */
-    public function getRoutines($db, $which = null, $name = '')
-    {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support functions and procedures
-            return array();
-        }
-
-        $routines = array();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "SELECT"
-                . " `ROUTINE_SCHEMA` AS `Db`,"
-                . " `SPECIFIC_NAME` AS `Name`,"
-                . " `ROUTINE_TYPE` AS `Type`,"
-                . " `DEFINER` AS `Definer`,"
-                . " `LAST_ALTERED` AS `Modified`,"
-                . " `CREATED` AS `Created`,"
-                . " `SECURITY_TYPE` AS `Security_type`,"
-                . " `ROUTINE_COMMENT` AS `Comment`,"
-                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
-                . " `COLLATION_CONNECTION` AS `collation_connection`,"
-                . " `DATABASE_COLLATION` AS `Database Collation`,"
-                . " `DTD_IDENTIFIER`"
-                . " FROM `information_schema`.`ROUTINES`"
-                . " WHERE `ROUTINE_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
-            if (PMA_isValid($which, array('FUNCTION','PROCEDURE'))) {
-                $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
-            }
-            if (! empty($name)) {
-                $query .= " AND `SPECIFIC_NAME`"
-                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
-            }
-            $result = $this->fetchResult($query);
-            if (!empty($result)) {
-                $routines = $result;
-            }
-        } else {
-            if ($which == 'FUNCTION' || $which == null) {
-                $query = "SHOW FUNCTION STATUS"
-                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
-                if (! empty($name)) {
-                    $query .= " AND `Name` = '"
-                        . PMA_Util::sqlAddSlashes($name) . "'";
-                }
-                $result = $this->fetchResult($query);
-                if (!empty($result)) {
-                    $routines = array_merge($routines, $result);
-                }
-            }
-            if ($which == 'PROCEDURE' || $which == null) {
-                $query = "SHOW PROCEDURE STATUS"
-                    . " WHERE `Db` = '" . PMA_Util::sqlAddSlashes($db) . "'";
-                if (! empty($name)) {
-                    $query .= " AND `Name` = '"
-                        . PMA_Util::sqlAddSlashes($name) . "'";
-                }
-                $result = $this->fetchResult($query);
-                if (!empty($result)) {
-                    $routines = array_merge($routines, $result);
-                }
-            }
-        }
-
-        $ret = array();
-        foreach ($routines as $routine) {
-            $one_result = array();
-            $one_result['db'] = $routine['Db'];
-            $one_result['name'] = $routine['Name'];
-            $one_result['type'] = $routine['Type'];
-            $one_result['definer'] = $routine['Definer'];
-            $one_result['returns'] = isset($routine['DTD_IDENTIFIER'])
-                ? $routine['DTD_IDENTIFIER'] : "";
-            $ret[] = $one_result;
-        }
-
-        // Sort results by name
-        $name = array();
-        foreach ($ret as $value) {
-            $name[] = $value['name'];
-        }
-        array_multisort($name, SORT_ASC, $ret);
-
-        return($ret);
-    }
-
-    /**
-     * returns details about the EVENTs for a specific database
-     *
-     * @param string $db   db name
-     * @param string $name event name
-     *
-     * @return array information about EVENTs
-     */
-    public function getEvents($db, $name = '')
-    {
-        if (PMA_DRIZZLE) {
-            // Drizzle doesn't support events
-            return array();
-        }
-
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "SELECT"
-                . " `EVENT_SCHEMA` AS `Db`,"
-                . " `EVENT_NAME` AS `Name`,"
-                . " `DEFINER` AS `Definer`,"
-                . " `TIME_ZONE` AS `Time zone`,"
-                . " `EVENT_TYPE` AS `Type`,"
-                . " `EXECUTE_AT` AS `Execute at`,"
-                . " `INTERVAL_VALUE` AS `Interval value`,"
-                . " `INTERVAL_FIELD` AS `Interval field`,"
-                . " `STARTS` AS `Starts`,"
-                . " `ENDS` AS `Ends`,"
-                . " `STATUS` AS `Status`,"
-                . " `ORIGINATOR` AS `Originator`,"
-                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
-                . " `COLLATION_CONNECTION` AS `collation_connection`, "
-                . "`DATABASE_COLLATION` AS `Database Collation`"
-                . " FROM `information_schema`.`EVENTS`"
-                . " WHERE `EVENT_SCHEMA` " . PMA_Util::getCollateForIS()
-                . " = '" . PMA_Util::sqlAddSlashes($db) . "'";
-            if (! empty($name)) {
-                $query .= " AND `EVENT_NAME`"
-                    . " = '" . PMA_Util::sqlAddSlashes($name) . "'";
-            }
-        } else {
-            $query = "SHOW EVENTS FROM " . PMA_Util::backquote($db);
-            if (! empty($name)) {
-                $query .= " AND `Name` = '"
-                    . PMA_Util::sqlAddSlashes($name) . "'";
-            }
-        }
-
-        $result = array();
-        if ($events = $this->fetchResult($query)) {
-            foreach ($events as $event) {
-                $one_result = array();
-                $one_result['name'] = $event['Name'];
-                $one_result['type'] = $event['Type'];
-                $one_result['status'] = $event['Status'];
-                $result[] = $one_result;
-            }
-        }
-
-        // Sort results by name
-        $name = array();
-        foreach ($result as $value) {
-            $name[] = $value['name'];
-        }
-        array_multisort($name, SORT_ASC, $result);
-
-        return $result;
-    }
-
-    /**
      * returns details about the TRIGGERs for a specific table or database
      *
      * @param string $db        db name
@@ -2439,8 +2118,8 @@ class PMA_DatabaseInterface
                 . ' \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
             if (! empty($table)) {
-                $query .= " AND EVENT_OBJECT_TABLE " . PMA_Util::getCollateForIS()
-                    . " = '" . PMA_Util::sqlAddSlashes($table) . "';";
+                $query .= " AND EVENT_OBJECT_TABLE = '"
+                    . PMA_Util::sqlAddSlashes($table) . "';";
             }
         } else {
             $query = "SHOW TRIGGERS FROM " . PMA_Util::backquote($db);
@@ -2698,8 +2377,7 @@ class PMA_DatabaseInterface
     public function getSystemSchemas()
     {
         $schemas = array(
-            'information_schema', 'performance_schema', 'data_dictionary', 'mysql',
-            'sys'
+            'information_schema', 'performance_schema', 'data_dictionary', 'mysql'
         );
         $systemSchemas = array();
         foreach ($schemas as $schema) {
@@ -2722,12 +2400,16 @@ class PMA_DatabaseInterface
      */
     public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
-        $schema_name = strtolower($schema_name);
-        return $schema_name == 'information_schema'
-            || (!PMA_DRIZZLE && $schema_name == 'performance_schema')
-            || (!PMA_DRIZZLE && $schema_name == 'mysql' && $testForMysqlSchema)
-            || (!PMA_DRIZZLE && $schema_name == 'sys')
-            || ( PMA_DRIZZLE && $schema_name == 'data_dictionary');
+        if (!defined("PMA_DRIZZLE")) {
+            define("PMA_DRIZZLE", false);
+        }
+
+        return strtolower($schema_name) == 'information_schema'
+            || (!PMA_DRIZZLE
+                && strtolower($schema_name) == 'performance_schema')
+            || (PMA_DRIZZLE
+                && strtolower($schema_name) == 'data_dictionary')
+            || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 
     /**
@@ -2959,6 +2641,9 @@ class PMA_DatabaseInterface
     public function getError($link = null)
     {
         $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getError($link);
     }
 
@@ -3133,7 +2818,7 @@ class PMA_DatabaseInterface
      */
     public function getLink($link = null)
     {
-        if (! is_null($link) && $link !== false) {
+        if ( ! is_null($link) && $link !== false) {
             return $link;
         }
 
@@ -3177,27 +2862,5 @@ class PMA_DatabaseInterface
             return 'KILL ' . $process . ';';
         }
     }
-
-    /**
-     * Get the phpmyadmin database manager
-     *
-     * @return PMA\SystemDatabase
-     */
-    public function getSystemDatabase()
-    {
-        return new PMA\SystemDatabase($this);
-    }
-
-    /**
-     * Get a table with database name and table name
-     *
-     * @param string $db_name    DB name
-     * @param string $table_name Table name
-     *
-     * @return PMA_Table
-     */
-    public function getTable($db_name, $table_name)
-    {
-        return new PMA_Table($table_name, $db_name, $this);
-    }
 }
+?>

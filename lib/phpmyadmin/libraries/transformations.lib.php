@@ -162,33 +162,18 @@ function PMA_getTransformationClassName($filename)
 /**
  * Returns the description of the transformation
  *
- * @param string $file transformation file
+ * @param string  $file           transformation file
+ * @param boolean $html_formatted whether the description should be formatted
+ *                                as HTML
  *
  * @return String the description of the transformation
  */
-function PMA_getTransformationDescription($file)
+function PMA_getTransformationDescription($file, $html_formatted = true)
 {
-    /* @var $class_name TransformationsInterface */
     $class_name = PMA_getTransformationClassName($file);
     // include and instantiate the class
     include_once 'libraries/plugins/transformations/' . $file;
     return $class_name::getInfo();
-}
-
-/**
- * Returns the name of the transformation
- *
- * @param string $file transformation file
- *
- * @return String the name of the transformation
- */
-function PMA_getTransformationName($file)
-{
-    /* @var $class_name TransformationsInterface */
-    $class_name = PMA_getTransformationClassName($file);
-    // include and instantiate the class
-    include_once 'libraries/plugins/transformations/' . $file;
-    return $class_name::getName();
 }
 
 /**
@@ -413,7 +398,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
  */
 function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
 {
-    if (! isset($options['string'])) {
+    if ( ! isset($options['string']) ) {
         $options['string'] = '';
     }
 
@@ -473,3 +458,4 @@ function PMA_clearTransformations($db, $table = '', $column = '')
 
 }
 
+?>

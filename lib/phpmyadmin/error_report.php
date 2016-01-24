@@ -127,3 +127,4 @@ if (isset($_REQUEST['send_error_report'])
         $GLOBALS['error_handler']->savePreviousErrors();
     }
 }
+?>

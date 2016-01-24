@@ -83,8 +83,6 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pdf_pages' => 'pma__pdf_pages',
     'savedsearches' => 'pma__savedsearches',
     'central_columns' => 'pma__central_columns',
-    'designer_settings' => 'pma__designer_settings',
-    'export_templates' => 'pma__export_templates',
     'MaxTableUiprefs' => 100)));
 $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',
@@ -146,7 +144,6 @@ $forms['Features']['Other_core_settings'] = array(
     'UseDbSearch',
     'VersionCheck',
     'SendErrorReports',
-    'ConsoleEnterExecutes',
     'ProxyUrl',
     'ProxyUser',
     'ProxyPass',
@@ -161,10 +158,7 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'IgnoreMultiSubmitErrors',
     'MaxCharactersInDisplayedSQL',
     'RetainQueryBox',
-    'CodemirrorEnable',
-    'LintEnable',
-    'EnableAutocompleteForTablesAndColumns',
-    'DefaultForeignKeyChecks');
+    'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
@@ -178,19 +172,12 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
     'FirstLevelNavigationItems',
-    'NavigationTreeDisplayItemFilterMinimum',
-    'NumRecentTables',
-    'NumFavoriteTables'
-);
-$forms['Navi_panel']['Navi_tree'] = array(
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeEnableExpansion',
-    'NavigationTreeShowTables',
-    'NavigationTreeShowViews',
-    'NavigationTreeShowFunctions',
-    'NavigationTreeShowProcedures',
-    'NavigationTreeShowEvents'
+    'NavigationTreeDisplayItemFilterMinimum',
+    'NumRecentTables',
+    'NumFavoriteTables'
 );
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
@@ -210,7 +197,6 @@ $forms['Main_panel']['Startup'] = array(
     'ShowPhpInfo',
     'ShowChgPassword');
 $forms['Main_panel']['DbStructure'] = array(
-    'ShowDbStructureComment',
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
@@ -228,7 +214,6 @@ $forms['Main_panel']['Browse'] = array(
     'RepeatCells',
     'LimitChars',
     'RowActionLinks',
-    'RowActionLinksWithoutUnique',
     'TablePrimaryKeyOrder',
     'RememberSorting',
     'RelationalDisplay');
@@ -295,8 +280,6 @@ $forms['Export']['Export_defaults'] = array('Export' => array(
         'format',
         'compression',
         'charset',
-        'lock_tables',
-        'as_separate_files',
         'asfile' => ':group',
             'onserver',
             'onserver_overwrite',
@@ -314,20 +297,21 @@ $forms['Export']['Sql'] = array('Export' => array(
     'sql_use_transaction',
     'sql_disable_fk',
     'sql_views_as_tables',
-    'sql_metadata',
     'sql_compatibility',
-    'sql_structure_or_data',
-    ':group:' . __('Structure'),
+    ':group:' . __('Database export options'),
         'sql_drop_database',
-        'sql_create_database',
+        'sql_structure_or_data',
+        ':group:end',
+    ':group:' . __('Structure'),
         'sql_drop_table',
         'sql_procedure_function',
-        'sql_create_table' => ':group',
+        'sql_create_table',
+        'sql_create_view',
+        'sql_create_trigger',
+        'sql_create_table_statements' => ':group',
             'sql_if_not_exists',
             'sql_auto_increment',
             ':group:end',
-        'sql_create_view',
-        'sql_create_trigger',
         'sql_backquotes',
         ':group:end',
     ':group:' . __('Data'),
@@ -397,3 +381,4 @@ $forms['Export']['Texy'] = array('Export' => array(
     ':group:' . __('Data'),
         'texytext_null',
         'texytext_columns'));
+?>

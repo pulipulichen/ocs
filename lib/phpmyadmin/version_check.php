@@ -37,3 +37,5 @@ if (empty($versionDetails)) {
         )
     );
 }
+
+?>

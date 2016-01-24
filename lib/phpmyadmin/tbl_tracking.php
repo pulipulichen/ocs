@@ -192,8 +192,7 @@ if ($last_version > 0) {
     );
 }
 
-$type = $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])
-    ->isView() ? 'view' : 'table';
+$type = PMA_Table::isView($GLOBALS['db'], $GLOBALS['table']) ? 'view' : 'table';
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
     'tbl_tracking.php' . $url_query,
     $last_version,
@@ -206,3 +205,5 @@ $html .= '<br class="clearfloat"/>';
 
 $response = PMA_Response::getInstance();
 $response->addHTML($html);
+
+?>

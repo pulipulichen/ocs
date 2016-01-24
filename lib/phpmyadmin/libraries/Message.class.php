@@ -756,3 +756,4 @@ class PMA_Message
 
     }
 }
+?>

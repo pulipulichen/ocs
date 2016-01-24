@@ -71,3 +71,4 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
         return "ImageLink";
     }
 }
+?>

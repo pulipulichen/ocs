@@ -62,8 +62,8 @@ class Node
     public $parent;
 
     /**
-     * @var Node[] An array of Node objects that are
-     *             direct children of this node
+     * @var array An array of Node objects that are
+     *            direct children of this node
      */
     public $children = array();
 
@@ -101,7 +101,7 @@ class Node
     public $classes = '';
 
     /**
-     * @var bool Whether this node is a link for creating new objects
+     * @var string Whether this node is a link for creating new objects
      */
     public $isNew = false;
 
@@ -124,6 +124,8 @@ class Node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
+     *
+     * @return Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -209,14 +211,14 @@ class Node
         $parents = array();
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && (!$this->is_group || $groups)
+            && ($this->is_group != true || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
         while (isset($parent)) {
-            if (($parent->type != Node::CONTAINER || $containers)
-                && (!$parent->is_group || $groups)
+            if (   ($parent->type != Node::CONTAINER || $containers)
+                && ($parent->is_group != true || $groups)
             ) {
                 $parents[] = $parent;
             }
@@ -384,24 +386,16 @@ class Node
                 $query = "SHOW DATABASES ";
                 $query .= $this->_getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
-                if ($handle === false) {
-                    return $retval;
-                }
-
-                $count = 0;
-                if (!$GLOBALS['dbi']->dataSeek($handle, $pos)) {
-                    return $retval;
-                }
-
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($count < $maxItems) {
-                        $retval[] = $arr[0];
-                        $count++;
-                    } else {
-                        break;
+                if ($handle !== false) {
+                    $count = 0;
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                        if ($pos <= 0 && $count < $maxItems) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
-
                 return $retval;
             }
 
@@ -451,8 +445,7 @@ class Node
             $query .= "ORDER BY DB_first_level ASC ";
             $query .= "LIMIT $pos, $maxItems";
             $query .= ") t2 ";
-            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= "AND 1 = LOCATE(CONCAT(DB_first_level, ";
+            $query .= "WHERE 1 = LOCATE(CONCAT(DB_first_level, ";
             $query .= "'$dbSeparator'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
             $query .= "'$dbSeparator')) ";
@@ -483,7 +476,7 @@ class Node
             }
 
             $query = "SHOW DATABASES ";
-            $query .= $this->_getWhereClause('Database', $searchClause);
+            $query .= $this->_getWhereClause('Database', '');
             $query .= " AND (";
             $subClauses = array();
             foreach ($prefixes as $prefix) {
@@ -802,7 +795,7 @@ class Node
     public function getNavigationHidingData()
     {
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        if (isset($cfgRelation['navwork']) && $cfgRelation['navwork']) {
             $navTable = PMA_Util::backquote($cfgRelation['db'])
             . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
@@ -817,3 +810,4 @@ class Node
         return null;
     }
 }
+?>

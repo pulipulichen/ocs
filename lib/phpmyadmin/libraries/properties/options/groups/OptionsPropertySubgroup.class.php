@@ -65,3 +65,4 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
         $this->_subgroupHeader = $subgroupHeader;
     }
 }
+?>

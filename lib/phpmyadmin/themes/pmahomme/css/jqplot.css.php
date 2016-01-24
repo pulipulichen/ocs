@@ -56,16 +56,18 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 
 .jqplot-xaxis-tick {
-    top: 0;
+    top: 0px;
     /* initial position untill tick is drawn in proper place */
     <?php echo $left; ?>: 15px;
+/*    padding-top: 10px;*/
     vertical-align: top;
 }
 
 .jqplot-x2axis-tick {
-    bottom: 0;
+    bottom: 0px;
     /* initial position untill tick is drawn in proper place */
     <?php echo $left; ?>: 15px;
+/*    padding-bottom: 10px;*/
     vertical-align: bottom;
 }
 
@@ -73,13 +75,15 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php echo $right; ?>: 0px;
     /* initial position untill tick is drawn in proper place */
     top: 15px;
+/*    padding-right: 10px;*/
     text-align: <?php echo $right; ?>;
 }
 
 .jqplot-yaxis-tick.jqplot-breakTick {
     <?php echo $right; ?>: -20px;
-    margin-<?php echo $right; ?>: 0;
+    margin-<?php echo $right; ?>: 0px;
     padding:1px 5px 1px;
+/*  background-color: white;*/
     z-index: 2;
     font-size: 1.5em;
 }
@@ -200,7 +204,7 @@ div.jqplot-table-legend-swatch {
 }
 
 .jqplot-title {
-    top: 0;
+    top: 0px;
     <?php echo $left; ?>: 0px;
     padding-bottom: 0.5em;
     font-size: 1.2em;

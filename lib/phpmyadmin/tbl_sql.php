@@ -10,9 +10,6 @@
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/page_settings.class.php';
-
-PMA_PageSettings::showGroup('Sql_queries');
 
 /**
  * Runs common work
@@ -51,3 +48,5 @@ $response->addHTML(
         : ';'
     )
 );
+
+?>

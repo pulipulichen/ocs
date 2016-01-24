@@ -42,3 +42,4 @@ class Image_PNG_Inline extends InlineTransformationsPlugin
         return "PNG";
     }
 }
+?>

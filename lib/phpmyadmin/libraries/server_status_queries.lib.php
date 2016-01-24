@@ -151,3 +151,4 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     return $retval;
 }
 
+?>

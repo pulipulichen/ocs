@@ -95,3 +95,4 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
     return $retval;
 }
 
+?>

@@ -83,7 +83,8 @@ class SchemaSvg extends SchemaPlugin
      */
     public function exportSchema($db)
     {
-        $export = new PMA_Svg_Relation_Schema($db);
+        $export = new PMA_Svg_Relation_Schema();
         $export->showOutput();
     }
 }
+?>

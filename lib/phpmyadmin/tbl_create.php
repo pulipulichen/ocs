@@ -104,3 +104,5 @@ $GLOBAL['table'] = '';
  * Displays the form used to define the structure of the table
  */
 require 'libraries/tbl_columns_definition_form.inc.php';
+
+?>

@@ -136,3 +136,4 @@ class PMA_OutputBuffering
     }
 }
 
+?>

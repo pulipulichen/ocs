@@ -47,11 +47,11 @@ class ImportLdi extends AbstractImportCsv
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
             $result = $GLOBALS['dbi']->tryQuery(
-                'SELECT @@local_infile;'
+                'SHOW VARIABLES LIKE \'local\\_infile\';'
             );
             if ($result != false && $GLOBALS['dbi']->numRows($result) > 0) {
                 $tmp = $GLOBALS['dbi']->fetchRow($result);
-                if ($tmp[0] == 'ON') {
+                if ($tmp[1] == 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }

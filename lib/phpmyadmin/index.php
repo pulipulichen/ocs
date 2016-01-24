@@ -15,7 +15,6 @@ require_once 'libraries/common.inc.php';
  * display Git revision if requested
  */
 require_once 'libraries/display_git_revision.lib.php';
-require_once 'libraries/Template.class.php';
 
 /**
  * pass variables to child pages
@@ -39,9 +38,9 @@ unset($drops, $each_drop);
  * Such scripts must not be loaded on home page.
  *
  */
-$target_blacklist = array (
+ $target_blacklist = array (
     'import.php', 'export.php'
-);
+    );
 
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
@@ -62,13 +61,9 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
-        $page = PMA_Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
-        );
+        $page = $GLOBALS['cfg']['DefaultTabTable'];
     } else {
-        $page = PMA_Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-        );
+        $page = $GLOBALS['cfg']['DefaultTabDatabase'];
     }
     include $page;
     exit;
@@ -160,7 +155,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '</div>';
     }
     echo '<div class="group">';
-    echo '<h2>' . __('General settings') . '</h2>';
+    echo '<h2>' . __('General Settings') . '</h2>';
     echo '<ul>';
 
     /**
@@ -188,7 +183,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA_Util::getImage('s_passwd.png') . "&nbsp;" . __('Change password'),
+                    PMA_Util::getImage('s_passwd.png') . " " . __('Change password'),
                     'li_change_password',
                     'user_password.php' . $common_url_query,
                     null,
@@ -203,7 +198,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PMA_Util::getImage('s_asci.png') . "&nbsp;"
+           . '                ' . PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu('Charset-connection')
@@ -226,7 +221,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
 }
 
 echo '<div class="group">';
-echo '<h2>' . __('Appearance settings') . '</h2>';
+echo '<h2>' . __('Appearance Settings') . '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
@@ -256,7 +251,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png') . "&nbsp;" . __('More settings'),
+        PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php' . $common_url_query,
         null,
@@ -497,13 +492,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     $gc_time = (int)@ini_get('session.gc_maxlifetime');
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
-            __(
-                'Your PHP parameter [a@http://php.net/manual/en/session.' .
-                'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
-                'gc_maxlifetime[/a] is lower than cookie validity configured ' .
-                'in phpMyAdmin, because of this, your login might expire sooner ' .
-                'than configured in phpMyAdmin.'
-            ),
+            __('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login might expire sooner than configured in phpMyAdmin.'),
             E_USER_WARNING
         );
     }
@@ -516,11 +505,7 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
     && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']
 ) {
     trigger_error(
-        __(
-            'Login cookie store is lower than cookie validity configured in ' .
-            'phpMyAdmin, because of this, your login will expire sooner than ' .
-            'configured in phpMyAdmin.'
-        ),
+        __('Login cookie store is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'),
         E_USER_WARNING
     );
 }
@@ -532,9 +517,7 @@ if (! empty($_SESSION['encryption_key'])
     && empty($GLOBALS['cfg']['blowfish_secret'])
 ) {
     trigger_error(
-        __(
-            'The configuration file now needs a secret passphrase (blowfish_secret).'
-        ),
+        __('The configuration file now needs a secret passphrase (blowfish_secret).'),
         E_USER_WARNING
     );
 }
@@ -545,13 +528,7 @@ if (! empty($_SESSION['encryption_key'])
  */
 if (file_exists('config')) {
     trigger_error(
-        __(
-            'Directory [code]config[/code], which is used by the setup script, ' .
-            'still exists in your phpMyAdmin directory. It is strongly ' .
-            'recommended to remove it once phpMyAdmin has been configured. ' .
-            'Otherwise the security of your server may be compromised by ' .
-            'unauthorized people downloading your configuration.'
-        ),
+        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. It is strongly recommended to remove it once phpMyAdmin has been configured. Otherwise the security of your server may be compromised by unauthorized people downloading your configuration.'),
         E_USER_WARNING
     );
 }
@@ -617,11 +594,7 @@ if (isset($GLOBALS['dbi'])
         trigger_error(
             PMA_sanitize(
                 sprintf(
-                    __(
-                        'Your PHP MySQL library version %s differs from your ' .
-                        'MySQL server version %s. This may cause unpredictable ' .
-                        'behavior.'
-                    ),
+                    __('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
                     $_client_info,
                     substr(
                         PMA_MYSQL_STR_VERSION,
@@ -645,10 +618,7 @@ if ($cfg['SuhosinDisableWarning'] == false
 ) {
     trigger_error(
         sprintf(
-            __(
-                'Server running with Suhosin. Please refer to %sdocumentation%s ' .
-                'for possible issues.'
-            ),
+            __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
             '[doc@faq1-38]',
             '[/doc]'
         ),
@@ -699,19 +669,33 @@ function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo PMA\Template::get('list/item')
-        ->render(
-            array(
-                'content' => $name,
-                'id' => $listId,
-                'class' => $class,
-                'url' => array(
-                    'href' => $url,
-                    'target' => $target,
-                    'id' => $a_id,
-                    'class' => $a_class,
-                ),
-                'mysql_help_page' => $mysql_help_page,
-            )
-        );
+    echo '<li id="' . $listId . '"';
+    if (null !== $class) {
+        echo ' class="' . $class . '"';
+    }
+    echo '>';
+    if (null !== $url) {
+        echo '<a href="' . $url . '"';
+        if (null !== $target) {
+            echo ' target="' . $target . '"';
+        }
+        if (null != $a_id) {
+            echo ' id="' . $a_id . '"';
+        }
+        if (null != $a_class) {
+            echo ' class="' . $a_class . '"';
+        }
+        echo '>';
+    }
+
+    echo $name;
+
+    if (null !== $url) {
+        echo '</a>' . "\n";
+    }
+    if (null !== $mysql_help_page) {
+        echo PMA_Util::showMySQLDocu($mysql_help_page);
+    }
+    echo '</li>';
 }
+?>

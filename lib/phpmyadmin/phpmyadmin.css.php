@@ -23,11 +23,9 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
     include_once 'libraries/OutputBuffering.class.php';
     $buffer = PMA_OutputBuffering::getInstance();
     $buffer->start();
-    register_shutdown_function(
-        function () {
-            echo PMA_OutputBuffering::getInstance()->getContents();
-        }
-    );
+    register_shutdown_function(function() {
+        echo PMA_OutputBuffering::getInstance()->getContents();
+    });
 }
 
 // Send correct type:
@@ -38,3 +36,4 @@ header('Content-Type: text/css; charset=UTF-8');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 $_SESSION['PMA_Theme_Manager']->printCss();
+?>

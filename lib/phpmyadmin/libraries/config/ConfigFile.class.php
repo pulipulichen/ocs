@@ -403,7 +403,7 @@ class ConfigFile
      *
      * @return string
      */
-    public function getServerDSN($server)
+    function getServerDSN($server)
     {
         if (!isset($_SESSION[$this->_id]['Servers'][$server])) {
             return '';
@@ -540,3 +540,4 @@ class ConfigFile
         return $c;
     }
 }
+?>

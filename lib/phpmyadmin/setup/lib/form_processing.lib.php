@@ -23,7 +23,7 @@ function PMA_Process_formset(FormDisplay $form_display)
 
     if (!$form_display->process(false)) {
         // handle form view and failed POST
-        echo $form_display->getDisplay(true, true);
+        $form_display->display(true, true);
         return;
     }
 
@@ -52,7 +52,7 @@ function PMA_Process_formset(FormDisplay $form_display)
             <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
-    <?php echo $form_display->displayErrors() ?>
+    <?php $form_display->displayErrors() ?>
     <a class="btn" href="index.php<?php echo PMA_URL_getCommon() ?>">
         <?php echo __('Ignore errors') ?>
     </a>
@@ -72,9 +72,10 @@ function PMA_generateHeader303()
 {
     // drop post data
     header('HTTP/1.1 303 See Other');
-    header('Location: index.php' . PMA_URL_getCommon());
+    header('Location: index.php');
 
     if (!defined('TESTSUITE')) {
         exit;
     }
 }
+?>

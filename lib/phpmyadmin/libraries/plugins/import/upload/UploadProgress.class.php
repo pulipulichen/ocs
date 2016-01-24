@@ -91,3 +91,4 @@ class UploadProgress implements UploadInterface
         return $ret;
     }
 }
+?>

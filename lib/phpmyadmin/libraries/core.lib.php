@@ -590,10 +590,26 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         include_once './libraries/js_escape.lib.php';
         PMA_Response::getInstance()->disable();
 
-        include_once './libraries/Template.class.php';
-
-        echo PMA\Template::get('header_location')
-            ->render(array('uri' => $uri));
+        echo '<html><head><title>- - -</title>' . "\n";
+        echo '<meta http-equiv="expires" content="0">' . "\n";
+        echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
+        echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
+        echo '<meta http-equiv="Refresh" content="0;url='
+            .  htmlspecialchars($uri) . '">' . "\n";
+        echo '<script type="text/javascript">' . "\n";
+        echo '//<![CDATA[' . "\n";
+        echo 'setTimeout("window.location = unescape(\'"'
+            . PMA_escapeJsString($uri) . '"\')", 2000);' . "\n";
+        echo '//]]>' . "\n";
+        echo '</script>' . "\n";
+        echo '</head>' . "\n";
+        echo '<body>' . "\n";
+        echo '<script type="text/javascript">' . "\n";
+        echo '//<![CDATA[' . "\n";
+        echo 'document.write(\'<p><a href="' . htmlspecialchars($uri) . '">'
+            . __('Go') . '</a></p>\');' . "\n";
+        echo '//]]>' . "\n";
+        echo '</script></body></html>' . "\n";
 
         return;
     }
@@ -775,7 +791,7 @@ function PMA_arrayRemove($path, &$array)
             break;
         }
         $depth++;
-        $path[$depth] =& $path[$depth - 1][$key];
+        $path[$depth] =& $path[$depth-1][$key];
     }
     // if element found, remove it
     if ($found) {
@@ -843,10 +859,8 @@ function PMA_isAllowedDomain($url)
         'docs.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
-        /* drizzle.org domains */
+        /* drizzle.com domains */
         'www.drizzle.org',
-        /* mariadb domains */
-        'mariadb.org',
         /* php.net domains */
         'php.net',
         /* Github domains*/
@@ -998,3 +1012,4 @@ function PMA_setGlobalDbOrTable($param)
         $GLOBALS['url_params'][$param] = $GLOBALS[$param];
     }
 }
+?>

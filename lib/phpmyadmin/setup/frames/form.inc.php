@@ -33,3 +33,4 @@ foreach ($forms[$formset_id] as $form_name => $form) {
     $form_display->registerForm($form_name, $form);
 }
 PMA_Process_formset($form_display);
+?>

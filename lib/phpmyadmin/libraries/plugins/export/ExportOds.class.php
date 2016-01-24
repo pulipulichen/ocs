@@ -90,7 +90,7 @@ class ExportOds extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader()
+    public function exportHeader ()
     {
         $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
@@ -145,7 +145,7 @@ class ExportOds extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter()
+    public function exportFooter ()
     {
         $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
             . '</office:body>'
@@ -169,7 +169,7 @@ class ExportOds extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader ($db, $db_alias = '')
     {
         return true;
     }
@@ -181,7 +181,7 @@ class ExportOds extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter($db)
+    public function exportDBFooter ($db)
     {
         return true;
     }
@@ -189,13 +189,12 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $db_alias = '')
     {
         return true;
     }
@@ -332,3 +331,4 @@ class ExportOds extends ExportPlugin
         return true;
     }
 }
+?>

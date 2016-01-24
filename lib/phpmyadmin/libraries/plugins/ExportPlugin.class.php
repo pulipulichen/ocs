@@ -37,14 +37,14 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportHeader();
+    abstract public function exportHeader ();
 
     /**
      * Outputs export footer
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportFooter();
+    abstract public function exportFooter ();
 
     /**
      * Outputs database header
@@ -54,7 +54,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBHeader($db, $db_alias = '');
+    abstract public function exportDBHeader ($db, $db_alias = '');
 
     /**
      * Outputs database footer
@@ -63,18 +63,17 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBFooter($db);
+    abstract public function exportDBFooter ($db);
 
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportDBCreate($db, $export_type, $db_alias = '');
+    abstract public function exportDBCreate($db, $db_alias = '');
 
      /**
      * Outputs the content of a table
@@ -88,7 +87,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    abstract public function exportData(
+    abstract public function exportData (
         $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
     );
 
@@ -113,11 +112,12 @@ abstract class ExportPlugin
     /**
      * Exports events
      *
-     * @param string $db Database
+     * @param string $db      Database
+     * @param array  $aliases Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
-    public function exportEvents($db)
+    public function exportEvents($db, $aliases = array())
     {
         ;
     }
@@ -156,23 +156,6 @@ abstract class ExportPlugin
         $mime = false,
         $dates = false,
         $aliases = array()
-    ) {
-        ;
-    }
-
-    /**
-     * Exports metadata from Configuration Storage
-     *
-     * @param string       $db            database being exported
-     * @param string|array $tables        table(s) being exported
-     * @param array        $metadataTypes types of metadata to export
-     * @param array        $targetNames   associative array of db and table names of
-     *                                    target configuraton storage
-     *
-     * @return bool Whether it succeeded
-     */
-    public function exportMetadata(
-        $db, $tables, $metadataTypes, $targetNames = array()
     ) {
         ;
     }
@@ -220,7 +203,7 @@ abstract class ExportPlugin
     /**
      * Gets the export specific format plugin properties
      *
-     * @return ExportPluginProperties
+     * @return array
      */
     public function getProperties()
     {
@@ -353,3 +336,4 @@ abstract class ExportPlugin
         return $relation;
     }
 }
+?>

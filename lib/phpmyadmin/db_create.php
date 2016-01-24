@@ -130,16 +130,12 @@ if (! $result) {
             )
         );
         $response->addJSON(
-            'url_query',
-            PMA_Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-            )
+            'url_query', $GLOBALS['cfg']['DefaultTabDatabase']
             . $url_query . '&amp;db='
             . urlencode($current['SCHEMA_NAME'])
         );
     } else {
-        include_once '' .  PMA_Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
-            );
+        include_once '' . $cfg['DefaultTabDatabase'];
     }
 }
+?>

@@ -69,3 +69,4 @@ if (isset($_REQUEST['addUserGroup'])) {
 }
 
 $response->addHTML('</div>');
+?>
