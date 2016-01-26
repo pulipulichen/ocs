@@ -42,7 +42,7 @@
 	<message key="about.archiving">封存</message>
 	<message key="about.authorGuidelines">作者指南</message>
 	<message key="about.authorSelfArchive">作者自行封存</message>
-	<message key="about.availableRegistrationTypes">註冊類別</message>
+	<message key="about.availableRegistrationTypes">報名類別</message>
 	<message key="about.conferenceContact">研討會連絡</message>
 	<message key="about.conferencePolicies">Conference Policies</message>
 	<message key="about.contributors">支持來源</message>
@@ -56,27 +56,27 @@
 	<message key="about.onlineSubmissions.haveAccount">您已經有一個帳號/密碼{$conferenceTitle}嗎？</message>
 	<message key="about.onlineSubmissions.login">至登入</message>
 	<message key="about.onlineSubmissions.needAccount">您需要一個帳號/密碼嗎？</message>
-	<message key="about.onlineSubmissions.registration">至註冊</message>
-	<message key="about.onlineSubmissions.registrationRequired">您必須要在網站內註冊及登入才能投遞稿件及查詢目前的投稿狀態。</message>
+	<message key="about.onlineSubmissions.registration">至報名</message>
+	<message key="about.onlineSubmissions.registrationRequired">您必須要在網站內報名及登入才能投遞稿件及查詢目前的投稿狀態。</message>
 	<message key="about.openAccessPolicy">開放存取方針</message>
 	<message key="about.organizingTeam">組織團隊</message>
 	<message key="about.peerReviewProcess">細看審查流程</message>
 	<message key="about.privacyStatement">保密性聲明</message>
-	<message key="about.registration">註冊</message>
-	<message key="about.registrationContact">註冊連絡</message>
+	<message key="about.registration">報名</message>
+	<message key="about.registrationContact">報名連絡</message>
 	<message key="about.sponsors">贊助</message>
 	<message key="about.statistics">統計</message>
 	<message key="about.submissionPreparationChecklist">投稿準備清單</message>
 	<message key="about.submissions">投稿</message>
 	<message key="admin.auth.defaultSourceDescription"><![CDATA[除OCS 之外的以下作用，請詳細說明一個已確定的認證來源:
 <ul>
-	<li>如果用戶試圖在此站點使用一個帳號產生一個新帳戶並在認證來源的用戶名內存在(但不是在OCS 資料庫內)，嘗試註冊只被允許在如果那個用戶帳號的密碼為合法密碼。</li>
+	<li>如果用戶試圖在此站點使用一個帳號產生一個新帳戶並在認證來源的用戶名內存在(但不是在OCS 資料庫內)，嘗試報名只被允許在如果那個用戶帳號的密碼為合法密碼。</li>
 </ul>]]></message>
 	<message key="admin.languages.languageOptions">語言選項</message>
-	<message key="admin.languages.profileLocales">在註冊的人 (主題負責人、會議主席、審查者等等。)，為了會議主席能夠理解，您所使用的語言應該包括他們的檔案資料。</message>
+	<message key="admin.languages.profileLocales">在報名的人 (主題負責人、會議主席、審查者等等。)，為了會議主席能夠理解，您所使用的語言應該包括他們的檔案資料。</message>
 	<message key="admin.overwriteConfigFileInstructions"><![CDATA[<h4>NOTE!</div>
 <p>此系統不能自動地重寫配置文件。若需要變更，您必須打開<tt>config.inc.php</tt>在適當的文本編輯程式，和用文本領域的內容替換它的內容，如下。</p>]]></message>
-	<message key="admin.settings.oaiRegistrationDescription"><![CDATA[在這一個研究資料庫的全球性地分配系統內，所有被主持過的會議內容都會在這個網站被標註，<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">註冊</a> 您的網址到開放性的全球知識專案案系統 <a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>. 這個系統會收集您的研討會系統中的metadata 傳送至 <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
+	<message key="admin.settings.oaiRegistrationDescription"><![CDATA[在這一個研究資料庫的全球性地分配系統內，所有被主持過的會議內容都會在這個網站被標註，<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">報名</a> 您的網址到開放性的全球知識專案案系統 <a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>. 這個系統會收集您的研討會系統中的metadata 傳送至 <a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
 <br /><br />
 <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">點選這裡</a> 並輸入  <span class="highlight">{$siteUrl}</span> 到 <strong>Site URL</strong>, 以及 <span class="highlight">{$oaiUrl}</span> 到 <strong>Base URL for OAI Archive</strong>.
 <br /><br />
@@ -128,8 +128,8 @@
 	<message key="common.queue.long.submissionsUnassigned">等待安排審查的稿件</message>
 	<message key="common.queue.short.active">作者投稿的稿件</message>
         <message key="common.queue.count.active">篇 稿件</message>
-        <message key="common.queue.count.registration">人 註冊</message>
-        <message key="common.queue.short.registration">註冊名單</message>
+        <message key="common.queue.count.registration">人 報名</message>
+        <message key="common.queue.short.registration">報名名單</message>
 	<message key="common.queue.short.completed">已經封存的稿件</message>
 	<message key="common.queue.short.submissionsAccepted">已經接受的稿件</message>
         <message key="common.queue.count.submissionsAccepted"><![CDATA[篇 <br />已經接受]]></message>
@@ -214,7 +214,7 @@
 	<message key="installer.installApplication">安裝開放研討會系統</message>
 	<message key="installer.installationComplete"><![CDATA[<p>OCS 已經成功安裝完成。</p>
 <p>要開始使用本系統，請以您在上一個網頁中輸入的帳號和密碼進行 <a href="{$loginUrl}">登入</a> 。</p>
-<p>如果您希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>註冊。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>。</p>]]></message>
+<p>如果您希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a>報名。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>。</p>]]></message>
 	<message key="installer.installationInstructions"><![CDATA[<h4>OCS 版本 {$version}</h4>
 
 <p>感謝您下載公共知識專案 (the Public Knowledge Project) 所發展的 <strong>Open Conference Systems</strong> 系統。在您繼續之前請詳讀包含在本軟體內的 <a href="{$baseUrl}/docs/README">README</a> 檔案。如您需要更多有關於公共知識專案與其所發展的軟體，請訪問 <a href="http://pkp.sfu.ca/" target="_blank">PKP 網站</a>。如果您有關於Open Conference Systems 的錯誤回報或者需要技術援者，請造訪  <a href="http://pkp.sfu.ca/support/forum">支援論壇</a> 或者PKP 的線上 <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">錯誤回報系統</a>。您也可以選擇寄送電子郵件給本團隊 <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>.</p>
@@ -269,7 +269,7 @@
 	<message key="installer.upgradeApplication">升級開放研討會系統</message>
 	<message key="installer.upgradeComplete"><![CDATA[<p>OCS 已經成功升級 {$version} 版本。</p>
 <p>別忘了在您的config.inc.php設定檔中將 "installed" 設定改成 <em>On</em>.</p>
-<p>如果您尚未註冊但希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a> 註冊。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>.</p>]]></message>
+<p>如果您尚未報名但希望收到新聞和更新訊息，<strong>請至 <a href="http://pkp.sfu.ca/ocs/register" target="_new">http://pkp.sfu.ca/ocs/register</a> 報名。</strong>如果您有問題或建議，請訪問 <a href="http://pkp.sfu.ca/support/forum" target="_new">支援論壇</a>.</p>]]></message>
 	<message key="installer.upgradeInstructions"><![CDATA[<h4>OCS 版本 {$version}</h4>
 
 <p>感謝您下載 Public Knowledge Project 所發展的 <strong>Open Conference Systems</strong>。在您進行下列的程序之前，請閱讀包含在檔案中的 <a href="{$baseUrl}/docs/README">讀我 (README)</a> 與 <a href="{$baseUrl}/docs/UPGRADE">升級 (UPGRADE)</a>檔案。如需更多有關 Public Knowledge Project 與相關軟體的資訊，請造訪 <a href="http://pkp.sfu.ca/" target="_blank">PKP 網站</a>。如果您有任何的錯誤要回報，或是需要技術支援，請參閱 <a href="http://pkp.sfu.ca/support/forum">支援論壇</a> 或者造訪 PKP 的線上 <a href="http://pkp.sfu.ca/bugzilla/" target="_blank">錯誤回報系統</a>。您也可以透過電子郵件與本團隊連絡 <a href="mailto:pkp.contact@gmail.com">pkp.contact@gmail.com</a>。</p>
@@ -321,10 +321,10 @@
 	<message key="log.timeline.postScheduleChanged">The "post schedule" setting was changed from {$oldPostSchedule} to {$newPostSchedule}.</message>
 	<message key="log.timeline.postScheduleDateChanged">The post schedule date changed from {$oldPostScheduleDate} to {$newPostScheduleDate}.</message>
 	<message key="log.timeline.publicationStateChanged">出版步驟已經從 {$oldPublicationState} 變更為 {$newPublicationState}。</message>
-	<message key="log.timeline.regAuthorCloseDateChanged">作者註冊關閉日期已經從 {$oldRegAuthorCloseDate} 變更為 {$newRegAuthorCloseDate}。</message>
-	<message key="log.timeline.regAuthorOpenDateChanged">作者註冊開放日期已經從 {$oldRegAuthorOpenDate} 變更為 {$newRegAuthorOpenDate}。</message>
-	<message key="log.timeline.regReviewerCloseDateChanged">關閉作者註冊的日期已經從 {$oldRegReviewerCloseDate} 變更為 {$newRegReviewerCloseDate}。</message>
-	<message key="log.timeline.regReviewerOpenDateChanged">開放作者註冊的日期已經從 {$oldRegReviewerOpenDate} 變更為 {$newRegReviewerOpenDate}。</message>
+	<message key="log.timeline.regAuthorCloseDateChanged">作者報名關閉日期已經從 {$oldRegAuthorCloseDate} 變更為 {$newRegAuthorCloseDate}。</message>
+	<message key="log.timeline.regAuthorOpenDateChanged">作者報名開放日期已經從 {$oldRegAuthorOpenDate} 變更為 {$newRegAuthorOpenDate}。</message>
+	<message key="log.timeline.regReviewerCloseDateChanged">關閉作者報名的日期已經從 {$oldRegReviewerCloseDate} 變更為 {$newRegReviewerCloseDate}。</message>
+	<message key="log.timeline.regReviewerOpenDateChanged">開放作者報名的日期已經從 {$oldRegReviewerOpenDate} 變更為 {$newRegReviewerOpenDate}。</message>
 	<message key="log.timeline.showCFPDateChanged">投稿顯示日期已經從 {$oldShowCFPDate} 變更為 {$newShowCFPDate}。</message>
 	<message key="log.timeline.startDateChanged">研討會開始日期已經從 {$oldStartDate} 變更為 {$newStartDate}。</message>
 	<message key="log.timeline.submissionStateChanged">投稿步驟已經從 {$oldSubmissionState} 變更為 {$newSubmissionState}。</message>
@@ -337,7 +337,7 @@
 	<message key="manager.people.confirmDisable">Disable this user? This will prevent the user from logging into the system.
 
 You may optionally provide the user with a reason for disabling their account.</message>
-	<message key="manager.people.enrollUserAsDescription">如果沒有腳色被選擇，任一個角色在這個研討會之內使用者將被建立在系統內但不註冊。
+	<message key="manager.people.enrollUserAsDescription">如果沒有腳色被選擇，任一個角色在這個研討會之內使用者將被建立在系統內但不報名。
 在任一點在使用者被建立之後角色可能是被分配或未派職務。</message>
 	<message key="manager.people.noAdministrativeRights"><![CDATA[抱歉, 您沒有本使用者的管理權限, 可能的原因為:
 		<ul>
@@ -347,7 +347,7 @@ You may optionally provide the user with a reason for disabling their account.</
 	本功能儘有網站管理員可以執行.
 	]]></message>
 	<message key="manager.people.signOutAsUser">使用者登出</message>
-	<message key="manager.registrationPolicies.registrationPoliciesSaved">您的註冊規範設置已被更新。</message>
+	<message key="manager.registrationPolicies.registrationPoliciesSaved">您的報名規範設置已被更新。</message>
 	<message key="manager.reviewFormElement.changeType">Warning: Changing the review form element type from a multiple-choice type to an open-ended type will result in the deletion of the multiple choice options.</message>
 	<message key="manager.reviewFormElements">Form Items</message>
 	<message key="manager.reviewFormElements.addResponseItem">Add selection</message>
@@ -409,9 +409,9 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="manager.setup.homeHeaderLogoImageAlt2Invalid">無效的第二次變換網頁頁面標題圖像格式。可被接受的格式有：gif, jpg,或png.</message>
 	<message key="manager.setup.homeHeaderTitleImageAlt1Invalid">無效的變換網頁首頁題目圖像格式。可被接受的格式有：gif, jpg,或png.</message>
 	<message key="manager.setup.homeHeaderTitleImageAlt2Invalid">無效的第二次變換頁首題目圖像格式。可被接受的格式有：gif, jpg,或png.</message>
-	<message key="manager.setup.indexing.registerConferenceForIndexing.description"><![CDATA[在一個全球性地分配系統，被標註在研究資料庫之內而擁有這個研討會的內容<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">註冊</a>您的研討會網址與公開知識計劃的後資料庫<a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>。在這個研討會內，各個工具從各個被標註的索引項目內收集資料，使能在研究站點之中正確並共同的搜尋<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
+	<message key="manager.setup.indexing.registerConferenceForIndexing.description"><![CDATA[在一個全球性地分配系統，被標註在研究資料庫之內而擁有這個研討會的內容<a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">報名</a>您的研討會網址與公開知識計劃的後資料庫<a href="http://pkp.sfu.ca/harvester/" target="_blank">harvester</a>。在這個研討會內，各個工具從各個被標註的索引項目內收集資料，使能在研究站點之中正確並共同的搜尋<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm#Introduction" target="_blank">Open Archives Initiative Protocol for Metadata Harvesting</a>.
 <br /><br />
-注意到如果您的站點管理員以PKP Harvester已經登記這個站點，您的研討會自動地被標註因而您不需要再註冊ㄧ次。
+注意到如果您的站點管理員以PKP Harvester已經登記這個站點，您的研討會自動地被標註因而您不需要再報名ㄧ次。
 <br /><br />
 <a href="http://pkp.sfu.ca/harvester/add.php" target="_blank">點選這裡</a> 輸入 <span class="highlight">{$siteUrl}</span> 到 <strong>Site URL</strong>, 並將 <span class="highlight">{$oaiUrl}</span> 輸入到 <strong>Base URL for OAI Archive</strong>.]]></message>
 	<message key="manager.setup.pageHeaderLogoImageAlt1Invalid">無效的變換頁首題商標圖像格式。可被接受的格式有：gif, jpg,或png.</message>
@@ -521,7 +521,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="paper.trackDirector">主題負責人</message>
 	<message key="paper.type">類別</message>
 	<message key="payment.type.conferenceRegistration">Conference Registration; {$schedConfTitle}; {$registrationTypeName}</message>
-	<message key="payment.type.registration">研討會註冊</message>
+	<message key="payment.type.registration">研討會報名</message>
 	<message key="plugins.categories.auth.description">授權 Plugins允許開啟研討會系統來委派使用者認證任務到其他的系統，例如LDAP伺服器。</message>
 	<message key="plugins.categories.citationFormats.description">Citation format plugins provide users with various formats in which to access paper citations.</message>
 	<message key="plugins.categories.generic.description">普通的插件在ㄧ個多變的方式，且無被其他類型插件所支持的情況下，是被用來延長開啟研討會的系統</message>
@@ -534,7 +534,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reader.fullTextNotAvailable">研討會論文尚未開放。</message>
 	<message key="reader.fullTextNotPostedYet">研討會論文將於 {$date} 寄出.</message>
 	<message key="reader.fullTextRegistrantsOnlyUntil">研討會將於 {$date} 開放使用.</message>
-	<message key="reader.fullTextRegistrationRequired">本研討會需要註冊才能查看文章。</message>
+	<message key="reader.fullTextRegistrationRequired">本研討會需要報名才能查看文章。</message>
 	<message key="reviewer.averageQuality">評分</message>
 	<message key="reviewer.completedReviews">完成</message>
 	<message key="reviewer.paper.automatic">(自動)</message>
@@ -634,35 +634,35 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="schedConf.program.title">議程</message>
 	<message key="schedConf.program.viewProgramFile">查看議程</message>
 	<message key="schedConf.proposalSubmission">論文投稿</message>
-	<message key="schedConf.registration">註冊</message>
+	<message key="schedConf.registration">報名</message>
 	<message key="schedConf.registration."></message>
 	<message key="schedConf.registration.account">使用者帳號</message>
-	<message key="schedConf.registration.alreadyRegistered">您已在此研討會註冊，但仍未確認您的註冊費。若有錯誤或是您想變更您的註冊內容，請在“關於”內聯繫相關人員。</message>
-	<message key="schedConf.registration.alreadyRegisteredAndPaid">您已在此研討會註冊並付費。 若有錯誤或是您想變更您的註冊內容，請在“關於”內聯繫相關人員。</message>
-        <message key="schedConf.registration.alreadyRegisteredNoPaid"><![CDATA[您已在此研討會註冊。如果您註冊內容錯誤或是想要變更，請從左方導覽列聯繫會議主席。]]></message>
-	<message key="schedConf.registration.conferenceFees">註冊費</message>
+	<message key="schedConf.registration.alreadyRegistered">您已在此研討會報名，但仍未確認您的報名費。若有錯誤或是您想變更您的報名內容，請在“關於”內聯繫相關人員。</message>
+	<message key="schedConf.registration.alreadyRegisteredAndPaid">您已在此研討會報名並付費。 若有錯誤或是您想變更您的報名內容，請在“關於”內聯繫相關人員。</message>
+        <message key="schedConf.registration.alreadyRegisteredNoPaid"><![CDATA[您已在此研討會報名。如果您報名內容錯誤或是想要變更，請從左方導覽列寄信給研討會聯絡人。]]></message>
+	<message key="schedConf.registration.conferenceFees">報名費</message>
 	<message key="schedConf.registration.cost">費用</message>
-	<message key="schedConf.registration.createAccount.description"><![CDATA[您目前未登入。若要註冊此研討會，您需要一個帳號。若您已經有一個帳號，<a href="{$loginUrl}">請點這裡</a>登入；否則請再下列欄位填入資訊來建立一個新帳號。]]></message>
+	<message key="schedConf.registration.createAccount.description"><![CDATA[您目前未登入。若要報名此研討會，您需要一個帳號。若您已經有一個帳號，<a href="{$loginUrl}">請點這裡</a>登入；否則請再下列欄位填入資訊來建立一個新帳號。]]></message>
 	<message key="schedConf.registration.failed">Your registration has failed.  Please try again.</message>
 	<message key="schedConf.registration.feeCode">費用代碼</message>
-	<message key="schedConf.registration.feeCode.description">如果您被給了一個秘密代碼來註冊, 請進入這裡並確認您已正確選擇了上面的註冊類型。</message>
-	<message key="schedConf.registration.free">您已經成功註冊本研討會，感謝您的參與！</message>
-	<message key="schedConf.registration.landingPaid">感謝您的註冊！註冊付費方式將稍後寄到您的信箱。</message>
+	<message key="schedConf.registration.feeCode.description">如果您被給了一個秘密代碼來報名, 請進入這裡並確認您已正確選擇了上面的報名類型。</message>
+	<message key="schedConf.registration.free">您已經成功報名本研討會，感謝您的參與！</message>
+	<message key="schedConf.registration.landingPaid">感謝您的報名！報名付費方式將稍後寄到您的信箱。</message>
 	<message key="schedConf.registration.loggedInAs"><![CDATA[您目前已登入。下列的帳號訊息核對無誤，若為錯誤請改正 。 <a href="{$profileUrl}">我的簡介</a> 或 <a href="{$logoutUrl}">登出</a> 使用其他帳號。]]></message>
-	<message key="schedConf.registration.noPaymentMethodAvailable">您的註冊被記錄了。 若有需要，本研討會將會主動聯絡您有關註冊費的繳交事宜。</message>
-	<message key="schedConf.registration.optionClosed">(註冊已經關閉: {$closingDate})</message>
+	<message key="schedConf.registration.noPaymentMethodAvailable">您的報名被記錄了。 若有需要，本研討會將會主動聯絡您有關報名費的繳交事宜。</message>
+	<message key="schedConf.registration.optionClosed">(報名已經關閉: {$closingDate})</message>
 	<message key="schedConf.registration.optionCloses">(關閉日期: {$closingDate})</message>
-	<message key="schedConf.registration.optionFuture">(開放註冊日期: {$openingDate})</message>
-	<message key="schedConf.registration.options">註冊選項</message>
-	<message key="schedConf.registration.register">註冊</message>
+	<message key="schedConf.registration.optionFuture">(開放報名日期: {$openingDate})</message>
+	<message key="schedConf.registration.options">報名選項</message>
+	<message key="schedConf.registration.register">報名</message>
 	<message key="schedConf.registration.specialRequests">特殊要求</message>
 	<message key="schedConf.registration.specialRequests.description">請描述任何特殊的要求或請求，例如飲食、通行等等。</message>
-	<message key="schedConf.registration.type">註冊類別</message>
-	<message key="schedConf.registration.typeClosed">(註冊關閉時間: {$closingDate})</message>
+	<message key="schedConf.registration.type">報名類別</message>
+	<message key="schedConf.registration.typeClosed">(報名關閉時間: {$closingDate})</message>
 	<message key="schedConf.registration.typeCloses">(到 {$closingDate} 關閉)</message>
-	<message key="schedConf.registration.typeFuture">(註冊開始日期 {$openingDate})</message>
+	<message key="schedConf.registration.typeFuture">(報名開始日期 {$openingDate})</message>
 	<message key="schedConf.registrationOptions.noneAvailable">No registration options are available.</message>
-	<message key="schedConf.registrationTypes.noneAvailable">無可利用之註冊類別.</message>
+	<message key="schedConf.registrationTypes.noneAvailable">無可利用之報名類別.</message>
 	<message key="schedConf.schedConf">預定的會議</message>
 	<message key="schedConf.schedule">研討會時間表</message>
 	<message key="schedConf.schedule.title">會議排程</message>
@@ -794,7 +794,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.form.usernameExists">所選擇的帳號已有其它使用者在使用。</message>
 	<message key="user.account.hasAccount"><![CDATA[若您已經有此研討會的帳號，<a href="{$accountUrl}">請從這裡登入</a>。]]></message>
 	<message key="user.account.hasNoAccount"><![CDATA[如果您尚未在此研討會建立帳號，<a href="{$accountUrl}">請點選這裡建立帳號</a>。]]></message>
-	<message key="user.account.loginToRegister">請輸入您的帳號與密碼來註冊本研討會。</message>
+	<message key="user.account.loginToRegister">請輸入您的帳號與密碼來報名本研討會。</message>
 	<message key="user.account.noConferences">在這個網站裡沒有研討會可以讓您登記。</message>
 	<message key="user.account.noSchedConfs">在這個網站裡沒有預定的研討會可以讓您登記。</message>
 	<message key="user.account.openAccessNotificationDescription">當研討會已被開放時會以電子郵件來公佈。</message>
@@ -811,15 +811,15 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.createAccountForOtherConferences">在其他研討會建立一個帳號?</message>
 	<message key="user.login.createAccount">還不是使用者？請在此網站建立一個帳號。</message>
 	<message key="user.login.rememberMe">記住我</message>
-	<message key="user.login.resetPasswordInstructions"><![CDATA[為了安全起見，此系統會自動寄出ㄧ封重設密碼的信件給註冊者。
+	<message key="user.login.resetPasswordInstructions"><![CDATA[為了安全起見，此系統會自動寄出ㄧ封重設密碼的信件給報名者。
 <br /><br />請輸入您的電子郵件來重新設置您的密碼。確認信件將會送至您的電子郵件信箱內。]]></message>
 	<message key="user.myConferences">我的研討會</message>
 	<message key="user.noRoles.chooseConference">您的帳號目前並未參與任何的研討會，請選一個研討會：</message>
 	<message key="user.noRoles.noRolesForConference">您的帳號在本研討會中並未有任何的角色與權限，請從下列的角色中選擇：</message>
 	<message key="user.noRoles.regReviewer">申請成為研討會審查者</message>
 	<message key="user.noRoles.regReviewerClosed">申請成為研討會審查者：審查者申請帳號功能已經關閉。</message>
-	<message key="user.noRoles.register">註冊參與研討會</message>
-	<message key="user.noRoles.registerUnavailable">註冊參與研討會：註冊功能已經關閉。</message>
+	<message key="user.noRoles.register">報名參與研討會</message>
+	<message key="user.noRoles.registerUnavailable">報名參與研討會：報名功能已經關閉。</message>
 	<message key="user.noRoles.submitProposal">投稿一個提案</message>
 	<message key="user.noRoles.submitProposalRegClosed">投稿一個提案：作者申請帳號功能已經關閉。</message>
 	<message key="user.noRoles.submitProposalSubmissionsClosed">投稿一個提案：投稿功能已經關閉。</message>
@@ -834,5 +834,5 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.showAllConferences">列出我的研討會</message>
 	<message key="user.url.description">這將如同一個網路超連結，出現在 "關於作者" 內的聲明底部和 "組織團隊" 的彈出頁面。</message>
         <message key="nav.helloUsername">{$username}，您好！</message>
-        <message key="schedConf.emailToDirector">聯繫會議主席</message>
+        <message key="schedConf.emailToDirector">研討會聯絡人</message>
 </locale>

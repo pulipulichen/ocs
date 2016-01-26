@@ -178,6 +178,7 @@ class TimelineForm extends Form {
 			'postProposalSubmission' => $schedConf->getSetting('postProposalSubmission'),
 			'postTrackPolicies' => $schedConf->getSetting('postTrackPolicies'),
 			'postProgram' => $schedConf->getSetting('postProgram'),
+                        'postContact' => $schedConf->getSetting('postContact'),
 			'postPresentations' => $schedConf->getSetting('postPresentations'),
 			'postAccommodation' => $schedConf->getSetting('postAccommodation'),
 			'postSupporters' => $schedConf->getSetting('postSupporters'),
@@ -264,6 +265,7 @@ class TimelineForm extends Form {
 			'postProposalSubmission',
 			'postTrackPolicies',
 			'postProgram',
+                        'postContact',
 			'postPresentations',
 			'postAccommodation',
 			'postSupporters',
@@ -304,6 +306,7 @@ class TimelineForm extends Form {
 		$schedConf->updateSetting('postProposalSubmission', $this->getData('postProposalSubmission'), 'bool');
 		$schedConf->updateSetting('postTrackPolicies', $this->getData('postTrackPolicies'), 'bool');
 		$schedConf->updateSetting('postProgram', $this->getData('postProgram'), 'bool');
+                $schedConf->updateSetting('postContact', $this->getData('postContact'), 'bool');
 		$schedConf->updateSetting('postPresentations', $this->getData('postPresentations'), 'bool');
 		$schedConf->updateSetting('postAccommodation', $this->getData('postAccommodation'), 'bool');
 		$schedConf->updateSetting('postSupporters', $this->getData('postSupporters'), 'bool');

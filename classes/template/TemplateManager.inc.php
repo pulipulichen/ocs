@@ -136,6 +136,11 @@ class TemplateManager extends PKPTemplateManager {
 						$this->assign('schedConfShowProgram', true);
 					}
                                         
+                                        // Program
+					if ($schedConf->getSetting('postContact') && ($schedConf->getSetting('postContact') || $schedConf->getSetting('postContact'))) {
+						$this->assign('schedConfShowContact', true);
+					}
+                                        
                                         if ($schedConf->getSetting('contactEmail') && ($schedConf->getSetting('contactEmail') || $schedConf->getSetting('contactEmail'))) {
 						$this->assign('schedConfContactEmail', $schedConf->getSetting('contactEmail'));
 					}

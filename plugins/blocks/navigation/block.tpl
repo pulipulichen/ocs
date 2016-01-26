@@ -40,8 +40,13 @@
 			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline
                         || $schedConfContactEmail)}
 		<!-- <span class="blockSubtitle">{translate key="schedConf.contents"}</span> -->
-
-		<ul class="nav nav-stacked">
+                
+                {if $isConferenceManager}
+                <a class="edit-link" href="{url page="manager"}/timeline#websitePosting" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                {/if}
+                <ul class="nav nav-stacked" style="clear: both;">
 			{if $schedConfPostOverview}
                             <li>
                                 {if $isConferenceManager}
@@ -160,17 +165,17 @@
                 </ul>
                 </div>
                 
+                {if $schedConfContactEmail and $schedConfShowContact}
                 <ul class="nav nav-stacked">
-                        {if $schedConfContactEmail}
-                            <li>
-                                {if $isConferenceManager}
-                                    <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
-                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    </a>
-                                {/if}
-                                <a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a>
-                            </li>
+                    <li>
+                        {if $isConferenceManager}
+                            <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
                         {/if}
+                        <a href="mailto:{$schedConfContactEmail}">{translate key="schedConf.emailToDirector"}</a>
+                    </li>
                 </ul>
+                {/if}
 	</div>
 

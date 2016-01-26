@@ -196,23 +196,37 @@
 
 	<tr valign="top">
 		<td class="label" colspan="2">
-			<input type="checkbox" name="postTimeline" id="postTimeline" value="1" {if $postTimeline}checked="checked"{/if} />
-			{fieldLabel name="postTimeline" key="manager.timeline.postTimeline"}
-		</td>
-	</tr>
-
-	<tr valign="top">
-		<td class="label" colspan="2">
 			<input type="checkbox" name="postOverview" id="postOverview" value="1" {if $postOverview}checked="checked"{/if} />
 			{fieldLabel name="postOverview" key="manager.timeline.postOverview"}
 		</td>
 	</tr>
-	<tr valign="top">
+        <tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postCFP" id="postCFP" value="1" {if $postCFP}checked="checked"{/if} />
 			{fieldLabel name="postCFP" key="manager.timeline.postCFP"}
 		</td>
 	</tr>
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postProgram" id="postProgram" value="1" {if $postProgram}checked="checked"{/if} />
+			{fieldLabel name="postProgram" key="manager.timeline.postProgram"}
+		</td>
+	</tr>
+        <tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postContact" id="postContact" value="1" {if $postContact}checked="checked"{/if} />
+			{fieldLabel name="postContact" key="manager.timeline.postContact"}
+		</td>
+	</tr>
+        
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postTimeline" id="postTimeline" value="1" {if $postTimeline}checked="checked"{/if} />
+			{fieldLabel name="postTimeline" key="manager.timeline.postTimeline"}
+		</td>
+	</tr>
+
+	
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postProposalSubmission" id="postProposalSubmission" value="1" {if $postProposalSubmission}checked="checked"{/if} />
@@ -223,12 +237,6 @@
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postTrackPolicies" id="postTrackPolicies" value="1" {if $postTrackPolicies}checked="checked"{/if} />
 			{fieldLabel name="postTrackPolicies" key="manager.timeline.postTrackPolicies"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postProgram" id="postProgram" value="1" {if $postProgram}checked="checked"{/if} />
-			{fieldLabel name="postProgram" key="manager.timeline.postProgram"}
 		</td>
 	</tr>
 	<tr valign="top">

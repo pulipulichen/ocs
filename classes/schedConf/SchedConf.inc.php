@@ -83,6 +83,12 @@ class SchedConf extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedTitle() {
+		$title =  $this->getLocalizedSetting('title');
+                $title = strip_tags($title);
+                return $title;
+	}
+        
+        function getOriginalLocalizedTitle() {
 		return $this->getLocalizedSetting('title');
 	}
 
@@ -97,6 +103,17 @@ class SchedConf extends DataObject {
 	 * @return string
 	 */
 	function getTitle($locale) {
+		$title = $this->getSetting('title', $locale);
+                $title = strip_tags($title);
+                return $title;
+	}
+        
+        /**
+	 * Get original title of scheduled conference
+	 * @param $locale string
+	 * @return string
+	 */
+	function getOriginalTitle($locale) {
 		return $this->getSetting('title', $locale);
 	}
 

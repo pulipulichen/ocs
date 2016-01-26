@@ -58,6 +58,17 @@ class Conference extends DataObject {
 	 * @return string
 	 */
 	function getTitle($locale) {
+		$title = $this->getSetting('title', $locale);
+                $title = strip_tags($title);
+                return $title;
+	}
+        
+        /**
+	 * Get title of conference
+	 * @param $locale string
+	 * @return string
+	 */
+        function getOriginalTitle($locale) {
 		return $this->getSetting('title', $locale);
 	}
 
