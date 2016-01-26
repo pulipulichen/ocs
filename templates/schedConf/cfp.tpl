@@ -14,7 +14,7 @@
 {/strip}
 
 {if $isConferenceManager}
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <h3 class="panel-heading">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             {translate key="manager.conferenceSiteManagement"}</h3>
@@ -22,41 +22,47 @@
 
             <ul>
                 <li>
-                    <a href="{url page="manager"}/schedConfSetup/1#principalContact">
+                    <a href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
                         {translate key="common.edit"}
                         {translate key="about.contact.principalContact"}
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK">
+                    <a href="{url page="manager"}/emails" target="_blank">
+                        {translate key="common.edit"}
+                        {translate key="manager.emails"}
+                    </a>
+                </li>
+                <li>
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK" target="_blank">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
                         SUBMISSION_ACK
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK">
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK" target="_blank">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
                         SUBMISSION_UPLOAD_ACK
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK_BCC">
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_ACK_BCC" target="_blank">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
                         SUBMISSION_ACK_BCC
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK_BCC">
+                    <a href="{url page="manager"}/editEmail/SUBMISSION_UPLOAD_ACK_BCC" target="_blank">
                         {translate key="common.edit"}
                         {translate key="manager.emails"}
                         SUBMISSION_UPLOAD_ACK_BCC
                     </a>
                 </li>
                 <li>
-                    <a href="{url page="user"}">
+                    <a href="{url page="user"}" target="_blank">
                         {* @TODO 設定語系 *}
                         管理投稿與審查進度
                     </a>

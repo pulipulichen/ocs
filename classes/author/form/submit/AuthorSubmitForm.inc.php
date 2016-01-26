@@ -122,7 +122,7 @@ class AuthorSubmitForm extends Form {
 				unset($editAssignment);
 			}
 
-                        $submissionUrl = Request::url(null, null, 'author', 'submission', $paper->getId());
+                        $submissionUrl = Request::url(null, null, 'author', 'submissionReview', $paper->getId());
                         $submissionUrl = $submissionUrl . "?u=" . $user->getUserId();
 			$mail->assignParams(array(
 				'authorName' => $user->getFullName(),
@@ -154,7 +154,7 @@ class AuthorSubmitForm extends Form {
 				unset($editAssignment);
 			}
 
-                        $submissionUrl = Request::url(null, null, 'author', 'submission', $paper->getId());
+                        $submissionUrl = Request::url(null, null, 'director', 'submissionReview', $paper->getId());
                         
                         // 嘗試找看看有沒有這位使用者
                         $userDao =& DAORegistry::getDAO('UserDAO');

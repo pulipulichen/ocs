@@ -1472,7 +1472,7 @@ import('file.PaperFileManager');
 				$templateName = ($reviewMode==REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_PAPER_INVITE':'SUBMISSION_ABSTRACT_ACCEPT');
 				break;
 			case SUBMISSION_DIRECTOR_DECISION_ACCEPT:
-				$templateName = 'SUBMISSION_PAPER_ACCEPT';
+                                    $templateName = 'SUBMISSION_PAPER_ACCEPT';
 				break;
 			case SUBMISSION_DIRECTOR_DECISION_PENDING_REVISIONS:
 				$templateName = $isAbstract?'SUBMISSION_ABSTRACT_REVISE':'SUBMISSION_PAPER_REVISE';

@@ -19,7 +19,9 @@
 {/if}
 
 {if $setupStep == 1}
-<div id="step1"><span class="disabled">&lt;&lt; {translate key="navigation.previousStep"}</span> | <a href="{url op="schedConfSetup" path="2"}">{translate key="navigation.nextStep"} &gt;&gt;</a></div>
+<div id="step1"><span class="disabled">&lt;&lt; {translate key="navigation.previousStep"}</span>
+    |
+     <a href="javascript:history.go(-1)">回到上一頁</a> | <a href="{url op="setup" path="2"}"> | <a href="{url op="schedConfSetup" path="2"}">{translate key="navigation.nextStep"} &gt;&gt;</a></div>
 
 {elseif $setupStep == 2}
 <div id="step2"><a href="{url op="schedConfSetup" path="1"}">&lt;&lt; {translate key="navigation.previousStep"}</a> | <a href="javascript:history.go(-1)">回到上一頁</a> | <a href="{url op="schedConfSetup" path="3"}">{translate key="navigation.nextStep"} &gt;&gt;</a></div>
