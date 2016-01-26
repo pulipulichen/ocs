@@ -218,7 +218,10 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
-                $latestFileAry = $this->_getLatestFile($authorSubmission);
+                $latestFileAry = array();
+                if (is_object($submission)) {
+                    $latestFileAry = $this->_getLatestFile($submission);
+                }
                 $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
                 $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 
@@ -237,14 +240,20 @@ class TrackSubmissionHandler extends AuthorHandler {
         function _getLatestFile($submission) {
             // @author Pulipuli Chen 20160123
             
-            $lastFile = $submission->getSubmissionFile();
+            if (method_exists ( $submission , 'getSubmissionFile')) {
+                $lastFile = $submission->getSubmissionFile();
+            }
             
-            $reviseFile = $submission->getRevisedFile();
+            if (method_exists ( $submission , 'getRevisedFile')) {
+                $reviseFile = $submission->getRevisedFile();
+            }
             if (isset($reviseFile)) {
                 $lastFile = $reviseFile;
             }
             
-            $directorFile = $submission->getDirectorFile();
+            if (method_exists ( $submission , 'getDirectorFile')) {
+                $directorFile = $submission->getDirectorFile();
+            }
             $lastFileType = 0;
             //echo $reviseFile->getDateModified();
             if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {

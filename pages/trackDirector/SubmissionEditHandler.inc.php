@@ -286,14 +286,20 @@ class SubmissionEditHandler extends TrackDirectorHandler {
         function _getLatestFile($submission) {
             // @author Pulipuli Chen 20160123
             
-            $lastFile = $submission->getSubmissionFile();
+            if (method_exists ( $submission , 'getSubmissionFile')) {
+                $lastFile = $submission->getSubmissionFile();
+            }
             
-            $reviseFile = $submission->getRevisedFile();
+            if (method_exists ( $submission , 'getRevisedFile')) {
+                $reviseFile = $submission->getRevisedFile();
+            }
             if (isset($reviseFile)) {
                 $lastFile = $reviseFile;
             }
             
-            $directorFile = $submission->getDirectorFile();
+            if (method_exists ( $submission , 'getDirectorFile')) {
+                $directorFile = $submission->getDirectorFile();
+            }
             $lastFileType = 0;
             //echo $reviseFile->getDateModified();
             if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
