@@ -147,7 +147,9 @@
 </table>
 
 
-<button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">顯示更多</button>
+<button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">
+    顯示更多
+</button>
 <div style="display:none;">
     <div class="separator"></div>
     <table class="data" width="100%">

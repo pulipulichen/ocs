@@ -146,9 +146,11 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
-                $latestFileAry = $this->_getLatestFile($authorSubmission);
-                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
-                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                $latestFileAry = $this->_getLatestFile($submission);
+                if (is_object($latestFileAry['lastFile'])) {
+                    $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                    $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                }
                 
 		$templateMgr->display('author/submission.tpl');
 	}
@@ -218,12 +220,11 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
                 // @author Pulipuli Chen 20160123
-                $latestFileAry = array();
-                if (is_object($submission)) {
-                    $latestFileAry = $this->_getLatestFile($submission);
+                $latestFileAry = $this->_getLatestFile($submission);
+                if (is_object($latestFileAry['lastFile'])) {
+                    $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                    $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 }
-                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
-                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 
 		// FIXME: Author code should not use track director object
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');

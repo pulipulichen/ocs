@@ -34,6 +34,9 @@ function moveAuthor(dir, authorIndex) {
 {/literal}
 
 
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <div id="titleAndAbstract">
 <h3>{translate key="submission.titleAndAbstract"}</h3>
 
@@ -93,34 +96,34 @@ function moveAuthor(dir, authorIndex) {
 			{if $smarty.foreach.authors.total <= 1}
 				<input type="hidden" name="primaryContact" value="{$authorIndex|escape}" />
 			{/if}
-			{fieldLabel name="authors-$authorIndex-firstName" required="true" key="user.firstName"}
+			{fieldLabel name="authors-$authorIndex-firstName" required="true" key="author.submit.selectPrincipalContact"}
 		</td>
 		<td width="80%" class="value"><input type="text" name="authors[{$authorIndex|escape}][firstName]" id="authors-{$authorIndex|escape}-firstName" value="{$author.firstName|escape}" size="20" maxlength="40" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+        <tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-$authorIndex-middleName" key="user.middleName"}</td>
 		<td class="value"><input type="text" name="authors[{$authorIndex|escape}][middleName]" id="authors-{$authorIndex|escape}-middleName" value="{$author.middleName|escape}" size="20" maxlength="40" class="textField" /></td>
 	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="authors-$authorIndex-lastName" required="true" key="user.lastName"}</td>
+	<tr valign="top" class="hide">
+		<td class="label">{fieldLabel name="authors-$authorIndex-lastName" key="user.lastName"}</td>
 		<td class="value"><input type="text" name="authors[{$authorIndex|escape}][lastName]" id="authors-{$authorIndex|escape}-lastName" value="{$author.lastName|escape}" size="20" maxlength="90" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-$authorIndex-email" required="true" key="user.email"}</td>
 		<td class="value"><input type="text" name="authors[{$authorIndex|escape}][email]" id="authors-{$authorIndex|escape}-email" value="{$author.email|escape}" size="30" maxlength="90" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-$authorIndex-url" key="user.url"}</td>
 		<td class="value"><input type="text" name="authors[{$authorIndex|escape}][url]" id="authors-{$authorIndex|escape}-url" value="{$author.url|escape}" size="30" maxlength="90" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-$authorIndex-affiliation" key="user.affiliation"}</td>
 		<td class="value">
 			<textarea name="authors[{$authorIndex|escape}][affiliation]" class="textArea" id="authors-{$authorIndex|escape}-affiliation" rows="5" cols="40">{$author.affiliation|escape}</textarea><br/>
 			<span class="instruct">{translate key="user.affiliation.description"}</span>
 		</td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-$authorIndex-country" key="common.country"}</td>
 		<td class="value">
 			<select name="authors[{$authorIndex|escape}][country]" id="authors-{$authorIndex|escape}-country" class="selectMenu">
@@ -130,9 +133,16 @@ function moveAuthor(dir, authorIndex) {
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{fieldLabel name="authors-$authorIndex-biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
-		<td class="value"><textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" id="authors-{$authorIndex|escape}-biography" rows="5" cols="40" class="textArea">{$author.biography[$formLocale]|escape}</textarea></td>
+		<td class="label">
+                    {*fieldLabel name="authors-$authorIndex-biography" key="user.biography"*}
+                    {* @TODO 語系 *}
+                    作者資訊
+                    <!--<br />{translate key="user.biography.description"}--></td>
+		<td class="value">
+                    <textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" id="authors-{$authorIndex|escape}-biography" rows="5" cols="40" class="textArea">{$author.biography[$formLocale]|escape}</textarea>
+                </td>
 	</tr>
+        <!--
 	{if $smarty.foreach.authors.total > 1}
 	<tr valign="top">
 		<td class="label">{translate key="author.submit.reorder"}</td>
@@ -154,6 +164,7 @@ function moveAuthor(dir, authorIndex) {
 	</tr>
 	{/if}
 
+        -->
 	{foreachelse}
 	<input type="hidden" name="authors[0][authorId]" value="0" />
 	<input type="hidden" name="primaryContact" value="0" />
@@ -162,26 +173,26 @@ function moveAuthor(dir, authorIndex) {
 		<td width="20%" class="label">{fieldLabel name="authors-0-firstName" required="true" key="user.firstName"}</td>
 		<td width="80%" class="value"><input type="text" name="authors[0][firstName]" id="authors-0-firstName" size="20" maxlength="40" class="textField" /></td>
 	</tr>
-	<tr valign="top"  style="display:none;">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-0-middleName" key="user.middleName"}</td>
 		<td class="value"><input type="text" name="authors[0][middleName]" id="authors-0-middleName" size="20" maxlength="40" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-0-lastName" required="true" key="user.lastName"}</td>
 		<td class="value"><input type="text" name="authors[0][lastName]" id="authors-0-lastName" size="20" maxlength="90" class="textField" /></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-0-affiliation" key="user.affiliation"}</td>
 		<td class="value">
 			<textarea id="authors-0-affiliation" name="authors[0][affiliation]" rows="5" cols="40" class="textArea"></textarea><br/>
 			<span class="instruct">{translate key="user.affiliation.description"}</span>
 		</td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-0-email" required="true" key="user.email"}</td>
 		<td class="value"><input type="text" name="authors[0][email]" id="authors-0-email" size="30" maxlength="90" class="textField" /></td>
 	</tr>
-        <tr valign="top" style="display:none;">
+        <tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="authors-0-url" key="user.url"}</td>
 		<td class="value"><input type="text" name="authors[0][url]" id="authors-0-url" size="30" maxlength="90" class="textField" /></td>
 	</tr>
@@ -192,14 +203,19 @@ function moveAuthor(dir, authorIndex) {
 	{/foreach}
 </table>
 
+<!--
 <p><input type="submit" class="button" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
+-->
+
 </div>
 
 <div class="separator"></div>
 {/if}
 
-
-<!--
+<button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">
+    顯示更多
+</button>
+<div style="display:none;">
 <div id="indexing">
 <h3>{translate key="submission.indexing"}</h3>
 
@@ -316,8 +332,6 @@ function moveAuthor(dir, authorIndex) {
 </div>
 
 <div class="separator"></div>
--->
-<!--
 <div id="supportingAgencies">
 <h3>{translate key="submission.supportingAgencies"}</h3>
 
@@ -334,7 +348,7 @@ function moveAuthor(dir, authorIndex) {
 </div>
 
 <div class="separator"></div>
--->
+</div>
 
 {if $currentSchedConf->getSetting('metaCitations')}
 <div id="metaCitations">
@@ -352,10 +366,10 @@ function moveAuthor(dir, authorIndex) {
 <div class="separator"></div>
 {/if}
 
-<p><input type="submit" value="{translate key="submission.saveMetadata"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-
+<p class="text-center">
+    <input type="submit" value="{translate key="submission.saveMetadata"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
+</p>
 </form>
 
 {include file="common/footer.tpl"}

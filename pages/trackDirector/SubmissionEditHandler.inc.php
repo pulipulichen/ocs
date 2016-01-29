@@ -89,17 +89,11 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign('mayEditPaper', true);
                 
                 // @author Pulipuli Chen 20160123
-                $reviseFile = $submission->getRevisedFile();
-                $directorFile = $submission->getDirectorFile();
-                $lastFile = $reviseFile;
-                $lastFileType = 0;
-                //echo $reviseFile->getDateModified();
-                if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
-                    $lastFile = $directorFile;
-                    $lastFileType = 1;
+                $latestFileAry = $this->_getLatestFile($submission);
+                if (is_object($latestFileAry['lastFile'])) {
+                    $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                    $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
                 }
-                $templateMgr->assign_by_ref('lastFile', $lastFile);
-                $templateMgr->assign_by_ref('lastFileType', $lastFileType);
 
 		$templateMgr->display('trackDirector/submission.tpl');
 	}
@@ -256,8 +250,10 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign_by_ref('directorDecisions', $directorDecisions);
                 
                 $latestFileAry = $this->_getLatestFile($submission);
-                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
-                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                if (is_object($latestFileAry['lastFile'])) {
+                    $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                    $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                }
                 
                 if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
                         $templateMgr->assign('isFinalReview', true);
@@ -441,8 +437,10 @@ class SubmissionEditHandler extends TrackDirectorHandler {
                 
                 // @author Pulipuli Chen 20160123
                 $latestFileAry = $this->_getLatestFile($submission);
-                $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
-                $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                if (is_object($latestFileAry['lastFile'])) {
+                    $templateMgr->assign_by_ref('lastFile', $latestFileAry['lastFile']);
+                    $templateMgr->assign_by_ref('lastFileType', $latestFileAry['lastFileType']);
+                }
                 
 		if ($reviewMode != REVIEW_MODE_BOTH_SEQUENTIAL || $stage == REVIEW_STAGE_PRESENTATION) {
 			$templateMgr->assign('isFinalReview', true);

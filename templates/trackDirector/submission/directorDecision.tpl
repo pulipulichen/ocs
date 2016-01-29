@@ -122,7 +122,7 @@
                 {/foreach}
             </td>
         </tr>
-        
+        {if $lastFile}
                 <tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
@@ -144,6 +144,7 @@
                         </a>
                     </td>
                 </tr>
+        {/if}
                 {if $isCurrent}
                     <tr valign="top">
                         <td class="label">

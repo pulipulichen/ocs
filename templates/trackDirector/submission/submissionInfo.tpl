@@ -64,13 +64,12 @@
 				{$submission->getLocalizedAbstract()|strip_unsafe_html}
 			</td>
 		</tr>
-	{else}
+	{elseif $lastFile}
 		{**
 		 * This is an abstract-and-paper or paper-only review. Don't
 		 * show the abstract, and show any review files or
 		 * supplementary files.
 		 *}
-                <!--
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
@@ -92,7 +91,6 @@
                         </a>
                     </td>
                 </tr>
-                -->
 		{if not $isStageDisabled}
                 <!--
 		<tr valign="top">
