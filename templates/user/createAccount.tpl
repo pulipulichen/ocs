@@ -15,7 +15,21 @@
 
 {include file="common/formErrors.tpl"}
 
-<form name="createAccount" method="post" action="{url op="createAccount"}">
+{literal}
+    <script type="text/javascript">
+        var _setupUsername = function (_form) {
+            var _email = _form.email.value;
+            var _user = _email;
+            if (_email.indexOf("@") > -1) {
+                var _user = _email.substr(0, _email.indexOf("@"));
+            }
+            _form.username.value = _user;
+            _form.username.firstName = _user;
+            _form.username.lastName = _user;
+        };
+    </script>
+{/literal}
+<form name="createAccount" method="post" action="{url op="createAccount"}" onsubmit="_setupUsername(this);">
 
 
     
@@ -29,9 +43,9 @@
 
 {* NOTE: The absolutely required fields in following form should be synced
    with the implementation in templates/registration/userRegistrationForm.tpl *}
-
+   
 <table class="data" width="100%">
-{if count($formLocales) > 1 && !$existingUser}
+    {if $supportedLocales|@count > 2}
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 		<td width="80%" class="value">
@@ -40,13 +54,19 @@
 			<span class="instruct">{translate key="form.formLanguage.description"}</span>
 		</td>
 	</tr>
-{/if}
-<tr valign="top">	
+    {/if}
+
+<tr valign="top">
+	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
+	<td class="value"><input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
+</tr>
+
+<tr valign="top" style="display:none;">	
 	<td width="20%" class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 	<td width="80%" class="value"><input type="text" name="username" value="{$username|escape}" id="username" size="20" maxlength="32" class="textField" /></td>
 </tr>
 {if !$existingUser}
-<tr valign="top">
+<tr valign="top" style="display:none;">
 	<td></td>
 	<td class="instruct">{translate key="user.account.usernameRestriction"}</td>
 </tr>
@@ -56,7 +76,6 @@
 	<td class="label">{fieldLabel name="password" required="true" key="user.password"}</td>
 	<td class="value"><input type="password" name="password" value="{$password|escape}" id="password" size="20" maxlength="32" class="textField" /></td>
 </tr>
-
 {if !$existingUser}
 <tr valign="top">
 	<td></td>
@@ -79,12 +98,53 @@
 	</tr>
 {/if}
 
+
+{if count($availableLocales) > 1}
+<tr valign="top">
+	<td class="label">{translate key="user.workingLanguages"}</td>
+	<td class="value">
+            {foreach from=$availableLocales key=localeKey item=localeName}
+		<input type="checkbox" name="userLocales[]" id="userLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if in_array($localeKey, $userLocales) or in_array($localeKey, $localePrecedence)} checked="checked"{/if} /> <label for="userLocales-{$localeKey|escape}">{$localeName|escape}</label><br />
+            {/foreach}
+        </td>
+</tr>
+{/if}
+{/if}
+	
+{if ($allowRegReader || $allowRegReader === null) or $enableOpenAccessNotification or ($allowRegAuthor || $allowRegAuthor === null) or ($allowRegReviewer || $allowRegReviewer === null)}
+<tr valign="top">
+	<td class="label">{fieldLabel suppressId="true" name="createAs" key="user.account.createAs"}</td>
+	<td class="value">
+		{if $allowRegReader || $allowRegReader === null}
+			<input type="checkbox" name="createAsReader" id="createAsReader" value="1"{if $createAsReader} checked="checked"{/if} /> <label for="createAsReader">{translate key="user.role.reader"}</label>: {translate key="user.account.readerDescription"}<br />
+		{/if}
+		{if $enableOpenAccessNotification}
+			<input type="checkbox" name="openAccessNotification" id="openAccessNotification" value="1"{if $openAccessNotification} checked="checked"{/if} /> <label for="openAccessNotification">{translate key="user.role.reader"}</label>: {translate key="user.account.openAccessNotificationDescription"}<br />
+		{/if}
+		{if $allowRegAuthor || $allowRegAuthor === null}
+			<!-- <input type="checkbox" name="createAsAuthor" id="createAsAuthor" value="1"{if $createAsAuthor} checked="checked"{/if} /> --> 
+                    <input type="checkbox" name="createAsAuthor" id="createAsAuthor" value="1" checked="checked" />
+                        <label for="createAsAuthor">{translate key="user.role.author"}</label>: {translate key="user.account.authorDescription"}<br />
+		{/if}
+		{if $allowRegReviewer || $allowRegReviewer === null}<input type="checkbox" name="createAsReviewer" id="createAsReviewer" value="1"{if $createAsReviewer} checked="checked"{/if} /> <label for="createAsReviewer">{translate key="user.role.reviewer"}</label>: {if $existingUser}{translate key="user.account.reviewerDescriptionNoInterests"}{else}{translate key="user.account.reviewerDescription"} <input type="text" name="interests[{$formLocale|escape}]" value="{$interests[$formLocale]|escape}" size="20" maxlength="255" class="textField" />{/if}
+		{/if}
+	</td>
+</tr>
+{/if}
+</table>
+
+
+<button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">顯示更多</button>
+<div style="display:none;">
+    <div class="separator"></div>
+    <table class="data" width="100%">
+        
 <tr valign="top">
 	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
 	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 <tr valign="top">
-	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
+	<td class="label">{fieldLabel name="firstName" required="false" key="user.firstName"}</td>
 	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 	
@@ -94,7 +154,7 @@
 </tr>
 	
 <tr valign="top">
-	<td class="label">{fieldLabel name="lastName" required="true" key="user.lastName"}</td>
+	<td class="label">{fieldLabel name="lastName" required="false" key="user.lastName"}</td>
 	<td class="value"><input type="text" id="lastName" name="lastName" value="{$lastName|escape}" size="20" maxlength="90" class="textField" /></td>
 </tr>
 
@@ -112,18 +172,13 @@
 </tr>
 
 <tr valign="top">
-	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="true"}</td>
+	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="false"}</td>
 	<td class="value"><textarea name="affiliation" rows="5" cols="40" class="textArea">{$affiliation|escape}</textarea></td>
 </tr>
 
 <tr valign="top">
 	<td class="label">{fieldLabel name="signature" key="user.signature"}</td>
 	<td class="value"><textarea name="signature[{$formLocale|escape}]" id="signature" rows="5" cols="40" class="textArea">{$signature[$formLocale]|escape}</textarea></td>
-</tr>
-
-<tr valign="top">
-	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
-	<td class="value"><input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
 </tr>
 
 <tr valign="top">
@@ -168,37 +223,8 @@
 	</td>
 </tr>
 
-{if count($availableLocales) > 1}
-<tr valign="top">
-	<td class="label">{translate key="user.workingLanguages"}</td>
-	<td class="value">{foreach from=$availableLocales key=localeKey item=localeName}
-		<input type="checkbox" name="userLocales[]" id="userLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if in_array($localeKey, $userLocales)} checked="checked"{/if} /> <label for="userLocales-{$localeKey|escape}">{$localeName|escape}</label><br />
-	{/foreach}</td>
-</tr>
-{/if}
-{/if}
-	
-{if ($allowRegReader || $allowRegReader === null) or $enableOpenAccessNotification or ($allowRegAuthor || $allowRegAuthor === null) or ($allowRegReviewer || $allowRegReviewer === null)}
-<tr valign="top">
-	<td class="label">{fieldLabel suppressId="true" name="createAs" key="user.account.createAs"}</td>
-	<td class="value">
-		{if $allowRegReader || $allowRegReader === null}
-			<input type="checkbox" name="createAsReader" id="createAsReader" value="1"{if $createAsReader} checked="checked"{/if} /> <label for="createAsReader">{translate key="user.role.reader"}</label>: {translate key="user.account.readerDescription"}<br />
-		{/if}
-		{if $enableOpenAccessNotification}
-			<input type="checkbox" name="openAccessNotification" id="openAccessNotification" value="1"{if $openAccessNotification} checked="checked"{/if} /> <label for="openAccessNotification">{translate key="user.role.reader"}</label>: {translate key="user.account.openAccessNotificationDescription"}<br />
-		{/if}
-		{if $allowRegAuthor || $allowRegAuthor === null}
-			<!-- <input type="checkbox" name="createAsAuthor" id="createAsAuthor" value="1"{if $createAsAuthor} checked="checked"{/if} /> --> 
-                    <input type="checkbox" name="createAsAuthor" id="createAsAuthor" value="1" checked="checked" />
-                        <label for="createAsAuthor">{translate key="user.role.author"}</label>: {translate key="user.account.authorDescription"}<br />
-		{/if}
-		{if $allowRegReviewer || $allowRegReviewer === null}<input type="checkbox" name="createAsReviewer" id="createAsReviewer" value="1"{if $createAsReviewer} checked="checked"{/if} /> <label for="createAsReviewer">{translate key="user.role.reviewer"}</label>: {if $existingUser}{translate key="user.account.reviewerDescriptionNoInterests"}{else}{translate key="user.account.reviewerDescription"} <input type="text" name="interests[{$formLocale|escape}]" value="{$interests[$formLocale]|escape}" size="20" maxlength="255" class="textField" />{/if}
-		{/if}
-	</td>
-</tr>
-{/if}
-</table>
+    </table>
+</div>    
 
 <p>
     <input type="submit" value="{if $existingUser}{translate key="user.logIn"}{else}{translate key="user.createAccount"}{/if}" class="btn btn-primary" />

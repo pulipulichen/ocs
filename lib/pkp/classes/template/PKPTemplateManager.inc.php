@@ -291,6 +291,11 @@ class PKPTemplateManager extends Smarty {
 			$instance = new TemplateManager($request);
 		}
                 
+                $supportedLocales = AppLocale::getSupportedLocales();
+                $instance->assign('supportedLocales', $supportedLocales);
+                $instance->assign('localePrecedence', AppLocale::getLocalePrecedence());
+                
+                
                 $conference =& Request::getConference();
                 if (isset($conference)) {
                     $instance->assign('isConferenceManager', Validation::isConferenceManager($conference->getId()));

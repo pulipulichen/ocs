@@ -176,7 +176,7 @@
 	<message key="common.up">上</message>
 	<message key="common.updated">已更新</message>
 	<message key="common.upload">上傳</message>
-        <message key="common.uploadAnotherFile">上傳其他檔案</message>
+        <message key="common.uploadAnotherFile">重新上傳檔案</message>
 	<message key="common.uploadFailed">The file could not be uploaded. Please try again or contact the administrator if the problem persists.</message>
 	<message key="common.uploadedFile">上傳檔案</message>
 	<message key="common.url">網址</message>

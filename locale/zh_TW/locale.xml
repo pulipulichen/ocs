@@ -809,7 +809,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.usernameRestriction">帳號必須包含唯一小寫字母、數字、和連字號/底線。</message>
 	<message key="user.createAccount">建立</message>
 	<message key="user.createAccountForOtherConferences">在其他研討會建立一個帳號?</message>
-	<message key="user.login.createAccount">還不是使用者？請在此網站建立一個帳號。</message>
+	<message key="user.login.createAccount">沒有註冊過帳號嗎？請在此建立帳號。</message>
 	<message key="user.login.rememberMe">記住我</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[為了安全起見，此系統會自動寄出ㄧ封重設密碼的信件給報名者。
 <br /><br />請輸入您的電子郵件來重新設置您的密碼。確認信件將會送至您的電子郵件信箱內。]]></message>

@@ -43,9 +43,11 @@ class PKPLoginHandler extends Handler {
 		// If the user wasn't expecting a login page, i.e. if they're new to the
 		// site and want to submit a paper, it helps to explain why they need to
 		// register.
-		if(Request::getUserVar('loginMessage'))
+		if(Request::getUserVar('loginMessage')) {
 			$templateMgr->assign('loginMessage', Request::getUserVar('loginMessage'));
+                }
 
+                $templateMgr->assign('email', $session->getSessionVar('email'));
 		$templateMgr->assign('username', $session->getSessionVar('username'));
 		$templateMgr->assign('remember', Request::getUserVar('remember'));
 		$templateMgr->assign('source', Request::getUserVar('source'));
@@ -66,13 +68,15 @@ class PKPLoginHandler extends Handler {
 	 * If the user came in on a non-ssl url - then redirect back to the ssl url
 	 */
 	function implicitAuthLogin() {
-		if (Request::getProtocol() != 'https')
+		if (Request::getProtocol() != 'https') {
 			PKPRequest::redirectSSL();
+                }
 
 		$wayf_url = Config::getVar("security", "implicit_auth_wayf_url");
 
-		if ($wayf_url == "")
+		if ($wayf_url == "") {
 			die("Error in implicit authentication. WAYF URL not set in config file.");
+                }
 
 		$url = $wayf_url . "?target=https://" . Request::getServerHost() . Request::getBasePath() . '/index.php/index/login/implicitAuthReturn';
 
@@ -110,7 +114,18 @@ class PKPLoginHandler extends Handler {
 			PKPRequest::redirectSSL();
 		}
 
-		$user = Validation::login(Request::getUserVar('username'), Request::getUserVar('password'), $reason, Request::getUserVar('remember') == null ? false : true);
+                
+                $sessionManager =& SessionManager::getManager();
+                $session =& $sessionManager->getUserSession();
+                if (Request::getUserVar('remember') == null ? false : true) {
+                    $session->setSessionVar('email', Request::getUserVar('email'));
+                }
+                
+		$user = Validation::login(
+                        Request::getUserVar('username'), 
+                        Request::getUserVar('password'), 
+                        $reason, 
+                        Request::getUserVar('remember') == null ? false : true);
 		if ($user !== false) {
 			if ($user->getMustChangePassword()) {
 				// User must change their password in order to log in
@@ -133,10 +148,9 @@ class PKPLoginHandler extends Handler {
 			}
 
 		} else {
-			$sessionManager =& SessionManager::getManager();
-			$session =& $sessionManager->getUserSession();
 
 			$templateMgr =& TemplateManager::getManager();
+			$templateMgr->assign('email', Request::getUserVar('email'));
 			$templateMgr->assign('username', Request::getUserVar('username'));
 			$templateMgr->assign('remember', Request::getUserVar('remember'));
 			$templateMgr->assign('source', Request::getUserVar('source'));

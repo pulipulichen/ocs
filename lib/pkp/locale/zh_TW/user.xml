@@ -42,14 +42,14 @@
 	<message key="user.login.activate">Activate Account</message>
 	<message key="user.login.activated">Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[您必須選擇一個新密碼才能登入這個網站。<br /><br />請在下面輸入您的使用者帳號、您目前的密碼和新的密碼，以為您的帳號變更密碼。]]></message>
-	<message key="user.login.forgotPassword">忘了您的密碼？</message>
+	<message key="user.login.forgotPassword">忘記您的密碼了嗎？</message>
 	<message key="user.login.loginError">無效的使用者帳號或密碼。請再試一次。</message>
 	<message key="user.login.lostPassword.confirmationSent">一封確認信已經寄發到您的電子郵件地址去了。請按照郵件中的指引來重新設定您的密碼。</message>
 	<message key="user.login.lostPassword.invalidHash">抱歉，您點擊的連結已經過了有效期限，或者是無效連結。請試著再次重設您的密碼。</message>
 	<message key="user.login.lostPassword.invalidUser">不存在具有以下電子郵件地址的使用者。</message>
 	<message key="user.login.lostPassword.passwordSent">一個新的密碼已經寄發到您的電子郵件地址去了。您現在可以用您的新密碼登入這個網站。</message>
 	<message key="user.login.registeredEmail">已註冊使用者的電子郵件</message>
-	<message key="user.login.rememberUsernameAndPassword">記住我的使用者帳號和密碼</message>
+	<message key="user.login.rememberUsernameAndPassword">記住我的登入資料</message>
 	<message key="user.login.resetPassword">重設密碼</message>
 	<message key="user.mailingAddress">郵寄地址</message>
 	<message key="user.masculine">M</message>

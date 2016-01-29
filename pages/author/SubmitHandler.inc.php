@@ -177,7 +177,7 @@ class SubmitHandler extends AuthorHandler {
 			$paperId = $submitForm->execute();
 			$conference =& Request::getConference();
 			$schedConf =& Request::getSchedConf();
-
+                        
 			// For the "abstract only" or sequential review models, nothing else needs
 			// to be collected beyond page 2.
 			$reviewMode = $paper?$paper->getReviewMode():$schedConf->getSetting('reviewMode');
@@ -218,12 +218,18 @@ class SubmitHandler extends AuthorHandler {
  			} elseif ($step == 2 && $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL) {
  				$nextStep = $schedConf->getSetting('acceptSupplementaryReviewMaterials') ? 4:5;
 				Request::redirect(null, null, null, 'submit', $nextStep, array('paperId' => $paperId));
- 			} else {
+                        } else {
 				Request::redirect(null, null, null, 'submit', $step+1, array('paperId' => $paperId));
 			}
 
 		} else {
+                    if ($step == 2) {
+                        $paperId = $submitForm->execute();
+                        Request::redirect(null, null, null, 'submit', $step+1, array('paperId' => $paperId));
+                    }
+                    else {
 			$submitForm->display();
+                    }
 		}
 	}
 
@@ -301,7 +307,7 @@ class SubmitHandler extends AuthorHandler {
 		if ($fileManager->uploadError('uploadSuppFile') && $suppFileId == 0) {
 			$submitForm->addError('uploadSubmissionFile', __('common.uploadFailed'));
 		}
-
+                
 		if ($submitForm->validate()) {
 			$submitForm->execute();
 			Request::redirect(null, null, null, 'submit', '4', array('paperId' => $paperId));

@@ -35,6 +35,43 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
+    
+{literal}
+    <script type="text/javascript">
+        var _setupUsername = function (_input) {
+            var _form = _input.form;
+            var _email = _form.email.value;
+            
+            var _user = _email;
+            if (_email.indexOf("@") > -1) {
+                var _user = _email.substr(0, _email.indexOf("@"));
+            }
+            
+            _form.username.value = _user;
+            
+            if ($("input[name='role'][value='audience']:checked").length > 0) {
+                $('.password-tr input').val(_user);
+                alert(_user);
+            }
+        };
+        var _temp_pw = "";
+        var _setupRole = function (_radio) {
+            if (_radio.value === 'audience') {
+                $('.password-tr').hide();
+                $('.other-label').hide();
+                $('.audience-label').show();
+                _temp_pw = $('.password-tr input').val();
+                $('.password-tr input').val("");
+            }
+            else {
+                $('.password-tr').show();
+                $('.password-tr input').val(_temp_pw);
+                $('.other-label').show();
+                $('.audience-label').hide();
+            }
+        };
+    </script>
+{/literal}
 	<form id="signinForm" name="login" method="post" action="{$loginUrl}">
 {/if}
 
@@ -42,11 +79,35 @@
 
 {if ! $implicitAuth}
 	<table id="signinTable" class="data">
-	<tr>
+        <tr>
+            {* @TODO 語系 *}
+		<td class="label"><label for="loginEmail">身份</label></td>
+		<td class="value">
+                    <label>
+                        <input type="radio" name="role" value="other" onchange="_setupRole(this)" checked="true" /> 管理者、作者、評審委員等
+                    </label>
+                    {if $schedConfPostPayment}
+                    <label>
+                        <input type="radio"  name="role" value="audience" onchange="_setupRole(this)" /> 報名與會者
+                    </label>
+                    {/if}
+                </td>
+	</tr>
+        <tr>
+		<td class="label">
+                    <label class="other-label" for="loginEmail">{translate key="user.email"} 或 帳號</label>
+                    <label class="audience-label" for="loginEmail" style="display:none;">{translate key="user.email"}</label>
+                </td>
+		<td class="value">
+                    <input type="text" id="loginEmail" name="email" value="{$email|escape}" size="20" maxlength="32" class="textField"
+                           onchange="_setupUsername(this);"/>
+                </td>
+	</tr>
+	<tr style="display:none;">
 		<td class="label"><label for="loginUsername">{translate key="user.username"}</label></td>
 		<td class="value"><input type="text" id="loginUsername" name="username" value="{$username|escape}" size="20" maxlength="32" class="textField" /></td>
 	</tr>
-	<tr>
+        <tr class="password-tr">
 		<td class="label"><label for="loginPassword">{translate key="user.password"}</label></td>
 		<td class="value"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" maxlength="32" class="textField" /></td>
 	</tr>
@@ -59,7 +120,7 @@
 
 	<tr>
 		<td></td>
-		<td><input type="submit" value="{translate key="user.login"}" class="button" /></td>
+		<td><input type="submit" value="{translate key="user.login"}" class="btn btn-primary" /></td>
 	</tr>
 	</table>
 
