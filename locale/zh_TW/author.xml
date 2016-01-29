@@ -67,7 +67,7 @@
 	<message key="author.submit.selectTrack">請選擇一個研討會主題...</message>
 	<message key="author.submit.start">1. 開始</message>
 	<message key="author.submit.startHere">準備好投稿到研討會</message>
-	<message key="author.submit.startHereLink">進入投稿過程</message>
+	<message key="author.submit.startHereLink">進入投稿流程</message>
 	<message key="author.submit.step1">1. 開始投稿</message>
 	<message key="author.submit.step3">3.上傳稿件</message>
 	<message key="author.submit.step3NoAbstracts">步驟4. 上傳稿件檔案</message>

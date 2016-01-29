@@ -37,7 +37,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
 
 		$templateMgr->assign_by_ref('files', $paperFiles);
 		$templateMgr->assign_by_ref('conference', Request::getConference());
-
+                
 		parent::display();
 	}
 
@@ -89,8 +89,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
 		$this->confirmSubmission($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK':'SUBMISSION_ACK');
                 
                 // 同時寄一封給大會主席
-                //$this->confirmSubmissionBBC($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK_BCC':'SUBMISSION_ACK_BCC');
-                
+                $this->confirmSubmissionBBC($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK_BCC':'SUBMISSION_ACK_BCC');
 
 		import('paper.log.PaperLog');
 		import('paper.log.PaperEventLogEntry');

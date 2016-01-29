@@ -163,7 +163,7 @@ function checkSubmissionChecklist() {
 	{if $checklistItem.content}
 		{if !$notFirstChecklistItem}
 			{assign var=notFirstChecklistItem value=1}
-			<h3>{translate key="author.submit.submissionChecklist"}</h3>
+                        <h3 ondblclick="$(':checkbox').attr('checked', 'true')">{translate key="author.submit.submissionChecklist"}</h3>
 			<p>{translate key="author.submit.submissionChecklistDescription"}</p>
 			<table width="100%" class="data">
 		{/if}

@@ -178,7 +178,7 @@
 	<message key="common.upload">上傳</message>
         <message key="common.uploadAnotherFile">重新上傳檔案</message>
         <message key="common.uploadOtherFile">上傳其他檔案</message>
-	<message key="common.uploadFailed">The file could not be uploaded. Please try again or contact the administrator if the problem persists.</message>
+	<message key="common.uploadFailed">沒有選擇要上傳的檔案。</message>
 	<message key="common.uploadedFile">上傳檔案</message>
 	<message key="common.url">網址</message>
 	<message key="common.user">使用者</message>

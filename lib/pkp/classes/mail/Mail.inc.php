@@ -120,6 +120,10 @@ class Mail extends DataObject {
 	function setBccs($bccs) {
 		return $this->setData('bccs', $bccs);
 	}
+        
+        function clearBccs($bccs) {
+		return $this->setData('bccs', array());
+	}
 
 	/**
 	 * If no recipients for this message, promote CC'd accounts to

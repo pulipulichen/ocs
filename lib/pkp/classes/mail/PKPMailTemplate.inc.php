@@ -124,6 +124,7 @@ class PKPMailTemplate extends Mail {
 		// Replace variables in message with values
 		foreach ($paramArray as $key => $value) {
 			if (!is_object($value)) {
+                            $value = trim($value);
 				$subject = str_replace('{$' . $key . '}', $value, $subject);
 				$body = str_replace('{$' . $key . '}', $value, $body);
 			}
@@ -213,6 +214,11 @@ class PKPMailTemplate extends Mail {
 
 		$form->display();
 	}
+        
+        function setBccSender($enable = TRUE) {
+            $this->bccSender = $enable;
+            return $this;
+        }
 
 	/**
 	 * Send the email.
@@ -234,7 +240,7 @@ class PKPMailTemplate extends Mail {
 		$user =& Request::getUser();
 
 		if ($user && $this->bccSender) {
-			$this->addBcc($user->getEmail(), $user->getFullName());
+                    $this->addBcc($user->getEmail(), $user->getFullName());
 		}
 
 		if (isset($this->skip) && $this->skip) {

@@ -81,6 +81,7 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'author/submit':
 			case 'author/saveSubmit':
 				switch (array_shift(Request::getRequestedArgs())) {
+                                        case "":
 					case 1: $fields[] = 'commentsToDirector'; break;
                                         case 2: $fields[] = 'authors-0-biography'; break;
 					case 3:

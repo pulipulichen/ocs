@@ -141,12 +141,42 @@ class AuthorSubmitForm extends Form {
 		PaperSearchIndex::indexPaperMetadata($paper);
 		PaperSearchIndex::indexPaperFiles($paper);
 
+                $roleDao =& DAORegistry::getDAO('RoleDAO');
+                $directors =& $roleDao->getUsersArrayByRoleId(ROLE_ID_DIRECTOR, $conference->getId(), $schedConf->getId());
+                //print_r($users->toArray());
+                //echo count($users);
+                
+                // 嘗試找看看有沒有這位使用者
+                //$userDao =& DAORegistry::getDAO('UserDAO');
+                //$contactUser = $userDao->getUserByEmail($schedConf->getSetting('contactEmail'));
+//                if (isset($contactUser)) {
+//                    $submissionUrl = $submissionUrl . "?u=" . $contactUser->getUserId();
+//                }
+//                $contactName = $schedConf->getSetting('contactName');
+//                $contactEmail = $schedConf->getSetting('contactEmail');
+//                if (isset($contactUser)) {
+//                    $contactName = $contactUser->getFullName();
+//                    $contactEmail = $contactUser->getEmail();
+//                }
+                
 		// Send author notification email
 		import('mail.PaperMailTemplate');
-		$mail = new PaperMailTemplate($paper, $mailTemplate, null, null, null, null, false, true);
+		$mail = new PaperMailTemplate($paper, $mailTemplate, null, false, $conference, $schedConf, true, true);
+                $mail->setBccSender(false);
 		$mail->setFrom($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
-		if ($mail->isEnabled()) {
-			$mail->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+                
+		if ($mail->isEnabled() && count($directors > 0)) {
+                        $contactName = "";
+                        foreach ($directors AS $director) {
+                            $mail->addRecipient($director->getEmail(), $director->getFullName());
+                            if ($contactName !== "") {
+                                $contactName .= ", ";
+                            }
+                            $contactName .= $director->getFullName();
+                        }
+                        
+                        
+                        
                         
 //			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
 //			$editAssignments =& $editAssignmentDao->getEditAssignmentsByPaperId($paper->getId());
@@ -157,16 +187,9 @@ class AuthorSubmitForm extends Form {
 
                         $submissionUrl = Request::url(null, null, 'director', 'submissionReview', $paper->getId());
                         
-                        // 嘗試找看看有沒有這位使用者
-                        $userDao =& DAORegistry::getDAO('UserDAO');
-                        $contactUser = $userDao->getUserByEmail($schedConf->getSetting('contactEmail'));
-                        if (isset($contactUser)) {
-                            $submissionUrl = $submissionUrl . "?u=" . $contactUser->getUserId();
-                        }
-                        
 			$mail->assignParams(array(
-                                'contactName' => $schedConf->getSetting('contactName'),
-				'authorName' => $user->getFullName(),
+                                'contactName' => $contactName,
+				'authorName' => trim($user->getFullName()),
 				'authorUsername' => $user->getUsername(),
 				'editorialContactSignature' => $schedConf->getSetting('contactName') . "\n" . $conference->getConferenceTitle(),
 				'submissionUrl' => $submissionUrl

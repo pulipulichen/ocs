@@ -216,6 +216,14 @@ class RoleDAO extends DAO {
 		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 		return $returner;
 	}
+        
+        function &getUsersArrayByRoleId($roleId = null, $conferenceId = null, $schedConfId = null,
+			$searchType = null, $search = null, $searchMatch = null, $dbResultRange = null,
+			$sortBy = null, $sortDirection = SORT_DIRECTION_ASC ) {
+            $result = $this->getUsersByRoleId($roleId, $conferenceId, $schedConfId, $searchType, $search, $searchMatch, $dbResultRange,
+			$sortBy, $sortDirection);
+            return $result->toArray();
+        }
 
 	/**
 	 * Retrieve a list of all users with some role in the specified conference.
