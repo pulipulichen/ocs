@@ -148,12 +148,12 @@ class AuthorSubmitForm extends Form {
 		if ($mail->isEnabled()) {
 			$mail->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
                         
-			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
-			$editAssignments =& $editAssignmentDao->getEditAssignmentsByPaperId($paper->getId());
-			while ($editAssignment =& $editAssignments->next()) {
-				$mail->addBcc($editAssignment->getDirectorEmail(), $editAssignment->getDirectorFullName());
-				unset($editAssignment);
-			}
+//			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
+//			$editAssignments =& $editAssignmentDao->getEditAssignmentsByPaperId($paper->getId());
+//			while ($editAssignment =& $editAssignments->next()) {
+//				$mail->addBcc($editAssignment->getDirectorEmail(), $editAssignment->getDirectorFullName());
+//				unset($editAssignment);
+//			}
 
                         $submissionUrl = Request::url(null, null, 'director', 'submissionReview', $paper->getId());
                         

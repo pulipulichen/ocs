@@ -135,7 +135,7 @@ class SubmissionCommentsHandler extends TrackDirectorHandler {
 		$submissionEditHandler->validate($paperId);
 		$trackDirectorSubmissionDao =& DAORegistry::getDAO('TrackDirectorSubmissionDAO');
 		$submission =& $trackDirectorSubmissionDao->getTrackDirectorSubmission($paperId);
-
+                
 		parent::setupTemplate(true);		
 		if (TrackDirectorAction::emailDirectorDecisionComment($submission, Request::getUserVar('send'))) {
 			if (Request::getUserVar('blindCcReviewers')) {

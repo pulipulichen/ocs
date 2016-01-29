@@ -86,7 +86,12 @@ class Submission extends DataObject {
 			if (!empty($str)) {
 				$str .= $separator;
 			}
-			$str .= $lastOnly ? $a->getLastName() : $a->getFullName();
+			//$str .= $lastOnly ? $a->getLastName() : $a->getFullName();
+                        $name = $lastOnly ? $a->getLastName() : $a->getFullName();
+                        if ($name === "") {
+                            $name = $a->getFullName();
+                        }
+                        $str .= $name;
 		}
 		return $str;
 	}

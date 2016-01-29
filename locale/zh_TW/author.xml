@@ -31,7 +31,7 @@
 	<message key="author.submit.conferenceTrackDescription"><![CDATA[選擇您的稿件所欲投稿的主題 (請參閱 <a href="{$aboutUrl}" target="_new">主題方針</a>).]]></message>
 	<message key="author.submit.confirmDeleteSuppFile">您確定要刪除此附加檔案？</message>
 	<message key="author.submit.confirmation">5. 確認</message>
-	<message key="author.submit.confirmationDescription">當四個投稿步驟已完成，請點入投稿完成來繳交您的稿件至 {$conferenceTitle}。您將會收到一封由電子郵件寄出的確認信函，並且當您登入此研討會後您能夠在編輯過程查看您的投稿進度。感謝您繳交您的稿件至 {$conferenceTitle}。</message>
+	<message key="author.submit.confirmationDescription">當投稿步驟已經填寫完畢之後，最後請您點選「完成投稿」按鈕，就能將稿件遞交到「{$conferenceTitle}」。您將會收到一封電子郵件確認信函，方便您登入網站檢視審查進度或修改稿件。感謝您的參與。</message>
 	<message key="author.submit.confirmationSkipSupp">4. 確認</message>
 	<message key="author.submit.copyrightNoticeAgree">我接受此授權書，願意將我的文章授權給本研討會以及未來研討會所出版的刊物。</message>
 	<message key="author.submit.copyrightNoticeAgreeRequired">在繼續進行之前您必須讚成版權告示的期限。</message>

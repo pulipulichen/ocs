@@ -72,9 +72,12 @@ function moveAuthor(dir, authorIndex) {
 </tr>
 </table>
 
+
+
+<div id="authors" {if $author.biography[$formLocale]|escape == ''}style="display:none;"{/if}>
+    
 <div class="separator"></div>
 
-<div id="authors">
 <h3>
     {* @TODO 語系 *}
     {*translate key="paper.authors"*}

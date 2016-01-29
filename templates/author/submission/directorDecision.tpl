@@ -51,14 +51,17 @@
 		</td>
 		<td class="value highlight-last" width="80%">
 			{foreach from=$directorFiles item=directorFile key=key}
-                            <div>
+                            
+                                <!--
 				<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$directorFile->getFileId():$directorFile->getRevision()}" class="file">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                                    {$directorFile->getFileName()|escape}
+                                    {$directorFile->getOriginalFileName()|escape}
                                 </a>
+                                -->
+                                {$directorFile->getOriginalFileName()|escape}
                                 &nbsp;&nbsp;
                                 ({$directorFile->getDateModified()|date_format:$dateFormatShort})
-                            </div>    
+                            
 			{foreachelse}
 				{translate key="common.none"}
 			{/foreach}
@@ -92,18 +95,20 @@
 	</tr>
         <tr valign="top">
 			<td class="label" width="20%">
-				{translate key="submission.reviewVersion"}
+				{*translate key="submission.reviewVersion"*}
+                               作者最新稿件
 			</td>
 			<td class="value" width="80%">
 				{*assign var="reviewFile" value=$reviewFilesByStage[$stage]*}
                                 {assign var="reviewFile" value=$revisedFile}
                                 
-				{if $reviewFile}
-					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+				{if $lastFile}
+					<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$lastFile->getFileId():$lastFile->getRevision()}" 
                                            class="file btn btn-primary">
                                             <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                             {*$reviewFile->getFileName()|escape*}
                                             {$lastFile->getOriginalFileName()|escape}
+                                        </a>
                                             &nbsp;&nbsp;
                                             {* @TODO 語系 *}
                                             {if $lastFileType == 0}
@@ -113,7 +118,6 @@
                                             {/if}
                                             ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                             
-                                        </a>
 				{else}
 					{translate key="common.none"}
 				{/if}

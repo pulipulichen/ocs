@@ -12,6 +12,18 @@
 <h3>{translate key="paper.submission"}</h3>
 
 <table width="100%" class="data">
+        {if $tracks|@count > 1}
+	<tr>
+		<td class="label">{translate key="track.track"}</td>
+		<td>
+                    {$submission->getTrackTitle()|escape}
+                </td>
+	</tr>
+        {/if}
+        <tr>
+		<td class="label">{translate key="paper.sessionType"}</td>
+		<td>{$sessionType|escape}</td>
+	</tr>
 	<tr>
 		<td width="20%" class="label">{translate key="paper.authors"}</td>
 		<td width="80%">
@@ -27,18 +39,6 @@
 	<tr>
 		<td class="label">{translate key="paper.title"}</td>
 		<td>{$submission->getLocalizedTitle()|strip_unsafe_html|default:"&mdash;"}</td>
-	</tr>
-        {if $tracks|@count > 1}
-	<tr>
-		<td class="label">{translate key="track.track"}</td>
-		<td>
-                    {$submission->getTrackTitle()|escape}
-                </td>
-	</tr>
-        {/if}
-        <tr>
-		<td class="label">{translate key="paper.sessionType"}</td>
-		<td>{$sessionType|escape}</td>
 	</tr>
         <!--
 	<tr>
@@ -64,12 +64,14 @@
 				{$submission->getLocalizedAbstract()|strip_unsafe_html}
 			</td>
 		</tr>
-	{elseif $lastFile}
+	{else}
 		{**
 		 * This is an abstract-and-paper or paper-only review. Don't
 		 * show the abstract, and show any review files or
 		 * supplementary files.
 		 *}
+                {if $lastFile}
+                <!--
 		<tr valign="top">
                     <td class="label" width="20%">{translate key="submission.reviewVersion"}</td>
                     <td>
@@ -91,6 +93,8 @@
                         </a>
                     </td>
                 </tr>
+                -->
+                {/if}
 		{if not $isStageDisabled}
                 <!--
 		<tr valign="top">
@@ -107,35 +111,55 @@
 		</tr>
                 -->
 		{/if}
-		{foreach from=$suppFiles item=suppFile}
-                    <tr valign="top"><td colspan="2">&nbsp;</td></tr>
+		<!--<tr valign="top"><td colspan="2">&nbsp;</td></tr>-->
                     	<tr valign="top">
 				{if !$notFirstSuppFile}
 					<td class="label" rowspan="{$suppFiles|@count}">{translate key="paper.suppFilesAbbrev"}</td>
 						{assign var=notFirstSuppFile value=1}
 				{/if}
 				<td width="80%" class="value nowrap">
-					<form method="post" action="{url op="setSuppFileVisibility"}">
+                                    {foreach from=$suppFiles item=suppFile}
+                                        {if $notFirst}
+                                            <br />
+                                        {/if}
+                                        <!-- <form method="post" action="{url op="setSuppFileVisibility"}" class="display:inline;"> -->
 						<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 						<input type="hidden" name="fileId" value="{$suppFile->getId()}" />
-						<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$suppFile->getFileId():$suppFile->getRevision()}" class="file">{$suppFile->getOriginalFileName()|escape}</a>&nbsp;&nbsp;
-						{$suppFile->getDateModified()|date_format:$dateFormatShort}
-						<label for="show">{translate key="director.paper.showSuppFile"}</label>
-						<input type="checkbox" {if !$mayEditPaper}disabled="disabled" {/if}name="show" id="show" value="1"{if $suppFile->getShowReviewers()==1} checked="checked"{/if}/>
-						<input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.record"}" class="button" />
-					</form>
+						<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$suppFile->getFileId():$suppFile->getRevision()}" 
+                                                   class="btn btn-default">
+                                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                                    {$suppFile->getOriginalFileName()|escape}
+                                                </a>
+                                                &nbsp;&nbsp;
+                                                {$suppFile->getDateModified()|date_format:$dateFormatShort}
+						&nbsp;&nbsp;
+                                                <a href="{url op="deleteSuppFile" from="submission" path=$submission->getPaperId()|to_array:$suppFile->getId()}" 
+                                                   class="action">
+                                                    {translate key="common.delete"}
+                                                </a>
+                                                
+                                                <div class="hide">
+                                                    <label for="show">{translate key="director.paper.showSuppFile"}</label>
+                                                    <input type="checkbox" {if !$mayEditPaper}disabled="disabled" {/if}name="show" id="show" value="1"{if $suppFile->getShowReviewers()==1} checked="checked"{/if}/>
+                                                    <input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.record"}" class="button" />
+                                                </div>
+					<!-- </form> -->
+                                                {assign var=notFirst value=1}
+                                    {foreachelse}
+                                        {translate key="common.none"}
+                                        
+                                    {/foreach}
+                                    &nbsp;&nbsp;
+                                        <a href="{url op="addSuppFile" path=$submission->getPaperId()}" class="action">
+                                            <span class="glyphicon glyphicon-upload"></span>
+                                            {translate key="submission.addSuppFile"}
+                                        </a>
 				</td>
 			</tr>
-		{foreachelse}
-			<tr valign="top">
-				<td class="label">{translate key="paper.suppFilesAbbrev"}</td>
-				<td class="nodata">{translate key="common.none"}</td>
-			</tr>
-		{/foreach}
 	{/if}
 
                 
-{if $mayEditPaper}
+{*if $mayEditPaper}
     <tr>
         <td class="label">
             {translate key="submission.summaryEdit"}
@@ -148,7 +172,7 @@
         </td>
     </tr>
 	
-{/if}
+{/if*}
 
         <tr>
 		<td class="label">{translate key="submissions.status"}</td>

@@ -50,7 +50,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
 		$trackSubmissionHandler = new TrackSubmissionHandler();
 		$trackSubmissionHandler->validate($paperId);
 		$submission =& $trackSubmissionHandler->submission;
-
+                
 		$this->setupTemplate(true);		
 		if (AuthorAction::emailDirectorDecisionComment($submission, Request::getUserVar('send'))) {
 			Request::redirect(null, null, null, 'submissionReview', array($paperId));

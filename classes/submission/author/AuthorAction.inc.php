@@ -190,7 +190,11 @@ class AuthorAction extends Action {
 			return true;
 		} else {
 			if (!Request::getUserVar('continued')) {
-				$email->setSubject($authorSubmission->getLocalizedTitle());
+                                //$subject = $authorSubmission->getLocalizedTitle();
+                                $subject = $email->getSubject();
+                                
+                                //$subject = "[" . $schedConf->getLocalizedAcronym() . "] " . $subject;
+				$email->setSubject($subject);
 				if (!empty($directors)) {
 					foreach ($directors as $director) {
 						$email->addRecipient($director->getEmail(), $director->getFullName());

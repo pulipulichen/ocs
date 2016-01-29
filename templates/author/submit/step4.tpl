@@ -52,23 +52,27 @@ function confirmForgottenUpload() {
 
 <table class="listing" width="100%">
 <tr>
-	<td colspan="5" class="headseparator">&nbsp;</td>
+	<td colspan="3" class="headseparator">&nbsp;</td>
 </tr>
 <tr class="heading" valign="bottom">
-	<td>{translate key="common.id"}</td>
-	<td>{translate key="common.title"}</td>
+	<!-- <td>{translate key="common.id"}</td> -->
+	<!-- <td>{translate key="common.title"}</td> -->
 	<td>{translate key="common.originalFileName"}</td>
 	<td class="nowrap">{translate key="common.dateUploaded"}</td>
 	<td align="right">{translate key="common.action"}</td>
 </tr>
 <tr>
-	<td colspan="6" class="headseparator">&nbsp;</td>
+	<td colspan="3" class="headseparator">&nbsp;</td>
 </tr>
 {foreach from=$suppFiles item=file}
 <tr valign="top">
-	<td>{$file->getSuppFileId()}</td>
-	<td>{$file->getSuppFileTitle()|escape}</td>
-	<td>{$file->getOriginalFileName()|escape}</td>
+	<!-- <td>{$file->getSuppFileId()}</td> -->
+	<!-- <td>{$file->getSuppFileTitle()|escape}</td> -->
+	<td>
+            <a href="{url op="downloadFile" path=$paperId|to_array:$file->getFileId():$file->getRevision()}">
+            {$file->getOriginalFileName()|escape}
+            </a>
+        </td>
 	<td>{$file->getDateSubmitted()|date_format:$dateFormatTrunc}</td>
 	<td align="right">
             <!--
@@ -80,7 +84,7 @@ function confirmForgottenUpload() {
 </tr>
 {foreachelse}
 <tr valign="top">
-	<td colspan="6" class="nodata">{translate key="author.submit.noSupplementaryFiles"}</td>
+	<td colspan="3" class="nodata">{translate key="author.submit.noSupplementaryFiles"}</td>
 </tr>
 {/foreach}
 </table>

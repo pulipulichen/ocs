@@ -131,6 +131,7 @@
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
                                     {*$reviewFile->getFileName()|escape*}
                                     {$lastFile->getOriginalFileName()|escape}
+                        </a>
                                     &nbsp;&nbsp;
                                     
                                     {* @TODO 語系 *}
@@ -141,7 +142,6 @@
                                             {/if}
                                     ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                     {*} &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> {*}
-                        </a>
                     </td>
                 </tr>
         {/if}
