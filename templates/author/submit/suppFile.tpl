@@ -23,7 +23,7 @@
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 {include file="common/formErrors.tpl"}
 
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 2}
 <div id="locales">
 <table width="100%" class="data">
 	<tr valign="top">

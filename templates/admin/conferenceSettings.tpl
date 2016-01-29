@@ -27,7 +27,7 @@
 {/if}
 
 <table class="data" width="100%">
-	{if count($formLocales) > 1}
+	{if $supportedLocales|@count > 2}
 		<tr valign="top">
 			<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 			<td width="80%" class="value">

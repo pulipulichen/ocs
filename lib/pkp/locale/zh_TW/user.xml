@@ -16,7 +16,7 @@
 	<message key="user.affiliation">所屬機構</message>
 	<message key="user.affiliation.description">(你的機構名稱，例如：「國立空中大學」)</message>
 	<message key="user.affiliations">所屬機構</message>
-	<message key="user.biography">個人資訊</message>
+	<message key="user.biography">作者資料</message>
 	<message key="user.biography.description">(例如系所和職級)</message>
 	<message key="user.changeMyPassword">改變我的密碼</message>
 	<message key="user.changePassword">改變密碼</message>

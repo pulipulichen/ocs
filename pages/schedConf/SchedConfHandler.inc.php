@@ -228,6 +228,7 @@ class SchedConfHandler extends Handler {
                 
                 
 		$templateMgr->assign('cfpMessage', $schedConf->getLocalizedSetting('cfpMessage'));
+                $templateMgr->assign('authorProfileTemplate', $schedConf->getLocalizedSetting('authorProfileTemplate'));
 		$templateMgr->assign('authorGuidelines', $schedConf->getLocalizedSetting('authorGuidelines'));
                 $templateMgr->assign('addSuppFileMessage', $schedConf->getLocalizedSetting('addSuppFileMessage'));
                 $templateMgr->assign('stepFinalMessage', $schedConf->getLocalizedSetting('stepFinalMessage'));

@@ -403,6 +403,9 @@ class Form {
 			if (isset($params['key'])) {
 				$params['label'] = __($params['key'], $params);
 			}
+                        if (isset($params['value'])) {
+				$params['label'] = $params['value'];
+			}
 
 			if (isset($this->errorFields[$params['name']])) {
 				$class = ' class="error"';

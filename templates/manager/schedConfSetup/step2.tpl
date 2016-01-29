@@ -244,6 +244,28 @@
 
 <div class="separator"></div>
 
+
+<div id="callForPapers">
+    {* @TODO 語系 *}
+<h3>2.5 作者基本資訊表格</h3>
+
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="10%" class="label">{fieldLabel name="authorProfileTemplate" value="表格範本"}</td>
+		<td width="90%" class="value">
+			<textarea name="authorProfileTemplate[{$formLocale|escape}]" id="authorProfileTemplate" rows="10" cols="80" class="textArea">{$authorProfileTemplate[$formLocale]|escape}</textarea>
+			<br />
+			<span class="instruct">
+                            {*translate key="manager.schedConfSetup.submissions.cfpMessageDescription"*}
+                            本訊息將會顯示在作者投稿過程中。
+                        </span>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="separator"></div>
+
 <div id="publicIdentifier">
 <h3>2.5 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
 <button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">

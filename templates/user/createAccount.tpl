@@ -9,7 +9,7 @@
  * $Id$
  *}
 {strip}
-{assign var="pageTitle" value="navigation.account"}
+{assign var="pageTitle" value="user.login.createAccountTitle"}
 {include file="common/header.tpl"}
 {/strip}
 
@@ -41,6 +41,8 @@
     <p>{translate key="user.account.completeForm"}</p>
 {/if}
 
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {* NOTE: The absolutely required fields in following form should be synced
    with the implementation in templates/registration/userRegistrationForm.tpl *}
    
@@ -57,8 +59,18 @@
     {/if}
 
 <tr valign="top">
-	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
-	<td class="value"><input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
+	<td class="label" width="20%">{fieldLabel name="email" required="true" key="user.email"}</td>
+	<td class="value" width="80%"><input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
+</tr>
+
+<tr valign="top">
+	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
+	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
+</tr>
+
+<tr valign="top">
+	<td class="label">{fieldLabel name="affiliation" key="user.affiliation"  required="true" }</td>
+	<td class="value"><input type="text" name="affiliation" class="textField" >{$affiliation|escape}</textarea></td>
 </tr>
 
 <tr valign="top" style="display:none;">	
@@ -74,13 +86,14 @@
 	
 <tr valign="top">
 	<td class="label">{fieldLabel name="password" required="true" key="user.password"}</td>
-	<td class="value"><input type="password" name="password" value="{$password|escape}" id="password" size="20" maxlength="32" class="textField" /></td>
+	<td class="value">
+            <input type="password" name="password" value="{$password|escape}" id="password" size="20" maxlength="32" class="textField" />
+            {if !$existingUser}
+                {translate key="user.account.passwordLengthRestriction" length=$minPasswordLength}
+            {/if}
+        </td>
 </tr>
 {if !$existingUser}
-<tr valign="top">
-	<td></td>
-	<td class="instruct">{translate key="user.account.passwordLengthRestriction" length=$minPasswordLength}</td>
-</tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="password2" required="true" key="user.account.repeatPassword"}</td>
 	<td class="value"><input type="password" name="password2" id="password2" value="{$password2|escape}" size="20" maxlength="32" class="textField" /></td>
@@ -143,10 +156,7 @@
 	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
 	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
-<tr valign="top">
-	<td class="label">{fieldLabel name="firstName" required="false" key="user.firstName"}</td>
-	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
-</tr>
+
 	
 <tr valign="top">
 	<td class="label">{fieldLabel name="middleName" key="user.middleName"}</td>
@@ -154,7 +164,7 @@
 </tr>
 	
 <tr valign="top">
-	<td class="label">{fieldLabel name="lastName" required="false" key="user.lastName"}</td>
+	<td class="label">{fieldLabel name="lastName" key="user.lastName"}</td>
 	<td class="value"><input type="text" id="lastName" name="lastName" value="{$lastName|escape}" size="20" maxlength="90" class="textField" /></td>
 </tr>
 
@@ -171,10 +181,6 @@
 	</td>
 </tr>
 
-<tr valign="top">
-	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="false"}</td>
-	<td class="value"><textarea name="affiliation" rows="5" cols="40" class="textArea">{$affiliation|escape}</textarea></td>
-</tr>
 
 <tr valign="top">
 	<td class="label">{fieldLabel name="signature" key="user.signature"}</td>
@@ -250,12 +256,15 @@
 
 {*-----------------------------*}
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-
 {*-----------------------------*}
 
 {if $privacyStatement}
 <div class="separator"></div>
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/setup/1#privacyStatementInfo" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <h3>{translate key="user.account.privacyStatement"}</h3>
 <p>{$privacyStatement|nl2br}</p>
 {/if}

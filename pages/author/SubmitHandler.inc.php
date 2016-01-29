@@ -93,7 +93,7 @@ class SubmitHandler extends AuthorHandler {
 
 			// Check for any special cases before trying to save
 			switch ($step) {
-				case 2:
+				case 3:
 					if (Request::getUserVar('uploadSubmissionFile')) {
 						if (!$submitForm->uploadSubmissionFile('submissionFile')) {
 							$submitForm->addError('uploadSubmissionFile', __('common.uploadFailed'));

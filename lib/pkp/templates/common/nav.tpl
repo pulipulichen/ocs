@@ -17,9 +17,9 @@
                     {if $schedConfAcronym}
                             {$schedConfAcronym}
                     {elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+                            1<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
                     {elseif $displayPageHeaderTitle}
-                            {$displayPageHeaderTitle}
+                            {$displayPageHeaderTitle|@strip_tags}
                     {elseif $alternatePageHeader}
                             {$alternatePageHeader}
                     {elseif $customLogoTemplate}

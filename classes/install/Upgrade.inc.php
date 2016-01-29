@@ -270,6 +270,7 @@ class Upgrade extends Installer {
 			'contributorNote' => 'contributorNote',
 			// Setup page 2
 			'cfpMessage' => 'cfpMessage',
+                        'authorProfileTemplate' => 'authorProfileTemplate',
 			'presenterGuidelines' => 'presenterGuidelines',
 			'submissionChecklist' => 'submissionChecklist',
 			'metaDisciplineExamples' => 'metaDisciplineExamples',

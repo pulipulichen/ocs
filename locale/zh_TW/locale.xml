@@ -792,7 +792,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.form.passwordsDoNotMatch">密碼錯誤</message>
 	<message key="user.account.form.usernameAlphaNumeric">帳號能包含唯一字母、數字字符、底線,，和連字號，且必須以一個字母或數字字符開始和結束。</message>
 	<message key="user.account.form.usernameExists">所選擇的帳號已有其它使用者在使用。</message>
-	<message key="user.account.hasAccount"><![CDATA[若您已經有此研討會的帳號，<a href="{$accountUrl}">請從這裡登入</a>。]]></message>
+	<message key="user.account.hasAccount"><![CDATA[若您已經註冊過帳號，<a href="{$accountUrl}">請從這裡登入</a>。]]></message>
 	<message key="user.account.hasNoAccount"><![CDATA[如果您尚未在此研討會建立帳號，<a href="{$accountUrl}">請點選這裡建立帳號</a>。]]></message>
 	<message key="user.account.loginToRegister">請輸入您的帳號與密碼來報名本研討會。</message>
 	<message key="user.account.noConferences">在這個網站裡沒有研討會可以讓您登記。</message>
@@ -801,7 +801,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.passwordLengthRestriction">密碼必須是至少 {$length} 字符。</message>
 	<message key="user.account.privacyStatement">保密聲明</message>
 	<message key="user.account.readerDescription">由電子郵件公佈所介紹的出版物。</message>
-	<message key="user.account.repeatPassword">重覆輸入密碼</message>
+	<message key="user.account.repeatPassword">請再一次輸入密碼</message>
 	<message key="user.account.reviewerDescription">願意對於此研討會來管理同儕審查投稿。對審查有興趣 (實質的領域和研究方法)。</message>
 	<message key="user.account.reviewerDescriptionNoInterests">願意對於此研討會來管理同儕審查投稿。</message>
 	<message key="user.account.selectConference">選擇一個研討會來登記</message>
@@ -810,6 +810,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.createAccount">建立</message>
 	<message key="user.createAccountForOtherConferences">在其他研討會建立一個帳號?</message>
 	<message key="user.login.createAccount">沒有註冊過帳號嗎？請在此建立帳號。</message>
+        <message key="user.login.createAccountTitle">註冊帳號</message>
 	<message key="user.login.rememberMe">記住我</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[為了安全起見，此系統會自動寄出ㄧ封重設密碼的信件給報名者。
 <br /><br />請輸入您的電子郵件來重新設置您的密碼。確認信件將會送至您的電子郵件信箱內。]]></message>

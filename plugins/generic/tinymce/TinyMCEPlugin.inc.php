@@ -82,6 +82,7 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'author/saveSubmit':
 				switch (array_shift(Request::getRequestedArgs())) {
 					case 1: $fields[] = 'commentsToDirector'; break;
+                                        case 2: $fields[] = 'authors-0-biography'; break;
 					case 3:
 						$count = max(1, count($templateMgr->get_template_vars('authors')));
 						for ($i=0; $i<$count; $i++) {
@@ -169,6 +170,7 @@ class TinyMCEPlugin extends GenericPlugin {
 						break;
 					case 2:
 						$fields[] = 'cfpMessage';
+                                                $fields[] = 'authorProfileTemplate';
 						$fields[] = 'authorGuidelines';
                                                 $fields[] = 'addSuppFileMessage';
                                                 $fields[] = 'stepFinalMessage';
