@@ -23,6 +23,10 @@
 
 {foreach from=$userConferences item=conference}
 {assign var="hasRole" value=1}
+{assign var=lastColSpan value=4}
+{if !$schedConfPostPayment}
+    {assign var=lastColSpan value=$lastColSpan-1}
+{/if}
 <div id="conference">
     
     {if !$currentConference}
@@ -64,9 +68,11 @@
                             <th colspan="4">
                                 審查進度
                             </th>
+                            {if $schedConfPostPayment}
                             <th rowspan="2">
                                 {translate key="common.queue.short.registration"}
                             </th>
+                            {/if}
                             <th rowspan="2" style="text-align:right">
                                 {translate key="submissions.manage"}
                             </th>
@@ -95,7 +101,7 @@
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{$authorSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
 					</td>
-                                        <td colspan="4"></td>
+                                        <td colspan="{$lastColSpan}"></td>
 					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
 				</tr>
 			{/if}
@@ -130,6 +136,7 @@
                                                 <span class="disabled">0 {translate key="common.queue.short.submissionsAccepted"}</span>
                                             {/if}
                                         </td>
+                                        {if $schedConfPostPayment}
                                         <td>
                                             {if $directorSubmissionsCount[4]}
                                                 <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="manager" op="registration"}">
@@ -141,6 +148,7 @@
                                             {/if}
                                             
                                         </td>
+                                        {/if}
 					<td align="right">[<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="notifyUsers"}">{translate key="director.notifyUsers"}</a>]</td>
 				</tr>
 			{/if}
@@ -149,7 +157,7 @@
 				<tr>
 					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  page="trackDirector"}">{translate key="user.role.trackDirector"}</a></th>
 					<td colspan="2">&nbsp;</td>
-					<td colspan="3">
+					<td colspan="{$lastColSpan-1}">
 						{if $trackDirectorSubmissionsCount[0]}
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="trackDirector" op="index" path="submissionsInReview"}">{$trackDirectorSubmissionsCount[0]} {translate key="common.queue.short.submissionsInReview"}</a>
 						{else}
@@ -171,7 +179,7 @@
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{$reviewerSubmissionsCount[0]} {translate key="common.queue.count.active"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.count.active"}</span>{/if}
 					</td>
-                                        <td colspan="3">&nbsp;</td>
+                                        <td colspan="{$lastColSpan-1}">&nbsp;</td>
 				</tr>
 			{/if}
 			{* Add a row to the bottom of each table to ensure all have same width*}

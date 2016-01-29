@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|docs|files|help|lib|styles|web-demo|LICENSE|public|favicon\.ico|robots\.txt)
+RewriteRule ^(.*)$ /ocs/index.php/$1 [L]
+Header set Access-Control-Allow-Origin "*"

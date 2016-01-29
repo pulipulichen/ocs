@@ -124,7 +124,6 @@ class PKPRequest {
 			}
 			HookRegistry::call('Request::getBaseUrl', array(&$_this->_baseUrl));
 		}
-
 		return $_this->_baseUrl;
 	}
 

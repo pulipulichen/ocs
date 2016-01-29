@@ -32,7 +32,7 @@ class SessionManager {
 	 */
 	function SessionManager(&$sessionDao, &$request) {
 		$this->sessionDao =& $sessionDao;
-
+                
 		// Configure PHP session parameters
 		ini_set('session.use_trans_sid', 0);
 		ini_set('session.save_handler', 'user');
@@ -129,7 +129,7 @@ class SessionManager {
 	 * @return Session
 	 */
 	function &getUserSession() {
-		return $this->userSession;
+            return $this->userSession;
 	}
 
 	/**

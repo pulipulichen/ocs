@@ -409,7 +409,7 @@ class PKPPageRouter extends PKPRouter {
 			}
 			$queryParametersArray = array_merge($queryParametersArray, $additionalPath, $additionalParameters);
 		}
-
+                
 		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
 	}
 }

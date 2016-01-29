@@ -32,7 +32,10 @@
 			$sessionManager =& SessionManager::getManager();
 			$userSession =& $sessionManager->getUserSession();
 			$user =& $userSession->getUser();
-
+                        
+                        $userId = $userSession->getUserId();
+                        echo $userId;
+                        
 			if (isset($user)) {
 				// User is logged in
 				$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
@@ -78,8 +81,12 @@
 		 * @return string
 		 */
 		public function getPKPImageUploadPath() {
-			if(isset($this->baseDir) && isset($this->imageDir)) return $this->baseDir . '/' . $this->imageDir;
-			else return '/dev/null';
+			if (isset($this->baseDir) && isset($this->imageDir)) {
+                            return $this->baseDir . '/' . $this->imageDir;
+                        }
+			else {
+                            return '/dev/null';
+                        }
 		}
 
 
@@ -93,7 +100,9 @@
 				$urlParts = parse_url($url);
 				return $urlParts['path'];
 			}
-			else return '';
+			else {
+                            return '';
+                        }
 		}
 	}
 ?>
