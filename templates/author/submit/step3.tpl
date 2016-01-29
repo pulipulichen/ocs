@@ -23,6 +23,13 @@
 {/if}
 
 <p class="need-support">
+
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#technicalSupportContact" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+
     {translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}
 </p>
 
@@ -33,15 +40,21 @@
 <div class="separator"></div>
 <div id="cfp">
 {if $isConferenceManager}
-    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#technicalSupportContact" target="_blank">
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#uploadInstructionsTr" target="_blank">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
 
+{if $uploadInstructions}
+    {$uploadInstructions}
+{else}
 {translate key="author.submit.uploadInstructions" supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}
+{/if}
+</div>
+
 <div class="separator"></div>
 
-<div id="submissionFileInfo">
+<div id="submissionFileInfo" style="clear:both;">
 <h3>{translate key="author.submit.submissionFile"}</h3>
 <table class="data" width="100%">
 {if $submissionFile}

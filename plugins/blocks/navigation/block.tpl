@@ -13,7 +13,7 @@
 		
 		<!-- <span class="blockSubtitle">{translate key="navigation.search"}</span> -->
 		<form method="post" action="{url page="search" op="results"}">
-		<table>
+		<table width="100%">
 		<tr>
 			<td><input type="text" id="query" name="query" size="15" maxlength="255" value="" class="form-control" /></td>
 		</tr>

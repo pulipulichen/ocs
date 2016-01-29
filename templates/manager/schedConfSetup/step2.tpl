@@ -19,6 +19,9 @@
 <input type="hidden" name="paperTypeId" value="" />
 {include file="common/formErrors.tpl"}
 
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {if count($formLocales) > 1}
 <div id="locales">
 <table width="100%" class="data">
@@ -267,7 +270,7 @@
 <div class="separator"></div>
 
 <div id="publicIdentifier">
-<h3>2.5 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
+<h3>2.6 {translate key="manager.schedConfSetup.submissions.publicIdentifier"}</h3>
 <button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
     {translate key="common.more"}
 </button>
@@ -290,7 +293,7 @@
 
 <div id="forAuthorsToIndexTheirWork">
 <h3>
-    2.6 {translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork"}
+    2.7 {translate key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork"}
 </h3>
 <button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
     {translate key="common.more"}
@@ -317,7 +320,7 @@
 			<span class="instruct">{translate key="manager.schedConfSetup.submissions.disciplineExamples"}</span>
 		</td>
 	</tr>
-	
+        
 	<tr>
 		<td class="separator" colspan="2"><br />&nbsp;</td>
 	</tr>
@@ -444,9 +447,15 @@
 <div class="separator"></div>
 
 <div id="stepMessage">
-<h3>2.7 {translate key="submission.stepMessage"}</h3>
+<h3>2.8 {translate key="submission.stepMessage"}</h3>
 
 <table width="100%" class="data">
+        <tr valign="top" id="uploadInstructionsTr">
+		<td width="10%" class="label">{fieldLabel name="uploadInstructions" value="上傳稿件"}</td>
+		<td width="90%" class="value">
+			<textarea name="uploadInstructions[{$formLocale|escape}]" id="uploadInstructions" rows="10" cols="80" class="textArea">{$uploadInstructions[$formLocale]|escape}</textarea>
+		</td>
+	</tr>
 	<tr valign="top" id="addSuppFileMessageTr">
 		<td width="10%" class="label">{fieldLabel name="addSuppFileMessage" key="submission.addSuppFile"}</td>
 		<td width="90%" class="value">
@@ -471,9 +480,6 @@
     <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="schedConfSetup"}'" />
 </p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-
 </form>
 
 

@@ -232,6 +232,7 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('authorGuidelines', $schedConf->getLocalizedSetting('authorGuidelines'));
                 $templateMgr->assign('addSuppFileMessage', $schedConf->getLocalizedSetting('addSuppFileMessage'));
                 $templateMgr->assign('stepFinalMessage', $schedConf->getLocalizedSetting('stepFinalMessage'));
+                $templateMgr->assign('uploadInstructions', $schedConf->getLocalizedSetting('uploadInstructions'));
 
 		$submissionsOpenDate = $schedConf->getSetting('submissionsOpenDate');
 		$submissionsCloseDate = $schedConf->getSetting('submissionsCloseDate');

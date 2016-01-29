@@ -83,6 +83,7 @@ class AuthorSubmitForm extends Form {
 		$templateMgr->assign('showPaperSteps', $showPaperSteps);
                 $templateMgr->assign('addSuppFileMessage', $schedConf->getLocalizedSetting("addSuppFileMessage"));
                 $templateMgr->assign('stepFinalMessage', $schedConf->getLocalizedSetting("stepFinalMessage"));
+                $templateMgr->assign('uploadInstructions', $schedConf->getLocalizedSetting("uploadInstructions"));
 
 		if (isset($this->paper)) {
 			$templateMgr->assign('submissionProgress', $this->paper->getSubmissionProgress());

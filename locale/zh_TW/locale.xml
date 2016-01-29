@@ -89,12 +89,12 @@
 <ol>
 <li>請點選頁面下方的「瀏覽」(或「選擇文件」)，以此打開您的電腦，從硬碟來選擇要上傳的文件檔案。</li>
 <li>請確認此文件檔案是您要投稿的文件。</li>
-<!--<li>請在此頁面檔案名稱的地方的選擇投稿文件內點選開啟。</li>-->
+<!--<li>請在此頁面檔案名稱的地方的選擇稿件檔案內點選開啟。</li>-->
 <li>請點選頁面下方的「上傳」按鈕，檔案將會從電腦內上傳至研討會網站。</li>
 <li>如果稿件上傳完成，請點選頁面下方的在此頁面的「儲存」以繼續接下來的投稿流程。</li>
 </ol>
 
-您可點選已經上傳的檔案名稱來檢視該檔案。您也可以上傳新的或修正過的檔案，或是刪除已經上傳的檔案。下一個步驟中可以上傳補充文件。<br />
+您可點選已經上傳的檔案名稱來檢視該檔案。您也可以上傳新的或修正過的檔案，或是刪除已經上傳的檔案。下一個步驟中可以上傳附加檔案。<br />
 如果您在上傳檔案的時候遭遇困難，請以電子郵件或電話聯絡<a href="mailto:{$supportEmail}">{$supportName}</a>{$supportPhone}以取得協助。]]></message>
 	<message key="comments.authenticated">{$userName}</message>
 	<message key="comments.commentsClosed">建議已被關閉於 {$closeCommentsDate}.</message>
@@ -389,7 +389,7 @@ You may optionally provide the user with a reason for disabling their account.</
 ，會出現在研討會主頁，並且也可加入感謝詞的筆記。</message>
 	<message key="manager.schedConfSetup.details.technicalSupportContact.description">這個人將會在研討會的聯絡頁內被列出供作者和評論者的使用，
 並且應有相關經驗。因為這個研討會系統要求技術上的支持不多，這應該被視為一個兼職的職務。而那裡也許是一個場合，例如：當作者和審查者有操作上或文件格式上的困難，或有其他需要來確保研討會能正常的在伺服器內被支持。</message>
-	<message key="manager.schedConfSetup.submissions.description"><![CDATA[作者可以投遞此研討會的摘要(簡短的描述演講內容)及/或較長的提案(如：論文全文、PPT簡報等等。) 投稿可以是爲一個單獨的演講 (一位或多位作者) 及/或爲一個綜合的演講單元，是由組織來分配。 除此之外，作者投遞摘要及/或演講稿時，能包括補充文件(如：資料集、參考來源資料, 相關文件等)。
+	<message key="manager.schedConfSetup.submissions.description"><![CDATA[作者可以投遞此研討會的摘要(簡短的描述演講內容)及/或較長的提案(如：論文全文、PPT簡報等等。) 投稿可以是爲一個單獨的演講 (一位或多位作者) 及/或爲一個綜合的演講單元，是由組織來分配。 除此之外，作者投遞摘要及/或演講稿時，能包括附加檔案(如：資料集、參考來源資料, 相關文件等)。
 ]]></message>
 	<message key="manager.schedConfSetup.submissions.subjectClassificationDescription"><![CDATA[[研討會將在網路上使用一個可利用的附屬的分類系統。.<br />
 分類系統的標題]]></message>
@@ -747,7 +747,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.reviewForm">審查表</message>
 	<message key="submission.reviewFormResponse">Review Form Response</message>
 	<message key="submission.stage">步驟 {$stage}</message>
-	<message key="submission.submissionFiles">投稿文件</message>
+	<message key="submission.submissionFiles">稿件檔案</message>
 	<message key="submission.toTime">給</message>
 	<message key="submission.uploadFile">上傳檔案</message>
 	<message key="submissions.accepted">接受</message>

@@ -361,6 +361,7 @@ class AboutHandler extends Handler {
 			$templateMgr->assign('authorGuidelines', $schedConf->getLocalizedSetting('authorGuidelines'));
                         $templateMgr->assign('addSuppFileMessage', $schedConf->getLocalizedSetting('addSuppFileMessage'));
                         $templateMgr->assign('stepFinalMessage', $schedConf->getLocalizedSetting('stepFinalMessage'));
+                        $templateMgr->assign('uploadInstructions', $schedConf->getLocalizedSetting('uploadInstructions'));
 		}
 		$templateMgr->assign('copyrightNotice', $conference->getLocalizedSetting('copyrightNotice'));
 		$templateMgr->assign('privacyStatement', $conference->getLocalizedSetting('privacyStatement'));

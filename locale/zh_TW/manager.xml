@@ -304,7 +304,7 @@
 	<message key="manager.schedConfSetup.review.remindForInvite2">天。</message>
 	<message key="manager.schedConfSetup.review.remindForSubmit1">有誰尚未投稿給審查審查者</message>
 	<message key="manager.schedConfSetup.review.remindForSubmit2">在到期日之後</message>
-	<message key="manager.schedConfSetup.review.restrictReviewerFileAccess">只有在審查者同意審稿後，方可進入至投稿文件區。</message>
+	<message key="manager.schedConfSetup.review.restrictReviewerFileAccess">只有在審查者同意審稿後，方可進入至稿件檔案區。</message>
 	<message key="manager.schedConfSetup.review.reviewDescription">為讀者和作者概述研討會的審查政策及過程，包括典型地被使用在審查提議的審查者數量、判斷投稿的評論者、舉辦審查的時間、和評論者的審查標準。這將會出現在關於研討會的網頁內。</message>
 	<message key="manager.schedConfSetup.review.reviewGuidelinesDescription">審查方針提供給審查者為此研討會接受稿件的一個標準，並且任何一個特殊指令將能城為準備一個有效和有用的審查的方針。</message>
 	<message key="manager.schedConfSetup.review.reviewPolicy">審查規範</message>
@@ -316,7 +316,7 @@
 	<message key="manager.schedConfSetup.stepsToSchedConf">這些步驟會被設定為研討會的一個預定的設定步驟。一旦研討會被設定後，這個複製會成為研討會的事例，和可由研討會管理者來編輯。</message>
 	<message key="manager.schedConfSetup.submissions">投稿</message>
 	<message key="manager.schedConfSetup.submissions.abstractsAlone">摘要</message>
-	<message key="manager.schedConfSetup.submissions.acceptSupplementaryReviewMaterials">補充文件可以和摘要及演講稿一併寄出。</message>
+	<message key="manager.schedConfSetup.submissions.acceptSupplementaryReviewMaterials">附加檔案可以和摘要及演講稿一併寄出。</message>
 	<message key="manager.schedConfSetup.submissions.addChecklistItem">增加檢查列表項目</message>
 	<message key="manager.schedConfSetup.submissions.allowIndividualSubmissions">使能獨自的介紹並由作者遞交</message>
 	<message key="manager.schedConfSetup.submissions.allowPanelSubmissions">使能在綜合演獎單元內，由專題討論小組投遞</message>
@@ -341,7 +341,7 @@
 	<message key="manager.schedConfSetup.submissions.disciplineExamples">(如：歷史、教育、社會學、心理學、文化教學、法律)</message>
 	<message key="manager.schedConfSetup.submissions.disciplineProvideExamples">為此研討會提供相關的學術學科例子</message>
 	<message key="manager.schedConfSetup.submissions.enablePublicPaperId">識別號將會被增加來標示已被接收的演講稿。</message>
-	<message key="manager.schedConfSetup.submissions.enablePublicSuppFileId">識別號將增加來標示已被接收的演講稿的補充文件。</message>
+	<message key="manager.schedConfSetup.submissions.enablePublicSuppFileId">識別號將增加來標示已被接收的演講稿的附加檔案。</message>
 	<message key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWork">投稿索引</message>
 	<message key="manager.schedConfSetup.submissions.forAuthorsToIndexTheirWorkDescription"><![CDATA[OCS遵守 <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>協定案為後資料庫收集的成果，它是目前最新的標準用來提供全球電子研究資源的很好通入。作者將使用一個相似的樣板來提供他們投稿的資料庫。研討會主管應該選擇索引類別，和呈獻作者以相關的例子來協助他們在標註上的工作，並以分號分開期間 (如：期間1; 期間2)。登入也應該被介紹如使用"如："或"例如"。]]></message>
 	<message key="manager.schedConfSetup.submissions.notifications.copyPrimaryContact">研討會主要聯絡人。</message>

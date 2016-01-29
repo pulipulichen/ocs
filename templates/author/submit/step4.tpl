@@ -55,11 +55,11 @@ function confirmForgottenUpload() {
 	<td colspan="5" class="headseparator">&nbsp;</td>
 </tr>
 <tr class="heading" valign="bottom">
-	<td width="5%">{translate key="common.id"}</td>
-	<td width="40%">{translate key="common.title"}</td>
-	<td width="25%">{translate key="common.originalFileName"}</td>
-	<td width="15%" class="nowrap">{translate key="common.dateUploaded"}</td>
-	<td width="15%" align="right">{translate key="common.action"}</td>
+	<td>{translate key="common.id"}</td>
+	<td>{translate key="common.title"}</td>
+	<td>{translate key="common.originalFileName"}</td>
+	<td class="nowrap">{translate key="common.dateUploaded"}</td>
+	<td align="right">{translate key="common.action"}</td>
 </tr>
 <tr>
 	<td colspan="6" class="headseparator">&nbsp;</td>
@@ -70,7 +70,13 @@ function confirmForgottenUpload() {
 	<td>{$file->getSuppFileTitle()|escape}</td>
 	<td>{$file->getOriginalFileName()|escape}</td>
 	<td>{$file->getDateSubmitted()|date_format:$dateFormatTrunc}</td>
-	<td align="right"><a href="{url op="submitSuppFile" path=$file->getSuppFileId() paperId=$paperId}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteSubmitSuppFile" path=$file->getSuppFileId() paperId=$paperId}" onclick="return confirm('{translate|escape:"jsparam" key="author.submit.confirmDeleteSuppFile"}')" class="action">{translate key="common.delete"}</a></td>
+	<td align="right">
+            <!--
+            <a href="{url op="submitSuppFile" path=$file->getSuppFileId() paperId=$paperId}" class="action">{translate key="common.edit"}</a>
+            &nbsp;|&nbsp;
+            -->
+            <a href="{url op="deleteSubmitSuppFile" path=$file->getSuppFileId() paperId=$paperId}" onclick="return confirm('{translate|escape:"jsparam" key="author.submit.confirmDeleteSuppFile"}')" class="action">{translate key="common.delete"}</a>
+        </td>
 </tr>
 {foreachelse}
 <tr valign="top">
@@ -84,14 +90,26 @@ function confirmForgottenUpload() {
 <table class="data" width="100%">
 <tr>
 	<td width="30%" class="label">{fieldLabel name="uploadSuppFile" key="author.submit.uploadSuppFile"}</td>
-	<td width="70%" class="value"><input type="file" name="uploadSuppFile" id="uploadSuppFile"  class="uploadField" /> <input name="submitUploadSuppFile" type="submit" class="button" value="{translate key="common.upload"}" /></td>
+	<td width="70%" class="value">
+            <input type="file" name="uploadSuppFile" id="uploadSuppFile"  class="uploadField" /> 
+            <!--<input name="submitUploadSuppFile" type="submit" class="button" value="{translate key="common.upload"}" />-->
+        </td>
 </tr>
 </table>
 
 <div class="separator"></div>
 
 <p class="text-center">
-    <input type="submit" onclick="return confirmForgottenUpload()" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
+    
+    {if $suppFiles}
+        <input type="submit" onclick="return confirmForgottenUpload()" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
+        <input name="submitUploadSuppFile" type="submit"  
+           class="btn btn-default" class="button" value="{translate key="common.uploadOtherFile"}" />
+    {else}
+        <input name="submitUploadSuppFile" type="submit"  
+           class="btn btn-primary" class="button" value="{translate key="common.upload"}" />
+    {/if}
+        
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
 </p>
 

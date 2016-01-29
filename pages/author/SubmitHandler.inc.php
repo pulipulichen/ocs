@@ -102,7 +102,7 @@ class SubmitHandler extends AuthorHandler {
 					}
 					break;
 
-				case 3:
+				case 2:
 					if (Request::getUserVar('addAuthor')) {
 						// Add a sponsor
 						$editData = true;
@@ -164,7 +164,7 @@ class SubmitHandler extends AuthorHandler {
 				case 4:
 					if (Request::getUserVar('submitUploadSuppFile')) {
 						if ($suppFileId = SubmitHandler::submitUploadSuppFile()) {
-							Request::redirect(null, null, null, 'submitSuppFile', $suppFileId, array('paperId' => $paperId));
+							//Request::redirect(null, null, null, 'submitSuppFile', $suppFileId, array('paperId' => $paperId));
 						} else {
 							$submitForm->addError('uploadSubmissionFile', __('common.uploadFailed'));
 						}
@@ -223,7 +223,7 @@ class SubmitHandler extends AuthorHandler {
 			}
 
 		} else {
-                    if ($step == 2) {
+                    if ($step == 3) {
                         $paperId = $submitForm->execute();
                         Request::redirect(null, null, null, 'submit', $step+1, array('paperId' => $paperId));
                     }
