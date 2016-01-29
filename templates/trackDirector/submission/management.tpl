@@ -107,6 +107,9 @@
 		<td class="label">{translate key="paper.suppFilesAbbrev"}</td>
 		<td colspan="2" class="value">
 			{foreach name="suppFiles" from=$suppFiles item=suppFile}
+                            {if $notFirst}
+                                <br />
+                            {/if}
 				<a  class="action btn btn-default"
                                     href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$suppFile->getFileId()}">
                                     <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
@@ -119,19 +122,11 @@
                                    class="action">
                                     {translate key="common.delete"}
                                 </a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                {if !$notFirst}
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <a href="{url op="addSuppFile" from="submission" path=$submission->getPaperId()}" class="action">
-                                    <span class="glyphicon glyphicon-upload"></span>
-                                    {translate key="submission.addSuppFile"}
-                                </a>
-                                {/if}
-                                <br />
 				{assign var=notFirst value=1}
 			{foreachelse}
 				{translate key="common.none"}
+			{/foreach}
                                 <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
                                 &nbsp;&nbsp;
                                 <a class="action"
@@ -139,7 +134,6 @@
                                     <span class="glyphicon glyphicon-upload"></span>
                                     {translate key="submission.addSuppFile"}
                                 </a>
-			{/foreach}
 		</td>
 	</tr>
 	

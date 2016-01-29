@@ -89,7 +89,7 @@
 	<message key="submission.comments.editComment">編輯評論</message>
 	<message key="submission.comments.importPeerReviews">匯入審查意見</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">審查人{$reviewerLetter}:</message>
-	<message key="submission.comments.noComments">沒有審查意見</message>
+	<message key="submission.comments.noComments">沒有資料</message>
 	<message key="submission.comments.noReviews">目前尚無審查意見</message>
 	<message key="submission.comments.review">審查人意見</message>
 	<message key="submission.comments.sendDecisionToReviewers">將編輯決定寄給審查人</message>

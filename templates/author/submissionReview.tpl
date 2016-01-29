@@ -36,7 +36,7 @@
 	{/if}
         
         <li>
-            <a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summaryEdit"}</a>
+            <a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a>
         </li>
 </ul>
 

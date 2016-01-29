@@ -15,6 +15,7 @@
 //$Id$
 
 import('pages.author.AuthorHandler');
+import('pages.trackDirector.TrackDirectorHandler');
 
 class TrackSubmissionHandler extends AuthorHandler {
 	/** submission associated with the request **/
@@ -65,6 +66,21 @@ class TrackSubmissionHandler extends AuthorHandler {
 		AuthorAction::deletePaperFile($authorSubmission, $fileId, $revisionId);
 
 		Request::redirect(null, null, null, 'submissionReview', $paperId);
+	}
+        
+        /**
+	 * Delete a supplementary file.
+	 * @param $args array ($paperId, $suppFileId)
+	 */
+	function deleteSuppFile($args) {
+		$paperId = isset($args[0]) ? (int) $args[0] : 0;
+		$suppFileId = isset($args[1]) ? (int) $args[1] : 0;
+		$this->validate($paperId);
+		$submission =& $this->submission;
+
+		TrackDirectorAction::deleteSuppFile($submission, $suppFileId);
+
+		Request::redirect(null, null, null, 'submission', $paperId, array(), "submission");
 	}
 
 	/**
@@ -125,8 +141,10 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$templateMgr->assign_by_ref('revisedFile', $submission->getRevisedFile());
 		$templateMgr->assign_by_ref('suppFiles', $submission->getSuppFiles());
 
-		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
-		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
+		$submission =& $this->submission;
+                $controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+                $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+                $templateMgr->assign('sessionTypes', $sessionTypes);
                 
                 $reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewModifiedByStage = $reviewAssignmentDao->getLastModifiedByStage($paperId);
@@ -153,6 +171,20 @@ class TrackSubmissionHandler extends AuthorHandler {
                 }
                 
 		$templateMgr->display('author/submission.tpl');
+	}
+        
+        /**
+	 * Change the session type for a submission.
+	 */
+	function changeSessionType() {
+		$paperId = Request::getUserVar('paperId');
+		$this->validate($paperId);
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+		$submission =& $this->submission;
+		$sessionType = Request::getUserVar('sessionType');
+		TrackDirectorAction::changeSessionType($submission, $sessionType);
+		Request::redirect(null, null, null, 'submission', $paperId);
 	}
 
 	/**

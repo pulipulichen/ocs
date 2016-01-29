@@ -237,6 +237,16 @@ class AuthorSubmission extends Paper {
 		$returner =& $this->getData('revisedFile');
 		return $returner;
 	}
+        
+        function &getReviewRevision() {
+		$returner =& $this->getData('reviewRevision');
+		return $returner;
+	}
+        
+        function &getRemovedReviewAssignments() {
+		$returner =& $this->getData('getRemovedReviewAssignments');
+		return $returner;
+	}
 
 	/**
 	 * Set revised file for this paper.

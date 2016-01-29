@@ -203,7 +203,7 @@ function confirmSubmissionCheck() {
 						{foreach from=$suppFiles item=suppFile}
 							{if $suppFile->getShowReviewers() }
 								{assign var=sawSuppFile value=1}
-								<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$suppFile->getFileId()}" class="file">{$suppFile->getFileName()|escape}</a><br />
+								<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$suppFile->getFileId()}" class="file">{$suppFile->getOriginalFileName()|escape}</a><br />
 							{/if}
 						{/foreach}
 

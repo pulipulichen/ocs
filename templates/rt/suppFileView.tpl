@@ -72,7 +72,7 @@
 {if $suppFile}
 	<tr valign="top">
 		<td width="20%" class="label">{translate key="common.fileName"}</td>
-		<td width="80%" class="value"><a href="{url page="paper" op="downloadSuppFile" path=$paperId|to_array:$suppFile->getBestSuppFileId($currentConference)}">{$suppFile->getFileName()|escape}</a></td>
+		<td width="80%" class="value"><a href="{url page="paper" op="downloadSuppFile" path=$paperId|to_array:$suppFile->getBestSuppFileId($currentConference)}">{$suppFile->getOriginalFileName()|escape}</a></td>
 	</tr>
 	<tr valign="top">
 		<td class="label">{translate key="common.originalFileName"}</td>

@@ -91,21 +91,21 @@
 		</td>
 	</tr>
 
-                
+<!--
 {if $mayEditPaper}
     <tr>
         <td class="label">
             {translate key="submission.summaryEdit"}
         </td>
         <td class="value">
-            <a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-default">
+            <a href="{url op="submission" path=$submission->getPaperId()}" class="action btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
                 {translate key="submission.editMetadata"}
             </a>
         </td>
     </tr>
-	
 {/if}
+-->
 
 </table>
 </div>

@@ -42,7 +42,7 @@
 <br />
 
 {if not $isLocked and $isDirector}
-
+<!--
 <form method="post" action="{url op=$commentAction}">
 {if $hiddenFormParams}
 	{foreach from=$hiddenFormParams item=hiddenFormParam key=key}
@@ -70,7 +70,7 @@
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 </form>
-
+-->
 {else}
 <input type="button" value="{translate key="common.close"}" class="button defaultButton" style="width: 5em" onclick="window.close()" />
 {/if}

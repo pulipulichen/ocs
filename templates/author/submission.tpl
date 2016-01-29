@@ -30,17 +30,20 @@
 
 {include file="author/submission/management.tpl"}
 
+<!--
 <div class="separator"></div>
+-->
 
 {include file="submission/metadata/metadata.tpl"}
 
-
+<!--
 <div class="separator"></div>
 
 {include file="author/submission/status.tpl"}
-
+-->
+<!--
 <div class="separator"></div>
 
 {include file="author/submission/peerReview.tpl"}
-
+-->
 {include file="common/footer.tpl"}

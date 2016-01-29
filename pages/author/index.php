@@ -35,9 +35,11 @@ switch ($op) {
 	//
 	case 'deletePaperFile':
 	case 'deleteSubmission':
+        case 'deleteSuppFile':
 	case 'submission':
 	case 'viewSuppFile':
 	case 'editSuppFile':
+	case 'changeSessionType':
 	case 'setSuppFileVisibility':
 	case 'saveSuppFile':
 	case 'addSuppFile':

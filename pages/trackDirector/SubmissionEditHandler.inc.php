@@ -298,7 +298,8 @@ class SubmissionEditHandler extends TrackDirectorHandler {
             }
             $lastFileType = 0;
             //echo $reviseFile->getDateModified();
-            if (isset($directorFile) && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
+            if (is_object($directorFile) && is_object($reviseFile)
+                    && strtotime($directorFile->getDateModified()) > strtotime($reviseFile->getDateModified())) {
                 $lastFile = $directorFile;
                 $lastFileType = 1;
             }
