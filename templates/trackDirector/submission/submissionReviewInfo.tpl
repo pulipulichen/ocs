@@ -26,7 +26,7 @@
 	</tr>
 	<tr>
 		<td class="label">{translate key="paper.title"}</td>
-		<td>{$submission->getLocalizedTitle()|strip_unsafe_html}</td>
+		<td>{$submission->getLocalizedTitle()|strip_unsafe_html|default:"&mdash;"}</td>
 	</tr>
         {if $tracks|@count > 1}
 	<tr>

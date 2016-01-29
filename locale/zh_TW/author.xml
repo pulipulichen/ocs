@@ -45,6 +45,7 @@
 	<message key="author.submit.form.authorRequired">至少需要輸入一位作者。</message>
 	<message key="author.submit.form.authorRequiredFields">請輸入作者的中文姓名、西文姓名以及電子信箱(email)。</message>
 	<message key="author.submit.form.titleRequired">請輸入您的論文題目</message>
+        <message key="author.submit.form.abstractRequired">請輸入論文的摘要</message>
 	<message key="author.submit.form.trackRequired">請為此投稿選擇一個適當的研討會主題。</message>
 	<message key="author.submit.form.wordCountAlert">您輸入的摘要超過了本研討會的字數限制，請您縮減摘要的字數。</message>
 	<message key="author.submit.howToSubmit"><![CDATA[作者會經由此網站的一個多重步驟過程來上傳繳交和稿件有關的訊息(有些研討會允許作者上傳附加檔案，例如研究數據及工具)。若您在這過程中遇到任何的困難，請以電子郵件<a href="mailto:{$supportEmail}">{$supportName}</a>或電話聯絡 {$supportPhone} 尋求協助。]]></message>
@@ -88,7 +89,7 @@
 	<message key="author.submit.submissionIndexingDescription">提供一個或更多描述投稿內容的專有名詞。以分號來將這些專有名詞分開(專有名詞1；專有名詞2；專有名詞3)。</message>
 	<message key="author.submit.submissionSupportingAgencies">計畫補助單位</message>
 	<message key="author.submit.submissionSupportingAgenciesDescription">提供本發表論文研究經費補助或贊助的單位或組織, 如國科會</message>
-	<message key="author.submit.suppFile.availableToPeers">呈送文件給審查者(不含metadata), 因為它不會隱蔽的建議。</message>
+	<message key="author.submit.suppFile.availableToPeers">這份文件可以給審查委員檢視，因為已經遮蔽任何可辨識作者的資訊。</message>
 	<message key="author.submit.suppFile.briefDescription">簡單描述</message>
 	<message key="author.submit.suppFile.contributorOrSponsor">捐贈者或贊助廠商</message>
 	<message key="author.submit.suppFile.createrOrOwner">文件的建立者(或擁有者) </message>

@@ -9,11 +9,14 @@
  * $Id$
  *}
 <div id="metadata">
+<!--
 <h3>{translate key="submission.metadata"}</h3>
-
+-->
 
 <div id="titleAndAbstract">
+<!--
 <h4>{translate key="submission.titleAndAbstract"}</h4>
+-->
 
 <table width="100%" class="data">
 	<tr valign="top">
@@ -30,11 +33,13 @@
 </table>
 </div><!-- titleAndAbstract -->
 
-<div id="authors" style="margin-top: 20px;">
+<div id="authors">
+<!--
 <h4>{translate key="paper.authors"}</h4>
-	
+    -->
 <table width="100%" class="data">
 	{foreach name=authors from=$submission->getAuthors() item=author}
+        <!--
 	<tr valign="top">
 		<td width="20%" class="label">
                     {translate key="author.submit.selectPrincipalContact"}
@@ -50,13 +55,14 @@
                         </a>
 		</td>
 	</tr>
+        -->
         {if $author->getAuthorBiography()}
         <tr valign="top">
-		<td class="label">
+		<td class="label" width="20%">
                     {*translate key="user.authorProfile"*}
                     作者基本資訊資訊
                 </td>
-		<td class="value">{$author->getAuthorBiography()|escape|default:"&mdash;"}</td>
+		<td width="80%" class="value">{$author->getAuthorBiography()|escape|default:"&mdash;"}</td>
 	</tr>
         {/if}
         <!--
@@ -195,10 +201,11 @@
 
 
 {if $mayEditPaper}
-	<a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span>
+    <p class="text-center">
+	<a href="{url op="viewMetadata" path=$submission->getPaperId()}" class="action btn btn-primary">
             {translate key="submission.editMetadata"}
         </a>
+    </p>
 {/if}
 
 </div>

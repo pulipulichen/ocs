@@ -45,7 +45,7 @@ class SuppFileForm extends Form {
 		}
 
 		// Validation checks for this form
-		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'author.submit.suppFile.form.titleRequired'));
+		//$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'author.submit.suppFile.form.titleRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -121,6 +121,8 @@ class SuppFileForm extends Form {
 	 * Initialize form data from current supplementary file (if applicable).
 	 */
 	function initData() {
+            $schedConf =& Request::getSchedConf();
+            $addSuppFileMessage = $schedConf->getLocalizedSetting("addSuppFileMessage");
 		if (isset($this->suppFile)) {
 			$suppFile =& $this->suppFile;
 			$this->_data = array(
@@ -136,13 +138,15 @@ class SuppFileForm extends Form {
 				'source' => $suppFile->getSource(null), // Localized
 				'language' => $suppFile->getLanguage(),
 				'showReviewers' => $suppFile->getShowReviewers()==1?1:0,
-				'publicSuppFileId' => $suppFile->getPublicSuppFileId()
+				'publicSuppFileId' => $suppFile->getPublicSuppFileId(),
+                                "addSuppFileMessage" => $addSuppFileMessage
 			);
 
 		} else {
 			$this->_data = array(
 				'type' => '',
-				'showReviewers' => 1
+				'showReviewers' => 0,
+                                "addSuppFileMessage" => $addSuppFileMessage
 			);
 		}
 

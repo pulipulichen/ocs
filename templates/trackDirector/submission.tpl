@@ -49,12 +49,11 @@
 
 {include file="trackDirector/submission/management.tpl"}
 
-<div class="separator"></div>
-
 {include file="submission/metadata/metadata.tpl"}
 
+<!--
 <div class="separator"></div>
 
 {include file="trackDirector/submission/status.tpl"}
-
+-->
 {include file="common/footer.tpl"}

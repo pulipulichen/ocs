@@ -52,6 +52,7 @@
 	<message key="submission.abstractViews">檢視摘要</message>
 	<message key="submission.accepted">接受</message>
 	<message key="submission.acknowledge">謝辭</message>
+        <message key="submission.addSubmissionFile">上傳稿件</message>
 	<message key="submission.addSuppFile">上傳附加檔案</message>
         <message key="submission.stepFile">投稿確認</message>
         <message key="submission.stepMessage">投稿步驟說明</message>

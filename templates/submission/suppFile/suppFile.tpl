@@ -18,6 +18,24 @@
 {include file="common/header.tpl"}
 {/strip}
 
+<div>
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#addSuppFileMessageTr" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+{if $addSuppFileMessage}
+    {$addSuppFileMessage}
+{else}
+    <p>{translate key="author.submit.supplementaryFilesInstructions"}</p>
+{/if}
+</div>
+
+
+<div class="separator"></div>
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <form name="suppFile" method="post" action="{url page=$rolePath op="saveSuppFile" path=$suppFileId}" enctype="multipart/form-data">
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 <input type="hidden" name="from" value="{$from|escape}" />
@@ -39,7 +57,7 @@
 </table>
 </div>
 {/if}
-<div id="supplementaryFileData">
+<div id="supplementaryFileData" class="hide">
 <h3>{translate key="author.submit.supplementaryFileData"}</h3>
 <p>{translate key="author.submit.supplementaryFileDataDescription"}</p>
 
@@ -107,8 +125,10 @@
 		</td>
 	</tr>
 </table>
-</div>
+                
 <div class="separator"></div>
+
+</div>
 <div id="supplementaryFileUpload">
 <h3>{translate key="author.submit.supplementaryFileUpload"}</h3>
 
@@ -140,7 +160,7 @@
 </table>
 {else}
 	<tr valign="top">
-		<td colspan="2" class="nodata">{translate key="author.submit.suppFile.noFile"}</td>
+		<td colspan="2" class="nodata">{translate key="author.submit.noSupplementaryFiles"}</td>
 	</tr>
 </table>
 {/if}
@@ -156,10 +176,13 @@
 				{fieldLabel name="uploadSuppFile" key="common.upload"}
 			{/if}
 		</td>
-		<td class="value"><input type="file" name="uploadSuppFile" id="uploadSuppFile" class="uploadField" />&nbsp;&nbsp;{translate key="author.submit.supplementaryFiles.saveToUpload"}</td>
+		<td class="value">
+                    <input type="file" name="uploadSuppFile" id="uploadSuppFile" class="uploadField" />
+                    <!--&nbsp;&nbsp;{translate key="author.submit.supplementaryFiles.saveToUpload"}-->
+                </td>
 	</tr>
 	{if not $suppFile}
-	<tr valign="top">
+            <tr valign="top" class="hide">
 		<td>&nbsp;</td>
 		<td class="value">
 			<input type="checkbox" name="showReviewers" id="showReviewers" value="1"{if $showReviewers==1} checked="checked"{/if} />&nbsp;
@@ -170,12 +193,12 @@
 </table>
 </div>
 
-<div class="separator"></div>
 
+<p class="text-center">
+    <input type="submit" value="{translate key="common.upload"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
+</p>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

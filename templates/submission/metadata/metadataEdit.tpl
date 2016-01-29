@@ -89,7 +89,7 @@ function moveAuthor(dir, authorIndex) {
 
 <table width="100%" class="data">
 	{foreach name=authors from=$authors key=authorIndex item=author}
-	<tr valign="top">
+	<tr valign="top" class="hide">
 		<td width="20%" class="label">
 			<input type="hidden" name="authors[{$authorIndex|escape}][authorId]" value="{$author.authorId|escape}" />
 			<input type="hidden" name="authors[{$authorIndex|escape}][seq]" value="{$authorIndex+1}" />
@@ -368,7 +368,9 @@ function moveAuthor(dir, authorIndex) {
 
 <p class="text-center">
     <input type="submit" value="{translate key="submission.saveMetadata"}" class="btn btn-primary" /> 
-    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
+    <a href="{url op="submission" path=$paperId|escape}" class="btn btn-default">
+        {translate key="common.cancel"}
+    </a>
 </p>
 </form>
 

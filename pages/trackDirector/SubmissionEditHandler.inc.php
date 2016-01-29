@@ -1384,7 +1384,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 				);
 			}
 
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submission', $paperId, array(), "submission");
 		} else {
 			$submitForm->display();
 		}
@@ -1418,7 +1418,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		TrackDirectorAction::deleteSuppFile($submission, $suppFileId);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submission', $paperId, array(), "submission");
 	}
 
 	function archiveSubmission($args) {
