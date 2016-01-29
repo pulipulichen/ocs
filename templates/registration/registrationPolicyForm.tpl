@@ -46,7 +46,7 @@
 <h3>{translate key="manager.registrationPolicies.registrationContact"}</h3>
 <p>{translate key="manager.registrationPolicies.registrationContactDescription"}</p>
 <table width="100%" class="data">
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 		<td width="80%" class="value">

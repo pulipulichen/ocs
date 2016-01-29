@@ -15,7 +15,7 @@
 {include file="common/formErrors.tpl"}
 
 {* There are no localized settings on this page.
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 <div id="locales">
 <table width="100%" class="data">
 	<tr valign="top">

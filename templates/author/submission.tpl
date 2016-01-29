@@ -25,7 +25,7 @@
 	{else}
 		<li><a href="{url op="submissionReview" path=$submission->getPaperId()}">{translate key="submission.review"}</a></li>
 	{/if}
-        <li class="current active"><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summaryEdit"}</a></li>
+        <li class="current active"><a href="{url op="submission" path=$submission->getPaperId()}">{translate key="submission.summary"}</a></li>
 </ul>
 
 {include file="author/submission/management.tpl"}

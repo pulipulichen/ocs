@@ -14,7 +14,7 @@
 <form name="setupForm" method="post" action="{url op="saveSetup" path="3"}" enctype="multipart/form-data">
 {include file="common/formErrors.tpl"}
 
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 <div id="locales">
 <table width="100%" class="data">
 	<tr valign="top">

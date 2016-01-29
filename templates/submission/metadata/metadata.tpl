@@ -11,13 +11,35 @@
 <div id="metadata">
 <h3>{translate key="submission.metadata"}</h3>
 
-<div id="authors">
+
+<div id="titleAndAbstract">
+<h4>{translate key="submission.titleAndAbstract"}</h4>
+
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="20%" class="label">{translate key="paper.title"}</td>
+		<td width="80%" class="value">{$submission->getLocalizedTitle()|strip_unsafe_html|default:"&mdash;"}</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="separator">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td class="label">{translate key="paper.abstract"}</td>
+		<td class="value">{$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br|default:"&mdash;"}</td>
+	</tr>
+</table>
+</div><!-- titleAndAbstract -->
+
+<div id="authors" style="margin-top: 20px;">
 <h4>{translate key="paper.authors"}</h4>
 	
 <table width="100%" class="data">
 	{foreach name=authors from=$submission->getAuthors() item=author}
 	<tr valign="top">
-		<td width="20%" class="label">{translate key="user.name"}</td>
+		<td width="20%" class="label">
+                    {translate key="author.submit.selectPrincipalContact"}
+                    {*translate key="user.name"*}
+                </td>
 		<td width="80%" class="value">
 			{assign var=emailString value=$author->getFullName()|concat:" <":$author->getEmail():">"}
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle()|strip_tags paperId=$submission->getPaperId()}
@@ -28,13 +50,23 @@
                         </a>
 		</td>
 	</tr>
+        {if $author->getAuthorBiography()}
+        <tr valign="top">
+		<td class="label">
+                    {*translate key="user.authorProfile"*}
+                    作者基本資訊資訊
+                </td>
+		<td class="value">{$author->getAuthorBiography()|escape|default:"&mdash;"}</td>
+	</tr>
+        {/if}
+        <!--
 	{if $author->getUrl()}
 		<tr valign="top">
 			<td class="label">{translate key="user.url"}</td>
 			<td class="value"><a href="{$author->getUrl()|escape:"quotes"}">{$author->getUrl()|escape}</a></td>
 		</tr>
 	{/if}
-	<tr valign="top">
+        <tr valign="top">
 		<td class="label">{translate key="user.affiliation"}</td>
 		<td class="value">{$author->getAffiliation()|strip_unsafe_html|nl2br|default:"&mdash;"}</td>
 	</tr>
@@ -56,27 +88,11 @@
 			<td colspan="2" class="separator">&nbsp;</td>
 		</tr>
 	{/if}
+        -->
 	{/foreach}
 </table>
 </div><!-- authors -->
 
-<div id="titleAndAbstract" style="margin-top: 20px;">
-<h4>{translate key="submission.titleAndAbstract"}</h4>
-
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{translate key="paper.title"}</td>
-		<td width="80%" class="value">{$submission->getLocalizedTitle()|strip_unsafe_html|default:"&mdash;"}</td>
-	</tr>
-	<tr>
-		<td colspan="2" class="separator">&nbsp;</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{translate key="paper.abstract"}</td>
-		<td class="value">{$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br|default:"&mdash;"}</td>
-	</tr>
-</table>
-</div><!-- titleAndAbstract -->
 
 <!--
 <div id="indexing">

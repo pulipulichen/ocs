@@ -23,7 +23,7 @@
 <input type="hidden" name="from" value="{$from|escape}" />
 {include file="common/formErrors.tpl"}
 
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 <table width="100%" class="data">
 <div id="locales">
 	<tr valign="top">

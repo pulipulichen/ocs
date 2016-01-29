@@ -33,7 +33,29 @@ function moveAuthor(dir, authorIndex) {
 </script>
 {/literal}
 
-{if count($formLocales) > 1}
+
+<div id="titleAndAbstract">
+<h3>{translate key="submission.titleAndAbstract"}</h3>
+
+<table width="100%" class="data">
+	<tr>
+		<td width="20%" class="label">{fieldLabel name="title" required="true" key="paper.title"}</td>
+		<td width="80%" class="value"><input type="text" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" class="textField" /></td>
+	</tr>
+
+	<tr>
+		<td colspan="2" class="separator">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td class="label">{fieldLabel name="abstract" key="paper.abstract" required="true"}</td>
+		<td class="value"><textarea name="abstract[{$formLocale|escape}]" id="abstract" rows="15" cols="60" class="textArea">{$abstract[$formLocale]|escape}</textarea></td>
+	</tr>
+</table>
+</div>
+
+<div class="separator"></div>
+
+{if $supportedLocales|@count > 1}
 <div id="locales">
 <table width="100%" class="data">
 	<tr valign="top">
@@ -176,26 +198,6 @@ function moveAuthor(dir, authorIndex) {
 <div class="separator"></div>
 {/if}
 
-<div id="titleAndAbstract">
-<h3>{translate key="submission.titleAndAbstract"}</h3>
-
-<table width="100%" class="data">
-	<tr>
-		<td width="20%" class="label">{fieldLabel name="title" required="true" key="paper.title"}</td>
-		<td width="80%" class="value"><input type="text" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" class="textField" /></td>
-	</tr>
-
-	<tr>
-		<td colspan="2" class="separator">&nbsp;</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="abstract" key="paper.abstract" required="true"}</td>
-		<td class="value"><textarea name="abstract[{$formLocale|escape}]" id="abstract" rows="15" cols="60" class="textArea">{$abstract[$formLocale]|escape}</textarea></td>
-	</tr>
-</table>
-</div>
-
-<div class="separator"></div>
 
 <!--
 <div id="indexing">

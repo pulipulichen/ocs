@@ -17,7 +17,7 @@
 {if $group}
 	<ul class="nav nav-tabs">
 		<li class="current active"><a href="{url op="editGroup" path=$group->getId()}">{translate key="manager.groups.editTitle"}</a></li>
-		<li><a href="{url op="groupMembership" path=$group->getId() clearPageContext=1}">{translate key="manager.groups.membership}</a></li>
+		<li><a href="{url op="groupMembership" path=$group->getId() clearPageContext=1}">{translate key="manager.groups.membership"}</a></li>
 	</ul>
 {/if}
 
@@ -30,7 +30,7 @@
 
 {include file="common/formErrors.tpl"}
 <table class="data" width="100%">
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 		<td width="80%" class="value">

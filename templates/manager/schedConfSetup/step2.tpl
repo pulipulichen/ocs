@@ -22,7 +22,7 @@
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
-{if count($formLocales) > 1}
+{if $supportedLocales|@count > 1}
 <div id="locales">
 <table width="100%" class="data">
 	<tr valign="top">
