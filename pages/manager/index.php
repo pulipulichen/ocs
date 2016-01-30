@@ -158,6 +158,7 @@ switch ($op) {
 	case 'createRegistrationType':
 	case 'selectRegistrant':
 	case 'editRegistrationType':
+        case 'registrationSurveyDownload':
 	case 'updateRegistrationType':
 	case 'moveRegistrationType':
 	//

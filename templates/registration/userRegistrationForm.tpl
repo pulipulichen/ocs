@@ -280,7 +280,13 @@
 
 {if $applicationFormDefault}
 <div class="separator"></div>
-<div id="formDiv">
+<div id="applicationFormDiv">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/editRegistrationType/{$registrationTypeId|escape}#applicationForm" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <h3>
     {* @TODO *}
     {*translate key="schedConf.registration.specialRequests"*}
@@ -288,6 +294,115 @@
 </h3>
 
 <p><textarea name="applicationForm" id="applicationForm" cols="60" rows="10" class="textArea">{$applicationForm|escape}</textarea></p>
+</div>
+{/if}
+
+<!--------------------->
+
+{if $surveyConfig}
+
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
+    
+<div class="separator"></div>
+<div id="surveyDiv">
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager" }/editRegistrationType/{$registrationTypeId|escape}#survey" target="_blank">
+        {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+<h3>
+    {* @TODO *}
+    {*translate key="schedConf.registration.specialRequests"*}
+    問卷調查
+</h3>
+
+<fieldset id="surveyDisplay"></fieldset>
+    <!--span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span-->
+
+<p><textarea name="survey" id="survey" cols="60" rows="10" class="hide">{$survey}</textarea></p>
+
+{if !$survey}
+    {assign var="survey" value="null"}
+{/if}
+
+<script language="javascript" type="text/javascript">
+var survey = {literal}{{/literal}
+    pages: [{literal}{{/literal} 
+        elements: {$surveyConfig}
+    {literal}}]{/literal}
+{literal}}{/literal};
+var data = {$survey};
+
+{literal}
+
+    $('#surveyDisplay').survey({
+        survey: survey,
+        data: data,
+        init: function(target){
+            target.closest('form').validate({
+              errorPlacement: function(error, element){
+                var p = element;
+                while(p && (!p.hasClass('input'))){
+                  p = p.parent();
+                }
+                error.appendTo(p||element);
+              },
+              wrapper: 'div'
+            });
+          },
+          afterChange: function () {
+            var target = this;
+            var _changeCallback = function () {
+                
+                var data = $('#surveyDisplay').serializeArray().reduce(function(obj, item) {
+                    var _name = item.name;
+                    //console.log(_name.substr(_name.length-2, 2));
+                    if (_name.substr(_name.length-2, 2) === "[]") {
+                        _name = _name.substr(0, _name.length-2);
+                    } 
+                    if (typeof(obj[_name]) !== "undefined") {
+                        if (typeof(obj[_name]['push']) !== "function") {
+                            obj[_name] = [obj[_name], item.value];
+                        }
+                        else {
+                            //console.log(typeof(obj[_name]));
+                            obj[_name].push(item.value);
+                        }
+                    }
+                    else {
+                        obj[_name] = item.value;
+                    }
+                    return obj;
+                }, {});
+                //var survey = $.survey($('#surveyDisplay').clone(true).wrap("<form></form>"));
+                //var data = survey.pageData();
+                //var surveyData = survey.data();
+                //survey.updateData(data);
+                $("#survey").val(JSON.stringify(data));
+            };
+            $('#surveyDisplay').find("input").change(_changeCallback);
+            $('#surveyDisplay').find("textarea").change(_changeCallback);
+          },
+          beforeChange: function(from, to, next){
+            var target = this;
+            if(from === void 0){
+              next();
+            }else if(target.closest('form').valid()){
+              var survey = $.survey(target);
+              var data = survey.pageData();
+              var surveyData = survey.data();
+              survey.updateData(data);
+              $("#survey_data").val(JSON.stringify(data));
+              $("#survey_data").parents("form:first").submit();
+            }
+          }
+    });
+{/literal}
+</script>
+
 </div>
 {/if}
 

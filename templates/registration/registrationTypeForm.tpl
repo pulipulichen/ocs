@@ -56,13 +56,21 @@
 </tr>
 <tr valign="top">
     {* @TODO 語系 *}
-	<td class="label">{fieldLabel name="applicationForm" value="表單範本"}</td>
+	<td class="label">{fieldLabel name="applicationForm" value="報名表"}</td>
 	<td colspan="2" class="value"><textarea name="applicationForm[{$formLocale|escape}]" id="applicationForm" cols="40" rows="4" class="textArea">{$applicationForm[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
     {* @TODO 語系 *}
-	<td class="label">{fieldLabel name="survey" value="問卷調查"}</td>
-	<td colspan="2" class="value"><textarea name="survey[{$formLocale|escape}]" id="survey" cols="40" rows="4" class="textArea">{$survey[$formLocale]|escape}</textarea></td>
+	<td class="label">
+            {fieldLabel name="survey" value="問卷調查"}
+            <br />
+            <a href="{url op="registrationSurveyDownload"}/{$typeId}" class="btn btn-default btn-sm">
+                下載統計結果
+            </a>
+        </td>
+	<td colspan="2" class="value">
+            <textarea name="survey[{$formLocale|escape}]" id="survey" cols="40" rows="4" class="textArea">{$survey[$formLocale]|escape}</textarea>
+        </td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="currency" required="true" key="manager.registrationTypes.form.currency"}</td>

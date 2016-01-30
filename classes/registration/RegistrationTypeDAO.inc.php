@@ -485,6 +485,42 @@ class RegistrationTypeDAO extends DAO {
 		);
 		
 	}
+        
+        /**
+	 * Retrieve and cache all settings for a conference.
+	 * @param $conferenceId int
+	 * @return array
+	 */
+	function &getSurvey($schedConfId, $typeid) {
+                
+		$result =& $this->retrieve(
+			'SELECT users.user_id, users.first_name, users.affiliation, survey, registrations.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ?'
+                        , array($schedConfId, $typeid)
+		);
+                
+                $output = array();
+		while (!$result->EOF) {
+                    $row =& $result->getRowAssoc(false);
+                    $data = array(
+                        'user_id' => $row['user_id'], 
+                        'first_name' => $row['first_name'], 
+                        'affiliation' => $row['affiliation'], 
+                        'date_registered' => $row['date_registered']
+                    );
+                    $surveyArray = json_decode($row['survey'], true);
+                    //print_r($surveyArray);
+                    foreach ($surveyArray AS $key => $value) {
+                        $data[$key] = $value;
+                    }
+                    $output[] = $data;
+                    $result->MoveNext();
+		}
+                
+                import('conference.ConferenceSettingsDAO');
+		$cvs = ConferenceSettingsDAO::_parseCvs($output);
+                
+		$result->Close();
+		unset($result);
+                return $cvs;
+	}
 }
-
-?>

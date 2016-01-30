@@ -138,7 +138,7 @@ class UserRegistrationForm extends Form {
                     $applicationFormDefault = $registrationType->getLocalizedData("applicationForm");
                     $templateMgr->assign('applicationFormDefault', $applicationFormDefault);
                     $applicationForm = $applicationFormDefault;
-                    $templateMgr->assign('surveyConfig', $registrationType->getSurvey());
+                    $templateMgr->assign('surveyConfig', $registrationType->getLocalizedData("survey"));
                 }
                 
                 $registrationDao =& DAORegistry::getDAO('RegistrationDAO');

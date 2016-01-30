@@ -411,6 +411,30 @@ class RegistrationHandler extends ManagerHandler {
 				Request::redirect(null, null, null, 'registrationTypes');
 		}
 	}
+        
+        /**
+	 * Display form to edit a registration type.
+	 * @param $args array optional, first parameter is the ID of the registration type to edit
+	 */
+	function registrationSurveyDownload($args = array()) {
+		$this->validate();
+		$this->setupTemplate(true);
+
+		$schedConf =& Request::getSchedConf();
+		$registrationTypeId = !isset($args) || empty($args) ? null : (int) $args[0];
+		$registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
+
+		$output = $registrationTypeDao->getSurvey($schedConf->getId(), $registrationTypeId);
+                
+//                $output = iconv("utf8", "big5", $output);
+//                
+//                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.cvs"');
+//                header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+//                header('Content-Length: ' . strlen($output));
+//                header('Connection: close');
+
+                echo $output;
+	}
 
 	/**
 	 * Display form to create new registration type.

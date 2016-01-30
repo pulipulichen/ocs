@@ -111,24 +111,62 @@ class ConferenceSettingsDAO extends SettingsDAO {
                     $output[] = $data;
                     $result->MoveNext();
 		}
+		$cvs = ConferenceSettingsDAO::_parseCvs($output);
+                
 		$result->Close();
 		unset($result);
-
+                return $cvs;
+	}
+        
+        static function _parseCvs($output) {
                 //$output = json_encode($output, JSON_UNESCAPED_UNICODE);
                 $cvs = '';
                 $delimiter = "\t";
+                $all_fields = array();
                 if (count($output) > 0) {
-                    $fields = array_keys($output[0]);
-                    $line = '';
-                    foreach ($fields AS $field) {
+                    //print_r($output);
+                    //$cvs = $line;
+                    
+                    // ------------------------
+                    // 第一輪，先把所有欄位尋過一次
+                    foreach ($output AS $row) {
+                        $fields = array_keys($row);
+                        foreach ($fields AS $field) {
+                            if (in_array($field, $all_fields) === FALSE) {
+                                $all_fields[] = $field;
+                            }
+                        }
+                    }
+                    
+                    $line = "";
+                    foreach ($all_fields AS $f) {
                         if ($line !== '') {
                             $line .= $delimiter;
                         }
-                        $line .= $field;
+                        $line .= $f;
                     }
                     $cvs = $line;
                     
+                    // ------------------------
+                    // 第二輪，把所有資料都重新彙整
+                    $output2 = array();
                     foreach ($output AS $row) {
+                        $o = array();
+                        foreach ($all_fields AS $f) {
+                            if (isset($row[$f])) {
+                                $o[$f] = $row[$f];
+                            }
+                            else {
+                                $o[$f] = null;
+                            }
+                        }
+                        $output2[] = $o;
+                    }
+                    
+                    // ------------------------
+                    // 第三輪
+                    foreach ($output2 AS $row) {
+                        
                         $line = '';
                         foreach ($row AS $col) {
                             if ($line !== '') {
@@ -139,12 +177,13 @@ class ConferenceSettingsDAO extends SettingsDAO {
                             }
                             $line .= $col;
                         }
+                        
                         $cvs .= "\n" . $line;
                     }
+                    
                 }
-                
-		return $cvs;
-	}
+                return $cvs;
+        }
         
 	/**
 	 * Add/update a conference setting.
