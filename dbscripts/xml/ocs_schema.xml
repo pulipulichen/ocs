@@ -1496,6 +1496,8 @@
 		<field name="domain" type="C2" size="255"/>
 		<field name="ip_range" type="X"/>
 		<field name="special_requests" type="X"/>
+                <field name="survey" type="X"/>
+                <field name="application_form" type="X"/>
 		<descr>Conference registrations.</descr>
 		<index name="registration_sched_conf_id">
 			<col>sched_conf_id</col>
@@ -1506,6 +1508,7 @@
 			<col>domain</col>
 		</index>
 	</table>
+        
 
 	<!--
 	  *

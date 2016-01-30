@@ -275,6 +275,22 @@
 
 {/if}{* user is logged in *}
 </div>
+
+<!--------------------->
+
+<div class="separator"></div>
+<div id="formDiv">
+<h3>
+    {* @TODO *}
+    {*translate key="schedConf.registration.specialRequests"*}
+    報名表
+</h3>
+
+<p><textarea name="applicationForm" id="applicationForm" cols="60" rows="10" class="textArea">{$applicationForm|escape}</textarea></p>
+</div>
+
+<!--------------------->
+
 <div class="separator"></div>
 <div id="specialRequestsDiv">
 <h3>{translate key="schedConf.registration.specialRequests"}</h3>

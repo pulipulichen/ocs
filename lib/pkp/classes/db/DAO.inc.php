@@ -414,6 +414,8 @@ class DAO {
 		$idFields = array_keys($idArray);
 		$idFields[] = 'locale';
 		$idFields[] = 'setting_name';
+                
+                //print_r($idFields);
 
 		// Build a data structure that we can process efficiently.
 		$translated = $metadata = 1;
@@ -480,6 +482,7 @@ class DAO {
 		}
 
 		// Remove stale meta-data
+                //print_r($staleMetadataSettings);
 		if (count($staleMetadataSettings)) {
 			$removeWhere = '';
 			$removeParams = array();

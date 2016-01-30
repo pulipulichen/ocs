@@ -381,7 +381,14 @@ class SchedConfHandler extends Handler {
             if ($user && ($registrationId = $registrationDao->getRegistrationIdByUser($user->getId(), $schedConf->getId()))) {
                 $registration =& $registrationDao->getRegistration($registrationId);
                 $registration->setSpecialRequests(Request::getUserVar("specialRequests"));
+                $registration->setSurvey(Request::getUserVar("survey"));
+                $registration->setApplicationForm(Request::getUserVar("applicationForm"));
+                //$registration->setData("applicationForm", Request::getUserVar("applicationForm"), null);
+                //$registration->setData("survey", Request::getUserVar("survey"), null);
+                
                 $registrationDao->updateRegistration($registration);
+                //echo $registration->getData("applicationForm");
+                //exit;
             }
             //echo Request::getUserVar("specialRequests");
             //exit;

@@ -134,6 +134,9 @@ class ConferenceSettingsDAO extends SettingsDAO {
                             if ($line !== '') {
                                 $line .= $delimiter;
                             }
+                            if (is_array($col)) {
+                                $col = join(",", $col);
+                            }
                             $line .= $col;
                         }
                         $cvs .= "\n" . $line;

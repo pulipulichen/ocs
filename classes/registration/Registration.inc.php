@@ -155,6 +155,22 @@ class Registration extends DataObject {
 	function getSpecialRequests() {
 		return $this->getData('specialRequests');
 	}
+        
+        /**
+	 * Get registration special requests.
+	 * @return string
+	 */
+	function getSurvey() {
+		return $this->getData('survey');
+	}
+        
+        /**
+	 * Get registration special requests.
+	 * @return string
+	 */
+	function getApplicationForm() {
+		return $this->getData('applicationForm');
+	}
 
 	/**
 	 * Set registration special requests.
@@ -162,6 +178,22 @@ class Registration extends DataObject {
 	 */
 	function setSpecialRequests($specialRequests) {
 		return $this->setData('specialRequests', $specialRequests);
+	}
+        
+        /**
+	 * Set registration special requests.
+	 * @param $specialRequests string
+	 */
+	function setSurvey($specialRequests) {
+		return $this->setData('survey', $specialRequests);
+	}
+        
+        /**
+	 * Set registration special requests.
+	 * @param $specialRequests string
+	 */
+	function setApplicationForm($specialRequests) {
+		return $this->setData('applicationForm', $specialRequests);
 	}
 
 	/**

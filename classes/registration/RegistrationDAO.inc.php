@@ -155,6 +155,8 @@ class RegistrationDAO extends DAO {
 		$registration->setDomain($row['domain']);
 		$registration->setIPRange($row['ip_range']);
 		$registration->setSpecialRequests($row['special_requests']);
+                $registration->setSurvey($row['survey']);
+                $registration->setApplicationForm($row['application_form']);
 
 		HookRegistry::call('RegistrationDAO::_returnRegistrationFromRow', array(&$registration, &$row));
 
@@ -202,7 +204,9 @@ class RegistrationDAO extends DAO {
 				$registration->getMembership(),
 				$registration->getDomain(),
 				$registration->getIPRange(),
-				$registration->getSpecialRequests()
+				$registration->getSpecialRequests(),
+                                $registration->getSurvey(),
+                                $registration->getApplicationForm()
 			)
 		);
 		$registration->setId($this->getInsertRegistrationId());
@@ -215,7 +219,7 @@ class RegistrationDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateRegistration(&$registration) {
-		return $this->update(
+		$returner = $this->update(
 			sprintf('UPDATE registrations
 				SET
 					sched_conf_id = ?,
@@ -226,7 +230,9 @@ class RegistrationDAO extends DAO {
 					membership = ?,
 					domain = ?,
 					ip_range = ?,
-					special_requests = ?
+					special_requests = ?,
+                                        survey = ?,
+                                        application_form = ?
 				WHERE registration_id = ?',
 				$this->dateToDB($registration->getDateRegistered()), $this->dateToDB($registration->getDatePaid())),
 			array(
@@ -237,9 +243,28 @@ class RegistrationDAO extends DAO {
 				$registration->getDomain(),
 				$registration->getIPRange(),
 				$registration->getSpecialRequests(),
+                                $registration->getSurvey(),
+                                $registration->getApplicationForm(),
 				$registration->getId()
 			)
 		);
+                $this->updateLocaleFields($registration);
+                return $returner;
+	}
+        
+        /**
+	 * Update the localized settings for this object
+	 * @param $registrationType object
+	 */
+	function updateLocaleFields(&$registration) {
+                echo $registration->getData("applicationForm");
+		$this->updateDataObjectSettings('registrations_settings', $registration, array(
+			'registration_id' => $registration->getRegistrationId()
+		));
+	}
+        
+        function getLocaleFieldNames() {
+		return array("applicationForm", "survey");
 	}
 
 	/**

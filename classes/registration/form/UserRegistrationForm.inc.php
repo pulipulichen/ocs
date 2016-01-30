@@ -142,6 +142,8 @@ class UserRegistrationForm extends Form {
                     
                     $registration =& $registrationDao->getRegistration($registrationId);
                     $templateMgr->assign('specialRequests', $registration->getSpecialRequests());
+                    $templateMgr->assign('applicationForm', $registration->getData("applicationForm"));
+                    $templateMgr->assign('survey', $registration->getData("survey"));
                 }
 
 		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());

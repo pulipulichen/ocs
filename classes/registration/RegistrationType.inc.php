@@ -139,8 +139,8 @@ class RegistrationType extends DataObject {
 	 * @param $locale string
 	 * @return string
 	 */
-	function getForm($locale) {
-		return $this->getData('form', $locale);
+	function getApplicationForm($locale) {
+		return $this->getData('applicationForm', $locale);
 	}
 
 	/**
@@ -166,8 +166,8 @@ class RegistrationType extends DataObject {
 	 * @param $description string
 	 * @param $locale string
 	 */
-	function setForm($survey, $locale) {
-		return $this->setData('form', $survey, $locale);
+	function setApplicationForm($form, $locale) {
+		return $this->setData('applicationForm', $form, $locale);
 	}
 
 	/**
