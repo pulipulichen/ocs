@@ -12,11 +12,20 @@
 {include file="common/header.tpl"}
 
 {if $isConferenceManager}
-    <a href="{url page="manager" }/registrationTypes?clearPageContext=1">
-    <button type="button">
-        {translate key="manager.registrationList"}
-    </button>
-    </a>
+    <div class="panel panel-primary">
+        <h3 class="panel-heading">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            {translate key="manager.conferenceSiteManagement"}</h3>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <a href="{url page="manager" }/registrationTypes?clearPageContext=1">
+                        {translate key="manager.registrationList"}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {/if}
 
 <form action="{url op="registration"}" method="post">

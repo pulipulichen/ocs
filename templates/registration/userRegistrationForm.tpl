@@ -13,12 +13,17 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<form action="{url op="register"}" name="registration" method="post">
+{if $isRegistered}
+    {assign var="action" value="updateRegistration"}
+{else} 
+    {assign var="action" value="register"}
+{/if}
+<form action="{url op=$action}" name="registration" method="post">
 <input type="hidden" name="registrationTypeId" value="{$registrationTypeId|escape}" />
 
 {include file="common/formErrors.tpl"}
 
-{if count($formLocales) > 1 && !$existingUser}
+{if $supportedLocales|@count > 1 && !$existingUser}
 <div id="locales">
 <table class="data" width="100%">
 	<tr valign="top">
@@ -30,6 +35,15 @@
 		</td>
 	</tr>
 </table>
+</div>
+{/if}
+
+{if $isRegistered}
+<div class="alert alert-info" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  {if $message}
+      {translate key=$message}
+  {/if}
 </div>
 {/if}
 
@@ -131,6 +145,7 @@
 			<td class="label">{translate key="user.email"}</td>
 			<td class="value">{$user->getEmail()|escape}</td>
 		</tr>
+                <!--
 		<tr valign="top">
 			<td class="label">{translate key="user.phone"}</td>
 			<td class="value">{$user->getPhone()|escape}</td>
@@ -143,6 +158,7 @@
 			<td class="label">{translate key="common.mailingAddress"}</td>
 			<td class="value">{$user->getMailingAddress()|strip_unsafe_html|nl2br}</td>
 		</tr>
+                -->
 	</table>
 {else}
 	{url|assign:"loginUrl" page="login" op="index" source=$requestUri}
@@ -260,7 +276,7 @@
 {/if}{* user is logged in *}
 </div>
 <div class="separator"></div>
-<div id="specialRequests">
+<div id="specialRequestsDiv">
 <h3>{translate key="schedConf.registration.specialRequests"}</h3>
 
 <p><label for="specialRequests">{translate key="schedConf.registration.specialRequests.description"}</label></p>
@@ -270,12 +286,25 @@
 
 <div class="separator"></div>
 
-<p class="text-center">
-    <input type="submit" 
-           value="{translate key="schedConf.registration.register"}" class="btn btn-primary"/>
+<p class="text-center" style="margin-top: 15px;">
+    {if $isRegistered}
+        {* @TODO 語系 *}
+        <input type="hidden" name="update" value="1" />
+        <input type="submit" 
+               value="更新" 
+               class="btn btn-primary"/>
+        <a href="{url op="deleteRegistration"}" class="btn btn-default">
+            取消報名
+        </a>
+    {else}
+        <input type="submit" 
+               value="{translate key="schedConf.registration.register"}" 
+               class="btn btn-primary"/>
+    {/if}
 </p>
 
 {if $currentSchedConf->getSetting('registrationName')}
+    
 <div class="separator"></div>
     
 <div id="registrationContact">

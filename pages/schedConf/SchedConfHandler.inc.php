@@ -291,23 +291,9 @@ class SchedConfHandler extends Handler {
 				// If the system isn't fully configured or the registration is already paid,
 				// display a message and block the user from going further.
                                 
-                                //echo $registration->getTypeId();
-                                $registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
-				$registrationType =& $registrationTypeDao->getRegistrationType(
-					$registration->getTypeId()
-				);
-                                if ($registrationType->getCost() > 0) {
-                                    $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredAndPaid');
-                                }
-                                else {
-                                    $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredNoPaid');
-                                    //$schedConf
-                                }
+                                $this->_registrationDisplay($registration);
                                 
-                                //$templateMgr->assign('email', $schedConf->getSetting('contactEmail'));
-				$templateMgr->assign('backLinkLabel', 'common.back');
-				$templateMgr->assign('backLink', Request::url(null, null, 'index'));
-				return $templateMgr->display('common/message.tpl');
+                                return;
 			}
 		}
 
@@ -335,6 +321,72 @@ class SchedConfHandler extends Handler {
 			return $templateMgr->display('registration/selectRegistrationType.tpl');
 		}
 	}
+        
+        function _registrationDisplay($registration) {
+            import('registration.form.UserRegistrationForm');
+                                
+            $typeId = $registration->getTypeId();
+
+            if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
+                    $form = new UserRegistrationForm($typeId);
+            } else {
+                    $form =& new UserRegistrationForm($typeId);
+            }
+            if ($form->isLocaleResubmit()) {
+                    $form->readInputData();
+            } else {
+                    $form->initData();
+            }
+
+            //echo $registration->getTypeId();
+            $registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
+            $registrationType =& $registrationTypeDao->getRegistrationType(
+                    $registration->getTypeId()
+            );
+//            if ($registrationType->getCost() > 0) {
+//                //$templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredAndPaid');
+//            }
+//            else {
+//                //$templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredNoPaid');
+//            }
+
+            //$templateMgr->assign('email', $schedConf->getSetting('contactEmail'));
+            //$templateMgr->assign('backLinkLabel', 'common.back');
+            //$templateMgr->assign('backLink', Request::url(null, null, 'index'));
+            //return $templateMgr->display('common/message.tpl');
+
+            $form->display();
+        }
+        
+        /**
+	 * Display conference registration page
+	 */
+	function deleteRegistration() {
+            $user =& Request::getUser();
+            if (isset($user)) {
+                $registrationDao =& DAORegistry::getDAO('RegistrationDAO');
+                $registrationDao->deleteRegistrationsByUserId($user->getUserId());
+            }
+            Request::redirect(null, null, null, 'registration');
+        }
+        
+        /**
+	 * Display conference registration page
+	 */
+	function updateRegistration() {
+            $user =& Request::getUser();
+            $schedConf =& Request::getSchedConf();
+            $registrationDao =& DAORegistry::getDAO('RegistrationDAO');
+            
+            if ($user && ($registrationId = $registrationDao->getRegistrationIdByUser($user->getId(), $schedConf->getId()))) {
+                $registration =& $registrationDao->getRegistration($registrationId);
+                $registration->setSpecialRequests(Request::getUserVar("specialRequests"));
+                $registrationDao->updateRegistration($registration);
+            }
+            //echo Request::getUserVar("specialRequests");
+            //exit;
+            Request::redirect(null, null, null, 'registration');
+        }
 
 	/**
 	 * Handle submission of the user registration form
@@ -347,14 +399,24 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$paymentManager =& OCSPaymentManager::getManager();
-		if (!$paymentManager->isConfigured()) Request::redirect(null, null, 'index');
+		if (!$paymentManager->isConfigured()) {
+                    Request::redirect(null, null, 'index');
+                }
 
 		$user =& Request::getUser();
 		$registrationDao =& DAORegistry::getDAO('RegistrationDAO');
 		if ($user && ($registrationId = $registrationDao->getRegistrationIdByUser($user->getId(), $schedConf->getId()))) {
 			// This user has already registered.
 			$registration =& $registrationDao->getRegistration($registrationId);
-			if ( !$registration || $registration->getDatePaid() ) {
+                        $isUpdate = Request::getUserVar("update");
+                        if (isset($isUpdate)) {
+                            $registration->setSpecialRequests(Request::getUserVar("specialRequests"));
+                            $registrationDao->updateRegistration($registration);
+                            //echo Request::getUserVar("specialRequests");
+                            //exit;
+                            Request::redirect(null, null, null, 'registration');
+                        }
+			else if ( !$registration || $registration->getDatePaid() ) {
 				// And they have already paid. Redirect to a message explaining.
 				Request::redirect(null, null, null, 'registration');
 			} else {
@@ -398,7 +460,11 @@ class SchedConfHandler extends Handler {
 					$templateMgr->assign('message', 'schedConf.registration.free');
 					$templateMgr->assign('backLinkLabel', 'common.back');
 					$templateMgr->assign('backLink', Request::url(null, null, 'index'));
-					$templateMgr->display('common/message.tpl');
+					//$templateMgr->display('common/message.tpl');
+                                        //$registration =& $registrationDao->getRegistration($registrationId);
+                                        //$this->_registrationDisplay($registration);
+                                        Request::redirect(null, null, null, 'registration');
+                                        return;
 				}
 			}
 			// Otherwise, payment is handled for us.
@@ -407,6 +473,8 @@ class SchedConfHandler extends Handler {
 			$form->display();
 		}
 	}
+        
+        
 
 	/**
 	 * Display conference program page

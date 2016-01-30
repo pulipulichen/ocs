@@ -104,7 +104,6 @@ class UserRegistrationForm extends Form {
 		$templateMgr->assign('requestUri', $_SERVER['REQUEST_URI']);
 		if ($user) {
 			$templateMgr->assign('userFullName', $user->getFullName());
-
 		}
 
 		if ($this->captchaEnabled) {
@@ -127,6 +126,23 @@ class UserRegistrationForm extends Form {
 
 		$registrationType =& $registrationTypeDao->getRegistrationType($this->typeId);
 		$templateMgr->assign_by_ref('registrationType', $registrationType);
+                
+                if (is_object($registrationType)) {
+                    if ($registrationType->getCost() > 0) {
+                        $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredAndPaid');
+                    }
+                    else {
+                        $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredNoPaid');
+                    }
+                }
+                
+                $registrationDao =& DAORegistry::getDAO('RegistrationDAO');
+                if ($user && ($registrationId = $registrationDao->getRegistrationIdByUser($user->getId(), $schedConf->getId()))) {
+                    $templateMgr->assign('isRegistered', true);
+                    
+                    $registration =& $registrationDao->getRegistration($registrationId);
+                    $templateMgr->assign('specialRequests', $registration->getSpecialRequests());
+                }
 
 		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
 

@@ -648,7 +648,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="schedConf.registration.feeCode.description">如果您被給了一個秘密代碼來報名, 請進入這裡並確認您已正確選擇了上面的報名類型。</message>
 	<message key="schedConf.registration.free">您已經成功報名本研討會，感謝您的參與！</message>
 	<message key="schedConf.registration.landingPaid">感謝您的報名！報名付費方式將稍後寄到您的信箱。</message>
-	<message key="schedConf.registration.loggedInAs"><![CDATA[您目前已登入。下列的帳號訊息核對無誤，若為錯誤請改正 。 <a href="{$profileUrl}">我的簡介</a> 或 <a href="{$logoutUrl}">登出</a> 使用其他帳號。]]></message>
+	<message key="schedConf.registration.loggedInAs"><![CDATA[下面是您的報名資料。您可以<a href="{$profileUrl}">點此編輯個人資料</a> 或是 <a href="{$logoutUrl}">登出使用其他帳號</a>。]]></message>
 	<message key="schedConf.registration.noPaymentMethodAvailable">您的報名被記錄了。 若有需要，本研討會將會主動聯絡您有關報名費的繳交事宜。</message>
 	<message key="schedConf.registration.optionClosed">(報名已經關閉: {$closingDate})</message>
 	<message key="schedConf.registration.optionCloses">(關閉日期: {$closingDate})</message>

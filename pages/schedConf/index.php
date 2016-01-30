@@ -25,6 +25,8 @@ switch ($op) {
 	case 'timeline':
 	case 'cfp':
 	case 'registration':
+        case 'deleteRegistration':
+        case 'updateRegistration':
 	case 'register':
 	case 'program':
         case 'page':

@@ -159,7 +159,7 @@ class TinyMCEPlugin extends GenericPlugin {
 					case 1:
 						$fields[] = 'introduction';
 						$fields[] = 'overview';
-						$fields[] = 'locationAddress';
+    						$fields[] = 'locationAddress';
 						$fields[] = 'contactMailingAddress';
 						$fields[] = 'sponsorNote';
 						$fields[] = 'contributorNote';
@@ -190,7 +190,10 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/program':
 			case 'manager/saveProgramSettings':
 				$fields[] = 'program';
-			case 'manager/accommodation':
+			case 'schedConf/registration':
+				$fields[] = 'specialRequests';
+                                break;
+                        case 'manager/accommodation':
 			case 'manager/saveAccommodationSettings':
 				$fields[] = 'accommodationDescription';
 				break;
