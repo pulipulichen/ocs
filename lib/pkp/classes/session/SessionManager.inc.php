@@ -40,7 +40,8 @@ class SessionManager {
 		ini_set('session.use_cookies', 1);
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
-		ini_set('session.cookie_path', $request->getBasePath() . '/');
+		//ini_set('session.cookie_path', $request->getBasePath() . '/');
+                ini_set('session.cookie_path', "/ocs" . '/');
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
@@ -123,7 +124,7 @@ class SessionManager {
 
 		return $instance;
 	}
-
+        
 	/**
 	 * Get the session associated with the current request.
 	 * @return Session

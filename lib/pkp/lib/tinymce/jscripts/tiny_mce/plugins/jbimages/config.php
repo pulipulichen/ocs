@@ -127,7 +127,7 @@
 
 	/* PKP Customization, 01/03/2012; Specify upload path */
 	$config['upload_path'] = $integratePKP->getPKPImageUploadPath();
-echo $integratePKP->getPKPImageUploadPath();
+//echo $integratePKP->getPKPImageUploadPath();
 
 /*-------------------------------------------------------------------
 |

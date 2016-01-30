@@ -85,13 +85,13 @@ class Validation {
 			$session->setSessionVar('userId', $user->getId());
 			$session->setUserId($user->getId());
 			$session->setSessionVar('username', $user->getUsername());
-			$session->setRemember($remember);
-
+                        $session->setRemember($remember);
+                        
 			if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
 				// Update session expiration time
 				$sessionManager->updateSessionLifetime(time() +  Config::getVar('general', 'session_lifetime') * 86400);
 			}
-
+                        
 			$user->setDateLastLogin(Core::getCurrentDate());
 			$userDao->updateObject($user);
 

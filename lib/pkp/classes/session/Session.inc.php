@@ -172,6 +172,14 @@ class Session extends DataObject {
 	function setRemember($remember) {
 		return $this->setData('remember', $remember);
 	}
+        
+        /**
+	 * Set whether session is to be saved across browser sessions.
+	 * @param $remember boolean
+	 */
+	function setRememberLogin($remember) {
+		return $this->setData('rememberLogin', $remember);
+	}
 
 	/**
 	 * Get all session parameters.

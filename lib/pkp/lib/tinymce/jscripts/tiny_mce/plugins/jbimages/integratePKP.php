@@ -33,9 +33,6 @@
 			$userSession =& $sessionManager->getUserSession();
 			$user =& $userSession->getUser();
                         
-                        $userId = $userSession->getUserId();
-                        echo $userId;
-                        
 			if (isset($user)) {
 				// User is logged in
 				$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
@@ -105,4 +102,3 @@
                         }
 		}
 	}
-?>
