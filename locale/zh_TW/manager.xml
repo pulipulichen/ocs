@@ -502,9 +502,9 @@
 	<message key="manager.setup.aboutConference.copyrightNotice">著作權告示</message>
 	<message key="manager.setup.aboutConference.copyrightNotice.description"><![CDATA[The Copyright Notice will also appear in the metadata accompanying posted conference materials and as a statement that authors need to agree to on submitting to the conference. The Public Knowledge Project recommends the use of a <a href="http://creativecommons.org">Creative Commons</a> license, and provides a sample Copyright Notice below.]]></message>
 	<message key="manager.setup.aboutConference.copyrightNoticeAgree">要求作者同意著作權告示作為提議過程的一部分。</message>
-	<message key="manager.setup.aboutConference.description">研討會的描述、主要聯絡、著作權告示等等。</message>
+	<message key="manager.setup.aboutConference.description">研討會的描述、主要聯絡人、著作權告示等等。</message>
 	<message key="manager.setup.aboutConference.postCreativeCommons">在會議網站內張貼有創造力的共同性執照圖示。</message>
-	<message key="manager.setup.aboutConference.principalContact">為研討會網站的主要聯絡</message>
+	<message key="manager.setup.aboutConference.principalContact">研討會的主要聯絡人</message>
 	<message key="manager.setup.aboutConference.privacyStatement">保密聲明</message>
 	<message key="manager.setup.aboutConference.restrictPaperAccess">在觀看被封存的研討會摘要和介紹之前，訪客必須建立一個讀者帳號。</message>
 	<message key="manager.setup.aboutConference.title">步驟 1. 關於研討會</message>

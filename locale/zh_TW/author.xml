@@ -63,7 +63,7 @@
 	<message key="author.submit.reorder">記錄作者姓名</message>
 	<message key="author.submit.reorderInstructions">使用箭頭符號變更出現在投稿內的作者的名字。</message>
 	<message key="author.submit.replaceSubmissionFile">替換稿件檔案</message>
-	<message key="author.submit.selectPrincipalContact">主要聯絡作者</message>
+	<message key="author.submit.selectPrincipalContact">通訊作者</message>
 	<message key="author.submit.selectTrack">請選擇一個研討會主題...</message>
 	<message key="author.submit.start">1. 開始</message>
 	<message key="author.submit.startHere">準備好投稿到研討會</message>
