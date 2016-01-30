@@ -191,6 +191,7 @@
 	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="true"}</td>
 	<td class="value"><textarea id="affiliation" name="affiliation" rows="5" cols="40" class="textArea">{$affiliation|escape}</textarea></td>
 </tr>
+
         <tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="password" required="true" key="user.password"}</td>
 		<td class="value">
@@ -437,6 +438,11 @@ var data = {$survey};
             取消報名
         </a>
     {else}
+        <input type="checkbox" name="notifyEmail" id="notifyEmail" value="1" checked="checked" />
+        <label for="notifyEmail">{translate key="manager.registration.form.notifyEmail"}</label> 
+        
+        <br />
+        
         <input type="submit" 
                value="{translate key="schedConf.registration.register"}" 
                class="btn btn-primary"/>

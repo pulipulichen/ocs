@@ -218,6 +218,12 @@
 			{fieldLabel name="postContact" key="manager.timeline.postContact"}
 		</td>
 	</tr>
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postPayment" id="postPayment" value="1" {if $postPayment}checked="checked"{/if} />
+			{fieldLabel name="postPayment" key="manager.timeline.postRegistration"}
+		</td>
+	</tr>
         
 	<tr valign="top">
 		<td class="label" colspan="2">
@@ -255,12 +261,6 @@
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postSupporters" id="postSupporters" value="1" {if $postSupporters}checked="checked"{/if} />
 			{fieldLabel name="postSupporters" key="manager.timeline.postSupporters"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postPayment" id="postPayment" value="1" {if $postPayment}checked="checked"{/if} />
-			{fieldLabel name="postPayment" key="manager.timeline.postRegistration"}
 		</td>
 	</tr>
 

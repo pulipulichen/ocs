@@ -254,7 +254,8 @@ class RegistrationForm extends Form {
 				'registrantName' => $user->getFullName(),
 				'schedConfName' => $schedConfName,
 				'registrationType' => $registrationType->getSummaryString(),
-				'username' => $user->getUsername(),
+				 //'username' => $user->getUsername(),
+                                 'username' => $user->getEmail(),
 				'registrationContactSignature' => $registrationContactSignature 
 			);
 

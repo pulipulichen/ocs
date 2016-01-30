@@ -196,6 +196,7 @@ class UserRegistrationForm extends Form {
 			$userVars[] = 'country';
 			$userVars[] = 'biography';
 			$userVars[] = 'userLocales';
+                        $userVars[] = 'notifyEmail';
 		}
 
 		if ($this->captchaEnabled) {
@@ -271,7 +272,7 @@ class UserRegistrationForm extends Form {
 		$registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
 		$registrationType =& $registrationTypeDao->getRegistrationType($this->getData('registrationTypeId'));
 		if (!$registrationType || $registrationType->getSchedConfId() != $schedConf->getId()) {
-			Request::redirect('index');
+                    Request::redirect('index');
 		}
 
 		import('payment.ocs.OCSPaymentManager');
@@ -325,6 +326,8 @@ class UserRegistrationForm extends Form {
 
 		return REGISTRATION_SUCCESSFUL;
 	}
+        
+        
 }
 
 ?>

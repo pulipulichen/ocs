@@ -128,13 +128,13 @@ Your password for disabling notification emails is: {$password}
 		<description>當使用者表明忘記了他們的密碼或無法登錄時，此電子郵件會被寄送給使用者。它提供了ㄧ個網址讓使用者可以跟隨著步驟來重新設定密碼。</description>
 	</email_text>
 	<email_text key="REGISTRATION_NOTIFY">
-		<subject>您已經成功註冊本研討會</subject>
+		<subject>您已經成功報名本研討會</subject>
 		<body>{$registrantName}您好，
 
-您已經在 {$conferenceName} 中登記註冊，註冊類型為：「{$registrationType}」
+您已經在「{$conferenceName}」中登記報名，報名類型為：「{$registrationType}」
 
 如果遇到需要登入才能查看的網站內容，您可以使用以下帳號登入：
-您的帳號：{$username}
+您的電子郵件帳號：{$username}
 研討會網址：{$conferenceUrl}
 
 登入本研討會網站之後，您可以修改您的基本資料或是設定密碼。
@@ -142,7 +142,7 @@ Your password for disabling notification emails is: {$password}
 如果您有任何問題，歡迎與我們聯繫。
 
 {$registrationContactSignature}</body>
-		<description>此電子郵件是通知已註冊的讀者管理員已位他們建立註冊登記。此封信件也提共有關研討會網站及進入網站的指示。</description>
+		<description>此電子郵件是通知已報名的讀者管理員已位他們建立報名登記。此封信件也提供有關研討會網站及進入網站的指示。</description>
 	</email_text>
 	<email_text key="REVIEW_ACK">
 		<subject>論文審查確認通知</subject>

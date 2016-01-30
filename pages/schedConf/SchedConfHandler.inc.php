@@ -419,6 +419,18 @@ class SchedConfHandler extends Handler {
 //                        $isUpdate = Request::getUserVar("update");
                         if ( !$registration || $registration->getDatePaid() ) {
 				// And they have already paid. Redirect to a message explaining.
+//                                $notifyEmail = Request::getUserVar("notifyEmail");
+//                                
+//                                if ($notifyEmail) {
+//                                    echo "有！";
+//                                    exit;
+//                                    //$this->notifyEmail($registration->getTypeId());
+//                                }
+//                                else {
+//                                    echo '沒有!!';
+//                                    exit;
+//                                }
+                                
 				Request::redirect(null, null, null, 'registration');
 			} else {
 				// Allow them to resubmit the form to change type or pay again.
@@ -465,6 +477,11 @@ class SchedConfHandler extends Handler {
                                         //$registration =& $registrationDao->getRegistration($registrationId);
                                         //$this->_registrationDisplay($registration);
                                         //$this->_updateRegistration($registrationDao, $registration);
+                                        $notifyEmail = Request::getUserVar("notifyEmail");
+                                        $registrationTypeId = (int) Request::getUserVar("registrationTypeId");
+                                        if ($notifyEmail) {
+                                            $this->notifyEmail($registrationTypeId);
+                                        }
                                         Request::redirect(null, null, null, 'registration');
                                         return;
 				}
@@ -482,6 +499,62 @@ class SchedConfHandler extends Handler {
             $registration->setApplicationForm(Request::getUserVar("applicationForm"));
             $registrationDao->updateRegistration($registration);
         }
+        
+        function notifyEmail($typeId) {
+            
+		$schedConf =& Request::getSchedConf();
+                
+                // Send user registration notification email
+                $userDao =& DAORegistry::getDAO('UserDAO');
+                $registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
+
+                $schedConfName = $schedConf->getSchedConfTitle();
+                $schedConfId = $schedConf->getId();
+                $user = Request::getUser();
+                $registrationType =& $registrationTypeDao->getRegistrationType($typeId);
+
+                list($registrationEmail, $registrationName, $registrationContactSignature) = $this->getRegistrationContactInformation($schedConfId);
+
+                $paramArray = array(
+                        'registrantName' => $user->getFullName(),
+                        'schedConfName' => $schedConfName,
+                        'registrationType' => $registrationType->getRegistrationTypeName(),
+                         //'username' => $user->getUsername(),
+                         'username' => $user->getEmail(),
+                        'registrationContactSignature' => $registrationContactSignature 
+                );
+
+                import('mail.MailTemplate');
+                $mail = new MailTemplate('REGISTRATION_NOTIFY', null, null, null, null, false);
+                $mail->setFrom($registrationEmail, $registrationName);
+                $mail->assignParams($paramArray);
+                $mail->addRecipient($user->getEmail(), $user->getFullName());
+                $mail->send();
+        }
+        
+        /**
+	 * Get the scheduled conference's contact information
+	 * @param $schedConfId int
+	 * @return array
+	 */
+	function getRegistrationContactInformation($schedConfId) {
+		$schedConfSettingsDao =& DAORegistry::getDAO('SchedConfSettingsDAO');
+		
+		$registrationName = $schedConfSettingsDao->getSetting($schedConfId, 'registrationName');
+		$registrationEmail = $schedConfSettingsDao->getSetting($schedConfId, 'registrationEmail');
+		$registrationPhone = $schedConfSettingsDao->getSetting($schedConfId, 'registrationPhone');
+		$registrationFax = $schedConfSettingsDao->getSetting($schedConfId, 'registrationFax');
+		$registrationMailingAddress = $schedConfSettingsDao->getSetting($schedConfId, 'registrationMailingAddress');
+		$registrationContactSignature = $registrationName;
+
+		if ($registrationMailingAddress != '') $registrationContactSignature .= "\n" . $registrationMailingAddress;
+		if ($registrationPhone != '') $registrationContactSignature .= "\n" . AppLocale::Translate('user.phone') . ': ' . $registrationPhone;
+		if ($registrationFax != '')	$registrationContactSignature .= "\n" . AppLocale::Translate('user.fax') . ': ' . $registrationFax;
+
+		$registrationContactSignature .= "\n" . AppLocale::Translate('user.email') . ': ' . $registrationEmail;
+		
+		return array($registrationEmail, $registrationName, $registrationContactSignature);
+	}
         
 
 	/**
