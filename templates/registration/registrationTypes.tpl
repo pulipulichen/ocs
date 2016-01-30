@@ -29,9 +29,9 @@
 		<td colspan="3" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
-		<td width="58%">{translate key="manager.registrationTypes.name"}</td>
-		<td width="30%">{translate key="manager.registrationTypes.cost"}</td>
-		<td width="12%">{translate key="common.action"}</td>
+		<td>{translate key="manager.registrationTypes.name"}</td>
+		<td>{translate key="manager.registrationTypes.cost"}</td>
+		<td align="right">{translate key="common.action"}</td>
 	</tr>
 	<tr>
 		<td colspan="3" class="headseparator">&nbsp;</td>
@@ -40,7 +40,7 @@
 	<tr valign="top">
 		<td>{$registrationType->getRegistrationTypeName()|escape}</td>
 		<td>{$registrationType->getCost()|string_format:"%.2f"}&nbsp;({$registrationType->getCurrencyStringShort()})</td>
-		<td><a href="{url op="moveRegistrationType" path=$registrationType->getTypeId() dir=u}" class="action">&uarr;</a>&nbsp;<a href="{url op="moveRegistrationType" path=$registrationType->getTypeId() dir=d}" class="action">&darr;</a>&nbsp;|&nbsp;<a href="{url op="editRegistrationType" path=$registrationType->getTypeId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteRegistrationType" path=$registrationType->getTypeId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.registrationTypes.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
+		<td align="right"><a href="{url op="moveRegistrationType" path=$registrationType->getTypeId() dir=u}" class="action">&uarr;</a>&nbsp;<a href="{url op="moveRegistrationType" path=$registrationType->getTypeId() dir=d}" class="action">&darr;</a>&nbsp;|&nbsp;<a href="{url op="editRegistrationType" path=$registrationType->getTypeId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteRegistrationType" path=$registrationType->getTypeId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.registrationTypes.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
 	</tr>
 	<tr><td colspan="3" class="{if $registrationTypes->eof()}end{/if}separator">&nbsp;</td></tr>
 {/iterate}

@@ -254,7 +254,7 @@ class RegistrationTypeDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name', 'description');
+		return array('name', 'description', "form", "survey");
 	}
 
 	/**

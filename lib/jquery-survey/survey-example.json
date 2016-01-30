@@ -1,0 +1,30 @@
+[
+   {
+      "type": "text",
+      "label": "First Name",
+      "required": true
+   },
+   {
+      "type": "text",
+      "label": "Last Name",
+      "required": true
+   },
+   {
+      "type": "email",
+      "label": "Email Address",
+      "required": true
+   },
+   {
+      "type": "radio",
+      "label": "Gender",
+      "options": [
+         {
+            "value": "Male"
+         },
+         {
+            "value": "Female"
+         }
+      ],
+      "required": true
+   }
+]

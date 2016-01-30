@@ -124,6 +124,24 @@ class RegistrationType extends DataObject {
 	function getDescription($locale) {
 		return $this->getData('description', $locale);
 	}
+        
+        /**
+	 * Get registration type description.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getSurvey($locale) {
+		return $this->getData('survey', $locale);
+	}
+        
+        /**
+	 * Get registration type description.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getForm($locale) {
+		return $this->getData('form', $locale);
+	}
 
 	/**
 	 * Set registration type description.
@@ -132,6 +150,24 @@ class RegistrationType extends DataObject {
 	 */
 	function setDescription($description, $locale) {
 		return $this->setData('description', $description, $locale);
+	}
+        
+        /**
+	 * Set registration type description.
+	 * @param $description string
+	 * @param $locale string
+	 */
+	function setSurvey($survey, $locale) {
+		return $this->setData('survey', $survey, $locale);
+	}
+        
+        /**
+	 * Set registration type description.
+	 * @param $description string
+	 * @param $locale string
+	 */
+	function setForm($survey, $locale) {
+		return $this->setData('form', $survey, $locale);
 	}
 
 	/**
@@ -374,6 +410,5 @@ class RegistrationType extends DataObject {
 	function getSummaryString() {
 		return $this->getRegistrationTypeName() . ' - ' . $this->getDurationYearsMonths() . ' - ' . sprintf('%.2f', $this->getCost()) . ' ' . $this->getCurrencyStringShort();
 	}
+        
 }
-
-?>

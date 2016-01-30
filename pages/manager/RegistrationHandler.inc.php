@@ -442,8 +442,14 @@ class RegistrationHandler extends ManagerHandler {
 			$registrationTypeForm->readInputData();
 
 			if ($registrationTypeForm->validate()) {
+                            
 				$registrationTypeForm->execute();
+                                
+                                //$registrationType =& $registrationTypeDao->getRegistrationType($registrationTypeId);
+                                //print_r($registrationType->getData("description"));
+                                //print_r($registrationType->getData("survey"));
 
+                                
 				if (Request::getUserVar('createAnother')) {
 					$templateMgr =& TemplateManager::getManager();
 					$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'registrationTypes'), 'manager.registrationTypes'));
@@ -459,7 +465,8 @@ class RegistrationHandler extends ManagerHandler {
 					$registrationTypeForm->display();
 
 				} else {
-					Request::redirect(null, null, null, 'registrationTypes');
+                                    //exit;
+                                    Request::redirect(null, null, null, 'registrationTypes');
 				}
 			} else {
 				$templateMgr =& TemplateManager::getManager();
@@ -473,6 +480,7 @@ class RegistrationHandler extends ManagerHandler {
 				$registrationTypeForm->display();
 			}
 		} else {
+                    
 				Request::redirect(null, null, null, 'registrationTypes');
 		}
 	}

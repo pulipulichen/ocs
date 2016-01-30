@@ -141,7 +141,7 @@
 	<message key="manager.registrationOptions.confirmDelete">Warning! Deleting this option will affect all registrations that currently use it. Are you sure you want to continue and delete this registration option?</message>
 	<message key="manager.registrationOptions.cost">Cost</message>
 	<message key="manager.registrationOptions.costSetInRegistrationType">The cost for all registration options must be set once in each registration type.</message>
-	<message key="manager.registrationOptions.costs">Registration Option Costs</message>
+	<message key="manager.registrationOptions.costs">報名選項費用</message>
 	<message key="manager.registrationOptions.create">Create New Registration Option</message>
 	<message key="manager.registrationOptions.createTitle">Create</message>
 	<message key="manager.registrationOptions.currency">Currency</message>
@@ -204,10 +204,10 @@
 	<message key="manager.registrationPolicies.registrationContactDescription">聯絡名單在研討會報名攔下列出。</message>
 	<message key="manager.registrationPolicies.registrationContactEmailValid">請輸入一個有效的電子郵件</message>
 	<message key="manager.registrationTypes">報名類別</message>
-	<message key="manager.registrationTypes.access">通入</message>
-	<message key="manager.registrationTypes.access.both">線上及物理</message>
-	<message key="manager.registrationTypes.access.online">線上</message>
-	<message key="manager.registrationTypes.access.physical">物理</message>
+	<message key="manager.registrationTypes.access">報名方式</message>
+	<message key="manager.registrationTypes.access.both">網路及實體聯絡</message>
+	<message key="manager.registrationTypes.access.online">網路</message>
+	<message key="manager.registrationTypes.access.physical">實體聯絡</message>
 	<message key="manager.registrationTypes.closeDate">可利用直到</message>
 	<message key="manager.registrationTypes.confirmDelete">警告! 所有以此報名類型報名的將被刪除。您是否確定要繼續刪除此報名類型?</message>
 	<message key="manager.registrationTypes.cost">花費</message>
@@ -222,8 +222,8 @@
 	<message key="manager.registrationTypes.form.accessValid">請選擇一個有效的報名過程類別。</message>
 	<message key="manager.registrationTypes.form.closeBeforeOpen">為此種報名類型的開放日期必須在結束的日期前來。</message>
 	<message key="manager.registrationTypes.form.closeDate">關閉報名</message>
-	<message key="manager.registrationTypes.form.code">代碼</message>
-	<message key="manager.registrationTypes.form.code.instructions">請輸入一個代碼(如：1234)當在報名時，如果是報名在此類別內將會被限制那些已有代碼的人去使用。</message>
+	<message key="manager.registrationTypes.form.code">報名通關代碼</message>
+	<message key="manager.registrationTypes.form.code.instructions">請輸入一個數字代碼。報名此類別的人必須要有通關代碼才能報名。</message>
 	<message key="manager.registrationTypes.form.cost">費用</message>
 	<message key="manager.registrationTypes.form.costInstructions">輸入一個數值 (如：40 或 40.00). 不包含其他圖式(如：$)。</message>
 	<message key="manager.registrationTypes.form.costNumeric">費用必須是一個正面、數值。</message>

@@ -55,6 +55,16 @@
 	<td colspan="2" class="value"><textarea name="description[{$formLocale|escape}]" id="description" cols="40" rows="4" class="textArea">{$description[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
+    {* @TODO 語系 *}
+	<td class="label">{fieldLabel name="form" value="表單範本"}</td>
+	<td colspan="2" class="value"><textarea name="form[{$formLocale|escape}]" id="form" cols="40" rows="4" class="textArea">{$form[$formLocale]|escape}</textarea></td>
+</tr>
+<tr valign="top">
+    {* @TODO 語系 *}
+	<td class="label">{fieldLabel name="survey" value="問卷調查"}</td>
+	<td colspan="2" class="value"><textarea name="survey[{$formLocale|escape}]" id="survey" cols="40" rows="4" class="textArea">{$survey[$formLocale]|escape}</textarea></td>
+</tr>
+<tr valign="top">
 	<td class="label">{fieldLabel name="currency" required="true" key="manager.registrationTypes.form.currency"}</td>
 	<td colspan="2"><select name="currency" id="currency" class="selectMenu">{html_options options=$validCurrencies selected=$currency}</select></td>
 </tr>
@@ -120,21 +130,17 @@
 	<td colspan="2"><select id="access" name="access" class="selectMenu">{html_options options=$validAccessTypes selected=$access}</select></td>
 </tr>
 <tr valign="top">
-	<td rowspan="3">{translate key="common.options"}</td>
+    <td class="label">{translate key="common.options"}</td>
 	<td colspan="2" class="value">
 		<input type="checkbox" name="institutional" id="institutional" value="1"{if $institutional} checked="checked"{/if} />
 		<label for="institutional">{translate key="manager.registrationTypes.form.institutional"}</label>
-	</td>
-</tr>
-<tr valign="top">
-	<td colspan="2" class="value">
-		<input type="checkbox" name="membership" id="membership" value="1"{if $membership} checked="checked"{/if} />
+                
+                <br />
+                <input type="checkbox" name="membership" id="membership" value="1"{if $membership} checked="checked"{/if} />
 		<label for="membership">{translate key="manager.registrationTypes.form.membership"}</label>
-	</td>
-</tr>
-<tr valign="top">
-	<td colspan="2" class="value">
-		<input type="checkbox" name="notPublic" id="notPublic" value="1"{if $notPublic} checked="checked"{/if} />
+                
+                <br />
+                <input type="checkbox" name="notPublic" id="notPublic" value="1"{if $notPublic} checked="checked"{/if} />
 		<label for="notPublic">{translate key="manager.registrationTypes.form.notPublic"}</label>
 	</td>
 </tr>
