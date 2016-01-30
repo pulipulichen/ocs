@@ -41,8 +41,12 @@
 		<td colspan="2" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr valign="top" class="heading">
-		<td>{translate key="schedConf.registration.type"}</td>
-		<td>{translate key="schedConf.registration.cost"}</td>
+		<td width="80%">{translate key="schedConf.registration.type"}</td>
+		<td style="min-width:200px">
+                    {* @TODO 語系 *}
+                    {*translate key="schedConf.registration.cost"*}
+                    報名選項
+                </td>
 	</tr>
 	<tr>
 		<td colspan="2" class="headseparator">&nbsp;</td>

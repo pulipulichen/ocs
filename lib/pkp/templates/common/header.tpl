@@ -81,6 +81,8 @@
 	{/foreach}
 
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
+        
+        <script type="text/javascript" src="{$baseUrl}/lib/puli-units/helpers.js"></script>
 	{$additionalHeadData}
 </head>
 

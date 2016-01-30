@@ -164,22 +164,42 @@
 	{url|assign:"loginUrl" page="login" op="index" source=$requestUri}
 	<p>{translate key="schedConf.registration.createAccount.description" loginUrl=$loginUrl}</p>
 
+  
+        
 	<table class="data" width="100%">
-		<tr valign="top">	
+            
+      
+<tr valign="top">
+	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
+	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
+</tr>
+
+<tr valign="top">
+	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
+	<td class="value">
+            <input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" 
+                   onchange="PULI_HELPERS.emailConvertToField(this, ['username']);PULI_HELPERS.emailToField(this, ['password', 'password2']);" />
+        </td>
+</tr>
+            
+        <tr valign="top"  class="hide">	
 			<td width="20%" class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 			<td width="80%" class="value"><input type="text" name="username" value="{$username|escape}" id="username" size="20" maxlength="32" class="textField" /></td>
 	</tr>
 
-	<tr valign="top">
+<tr valign="top">
+	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="true"}</td>
+	<td class="value"><textarea id="affiliation" name="affiliation" rows="5" cols="40" class="textArea">{$affiliation|escape}</textarea></td>
+</tr>
+        <tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="password" required="true" key="user.password"}</td>
-		<td class="value"><input type="password" name="password" value="{$password|escape}" id="password" size="20" maxlength="32" class="textField" /></td>
+		<td class="value">
+                    <input type="password" name="password" value="{$password|escape}" id="password" size="20" maxlength="32" class="textField" /> 
+                    {translate key="user.account.passwordLengthRestriction" length=$minPasswordLength}
+                </td>
 	</tr>
 
-	<tr valign="top">
-		<td></td>
-		<td class="instruct">{translate key="user.account.passwordLengthRestriction" length=$minPasswordLength}</td>
-	</tr>
-	<tr valign="top">
+        <tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="password2" required="true" key="user.account.repeatPassword"}</td>
 		<td class="value"><input type="password" name="password2" id="password2" value="{$password2|escape}" size="20" maxlength="32" class="textField" /></td>
 	</tr>
@@ -196,67 +216,54 @@
 	</tr>
 {/if}
 
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
 	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 
-<tr valign="top">
-	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
-	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
-</tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="middleName" key="user.middleName"}</td>
 	<td class="value"><input type="text" id="middleName" name="middleName" value="{$middleName|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="lastName" required="true" key="user.lastName"}</td>
 	<td class="value"><input type="text" id="lastName" name="lastName" value="{$lastName|escape}" size="20" maxlength="90" class="textField" /></td>
 </tr>
 
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="initials" key="user.initials"}</td>
 	<td class="value"><input type="text" id="initials" name="initials" value="{$initials|escape}" size="5" maxlength="5" class="textField" />&nbsp;&nbsp;{translate key="user.initialsExample"}</td>
 </tr>
 	
-<tr valign="top">
-	<td class="label">{fieldLabel name="affiliation" key="user.affiliation" required="true"}</td>
-	<td class="value"><textarea id="affiliation" name="affiliation" rows="5" cols="40" class="textArea">{$affiliation|escape}</textarea></td>
-</tr>
 
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="signature" key="user.signature"}</td>
 	<td class="value"><textarea name="signature[{$formLocale|escape}]" id="signature" rows="5" cols="40" class="textArea">{$signature[$formLocale]|escape}</textarea></td>
 </tr>
 
-<tr valign="top">
-	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
-	<td class="value"><input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
-</tr>
-
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="userUrl" key="user.url"}</td>
 	<td class="value"><input type="text" id="userUrl" name="userUrl" value="{$userUrl|escape}" size="30" maxlength="90" class="textField" /></td>
 </tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="phone" key="user.phone"}</td>
 	<td class="value"><input type="text" name="phone" id="phone" value="{$phone|escape}" size="15" maxlength="24" class="textField" /></td>
 </tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="fax" key="user.fax"}</td>
 	<td class="value"><input type="text" name="fax" id="fax" value="{$fax|escape}" size="15" maxlength="24" class="textField" /></td>
 </tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="mailingAddress" required="true" key="common.mailingAddress"}</td>
 	<td class="value"><textarea name="mailingAddress" id="mailingAddress" rows="3" cols="40" class="textArea">{$mailingAddress|escape}</textarea></td>
 </tr>
 	
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="country" required="true" key="common.country"}</td>
 	<td class="value">
 		<select name="country" id="country" class="selectMenu">
@@ -266,7 +273,7 @@
 	</td>
 </tr>
 
-<tr valign="top">
+<tr valign="top" class="hide">
 	<td class="label">{fieldLabel name="biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
 	<td class="value"><textarea name="biography[{$formLocale|escape}]" id="biography" rows="5" cols="40" class="textArea">{$biography[$formLocale]|escape}</textarea></td>
 </tr>

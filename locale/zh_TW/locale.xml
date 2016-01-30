@@ -642,7 +642,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
         <message key="schedConf.registration.alreadyRegisteredNoPaid"><![CDATA[您已在此研討會報名。如果您報名內容錯誤或是想要變更，請從左方導覽列寄信給研討會聯絡人。]]></message>
 	<message key="schedConf.registration.conferenceFees">報名費</message>
 	<message key="schedConf.registration.cost">費用</message>
-	<message key="schedConf.registration.createAccount.description"><![CDATA[您目前未登入。若要報名此研討會，您需要一個帳號。若您已經有一個帳號，<a href="{$loginUrl}">請點這裡</a>登入；否則請再下列欄位填入資訊來建立一個新帳號。]]></message>
+	<message key="schedConf.registration.createAccount.description"><![CDATA[如果您沒有帳號，您可以輸入底下註冊一個新的帳號。或是<a href="{$loginUrl}">請點這裡登入</a>。]]></message>
 	<message key="schedConf.registration.failed">Your registration has failed.  Please try again.</message>
 	<message key="schedConf.registration.feeCode">費用代碼</message>
 	<message key="schedConf.registration.feeCode.description">如果您被給了一個秘密代碼來報名, 請進入這裡並確認您已正確選擇了上面的報名類型。</message>
