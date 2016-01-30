@@ -415,15 +415,9 @@ class SchedConfHandler extends Handler {
 		if ($user && ($registrationId = $registrationDao->getRegistrationIdByUser($user->getId(), $schedConf->getId()))) {
 			// This user has already registered.
 			$registration =& $registrationDao->getRegistration($registrationId);
-                        $isUpdate = Request::getUserVar("update");
-                        if (isset($isUpdate)) {
-                            $registration->setSpecialRequests(Request::getUserVar("specialRequests"));
-                            $registrationDao->updateRegistration($registration);
-                            //echo Request::getUserVar("specialRequests");
-                            //exit;
-                            Request::redirect(null, null, null, 'registration');
-                        }
-			else if ( !$registration || $registration->getDatePaid() ) {
+                        $this->_updateRegistration($registrationDao, $registration);
+//                        $isUpdate = Request::getUserVar("update");
+                        if ( !$registration || $registration->getDatePaid() ) {
 				// And they have already paid. Redirect to a message explaining.
 				Request::redirect(null, null, null, 'registration');
 			} else {
@@ -470,6 +464,7 @@ class SchedConfHandler extends Handler {
 					//$templateMgr->display('common/message.tpl');
                                         //$registration =& $registrationDao->getRegistration($registrationId);
                                         //$this->_registrationDisplay($registration);
+                                        //$this->_updateRegistration($registrationDao, $registration);
                                         Request::redirect(null, null, null, 'registration');
                                         return;
 				}
@@ -481,6 +476,12 @@ class SchedConfHandler extends Handler {
 		}
 	}
         
+        function _updateRegistration($registrationDao, $registration) {
+            $registration->setSpecialRequests(Request::getUserVar("specialRequests"));
+            $registration->setSurvey(Request::getUserVar("survey"));
+            $registration->setApplicationForm(Request::getUserVar("applicationForm"));
+            $registrationDao->updateRegistration($registration);
+        }
         
 
 	/**

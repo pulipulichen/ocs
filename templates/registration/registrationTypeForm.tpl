@@ -56,8 +56,8 @@
 </tr>
 <tr valign="top">
     {* @TODO 語系 *}
-	<td class="label">{fieldLabel name="form" value="表單範本"}</td>
-	<td colspan="2" class="value"><textarea name="form[{$formLocale|escape}]" id="form" cols="40" rows="4" class="textArea">{$form[$formLocale]|escape}</textarea></td>
+	<td class="label">{fieldLabel name="applicationForm" value="表單範本"}</td>
+	<td colspan="2" class="value"><textarea name="applicationForm[{$formLocale|escape}]" id="applicationForm" cols="40" rows="4" class="textArea">{$applicationForm[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
     {* @TODO 語系 *}

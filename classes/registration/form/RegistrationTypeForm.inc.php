@@ -135,7 +135,7 @@ class RegistrationTypeForm extends Form {
 					'name' => $registrationType->getName(null), // Localized
 					'description' => $registrationType->getDescription(null), // Localized
                                         'survey' => $registrationType->getSurvey(null), // Localized
-                                        'form' => $registrationType->getForm(null), // Localized
+                                        'applicationForm' => $registrationType->getApplicationForm(null), // Localized
 					'cost' => $registrationType->getCost(),
 					'currency' => $registrationType->getCurrencyCodeAlpha(),
 					'openDate' => $registrationType->getOpeningDate(),
@@ -162,7 +162,7 @@ class RegistrationTypeForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('name', 'description', 'form', 'survey', 'cost', 'currency', 'access', 'institutional', 'membership', 'notPublic', 'code', 'registrationOptionCosts'));
+		$this->readUserVars(array('name', 'description', 'applicationForm', 'survey', 'cost', 'currency', 'access', 'institutional', 'membership', 'notPublic', 'code', 'registrationOptionCosts'));
 		$this->_data['openDate'] = Request::getUserDateVar('openDate');
 		$this->_data['closeDate'] = Request::getUserDateVar('closeDate');
 		$this->_data['expiryDate'] = Request::getUserVar('expiryDate')?Request::getUserDateVar('expiryDate'):null;
@@ -186,7 +186,7 @@ class RegistrationTypeForm extends Form {
 		$registrationType->setSchedConfId($schedConf->getId());
 		$registrationType->setName($this->getData('name'), null); // Localized
 		$registrationType->setDescription($this->getData('description'), null); // Localized
-                $registrationType->setForm($this->getData('form'), null); // Localized
+                $registrationType->setApplicationForm($this->getData('applicationForm'), null); // Localized
                 $registrationType->setSurvey($this->getData('survey'), null); // Localized
                 //$registrationType->setData("survey", array("zh_TW"=>"1ccc"));
                 //print_r($registrationType->getData("survey"));

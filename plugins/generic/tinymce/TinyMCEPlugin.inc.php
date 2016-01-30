@@ -192,6 +192,7 @@ class TinyMCEPlugin extends GenericPlugin {
 				$fields[] = 'program';
 			case 'schedConf/registration':
 				$fields[] = 'specialRequests';
+                                $fields[] = 'applicationForm';
                                 break;
                         case 'manager/accommodation':
 			case 'manager/saveAccommodationSettings':
@@ -283,7 +284,7 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/createRegistrationType':
 			case 'manager/updateRegistrationType':
 				$fields[] = 'description';
-                                $fields[] = 'form';
+                                $fields[] = 'applicationForm';
 				break;
 			case 'comment/add':
 				$fields[] = 'bodyField';

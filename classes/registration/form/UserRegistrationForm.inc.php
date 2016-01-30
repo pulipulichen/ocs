@@ -134,6 +134,11 @@ class UserRegistrationForm extends Form {
                     else {
                         $templateMgr->assign('message', 'schedConf.registration.alreadyRegisteredNoPaid');
                     }
+                    
+                    $applicationFormDefault = $registrationType->getLocalizedData("applicationForm");
+                    $templateMgr->assign('applicationFormDefault', $applicationFormDefault);
+                    $applicationForm = $applicationFormDefault;
+                    $templateMgr->assign('surveyConfig', $registrationType->getSurvey());
                 }
                 
                 $registrationDao =& DAORegistry::getDAO('RegistrationDAO');
@@ -142,9 +147,16 @@ class UserRegistrationForm extends Form {
                     
                     $registration =& $registrationDao->getRegistration($registrationId);
                     $templateMgr->assign('specialRequests', $registration->getSpecialRequests());
-                    $templateMgr->assign('applicationForm', $registration->getData("applicationForm"));
+                    
+                    
+                    $applicationForm = $registration->getData("applicationForm");
+                    if (is_null($registration->getData("applicationForm"))) {
+                        $applicationForm = $applicationFormDefault;
+                    }
                     $templateMgr->assign('survey', $registration->getData("survey"));
                 }
+                
+                $templateMgr->assign('applicationForm', $applicationForm);
 
 		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
 
@@ -161,7 +173,7 @@ class UserRegistrationForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$userVars = array('registrationTypeId', 'specialRequests', 'feeCode', 'registrationOptionId');
+		$userVars = array('registrationTypeId', 'specialRequests', 'survey','applicationForm', 'feeCode', 'registrationOptionId');
 
 		$user =& Request::getUser();
 		if (!$user) {
@@ -274,6 +286,8 @@ class UserRegistrationForm extends Form {
 		$registration->setUserId($user->getId());
 		$registration->setTypeId($this->getData('registrationTypeId'));
 		$registration->setSpecialRequests($this->getData('specialRequests') ? $this->getData('specialRequests') : null);
+                $registration->setSurvey($this->getData('survey') ? $this->getData('survey') : null);
+                $registration->setApplicationForm($this->getData('applicationForm') ? $this->getData('applicationForm') : null);
 		$registration->setDateRegistered(time());
 
 		$registrationDao =& DAORegistry::getDAO('RegistrationDAO');

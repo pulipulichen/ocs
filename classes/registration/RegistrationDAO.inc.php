@@ -193,9 +193,9 @@ class RegistrationDAO extends DAO {
 	function insertRegistration(&$registration) {
 		$ret = $this->update(
 			sprintf('INSERT INTO registrations
-				(sched_conf_id, user_id, type_id, date_registered, date_paid, membership, domain, ip_range, special_requests)
+				(sched_conf_id, user_id, type_id, date_registered, date_paid, membership, domain, ip_range, special_requests, survey, application_form)
 				VALUES
-				(?, ?, ?, %s, %s, ?, ?, ?, ?)',
+				(?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?)',
 				$this->dateToDB($registration->getDateRegistered()), $this->dateToDB($registration->getDatePaid())),
 			array(
 				$registration->getSchedConfId(),
@@ -248,7 +248,7 @@ class RegistrationDAO extends DAO {
 				$registration->getId()
 			)
 		);
-                $this->updateLocaleFields($registration);
+                //$this->updateLocaleFields($registration);
                 return $returner;
 	}
         
@@ -257,7 +257,7 @@ class RegistrationDAO extends DAO {
 	 * @param $registrationType object
 	 */
 	function updateLocaleFields(&$registration) {
-                echo $registration->getData("applicationForm");
+                //echo $registration->getData("applicationForm");
 		$this->updateDataObjectSettings('registrations_settings', $registration, array(
 			'registration_id' => $registration->getRegistrationId()
 		));

@@ -278,6 +278,7 @@
 
 <!--------------------->
 
+{if $applicationFormDefault}
 <div class="separator"></div>
 <div id="formDiv">
 <h3>
@@ -288,6 +289,7 @@
 
 <p><textarea name="applicationForm" id="applicationForm" cols="60" rows="10" class="textArea">{$applicationForm|escape}</textarea></p>
 </div>
+{/if}
 
 <!--------------------->
 
