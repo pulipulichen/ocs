@@ -13,10 +13,10 @@
 	{translate|assign:"pageTitleTranslated" key="submission.page.review" id=$submission->getPaperId()}
 	{assign var="pageCrumbTitle" value="submission.review"}
 {elseif $stage==REVIEW_STAGE_ABSTRACT}
-	{translate|assign:"pageTitleTranslated" key="submission.page.abstractReview" id=$submission->getPaperId()}
+	{translate|assign:"pageTitleTranslated" key="submission.page.abstractAssignReviewer" id=$submission->getPaperId()}
 	{assign var="pageCrumbTitle" value="submission.abstractReview"}
 {else}{* REVIEW_STAGE_PRESENTATION *}
-	{translate|assign:"pageTitleTranslated" key="submission.page.paperReview" id=$submission->getPaperId()}
+	{translate|assign:"pageTitleTranslated" key="submission.page.paperAssignReviewer" id=$submission->getPaperId()}
 	{assign var="pageCrumbTitle" value="submission.paperReview"}
 {/if}
 {include file="common/header.tpl"}

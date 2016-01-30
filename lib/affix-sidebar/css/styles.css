@@ -42,7 +42,7 @@ body {
 
 @media screen and (min-width: 768px) {
   #masthead h1 {
-    font-size: 45px;
+    font-size: 36px;
   }
 }
 
@@ -60,6 +60,10 @@ body {
     position: static;
   	margin-top:30px;
   	width:228px;
+  }
+  
+  #masthead h1 {
+    font-size: 45px;
   }
   
   #sidebar.affix {

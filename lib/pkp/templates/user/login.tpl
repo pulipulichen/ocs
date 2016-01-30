@@ -84,7 +84,8 @@
 		<td class="label"><label for="loginEmail">身份</label></td>
 		<td class="value">
                     <label>
-                        <input type="radio" name="role" value="other" onchange="_setupRole(this)" checked="true" /> 管理者、作者、評審委員等
+                        <input type="radio" name="role" value="other" onchange="_setupRole(this)" checked="true" /> 
+                        管理者、作者、審查委員等
                     </label>
                     {if $schedConfPostPayment}
                     <label>

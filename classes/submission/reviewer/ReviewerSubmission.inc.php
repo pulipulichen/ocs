@@ -45,7 +45,9 @@ class ReviewerSubmission extends Paper {
 	 */
 	function &getEditAssignments() {
 		$editAssignments =& $this->getData('editAssignments');
-		return $editAssignments;
+		//return $editAssignments;
+                import("helpers.SubmissionHelper");
+                return SubmissionHelper::getUniqueEditAssignments($editAssignments);
 	}
 
 	/**

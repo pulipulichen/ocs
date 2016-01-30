@@ -17,6 +17,10 @@ a:link {
 	color: #335;
 }
 
+a.btn.btn-primary:link {
+	color: white;
+}
+
 a:active {
 	color: #253;
 }

@@ -74,7 +74,7 @@
 	<message key="director.paper.scheduleSubmission">寄出</message>
 	<message key="director.paper.selectDecision">決定稿件處理結果</message>
 	<message key="director.paper.selectDirector">選擇 {$roleName}</message>
-	<message key="director.paper.selectReviewer">指派審查委員</message>
+	<message key="director.paper.selectReviewer">審查委員</message>
 	<message key="director.paper.sendToArchive">稿件封存</message>
 	<message key="director.paper.setDueDate">設定截止日</message>
 	<message key="director.paper.showAuthor">作者觀看檔案</message>

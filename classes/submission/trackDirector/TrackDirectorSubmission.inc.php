@@ -159,7 +159,8 @@ class TrackDirectorSubmission extends Paper {
 	 */
 	function &getEditAssignments() {
 		$editAssignments =& $this->getData('editAssignments');
-		return $editAssignments;
+                import("helpers.SubmissionHelper");
+                return SubmissionHelper::getUniqueEditAssignments($editAssignments);
 	}
 
 	/**

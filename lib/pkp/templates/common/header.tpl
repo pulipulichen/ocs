@@ -99,7 +99,7 @@
              background-image:url({$baseUrl}/lib/pkp/styles/images/book-978880_1920.gif);
              {/if}">
 
-            <div class="col-md-9 well well-lg">
+            <div class="col-sm-9 well well-lg">
 {if $isConferenceManager}
     <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageHeaderInfo" target="_blank">
         {*translate key="manager.registrationOptions.editTitle"*}
@@ -124,7 +124,7 @@
                     </a>
                 </h1>    
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3">
             </div>
         </div>
          </div>
@@ -134,7 +134,7 @@
 <div id="body" class="container">
 
 {if $leftSidebarCode}
-    <div class="col-md-3" id="leftCol">
+    <div class="col-sm-3" id="leftCol">
         {if $leftSidebarCode}
                 <div id="sidebar">
                         {$leftSidebarCode}
@@ -143,7 +143,7 @@
     </div>
 {/if}
 
-<div class="col-md-9">
+<div class="col-sm-9">
 {include file="common/breadcrumbs.tpl"}
 
 {if $isConferenceManager & $isIndex}
