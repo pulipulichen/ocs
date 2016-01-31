@@ -66,6 +66,15 @@ class ReviewerHandler extends Handler {
 		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
 		$templateMgr->assign('helpTopicId', 'editorial.reviewersRole.submissions');
+                
+                $sessionTypesArray = array();
+		$paperTypeDao = DAORegistry::getDAO('PaperTypeDAO');
+		$sessionTypes = $paperTypeDao->getPaperTypes($schedConf->getId());
+		while ($sessionType = $sessionTypes->next()) {
+			$sessionTypesArray[$sessionType->getId()] = $sessionType;
+		}
+		$templateMgr->assign('sessionTypes', $sessionTypesArray);
+                
 		$templateMgr->display('reviewer/index.tpl');
 	}
 
