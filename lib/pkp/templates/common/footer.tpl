@@ -11,9 +11,20 @@
 </div><!-- content -->
 </div><!-- main -->
 
+{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
+{if $leftSidebarCode}
+    <div class="col-sm-3 col-sm-pull-9" id="leftCol">
+        {if $leftSidebarCode}
+                <div id="sidebar">
+                        {$leftSidebarCode}
+                </div>
+        {/if}
+    </div>
+{/if}
+
 {call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
 {if $rightSidebarCode}
-    <div class="col-md-3">
+    <div class="col-sm-3 col-sm-push-9">
         {if $rightSidebarCode}
             <div id="rightSidebar">
                 {$rightSidebarCode}

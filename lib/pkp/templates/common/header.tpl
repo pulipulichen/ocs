@@ -126,8 +126,6 @@
                     </a>
                 </h1>    
             </div>
-            <div class="col-sm-3">
-            </div>
         </div>
          </div>
     </div> {*<div class="container">*}
@@ -135,17 +133,7 @@
 
 <div id="body" class="container">
 
-{if $leftSidebarCode}
-    <div class="col-sm-3" id="leftCol">
-        {if $leftSidebarCode}
-                <div id="sidebar">
-                        {$leftSidebarCode}
-                </div>
-        {/if}
-    </div>
-{/if}
-
-<div class="col-sm-9">
+<div class="col-sm-9 col-sm-push-3">
 {include file="common/breadcrumbs.tpl"}
 
 {if $isConferenceManager & $isIndex}
