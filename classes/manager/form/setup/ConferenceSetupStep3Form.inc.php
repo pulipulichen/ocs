@@ -33,6 +33,7 @@ class ConferenceSetupStep3Form extends ConferenceSetupForm {
 				'conferencePageFooter' => 'string',
 				'itemsPerPage' => 'int',
 				'numPageLinks' => 'int',
+                                'analyticsTrackingID' => 'string',
 				'homeHeaderTitleImageAltText' => 'string',
 				'homeHeaderLogoImageAltText' => 'string',
 				'pageHeaderTitleImageAltText' => 'string',

@@ -368,6 +368,39 @@ var _linkTypeChange = function (_select) {
 </div>
 <div class="separator"></div>
 
+<!-------------------------------------------------->
+
+
+<div id="googleAnalytics">
+<h3>
+    3.6 {*translate key="manager.setup.layout.lists"*}
+    Google分析 {* @TODO 語系 *}
+</h3>
+
+<p>{translate key="manager.setup.layout.lists.description"}</p>
+
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="20%" class="label">
+                    {*translate key="manager.setup.layout.itemsPerPage"*}
+                    追蹤編號
+                    {* @TODO 語系 *}
+                </td>
+		<td width="80%" class="value">
+                    <input type="text" size="20" name="analyticsTrackingID" class="textField" value="{$analyticsTrackingID|escape}" />
+                    <a href="https://www.google.com/analytics/web/" target="_blank">
+                        開啟Google分析
+                    </a>
+                    <br />
+                    <a href="https://www.youtube.com/watch?v=lCz40QHo0-0" target="_blank">
+                        如何取得Google分析的追蹤編號？
+                    </a>
+                </td>
+	</tr>
+</table>
+</div>
+<div class="separator"></div>
+
 <p class="text-center">
     <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup"}'" />
