@@ -199,6 +199,70 @@ class ReviewerAction extends Action {
 		}
 		return true;
 	}
+        
+        /**
+	 * Records the reviewer's submission recommendation.
+	 * @param $reviewId int
+	 * @param $recommendation int
+	 * @param $send boolean
+	 */
+	function emailDirector($reviewerSubmission, $paperId, $send) {
+		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+		$userDao =& DAORegistry::getDAO('UserDAO');
+
+		// Check validity of selected recommendation
+		//$reviewerRecommendationOptions =& ReviewAssignment::getReviewerRecommendationOptions();
+
+		//$reviewAssignment =& $reviewAssignmentDao->getReviewAssignmentById($reviewerSubmission->getReviewId());
+		//$reviewer =& $userDao->getUser($reviewAssignment->getReviewerId());
+                $reviewer = Request::getUser();
+		if (!isset($reviewer)) return true;
+
+		// Only record the reviewers recommendation if
+		// no recommendation has previously been submitted.
+		if (true) {
+			import('mail.PaperMailTemplate');
+			$email = new PaperMailTemplate($reviewerSubmission, 'REVIEW_EMAIL_DIRECTOR');
+			// Must explicitly set sender because we may be here on an access
+			// key, in which case the user is not technically logged in
+			$email->setFrom($reviewer->getEmail(), $reviewer->getFullName());
+
+			if (!$email->isEnabled() || ($send && !$email->hasErrors())) {
+				if ($email->isEnabled()) {
+					$email->setAssoc(PAPER_EMAIL_REVIEW_COMPLETE, PAPER_EMAIL_TYPE_REVIEW, $reviewerSubmission->getReviewId());
+					$email->send();
+				}
+			} else {
+				if (!Request::getUserVar('continued')) {
+					$assignedDirectors = $email->toAssignedDirectors($paperId);
+					$reviewingTrackDirectors = $email->toAssignedTrackDirectors($paperId);
+					if (empty($assignedDirectors) && empty($reviewingTrackDirectors)) {
+						$schedConf =& Request::getSchedConf();
+						$email->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+						$editorialContactName = $schedConf->getSetting('contactName');
+					} else {
+						if (!empty($reviewingTrackDirectors)) $editorialContact = array_shift($reviewingTrackDirectors);
+						else $editorialContact = array_shift($assignedDirectors);
+						$editorialContactName = $editorialContact->getDirectorFullName();
+					}
+                                        
+                                        $submissionUrl = Request::url(null, null, 'director', 'submissionAssignReviewer', $paperId, array(), "peerReview");
+                                        
+					$email->assignParams(array(
+						'editorialContactName' => $editorialContactName,
+						'reviewerName' => $reviewer->getFullName(),
+						'paperTitle' => strip_tags($reviewerSubmission->getLocalizedTitle()),
+						'submissionUrl' => $submissionUrl
+					));
+				}
+
+				$email->displayEditForm(Request::url(null, null, 'reviewer', 'submission', $reviewerSubmission->getPaperId())
+				);
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * Upload the annotated version of a paper.

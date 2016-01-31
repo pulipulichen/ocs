@@ -212,7 +212,7 @@
 	<message key="submission.saveMetadata">儲存相關資料</message>
 	<message key="submission.start">開始</message>
 	<message key="submission.submissionHistory">稿件歷史</message>
-	<message key="submission.submissionManuscript">稿件原件</message>
+	<message key="submission.submissionManuscript">稿件檔案</message>
 	<message key="submission.submissionReview">稿件審查</message>
 	<message key="submission.submitter">通訊作者</message>
 	<message key="submission.summary">稿件資訊</message>

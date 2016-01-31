@@ -28,6 +28,7 @@ switch ($op) {
 	case 'viewMetadata':
 	case 'uploadReviewerVersion':
 	case 'deleteReviewerVersion':
+        case 'emailDirector':
 	//
 	// Misc.
 	//

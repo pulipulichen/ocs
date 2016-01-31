@@ -169,10 +169,34 @@ Your password for disabling notification emails is: {$password}
 	</email_text>
 	<email_text key="REVIEW_COMPLETE">
 		<subject>論文審查已完成</subject>
-		<body>{$editorialContactName}:
+		<body>{$editorialContactName}您好，
 
-我已完成爲 {$conferenceName} 審查的 "{$paperTitle}" 稿件，並且已傳送我的建議：
-"{$recommendation}"
+我已經為「{$conferenceName}」完成審查論文「{$paperTitle}」稿件的作業。我的審查意見如下：
+
+{$recommendation}
+
+您可以從以下網址進入研討會網站操作：
+{$submissionUrl}
+
+感謝您的耐心等候。未來如有機會，我很樂意提供其他協助。
+敬祝教安，
+
+{$reviewerName}</body>
+		<description>此封電子郵件由審查者寄出給Track Director通知他們的審查作業已完成，並且評論及建議已被記錄在研討會網站內。</description>
+	</email_text>
+        <email_text key="REVIEW_EMAIL_DIRECTOR">
+		<subject>論文審查疑問</subject>
+		<body>{$editorialContactName}您好，
+
+我在「{$conferenceName}」審查論文「{$paperTitle}」時候有一些問題：
+
+{請輸入您的問題}
+        
+您可以從以下網址進入研討會網站操作：
+{$submissionUrl}
+
+煩請您協助我完成審查作業。期待您的回信。
+敬祝教安，
 
 {$reviewerName}</body>
 		<description>此封電子郵件由審查者寄出給Track Director通知他們的審查作業已完成，並且評論及建議已被記錄在研討會網站內。</description>

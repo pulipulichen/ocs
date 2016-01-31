@@ -263,5 +263,21 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$this->user =& $user;
 		return true;
 	}
+        
+        function emailDirector($args = array()) {
+		$paperId = (int) Request::getUserVar('paperId');
+                $paperDao =& DAORegistry::getDAO('PaperDAO');
+		$paper =& $paperDao->getPaper($paperId);
+                
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+		$submission =& $this->submission;
+
+		$this->setupTemplate(true, $paperId, 'review');
+                
+		if (ReviewerAction::emailDirector($paper, $paperId)) {
+			Request::redirect(null, null, null, 'submission', $paperId, 'peerReview');
+		}
+	}
 }
 ?>
