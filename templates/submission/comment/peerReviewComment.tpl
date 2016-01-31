@@ -91,7 +91,9 @@
 </form>
 
 {else}
-<input type="button" value="{translate key="common.close"}" class="button defaultButton" style="width: 5em" onclick="window.close()" />
+    <p class="text-center">
+        <input type="btn" value="{translate key="common.close"}" class="btn btn-default" style="width: 5em" onclick="window.close()" />
+    </p>
 {/if}
 
 {include file="submission/comment/footer.tpl"}

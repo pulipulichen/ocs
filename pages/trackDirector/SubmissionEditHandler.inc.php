@@ -955,7 +955,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		TrackDirectorAction::rateReviewer($paperId, $reviewId, $quality);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), "peerReview");
 	}
 
 	function confirmReviewForReviewer($args) {

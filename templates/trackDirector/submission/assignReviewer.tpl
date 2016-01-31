@@ -80,13 +80,19 @@
 		</td>
 	</tr>
 		<tr valign="top">
-			<td class="label" width="20%">&nbsp;</td>
+                    <td class="label" width="20%">
+                        {* @TODO 語系 *}
+                        審查進度
+                    </td>
 			<td width="80%">
 				<table width="100%" class="info">
 					<tr>
 						<td class="heading" width="25%">{translate key="submission.request"}</td>
 						<td class="heading" width="25%">{translate key="submission.underway"}</td>
-						<td class="heading" width="25%">{translate key="submission.due"}</td>
+						<td class="heading" width="25%">
+                                                    {*translate key="submission.due"*}
+                                                    審查期限
+                                                </td>
 						<td class="heading" width="25%">{translate key="submission.acknowledge"}</td>
 					</tr>
 					<tr valign="top">
@@ -110,7 +116,10 @@
 							{if $reviewAssignment->getDeclined()}
 								{translate key="trackDirector.regrets"}
 							{else}
-								<a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">{if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}</a>
+								<a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
+                                                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                                {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
+                                                                </a>
 							{/if}
 						</td>
 						<td>
@@ -118,9 +127,12 @@
 							{if $reviewAssignment->getDateAcknowledged()}
 								{$reviewAssignment->getDateAcknowledged()|date_format:$dateFormatShort}
 							{elseif $reviewAssignment->getDateCompleted()}
-								{icon name="mail" url=$thankUrl}
+                                                            <a href="{$thankUrl}" class="btn btn-primary">
+                                                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                                寫信
+                                                            </a>
 							{else}
-								{icon name="mail" disabled="disabled" url=$thankUrl}
+                                                            等待完成審查
 							{/if}
 						</td>
 					</tr>
@@ -130,45 +142,80 @@
 
 		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
 			<tr valign="top">
-				<td class="label">{translate key="reviewer.paper.recommendation"}</td>
+				<td class="label">
+                                    {*translate key="reviewer.paper.recommendation"*}
+                                    審查建議 {* @TODO 語系 *}
+                                </td>
 				<td>
 					{if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}
 						{assign var="recommendation" value=$reviewAssignment->getRecommendation()}
-						{translate key=$reviewerRecommendationOptions.$recommendation}
-						&nbsp;&nbsp;{$reviewAssignment->getDateCompleted()|date_format:$dateFormatShort}
+                                                <span 
+                                                    {if $recommendation == 1}
+                                                        class="text-success"
+                                                    {elseif $recommendation == 5 or $recommendation == 6 or $recommendation == 4}
+                                                        class="text-danger"
+                                                    {else}
+                                                        class="text-warning"
+                                                    {/if}>
+                                                    {translate key=$reviewerRecommendationOptions.$recommendation}
+                                                </span>
+                                                
+						&nbsp;&nbsp;
+                                                ({$reviewAssignment->getDateCompleted()|date_format:$dateFormatShort})
 					{else}
-						{translate key="common.none"}&nbsp;&nbsp;&nbsp;&nbsp;
+						{translate key="common.none"}
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="{url op="remindReviewer" paperId=$submission->getPaperId() reviewId=$reviewAssignment->getId()}" class="action">{translate key="reviewer.paper.sendReminder"}</a>
 						{if $reviewAssignment->getDateReminded()}
 							&nbsp;&nbsp;{$reviewAssignment->getDateReminded()|date_format:$dateFormatShort}
 							{if $reviewAssignment->getReminderWasAutomatic()}
-								&nbsp;&nbsp;{translate key="reviewer.paper.automatic"}
+								&nbsp;&nbsp;
+                                                                {translate key="reviewer.paper.automatic"}
 							{/if}
 						{/if}
 					{/if}
 				</td>
 			</tr>
 			<tr valign="top">
-				<td class="label">{translate key="submission.review"}</td>
+				<td class="label">
+                                    {*translate key="submission.review"*}
+                                    審查意見
+                                </td>
 				<td>
 					{if $reviewAssignment->getMostRecentPeerReviewComment()}
 						{assign var="comment" value=$reviewAssignment->getMostRecentPeerReviewComment()}
-						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() anchor=$comment->getId()}');" class="icon">{icon name="letter"}</a>&nbsp;&nbsp;{$comment->getDatePosted()|date_format:$dateFormatShort}
+						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() anchor=$comment->getId()}');" class="btn btn-primary">
+                                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                                    檢視審查意見
+                                                </a>
+                                                    &nbsp;&nbsp;
+                                                    ({$comment->getDatePosted()|date_format:$dateFormatShort})
 					{else}
-						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}');" class="icon">{icon name="letter"}</a>&nbsp;&nbsp;{translate key="submission.comments.noComments"}
+						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}');" class="btn btn-primary">
+                                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                                    檢視審查意見
+                                                </a>
+                                                    &nbsp;&nbsp;
+                                                    {*translate key="submission.comments.noComments"*}
+                                                    {* @TODO 語系 *}
+                                                    (沒有審查意見)
 					{/if}
 				</td>
 			</tr>
 			{if $reviewFormResponses[$reviewId]}
 			<tr valign="top">
-				<td class="label">{translate key="submission.reviewFormResponse"}</td>
+				<td class="label">
+                                    {translate key="submission.reviewFormResponse"}
+                                </td>
 				<td>
 					<a href="javascript:openComments('{url op="viewReviewFormResponse" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}');" class="icon">{icon name="letter"}</a>
 				</td>
 			</tr>
 			{/if}
 			<tr valign="top">
-				<td class="label">{translate key="reviewer.paper.uploadedFile"}</td>
+				<td class="label">
+                                    {translate key="reviewer.paper.uploadedFile"}
+                                </td>
 				<td>
 					<table width="100%" class="data">
 						{foreach from=$reviewAssignment->getReviewerFileRevisions() item=reviewerFile key=key}
@@ -223,13 +270,13 @@
 					<form method="post" action="{url op="rateReviewer"}">
 					<input type="hidden" name="reviewId" value="{$reviewAssignment->getId()}" />
 					<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
-					{translate key="director.paper.quality"}&nbsp;
-					<select name="quality" size="1" class="selectMenu">
+					<!-- {translate key="director.paper.quality"}&nbsp; -->
+                                        <select name="quality" size="1" class="btn btn-default" onchange="this.form.submit()">
 						{html_options_translate options=$reviewerRatingOptions selected=$reviewAssignment->getQuality()}
 					</select>&nbsp;&nbsp;
-					<input type="submit" value="{translate key="common.record"}" class="button" />
+					<input type="submit" value="{translate key="common.record"}" class="button hide" />
 					{if $reviewAssignment->getDateRated()}
-						&nbsp;&nbsp;{$reviewAssignment->getDateRated()|date_format:$dateFormatShort}
+						&nbsp;&nbsp;({$reviewAssignment->getDateRated()|date_format:$dateFormatShort})
 					{/if}
 				</form>
 				</td>
@@ -240,10 +287,12 @@
 	{/foreach}
 {/if}
 
-        <div class="text-center">
+<div class="text-center" style="margin-top: 15px;">
             <a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                {translate key="director.paper.selectReviewer"}
+                {*translate key="director.paper.selectReviewer"*}
+                {* @TODO 語系 *}
+                指定審查委員
             </a>
             <!--
             <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">

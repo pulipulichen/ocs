@@ -51,7 +51,7 @@
 	<message key="metadata.property.displayName.volume">Volume</message>
 	<message key="submission.abstractViews">檢視摘要</message>
 	<message key="submission.accepted">接受</message>
-	<message key="submission.acknowledge">謝辭</message>
+	<message key="submission.acknowledge">致謝審查委員</message>
         <message key="submission.addSubmissionFile">上傳稿件</message>
 	<message key="submission.addSuppFile">上傳附加檔案</message>
         <message key="submission.stepFile">投稿確認</message>
@@ -89,7 +89,7 @@
 	<message key="submission.comments.editComment">編輯評論</message>
 	<message key="submission.comments.importPeerReviews">匯入審查意見</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">審查人{$reviewerLetter}:</message>
-	<message key="submission.comments.noComments">沒有資料</message>
+	<message key="submission.comments.noComments">沒有意見</message>
 	<message key="submission.comments.noReviews">目前尚無審查意見</message>
 	<message key="submission.comments.review">審查人意見</message>
 	<message key="submission.comments.sendDecisionToReviewers">將編輯決定寄給審查人</message>
@@ -203,7 +203,7 @@
 	<message key="submission.peerReview">審查時程</message>
 	<message key="submission.recommendation">推薦</message>
 	<message key="submission.rejected">退稿</message>
-	<message key="submission.request">要求</message>
+	<message key="submission.request">提出審查請求</message>
 	<message key="submission.response">回應：</message>
 	<message key="submission.restrictions">限制</message>
 	<message key="submission.review">審查作業</message>
@@ -220,7 +220,7 @@
 	<message key="submission.supplementaryFiles">補充檔案</message>
 	<message key="submission.supportingAgencies">支持單位</message>
 	<message key="submission.titleAndAbstract">題目和摘要</message>
-	<message key="submission.underway">途中</message>
+	<message key="submission.underway">處理審查</message>
 	<message key="submission.uploadFileTo">上傳檔案到</message>
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>
 	<message key="submission.uploadSuccessfulContinue">Your file has been uploaded.  Press continue to edit the file's metadata.</message>

@@ -60,7 +60,7 @@
 	<message key="director.paper.numberOfWeeks">周數</message>
 	<message key="director.paper.peerReviewOptions">同儕審查選項</message>
 	<message key="director.paper.quality">評分</message>
-	<message key="director.paper.rateReviewer">審查評分</message>
+	<message key="director.paper.rateReviewer">評分審查委員</message>
 	<message key="director.paper.recommendation">建議</message>
 	<message key="director.paper.recordDecision">儲存</message>
 	<message key="director.paper.replaceReviewer">取代審查委員</message>

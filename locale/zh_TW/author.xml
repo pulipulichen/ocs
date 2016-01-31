@@ -43,7 +43,7 @@
 	<message key="author.submit.forgottenSubmitSuppFile">Are you sure you wish to continue without uploading the supplementary file you have chosen?</message>
 	<message key="author.submit.form.abstractRequired">請輸入您的投稿摘要。</message>
 	<message key="author.submit.form.authorRequired">至少需要輸入一位作者。</message>
-	<message key="author.submit.form.authorRequiredFields">請輸入作者的中文姓名、西文姓名以及電子信箱(email)。</message>
+	<message key="author.submit.form.authorRequiredFields">請輸入作者的姓名以及電子信箱(email)。</message>
 	<message key="author.submit.form.titleRequired">請輸入您的論文題目</message>
         <message key="author.submit.form.abstractRequired">請輸入論文的摘要</message>
 	<message key="author.submit.form.trackRequired">請為此投稿選擇一個適當的研討會主題。</message>

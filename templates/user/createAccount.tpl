@@ -234,7 +234,7 @@
     </table>
 </div>    
 
-<p>
+<p class="text-center">
     <input type="submit" value="{if $existingUser}{translate key="user.logIn"}{else}{translate key="user.createAccount"}{/if}" class="btn btn-primary" />
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="index"}'" />
 </p>

@@ -38,13 +38,13 @@
 	<message key="common.addSelf">加入自已</message>
 	<message key="common.all">全部</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
-	<message key="common.alreadyAssigned">已指派的</message>
+	<message key="common.alreadyAssigned">已指派</message>
 	<message key="common.altText">Alternate text</message>
 	<message key="common.altTextInstructions">Please provide alternate text for this image to ensure accessibility for users with text-only browsers or assistive devices.</message>
 	<message key="common.and">和</message>
 	<message key="common.applyAction">執行功能</message>
-	<message key="common.assign">指派</message>
-	<message key="common.assigned">指派的</message>
+	<message key="common.assign">指派此人</message>
+	<message key="common.assigned">已指派</message>
 	<message key="common.back">返回</message>
 	<message key="common.between">之間</message>
 	<message key="common.cancel">取消</message>

@@ -42,7 +42,11 @@ function sortSearch(heading, direction) {
 
 <p>{foreach from=$alphaList item=letter}<a href="{url op="selectReviewer" path=$paperId searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="selectReviewer" path=$paperId}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
 
-<p><a class="action" href="{url op="enrollSearch" path=$paperId}">{translate key="trackDirector.review.enrollReviewer"}</a>&nbsp;|&nbsp;<a class="action" href="{url op="createReviewer" path=$paperId}">{translate key="trackDirector.review.createReviewer"}</a></p>
+<p class="text-center">
+    <a class="btn btn-default" href="{url op="createReviewer" path=$paperId}">{translate key="trackDirector.review.createReviewer"}</a>
+    
+    <a class="btn btn-default" href="{url op="enrollSearch" path=$paperId}">{translate key="trackDirector.review.enrollReviewer"}</a>
+</p>
 
 <div id="reviewers">
 <table class="listing" width="100%">
@@ -98,7 +102,7 @@ function sortSearch(heading, direction) {
 		{if $reviewer->review_id}
 			{translate key="common.alreadyAssigned"}
 		{else}
-		<a class="action" href="{url op="selectReviewer" path=$paperId|to_array:$reviewer->getId()}">{translate key="common.assign"}</a>
+		<a class="btn btn-default btn-sm" href="{url op="selectReviewer" path=$paperId|to_array:$reviewer->getId()}">{translate key="common.assign"}</a>
 		{/if}
 	</td>
 </tr>
