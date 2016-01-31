@@ -73,6 +73,10 @@
 
 </table>
 
-<a class="action" href="{url op="createReviewForm"}">{translate key="manager.reviewForms.create"}</a>
+<p class="text-center">
+    <a class="action btn btn-default" href="{url op="createReviewForm"}">
+        {translate key="manager.reviewForms.create"}
+    </a>
+</p>
 </div>
 {include file="common/footer.tpl"}

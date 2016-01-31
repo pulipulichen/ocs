@@ -236,6 +236,8 @@ class TrackDirectorAction extends Action {
 			import('paper.log.PaperLog');
 			import('paper.log.PaperEventLogEntry');
 			PaperLog::logEvent($trackDirectorSubmission->getPaperId(), PAPER_LOG_REVIEW_ASSIGN, LOG_TYPE_REVIEW, $reviewAssignment->getId(), 'log.review.reviewerAssigned', array('reviewerName' => $reviewer->getFullName(), 'paperId' => $trackDirectorSubmission->getPaperId(), 'stage' => $stage));
+                        
+                        return $reviewAssignment->getReviewId();
 		}
 	}
 
@@ -354,8 +356,9 @@ class TrackDirectorAction extends Action {
 						
 					}
 
-					$submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
+					//$submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
                                         //$submissionUrl = $submissionUrl . "?u=" . ;
+                                        $submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, array('u'=>$reviewer->getUserId()));
 
 					$paramArray = array(
 						'reviewerName' => $reviewer->getFullName(),
@@ -512,7 +515,8 @@ class TrackDirectorAction extends Action {
 				if (!isset($reviewer)) return true;
 				$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 
-				$submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
+				//$submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, $reviewerAccessKeysEnabled?array('key' => 'ACCESS_KEY'):array());
+                                $submissionUrl = Request::url(null, null, 'reviewer', 'submission', $reviewId, array('u' => $reviewer->getUserId()));
 
 				// Format the review due date
 				$reviewDueDate = strtotime($reviewAssignment->getDateDue());

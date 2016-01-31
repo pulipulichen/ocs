@@ -64,6 +64,10 @@ class PaperMailTemplate extends MailTemplate {
 		$paramArray['schedConfName'] = strip_tags($schedConf->getSchedConfTitle());
 		$paramArray['trackName'] = strip_tags($paper->getTrackTitle());
 		$paramArray['paperAbstract'] = strip_tags($paper->getLocalizedAbstract());
+                if ($paramArray['paperAbstract'] === "") {
+                    $paramArray['paperAbstract'] = "沒有資料";
+                    // @TODO 語系
+                }
 		$paramArray['authorString'] = strip_tags($paper->getAuthorString());
 
 		parent::assignParams($paramArray);

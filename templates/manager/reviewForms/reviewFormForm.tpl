@@ -26,6 +26,8 @@
 
 {include file="common/formErrors.tpl"}
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <table class="data" width="100%">
 {if $supportedLocales|@count > 1}
 	<tr valign="top">
@@ -49,9 +51,10 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="reviewForms"}'" /></p>
+<p class="text-center" style="margin-top: 15px;">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="reviewForms"}'" />
+</p>
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

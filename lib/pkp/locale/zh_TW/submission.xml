@@ -203,7 +203,7 @@
 	<message key="submission.peerReview">審查時程</message>
 	<message key="submission.recommendation">推薦</message>
 	<message key="submission.rejected">退稿</message>
-	<message key="submission.request">提出審查請求</message>
+	<message key="submission.request">提出審查邀請</message>
 	<message key="submission.response">回應：</message>
 	<message key="submission.restrictions">限制</message>
 	<message key="submission.review">審查作業</message>

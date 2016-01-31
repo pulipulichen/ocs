@@ -76,7 +76,7 @@
 	<message key="common.complete">完成</message>
 	<message key="common.completed">已完成</message>
 	<message key="common.continue">繼續</message>
-	<message key="common.copy">Copy</message>
+	<!--message key="common.copy">Copy</message-->
 	<message key="common.country">國別</message>
 	<message key="common.create">建立</message>
 	<message key="common.date">日期</message>
@@ -86,7 +86,7 @@
 	<message key="common.dateSubmitted">收稿日期</message>
 	<message key="common.dateUploaded">上傳日期</message>
 	<message key="common.day">日</message>
-	<message key="common.deactivate">Deactivate</message>
+	<!--message key="common.deactivate">Deactivate</message-->
 	<message key="common.default">預設</message>
 	<message key="common.delete">刪除</message>
 	<message key="common.deleteSelection">刪除選取範圍</message>

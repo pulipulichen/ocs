@@ -198,6 +198,19 @@ class PKPRequest {
 
 		return $requestUrl;
 	}
+        
+        function getRequestUri() {
+		$_this =& PKPRequest::_checkThis();
+
+		static $requestUrl;
+
+		if (!isset($requestUrl)) {
+			$requestUrl = $_this->getRequestPath();
+			HookRegistry::call('Request::getRequestUrl', array(&$requestUrl));
+		}
+
+		return $requestUrl;
+	}
 
 	/**
 	 * Get the complete set of URL parameters to the current request.

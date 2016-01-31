@@ -62,9 +62,10 @@
 
 <br/>
 
-<form name="previewReviewForm" method="post" action="{if $reviewForm->getCompleteCount()!=0 || $reviewForm->getIncompleteCount()!=0}{url op="reviewForms"}{else}{url op="editReviewForm" path=$reviewForm->getId()}{/if}">
-	<p><input type="submit" value="{translate key="common.close"}" class="button defaultButton" /></p>
+<form class="text-center" name="previewReviewForm" method="post" action="{if $reviewForm->getCompleteCount()!=0 || $reviewForm->getIncompleteCount()!=0}{url op="reviewForms"}{else}{url op="editReviewForm" path=$reviewForm->getId()}{/if}">
+    <input type="submit" value="{translate key="common.close"}" class="btn btn-primary" />
 </form>
-
+<!--
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+-->
 {include file="common/footer.tpl"}

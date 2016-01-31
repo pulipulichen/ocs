@@ -375,18 +375,18 @@ You may optionally provide the user with a reason for disabling their account.</
 	<message key="manager.reviewFormElements.smalltextfield">Single word text box</message>
 	<message key="manager.reviewFormElements.textarea">Extended text box</message>
 	<message key="manager.reviewFormElements.textfield">Single line text box</message>
-	<message key="manager.reviewForms">審查表</message>
+	<message key="manager.reviewForms">審查表單</message>
 	<message key="manager.reviewForms.completed">Completed</message>
 	<message key="manager.reviewForms.confirmDeleteUnpublished">Are you sure you wish to delete this unpublished review form?</message>
-	<message key="manager.reviewForms.create">建立審查表</message>
+	<message key="manager.reviewForms.create">建立審查表單</message>
 	<message key="manager.reviewForms.description">說明</message>
-	<message key="manager.reviewForms.edit">審查表</message>
+	<message key="manager.reviewForms.edit">審查表單管理</message>
 	<message key="manager.reviewForms.form.titleRequired">審查表需要設定標題。</message>
 	<message key="manager.reviewForms.inReview">審查中</message>
 	<message key="manager.reviewForms.list.description">The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific conference track, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</message>
-	<message key="manager.reviewForms.noneChosen">沒有使用審查表 / 任意格式</message>
-	<message key="manager.reviewForms.noneCreated">沒有預先建立好的審查表。</message>
-	<message key="manager.reviewForms.preview">預覽審查表</message>
+	<message key="manager.reviewForms.noneChosen">沒有使用審查表單 / 任意格式</message>
+	<message key="manager.reviewForms.noneCreated">沒有預先建立好的審查表單。</message>
+	<message key="manager.reviewForms.preview">預覽審查表單</message>
 	<message key="manager.reviewForms.title">標題</message>
 	<message key="manager.schedConfSetup.details.emailBounceAddressDisabled"><![CDATA[<strong>Note:</strong>爲啟動這個選擇，站點管理員必須
  <tt>允許_信件_傳送者</tt>選擇在OCS 配置文件。另外伺服器配置也是必需支持此項功能(也有哪些是不可能在所有伺服器上)，會依照狀況被顯示在OCS 文獻內。]]></message>

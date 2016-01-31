@@ -206,15 +206,13 @@ Your password for disabling notification emails is: {$password}
 	</email_text>
 	<email_text key="REVIEW_REMIND">
 		<subject>稿件審查提醒</subject>
-		<body>{$reviewerName}:
+		<body>{$reviewerName}您好，
 
-只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
+我是「{$conferenceName}」的負責人，這封信只是為了提醒您，您之前接受協助審查論文「{$paperTitle}」，而我們希望審查能夠在 {$reviewDueDate} 之前完成。您可以從以下網址進入審查頁面：
+{$submissionReviewUrl}
 
-倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
-
-投稿網站: {$submissionReviewUrl}
-
-請確認您有能力完成對此研討會的重要貢獻。盼望收到您的來信。
+感謝您的諒解與配合。
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>此封電子郵件是由Track Director寄出來提醒審查者他們的審查到期。</description>
@@ -265,30 +263,25 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件是由Track Director寄出來提醒審查者他們的審查到期。</description>
 	</email_text>
 	<email_text key="REVIEW_REQUEST">
-		<subject>論文審查請求</subject>
-		<body>{$reviewerName}:
+		<subject>邀請您來審查論文</subject>
+		<body>{$reviewerName}您好，
 
-本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName} 的論文 "{$paperTitle}" 。
+我們是「{$conferenceName}」。久仰您在學術上的卓越成就與專業判斷力，我們誠摯地邀請您擔任論文審查委員，希望您能夠協助審查論文「{$paperTitle}」。
 
+題目：「{$paperTitle}」
+摘要：{$paperAbstract}
+                    
+請您於 {$weekLaterDate} 之前點選以下網址進入研討會網站，從網頁上回覆您是否願意確認協助審查工作：
+{$submissionReviewUrl}
 
-請您於 {$weekLaterDate} 前登入研討會網站，表示您是否願意從事審查工作，並且進入投稿和記錄您的評論和建議。研討會的網址是 {$conferenceUrl}
+所有審查作業都在此網址中進行。
 
-審查截止日期 {$reviewDueDate}.
+本次的審查截止日期為 {$reviewDueDate}。若您有任何問題，請讓我們來協助您。
 
-倘若您尚未有研討會的使用名稱及密碼， 您可以使用以下連結來重新設定您的密碼 (密碼將會與您的帳號一起以電子郵件寄發給您)。 {$passwordResetUrl}
+感謝您撥冗閱讀我們的邀請，靜待您的回覆。
+敬祝教安，
 
-審稿網址: {$submissionReviewUrl}
-
-感謝您關心這項請求。
-
-{$editorialContactSignature}
-
-
-
-"{$paperTitle}"
-
-摘要
-{$paperAbstract}</body>
+{$editorialContactSignature}</body>
 		<description>從Track Director寄給審查者的電子郵件詢問審查者接受或拒絕審查稿件的任務。這提供有關投稿的資訊，如題目、摘要、審查截止日期、及如何存取投稿等等。</description>
 	</email_text>
 	<email_text key="REVIEW_REQUEST_ONECLICK">

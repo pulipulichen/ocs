@@ -608,7 +608,7 @@ class PKPTemplateManager extends Smarty {
 		// Extract the variables named in $paramList, and remove them
 		// from the params array. Variables remaining in params will be
 		// passed along to Request::url as extra parameters.
-		$paramList = array('router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape');
+		$paramList = array('router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape', 'source');
 		foreach ($paramList as $param) {
 			if (isset($params[$param])) {
 				$$param = $params[$param];
@@ -617,6 +617,10 @@ class PKPTemplateManager extends Smarty {
 				$$param = null;
 			}
 		}
+                
+                if (isset($source)) {
+                    $params['source'] = Request::getRequestUri(); 
+                }
 
 		// Set the default router
 		$request =& PKPApplication::getRequest();
