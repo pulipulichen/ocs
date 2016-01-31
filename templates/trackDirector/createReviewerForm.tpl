@@ -62,7 +62,10 @@
 	</tr>
 	<tr valign="top">
 		<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
-		<td class="value"><input type="text" name="email" id="email" value="{$email|escape}" size="30" maxlength="90" class="textField" /></td>
+		<td class="value">
+                    <input type="text" name="email" id="email" value="{$email|escape}" size="30" maxlength="90" class="textField"
+                           onchange="PULI_HELPERS.emailConvertToField(this, 'username')"/>
+                </td>
 	</tr>
         
         <!-------------->
@@ -100,7 +103,7 @@
 			<span class="instruct">{translate key="user.account.usernameRestriction"}</span>
 		</td>
 	</tr>
-	<tr valign="top">
+        <tr valign="top" class="hide">
 		<td class="label">&nbsp;</td>
 		<td class="value"><input type="checkbox" name="sendNotify" id="sendNotify" value="1"{if $sendNotify} checked="checked"{/if} /> <label for="sendNotify">{translate key="manager.people.createUserSendNotify"}</label></td>
 	</tr>
@@ -151,12 +154,18 @@
 	{if $availableLocales|@count > 1}
 	<tr valign="top">
 		<td class="label">{translate key="user.workingLanguages"}</td>
-		<td>{foreach from=$availableLocales key=localeKey item=localeName}
-			<input type="checkbox" name="userLocales[]" id="userLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if $userLocales && in_array($localeKey, $userLocales)} checked="checked"{/if} /> <label for="userLocales-{$localeKey|escape}">{$localeName|escape}</label><br />
-		{/foreach}</td>
+		<td>
+                    {assign var="isFirst" value=true}
+                    {foreach from=$availableLocales key=localeKey item=localeName}
+			<input type="checkbox" name="userLocales[]" id="userLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if $userLocales && in_array($localeKey, $userLocales) or $isFirst} checked="checked"{/if} /> <label for="userLocales-{$localeKey|escape}">{$localeName|escape}</label><br />
+                        {assign var="isFirst" value=false}
+                    {/foreach}
+                </td>
 	</tr>
 	{/if}
 </table>
+
+<div class="separator"></div>
 
 <p class="text-center">
     <input type="submit" value="{translate key="common.create"}" class="btn btn-primary" /> 

@@ -47,6 +47,9 @@ class Site extends DataObject {
 
 			asort($supportedLocales);
 		}
+                
+                import('helpers.LocaleHelper');
+                $supportedLocales = LocaleHelper::sortZhTwFirst($supportedLocales);
 
 		return $supportedLocales;
 	}
@@ -241,6 +244,16 @@ class Site extends DataObject {
 	 */
 	function getSupportedLocales() {
 		$locales = $this->getData('supportedLocales');
+                if ($index = in_array('zh_TW', $locales)) {
+                    $newLocales = array('zh_TW');
+                    foreach ($locales AS $l) {
+                        if ($l === "zh_TW") {
+                            continue;
+                        }
+                        $newLocales[] = $l;
+                    }
+                    $locales = $newLocales;
+                }
 		return isset($locales) ? $locales : array();
 	}
 

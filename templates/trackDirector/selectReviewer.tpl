@@ -42,11 +42,6 @@ function sortSearch(heading, direction) {
 
 <p>{foreach from=$alphaList item=letter}<a href="{url op="selectReviewer" path=$paperId searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="selectReviewer" path=$paperId}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
 
-<p class="text-center">
-    <a class="btn btn-default" href="{url op="createReviewer" path=$paperId}">{translate key="trackDirector.review.createReviewer"}</a>
-    
-    <a class="btn btn-default" href="{url op="enrollSearch" path=$paperId}">{translate key="trackDirector.review.enrollReviewer"}</a>
-</p>
 
 <div id="reviewers">
 <table class="listing" width="100%">
@@ -120,6 +115,13 @@ function sortSearch(heading, direction) {
 	</tr>
 {/if}
 </table>
+
+
+<p class="text-center" style="margin: 15px 0;">
+    <a class="btn btn-primary" href="{url op="createReviewer" path=$paperId}">{translate key="trackDirector.review.createReviewer"}</a>
+    
+    <a class="btn btn-default" href="{url op="enrollSearch" path=$paperId}">{translate key="trackDirector.review.enrollReviewer"}</a>
+</p>
 
 <h4>{translate key="common.notes"}</h4>
 <p>{translate key="director.paper.selectReviewerNotes"}</p>
