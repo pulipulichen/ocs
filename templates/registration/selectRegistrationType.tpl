@@ -106,9 +106,27 @@
 {if $currentSchedConf->getSetting('registrationName')}
 
 <p class="text-center">
+    {if $isUserLoggedIn}
     <input type="submit" 
            value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" 
            class="button" {else}class="btn btn-primary" {/if}/>
+    {else}
+        {* @TODO 語系 *}
+        <input type="submit" 
+           value="報名並註冊新帳號" {if !$registrationMethodAvailable}disabled="disabled" 
+           class="button" {else}class="btn btn-primary" {/if}/>
+        <script>
+            {literal}
+            var _getRegistrationTypeId = function (_a) {
+                var _typeId = $('[name="registrationTypeId"]:checked').val();
+                _a.href = _a.href + _typeId;
+            };
+            {/literal}
+        </script>
+        <a href="{url page="login"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" class="btn btn-default" onclick="_getRegistrationTypeId(this);">
+            登入並報名
+        </a>
+    {/if}
 </p>
     
 <div class="separator"></div>
