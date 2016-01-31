@@ -88,8 +88,18 @@
 
 <body>
 {include file="common/nav.tpl"}
-
-<div id="container">
+{if $requestedPage=="user" 
+or $requestedPage=="admin" 
+or $requestedPage=="login" 
+or $requestedPage=="manager" 
+or $requestedPage=="author" 
+or $requestedPage=="director" 
+or $requestedPage=="trackDirector" 
+or $requestedPage=="reader"
+or $requestedPage=="reviewer"} 
+    {assign var="isCompact" value="compact"}
+{/if}
+<div id="container" class="header-container {$isCompact}">
 
 <div id="masthead">  
 <div class="container">
@@ -113,7 +123,11 @@
                     {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
                             <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
                     {elseif $displayPageHeaderTitle}
+                        {if !$isCompact}
                             {$displayPageHeaderTitle}
+                        {else}
+                            {$displayPageHeaderTitle|@strip_tags}
+                        {/if}
                     {elseif $alternatePageHeader}
                             {$alternatePageHeader}
                     {elseif $customLogoTemplate}

@@ -374,3 +374,17 @@ ul.nav.nav-stacked li a {
     padding-left: 18px;
     margin-left: 2px;
 }
+
+.header-container.compact,
+.header-container.compact .row {
+    min-height: 0 !important;
+}
+
+.header-container.compact .row h1 {
+    font-size: 25px !important;
+}
+
+.header-container.compact #masthead .well {
+    /*margin: 5px;
+    padding: 5px;*/
+}
