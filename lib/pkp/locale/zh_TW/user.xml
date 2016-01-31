@@ -31,7 +31,7 @@
 	<message key="user.gossip">Private Notes</message>
 	<message key="user.initials">姓名簡寫</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.interests">願意審查的領域</message>
+	<message key="user.interests">願意審查的主題</message>
 	<message key="user.lastName">西文姓名</message>
 	<message key="user.logIn">登入</message>
 	<message key="user.logOut">登出</message>

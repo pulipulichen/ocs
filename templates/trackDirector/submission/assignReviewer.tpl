@@ -45,11 +45,11 @@
 	{assign var="start" value="A"|ord}
 	{foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}
 	{assign var="reviewId" value=$reviewAssignment->getId()}
-
+        <div class="panel panel-default">
 	{if not $reviewAssignment->getCancelled()}
 		{assign var="reviewIndex" value=$reviewIndexes[$reviewId]}
 		<!--div class="separator"></div-->
-
+                <div class="panel-heading">
 		<table class="data" width="100%">
 		<tr>
 			<td width="20%"><h4>{translate key="user.role.reviewer"} {$reviewIndex+$start|chr}</h4></td>
@@ -63,7 +63,8 @@
 			</td>
 		</tr>
 		</table>
-
+                </div>
+                <div class="panel-body">
 		<table width="100%" class="data">
 		<tr valign="top">
 		<td class="label">{translate key="submission.reviewForm"}</td>
@@ -85,19 +86,11 @@
                         審查進度
                     </td>
 			<td width="80%">
-				<table width="100%" class="info">
-					<tr>
-						<td class="heading" width="25%">{translate key="submission.request"}</td>
-						<td class="heading" width="25%">{translate key="submission.underway"}</td>
-						<td class="heading" width="25%">
-                                                    {*translate key="submission.due"*}
-                                                    審查期限
-                                                </td>
-						<td class="heading" width="25%">{translate key="submission.acknowledge"}</td>
-					</tr>
-					<tr valign="top">
-						<td>
-							{url|assign:"reviewUrl" op="notifyReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
+				<table width="100%" class="info table">
+                                    <tr>
+                                        <th class="">{translate key="submission.request"}</th>
+                                        <td class="value">
+                                            {url|assign:"reviewUrl" op="notifyReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
 							{if !$allowRecommendation}
 								{icon name="mail" url=$reviewUrl disabled="true"}
 							{elseif $reviewAssignment->getDateNotified()}
@@ -108,34 +101,53 @@
 							{else}
 								{icon name="mail" url=$reviewUrl}
 							{/if}
-						</td>
-						<td>
-							{$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort|default:"&mdash;"}
-						</td>
-						<td>
-							{if $reviewAssignment->getDeclined()}
-								{translate key="trackDirector.regrets"}
-							{else}
-								<a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
-                                                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                                                {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
-                                                                </a>
-							{/if}
-						</td>
-						<td>
-							{url|assign:"thankUrl" op="thankReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="">{translate key="submission.underway"}</th>
+                                        <td class="value">
+                                            {$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort|default:"&mdash;"}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="">{*translate key="submission.due"*}
+                                                    審查期限</th>
+                                        <td class="value">
+                                            {if $reviewAssignment->getDeclined()}
+                                                    {translate key="trackDirector.regrets"}
+                                            {else}
+                                                <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
+                                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                </a>
+                                                    <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
+                                                    {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
+                                                    </a>
+                                                    {if !$reviewAssignment->getDateCompleted()}
+                                                    {url|assign:"remindUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
+                                                        <a href="{$remindUrl}" class="btn btn-default btn-sm">
+                                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                            提醒
+                                                        </a>
+                                                    {/if}
+                                            {/if}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="">{translate key="submission.acknowledge"}</th>
+                                        <td class="value">
+                                            {url|assign:"thankUrl" op="thankReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
 							{if $reviewAssignment->getDateAcknowledged()}
 								{$reviewAssignment->getDateAcknowledged()|date_format:$dateFormatShort}
 							{elseif $reviewAssignment->getDateCompleted()}
-                                                            <a href="{$thankUrl}" class="btn btn-primary">
+                                                            <a href="{$thankUrl}" class="btn btn-primary btn-sm">
                                                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                                                 寫信
                                                             </a>
 							{else}
                                                             等待完成審查
 							{/if}
-						</td>
-					</tr>
+                                        </td>
+                                    </tr>
 				</table>
 			</td>
 		</tr>
@@ -191,14 +203,16 @@
                                                     &nbsp;&nbsp;
                                                     ({$comment->getDatePosted()|date_format:$dateFormatShort})
 					{else}
+                                            <!--
 						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}');" class="btn btn-primary">
                                                     <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                                     檢視審查意見
                                                 </a>
                                                     &nbsp;&nbsp;
+                                            -->
                                                     {*translate key="submission.comments.noComments"*}
                                                     {* @TODO 語系 *}
-                                                    (沒有審查意見)
+                                                    沒有審查意見
 					{/if}
 				</td>
 			</tr>
@@ -276,14 +290,17 @@
 					</select>&nbsp;&nbsp;
 					<input type="submit" value="{translate key="common.record"}" class="button hide" />
 					{if $reviewAssignment->getDateRated()}
-						&nbsp;&nbsp;({$reviewAssignment->getDateRated()|date_format:$dateFormatShort})
+						&nbsp;&nbsp;
+                                                ({$reviewAssignment->getDateRated()|date_format:$dateFormatShort})
 					{/if}
 				</form>
 				</td>
 			</tr>
 		{/if}
 	</table>
+        </div>
 	{/if}
+        </div>
 	{/foreach}
 {/if}
 

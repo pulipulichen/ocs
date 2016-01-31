@@ -653,7 +653,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		if (isset($args[1]) && $args[1] != null) {
 			// Assign reviewer to paper
 			TrackDirectorAction::addReviewer($submission, (int) $args[1], $submission->getCurrentStage());
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 
 			// FIXME: Prompt for due date.
 		} else {
@@ -873,7 +873,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$this->setupTemplate(true, $paperId, 'review');
 
 		if (TrackDirectorAction::notifyReviewer($submission, $reviewId, $send)) {
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		}
 	}
 
@@ -889,7 +889,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		TrackDirectorAction::clearReview($submission, $reviewId);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	function cancelReview($args) {
@@ -905,7 +905,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$this->setupTemplate(true, $paperId, 'review');
 
 		if (TrackDirectorAction::cancelReview($submission, $reviewId, $send)) {
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		}
 	}
 
@@ -920,7 +920,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$this->setupTemplate(true, $paperId, 'review');
 
 		if (TrackDirectorAction::remindReviewer($submission, $reviewId, Request::getUserVar('send'))) {
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		}
 	}
 
@@ -937,7 +937,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$this->setupTemplate(true, $paperId, 'review');
 
 		if (TrackDirectorAction::thankReviewer($submission, $reviewId, $send)) {
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		}
 	}
 
@@ -969,7 +969,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$reviewId = (int) isset($args[1])?$args[1]:0;
 
 		TrackDirectorAction::confirmReviewForReviewer($reviewId);
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	function uploadReviewForReviewer($args) {
@@ -982,7 +982,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$reviewId = (int) Request::getUserVar('reviewId');
 
 		TrackDirectorAction::uploadReviewForReviewer($reviewId);
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	function makeReviewerFileViewable() {
@@ -999,7 +999,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		TrackDirectorAction::makeReviewerFileViewable($paperId, $reviewId, $fileId, $revision, $viewable);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	function setDueDate($args) {
@@ -1015,7 +1015,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if ($dueDate != null || $numWeeks != null) {
 			TrackDirectorAction::setDueDate($paperId, $reviewId, $dueDate, $numWeeks);
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 
 		} else {
 			$this->setupTemplate(true, $paperId, 'review');
@@ -1063,7 +1063,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if ($recommendation != null) {
 			TrackDirectorAction::setReviewerRecommendation($paperId, $reviewId, $recommendation, SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT);
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		} else {
 			$this->setupTemplate(true, $paperId, 'review');
 
@@ -1188,7 +1188,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		
 		TrackDirectorAction::clearReviewForm($submission, $reviewId);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	/**
@@ -1207,7 +1207,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if ($reviewFormId != null) {
 			TrackDirectorAction::addReviewForm($submission, $reviewId, $reviewFormId);
-			Request::redirect(null, null, null, 'submissionReview', $paperId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 		} else {
 			$conference =& Request::getConference();
 			$rangeInfo =& Handler::getRangeInfo('reviewForms');
@@ -1273,7 +1273,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		}
 
-		Request::redirect(null, null, null, 'submissionReview', $redirectArgs);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $redirectArgs);
 	}
 
 	function uploadReviewVersion() {
@@ -1283,7 +1283,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		TrackDirectorAction::uploadReviewVersion($submission);
 
-		Request::redirect(null, null, null, 'submissionReview', $paperId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId);
 	}
 
 	/**

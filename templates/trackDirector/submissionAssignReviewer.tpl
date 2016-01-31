@@ -60,16 +60,19 @@
 	<li><a href="{url op="submissionHistory" path=$submission->getPaperId()}">{translate key="submission.history"}</a></li>
 </ul>
 
-{include file="trackDirector/submission/submissionReviewInfo.tpl"}
+
+{*include file="trackDirector/submission/submissionReviewInfo.tpl"*}
 
 {** 如果有主席了，那就不顯示這個 ***}
 {if $submission->getEditAssignments()|@count == 0}
-<div class="separator"></div>
 
 {include file="trackDirector/submission/directors.tpl"}
-{/if}
 
 <div class="separator"></div>
+
+{/if}
+
+
 
 {include file="trackDirector/submission/assignReviewer.tpl"}
 
