@@ -19,8 +19,8 @@
 	<message key="manager.accommodation.form.accommodationText">Accommodation Description</message>
 	<message key="manager.accommodation.form.accommodationText.description">Enter text describing conference accommodations in the field below.</message>
 	<message key="manager.accommodation.form.description">Enter information about accommodation, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
-	<message key="manager.announcements.form.schedConfId">已計畫的研討會</message>
-	<message key="manager.announcements.schedConf">已計畫的研討會</message>
+	<message key="manager.announcements.form.schedConfId">研討會</message>
+	<message key="manager.announcements.schedConf">研討會</message>
 	<message key="manager.conferenceEventLog">事件日誌</message>
 	<message key="manager.conferenceSiteManagement">研討會網站管理</message>
 	<message key="manager.currentConferences">目前的研討會</message>

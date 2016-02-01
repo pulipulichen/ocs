@@ -57,7 +57,9 @@
 {/if}
 </table>
 
-<a href="{url op="createAnnouncementType"}" class="action">{translate key="manager.announcementTypes.create"}</a>
+<p class="text-center">
+    <a href="{url op="createAnnouncementType"}" class="action btn btn-primary">{translate key="manager.announcementTypes.create"}</a>
+</p>
 </div>
 
 {include file="common/footer.tpl"}

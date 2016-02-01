@@ -39,11 +39,28 @@
 {iterate from=announcements item=announcement}
 	{assign var=schedConfId value=$announcement->getAssocId()}
 	<tr valign="top">
-		<td>{$announcement->getDateExpire()|date_format:$dateFormatShort}</td>
-		<td>{$announcement->getAnnouncementTypeName()}</td>
-		<td>{if $announcement->getAssocType() == ASSOC_TYPE_SCHED_CONF}{$schedConfNames[$schedConfId]}{/if}</td>
+		<td>
+                    {if $announcement->getDateExpire()|date_format:$dateFormatShort}
+                        {$announcement->getDateExpire()|date_format:$dateFormatShort}
+                    {else}
+                        &mdash;
+                    {/if}
+                </td>
+		<td>
+                    {if $announcement->getAnnouncementTypeName()}
+                        {$announcement->getAnnouncementTypeName()}
+                    {else}
+                        &mdash;
+                    {/if}    
+                </td>
+		<td>
+                    {if $announcement->getAssocType() == ASSOC_TYPE_SCHED_CONF}
+                        {$schedConfNames[$schedConfId]}
+                    {else}
+                        &mdash;
+                    {/if}</td>
 		<td>{$announcement->getLocalizedTitle()|escape}</td>
-		<td><a href="{url op="editAnnouncement" path=$announcement->getId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteAnnouncement" path=$announcement->getId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.announcements.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
+		<td align="right"><a href="{url op="editAnnouncement" path=$announcement->getId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteAnnouncement" path=$announcement->getId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.announcements.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
 	</tr>
 	<tr>
 		<td colspan="5" class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>
@@ -64,6 +81,8 @@
 {/if}
 </table>
 
-<a href="{url op="createAnnouncement"}" class="action">{translate key="manager.announcements.create"}</a>
+<p class="text-center">
+    <a href="{url op="createAnnouncement"}" class="action btn btn-primary">{translate key="manager.announcements.create"}</a>
+</p>
 </div>
 {include file="common/footer.tpl"}

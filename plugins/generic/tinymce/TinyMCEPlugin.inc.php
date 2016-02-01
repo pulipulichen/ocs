@@ -67,6 +67,7 @@ class TinyMCEPlugin extends GenericPlugin {
 	function getEnableFields(&$templateMgr, $page, $op) {
 		$formLocale = $templateMgr->get_template_vars('formLocale');
 		$fields = array();
+                $features = "full";
 		switch ("$page/$op") {
 			case 'admin/settings':
 			case 'admin/saveSettings':
@@ -92,6 +93,7 @@ class TinyMCEPlugin extends GenericPlugin {
 						}
 						$fields[] = 'abstract';
 						$fields[] = 'citations';
+                                                $features = "simple";
 						break;
 				}
 				break;
@@ -105,6 +107,10 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'user/profile':
 			case 'user/account':
 			case 'user/saveProfile':
+                                $features = "simple";
+                                $fields[] = 'mailingAddress';
+				$fields[] = 'biography';
+				break;
 			case 'manager/createUser':
 			case 'manager/updateUser':
 				$fields[] = 'mailingAddress';
@@ -193,6 +199,7 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'schedConf/registration':
 				$fields[] = 'specialRequests';
                                 $fields[] = 'applicationForm';
+                                $features = "simple";
                                 break;
                         case 'manager/accommodation':
 			case 'manager/saveAccommodationSettings':
@@ -292,7 +299,10 @@ class TinyMCEPlugin extends GenericPlugin {
 
 		}
 		HookRegistry::call('TinyMCEPlugin::getEnableFields', array(&$this, &$fields));
-		return $fields;
+		return array(
+                    "fields" => $fields,
+                    "features" => $features
+                );
 	}
 
 	/**
@@ -306,7 +316,9 @@ class TinyMCEPlugin extends GenericPlugin {
 
 		$page = Request::getRequestedPage();
 		$op = Request::getRequestedOp();
-		$enableFields = $this->getEnableFields($templateManager, $page, $op);
+                $config = $this->getEnableFields($templateManager, $page, $op);
+		$enableFields = $config["fields"];
+                $features = $config["features"];
 
 		if (!empty($enableFields)) {
 			$baseUrl = $templateManager->get_template_vars('baseUrl');
@@ -328,25 +340,50 @@ class TinyMCEPlugin extends GenericPlugin {
 					languages : "' . join(',', $localeList) . '",
 					disk_cache : true
 				});
-			</script>
-			<script language="javascript" type="text/javascript">
-				tinyMCE.init({
-					entity_encoding : "raw",
-					plugins : "paste,fullscreen,jbimages",
-					mode : "exact",
-					language : "' . String::substr(AppLocale::getLocale(), 0, 2) . '",
-					elements : "' . $enableFields . '",
-					relative_urls : false,
-					forced_root_block : false,
-					paste_auto_cleanup_on_paste : true,
-					apply_source_formatting : false,
-					theme : "advanced",
-                                        theme_advanced_toolbar_location : "top",
-					theme_advanced_buttons1 : "cut,copy,paste,|,forecolor,bold,italic,underline,bullist,numlist,aligncenter,|,jbimages,link,unlink,code,fullscreen",
-					theme_advanced_buttons2 : "",
-					theme_advanced_buttons3 : "",
-				});
 			</script>';
+                        
+                        if ($features === "full") {
+                            $tinymceScript .= '<script language="javascript" type="text/javascript">
+                                    tinyMCE.init({
+                                            entity_encoding : "raw",
+                                            plugins : "paste,fullscreen,jbimages",
+                                            mode : "exact",
+                                            language : "' . String::substr(AppLocale::getLocale(), 0, 2) . '",
+                                            elements : "' . $enableFields . '",
+                                            relative_urls : false,
+                                            forced_root_block : false,
+                                            paste_auto_cleanup_on_paste : true,
+                                            apply_source_formatting : false,
+                                            theme : "advanced",
+                                            theme_advanced_toolbar_location : "top",
+                                            theme_advanced_buttons1 : "cut,copy,paste,|,forecolor,bold,italic,underline,bullist,numlist,aligncenter,|,jbimages,link,unlink,code,fullscreen",
+                                            theme_advanced_buttons2 : "",
+                                            theme_advanced_buttons3 : "",
+                                    });
+                            </script>';
+                        }
+                        else {
+                            $tinymceScript .= '<script language="javascript" type="text/javascript">
+                                    tinyMCE.init({
+                                            entity_encoding : "raw",
+                                            plugins : "paste,fullscreen",
+                                            mode : "exact",
+                                            language : "' . String::substr(AppLocale::getLocale(), 0, 2) . '",
+                                            elements : "' . $enableFields . '",
+                                            relative_urls : false,
+                                            forced_root_block : false,
+                                            paste_auto_cleanup_on_paste : true,
+                                            apply_source_formatting : false,
+                                            theme : "advanced",
+                                            theme_advanced_toolbar_location : "top",
+                                            theme_advanced_buttons1 : "cut,copy,paste,|,forecolor,bold,italic,underline,bullist,numlist,aligncenter,|,link,unlink,fullscreen",
+                                            theme_advanced_buttons2 : "",
+                                            theme_advanced_buttons3 : "",
+                                    });
+                            </script>';
+                        }
+                        
+                        
 
 			$templateManager->assign('additionalHeadData', $additionalHeadData."\n".$tinymceScript);
 		}

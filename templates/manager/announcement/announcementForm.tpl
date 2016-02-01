@@ -19,7 +19,8 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<br/>
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 <form name="announcementForm" method="post" action="{url op="updateAnnouncement"}">
 {if $announcementId}
@@ -43,12 +44,20 @@
 {/if}
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="typeId" key="manager.announcements.form.typeId"}</td>
-	<td width="80%" class="value"><select name="typeId" id="typeId" class="selectMenu">
+	<td width="80%" class="value">
+            {if $isConferenceManager}
+                <a class="edit-link" href="{url page="manager"}/announcementTypes" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+            <select name="typeId" id="typeId" class="selectMenu">
 		<option value=""></option>
 		{iterate from=announcementTypes item=announcementType}
 		<option value="{$announcementType->getId()}"{if $typeId == $announcementType->getId()} selected="selected"{/if}>{$announcementType->getLocalizedTypeName()|escape}</option>
 		{/iterate} 
-	</select></td>
+            </select>
+        
+        </td>
 </tr>
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="schedConfId" key="manager.announcements.form.schedConfId"}</td>
@@ -94,10 +103,13 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $announcementId}<input type="submit" name="createAnother" value="{translate key="manager.announcements.form.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="announcements"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    {if not $announcementId}<input type="submit" name="createAnother" value="{translate key="manager.announcements.form.saveAndCreateAnother"}" class="btn btn-default" /> {/if}
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="announcements"}'" />
+</p>
 
 </form>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

@@ -23,7 +23,7 @@
 	<message key="manager.announcementTypes.form.typeName">名稱</message>
 	<message key="manager.announcementTypes.form.typeNameExists">具有這個名稱的公告類型已經存在</message>
 	<message key="manager.announcementTypes.form.typeNameRequired">需要一個公告類型的名稱</message>
-	<message key="manager.announcementTypes.noneCreated">沒有建立任何公告</message>
+	<message key="manager.announcementTypes.noneCreated">尚未建立公告類型</message>
 	<message key="manager.announcementTypes.typeName">公告類型</message>
 	<message key="manager.announcements">公告</message>
 	<message key="manager.announcements.confirmDelete">您確定您要永久性地刪除這份公告？</message>
@@ -49,7 +49,7 @@
 	<message key="manager.announcements.form.titleRequired">需要一個公告標題</message>
 	<message key="manager.announcements.form.typeId">類型</message>
 	<message key="manager.announcements.form.typeIdValid">請選擇一個有效的公告類型</message>
-	<message key="manager.announcements.noneCreated">沒有建立任何公告</message>
+	<message key="manager.announcements.noneCreated">尚未建立公告</message>
 	<message key="manager.announcements.title">標題</message>
 	<message key="manager.announcements.type">類型</message>
 	<message key="manager.emails">電子郵件範本</message>
