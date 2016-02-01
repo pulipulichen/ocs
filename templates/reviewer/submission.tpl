@@ -137,6 +137,8 @@ function confirmSubmissionCheck() {
 {assign var="currentStep" value=1}
 
 <table width="100%" class="data">
+    
+    {if $declined or not $confirmedStatus}
     <tr>
         <th class="label" style="white-space: normal" width="30%">
             確認審查
@@ -199,9 +201,9 @@ function confirmSubmissionCheck() {
                 {if not $confirmedStatus}
                     <div class="instruct">{translate key="reviewer.paper.notifyEditorA"}{if $editAssignment}, {$editAssignment->getDirectorFullName()|escape},{/if} {translate key="reviewer.paper.notifyEditorB"}</div>
                 {/if}
-            
         </td>
     </tr>
+    {/if}
     <tr>
         <th class="label">
             <span class="instruct">{translate key="$reviewerInstruction3"}</span>
@@ -399,10 +401,10 @@ function confirmSubmissionCheck() {
                     <strong>{translate key=$reviewerRecommendationOptions.$recommendation}</strong>&nbsp;&nbsp;
                     {$submission->getDateCompleted()|date_format:$dateFormatShort}
             {else}
-                <form name="recommendation" method="post" action="{url op="recordRecommendation"}" onsubmit="return confirmSubmissionCheck()">
+                <form name="recommendation" method="post" action="{url op="recordRecommendation"}">
                     <input type="hidden" name="reviewId" value="{$reviewId|escape}" />
                     <select name="recommendation" {if $disableRecommend}disabled="disabled"{/if} 
-                            class="selectMenu btn btn-default" onchange="this.form.submit()">
+                            class="selectMenu btn btn-default" onchange="if (confirmSubmissionCheck()) $(this).parents('form:first').submit(); else this.value='';">
                             {html_options_translate options=$reviewerRecommendationOptions selected=''}
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" name="submit" onclick="return confirmSubmissionCheck()" class="button hide" value="{translate key="reviewer.paper.submitReview"}" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} />
