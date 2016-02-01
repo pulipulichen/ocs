@@ -117,7 +117,7 @@ function sortSearch(heading, direction) {
 </table>
 
 
-<p class="text-center" style="margin: 15px 0;">
+<p class="text-center hide" style="margin: 15px 0;">
     <a class="btn btn-primary" href="{url op="createReviewer" path=$paperId}">{translate key="trackDirector.review.createReviewer"}</a>
     
     <a class="btn btn-default" href="{url op="enrollSearch" path=$paperId}">{translate key="trackDirector.review.enrollReviewer"}</a>

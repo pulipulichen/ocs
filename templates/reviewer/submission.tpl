@@ -189,8 +189,11 @@ function confirmSubmissionCheck() {
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         {translate key="submission.accepted"}
                     {else}
+                        <span class="text-danger">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        {translate key="submission.rejected"}
+                        {*translate key="submission.rejected"*}
+                        婉拒審查
+                        </span>
                     {/if}
 		{/if}
                 
@@ -204,6 +207,7 @@ function confirmSubmissionCheck() {
         </td>
     </tr>
     {/if}
+    {if $confirmedStatus AND !$declined}
     <tr>
         <th class="label">
             <span class="instruct">{translate key="$reviewerInstruction3"}</span>
@@ -416,6 +420,7 @@ function confirmSubmissionCheck() {
             {/if}
         </td>
     </tr>
+    {/if} {* {if $confirmedStatus} *}
 </table>
 </div>
 {if $schedConf->getLocalizedSetting('reviewGuidelines') != ''}

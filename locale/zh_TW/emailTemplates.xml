@@ -157,12 +157,15 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件是由Track Director寄出有關完成審查的確認收據及感謝審查者的貢獻。</description>
 	</email_text>
 	<email_text key="REVIEW_CANCEL">
-		<subject>要求取消審查</subject>
-		<body>{$reviewerName}:
+		<subject>撤銷審查邀請</subject>
+		<body>{$reviewerName}您好，
 
-我們決定在此時取消對您提出爲 {$conferenceName} 審查稿件 "{$paperTitle}" 的要求， 。造成您的不便深感抱歉，並希望未來您還能協助研討會的審查過程。
+我們是「{$conferenceName}」，日前邀請您審查稿件「{$paperTitle}」，但因為時間安排難以配合，故在此撤銷給您的審查邀請。
 
-倘若您有其他任何的的問題，請聯絡我。
+如有造成任何不便，敬請見諒。
+期望未來還能與您共事。
+
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>這封信件是由會議主席寄發通知給取消審查過程的審查者。</description>
@@ -191,7 +194,7 @@ Your password for disabling notification emails is: {$password}
 我在「{$conferenceName}」審查論文「{$paperTitle}」時候有一些問題：
 
 {請輸入您的問題}
-        
+
 您可以從以下網址進入研討會網站操作：
 {$submissionUrl}
 
@@ -202,28 +205,48 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件由審查者寄出給Track Director通知他們的審查作業已完成，並且評論及建議已被記錄在研討會網站內。</description>
 	</email_text>
 	<email_text key="REVIEW_CONFIRM">
-		<subject>接受番稿任務</subject>
-		<body>{$editorialContactName}:
+		<subject>願意擔任審查委員</subject>
+		<body>{$editorialContactName}您好，
 
-我能夠且很願意爲 {$conferenceName} 審查論文 "{$paperTitle}"。謝謝您的認同，我計劃在 {$reviewDueDate} 之前，或更早來完成審查作業。
+感謝您的賞識，我很願意為「{$conferenceName}」審查論文「{$paperTitle}」。我預計在{$reviewDueDate}之前完成審查作業。
+
+您可以從以下網址進入研討會網站觀看審查進度：
+{$submissionUrl}
+
+請您靜候審查結果。
+敬祝教安，
 
 {$reviewerName}</body>
 		<description>這封信件是由審查者寄給Track Director來對Track Director通知有關審查要求回應，表示接受審查請求並且將在指定日期之前完成。</description>
 	</email_text>
 	<email_text key="REVIEW_CONFIRM_ACK">
-		<subject>審查進行中的確認通知</subject>
-		<body>{$reviewerName}:
+		<subject>審查作業確認通知</subject>
+		<body>{$reviewerName}您好，
 
-感謝您同意爲 {$conferenceName} 審查投稿稿件 "{$paperTitle}" ，審查期限為 {$reviewDueDate}。
+感謝您願意協助「{$conferenceName}」審查論文稿件「{$paperTitle}」，在此提醒您審查期限到{$reviewDueDate}為止。
+
+您可以從以下網址進入研討會網站操作：
+{$submissionUrl}
+
+如有任何問題請不吝提問，請讓我們來協助您。
+
+再此感謝您的配合與協助。
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>這封電子郵件是從Track Director寄給審查者感謝他們接受審查或鼓勵他們完成審查。</description>
 	</email_text>
 	<email_text key="REVIEW_DECLINE">
-		<subject>無法審查</subject>
-		<body>{$editorialContactName}:
+		<subject>無法擔任審查委員</subject>
+		<body>{$editorialContactName}您好，
 
-我很抱歉在這個時間點無法爲 {$conferenceName} 審查稿件 "{$paperTitle}" 。感謝您的認同，及希望往後隨時都能聯絡我。
+感謝您邀請我參與「{$conferenceName}」中論文「{$paperTitle}」的審查作業，但由於個人因素難以配合，故在此婉拒您的邀請。
+
+您可以從以下網址進入研討會網站安排其他審查事宜：
+{$submissionUrl}
+
+感謝您的諒解。未來若有機會，我很樂意提供協助。
+敬祝教安，
 
 {$reviewerName}</body>
 		<description>此封電子郵件由審查者寄出給Track Director來對審查要求做回應，告知Track Director審查要求被婉拒。</description>
@@ -232,7 +255,9 @@ Your password for disabling notification emails is: {$password}
 		<subject>稿件審查提醒</subject>
 		<body>{$reviewerName}您好，
 
-我是「{$conferenceName}」的負責人，這封信只是為了提醒您，您之前接受協助審查論文「{$paperTitle}」，而我們希望審查能夠在 {$reviewDueDate} 之前完成。您可以從以下網址進入審查頁面：
+我是「{$conferenceName}」的負責人，這封信只是為了提醒您，您之前接受協助審查論文「{$paperTitle}」，而我們希望審查能夠在 {$reviewDueDate} 之前完成。
+
+您可以從以下網址進入審查頁面：
 {$submissionReviewUrl}
 
 感謝您的諒解與配合。
@@ -242,16 +267,16 @@ Your password for disabling notification emails is: {$password}
 		<description>此封電子郵件是由Track Director寄出來提醒審查者他們的審查到期。</description>
 	</email_text>
 	<email_text key="REVIEW_REMIND_AUTO">
-		<subject>自動稿件審查提醒</subject>
-		<body>{$reviewerName}:
+		<subject>稿件審查提醒</subject>
+		<body>{$reviewerName}您好，
 
-是一個溫和提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們希望這個審查在 {$reviewDueDate} 之前完成，此電子郵件會自動產生並在會在截止日期後寄出。我們仍希望您能願意接受並盡快地準備好。
+我是「{$conferenceName}」的負責人，這封信只是為了提醒您，您之前接受協助審查論文「{$paperTitle}」，而我們希望審查能夠在 {$reviewDueDate} 之前完成。
 
-倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
+您可以從以下網址進入審查頁面：
+{$submissionReviewUrl}
 
-投稿網站: {$submissionReviewUrl}
-
-請確認您有能力完成對此研討會的重要貢獻。盼望收到您的來信。
+感謝您的諒解與配合。
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>當審查日期已過時，此封電子郵件將會自動寄出 (請參見研討會設定下的審查選擇，步驟2)並且審查者點選進入功能將會是無效的。已預定的任務必許已被啟動及安裝 (請詳見網站配置文件)。</description>
@@ -273,21 +298,21 @@ Your password for disabling notification emails is: {$password}
 	</email_text>
 	<email_text key="REVIEW_REMIND_ONECLICK">
 		<subject>稿件審查提醒</subject>
-		<body>{$reviewerName}:
+		<body>{$reviewerName}您好，
 
-只是一個溫和的提醒我們對稿件審查者要求，您爲 {$conferenceName} 審查的文章為 "{$paperTitle}" 。我們期望這個審查在 {$reviewDueDate} 之前完成。
+我是「{$conferenceName}」的負責人，在此提醒您，您之前接受協助審查論文「{$paperTitle}」，而我們希望審查能夠在 {$reviewDueDate} 之前完成。
 
-倘若您尚未有此研討會網站的帳號及密碼，您可使用此連結來重新設定您的密碼 (設定完後帳號及密碼將會以電子郵件寄出給您)。{$passwordResetUrl}
+您可以從以下網址進入審查頁面：
+{$submissionReviewUrl}
 
-投稿網站: {$submissionReviewUrl}
-
-請確認您有能力完成對此研討會的重要貢獻。盼望收到您的來信。
+感謝您的諒解與配合。
+敬祝教安，
 
 {$editorialContactSignature}</body>
 		<description>此封電子郵件是由Track Director寄出來提醒審查者他們的審查到期。</description>
 	</email_text>
 	<email_text key="REVIEW_REQUEST">
-		<subject>邀請您來審查論文</subject>
+		<subject>邀請您擔任論文的審查委員</subject>
 		<body>{$reviewerName}您好，
 
 我們是「{$conferenceName}」。久仰您在學術上的卓越成就與專業判斷力，我們誠摯地邀請您擔任論文審查委員，希望您能夠協助審查論文「{$paperTitle}」。
@@ -309,30 +334,25 @@ Your password for disabling notification emails is: {$password}
 		<description>從Track Director寄給審查者的電子郵件詢問審查者接受或拒絕審查稿件的任務。這提供有關投稿的資訊，如題目、摘要、審查截止日期、及如何存取投稿等等。</description>
 	</email_text>
 	<email_text key="REVIEW_REQUEST_ONECLICK">
-		<subject>論文審查請求</subject>
-		<body>{$reviewerName}:
+		<subject>邀請您擔任論文的審查委員</subject>
+		<body>{$reviewerName}您好，
 
-本研討會認為您是一個優秀的論文審查者，可否請您協助審查  {$conferenceName} 的論文 "{$paperTitle}" 。
+我們是「{$conferenceName}」。久仰您在學術上的卓越成就與專業判斷力，我們誠摯地邀請您擔任論文審查委員，希望您能夠協助審查論文「{$paperTitle}」。
 
+題目：「{$paperTitle}」
+摘要：{$paperAbstract}
+                    
+請您於 {$weekLaterDate} 之前點選以下網址進入研討會網站，從網頁上回覆您是否願意確認協助審查工作：
+{$submissionReviewUrl}
 
-請您於 {$weekLaterDate} 前登入研討會網站，表示您是否願意從事審查工作，並且進入投稿和記錄您的評論和建議。研討會的網址是 {$conferenceUrl}
+所有審查作業都在此網址中進行。
 
-審查截止日期 {$reviewDueDate}.
+本次的審查截止日期為 {$reviewDueDate}。若您有任何問題，請讓我們來協助您。
 
-倘若您尚未有研討會的使用名稱及密碼， 您可以使用以下連結來重新設定您的密碼 (密碼將會與您的帳號一起以電子郵件寄發給您)。 {$passwordResetUrl}
+感謝您撥冗閱讀我們的邀請，靜待您的回覆。
+敬祝教安，
 
-審稿網址: {$submissionReviewUrl}
-
-感謝您關心這項請求。
-
-{$editorialContactSignature}
-
-
-
-"{$paperTitle}"
-
-摘要
-{$paperAbstract}</body>
+{$editorialContactSignature}</body>
 		<description>這封由會議主席寄給審查者的電子郵件，內容是要求審查者接受或婉拒審查論文的任務。他提供有關論文的資訊，如題目和摘要、審查截止日期、及如何進入審查。當標準的審查過程已被定案在研討會的設定，步驟2，及點選進入功能能被使用時，這個訊息則可開始使用。</description>
 	</email_text>
 	<email_text key="SUBMISSION_ABSTRACT_ACCEPT">

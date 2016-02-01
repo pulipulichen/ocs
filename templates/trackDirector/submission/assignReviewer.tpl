@@ -45,11 +45,15 @@
 	{assign var="start" value="A"|ord}
 	{foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}
 	{assign var="reviewId" value=$reviewAssignment->getId()}
+        
+        {assign var="reviewCompleted" value=null}
         {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}
             {assign var="reviewCompleted" value=true}
         {/if}
-        <div class="panel {if $reviewCompleted}panel-primary{else}panel-default{/if}">
+        
+        
 	{if not $reviewAssignment->getCancelled()}
+            <div class="panel {if $reviewCompleted}panel-primary{elseif $reviewAssignment->getDeclined()}panel-danger{else}panel-default{/if}" id="peerReview{$reviewId}">
 		{assign var="reviewIndex" value=$reviewIndexes[$reviewId]}
 		<!--div class="separator"></div-->
                 <div class="panel-heading">
@@ -86,49 +90,54 @@
                 </div>
                 <div class="panel-body">
 		<table width="100%" class="data">
+                {if !$reviewAssignment->getDeclined()}
 		<tr valign="top">
-		<td class="label">{translate key="submission.reviewForm"}</td>
-		<td>
-		{if $reviewAssignment->getReviewFormId()}
-			{assign var="reviewFormId" value=$reviewAssignment->getReviewFormId()}
-			{$reviewFormTitles[$reviewFormId]}
-		{else}
-			{translate key="manager.reviewForms.noneChosen"}
-		{/if}
-		{if !$reviewAssignment->getDateCompleted()}
-			&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="action btn btn-primary" href="{url op="selectReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            {translate key="editor.paper.selectReviewForm"}
-                        </a>
-                        {if $reviewAssignment->getReviewFormId()}&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a class="action" href="{url op="clearReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>{translate key="editor.paper.clearReviewForm"}</a>{/if}
-		{/if}
-		</td>
-	</tr>
+                        <td class="label">{translate key="submission.reviewForm"}</td>
+                        <td>
+                        {if $reviewAssignment->getReviewFormId()}
+                                {assign var="reviewFormId" value=$reviewAssignment->getReviewFormId()}
+                                {$reviewFormTitles[$reviewFormId]}
+                        {else}
+                                {translate key="manager.reviewForms.noneChosen"}
+                        {/if}
+                        {if !$reviewAssignment->getDateCompleted()}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="action btn btn-default" href="{url op="selectReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    {translate key="editor.paper.selectReviewForm"}
+                                </a>
+                                {if $reviewAssignment->getReviewFormId()}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a class="action" href="{url op="clearReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
+                                        {translate key="editor.paper.clearReviewForm"}
+                                    </a>
+                                {/if}
+                        {/if}
+                        </td>
+                </tr>
+                {/if}
 		<tr valign="top">
                     <td class="label" width="20%">
                         {* @TODO 語系 *}
                         審查進度
                     </td>
 			<td width="80%">
-				<table width="100%" class="info table">
+                            <table width="100%" class="info table" style="margin-bottom: 0;">
                                     <tr>
-                                        <th class="">{translate key="submission.request"}</th>
-                                        <td class="value">
+                                        <th class="" style="border-top-width:0">{translate key="submission.request"}</th>
+                                        <td class="value" style="border-top-width:0">
                                             {url|assign:"reviewUrl" op="notifyReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
 							{if !$allowRecommendation}
 								{icon name="mail" url=$reviewUrl disabled="true"}
 							{elseif $reviewAssignment->getDateNotified()}
 								{$reviewAssignment->getDateNotified()|date_format:$dateFormatShort}
-								{if !$reviewAssignment->getDateCompleted()}
+								{if !$reviewAssignment->getDateCompleted() and !$reviewAssignment->getDeclined()}
 									{*icon name="mail" url=$reviewUrl*}
                                                                         <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
                                                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                                                             邀請
                                                                         </a>
 								{/if}
-							{else}
+							{elseif !$reviewAssignment->getDeclined()}
 								<a href="{$reviewUrl}" class="btn btn-primary btn-sm">
                                                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                                                             邀請
@@ -140,21 +149,27 @@
                                         <th class="">{translate key="submission.underway"}</th>
                                         <td class="value">
                                             {$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort|default:"&mdash;"}
+                                            {if $reviewAssignment->getDeclined()}
+                                                <div class="text-danger">
+                                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>    
+                                                    {*translate key="trackDirector.regrets"*}
+                                                    婉拒審查
+                                                </div>
+                                            {/if}
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <th class="">{*translate key="submission.due"*}
                                                     審查期限</th>
                                         <td class="value">
-                                            {if $reviewAssignment->getDeclined()}
-                                                    {translate key="trackDirector.regrets"}
-                                            {else}
-                                                <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
+                                            <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                                 </a>
                                                     <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
                                                     {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
                                                     </a>
+                                                    {if !$reviewAssignment->getDeclined()}
                                                     &nbsp;&nbsp;&nbsp;
                                                     {if !$reviewAssignment->getDateCompleted()}
                                                     {url|assign:"remindUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
@@ -163,9 +178,10 @@
                                                             提醒
                                                         </a>
                                                     {/if}
-                                            {/if}
+                                                    {/if}
                                         </td>
                                     </tr>
+                                    {if !$reviewAssignment->getDateConfirmed()}
                                     <tr>
                                         <th class="">{translate key="submission.acknowledge"}</th>
                                         <td class="value">
@@ -182,6 +198,7 @@
 							{/if}
                                         </td>
                                     </tr>
+                                    {/if}
 				</table>
 			</td>
 		</tr>
@@ -316,11 +333,21 @@
 			<tr valign="top">
 				<td class="label">
                                     {*translate key="reviewer.paper.directorToEnter"*}
-                                    選擇建議
+                                    確認審查
                                 </td>
 				<td>
 					{if !$reviewAssignment->getDateConfirmed()}
-						<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=1}" class="action">{translate key="reviewer.paper.canDoReview"}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=0}" class="action">{translate key="reviewer.paper.cannotDoReview"}</a><br />
+						<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=1}" 
+                                                   class="action btn btn-primary">
+                                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                                    {translate key="reviewer.paper.canDoReview"}
+                                                </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=0}" 
+                                                   class="action btn btn-default">
+                                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                    {translate key="reviewer.paper.cannotDoReview"}</a>
+                                                <br />
 					{/if}
 					
 					{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
@@ -355,8 +382,8 @@
 		{/if}
 	</table>
         </div>
-	{/if}
         </div>
+	{/if}
 	{/foreach}
 {/if}
 
@@ -371,7 +398,13 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 {*translate key="director.paper.selectReviewer"*}
                 {* @TODO 語系 *}
-                指定審查委員
+                選擇之前的審查委員
+            </a>
+            <a href="{url op="enrollSearch" path=$submission->getPaperId()}" class="btn btn-default">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                {*translate key="director.paper.selectReviewer"*}
+                {* @TODO 語系 *}
+                從所有使用者指定審查委員
             </a>
             <!--
             <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">

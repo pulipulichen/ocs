@@ -33,11 +33,11 @@
 <table width="100%" class="listing">
 <tr><td colspan="5" class="headseparator">&nbsp;</td></tr>
 <tr class="heading" valign="bottom">
-	<td width="5%">&nbsp;</td>
-	<td width="25%">{translate key="user.username"}</td>
-	<td width="27%">{translate key="user.name"}</td>
-	<td width="30%">{translate key="user.email"}</td>
-	<td width="13%">{translate key="common.action"}</td>
+	<td>&nbsp;</td>
+	<td>{translate key="user.username"}</td>
+	<td>{translate key="user.name"}</td>
+	<td>{translate key="user.email"}</td>
+	<td>{translate key="common.action"}</td>
 </tr>
 <tr><td colspan="5" class="headseparator">&nbsp;</td></tr>
 {iterate from=users item=user}
@@ -48,7 +48,11 @@
 	<td><a class="action" href="{url op="userProfile" path=$userid}">{$user->getUsername()|escape}</a></td>
 	<td>{$user->getFullName(true)|escape}</td>
 	<td>{$user->getEmail(true)|escape}</td>
-	<td><a href="{url op="enroll" path=$paperId userId=$user->getId()}" class="action">{translate key="manager.people.enroll"}</a></td>
+	<td>
+            <a href="{url op="enroll" path=$paperId userId=$user->getId()}" class="action btn btn-default btn-sm">
+                {translate key="manager.people.enroll"}
+            </a>
+        </td>
 </tr>
 <tr><td colspan="5" class="{if $users->eof()}end{/if}separator">&nbsp;</td></tr>
 {/iterate}
@@ -65,7 +69,11 @@
 {/if}
 </table>
 
-<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" />
+<p class="text-center" style="margin-top: 15px;">
+    <input type="submit" value="{translate key="manager.people.enrollSelected"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="manager"}'" />
+</p>
+
 </div>
 
 </form>

@@ -98,11 +98,14 @@ class ReviewerAction extends Action {
 						else $editorialContact = array_shift($assignedDirectors);
 						$editorialContactName = $editorialContact->getDirectorFullName();
 					}
+                                        
+                                        $submissionUrl = Request::url(null, null, 'director', 'submissionAssignReviewer', $reviewAssignment->getPaperId(), array(), 'peerReview'.$reviewId);
 
 					$email->assignParams(array(
 						'editorialContactName' => $editorialContactName,
 						'reviewerName' => $reviewer->getFullName(),
-						'reviewDueDate' => ($reviewAssignment->getDateDue() === null ? __('common.noDate') : strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDateDue())))
+						'reviewDueDate' => ($reviewAssignment->getDateDue() === null ? __('common.noDate') : strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDateDue()))),
+                                                'submissionUrl' => $submissionUrl
 					));
 				}
 				$paramArray = array('reviewId' => $reviewId);
