@@ -40,8 +40,21 @@
 -------------------------------------------------------------------*/
 
 
-	$config['allowed_types'] = '*';
-
+	$config['allowed_types'] = 'doc|docx|odt|rtf|txt'
+                . '|csv|ppt|pptx|xml'
+                . '|mid|mp3|ra|wav'
+                . '|avi|mov|mp4|mpg|rm|swf|wmv'
+                . '|bmp|gif|jpg|png|psd|tif|tiff'
+                . '|svg|ai|eps'
+                . '|pdf'
+                . '|apk|'
+                . '|kml|kmz'
+                . '|html|js|json|xhtml|htm'
+                . '|otf|ttf'
+                . '|ico'
+                . '|7z|gz|rar|zip|rpm';
+        // http://fileinfo.com/filetypes/common
+        // http://www.freeformatter.com/mime-types-list.html
 
 /*-------------------------------------------------------------------
 |

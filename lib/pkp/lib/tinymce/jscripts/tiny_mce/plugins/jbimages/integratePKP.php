@@ -36,6 +36,7 @@
 			if (isset($user)) {
 				// User is logged in
 				$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
+                                
 				if (!file_exists($siteDir . '/images/')) {
 					import('file.FileManager');
 					// Check that the public/site/ directory exists and is writeable

@@ -206,7 +206,7 @@ class CI_Upload {
 		// Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())
 		{
-			$this->set_error('upload_invalid_filetype');
+			$this->set_error('upload_invalid_filetype', $this->file_ext. " ". $this->file_type);
 			return FALSE;
 		}
 
@@ -595,8 +595,7 @@ class CI_Upload {
 		}
 
 		$ext = strtolower(ltrim($this->file_ext, '.'));
-
-		if ( ! in_array($ext, $this->allowed_types))
+                if ( ! in_array($ext, $this->allowed_types))
 		{
 			return FALSE;
 		}
@@ -616,21 +615,22 @@ class CI_Upload {
 		{
 			return TRUE;
 		}
-
+                
 		$mime = $this->mimes_types($ext);
-
+                
 		if (is_array($mime))
 		{
-			if (in_array($this->file_type, $mime, TRUE))
-			{
-				return TRUE;
-			}
+                    if (in_array($this->file_type, $mime, TRUE))
+                    {
+                            return TRUE;
+                    }
 		}
 		elseif ($mime == $this->file_type)
 		{
 				return TRUE;
 		}
-
+                //echo $mime . "///////" . $this->file_type;
+                
 		return FALSE;
 	}
 
@@ -887,7 +887,7 @@ class CI_Upload {
 	 * @param	string
 	 * @return	void
 	 */
-	public function set_error($msg)
+	public function set_error($msg, $arg = NULL)
 	{
 		$CI =& get_instance();
 		$CI->lang->load('upload');
@@ -904,7 +904,11 @@ class CI_Upload {
 		else
 		{
 			$msg = ($CI->lang->line($msg) == FALSE) ? $msg : $CI->lang->line($msg);
+                        if (isset($arg)) {
+                            $msg = $msg . " : " . $arg;
+                        }
 			$this->error_msg[] = $msg;
+                        
 			log_message('error', $msg);
 		}
 	}
@@ -952,7 +956,7 @@ class CI_Upload {
 			}
 			elseif (is_file(APPPATH.'config/mimes.php'))
 			{
-				include(APPPATH.'config//mimes.php');
+				include(APPPATH.'config/mimes.php');
 			}
 			else
 			{
@@ -962,7 +966,8 @@ class CI_Upload {
 			$this->mimes = $mimes;
 			unset($mimes);
 		}
-
+                //echo $mime . "---------";
+                //echo $this->mimes['doc'] . "************";
 		return ( ! isset($this->mimes[$mime])) ? FALSE : $this->mimes[$mime];
 	}
 
