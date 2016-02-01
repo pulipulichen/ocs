@@ -32,7 +32,7 @@
 	{assign var="submissionProgress" value=$submission->getSubmissionProgress()}
 	{assign var="status" value=$submission->getSubmissionStatus()}
 
-	<tr valign="top">
+	<tr valign="top"  class="listing-tr">
 		<td>{$paperId|escape}</td>
 		<td>{if $submission->getDateSubmitted()}{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}{else}&mdash;{/if}</td>
 		<td>{$submission->getTrackAbbrev()|escape}</td>

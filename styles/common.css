@@ -388,3 +388,10 @@ ul.nav.nav-stacked li a {
     /*margin: 5px;
     padding: 5px;*/
 }
+
+table.listing tr.listing-tr {
+    cursor: pointer;
+}
+table.listing tr.listing-tr.hover {
+    background-color: #DDD;
+}

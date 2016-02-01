@@ -36,7 +36,7 @@
 	
 	{iterate from=submissions item=submission}
 	{assign var="paperId" value=$submission->getPaperId()}
-	<tr valign="top">
+	<tr valign="top"  class="listing-tr">
 		<td>{$paperId|escape}</td>
 		<td>{$submission->getDateSubmitted()|date_format:$dateFormatShort}</td>
                 {if $tracks|@count > 1}

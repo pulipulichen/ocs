@@ -48,7 +48,7 @@
 
 	{assign var="paperId" value=$submission->getPaperId()}
 	<input type="hidden" name="paperIds[]" value="{$paperId|escape}" />
-	<tr valign="top">
+	<tr valign="top"  class="listing-tr">
 		<td>{$paperId|escape}</td>
                 {if $tracks|@count > 1}
 		<td>{$submission->getTrackAbbrev()|escape}</td>

@@ -56,7 +56,16 @@
 		<table class="data" width="100%">
 		<tr>
 			<td width="20%"><h4>{translate key="user.role.reviewer"} {$reviewIndex+$start|chr}</h4></td>
-			<td width="34%"><h4>{$reviewAssignment->getReviewerFullName()|escape}</h4></td>
+			<td width="34%">
+                            {url|assign:"reviewUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
+                            <h4>
+                                <a href="{$reviewUrl}" class="btn btn-default btn-large">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                {$reviewAssignment->getReviewerFullName()|escape}
+                                </a>
+                            </h4>
+                            
+                        </td>
 			<td width="46%">
 					{if not $reviewAssignment->getDateNotified()}
 						<a href="{url op="clearReview" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}" 

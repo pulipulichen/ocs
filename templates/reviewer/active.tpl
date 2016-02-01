@@ -37,7 +37,7 @@
 	{assign var="paperId" value=$submission->getPaperId()}
 	{assign var="reviewId" value=$submission->getReviewId()}
 
-	<tr valign="top">
+        <tr valign="top" class="listing-tr">
 		<td>{$paperId|escape}</td>
 		<td>{$submission->getDateNotified()|date_format:$dateFormatTrunc}</td>
                 {if $tracks|@count > 1}

@@ -48,7 +48,7 @@
 	</tr>
 	
 	{iterate from=submissions item=submission}
-	<tr valign="top">
+	<tr valign="top"  class="listing-tr">
 		<td>{$submission->getPaperId()}</td>
 		{*}<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>{*}
                 {if $tracks|@count > 1}

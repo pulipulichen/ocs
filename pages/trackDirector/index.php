@@ -33,6 +33,7 @@ switch ($op) {
 	case 'recordDecision':
 	case 'selectReviewer':
 	case 'notifyReviewer':
+        case 'emailReviewer':
 	case 'notifyAllReviewers':
 	case 'userProfile':
 	case 'clearReview':
