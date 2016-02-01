@@ -45,7 +45,10 @@
 	{assign var="start" value="A"|ord}
 	{foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}
 	{assign var="reviewId" value=$reviewAssignment->getId()}
-        <div class="panel {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}panel-primary{else}panel-default{/if}">
+        {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}
+            {assign var="reviewCompleted" value=true}
+        {/if}
+        <div class="panel {if $reviewCompleted}panel-primary{else}panel-default{/if}">
 	{if not $reviewAssignment->getCancelled()}
 		{assign var="reviewIndex" value=$reviewIndexes[$reviewId]}
 		<!--div class="separator"></div-->
@@ -143,6 +146,7 @@
                                                     <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
                                                     {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
                                                     </a>
+                                                    &nbsp;&nbsp;&nbsp;
                                                     {if !$reviewAssignment->getDateCompleted()}
                                                     {url|assign:"remindUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
                                                         <a href="{$remindUrl}" class="btn btn-default btn-sm">
@@ -197,6 +201,7 @@
                                                 ({$reviewAssignment->getDateCompleted()|date_format:$dateFormatShort})
 					{else}
 						{translate key="common.none"}
+                                                <!--
                                                 &nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="{url op="remindReviewer" paperId=$submission->getPaperId() reviewId=$reviewAssignment->getId()}" class="action">{translate key="reviewer.paper.sendReminder"}</a>
 						{if $reviewAssignment->getDateReminded()}
@@ -206,6 +211,7 @@
                                                                 {translate key="reviewer.paper.automatic"}
 							{/if}
 						{/if}
+                                                -->
 					{/if}
 				</td>
 			</tr>
@@ -248,7 +254,7 @@
 			</tr>
 			{/if}
                         {assign var="reviewerFileRevisions" value=$reviewAssignment->getReviewerFileRevisions()}
-                        {if $reviewerFileRevisions|@count > 0}
+                        {*if $reviewerFileRevisions|@count > 0*}
 			<tr valign="top">
 				<td class="label">
                                     {translate key="reviewer.paper.uploadedFile"}
@@ -259,13 +265,21 @@
 						<tr valign="top">
 							<td valign="middle">
 								<form name="authorView{$reviewAssignment->getId()}" method="post" action="{url op="makeReviewerFileViewable"}">
-									<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}" class="file">{$reviewerFile->getFileName()|escape}</a>&nbsp;&nbsp;{$reviewerFile->getDateModified()|date_format:$dateFormatShort}
+									<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}" 
+                                                                           class="file btn btn-default btn-sm">
+                                                                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                                                            {$reviewerFile->getOriginalFileName()|escape}
+                                                                        </a>
+                                                                        &nbsp;&nbsp;
+                                                                        ({$reviewerFile->getDateModified()|date_format:$dateFormatShort})
+                                                                        <!--
 									<input type="hidden" name="reviewId" value="{$reviewAssignment->getId()}" />
 									<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 									<input type="hidden" name="fileId" value="{$reviewerFile->getFileId()}" />
 									<input type="hidden" name="revision" value="{$reviewerFile->getRevision()}" />
 									{translate key="director.paper.showAuthor"} <input type="checkbox" name="viewable" value="1"{if $reviewerFile->getViewable()} checked="checked"{/if} />
 									<input type="submit" value="{translate key="common.record"}" class="button" />
+                                                                        -->
 								</form>
 							</td>
 						</tr>
@@ -275,27 +289,36 @@
 						</tr>
 						{/foreach}
 					</table>
-				</td>
-			</tr>
-                        {/if}
-		{/if}
-
-		{if (($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') || !$reviewAssignment->getDateConfirmed()) && $reviewAssignment->getDateNotified() && !$reviewAssignment->getDeclined()}
-			<tr valign="top">
-				<td class="label">{translate key="reviewer.paper.directorToEnter"}</td>
-				<td>
-					{if !$reviewAssignment->getDateConfirmed()}
-						<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=1}" class="action">{translate key="reviewer.paper.canDoReview"}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=0}" class="action">{translate key="reviewer.paper.cannotDoReview"}</a><br />
-					{/if}
-					<form method="post" action="{url op="uploadReviewForReviewer"}" enctype="multipart/form-data">
-						{translate key="director.paper.uploadReviewForReviewer"}
+                                        {if !$reviewCompleted}
+                                        <form method="post" action="{url op="uploadReviewForReviewer"}" enctype="multipart/form-data">
+						<!--{translate key="director.paper.uploadReviewForReviewer"}-->
 						<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 						<input type="hidden" name="reviewId" value="{$reviewAssignment->getId()}"/>
 						<input type="file" name="upload" class="uploadField" />
 						<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
 					</form>
+                                        {/if}
+				</td>
+			</tr>
+                        {*/if*}
+		{/if}
+
+		{if (($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') || !$reviewAssignment->getDateConfirmed()) && $reviewAssignment->getDateNotified() && !$reviewAssignment->getDeclined()}
+			<tr valign="top">
+				<td class="label">
+                                    {*translate key="reviewer.paper.directorToEnter"*}
+                                    選擇建議
+                                </td>
+				<td>
+					{if !$reviewAssignment->getDateConfirmed()}
+						<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=1}" class="action">{translate key="reviewer.paper.canDoReview"}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{url op="confirmReviewForReviewer" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() accept=0}" class="action">{translate key="reviewer.paper.cannotDoReview"}</a><br />
+					{/if}
+					
 					{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
-						<a class="action" href="{url op="enterReviewerRecommendation" paperId=$submission->getPaperId() reviewId=$reviewAssignment->getId()}">{translate key="director.paper.recommendation"}</a>
+						<a class="action btn btn-default btn-sm" 
+                                                   href="{url op="enterReviewerRecommendation" paperId=$submission->getPaperId() reviewId=$reviewAssignment->getId()}">
+                                                    {translate key="director.paper.recommendation"}
+                                                </a>
 					{/if}
 				</td>
 			</tr>

@@ -273,18 +273,32 @@ function confirmSubmissionCheck() {
     {if $reviewAssignment->getReviewFormId()}
     <tr>
         <td class="label">
-            <span class="instruct">{translate key="reviewer.paper.enterReviewForm"}</span>
+            審查意見
         </td>
         <td class="value">
             
             {if $confirmedStatus and not $declined}
+                    <!--
                     <a href="{url op="editReviewFormResponse" path=$reviewId|to_array:$reviewAssignment->getReviewFormId()}" class="btn btn-default">
                         {icon name="comment"}
                         {translate key="submission.reviewForm"} 
                     </a>
+                    -->
+                    <a href="javascript:openComments('{url op="viewPeerReviewComments" path=$paperId|to_array:$reviewId}');" 
+                        class="btn btn-primary">
+                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                         {*translate key="event.logType.review"*} 
+                         編輯
+                     </a>
             {else}
-                     {icon name="comment" disabled="disabled"}
+                <a class="btn btn-default disabled">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    {*translate key="event.logType.review"*} 
+                    關閉
+               </a>
+                     {*icon name="comment" disabled="disabled"*}
             {/if}
+            <!-- <span class="instruct">{translate key="reviewer.paper.enterReviewForm"}</span> -->
         </td>
     </tr>
     {else}{* $reviewAssignment->getReviewFormId() *}
@@ -302,29 +316,43 @@ function confirmSubmissionCheck() {
                                     編輯
                                 </a>
 			{else}
-				 {icon name="comment" disabled="disabled"}
+                            <a class="btn btn-default disabled">
+                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                 {*translate key="event.logType.review"*} 
+                                 關閉
+                            </a>
+				 {*icon name="comment" disabled="disabled"*}
 			{/if}
         </td>
     </tr>
     {/if}
-    {*}
+    
     <tr>
         <td class="label">
-            <span class="instruct">{translate key="reviewer.paper.uploadFile"}</span>
+            <span class="instruct">
+                {*translate key="reviewer.paper.uploadFile"*}
+                審查委員檔案
+            </span>
         </td>
         <td class="value">
             <table class="data" width="100%">
 			{foreach from=$submission->getReviewerFileRevisions() item=reviewerFile key=key}
 				{assign var=uploadedFileExists value="1"}
 				<tr valign="top">
-				<td class="label" width="30%">
+                                <!--
+				<td class="label" width="20%">
 					{if $key eq "0"}
 						{translate key="reviewer.paper.uploadedFile"}
 					{/if}
 				</td>
-				<td class="value" width="70%">
-					<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewerFile->getFileId():$reviewerFile->getRevision()}" class="file">{$reviewerFile->getFileName()|escape}</a>
-					{$reviewerFile->getDateModified()|date_format:$dateFormatShort}
+                                -->
+				<td class="value" width="">
+					<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewerFile->getFileId():$reviewerFile->getRevision()}" 
+                                           class="file btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                            {$reviewerFile->getOriginalFileName()|escape}
+                                        </a>
+					({$reviewerFile->getDateModified()|date_format:$dateFormatShort})
 					{if ($submission->getRecommendation() === null || $submission->getRecommendation() === '') && (!$submission->getCancelled())}
 						<a class="action" href="{url op="deleteReviewerVersion" path=$reviewId|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}">{translate key="common.delete"}</a>
 					{/if}
@@ -332,9 +360,11 @@ function confirmSubmissionCheck() {
 				</tr>
 			{foreachelse}
 				<tr valign="top">
+                                <!--
 				<td class="label" width="30%">
 					{translate key="reviewer.paper.uploadedFile"}
 				</td>
+                                -->
 				<td class="nodata">
 					{translate key="common.none"}
 				</td>
@@ -353,7 +383,7 @@ function confirmSubmissionCheck() {
 		{/if}
         </td>
     </tr>
-    {*}
+    
     
     
     {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}
