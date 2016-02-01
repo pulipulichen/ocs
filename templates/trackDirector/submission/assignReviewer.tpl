@@ -8,6 +8,15 @@
  *
  * $Id$
  *}
+<script type="text/javascript">
+{literal}
+<!--
+function confirmSubmissionCheck() {
+    return confirm('{/literal}{translate|escape:"javascript" key="reviewer.paper.confirmDecision"}{literal}');
+}
+// -->
+{/literal}
+</script>
 
 <div id="peerReview">
 
@@ -128,25 +137,25 @@
                                             {url|assign:"reviewUrl" op="notifyReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
 							{if !$allowRecommendation}
 								{icon name="mail" url=$reviewUrl disabled="true"}
+                                                                <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
+                                                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                                    邀請
+                                                                </a>
 							{elseif $reviewAssignment->getDateNotified()}
 								{$reviewAssignment->getDateNotified()|date_format:$dateFormatShort}
-								{if !$reviewAssignment->getDateCompleted() and !$reviewAssignment->getDeclined()}
-									{*icon name="mail" url=$reviewUrl*}
-                                                                        <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
-                                                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                            邀請
-                                                                        </a>
-								{/if}
-							{elseif !$reviewAssignment->getDeclined()}
+							{elseif !$reviewAssignment->getDeclined() and !$reviewAssignment->getDateNotified()}
 								<a href="{$reviewUrl}" class="btn btn-primary btn-sm">
-                                                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                            邀請
-                                                                        </a>
+                                                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                                    邀請
+                                                                </a>
 							{/if}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th class="">{translate key="submission.underway"}</th>
+                                        <th class="">
+                                            {*translate key="submission.underway"*}
+                                            回覆審查邀請
+                                        </th>
                                         <td class="value">
                                             {$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort|default:"&mdash;"}
                                             {if $reviewAssignment->getDeclined()}
@@ -333,7 +342,7 @@
 			<tr valign="top">
 				<td class="label">
                                     {*translate key="reviewer.paper.directorToEnter"*}
-                                    確認審查
+                                    審查建議
                                 </td>
 				<td>
 					{if !$reviewAssignment->getDateConfirmed()}
@@ -351,10 +360,19 @@
 					{/if}
 					
 					{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
-						<a class="action btn btn-default btn-sm" 
+<form method="post" action="{url op="enterReviewerRecommendation"}">
+<input type="hidden" name="paperId" value="{$submission->getPaperId()|escape}" />
+<input type="hidden" name="reviewId" value="{$reviewId|escape}" />
+            <select name="recommendation" size="1" 
+                    class="selectMenu btn btn-default" onchange="if (confirmSubmissionCheck()) $(this).parents('form:first').submit(); else this.value='';">
+                        {html_options_translate options=$reviewerRecommendationOptions}
+		</select>
+</form>
+                <!--<a class="action btn btn-default btn-sm" 
                                                    href="{url op="enterReviewerRecommendation" paperId=$submission->getPaperId() reviewId=$reviewAssignment->getId()}">
                                                     {translate key="director.paper.recommendation"}
                                                 </a>
+                -->
 					{/if}
 				</td>
 			</tr>

@@ -208,74 +208,78 @@ function confirmSubmissionCheck() {
     </tr>
     {/if}
     {if $confirmedStatus AND !$declined}
+    {if $schedConf->getSetting('reviewMode') != REVIEW_MODE_ABSTRACTS_ALONE}
     <tr>
         <th class="label">
-            <span class="instruct">{translate key="$reviewerInstruction3"}</span>
+            <span class="instruct">
+                {if ($confirmedStatus and not $declined) or not $schedConf->getSetting('restrictReviewerFileAccess')}
+				{if $reviewAssignment->getStage() == REVIEW_STAGE_ABSTRACT}
+                                    {translate key="submission.abstract"}
+                                {else}
+                                    {translate key="$reviewerInstruction3"}
+                                {/if}
+                {else}
+                    {translate key="$reviewerInstruction3"}
+                {/if}
+            </span>
         </th>
+        
         <td class="value">
-            {if $schedConf->getSetting('reviewMode') != REVIEW_MODE_ABSTRACTS_ALONE}
-            <table width="100%" class="data">
+            
 			{if ($confirmedStatus and not $declined) or not $schedConf->getSetting('restrictReviewerFileAccess')}
 				{if $reviewAssignment->getStage() == REVIEW_STAGE_ABSTRACT}
-					<tr valign="top">
-						<td class="label">
-							{translate key="submission.abstract"}
-						</td>
-						<td class="value">
-							{$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br}
-						</td>
-					</tr>
+					{$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 				{else}
-					<tr valign="top">
-						<td class="label">
-							{translate key="submission.submissionManuscript"}
-						</td>
-						<td class="value">
-							{if $reviewFile}
-							{if $submission->getDateConfirmed() or not $schedConf->getSetting('restrictReviewerAccessToFile')}
-                                                            <a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewFile->getFileId():$reviewFile->getRevision()}" 
-                                                               class="file btn btn-primary">
-                                                                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                                                                {$reviewFile->getFileName()|escape}
-                                                            </a>
-							{else}{$reviewFile->getFileName()|escape}{/if}
-							&nbsp;&nbsp;{$reviewFile->getDateModified()|date_format:$dateFormatShort}
-							{else}
-							{translate key="common.none"}
-							{/if}
-						</td>
-					</tr>
+                                        {if $reviewFile}
+                                            {if $submission->getDateConfirmed() or not $schedConf->getSetting('restrictReviewerAccessToFile')}
+                                                <a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewFile->getFileId():$reviewFile->getRevision()}" 
+                                                   class="file btn btn-primary">
+                                                    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                                    {$reviewFile->getFileName()|escape}
+                                                </a>
+                                        {else}
+                                            <a class="btn btn-default disabled">
+                                                {$reviewFile->getFileName()|escape}
+                                            </a>
+                                        {/if}
+                                        &nbsp;&nbsp;
+                                        ({$reviewFile->getDateModified()|date_format:$dateFormatShort})
+                                    {else}
+                                        {translate key="common.none"}
+                                    {/if}
 				{/if}
-				<tr valign="top">
-					<td class="label">
-						{translate key="paper.suppFiles"}
-					</td>
-					<td class="value">
-						{assign var=sawSuppFile value=0}
-						{foreach from=$suppFiles item=suppFile}
-							{if $suppFile->getShowReviewers() }
-                                                            {assign var=sawSuppFile value=1}
-                                                            <a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$suppFile->getFileId()}" 
-                                                               class="file btn btn-default">
-                                                                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
-                                                                {$suppFile->getOriginalFileName()|escape}
-                                                            </a>
-                                                            <br />
-							{/if}
-						{/foreach}
-
-						{if !$sawSuppFile}
-							{translate key="common.none"}
-						{/if}
-					</td>
-				</tr>
 			{else}
-			<tr><td class="nodata">{translate key="reviewer.paper.restrictedFileAccess"}</td></tr>
+                            {translate key="reviewer.paper.restrictedFileAccess"}
 			{/if}
-		</table>
-                {/if}
         </td>
     </tr>
+        {if $suppFiles}
+            <tr valign="top">
+                <td class="label">
+                    {*translate key="paper.suppFiles"*}
+                    作者的附加檔案
+                </td>
+                <td class="value">
+                    {assign var=sawSuppFile value=0}
+                    {foreach from=$suppFiles item=suppFile}
+                        {if $suppFile->getShowReviewers() }
+                            {assign var=sawSuppFile value=1}
+                            <a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$suppFile->getFileId()}" 
+                               class="file btn btn-default">
+                                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                {$suppFile->getOriginalFileName()|escape}
+                            </a>
+                            <br />
+                        {/if}
+                    {/foreach}
+
+                    {if !$sawSuppFile}
+                        {translate key="common.none"}
+                    {/if}
+                </td>
+            </tr>
+        {/if}
+    {/if}
     {if $reviewAssignment->getReviewFormId()}
     <tr>
         <td class="label">
