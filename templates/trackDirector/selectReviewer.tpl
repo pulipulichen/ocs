@@ -51,16 +51,19 @@ function sortSearch(heading, direction) {
 {/if}
 <tr><td colspan="{$numCols|escape}" class="headseparator">&nbsp;</td></tr>
 <tr class="heading" valign="bottom">
-	<td width="20%">{sort_search key="user.name" sort="reviewerName"}</td>
-	<td>{translate key="user.interests"}</td>
+	<td>{sort_search key="user.name" sort="reviewerName"}</td>
+	<td>
+            {*translate key="user.interests"*}
+            擅長領域
+        </td>
 	{if $rateReviewerOnQuality}
-		<td width="7%">{sort_search key="reviewer.averageQuality" sort="quality"}</td>
+		<td>{sort_search key="reviewer.averageQuality" sort="quality"}</td>
 	{/if}
 	<td>{sort_search key="reviewer.completedReviews" sort="done"}</td>
 	<td>{sort_search key="director.submissions.averageTime" sort="average"}</td>
 	<td>{sort_search key="director.submissions.lastAssigned" sort="latest"}</td>
 	<td>{sort_search key="director.submissions.active" sort="active"}</td>
-	<td class="heading">{translate key="common.action"}</td>
+	<td class="heading" align="right">{translate key="common.action"}</td>
 </tr>
 <tr><td colspan="{$numCols|escape}" class="headseparator">&nbsp;</td></tr>
 {iterate from=reviewers item=reviewer}
@@ -72,8 +75,12 @@ function sortSearch(heading, direction) {
 	<td><a class="action" href="{url op="userProfile" path=$userId}">{$reviewer->getFullName()|escape}</a></td>
 	<td>{$reviewer->getLocalizedInterests()|escape}</td>
 	{if $rateReviewerOnQuality}<td>
-		{if $qualityCount}{$averageQualityRatings[$userId].average|string_format:"%.1f"}
-		{else}{translate key="common.notApplicableShort"}{/if}
+		{if $qualityCount}
+                    {$averageQualityRatings[$userId].average|string_format:"%.1f"}
+		{else}
+                    {*translate key="common.notApplicableShort"*}
+                    &mdash;
+                {/if}
 	</td>{/if}
 
 	<td>
@@ -93,7 +100,7 @@ function sortSearch(heading, direction) {
 	</td>
 	<td>{if $reviewerStats.last_notified}{$reviewerStats.last_notified|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
 	<td>{$reviewerStats.incomplete|default:0}</td>
-	<td>
+	<td align="right">
 		{if $reviewer->review_id}
 			{translate key="common.alreadyAssigned"}
 		{else}

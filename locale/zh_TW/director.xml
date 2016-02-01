@@ -99,7 +99,7 @@
 	<message key="director.submissions.accept">接受</message>
 	<message key="director.submissions.activeAssignments">啟動分配</message>
 	<message key="director.submissions.assignedTo">檢視被安排的審查委員</message>
-	<message key="director.submissions.averageTime">週</message>
+	<message key="director.submissions.averageTime">耗時</message>
 	<message key="director.submissions.inTrack">檢視主題</message>
 	<message key="director.submissions.invite">邀請</message>
 	<message key="director.submissions.lastAssigned">最近審查時間</message>
@@ -108,5 +108,5 @@
 	<message key="director.submissions.showBy">展示依</message>
 	<message key="director.submissions.submitMMDD">投稿 MM-DD</message>
         <message key="director.submission.status">稿件處理現況</message>
-        <message key="director.submissions.active">審查中稿件</message>
+        <message key="director.submissions.active">負責稿件</message>
 </locale>

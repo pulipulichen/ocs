@@ -187,11 +187,11 @@
 ]]></message>
 	<message key="default.schedConfSettings.forAuthors"><![CDATA[有果您有興趣投稿本研討會，建議您訪問<a href="{$aboutUrl}">關於研討會</a> 網頁了解研討會的相關策略，以及 <a href="{$authorGuidelinesUrl}">作者指引</a> 網頁。作者們需要 <a href="{$accountUrl}">建立一個帳號</a> 以便在研討會網站中進行投稿。如果您已經擁有本網站的帳號，請 <a href="{$loginUrl}">登入</a> 並開始投稿的步驟。]]></message>
 	<message key="default.schedConfSettings.forReaders"><![CDATA[我們鼓勵讀者們登錄研討會網站以取得本研討會論文的相關通知。您可以點選 <a href="{$accountUrl}">帳號</a> 選單連結到研討會的首頁，本清單充許研討會要求特定的支援或者讀者們。請參閱研討會的 <a href="{$privacyStatementUrl}">穩私條款</a> 本研討會不會將您的姓名與電子郵件用在研討會以外的用途上。]]></message>
-	<message key="director.paper.selectReviewerNotes"><![CDATA[姓名連結到審查者的個人資料。<br/>
-「評分」範圍為1到5分，5分最高。<br/>
-「週」 為完成審查的平均時間。<br/>
+	<message key="director.paper.selectReviewerNotes"><![CDATA[您可以點選姓名連結到審查委員的個人資料。<br/>
+「評價」是對審查委員標線的評分，範圍為1到5分，5分最高。<br/>
+「耗時」 為完成審查作業耗時的平均週數。<br/>
 「最近審查時間」為最近一次接受審查工作的時間。<br/>
-「審查中稿件」：為目前正在考慮或進行中的審查稿件數量。]]></message>
+「負責稿件」：為目前正在考慮或進行中的審查稿件數量。]]></message>
 	<message key="editor.paper.clearReviewForm">清除審查表</message>
 	<message key="editor.paper.confirmChangeReviewForm">警告！改變審查表將會影響已經填寫的審查意見。您確定要繼續？</message>
 	<message key="editor.paper.reviewForms">審查表</message>
@@ -540,7 +540,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reader.fullTextNotPostedYet">研討會論文將於 {$date} 寄出.</message>
 	<message key="reader.fullTextRegistrantsOnlyUntil">研討會將於 {$date} 開放使用.</message>
 	<message key="reader.fullTextRegistrationRequired">本研討會需要報名才能查看文章。</message>
-	<message key="reviewer.averageQuality">評分</message>
+	<message key="reviewer.averageQuality">評價</message>
 	<message key="reviewer.completedReviews">完成</message>
 	<message key="reviewer.paper.automatic">(自動)</message>
 	<message key="reviewer.paper.canDoReview">願意接受審查任務</message>
