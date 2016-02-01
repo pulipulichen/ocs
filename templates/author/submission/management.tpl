@@ -135,7 +135,8 @@
 		<td width="80%" colspan="2" class="data">
 			{foreach from=$editAssignments item=editAssignment}
 				{assign var=emailString value=$editAssignment->getDirectorFullName()|concat:" <":$editAssignment->getDirectorEmail():">"}
-				{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
+				{*url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$currentUrl subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()*}
+                                {url|assign:"url" op="emailDirector" directorId=$editAssignment->getDirectorId() redirectUrl=$currentUrl paperId=$submission->getPaperId()}
                                 <a href="{$url}" class="btn btn-default">
                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                     {$editAssignment->getDirectorFullName()|escape} 

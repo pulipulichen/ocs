@@ -61,6 +61,7 @@ switch ($op) {
 	//
 	case 'viewDirectorDecisionComments':
 	case 'emailDirectorDecisionComment':
+        case 'emailDirector':
 	case 'editComment':
 	case 'saveComment':
 	case 'deleteComment':

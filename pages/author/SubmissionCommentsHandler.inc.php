@@ -56,6 +56,26 @@ class SubmissionCommentsHandler extends AuthorHandler {
 			Request::redirect(null, null, null, 'submissionReview', array($paperId));
 		}
 	}
+        
+        /**
+	 * Email a director decision comment.
+	 */
+	function emailDirector() {
+		$paperId = (int) Request::getUserVar('paperId');
+                $directorId = (int) Request::getUserVar('directorId');
+                
+                $userDao =& DAORegistry::getDAO('UserDAO');
+                $director = & $userDao->getUserByUserID($directorId, true);
+                
+		$trackSubmissionHandler = new TrackSubmissionHandler();
+		$trackSubmissionHandler->validate($paperId);
+		$submission =& $trackSubmissionHandler->submission;
+                
+		$this->setupTemplate(true);		
+		if (AuthorAction::emailDirector($submission, Request::getUserVar('send'), $director)) {
+			Request::redirect(null, null, null, 'submissionReview', array($paperId));
+		}
+	}
 
 	/**
 	 * Edit comment.

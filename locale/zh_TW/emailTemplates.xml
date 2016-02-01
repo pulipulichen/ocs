@@ -481,6 +481,8 @@ Thank you and looking forward to your participation in this event.
 
 我們仔細審查了您的稿件「{$paperTitle}」，以下是供您修正稿件的建議：
 
+{$recommendation}
+
 如果稿件已經修正完成，您可以從以下網址進入研討會網站重新上傳修正後的稿件：
 {$submissionUrl}
 
@@ -545,13 +547,28 @@ Thank you and looking forward to your participation in this event.
 {$editorialContactSignature}</body>
         <description>當作者已經修改完稿件之後，通知負責人的信件範本。</description>
     </email_text>
+    <email_text key="AUTHOR_EMAIL_DIRECTOR">
+		<subject>關於稿件 {$paperTitle} 的問題</subject>
+        <body>{$contactName}您好，
+
+百忙之中叨擾您真是不好意思，我是投稿到「{$conferenceName}」作者 {$authorName} 。我對於稿件「{$paperTitle}」投稿與審查有些問題如下：
+
+請您使用線上研討會管理系統來協助處理我的問題：
+{$submissionUrl}
+
+如有造成任何不便，敬請見諒。期待儘快收到您的回覆。
+敬祝教安，
+
+{$editorialContactSignature}</body>
+        <description>當作者已經修改完稿件之後，通知負責人的信件範本。</description>
+    </email_text>
 	<email_text key="USER_REGISTER">
-		<subject>您已經成功註冊為新使用者</subject>
+		<subject>您已經成功註冊</subject>
 		<body>{$username}您好，
 
-感謝您在 {$conferenceName} 註冊。
+感謝您在 {$conferenceName} 完成了註冊。
 
-以下是您的帳號與密碼，：
+以下是您的帳號與密碼：
 
 您的帳號：{$username}
 您的密碼：{$password}

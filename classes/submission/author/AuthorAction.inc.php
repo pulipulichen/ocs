@@ -237,6 +237,96 @@ class AuthorAction extends Action {
 			return false;
 		}
 	}
+        
+        /**
+	 * Email director decision comment.
+	 * @param $authorSubmission object
+	 * @param $send boolean
+	 */
+	function emailDirector($authorSubmission, $send, $director) {
+		$userDao =& DAORegistry::getDAO('UserDAO');
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+
+		$user =& Request::getUser();
+		import('mail.PaperMailTemplate');
+
+                $templateName = 'AUTHOR_EMAIL_DIRECTOR';
+
+		$email = new PaperMailTemplate($authorSubmission, $templateName);
+
+		$editAssignments = $authorSubmission->getEditAssignments();
+		$directors = array($director);
+		
+                
+		if ($send && !$email->hasErrors()) {
+			HookRegistry::call('AuthorAction::emailDirector', array(&$authorSubmission, &$email));
+			$email->send();
+
+			$paperCommentDao =& DAORegistry::getDAO('PaperCommentDAO');
+			$paperComment = new PaperComment();
+			$paperComment->setCommentType(COMMENT_TYPE_DIRECTOR_DECISION);
+			$paperComment->setRoleId(ROLE_ID_AUTHOR);
+			$paperComment->setPaperId($authorSubmission->getPaperId());
+			$paperComment->setAuthorId($authorSubmission->getUserId());
+			$paperComment->setCommentTitle($email->getSubject());
+			$paperComment->setComments($email->getBody());
+			$paperComment->setDatePosted(Core::getCurrentDate());
+			$paperComment->setViewable(true);
+			$paperComment->setAssocId($authorSubmission->getPaperId());
+			$paperCommentDao->insertPaperComment($paperComment);
+
+			return true;
+		} else {
+			if (!Request::getUserVar('continued')) {
+                                //$subject = $authorSubmission->getLocalizedTitle();
+                                $subject = $email->getSubject();
+                                
+                                //$subject = "[" . $schedConf->getLocalizedAcronym() . "] " . $subject;
+				$email->setSubject($subject);
+				if (!empty($directors)) {
+					foreach ($directors as $director) {
+						$email->addRecipient($director->getEmail(), $director->getFullName());
+					}
+				} else {
+					$email->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+				}
+                                
+                                
+                                //--------------------------
+                                $authorUser =& $userDao->getUser($authorSubmission->getUserId());
+                                //$submissionUrl = $submissionUrl . '?u=' . $authorUser->getUserId();
+				$authorEmail = $authorUser->getEmail();
+				$email->addRecipient($authorEmail, $authorUser->getFullName());
+				if ($schedConf->getSetting('notifyAllAuthorsOnDecision')) {
+                                    foreach ($authorSubmission->getAuthors() as $author) {
+                                        if ($author->getEmail() != $authorEmail) {
+                                            $email->addCc ($author->getEmail(), $author->getFullName());
+                                        }
+                                    }
+                                }
+                                $submissionUrl = Request::url(null, null, 'director', 'submissionReview', $authorSubmission->getPaperId());
+                                
+				$email->assignParams(array(
+                                        'contactName' => $director->getFullName(),
+					'conferenceDate' => strftime(Config::getVar('general', 'date_format_short'), $schedConf->getSetting('startDate')),
+					'authorName' => $authorUser->getFullName(),
+					'conferenceTitle' => $conference->getConferenceTitle(),
+					'editorialContactSignature' => $user->getContactSignature(),
+					'locationCity' => $schedConf->getSetting('locationCity'),
+					'paperTitle' => $authorSubmission->getLocalizedTitle(),
+                                        'submissionUrl' => $submissionUrl
+				));
+                                // ---------------------------
+
+			}
+                        
+			$email->displayEditForm(Request::url(null, null, null, 'emailDirectorDecisionComment', 'send'), array('paperId' => $authorSubmission->getPaperId())
+                                , 'submission/comment/directorDecisionEmail.tpl', array('isADirector' => false, 'templateName' => $templateName));
+
+			return false;
+		}
+	}
 
 	//
 	// Misc
