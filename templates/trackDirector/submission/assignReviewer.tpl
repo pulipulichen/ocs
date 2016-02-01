@@ -402,6 +402,10 @@ function confirmSubmissionCheck() {
         </div>
         </div>
 	{/if}
+        {foreachelse}
+            <p class="text-center">
+                尚未選擇審查委員  {* @TODO 語系 *}
+            </p>
 	{/foreach}
 {/if}
 
