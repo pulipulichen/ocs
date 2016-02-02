@@ -1067,7 +1067,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if ($recommendation != null) {
 			TrackDirectorAction::setReviewerRecommendation($paperId, $reviewId, $recommendation, SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT);
-			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, 'peerReview', array(), 'peerReview'.$reviewId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
 		} else {
 			$this->setupTemplate(true, $paperId, 'review');
 
@@ -1211,7 +1211,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 
 		if ($reviewFormId != null) {
 			TrackDirectorAction::addReviewForm($submission, $reviewId, $reviewFormId);
-			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, 'peerReview', array(), 'peerReview'.$reviewId);
+			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
 		} else {
 			$conference =& Request::getConference();
 			$rangeInfo =& Handler::getRangeInfo('reviewForms');

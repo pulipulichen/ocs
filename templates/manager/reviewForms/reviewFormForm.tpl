@@ -9,6 +9,7 @@
  *}
 {include file="common/header.tpl"}
 
+<!--
 {if $reviewFormId}
 	<ul class="nav nav-tabs">
 		<li class="current active"><a href="{url op="editReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
@@ -16,6 +17,7 @@
 		<li><a href="{url op="previewReviewForm" path=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
 	</ul>
 {/if}
+-->
 
 <br/>
 
@@ -46,8 +48,21 @@
 	<td width="80%" class="value"><input type="text" name="title[{$formLocale|escape}]" value="{$title[$formLocale]|escape}" id="title" size="40" maxlength="120" class="textField" /></td>
 </tr>
 <tr valign="top">
-	<td class="label">{fieldLabel name="description" key="manager.reviewForms.description"}</td>
+	<td class="label">
+            {*fieldLabel name="description" key="manager.reviewForms.description"*}
+            {fieldLabel name="description" key="submission.comments.forAuthorDirector"}
+            
+        </td>
 	<td class="value"><textarea name="description[{$formLocale|escape}]" rows="4" cols="40" id="description" class="textArea">{$description[$formLocale]|escape}</textarea></td>
+</tr>
+<tr valign="top">
+	<td class="label">
+            {*fieldLabel name="description" key="manager.reviewForms.description"*}
+            {fieldLabel name="templateForDirector" key="submission.comments.forDirector"}
+        </td>
+	<td class="value">
+            <textarea name="templateForDirector[{$formLocale|escape}]" rows="4" cols="40" id="templateForDirector" class="textArea">{$templateForDirector[$formLocale]|escape}</textarea>
+        </td>
 </tr>
 </table>
 

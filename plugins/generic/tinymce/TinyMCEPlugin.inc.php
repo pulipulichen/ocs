@@ -120,6 +120,7 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/updateReviewForm':
 			case 'manager/createReviewForm':
 				$fields[] = 'description';
+                                $fields[] = 'templateForDirector';
 				break;
 			case 'manager/editReviewFormElement':
 			case 'manager/createReviewFormElement':
