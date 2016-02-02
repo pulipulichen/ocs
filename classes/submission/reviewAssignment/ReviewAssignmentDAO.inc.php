@@ -409,6 +409,8 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setReviewFileId($row['review_file_id']);
 		$reviewAssignment->setReviewRevision($row['review_revision']);
 		$reviewAssignment->setReviewFormId($row['review_form_id']);
+                $reviewAssignment->setCommentAuthor($row['comment_author']);
+                $reviewAssignment->setCommentDirector($row['comment_director']);
 
 		// Files
 		$reviewAssignment->setReviewFile($this->paperFileDao->getPaperFile($row['review_file_id'], $row['review_revision']));
@@ -432,9 +434,9 @@ class ReviewAssignmentDAO extends DAO {
 	function insertReviewAssignment(&$reviewAssignment) {
 		$this->update(
 			sprintf('INSERT INTO review_assignments
-				(paper_id, reviewer_id, stage, recommendation, declined, replaced, cancelled, date_assigned, date_notified, date_confirmed, date_completed, date_acknowledged, date_due, reviewer_file_id, quality, date_rated, last_modified, date_reminded, reminder_was_automatic, review_form_id)
+				(paper_id, reviewer_id, stage, recommendation, declined, replaced, cancelled, date_assigned, date_notified, date_confirmed, date_completed, date_acknowledged, date_due, reviewer_file_id, quality, date_rated, last_modified, date_reminded, reminder_was_automatic, review_form_id, comment_author, comment_director)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
 				(int) $reviewAssignment->getPaperId(),
@@ -447,7 +449,9 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getReviewerFileId(),
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
-				$reviewAssignment->getReviewFormId()
+				$reviewAssignment->getReviewFormId(),
+                                $reviewAssignment->getCommentAuthor(),
+                                $reviewAssignment->getCommentDirector()
 			)
 		);
 
@@ -481,7 +485,9 @@ class ReviewAssignmentDAO extends DAO {
 					last_modified = %s,
 					date_reminded = %s,
 					reminder_was_automatic = ?,
-					review_form_id = ?
+					review_form_id = ?,
+                                        comment_author = ?,
+                                        comment_director = ?
 				WHERE review_id = ?',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -496,6 +502,8 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
+                                $reviewAssignment->getCommentAuthor(),
+                                $reviewAssignment->getCommentDirector(),
 				(int) $reviewAssignment->getId()
 			)
 		);

@@ -209,6 +209,125 @@ class ReviewerAction extends Action {
 	 * @param $recommendation int
 	 * @param $send boolean
 	 */
+	function recordRecommendationIntegrated(&$reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $recommendation, $draft, $send) {
+		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+		$userDao =& DAORegistry::getDAO('UserDAO');
+                
+                $paperId = $reviewerSubmission->getPaperId();
+                $paperDao =& DAORegistry::getDAO('PaperDAO');
+		$paper =& $paperDao->getPaper($paperId);
+                
+		// Check validity of selected recommendation
+		$reviewerRecommendationOptions =& ReviewAssignment::getReviewerRecommendationOptions();
+		if (!isset($reviewerRecommendationOptions[$recommendation])) {
+                    return true;
+                }
+		$reviewAssignment =& $reviewAssignmentDao->getReviewAssignmentById($reviewerSubmission->getReviewId());
+		$reviewer =& $userDao->getUser($reviewAssignment->getReviewerId());
+		if (!isset($reviewer)) {
+                    return true;
+                }
+                
+                if (isset($recommendation)) {
+                    $reviewAssignment->setRecommendation($recommendation);
+                }
+                else {
+                    $reviewAssignment->setRecommendation(null);
+                }
+                
+                $reviewAssignment->setCommentAuthor($commentAuthor);
+                $reviewAssignment->setCommentDirector($commentDirector);
+
+                $reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
+                if ($draft === "1") {
+                    // 先從comment開始好了
+                    return true;
+                }
+                
+		// Only record the reviewers recommendation if
+		// no recommendation has previously been submitted.
+		//if ($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation === '') {
+			import('mail.PaperMailTemplate');
+			$email = new PaperMailTemplate($reviewerSubmission, 'REVIEW_COMPLETE');
+			// Must explicitly set sender because we may be here on an access
+			// key, in which case the user is not technically logged in
+			$email->setFrom($reviewer->getEmail(), $reviewer->getFullName());
+
+			if (!$email->isEnabled() || ($send && !$email->hasErrors())) {
+				HookRegistry::call('ReviewerAction::recordRecommendationIntegrated', array(&$reviewerSubmission, &$email, $recommendation));
+				if ($email->isEnabled()) {
+					$email->setAssoc(PAPER_EMAIL_REVIEW_COMPLETE, PAPER_EMAIL_TYPE_REVIEW, $reviewerSubmission->getReviewId());
+					$email->send();
+				}
+                                
+                                //$reviewAssignment->setCommentAuthor($authorComments);
+                                //$reviewAssignment->setCommentDirector($comments);
+				//$reviewAssignment->setRecommendation($recommendation);
+				$reviewAssignment->setDateCompleted(Core::getCurrentDate());
+				$reviewAssignment->stampModified();
+				$reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
+
+				// Add log
+				import('paper.log.PaperLog');
+				import('paper.log.PaperEventLogEntry');
+
+				$entry = new PaperEventLogEntry();
+				$entry->setPaperId($reviewAssignment->getPaperId());
+				$entry->setUserId($reviewer->getId());
+				$entry->setDateLogged(Core::getCurrentDate());
+				$entry->setEventType(PAPER_LOG_REVIEW_RECOMMENDATION);
+				$entry->setLogMessage('log.review.reviewRecommendationSet', array('reviewerName' => $reviewer->getFullName(), 'paperId' => $reviewAssignment->getPaperId(), 'stage' => $reviewAssignment->getStage()));
+				$entry->setAssocType(LOG_TYPE_REVIEW);
+				$entry->setAssocId($reviewAssignment->getId());
+
+				PaperLog::logEventEntry($reviewAssignment->getPaperId(), $entry);
+			} else {
+				if (!Request::getUserVar('continued')) {
+					$assignedDirectors = $email->toAssignedDirectors($reviewerSubmission->getPaperId());
+					$reviewingTrackDirectors = $email->toAssignedTrackDirectors($reviewerSubmission->getPaperId());
+					if (empty($assignedDirectors) && empty($reviewingTrackDirectors)) {
+						$schedConf =& Request::getSchedConf();
+						$email->addRecipient($schedConf->getSetting('contactEmail'), $schedConf->getSetting('contactName'));
+						$editorialContactName = $schedConf->getSetting('contactName');
+					} else {
+						if (!empty($reviewingTrackDirectors)) $editorialContact = array_shift($reviewingTrackDirectors);
+						else $editorialContact = array_shift($assignedDirectors);
+						$editorialContactName = $editorialContact->getDirectorFullName();
+					}
+
+					$reviewerRecommendationOptions =& ReviewAssignment::getReviewerRecommendationOptions();
+                                        
+                                        $submissionUrl = Request::url(null, null, 'director', 'submissionAssignReviewer', $paperId, array(), "peerReview" . $reviewerSubmission->getReviewId());
+
+					$email->assignParams(array(
+						'editorialContactName' => $editorialContactName,
+						'reviewerName' => $reviewer->getFullName(),
+						'paperTitle' => strip_tags($reviewerSubmission->getLocalizedTitle()),
+                                                'commentAuthor' => strip_tags($reviewAssignment->getCommentAuthor()),
+                                                'commentDirector' => strip_tags($reviewAssignment->getCommentDirector()),
+                                                'submissionUrl' => $submissionUrl,
+						'recommendation' => __($reviewerRecommendationOptions[$recommendation])
+					));
+				}
+
+				$email->displayEditForm(Request::url(null, null, 'reviewer', 'recordRecommendationIntegrated'),
+					array('reviewId' => $reviewerSubmission->getReviewId(), 
+                                            'recommendation' => $recommendation, 
+                                            'commentAuthor' => strip_tags($reviewAssignment->getCommentAuthor()),
+                                            'commentDirector' => strip_tags($reviewAssignment->getCommentDirector())
+                                        )
+				);
+				return false;
+			}
+		return true;
+	}
+        
+        /**
+	 * Records the reviewer's submission recommendation.
+	 * @param $reviewId int
+	 * @param $recommendation int
+	 * @param $send boolean
+	 */
 	function emailDirector($reviewerSubmission, $paperId, $send) {
 		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
 		$userDao =& DAORegistry::getDAO('UserDAO');

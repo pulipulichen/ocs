@@ -25,6 +25,7 @@ switch ($op) {
 	case 'submission':
 	case 'confirmReview':
 	case 'recordRecommendation':
+        case 'recordRecommendationIntegrated':
 	case 'viewMetadata':
 	case 'uploadReviewerVersion':
 	case 'deleteReviewerVersion':

@@ -174,9 +174,17 @@ Your password for disabling notification emails is: {$password}
 		<subject>論文審查已完成</subject>
 		<body>{$editorialContactName}您好，
 
-我已經為「{$conferenceName}」完成審查論文「{$paperTitle}」稿件的作業。我的審查意見如下：
+我已經為「{$conferenceName}」完成審查論文「{$paperTitle}」稿件的作業。
 
-{$recommendation}
+給作者的審查意見如下：
+
+{$commentAuthor}
+
+給您的審查意見如下：
+
+{$commentDirector}
+                
+審查建議為：{$recommendation}
 
 您可以從以下網址進入研討會網站操作：
 {$submissionUrl}

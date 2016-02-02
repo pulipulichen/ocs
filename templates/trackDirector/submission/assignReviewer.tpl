@@ -56,7 +56,7 @@ function confirmSubmissionCheck() {
 	{assign var="reviewId" value=$reviewAssignment->getId()}
         
         {assign var="reviewCompleted" value=null}
-        {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}
+        {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== '' and $reviewAssignment->getDateCompleted()}
             {assign var="reviewCompleted" value=true}
         {/if}
         
@@ -193,16 +193,21 @@ function confirmSubmissionCheck() {
                         <td>
                         {if $reviewAssignment->getReviewFormId()}
                                 {assign var="reviewFormId" value=$reviewAssignment->getReviewFormId()}
-                                {$reviewFormTitles[$reviewFormId]}
+                                <a href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    {$reviewFormTitles[$reviewFormId]}
+                                </a>
                         {else}
                                 {translate key="manager.reviewForms.noneChosen"}
                         {/if}
                         {if !$reviewAssignment->getDateCompleted()}
                                 &nbsp;&nbsp;&nbsp;&nbsp;
+                                {if !$reviewAssignment->getReviewFormId()}
                                 <a class="action btn btn-default" href="{url op="selectReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     {translate key="editor.paper.selectReviewForm"}
                                 </a>
+                                {/if}
                                 {if $reviewAssignment->getReviewFormId()}&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a class="action" href="{url op="clearReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
                                         {translate key="editor.paper.clearReviewForm"}
@@ -214,13 +219,42 @@ function confirmSubmissionCheck() {
                 {/if}
                 
 		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
+                    {if $reviewAssignment->getCommentAuthor()}
+<tr valign="top">
+	<td class="label">
+            {translate key="submission.comments.forAuthorDirector"}
+        </td>
+        <td class="value">{$reviewAssignment->getCommentAuthor()|nl2br}</textarea></td>
+</tr>
+                    {/if}
+                    {if $reviewAssignment->getCommentDirector()}
+<tr valign="top">
+	<td class="label">
+            {translate key="submission.comments.forDirector"}
+        </td>
+	<td class="value">{$reviewAssignment->getCommentDirector()|nl2br}</td>
+</tr>
+                    {/if}
+                    {if !$reviewAssignment->getCommentAuthor() and !$reviewAssignment->getCommentDirector()}
+                        <tr valign="top">
+				<td class="label">
+                                    {*translate key="submission.review"*}
+                                    審查意見
+                                </td>
+				<td>
+                                    {*translate key="submission.comments.noComments"*}
+                                    {* @TODO 語系 *}
+                                    沒有審查意見
+				</td>
+			</tr>
+                    {/if}
 			<tr valign="top">
 				<td class="label">
                                     {*translate key="reviewer.paper.recommendation"*}
                                     審查建議 {* @TODO 語系 *}
                                 </td>
 				<td>
-					{if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== ''}
+					{if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== '' and $reviewAssignment->getDateCompleted()}
 						{assign var="recommendation" value=$reviewAssignment->getRecommendation()}
                                                 <span 
                                                     {if $recommendation == 1}
@@ -251,34 +285,6 @@ function confirmSubmissionCheck() {
 					{/if}
 				</td>
 			</tr>
-			<tr valign="top">
-				<td class="label">
-                                    {*translate key="submission.review"*}
-                                    審查意見
-                                </td>
-				<td>
-					{if $reviewAssignment->getMostRecentPeerReviewComment()}
-						{assign var="comment" value=$reviewAssignment->getMostRecentPeerReviewComment()}
-						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId() anchor=$comment->getId()}');" class="btn btn-primary">
-                                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-                                                    檢視審查意見
-                                                </a>
-                                                    &nbsp;&nbsp;
-                                                    ({$comment->getDatePosted()|date_format:$dateFormatShort})
-					{else}
-                                            <!--
-						<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}');" class="btn btn-primary">
-                                                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-                                                    檢視審查意見
-                                                </a>
-                                                    &nbsp;&nbsp;
-                                            -->
-                                                    {*translate key="submission.comments.noComments"*}
-                                                    {* @TODO 語系 *}
-                                                    沒有審查意見
-					{/if}
-				</td>
-			</tr>
 			{if $reviewFormResponses[$reviewId]}
 			<tr valign="top">
 				<td class="label">
@@ -291,15 +297,12 @@ function confirmSubmissionCheck() {
 			{/if}
                         {assign var="reviewerFileRevisions" value=$reviewAssignment->getReviewerFileRevisions()}
                         {*if $reviewerFileRevisions|@count > 0*}
-			<tr valign="top">
+			<tr valign="top" class="hide">
 				<td class="label">
                                     {translate key="reviewer.paper.uploadedFile"}
                                 </td>
 				<td>
-					<table width="100%" class="data">
-						{foreach from=$reviewAssignment->getReviewerFileRevisions() item=reviewerFile key=key}
-						<tr valign="top">
-							<td valign="middle">
+                                    {foreach from=$reviewAssignment->getReviewerFileRevisions() item=reviewerFile key=key}
 								<form name="authorView{$reviewAssignment->getId()}" method="post" action="{url op="makeReviewerFileViewable"}">
 									<a href="{url op="downloadFile" path=$submission->getPaperId()|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}" 
                                                                            class="file btn btn-default btn-sm">
@@ -317,14 +320,9 @@ function confirmSubmissionCheck() {
 									<input type="submit" value="{translate key="common.record"}" class="button" />
                                                                         -->
 								</form>
-							</td>
-						</tr>
 						{foreachelse}
-						<tr valign="top">
-							<td>{translate key="common.none"}</td>
-						</tr>
+                                                    <!--{translate key="common.none"}-->
 						{/foreach}
-					</table>
                                         {if !$reviewCompleted}
                                         <form method="post" action="{url op="uploadReviewForReviewer"}" enctype="multipart/form-data">
 						<!--{translate key="director.paper.uploadReviewForReviewer"}-->

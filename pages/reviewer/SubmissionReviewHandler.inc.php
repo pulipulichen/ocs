@@ -36,7 +36,8 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$this->validate($reviewId);
 		$reviewerSubmission =& $this->submission;
 		$user =& $this->user;
-		$schedConf =& Request::getSchedConf();
+		$conference =& Request::getConference();
+                $schedConf =& Request::getSchedConf();
 		
 		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignmentById($reviewId);
@@ -83,6 +84,26 @@ class SubmissionReviewHandler extends ReviewerHandler {
                 $trackDao =& DAORegistry::getDAO('TrackDAO');
                 $templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
                 
+                $authorComments = $reviewAssignment->getCommentAuthor();
+                $comments = $reviewAssignment->getCommentDirector();
+                
+                $reviewFormId = $reviewAssignment->getReviewFormId();
+                if (isset($reviewFormId)) {
+                    $reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
+                    $reviewForm =& $reviewFormDao->getReviewForm($reviewFormId, ASSOC_TYPE_CONFERENCE, $conference->getId());
+                    if (!isset($authorComments)) {
+                        $authorComments = $reviewForm->getLocalizedDescription();
+                    }
+                    if (!isset($comments)) {
+                        $comments = $reviewForm->getLocalizedTemplateForDirector();
+                    }
+                }
+                
+                $templateMgr->assign('commentAuthor', $authorComments);
+                $templateMgr->assign('commentDirector', $comments);
+                
+                $templateMgr->assign('draft', Request::getUserVar('draft'));
+                
 		$templateMgr->display('reviewer/submission.tpl');
 	}
 
@@ -121,6 +142,27 @@ class SubmissionReviewHandler extends ReviewerHandler {
 			}
 		} else {
 			Request::redirect(null, null, null, 'submission', $reviewId);
+		}
+	}
+        
+        function recordRecommendationIntegrated() {
+		$reviewId = Request::getUserVar('reviewId');
+                $commentAuthor = Request::getUserVar('commentAuthor');
+                $commentDirector = Request::getUserVar('commentDirector');
+		$recommendation = Request::getUserVar('recommendation');
+                $draft = Request::getUserVar('draft');
+
+		$this->validate($reviewId);
+		$reviewerSubmission =& $this->submission;
+		$this->setupTemplate(true);
+
+		if (!$reviewerSubmission->getCancelled()) {
+                    if (ReviewerAction::recordRecommendationIntegrated($reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $recommendation, $draft, Request::getUserVar('send'))) {
+                        Request::redirect(null, null, null, 'submission', $reviewId, array("draft"=>$draft), 'reviewSteps');
+                        //Request::redirect(null, null, null, 'emailDirector', null, array('reviewId' => $reviewId));
+                    }
+		} else {
+			Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 		}
 	}
 

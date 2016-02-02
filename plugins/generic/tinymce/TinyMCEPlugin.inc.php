@@ -241,8 +241,12 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'reviewer/postPeerReviewComment':
 			case 'reviewer/editComment':
 			case 'reviewer/saveComment':
-				$fields[] = 'comments';
+                                $fields[] = 'comments';
 				$fields[] = 'authorComments';
+				break;
+                        case 'reviewer/submission':
+				$fields[] = 'commentAuthor';
+				$fields[] = 'commentDirector';
 				break;
 			case 'director/viewDirectorDecisionComments':
 			case 'director/postDirectorDecisionComment':

@@ -33,6 +33,19 @@ function confirmSubmissionCheck() {
 	}
 	return confirm('{/literal}{translate|escape:"javascript" key="reviewer.paper.confirmDecision"}{literal}');
 }
+
+function confirmIntegratedSubmissionCheck() {
+	if ($('[name="recommendation"]').val()=='') {
+		alert('{/literal}{translate|escape:"javascript" key="reviewer.paper.mustSelectDecision"}{literal}');
+                $('[name="recommendation"]').focus();
+		return false;
+	}
+	if (confirm('{/literal}{translate|escape:"javascript" key="reviewer.paper.confirmDecision"}{literal}')) {
+            $('[name="draft"]').val(0);
+            //alert($('[name="draft"]').val());
+            return true;
+        }
+}
 // -->
 {/literal}
 </script>
@@ -131,11 +144,24 @@ function confirmSubmissionCheck() {
 </div>
 <div class="separator"></div>
 <div id="reviewSteps">
+<form action="{url op="recordRecommendationIntegrated"}" method="post">
 <h3>
     {*translate key="reviewer.paper.reviewSteps"*}
     審查作業
     {* @TODO 語系 *}
 </h3>
+
+{if $draft === "1"}
+    <div class="alert alert-info" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        暫存完成，您可以繼續編輯。
+    </div>
+{elseif $draft === "0"}
+    <div class="alert alert-info" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        審查已經完成。
+    </div>
+{/if}
 
 {include file="common/formErrors.tpl"}
 
@@ -146,7 +172,7 @@ function confirmSubmissionCheck() {
     
     {if $declined or not $confirmedStatus}
     <tr>
-        <th class="label" style="white-space: normal" width="30%">
+        <th class="label" style="white-space: normal" width="20%">
             確認審查
             {* @TODO 語系 *}
         </th>
@@ -275,6 +301,53 @@ function confirmSubmissionCheck() {
             </tr>
         {/if}
     {/if}
+    {if $confirmedStatus and not $declined}
+<tr valign="top">
+	<td class="label">
+            {if $isConferenceManager and $reviewAssignment->getReviewFormId() and !$reviewAssignment->getDateCompleted()}
+                <a class="edit-link" href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+            {fieldLabel name="commentAuthor"}{translate key="submission.comments.forAuthorDirector"}
+            
+        </td>
+        <td class="value">
+            {if !$reviewAssignment->getDateCompleted()}
+                <textarea id="commentAuthor" name="commentAuthor" style="width:100%;" rows="10" cols="50" class="textArea">{$commentAuthor|escape}</textarea>
+            {else}
+                {$commentAuthor|nl2br}
+            {/if}
+        </td>
+</tr>
+<tr valign="top">
+	<td class="label">
+            {if $isConferenceManager and $reviewAssignment->getReviewFormId() and !$reviewAssignment->getDateCompleted()}
+                <a class="edit-link" href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+            {fieldLabel name="commentDirector"}{translate key="submission.comments.forDirector"}
+        </td>
+	<td class="value">
+            {if !$reviewAssignment->getDateCompleted()}
+                <textarea id="commentDirector" name="commentDirector" style="width:100%;" rows="10" cols="50" class="textArea">{$commentDirector|escape}</textarea>
+            {else}
+                {$commentDirector|nl2br}
+            {/if}
+        </td>
+</tr>
+    {else}
+        <tr>
+            <td class="label">
+                審查意見
+            </td>
+            <td class="value">
+                已經關閉
+            </td>
+        </tr>
+    {/if}
+    <!--
     {if $reviewAssignment->getReviewFormId()}
     <tr>
         <td class="label">
@@ -283,12 +356,6 @@ function confirmSubmissionCheck() {
         <td class="value">
             
             {if $confirmedStatus and not $declined}
-                    <!--
-                    <a href="{url op="editReviewFormResponse" path=$reviewId|to_array:$reviewAssignment->getReviewFormId()}" class="btn btn-default">
-                        {icon name="comment"}
-                        {translate key="submission.reviewForm"} 
-                    </a>
-                    -->
                     <a href="javascript:openComments('{url op="viewPeerReviewComments" path=$paperId|to_array:$reviewId}');" 
                         class="btn btn-primary">
                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -303,13 +370,13 @@ function confirmSubmissionCheck() {
                </a>
                      {*icon name="comment" disabled="disabled"*}
             {/if}
-            <!-- <span class="instruct">{translate key="reviewer.paper.enterReviewForm"}</span> -->
+            
         </td>
     </tr>
     {else}{* $reviewAssignment->getReviewFormId() *}
     <tr>
         <td class="label">
-            審查意見
+            給作者的審查意見(會議主席可見)
         </td>
         <td class="value">
             
@@ -331,7 +398,7 @@ function confirmSubmissionCheck() {
         </td>
     </tr>
     {/if}
-    
+    -->
     <tr class="hide">
         <td class="label">
             <span class="instruct">
@@ -372,6 +439,7 @@ function confirmSubmissionCheck() {
     {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}
         {assign var="disableRecommend" value=true}
     {/if}
+    <!--
     <tr>
         <td class="label">
             <span class="instruct">{translate key="reviewer.paper.selectRecommendation"}</span>
@@ -382,6 +450,7 @@ function confirmSubmissionCheck() {
                     <strong>{translate key=$reviewerRecommendationOptions.$recommendation}</strong>&nbsp;&nbsp;
                     {$submission->getDateCompleted()|date_format:$dateFormatShort}
             {else}
+                {if !$disableRecommend}
                 <form name="recommendation" method="post" action="{url op="recordRecommendation"}">
                     <input type="hidden" name="reviewId" value="{$reviewId|escape}" />
                     <select name="recommendation" {if $disableRecommend}disabled="disabled"{/if} 
@@ -390,7 +459,7 @@ function confirmSubmissionCheck() {
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" name="submit" onclick="return confirmSubmissionCheck()" class="button hide" value="{translate key="reviewer.paper.submitReview"}" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} />
                     
-                {if $disableRecommend}
+                {else}
                 請先輸入審查意見
                 {* @TODO 語系 *}
                 {/if}
@@ -398,15 +467,49 @@ function confirmSubmissionCheck() {
             {/if}
         </td>
     </tr>
+    -->
+    <tr>
+        <td class="label" width="20%">
+            <span class="instruct">{translate key="reviewer.paper.selectRecommendation"}</span>
+        </td>
+        <td class="value" width="80%">
+            <input type="hidden" name="reviewId" value="{$reviewId|escape}" />
+            {if !$reviewAssignment->getDateCompleted()}
+                <select name="recommendation" 
+                        class="btn btn-default">
+                        {html_options_translate options=$reviewerRecommendationOptions selected=$reviewAssignment->getRecommendation()}
+                </select>
+            {else}
+                {assign var="recommendation" value=$reviewAssignment->getRecommendation()}
+                {translate key=$reviewerRecommendationOptions.$recommendation}
+            {/if}
+        </td>
+    </tr>
     {/if} {* {if $confirmedStatus} *}
 </table>
+    {if !$reviewAssignment->getDateCompleted()}
+        <input type="hidden" name="draft" value="1" />
+    {else} 
+        <input type="hidden" name="draft" value="0" />
+    {/if}
+    {if !$declined and $confirmedStatus}
+    <p class="text-center margintop20">
+        {if !$reviewAssignment->getDateCompleted()}
+            <input type="submit" value="完成" class="btn btn-primary" 
+                   onclick="return confirmIntegratedSubmissionCheck()" />
+            <input type="submit" value="暫存" class="btn btn-default" />
+        {else}
+            <input type="submit" value="寄信給會議主席" class="btn btn-primary" /> 
+        {/if}
+    </p>
+    {/if}
 {else}
     <p>
         審查邀請已經被取消了。
         {* @TODO 語系 *}
     </p>
 {/if}
-
+</form>
 </div>
 {if $schedConf->getLocalizedSetting('reviewGuidelines') != ''}
 <div class="separator"></div>

@@ -138,7 +138,10 @@ class ReviewAssignment extends DataObject {
 	 * @param $recommendation string
 	 */
 	function setRecommendation($recommendation) {
-		return $this->setData('recommendation', $recommendation);
+            if ($recommendation === "0" || $recommendation === 0) {
+                return $this;
+            }
+            return $this->setData('recommendation', $recommendation);
 	}
 
 	/**
@@ -602,6 +605,38 @@ class ReviewAssignment extends DataObject {
 			SUBMISSION_REVIEWER_RATING_VERY_POOR => 'director.paper.reviewerRating.veryPoor'
 		);
 		return $reviewerRatingOptions;
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
+	function getCommentAuthor() {
+		return $this->getData('commentAuthor');
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
+	function getCommentDirector() {
+		return $this->getData('commentDirector');
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
+	function setCommentAuthor($comment) {
+		return $this->setData('commentAuthor', $comment);
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
+	function setCommentDirector($comment) {
+		return $this->setData('commentDirector', $comment);
 	}
 }
 

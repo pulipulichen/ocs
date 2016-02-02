@@ -192,7 +192,7 @@
 「耗時」 為完成審查作業耗時的平均週數。<br/>
 「最近審查時間」為最近一次接受審查工作的時間。<br/>
 「負責稿件」：為目前正在考慮或進行中的審查稿件數量。]]></message>
-	<message key="editor.paper.clearReviewForm">清除審查表單</message>
+	<message key="editor.paper.clearReviewForm">取消審查表單</message>
 	<message key="editor.paper.confirmChangeReviewForm">警告！改變審查表將會影響已經填寫的審查意見。您確定要繼續？</message>
 	<message key="editor.paper.reviewForms">審查表單</message>
 	<message key="editor.paper.selectReviewForm">選擇審查表單</message>
@@ -545,7 +545,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reviewer.paper.automatic">(自動)</message>
 	<message key="reviewer.paper.canDoReview">願意擔任審查委員</message>
 	<message key="reviewer.paper.cannotDoReview">無法擔任審查委員</message>
-	<message key="reviewer.paper.confirmDecision">當審查建議儲存之後就無法變更了，請問是否繼續？</message>
+	<message key="reviewer.paper.confirmDecision">儲存之後就無法變更了，請您確認是否繼續？</message>
 	<message key="reviewer.paper.consultGuidelines">您可以閱讀下方的審查方針，再決定是否擔任審查委員。</message>
 	<message key="reviewer.paper.decision.accept">接受</message>
 	<message key="reviewer.paper.decision.decline">拒絕</message>
@@ -559,7 +559,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reviewer.paper.enterReviewA">請點選上方按鈕開啟審查意見編輯視窗。</message>
 	<message key="reviewer.paper.enterReviewForm">請點選上方按鈕開啟審查意見編輯視窗。</message>
 	<message key="reviewer.paper.fileToBeReviewed">審查用檔案</message>
-	<message key="reviewer.paper.mustSelectDecision">未選擇建議，您必需選擇一個建議的選項。</message>
+	<message key="reviewer.paper.mustSelectDecision">請選擇一項審查建議。</message>
 	<message key="reviewer.paper.notifyEditorA">告知會議主席</message>
 	<message key="reviewer.paper.notifyEditorB">您是否願意擔任審查委員</message>
 	<message key="reviewer.paper.notifyTheDirector">通知會議主席</message>

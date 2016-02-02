@@ -395,3 +395,7 @@ table.listing tr.listing-tr {
 table.listing tr.listing-tr.hover {
     background-color: #DDD;
 }
+
+.margintop20 {
+    margin-top: 20px;
+}
