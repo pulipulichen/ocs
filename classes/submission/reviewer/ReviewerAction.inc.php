@@ -299,12 +299,20 @@ class ReviewerAction extends Action {
                                         
                                         $submissionUrl = Request::url(null, null, 'director', 'submissionAssignReviewer', $paperId, array(), "peerReview" . $reviewerSubmission->getReviewId());
 
+                                        $commentAuthor = strip_tags($reviewAssignment->getCommentAuthor());
+                                        if (!$commentAuthor || $commentAuthor == "") {
+                                            $commentAuthor = "沒有意見";
+                                        }
+                                        $commentDirector =  strip_tags($reviewAssignment->getCommentDirector());
+                                        if (!$commentDirector || $commentDirector == "") {
+                                            $commentDirector = "沒有意見";
+                                        }
 					$email->assignParams(array(
 						'editorialContactName' => $editorialContactName,
 						'reviewerName' => $reviewer->getFullName(),
 						'paperTitle' => strip_tags($reviewerSubmission->getLocalizedTitle()),
-                                                'commentAuthor' => strip_tags($reviewAssignment->getCommentAuthor()),
-                                                'commentDirector' => strip_tags($reviewAssignment->getCommentDirector()),
+                                                'commentAuthor' => $commentAuthor,
+                                                'commentDirector' => $commentDirector,
                                                 'submissionUrl' => $submissionUrl,
 						'recommendation' => __($reviewerRecommendationOptions[$recommendation])
 					));
@@ -398,11 +406,18 @@ class ReviewerAction extends Action {
 		$paperFileManager = new PaperFileManager($reviewAssignment->getPaperId());
 
 		// Only upload the file if the reviewer has yet to submit a recommendation
-		if (!(($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') && !$reviewAssignment->getCancelled())) return false;
+                if ($reviewAssignment->getDateCompleted() || $reviewAssignment->getCancelled())  {
+                    exit;
+                    return false;
+                }
 
 		$fileName = 'upload';
-		if ($paperFileManager->uploadError($fileName)) return false;
-		if (!$paperFileManager->uploadedFileExists($fileName)) return false;
+		if ($paperFileManager->uploadError($fileName)) {
+                    return false;
+                }
+		if (!$paperFileManager->uploadedFileExists($fileName)) {
+                    return false;
+                }
 		HookRegistry::call('ReviewerAction::uploadReviewFile', array(&$reviewAssignment));
 		if ($reviewAssignment->getReviewerFileId() != null) {
 			$fileId = $paperFileManager->uploadReviewFile($fileName, $reviewAssignment->getReviewerFileId());
@@ -410,7 +425,9 @@ class ReviewerAction extends Action {
 			$fileId = $paperFileManager->uploadReviewFile($fileName);
 		}
 
-		if ($fileId == 0) return false;
+		if ($fileId == 0) {
+                    return false;
+                }
 
 		$reviewAssignment->setReviewerFileId($fileId);
 		$reviewAssignment->stampModified();

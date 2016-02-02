@@ -316,7 +316,7 @@ function confirmIntegratedSubmissionCheck() {
             {if !$reviewAssignment->getDateCompleted()}
                 <textarea id="commentAuthor" name="commentAuthor" style="width:100%;" rows="10" cols="50" class="textArea">{$commentAuthor|escape}</textarea>
             {else}
-                {$commentAuthor|nl2br}
+                {$commentAuthor|nl2br|default:"&mdash;"}
             {/if}
         </td>
 </tr>
@@ -333,7 +333,7 @@ function confirmIntegratedSubmissionCheck() {
             {if !$reviewAssignment->getDateCompleted()}
                 <textarea id="commentDirector" name="commentDirector" style="width:100%;" rows="10" cols="50" class="textArea">{$commentDirector|escape}</textarea>
             {else}
-                {$commentDirector|nl2br}
+                {$commentDirector|nl2br|default:"&mdash;"}
             {/if}
         </td>
 </tr>
@@ -399,7 +399,7 @@ function confirmIntegratedSubmissionCheck() {
     </tr>
     {/if}
     -->
-    <tr class="hide">
+    <tr>
         <td class="label">
             <span class="instruct">
                 {*translate key="reviewer.paper.uploadFile"*}
@@ -408,6 +408,7 @@ function confirmIntegratedSubmissionCheck() {
         </td>
         <td class="value">
 			{foreach from=$submission->getReviewerFileRevisions() item=reviewerFile key=key}
+                            <div>
 				{assign var=uploadedFileExists value="1"}
 					<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewerFile->getFileId():$reviewerFile->getRevision()}" 
                                            class="file btn btn-default btn-sm">
@@ -415,18 +416,22 @@ function confirmIntegratedSubmissionCheck() {
                                             {$reviewerFile->getOriginalFileName()|escape}
                                         </a>
 					({$reviewerFile->getDateModified()|date_format:$dateFormatShort})
-					{if ($submission->getRecommendation() === null || $submission->getRecommendation() === '') && (!$submission->getCancelled())}
-						<a class="action" href="{url op="deleteReviewerVersion" path=$reviewId|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}">{translate key="common.delete"}</a>
+					{if (!$submission->getDateCompleted() && !$submission->getCancelled())}
+                                            <a class="action" href="{url op="deleteReviewerVersion" path=$reviewId|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}">{translate key="common.delete"}</a>
 					{/if}
+                                </div>
 			{foreachelse}
 					{*translate key="common.none"*}
 			{/foreach}
-		{if $submission->getRecommendation() === null || $submission->getRecommendation() === ''}
-			<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">
+		{if !$reviewAssignment->getDateCompleted()}
+			<!--<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">-->
+                    <div>
 				<input type="hidden" name="reviewId" value="{$reviewId|escape}" />
 				<input type="file" name="upload" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="uploadField" />
-				<input type="submit" name="submit" value="{translate key="common.upload"}" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="button" />
-			</form>
+                                <input type="submit" name="submit" value="{translate key="common.upload"}" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="button" 
+                                       onclick="return PULI_HELPERS.setForm(this, '{url op="uploadReviewerVersion"}', 'multipart/form-data');" />
+                                </div>
+			<!--</form>-->
 			<!-- <span class="instruct">
 				<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a>
 			</span> -->

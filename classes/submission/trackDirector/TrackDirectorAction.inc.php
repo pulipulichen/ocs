@@ -1522,6 +1522,30 @@ import('file.PaperFileManager');
 					}
                                     }
 				}
+                                
+                                $reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+                                $recommendation = '';
+                                for ($stage = $trackDirectorSubmission->getCurrentStage(); $stage == REVIEW_STAGE_ABSTRACT || $stage == REVIEW_STAGE_PRESENTATION; $stage--) {
+                                    $reviewAssignments =& $reviewAssignmentDao->getReviewAssignmentsByPaperId($trackDirectorSubmission->getPaperId(), $stage);
+                                    $reviewIndexes =& $reviewAssignmentDao->getReviewIndexesForStage($trackDirectorSubmission->getPaperId(), $stage);
+                                    foreach ($reviewAssignments as $reviewAssignment) {
+                                        if ($reviewAssignment->getCommentAuthor()) {
+                                            if ($recommendation !== "") {
+                                                $recommendation .= "\n";
+                                            }
+                                            
+                                            $recommendation .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => chr(ord('A') + $reviewIndexes[$reviewAssignment->getId()]))) . "\n";
+                                            $recommendation .= $reviewAssignment->getCommentAuthor() . "\n";
+                                        }
+                                    }
+                                }
+                                if ($recommendation !== "") {
+                                    $recommendation = "=============\n" . $recommendation . "============="; 
+                                }
+                                else {
+                                    $recommendation = "[請輸入審查意見]";
+                                }
+                                
 				$email->assignParams(array(
 					'conferenceDate' => strftime(Config::getVar('general', 'date_format_short'), $schedConf->getSetting('startDate')),
 					'authorName' => $authorUser->getFullName(),
@@ -1529,7 +1553,8 @@ import('file.PaperFileManager');
 					'editorialContactSignature' => $user->getContactSignature(),
 					'locationCity' => $schedConf->getSetting('locationCity'),
 					'paperTitle' => $trackDirectorSubmission->getLocalizedTitle(),
-                                        'submissionUrl' => $submissionUrl
+                                        'submissionUrl' => $submissionUrl,
+                                        'recommendation' => $recommendation,
 				));
 			} elseif (Request::getUserVar('importPeerReviews')) {
 				$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');

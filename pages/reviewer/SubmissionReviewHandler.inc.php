@@ -121,10 +121,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
 
 		if (!$reviewerSubmission->getCancelled()) {
 			if (ReviewerAction::confirmReview($reviewerSubmission, $decline, Request::getUserVar('send'))) {
-				Request::redirect(null, null, null, 'submission', $reviewId);
+				Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 			}
 		} else {
-			Request::redirect(null, null, null, 'submission', $reviewId);
+			Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 		}
 	}
 
@@ -138,10 +138,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
 
 		if (!$reviewerSubmission->getCancelled()) {
 			if (ReviewerAction::recordRecommendation($reviewerSubmission, $recommendation, Request::getUserVar('send'))) {
-				Request::redirect(null, null, null, 'submission', $reviewId);
+				Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 			}
 		} else {
-			Request::redirect(null, null, null, 'submission', $reviewId);
+			Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 		}
 	}
         
@@ -196,7 +196,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 			$templateMgr->assign('backLinkLabel', 'common.back');
 			return $templateMgr->display('common/message.tpl');
 		}
-		Request::redirect(null, null, null, 'submission', $reviewId);
+		Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 	}
 
 	/*
@@ -211,7 +211,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$reviewerSubmission =& $this->submission;
 
 		if (!$reviewerSubmission->getCancelled()) ReviewerAction::deleteReviewerVersion($reviewId, $fileId, $revision);
-		Request::redirect(null, null, null, 'submission', $reviewId);
+		Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 	}
 
 	//
@@ -231,7 +231,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$this->validate($reviewId);
 		$reviewerSubmission =& $this->submission;
 		if (!ReviewerAction::downloadReviewerFile($reviewId, $reviewerSubmission, $fileId, $revision)) {
-			Request::redirect(null, null, null, 'submission', $reviewId);
+			Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 		}
 	}
 	
@@ -268,7 +268,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$this->setupTemplate(true);
 
 		if (ReviewerAction::saveReviewFormResponse($reviewId, $reviewFormId)) {
-					Request::redirect(null, null, null, 'submission', $reviewId);
+                    Request::redirect(null, null, null, 'submission', $reviewId, array(), 'reviewSteps');
 		}
 	}
 

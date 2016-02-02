@@ -68,10 +68,10 @@ function confirmSubmissionCheck() {
                 <div class="panel-heading">
 		<table class="data" width="100%">
 		<tr>
-			<td width="20%"><h4>{translate key="user.role.reviewer"} {$reviewIndex+$start|chr}</h4></td>
+			<td width="20%"><h4 style="margin:0;">{translate key="user.role.reviewer"} {$reviewIndex+$start|chr}</h4></td>
 			<td width="34%">
                             {url|assign:"reviewUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
-                            <h4>
+                            <h4 style="margin:0;">
                                 <a href="{$reviewUrl}" class="btn btn-default btn-large">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                 {$reviewAssignment->getReviewerFullName()|escape}
@@ -147,12 +147,16 @@ function confirmSubmissionCheck() {
                                         <th class="">{*translate key="submission.due"*}
                                                     審查期限</th>
                                         <td class="value">
-                                            <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
-                                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                                </a>
+                                                {if !$reviewAssignment->getDateCompleted()}
+                                                    <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
+                                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                    </a>
                                                     <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}">
                                                     {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
                                                     </a>
+                                                {else}
+                                                    {if $reviewAssignment->getDateDue()}{$reviewAssignment->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
+                                                {/if}
                                                     {if !$reviewAssignment->getDeclined()}
                                                     &nbsp;&nbsp;&nbsp;
                                                     {if !$reviewAssignment->getDateCompleted()}
@@ -161,6 +165,11 @@ function confirmSubmissionCheck() {
                                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                                             提醒
                                                         </a>
+                                                        {if $isConferenceManager}
+                                                        <a href="{url page="manager"}/schedConfSetup/3#peerReview" target="_blank" class="active">
+                                                            設定自動提醒
+                                                        </a>
+                                                        {/if}
                                                     {/if}
                                                     {/if}
                                         </td>
@@ -219,7 +228,7 @@ function confirmSubmissionCheck() {
                 {/if}
                 
 		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
-                    {if $reviewAssignment->getCommentAuthor()}
+                    {if $reviewAssignment->getCommentAuthor() and $reviewAssignment->getDateCompleted()}
 <tr valign="top">
 	<td class="label">
             {translate key="submission.comments.forAuthorDirector"}
@@ -296,8 +305,8 @@ function confirmSubmissionCheck() {
 			</tr>
 			{/if}
                         {assign var="reviewerFileRevisions" value=$reviewAssignment->getReviewerFileRevisions()}
-                        {*if $reviewerFileRevisions|@count > 0*}
-			<tr valign="top" class="hide">
+                        {if $reviewerFileRevisions|@count > 0}
+			<tr valign="top">
 				<td class="label">
                                     {translate key="reviewer.paper.uploadedFile"}
                                 </td>
@@ -324,7 +333,7 @@ function confirmSubmissionCheck() {
                                                     <!--{translate key="common.none"}-->
 						{/foreach}
                                         {if !$reviewCompleted}
-                                        <form method="post" action="{url op="uploadReviewForReviewer"}" enctype="multipart/form-data">
+                                            <form method="post" action="{url op="uploadReviewForReviewer"}" enctype="multipart/form-data" class="hide">
 						<!--{translate key="director.paper.uploadReviewForReviewer"}-->
 						<input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
 						<input type="hidden" name="reviewId" value="{$reviewAssignment->getId()}"/>
@@ -334,7 +343,7 @@ function confirmSubmissionCheck() {
                                         {/if}
 				</td>
 			</tr>
-                        {*/if*}
+                        {/if}
 		{/if}
 
 		{if (($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') || !$reviewAssignment->getDateConfirmed()) && $reviewAssignment->getDateNotified() && !$reviewAssignment->getDeclined()}

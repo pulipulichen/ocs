@@ -119,8 +119,8 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/editReviewForm':
 			case 'manager/updateReviewForm':
 			case 'manager/createReviewForm':
-				$fields[] = 'description';
-                                $fields[] = 'templateForDirector';
+				//$fields[] = 'description';
+                                //$fields[] = 'templateForDirector';
 				break;
 			case 'manager/editReviewFormElement':
 			case 'manager/createReviewFormElement':
@@ -244,10 +244,10 @@ class TinyMCEPlugin extends GenericPlugin {
                                 $fields[] = 'comments';
 				$fields[] = 'authorComments';
 				break;
-                        case 'reviewer/submission':
-				$fields[] = 'commentAuthor';
-				$fields[] = 'commentDirector';
-				break;
+//                        case 'reviewer/submission':
+//				$fields[] = 'commentAuthor';
+//				$fields[] = 'commentDirector';
+//				break;
 			case 'director/viewDirectorDecisionComments':
 			case 'director/postDirectorDecisionComment':
 				$fields[] = 'comments';

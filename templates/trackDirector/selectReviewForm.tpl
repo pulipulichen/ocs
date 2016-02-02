@@ -25,6 +25,11 @@
 		<td class="headseparator" colspan="2">&nbsp;</td>
 	</tr>
 {iterate from=reviewForms item=reviewForm name=reviewForms}
+{if $reviewForm->getCompleteCount() == 0 && $reviewForm->getIncompleteCount() == 0}
+	{assign var=canEdit value=1}
+{else}
+	{assign var=canEdit value=0}
+{/if}
 	<tr valign="top">
 		<td>{$reviewForm->getLocalizedTitle()|escape}</td>
 		<td class="nowrap">
@@ -36,22 +41,26 @@
                                 指定 {* @TODO 語系 *}
                             </a>
                         {/if}
+                        <!--
                         &nbsp;|&nbsp;
                         <a href="{url op="previewReviewForm" path=$reviewId|to_array:$reviewForm->getId()}" class="action">
                             {translate key="common.preview"}
                         </a>
+                        -->
                         {if $isConferenceManager}
                             &nbsp;|&nbsp;
                             <a href="{url page="manager" }/editReviewForm/{$reviewForm->getId()}" class="action">
                                 {$schedConfUrl}
                                 {translate key="common.edit"}
                             </a>
+                            {if $canEdit}
                             &nbsp;|&nbsp;
                             <a href="{url page="manager" }/deleteReviewForm/{$reviewForm->getId()}" class="action"
                                 onclick="return confirm('{translate|escape:"jsparam" key="manager.reviewForms.confirmDeleteUnpublished"}')">
                                 {$schedConfUrl}
                                 {translate key="common.delete"}
                             </a>
+                            {/if}
                         {/if}
 	</tr>
 	<tr>
