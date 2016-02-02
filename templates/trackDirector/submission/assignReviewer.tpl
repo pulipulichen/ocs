@@ -101,7 +101,7 @@ function confirmSubmissionCheck() {
 		<table width="100%" class="data">
 		<tr valign="top">
                     <td class="label" width="20%">
-                        {translate key=""submissions.reviewAssignment.heading}
+                        {translate key="submissions.reviewAssignment.heading"}
                     </td>
 			<td width="80%">
                             <table width="100%" class="info table" style="margin-bottom: 0;">

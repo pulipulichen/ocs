@@ -143,14 +143,14 @@ function deleteAttachment(fileId) {
         </td>
 	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
 </tr>
-{if $isADirector}
+{*if $isADirector}
 	<tr valign="top">
 		<td class="label">&nbsp;</td>
 		<td class="value">
 			<input type="submit" name="importPeerReviews" class="btn btn-primary" value="{translate key="submission.comments.importPeerReviews"}"/>
 		</td>
 	</tr>
-{/if}
+{/if*}
 
 {if $attachmentsEnabled}
 <tr valign="top">

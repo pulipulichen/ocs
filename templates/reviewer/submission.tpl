@@ -370,7 +370,7 @@ function confirmIntegratedSubmissionCheck() {
     {else}{* $reviewAssignment->getReviewFormId() *}
     <tr>
         <td class="label">
-            給作者的審查意見(會議主席可見) {* @TODO 語系 *}
+            {translate key="submission.comments.forAuthorDirector"}
         </td>
         <td class="value">
             
