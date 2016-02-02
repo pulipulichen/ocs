@@ -36,6 +36,14 @@ class ReviewForm extends DataObject {
 	}
 
 	/**
+	 * Get localized templateForDirector.
+	 * @return string
+	 */
+	function getLocalizedTemplateForDirector() {
+		return $this->getLocalizedData('templateForDirector');
+	}
+        
+        /**
 	 * Get localized description.
 	 * @return string
 	 */
@@ -169,6 +177,15 @@ class ReviewForm extends DataObject {
 	function getDescription($locale) {
 		return $this->getData('description', $locale);
 	}
+        
+        /**
+	 * Get templateForDirector.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getTemplateForDirector($locale) {
+		return $this->getData('templateForDirector', $locale);
+	}
 
 	/**
 	 * Set description.
@@ -177,6 +194,15 @@ class ReviewForm extends DataObject {
 	 */
 	function setDescription($description, $locale) {
 		return $this->setData('description', $description, $locale);
+	}
+        
+        /**
+	 * Set templateForDirector.
+	 * @param $templateForDirector string
+	 * @param $locale string
+	 */
+	function setTemplateForDirector($templateForDirector, $locale) {
+		return $this->setData('templateForDirector', $templateForDirector, $locale);
 	}
 
 	/** DEPRECATED **/
