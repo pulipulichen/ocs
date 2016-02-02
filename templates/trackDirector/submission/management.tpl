@@ -84,9 +84,9 @@
                                     &nbsp;&nbsp;
                                     {* @TODO 語系 *}
                                     {if $lastFileType == 0}
-                                        [作者]
+                                        [{translate key="submission.event.author.authorRevision"}]
                                     {elseif $lastFileType == 1}
-                                        [負責人修改]
+                                        [{translate key="submission.event.author.directorRevision"}]
                                     {/if}
                                     ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                 </a>

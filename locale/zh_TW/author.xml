@@ -13,6 +13,7 @@
 
 <locale name="zh_TW" full_name = "正體中文">
 	<message key="author.paper.uploadAuthorVersion">修改後的版本上傳</message>
+        <message key="author.paper.cannotUploadAuthorVersion">稿件已經封存，無法更新</message>
 	<message key="author.submissions.confirmDelete">您確定要刪除這還未完成的投稿嗎？</message>
 	<message key="author.submissions.noSubmissions">無投稿。</message>
 	<message key="author.submissions.queuedAbstractReviewRevisions">等待作者修改</message>

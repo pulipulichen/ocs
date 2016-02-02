@@ -134,9 +134,7 @@ function moveAuthor(dir, authorIndex) {
 	</tr>
 	<tr valign="top">
 		<td class="label">
-                    {*fieldLabel name="authors-$authorIndex-biography" key="user.biography"*}
-                    {* @TODO 語系 *}
-                    作者資訊
+                    {fieldLabel name="authors-$authorIndex-biography" key="user.biography"}
                     <!--<br />{translate key="user.biography.description"}--></td>
 		<td class="value">
                     <textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" id="authors-{$authorIndex|escape}-biography" rows="5" cols="40" class="textArea">{$author.biography[$formLocale]|escape}</textarea>
@@ -213,7 +211,7 @@ function moveAuthor(dir, authorIndex) {
 {/if}
 
 <button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">
-    顯示更多
+    {translate key="common.more"}
 </button>
 <div style="display:none;">
 <div id="indexing">

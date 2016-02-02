@@ -146,20 +146,18 @@ function confirmIntegratedSubmissionCheck() {
 <div id="reviewSteps">
 <form action="{url op="recordRecommendationIntegrated"}" method="post">
 <h3>
-    {*translate key="reviewer.paper.reviewSteps"*}
-    審查作業
-    {* @TODO 語系 *}
+    {translate key="reviewer.paper.reviewSteps"}
 </h3>
 
 {if $draft === "1"}
     <div class="alert alert-info" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        暫存完成，您可以繼續編輯。
+        {translate key="reviewer.paper.reviewMessage.draft"}
     </div>
 {elseif $draft === "0"}
     <div class="alert alert-info" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        審查已經完成。
+        {translate key="reviewer.paper.reviewMessage.saved"}
     </div>
 {/if}
 
@@ -173,8 +171,7 @@ function confirmIntegratedSubmissionCheck() {
     {if $declined or not $confirmedStatus}
     <tr>
         <th class="label" style="white-space: normal" width="20%">
-            確認審查
-            {* @TODO 語系 *}
+            {translate key="reviewer.paper.acceptConfirm"}
         </th>
         <td class="value" width="80%">
                 
@@ -204,8 +201,7 @@ function confirmIntegratedSubmissionCheck() {
                                     {translate key="reviewer.paper.cannotDoReview"} 
                                 </a>
 			{else}
-				審查邀請已經取消
-                                {* @TODO 語系 *}
+                            {translate key="reviewer.paper.reviewCanceled"} 
 			{/if}
 		{else}
                     {if not $declined}
@@ -214,8 +210,7 @@ function confirmIntegratedSubmissionCheck() {
                     {else}
                         <span class="text-danger">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        {*translate key="submission.rejected"*}
-                        婉拒審查
+                        {translate key="reviewer.paper.cannotDoReview"}
                         </span>
                     {/if}
 		{/if}
@@ -277,8 +272,7 @@ function confirmIntegratedSubmissionCheck() {
         {if $suppFiles}
             <tr valign="top">
                 <td class="label">
-                    {*translate key="paper.suppFiles"*}
-                    作者的附加檔案
+                    {translate key="reviewer.paper.suppFiles"}
                 </td>
                 <td class="value">
                     {assign var=sawSuppFile value=0}
@@ -340,10 +334,10 @@ function confirmIntegratedSubmissionCheck() {
     {else}
         <tr>
             <td class="label">
-                審查意見
+                {translate key="reviewer.paper.comment"}
             </td>
             <td class="value">
-                已經關閉
+                {translate key="common.closed"}
             </td>
         </tr>
     {/if}
@@ -351,7 +345,7 @@ function confirmIntegratedSubmissionCheck() {
     {if $reviewAssignment->getReviewFormId()}
     <tr>
         <td class="label">
-            審查意見
+            {translate key="reviewer.paper.comment"}
         </td>
         <td class="value">
             
@@ -360,13 +354,13 @@ function confirmIntegratedSubmissionCheck() {
                         class="btn btn-primary">
                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                          {*translate key="event.logType.review"*} 
-                         編輯
+                         {translate key="common.edit"}
                      </a>
             {else}
                 <a class="btn btn-default disabled">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     {*translate key="event.logType.review"*} 
-                    關閉
+                    {translate key="common.close"}
                </a>
                      {*icon name="comment" disabled="disabled"*}
             {/if}
@@ -376,7 +370,7 @@ function confirmIntegratedSubmissionCheck() {
     {else}{* $reviewAssignment->getReviewFormId() *}
     <tr>
         <td class="label">
-            給作者的審查意見(會議主席可見)
+            給作者的審查意見(會議主席可見) {* @TODO 語系 *}
         </td>
         <td class="value">
             
@@ -385,13 +379,13 @@ function confirmIntegratedSubmissionCheck() {
                                    class="btn btn-primary">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     {*translate key="event.logType.review"*} 
-                                    編輯
+                                    {translate key="common.edit"}
                                 </a>
 			{else}
                             <a class="btn btn-default disabled">
                                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                  {*translate key="event.logType.review"*} 
-                                 關閉
+                                 {translate key="common.close"}
                             </a>
 				 {*icon name="comment" disabled="disabled"*}
 			{/if}
@@ -402,8 +396,7 @@ function confirmIntegratedSubmissionCheck() {
     <tr>
         <td class="label">
             <span class="instruct">
-                {*translate key="reviewer.paper.uploadFile"*}
-                審查委員檔案
+                {translate key="reviewer.paper.uploadFile"}
             </span>
         </td>
         <td class="value">
@@ -465,8 +458,7 @@ function confirmIntegratedSubmissionCheck() {
                     <input type="submit" name="submit" onclick="return confirmSubmissionCheck()" class="button hide" value="{translate key="reviewer.paper.submitReview"}" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} />
                     
                 {else}
-                請先輸入審查意見
-                {* @TODO 語系 *}
+                {translate key="reviewer.paper.requireRecommendation"}
                 {/if}
                 </form>					
             {/if}
@@ -500,18 +492,17 @@ function confirmIntegratedSubmissionCheck() {
     {if !$declined and $confirmedStatus}
     <p class="text-center margintop20">
         {if !$reviewAssignment->getDateCompleted()}
-            <input type="submit" value="完成" class="btn btn-primary" 
+            <input type="submit" value="{translate key="common.done"}" class="btn btn-primary" 
                    onclick="return confirmIntegratedSubmissionCheck()" />
-            <input type="submit" value="暫存" class="btn btn-default" />
+            <input type="submit" value="{translate key="common.draft"}" class="btn btn-default" />
         {else}
-            <input type="submit" value="寄信給會議主席" class="btn btn-primary" /> 
+            <input type="submit" value="{translate key="reviewer.paper.notifyTheDirector"}" class="btn btn-primary" /> 
         {/if}
     </p>
     {/if}
 {else}
     <p>
-        審查邀請已經被取消了。
-        {* @TODO 語系 *}
+        {translate key="reviewer.paper.reviewCanceled"}
     </p>
 {/if}
 </form>

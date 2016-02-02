@@ -55,17 +55,15 @@
 	<td colspan="2" class="value"><textarea name="description[{$formLocale|escape}]" id="description" cols="40" rows="4" class="textArea">{$description[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
-    {* @TODO 語系 *}
-	<td class="label">{fieldLabel name="applicationForm" value="報名表"}</td>
+	<td class="label">{fieldLabel name="applicationForm" key="manager.registrationTypes.form.applicationForm"}</td>
 	<td colspan="2" class="value"><textarea name="applicationForm[{$formLocale|escape}]" id="applicationForm" cols="40" rows="4" class="textArea">{$applicationForm[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
-    {* @TODO 語系 *}
 	<td class="label">
-            {fieldLabel name="survey" value="問卷調查"}
+            {fieldLabel name="survey" key="manager.setup.layout.linkType.4"}
             <br />
             <a href="{url op="registrationSurveyDownload"}/{$typeId}" class="btn btn-default btn-sm">
-                下載統計結果
+                {translate key="manager.setup.layout.surveyExport"}
             </a>
         </td>
 	<td colspan="2" class="value">

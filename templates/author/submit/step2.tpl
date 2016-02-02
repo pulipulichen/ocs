@@ -79,9 +79,7 @@ function moveAuthor(dir, authorIndex) {
 <div class="separator"></div>
 
 <h3>
-    {* @TODO 語系 *}
-    {*translate key="paper.authors"*}
-    作者資訊
+    {translate key="paper.authorsInformation"}
 </h3>
 
 <input type="hidden" name="deletedAuthors" value="{$deletedAuthors|escape}" />

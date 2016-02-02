@@ -59,14 +59,13 @@
                 {/if}
 
 		<table width="100%" class="info table table-striped">
-                    {* @TODO 語系需要修改 *}
                     <thead>
                         <tr>
                             <th rowspan="2">
                                 {translate key="user.roles"}
                             </th>
                             <th colspan="4">
-                                審查進度
+                                {translate key="submissions.reviewAssignment.heading"}
                             </th>
                             {if $schedConfPostPayment}
                             <th rowspan="2">
@@ -79,16 +78,16 @@
                         </tr>
                         <tr>
                             <th>
-                                作者投稿
+                                {translate key="user.userHome.progressAuthor"}
                             </th> 
                             <th>
-                                等待安排
+                                {translate key="user.userHome.progressWaitAssign"}
                             </th> 
                             <th>
-                                等待審查
+                                {translate key="user.userHome.progressWaitReview"}
                             </th> 
                             <th>
-                                接受稿件
+                                {translate key="user.userHome.progressAccepted"}
                             </th> 
                         </tr>
                     </thead>

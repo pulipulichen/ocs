@@ -43,9 +43,7 @@
 	<tr valign="top" class="heading">
 		<td width="80%">{translate key="schedConf.registration.type"}</td>
 		<td style="min-width:200px">
-                    {* @TODO 語系 *}
-                    {*translate key="schedConf.registration.cost"*}
-                    報名選項
+                    {translate key="schedConf.registration.option"}
                 </td>
 	</tr>
 	<tr>
@@ -111,9 +109,8 @@
            value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" 
            class="button" {else}class="btn btn-primary" {/if}/>
     {else}
-        {* @TODO 語系 *}
         <input type="submit" 
-           value="報名並註冊新帳號" {if !$registrationMethodAvailable}disabled="disabled" 
+           value="{translate key="schedConf.registration.createAccount"}" {if !$registrationMethodAvailable}disabled="disabled" 
            class="button" {else}class="btn btn-primary" {/if}/>
         <script>
             {literal}
@@ -124,7 +121,7 @@
             {/literal}
         </script>
         <a href="{url page="login"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" class="btn btn-default" onclick="_getRegistrationTypeId(this);">
-            登入並報名
+            {translate key="schedConf.registration.login"}
         </a>
     {/if}
 </p>

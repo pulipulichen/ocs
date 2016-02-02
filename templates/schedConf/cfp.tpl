@@ -63,8 +63,7 @@
                 </li>
                 <li>
                     <a href="{url page="user"}" target="_blank">
-                        {* @TODO 設定語系 *}
-                        管理投稿與審查進度
+                        {translate key="schedConf.cfp.quickLink.manageSubmission"}
                     </a>
                 </li>
             </ul>
@@ -104,10 +103,10 @@
                 </a>
             {else}
                 <a href="{url page="user" op="account"}?source=%2Focs%2Ficcisc%2F2016%2Fauthor%2Fsubmit%3FrequiresAuthor%3D1" class="action btn btn-primary">
-                    註冊新帳號
+                    {translate key="schedConf.cfp.createAccount"}
                 </a>
                 <a href="{url page="author" op="submit" requiresAuthor=1}" class="action btn btn-default">
-                    登入
+                    {translate key="user.login"}
                 </a>
             {/if}
 	</p>

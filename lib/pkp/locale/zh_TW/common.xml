@@ -72,6 +72,7 @@
 	<message key="common.changesSaved">已經儲存您的修改</message>
 	<message key="common.chooseOne">請選一項</message>
 	<message key="common.close">關閉</message>
+        <message key="common.closed">已經關閉</message>
 	<message key="common.closeWindow">關閉視窗</message>
 	<message key="common.complete">完成</message>
 	<message key="common.completed">已完成</message>
@@ -95,7 +96,9 @@
 	<message key="common.discipline">Discipline</message>
 	<message key="common.done">完成</message>
 	<message key="common.download">下載</message>
+        <message key="common.draft">暫存</message>
 	<message key="common.edit">編輯</message>
+        <message key="common.invite">邀請</message>
 	<message key="common.enabled">啟動</message>
 	<message key="common.error.databaseError">一個和資料庫相關的錯誤產生： {$error}</message>
 	<message key="common.error.databaseErrorUnknown">一個不明資料庫連結錯誤產生。</message>
@@ -110,6 +113,7 @@
 	<message key="common.height">高度</message>
 	<message key="common.homePageHeaderLogo.altText">Homepage Header Logo</message>
 	<message key="common.hour">時</message>
+        <message key="common.export">匯出</message>
 	<message key="common.id">ID</message>
 	<message key="common.import">輸入</message>
 	<message key="common.inProgress">正在進行</message>
@@ -122,8 +126,10 @@
 	<message key="common.minute">分</message>
 	<message key="common.modify">修改</message>
 	<message key="common.month">月</message>
+        <message key="common.more">顯示更多</message>
 	<message key="common.no">否</message>
 	<message key="common.noComments">沒有資料</message>
+        <message key="common.noData">沒有資料</message>
 	<message key="common.none">無</message>
 	<message key="common.noneAssigned">沒有指派</message>
 	<message key="common.notApplicable">不適用</message>
@@ -174,6 +180,8 @@
 	<message key="common.uninitiated">非主動開始</message>
 	<message key="common.untitled">未命名</message>
 	<message key="common.up">上</message>
+        <message key="common.remind">提醒</message>
+        <message key="common.update">更新</message>
 	<message key="common.updated">已更新</message>
 	<message key="common.upload">上傳</message>
         <message key="common.uploadAnotherFile">重新上傳檔案</message>

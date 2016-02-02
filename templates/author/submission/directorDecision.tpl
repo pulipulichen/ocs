@@ -95,8 +95,7 @@
 	</tr>
         <tr valign="top">
 			<td class="label" width="20%">
-				{*translate key="submission.reviewVersion"*}
-                               作者最新稿件
+				{translate key="submission.authorReviewVersion"}
 			</td>
 			<td class="value" width="80%">
 				{*assign var="reviewFile" value=$reviewFilesByStage[$stage]*}
@@ -110,11 +109,10 @@
                                             {$lastFile->getOriginalFileName()|escape}
                                         </a>
                                             &nbsp;&nbsp;
-                                            {* @TODO 語系 *}
                                             {if $lastFileType == 0}
-                                                [作者]
+                                                [{translate key="submission.event.author.authorRevision"}]
                                             {elseif $lastFileType == 1}
-                                                [負責人修改]
+                                                [{translate key="submission.event.author.directorRevision"}]
                                             {/if}
                                             ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                             
@@ -135,8 +133,7 @@
 				<input type="submit" {if !$mayEditPaper}disabled="disabled" {/if}name="submit" value="{translate key="common.upload"}" class="button" />
 			</form>
                     {else}
-                        {* @TODO 語系 *}
-                        稿件已經封存，無法更新
+                        {translate key="author.paper.cannotUploadAuthorVersion"}
                     {/if}
 		</td>
 	</tr>

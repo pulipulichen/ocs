@@ -296,9 +296,7 @@
     </a>
 {/if}
 <h3>
-    {* @TODO *}
-    {*translate key="schedConf.registration.specialRequests"*}
-    報名表
+    {translate key="manager.registrationTypes.form.applicationForm"}
 </h3>
 
 <p><textarea name="applicationForm" id="applicationForm" cols="60" rows="10" class="textArea">{$applicationForm|escape}</textarea></p>
@@ -322,9 +320,7 @@
     </a>
 {/if}
 <h3>
-    {* @TODO *}
-    {*translate key="schedConf.registration.specialRequests"*}
-    問卷調查
+    {translate key="manager.setup.layout.linkType.4"}
 </h3>
 
 <fieldset id="surveyDisplay"></fieldset>
@@ -429,13 +425,12 @@ var data = {$survey};
 
 <p class="text-center" style="margin-top: 15px;">
     {if $isRegistered}
-        {* @TODO 語系 *}
         <input type="hidden" name="update" value="1" />
         <input type="submit" 
-               value="更新" 
+               value="{translate key="common.update"}" 
                class="btn btn-primary"/>
         <a href="{url op="deleteRegistration"}" class="btn btn-default">
-            取消報名
+            {translate key="manager.registration.form.cancel"}
         </a>
     {else}
         <input type="checkbox" name="notifyEmail" id="notifyEmail" value="1" checked="checked" />

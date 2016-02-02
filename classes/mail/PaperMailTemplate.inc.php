@@ -65,8 +65,7 @@ class PaperMailTemplate extends MailTemplate {
 		$paramArray['trackName'] = strip_tags($paper->getTrackTitle());
 		$paramArray['paperAbstract'] = strip_tags($paper->getLocalizedAbstract());
                 if ($paramArray['paperAbstract'] === "") {
-                    $paramArray['paperAbstract'] = "沒有資料";
-                    // @TODO 語系
+                    $paramArray['paperAbstract'] = __("common.noData");
                 }
 		$paramArray['authorString'] = strip_tags($paper->getAuthorString());
 
@@ -205,5 +204,3 @@ class PaperMailTemplate extends MailTemplate {
 		return $returner;
 	}
 }
-
-?>

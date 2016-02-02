@@ -16,7 +16,7 @@
 	<message key="user.affiliation">所屬機構</message>
 	<message key="user.affiliation.description">(你的機構名稱，例如：「國立空中大學」)</message>
 	<message key="user.affiliations">所屬機構</message>
-	<message key="user.biography">作者資料</message>
+	<message key="user.biography">作者資訊</message>
 	<message key="user.biography.description">(例如系所和職級)</message>
 	<message key="user.changeMyPassword">改變我的密碼</message>
 	<message key="user.changePassword">改變密碼</message>
@@ -24,6 +24,7 @@
 	<message key="user.dateRegistered">註冊日期</message>
 	<message key="user.editMyProfile">編輯我的資料</message>
 	<message key="user.email">電子信箱(email)</message>
+        <message key="user.emailOrUsername">電子信箱 或 帳號</message>
 	<message key="user.fax">傳真號碼</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">姓名</message>
@@ -105,6 +106,10 @@
 	<message key="user.title">職稱</message>
 	<message key="user.url">個人網頁</message>
 	<message key="user.userHome">使用者首頁</message>
+        <message key="user.userHome.progressAuthor">作者投稿</message>
+        <message key="user.userHome.progressWaitAssign">等待安排</message>
+        <message key="user.userHome.progressWaitReview">等待審查</message>
+        <message key="user.userHome.progressAccepted">接受稿件</message>
 	<message key="user.username">帳號</message>
 	<message key="user.workingLanguages">使用的語言</message>
 </locale>

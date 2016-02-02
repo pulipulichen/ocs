@@ -249,8 +249,7 @@
 
 
 <div id="callForPapers">
-    {* @TODO 語系 *}
-<h3>2.5 作者基本資訊表格</h3>
+<h3>2.5 {translate key="manager.schedConfSetup.submissions.message.heading"}</h3>
 
 <table width="100%" class="data">
 	<tr valign="top">
@@ -259,8 +258,7 @@
 			<textarea name="authorProfileTemplate[{$formLocale|escape}]" id="authorProfileTemplate" rows="10" cols="80" class="textArea">{$authorProfileTemplate[$formLocale]|escape}</textarea>
 			<br />
 			<span class="instruct">
-                            {*translate key="manager.schedConfSetup.submissions.cfpMessageDescription"*}
-                            本訊息將會顯示在作者投稿過程中。
+                            {translate key="manager.schedConfSetup.submissions.message.description"}
                         </span>
 		</td>
 	</tr>

@@ -100,6 +100,14 @@
 	<message key="submission.currentAgencies">Current Agencies</message>
 	<message key="submission.done">完成</message>
 	<message key="submission.due">期限</message>
+        <message key="submission.assignReview.due">審查期限</message>
+        <message key="submission.assignReview.setupAutoRemind">設定自動提醒</message>
+        <message key="submission.assignReview.writeEmail">寫信</message>
+        <message key="submission.assignReview.waitComplete">等待完成審查</message>
+        <message key="submission.assignReview.empty">尚未選擇審查委員</message>
+        <message key="submission.assignReview.createAccount">建立審查委員</message>
+        <message key="submission.assignReview.selectReviewer">選擇之前的審查委員</message>
+        <message key="submission.assignReview.selectUser">從所有使用者指定審查委員</message>
 	<message key="submission.dueDate">到期日</message>
 	<message key="submission.editMetadata">編輯稿件詳細資訊</message>
 	<message key="submission.editing">編輯</message>
@@ -129,6 +137,7 @@
 	<message key="submission.event.reviewer.reviewerRated">送出的審查委員評分</message>
 	<message key="submission.event.reviewer.reviewerUnassigned">不指派給稿件的審查委員</message>
         <message key="submission.event.author.authorRevision">作者上傳修正後的稿件</message>
+        <message key="submission.event.author.directorRevision">負責人上傳修正後的稿件</message>
 	<message key="submission.fileDetails">File Details</message>
 	<message key="submission.files">檔案</message>
 	<message key="submission.galley">Galley</message>
@@ -209,6 +218,7 @@
 	<message key="submission.review">審查作業</message>
 	<message key="submission.reviewMetadata">審查資料</message>
 	<message key="submission.reviewVersion">最新稿件</message>
+        <message key="submission.authorReviewVersion">作者最新稿件</message>
 	<message key="submission.saveMetadata">儲存相關資料</message>
 	<message key="submission.start">開始</message>
 	<message key="submission.submissionHistory">稿件歷史</message>
@@ -236,6 +246,9 @@
 	<message key="submissions.queued">排序</message>
 	<message key="submissions.queuedEditing">稿件正在等待編輯</message>
 	<message key="submissions.queuedUnassigned">稿件正在等待審查安排</message>
+        <message key="submissions.assignedDate">指派日期</message>
+        <message key="submissions.reviewAssignment.heading">審查進度</message>
+        <message key="submissions.reviewAssignment.inviteResponded">回覆審查邀請</message>
 	<message key="submissions.ruling">修改日期</message>
 	<message key="submissions.submit">投稿日期</message>
 	<message key="submissions.submitted">已送出</message>

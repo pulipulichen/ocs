@@ -230,30 +230,28 @@ var _linkTypeChange = function (_select) {
                                 <table width="100%">
                                         <tr valign="top">
                                                 <th>
-                                                   {*fieldLabel name="navItems-$navItemId-url" value=""*} 
-                                                   可見權限
+                                                   {fieldLabel name="navItems-$navItemId-url" key="manager.setup.layout.visibility"} 
                                                 </th>
 						<td>
                                                     <select name="navItems[{$formLocale|escape}][{$navItemId}][visibility]" id="navItems[{$formLocale|escape}][{$navItemId}][visibility]" class="selectMenu">
-                                                        <option value="1" {if $navItem.visibility == '1'}selected{/if}>公開</option>
-                                                        <option value="2" {if $navItem.visibility == '2'}selected{/if}>已登入</option>
-                                                        <option value="3" {if $navItem.visibility == '3'}selected{/if}>已註冊</option>
-                                                        <option value="4" {if $navItem.visibility == '4'}selected{/if}>網站管理者</option>
-                                                        <option value="0" {if $navItem.visibility == '0'}selected{/if}>隱藏</option>
+                                                        <option value="1" {if $navItem.visibility == '1'}selected{/if}>{translate key="manager.setup.layout.visibility.1"}</option>
+                                                        <option value="2" {if $navItem.visibility == '2'}selected{/if}>{translate key="manager.setup.layout.visibility.2"}</option>
+                                                        <option value="3" {if $navItem.visibility == '3'}selected{/if}>{translate key="manager.setup.layout.visibility.3"}</option>
+                                                        <option value="4" {if $navItem.visibility == '4'}selected{/if}>{translate key="manager.setup.layout.visibility.4"}</option>
+                                                        <option value="0" {if $navItem.visibility == '0'}selected{/if}>{translate key="manager.setup.layout.visibility.0"}</option>
                                                     </select>
                                                 </td>
 					</tr>
                                         <tr valign="top">
                                                 <th>
-                                                   {*fieldLabel name="navItems-$navItemId-url" value="連結形式"*} 
-                                                   連結形式
+                                                   {fieldLabel name="navItems-$navItemId-url" key="manager.setup.layout.linkType"} 
                                                 </th>
 						<td>
                                                     <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" onchange="_linkTypeChange(this);" class="selectMenu">
-                                                        <option value="1" {if $navItem.urlType == '1'}selected{/if}>普通連結</option>
-                                                        <option value="2" {if $navItem.urlType == '2'}selected{/if}>開新網頁</option>
-                                                        <option value="3" {if $navItem.urlType == '3'}selected{/if}>內嵌網頁</option>
-                                                        <option value="4" {if $navItem.urlType == '4'}selected{/if}>問卷調查</option>
+                                                        <option value="1" {if $navItem.urlType == '1'}selected{/if}>{translate key="manager.setup.layout.linkType.1"}</option>
+                                                        <option value="2" {if $navItem.urlType == '2'}selected{/if}>{translate key="manager.setup.layout.linkType.2"}</option>
+                                                        <option value="3" {if $navItem.urlType == '3'}selected{/if}>{translate key="manager.setup.layout.linkType.3"}</option>
+                                                        <option value="4" {if $navItem.urlType == '4'}selected{/if}>{translate key="manager.setup.layout.linkType.4"}</option>
                                                     </select>
                                                 </td>
 					</tr>
@@ -267,7 +265,7 @@ var _linkTypeChange = function (_select) {
                                         </tr>
                                         <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
                                                 <th>
-                                                   問卷設定 
+                                                   {translate key="manager.setup.layout.surveyConfig"} 
                                                 </th>
                                                 <td>
                                                     <textarea name="navItems[{$formLocale|escape}][{$navItemId}][survey]" rows="10" cols="60" class="textArea">{$navItem.survey}</textarea>
@@ -275,10 +273,12 @@ var _linkTypeChange = function (_select) {
                                         </tr>
                                         <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
                                                 <th>
-                                                   匯出
+                                                    {translate key="common.export"} 
                                                 </th>
                                                 <td>
-                                                    <a href="{url page="schedConf" op="surveyExport"}?id={$navItemId}" class="btn btn-default">匯出問卷結果</a>
+                                                    <a href="{url page="schedConf" op="surveyExport"}?id={$navItemId}" class="btn btn-default">
+                                                        {translate key="manager.setup.layout.surveyExport"}
+                                                    </a>
                                                 </td>
                                         </tr>
                                     </table> 
@@ -318,20 +318,20 @@ var _linkTypeChange = function (_select) {
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][0][url]" id="navItems-0-url" size="60" maxlength="255" class="textField" />
                                 <label>
-                                    權限
+                                    {translate key="manager.setup.layout.visibility"}
                                     <select name="navItems[{$formLocale|escape}][{$navItemId}][visibility]" id="navItems[{$formLocale|escape}][{$navItemId}][visibility]" class="selectMenu">
-                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>公開</option>
-                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>已登入</option>
-                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>已註冊</option>
-                                        <option value="4" {if $navItem.urlType == 4}selected{/if}>網站管理者</option>
+                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>{translate key="manager.setup.layout.visibility.1"}</option>
+                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>{translate key="manager.setup.layout.visibility.2"}</option>
+                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>{translate key="manager.setup.layout.visibility.3"}</option>
+                                        <option value="4" {if $navItem.urlType == 4}selected{/if}>{translate key="manager.setup.layout.visibility.4"}</option>
                                     </select>
                                 </label>
                                 <label>
-                                    連結形式
+                                    {translate key="manager.setup.layout.linkType"}
                                     <select name="navItems[{$formLocale|escape}][{$navItemId}][urlType]" id="navItems[{$formLocale|escape}][{$navItemId}][urlType]" class="selectMenu">
-                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>普通連結</option>
-                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>開新網頁</option>
-                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>內嵌網頁</option>
+                                        <option value="1" {if $navItem.urlType == 1}selected{/if}>{translate key="manager.setup.layout.linkType.1"}</option>
+                                        <option value="2" {if $navItem.urlType == 2}selected{/if}>{translate key="manager.setup.layout.linkType.2"}</option>
+                                        <option value="3" {if $navItem.urlType == 3}selected{/if}>{translate key="manager.setup.layout.linkType.3"}</option>
                                     </select>
                                 </label>
                                 
@@ -373,27 +373,24 @@ var _linkTypeChange = function (_select) {
 
 <div id="googleAnalytics">
 <h3>
-    3.6 {*translate key="manager.setup.layout.lists"*}
-    Google分析 {* @TODO 語系 *}
+    3.6 {translate key="manager.setup.googleAnalytics"}
 </h3>
 
-<p>{translate key="manager.setup.layout.lists.description"}</p>
+<p>{translate key="manager.setup.googleAnalytics.description"}</p>
 
 <table width="100%" class="data">
 	<tr valign="top">
 		<td width="20%" class="label">
-                    {*translate key="manager.setup.layout.itemsPerPage"*}
-                    追蹤編號
-                    {* @TODO 語系 *}
+                    {translate key="manager.setup.googleAnalytics.analyticsTrackingID"}
                 </td>
 		<td width="80%" class="value">
                     <input type="text" size="20" name="analyticsTrackingID" class="textField" value="{$analyticsTrackingID|escape}" />
                     <a href="https://www.google.com/analytics/web/" target="_blank">
-                        開啟Google分析
+                        {translate key="manager.setup.googleAnalytics.open"}
                     </a>
                     <br />
                     <a href="https://www.youtube.com/watch?v=lCz40QHo0-0" target="_blank">
-                        如何取得Google分析的追蹤編號？
+                        {translate key="manager.setup.googleAnalytics.help"}
                     </a>
                 </td>
 	</tr>

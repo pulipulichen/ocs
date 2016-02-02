@@ -18,8 +18,7 @@
 	<tr class="heading" valign="bottom">
 		<td>{translate key="common.id"}</td>
 		<td><!--<span class="disabled">MM-DD</span><br />-->
-                    {*translate key="common.assigned"*}
-                    指派日期
+                    {translate key="submissions.assignedDate"}
                 </td>
                 {if $tracks|@count > 1}
 		<td>{translate key="submissions.track"}</td>
@@ -27,12 +26,10 @@
                 <td>{translate key="paper.sessionType"}</td>
 		<td>{translate key="paper.title"}</td>
 		<td>
-                    {*translate key="submission.review"*}
-                    審查委員決定 {* @TODO 語系 *}
+                    {translate key="submission.reviewerDecision"}
                 </td>
 		<td>
-                    {*translate key="submission.directorDecision"*}
-                    負責人決定 {* TODO 語系 *}
+                    {translate key="submission.directorDecision"}
                 </td>
                 <td align="right">{translate key="submissions.manage"}</td>
 	</tr>

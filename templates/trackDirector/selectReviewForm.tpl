@@ -37,8 +37,7 @@
                             {translate key="common.alreadyAssigned"}
                         {else}
                             <a href="{url op="selectReviewForm" path=$paperId|to_array:$reviewId:$reviewForm->getId()}" class="action btn btn-default btn-sm">
-                                {*translate key="common.assign"*}
-                                指定 {* @TODO 語系 *}
+                                {translate key="common.select"}
                             </a>
                         {/if}
                         <!--

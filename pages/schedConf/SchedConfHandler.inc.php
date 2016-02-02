@@ -153,6 +153,7 @@ class SchedConfHandler extends Handler {
 	 * Display conference overview page
 	 */
 	function overview() {
+            
 		$this->addCheck(new HandlerValidatorSchedConf($this));
 		$this->validate();
 

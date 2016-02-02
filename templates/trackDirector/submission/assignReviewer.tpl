@@ -101,8 +101,7 @@ function confirmSubmissionCheck() {
 		<table width="100%" class="data">
 		<tr valign="top">
                     <td class="label" width="20%">
-                        {* @TODO 語系 *}
-                        審查進度
+                        {translate key=""submissions.reviewAssignment.heading}
                     </td>
 			<td width="80%">
                             <table width="100%" class="info table" style="margin-bottom: 0;">
@@ -114,38 +113,37 @@ function confirmSubmissionCheck() {
 								{icon name="mail" url=$reviewUrl disabled="true"}
                                                                 <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
                                                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                    邀請
+                                                                    {translate key="common.invite"}
                                                                 </a>
 							{elseif $reviewAssignment->getDateNotified()}
 								{$reviewAssignment->getDateNotified()|date_format:$dateFormatShort}
 							{elseif !$reviewAssignment->getDeclined() and !$reviewAssignment->getDateNotified()}
 								<a href="{$reviewUrl}" class="btn btn-primary btn-sm">
                                                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                    邀請
+                                                                    {translate key="common.invite"}
                                                                 </a>
 							{/if}
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="">
-                                            {*translate key="submission.underway"*}
-                                            回覆審查邀請
+                                            {translate key="submissions.reviewAssignment.inviteResponded"}
                                         </th>
                                         <td class="value">
                                             {$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort|default:"&mdash;"}
                                             {if $reviewAssignment->getDeclined()}
                                                 <div class="text-danger">
                                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>    
-                                                    {*translate key="trackDirector.regrets"*}
-                                                    婉拒審查
+                                                    {translate key="trackDirector.regrets"}
                                                 </div>
                                             {/if}
                                         </td>
                                     </tr>
                                     
                                     <tr>
-                                        <th class="">{*translate key="submission.due"*}
-                                                    審查期限</th>
+                                        <th class="">
+                                            {translate key="submission.assignReview.due"}
+                                        </th>
                                         <td class="value">
                                                 {if !$reviewAssignment->getDateCompleted()}
                                                     <a href="{url op="setDueDate" path=$reviewAssignment->getPaperId()|to_array:$reviewAssignment->getId()}" class="edit-link" style="float:none;margin-right: 15px;">
@@ -163,11 +161,11 @@ function confirmSubmissionCheck() {
                                                     {url|assign:"remindUrl" op="remindReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
                                                         <a href="{$remindUrl}" class="btn btn-default btn-sm">
                                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                            提醒
+                                                            {translate key="common.remind"}
                                                         </a>
                                                         {if $isConferenceManager}
                                                         <a href="{url page="manager"}/schedConfSetup/3#peerReview" target="_blank" class="active">
-                                                            設定自動提醒
+                                                            {translate key="submission.assignReview.setupAutoRemind"}
                                                         </a>
                                                         {/if}
                                                     {/if}
@@ -184,10 +182,10 @@ function confirmSubmissionCheck() {
 							{elseif $reviewAssignment->getDateCompleted()}
                                                             <a href="{$thankUrl}" class="btn btn-primary btn-sm">
                                                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                寫信
+                                                                {translate key="submission.assignReview.writeEmail"}
                                                             </a>
 							{else}
-                                                            等待完成審查
+                                                            {translate key="submission.assignReview.waitComplete"}
 							{/if}
                                         </td>
                                     </tr>
@@ -247,20 +245,16 @@ function confirmSubmissionCheck() {
                     {if !$reviewAssignment->getCommentAuthor() and !$reviewAssignment->getCommentDirector()}
                         <tr valign="top">
 				<td class="label">
-                                    {*translate key="submission.review"*}
-                                    審查意見
+                                    {translate key="reviewer.paper.comment"}
                                 </td>
 				<td>
-                                    {*translate key="submission.comments.noComments"*}
-                                    {* @TODO 語系 *}
-                                    沒有審查意見
+                                    {translate key="reviewer.paper.noComment"}
 				</td>
 			</tr>
                     {/if}
 			<tr valign="top">
 				<td class="label">
-                                    {*translate key="reviewer.paper.recommendation"*}
-                                    審查建議 {* @TODO 語系 *}
+                                    {translate key="reviewer.paper.recommendation"}
                                 </td>
 				<td>
 					{if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== '' and $reviewAssignment->getDateCompleted()}
@@ -349,8 +343,7 @@ function confirmSubmissionCheck() {
 		{if (($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') || !$reviewAssignment->getDateConfirmed()) && $reviewAssignment->getDateNotified() && !$reviewAssignment->getDeclined()}
 			<tr valign="top">
 				<td class="label">
-                                    {*translate key="reviewer.paper.directorToEnter"*}
-                                    審查建議
+                                    {translate key="reviewer.paper.recommendation"}
                                 </td>
 				<td>
 					{if !$reviewAssignment->getDateConfirmed()}
@@ -412,7 +405,7 @@ function confirmSubmissionCheck() {
 	{/if}
         {foreachelse}
             <p class="text-center">
-                尚未選擇審查委員  {* @TODO 語系 *}
+                {translate key="submission.assignReview.empty"}
             </p>
 	{/foreach}
 {/if}
@@ -420,21 +413,15 @@ function confirmSubmissionCheck() {
 <div class="text-center" style="margin-top: 15px;">
             <a href="{url op="createReviewer" path=$submission->getPaperId()}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                {*translate key="director.paper.selectReviewer"*}
-                {* @TODO 語系 *}
-                建立審查委員
+                {translate key="submission.assignReview.createAccount"}
             </a>
             <a href="{url op="selectReviewer" path=$submission->getPaperId()}" class="btn btn-default">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                {*translate key="director.paper.selectReviewer"*}
-                {* @TODO 語系 *}
-                選擇之前的審查委員
+                {translate key="submission.assignReview.selectReviewer"}
             </a>
             <a href="{url op="enrollSearch" path=$submission->getPaperId()}" class="btn btn-default">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                {*translate key="director.paper.selectReviewer"*}
-                {* @TODO 語系 *}
-                從所有使用者指定審查委員
+                {translate key="submission.assignReview.selectUser"}
             </a>
             <!--
             <a href="{url op="submissionRegrets" path=$submission->getPaperId()}" class="btn btn-danger">

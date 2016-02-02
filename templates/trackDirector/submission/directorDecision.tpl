@@ -134,11 +134,10 @@
                         </a>
                                     &nbsp;&nbsp;
                                     
-                                    {* @TODO 語系 *}
                                             {if $lastFileType == 0}
-                                                [作者]
+                                                [{translate key="submission.event.author.authorRevision"}]
                                             {elseif $lastFileType == 1}
-                                                [負責人修改]
+                                                [{translate key="submission.event.author.directorRevision"}]
                                             {/if}
                                     ({$lastFile->getDateModified()|date_format:$dateFormatShort})
                                     {*} &nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="javascript:openHelp('{get_help_id key="editorial.trackDirectorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.paper.ensuringBlindReview"}</a> {*}

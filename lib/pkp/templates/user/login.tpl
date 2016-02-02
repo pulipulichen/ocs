@@ -81,22 +81,27 @@
 	<table id="signinTable" class="data">
         <tr>
             {* @TODO 語系 *}
-		<td class="label"><label for="loginEmail">身份</label></td>
+		<td class="label">
+                    <label for="loginEmail">
+                        {translate key="user.role"}
+                    </label>
+                </td>
 		<td class="value">
                     <label>
                         <input type="radio" name="role" value="other" onchange="_setupRole(this)" checked="true" /> 
-                        管理者、作者、審查委員等
+                        {translate key="user.account.loginOther"}
                     </label>
                     {if $schedConfPostPayment}
                     <label>
-                        <input type="radio"  name="role" value="audience" onchange="_setupRole(this)" /> 報名與會者
+                        <input type="radio"  name="role" value="audience" onchange="_setupRole(this)" /> 
+                        {translate key="user.account.loginTypeAudience"}
                     </label>
                     {/if}
                 </td>
 	</tr>
         <tr>
 		<td class="label">
-                    <label class="other-label" for="loginEmail">{translate key="user.email"} 或 帳號</label>
+                    <label class="other-label" for="loginEmail">{translate key="user.emailOrUsername"}</label>
                     <label class="audience-label" for="loginEmail" style="display:none;">{translate key="user.email"}</label>
                 </td>
 		<td class="value">
