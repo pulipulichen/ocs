@@ -192,10 +192,10 @@
 「耗時」 為完成審查作業耗時的平均週數。<br/>
 「最近審查時間」為最近一次接受審查工作的時間。<br/>
 「負責稿件」：為目前正在考慮或進行中的審查稿件數量。]]></message>
-	<message key="editor.paper.clearReviewForm">清除審查表</message>
+	<message key="editor.paper.clearReviewForm">清除審查表單</message>
 	<message key="editor.paper.confirmChangeReviewForm">警告！改變審查表將會影響已經填寫的審查意見。您確定要繼續？</message>
-	<message key="editor.paper.reviewForms">審查表</message>
-	<message key="editor.paper.selectReviewForm">選擇審查表</message>
+	<message key="editor.paper.reviewForms">審查表單</message>
+	<message key="editor.paper.selectReviewForm">選擇審查表單</message>
 	<message key="event.eventLog">結果日誌</message>
 	<message key="event.general.defaultEvent">投稿結果</message>
 	<message key="event.logLevel">等級</message>
@@ -381,7 +381,7 @@ You may optionally provide the user with a reason for disabling their account.</
 	<message key="manager.reviewForms.create">建立審查表單</message>
 	<message key="manager.reviewForms.description">說明</message>
 	<message key="manager.reviewForms.edit">審查表單管理</message>
-	<message key="manager.reviewForms.form.titleRequired">審查表需要設定標題。</message>
+	<message key="manager.reviewForms.form.titleRequired">審查表單需要設定標題。</message>
 	<message key="manager.reviewForms.inReview">審查中</message>
 	<message key="manager.reviewForms.list.description">The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific conference track, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</message>
 	<message key="manager.reviewForms.noneChosen">沒有使用審查表單 / 任意格式</message>
@@ -713,10 +713,10 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.authorsRevisedVersion">作者修改後的版本</message>
 	<message key="submission.changeTrack">更改為</message>
 	<message key="submission.comments.blindCcReviewers">在件寄出後，同時寄送一個不具名的副本給審查者。</message>
-	<message key="submission.comments.canShareWithAuthor">給作者與會議主席</message>
-	<message key="submission.comments.cannotShareWithAuthor">給會議主席</message>
+	<message key="submission.comments.canShareWithAuthor">作者可檢視</message>
+	<message key="submission.comments.cannotShareWithAuthor">僅有會議主席可檢視</message>
 	<message key="submission.comments.directorAuthorCorrespondence">電子郵件記錄</message>
-	<message key="submission.comments.forAuthorDirector">給作者與會議主席</message>
+	<message key="submission.comments.forAuthorDirector">給作者(會議主席可見)</message>
 	<message key="submission.comments.forDirector">給會議主席</message>
 	<message key="submission.comments.saveAndEmailAuthor">儲存並寄電子郵件給作者</message>
 	<message key="submission.comments.saveAndEmailDirector">儲存並寄電子郵件給會議主席</message>
@@ -751,7 +751,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.paperType">全文類別</message>
 	<message key="submission.paperType.panel">專題小組發表</message>
 	<message key="submission.paperType.single">個別發表</message>
-	<message key="submission.reviewForm">審查表</message>
+	<message key="submission.reviewForm">審查表單</message>
 	<message key="submission.reviewFormResponse">審查意見回覆</message>
 	<message key="submission.stage">步驟 {$stage}</message>
 	<message key="submission.submissionFiles">稿件檔案</message>

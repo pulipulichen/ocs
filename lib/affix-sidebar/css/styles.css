@@ -55,21 +55,34 @@ body {
  position: static;
 }
 
-@media (min-width: 979px) {
+@media (min-width: 768px) {
   #sidebar.affix-top {
     position: static;
-  	margin-top:30px;
-  	width:228px;
+    margin-top:30px;
+    /*width:228px;*/
   }
   
   #masthead h1 {
-    font-size: 45px;
+    /*font-size: 45px;*/
   }
   
   #sidebar.affix {
     position: fixed;
     top:70px;
-    width:228px;
+    /*width: 20%;*/
+    /*width:228px;*/
+  }
+}   /* @media (min-width: 979px) {*/
+
+@media (max-width: 1000px) {
+    #sidebar.affix {
+        width: 15%;
+  }
+}
+
+@media (max-width: 900px) {
+    #sidebar.affix {
+        width: 20%;
   }
 }
 
