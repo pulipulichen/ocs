@@ -686,7 +686,7 @@
 	<message key="manager.tracks.indexed">索引</message>
 	<message key="manager.tracks.noneCreated">尚未建立主題</message>
 	<message key="manager.tracks.open">開放投稿</message>
-	<message key="manager.tracks.peerReviewed">同儕審查</message>
+	<message key="manager.tracks.peerReviewed">審查方針</message>
 	<message key="manager.tracks.policy">主題的運作政策</message>
 	<message key="manager.tracks.readingTools">閱讀工具</message>
 	<message key="manager.tracks.submissionNotReviewed">設定本主題為免審查的主題</message>

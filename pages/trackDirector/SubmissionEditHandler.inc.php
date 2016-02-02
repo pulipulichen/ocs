@@ -65,7 +65,6 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$templateMgr->assign('isDirector', $isDirector);
 		$templateMgr->assign('enableComments', $enableComments);
 
-		$trackDao =& DAORegistry::getDAO('TrackDAO');
 		$templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
 		if ($enableComments) {
 			import('paper.Paper');

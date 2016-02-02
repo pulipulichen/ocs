@@ -75,9 +75,14 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
-		$templateMgr->assign('sessionTypes', $controlledVocabDao->enumerateBySymbolic('sessionTypes', ASSOC_TYPE_SCHED_CONF, $schedConf->getId()));
+                $sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+		$templateMgr->assign('sessionTypes', $sessionTypes);
 
 		$templateMgr->assign('helpTopicId', 'editorial.reviewersRole.review');		
+                
+                $trackDao =& DAORegistry::getDAO('TrackDAO');
+                $templateMgr->assign_by_ref('tracks', $trackDao->getTrackTitles($schedConf->getId()));
+                
 		$templateMgr->display('reviewer/submission.tpl');
 	}
 

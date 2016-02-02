@@ -40,11 +40,15 @@ function confirmSubmissionCheck() {
 <h3>{translate key="reviewer.paper.submissionToBeReviewed"}</h3>
 
 <table width="100%" class="data">
-<tr valign="top">
-	<td width="20%" class="label">{translate key="paper.title"}</td>
-	<td width="80%" class="value">{$submission->getLocalizedTitle()|strip_unsafe_html}</td>
-</tr>
+    
 
+{if $tracks|@count > 1}
+<tr valign="top">
+	<td class="label">{translate key="paper.conferenceTrack"}</td>
+	<td class="value">{$submission->getTrackTitle()|escape}</td>
+</tr>
+{/if}
+    
 {assign var=sessionType value=$submission->getData('sessionType')}
 {if isset($sessionTypes[$sessionType])}
 	<tr valign="top">
@@ -54,9 +58,10 @@ function confirmSubmissionCheck() {
 {/if}{* isset($sessionTypes[$submissionType]) *}
 
 <tr valign="top">
-	<td class="label">{translate key="paper.conferenceTrack"}</td>
-	<td class="value">{$submission->getTrackTitle()|escape}</td>
+	<td width="20%" class="label">{translate key="paper.title"}</td>
+	<td width="80%" class="value">{$submission->getLocalizedTitle()|strip_unsafe_html}</td>
 </tr>
+
 {assing var="abstract" value=$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 {if $abstract and $abstract != ""}
 <tr valign="top">
@@ -136,6 +141,7 @@ function confirmSubmissionCheck() {
 
 {assign var="currentStep" value=1}
 
+{if !$submission->getCancelled()}
 <table width="100%" class="data">
     
     {if $declined or not $confirmedStatus}
@@ -145,13 +151,20 @@ function confirmSubmissionCheck() {
             {* @TODO 語系 *}
         </th>
         <td class="value" width="80%">
+                
+                
+                
             <!--{translate key="submission.response"}&nbsp;&nbsp;&nbsp;&nbsp;-->
 		{if not $confirmedStatus}
 			{url|assign:"acceptUrl" op="confirmReview" reviewId=$reviewId}
 			{url|assign:"declineUrl" op="confirmReview" reviewId=$reviewId declineReview=1}
-
+                        
 			{if !$submission->getCancelled()}
 				
+                                {if $schedConf->getLocalizedSetting('reviewGuidelines') != ''}
+                                    <div class="instruct">{translate key="reviewer.paper.consultGuidelines"}</div>
+                                {/if}
+                            
                                 {*icon name="mail" url=$acceptUrl*}
                                 <a href="{$acceptUrl}" class="btn btn-primary">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -165,24 +178,8 @@ function confirmSubmissionCheck() {
                                     {translate key="reviewer.paper.cannotDoReview"} 
                                 </a>
 			{else}
-				{*url|assign:"url" op="confirmReview" reviewId=$reviewId*}
-                                
-                                <a class="btn btn-primary disabled">
-                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                    {translate key="reviewer.paper.canDoReview"} 
-                                </a>
-				{*translate key="reviewer.paper.canDoReview"} 
-                                {icon name="mail" disabled="disabled" url=$acceptUrl*}
-                                
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				{*url|assign:"url" op="confirmReview" reviewId=$reviewId declineReview=1}
-				{translate key="reviewer.paper.cannotDoReview"} 
-                                {icon name="mail" disabled="disabled" url=$declineUrl*}
-                                
-                                <a class="btn btn-primary disabled">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    {translate key="reviewer.paper.cannotDoReview"} 
-                                </a>
+				審查邀請已經取消
+                                {* @TODO 語系 *}
 			{/if}
 		{else}
                     {if not $declined}
@@ -197,13 +194,11 @@ function confirmSubmissionCheck() {
                     {/if}
 		{/if}
                 
-                {if $schedConf->getLocalizedSetting('reviewGuidelines') != ''}
-                    <div class="instruct">{translate key="reviewer.paper.consultGuidelines"}</div>
-                {/if}
-                
+                <!--
                 {if not $confirmedStatus}
                     <div class="instruct">{translate key="reviewer.paper.notifyEditorA"}{if $editAssignment}, {$editAssignment->getDirectorFullName()|escape},{/if} {translate key="reviewer.paper.notifyEditorB"}</div>
                 {/if}
+                -->
         </td>
     </tr>
     {/if}
@@ -337,7 +332,7 @@ function confirmSubmissionCheck() {
     </tr>
     {/if}
     
-    <tr>
+    <tr class="hide">
         <td class="label">
             <span class="instruct">
                 {*translate key="reviewer.paper.uploadFile"*}
@@ -345,18 +340,8 @@ function confirmSubmissionCheck() {
             </span>
         </td>
         <td class="value">
-            <table class="data" width="100%">
 			{foreach from=$submission->getReviewerFileRevisions() item=reviewerFile key=key}
 				{assign var=uploadedFileExists value="1"}
-				<tr valign="top">
-                                <!--
-				<td class="label" width="20%">
-					{if $key eq "0"}
-						{translate key="reviewer.paper.uploadedFile"}
-					{/if}
-				</td>
-                                -->
-				<td class="value" width="">
 					<a href="{url op="downloadFile" path=$reviewId|to_array:$paperId:$reviewerFile->getFileId():$reviewerFile->getRevision()}" 
                                            class="file btn btn-default btn-sm">
                                             <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
@@ -366,21 +351,9 @@ function confirmSubmissionCheck() {
 					{if ($submission->getRecommendation() === null || $submission->getRecommendation() === '') && (!$submission->getCancelled())}
 						<a class="action" href="{url op="deleteReviewerVersion" path=$reviewId|to_array:$reviewerFile->getFileId():$reviewerFile->getRevision()}">{translate key="common.delete"}</a>
 					{/if}
-				</td>
-				</tr>
 			{foreachelse}
-				<tr valign="top">
-                                <!--
-				<td class="label" width="30%">
-					{translate key="reviewer.paper.uploadedFile"}
-				</td>
-                                -->
-				<td class="nodata">
-					{translate key="common.none"}
-				</td>
-				</tr>
+					{*translate key="common.none"*}
 			{/foreach}
-		</table>
 		{if $submission->getRecommendation() === null || $submission->getRecommendation() === ''}
 			<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">
 				<input type="hidden" name="reviewId" value="{$reviewId|escape}" />
@@ -419,6 +392,7 @@ function confirmSubmissionCheck() {
                     
                 {if $disableRecommend}
                 請先輸入審查意見
+                {* @TODO 語系 *}
                 {/if}
                 </form>					
             {/if}
@@ -426,10 +400,22 @@ function confirmSubmissionCheck() {
     </tr>
     {/if} {* {if $confirmedStatus} *}
 </table>
+{else}
+    <p>
+        審查邀請已經被取消了。
+        {* @TODO 語系 *}
+    </p>
+{/if}
+
 </div>
 {if $schedConf->getLocalizedSetting('reviewGuidelines') != ''}
 <div class="separator"></div>
 <div id="reviewerGuidelines">
+{if $isConferenceManager}
+<a class="edit-link" href="{url page="manager"}/schedConfSetup/3#peerReview" target="_blank">
+    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+</a>
+{/if}
 <h3>{translate key="reviewer.paper.reviewerGuidelines"}</h3>
 <p>{$schedConf->getLocalizedSetting('reviewGuidelines')|nl2br}</p>
 </div>

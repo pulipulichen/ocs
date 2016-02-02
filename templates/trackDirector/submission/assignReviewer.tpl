@@ -62,7 +62,7 @@ function confirmSubmissionCheck() {
         
         
 	{if not $reviewAssignment->getCancelled()}
-            <div class="panel {if $reviewCompleted}panel-primary{elseif $reviewAssignment->getDeclined()}panel-danger{else}panel-default{/if}" id="peerReview{$reviewId}">
+            <div class="panel {if $reviewCompleted}panel-primary{elseif $reviewAssignment->getDeclined()}panel-danger{elseif !$reviewAssignment->getDateNotified()}panel-danger{else}panel-default{/if}" id="peerReview{$reviewId}">
 		{assign var="reviewIndex" value=$reviewIndexes[$reviewId]}
 		<!--div class="separator"></div-->
                 <div class="panel-heading">
@@ -99,31 +99,6 @@ function confirmSubmissionCheck() {
                 </div>
                 <div class="panel-body">
 		<table width="100%" class="data">
-                {if !$reviewAssignment->getDeclined()}
-		<tr valign="top">
-                        <td class="label">{translate key="submission.reviewForm"}</td>
-                        <td>
-                        {if $reviewAssignment->getReviewFormId()}
-                                {assign var="reviewFormId" value=$reviewAssignment->getReviewFormId()}
-                                {$reviewFormTitles[$reviewFormId]}
-                        {else}
-                                {translate key="manager.reviewForms.noneChosen"}
-                        {/if}
-                        {if !$reviewAssignment->getDateCompleted()}
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a class="action btn btn-default" href="{url op="selectReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
-                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                    {translate key="editor.paper.selectReviewForm"}
-                                </a>
-                                {if $reviewAssignment->getReviewFormId()}&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a class="action" href="{url op="clearReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
-                                        {translate key="editor.paper.clearReviewForm"}
-                                    </a>
-                                {/if}
-                        {/if}
-                        </td>
-                </tr>
-                {/if}
 		<tr valign="top">
                     <td class="label" width="20%">
                         {* @TODO 語系 *}
@@ -190,7 +165,7 @@ function confirmSubmissionCheck() {
                                                     {/if}
                                         </td>
                                     </tr>
-                                    {if !$reviewAssignment->getDateConfirmed()}
+                                    {if $reviewAssignment->getDateConfirmed()}
                                     <tr>
                                         <th class="">{translate key="submission.acknowledge"}</th>
                                         <td class="value">
@@ -211,7 +186,33 @@ function confirmSubmissionCheck() {
 				</table>
 			</td>
 		</tr>
-
+                
+                {if !$reviewAssignment->getDeclined()}
+		<tr valign="top">
+                        <td class="label">{translate key="submission.reviewForm"}</td>
+                        <td>
+                        {if $reviewAssignment->getReviewFormId()}
+                                {assign var="reviewFormId" value=$reviewAssignment->getReviewFormId()}
+                                {$reviewFormTitles[$reviewFormId]}
+                        {else}
+                                {translate key="manager.reviewForms.noneChosen"}
+                        {/if}
+                        {if !$reviewAssignment->getDateCompleted()}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="action btn btn-default" href="{url op="selectReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    {translate key="editor.paper.selectReviewForm"}
+                                </a>
+                                {if $reviewAssignment->getReviewFormId()}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a class="action" href="{url op="clearReviewForm" path=$submission->getPaperId()|to_array:$reviewAssignment->getId()}"{if $reviewFormResponses[$reviewId]} onclick="return confirm('{translate|escape:"jsparam" key="editor.paper.confirmChangeReviewForm"}')"{/if}>
+                                        {translate key="editor.paper.clearReviewForm"}
+                                    </a>
+                                {/if}
+                        {/if}
+                        </td>
+                </tr>
+                {/if}
+                
 		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
 			<tr valign="top">
 				<td class="label">
