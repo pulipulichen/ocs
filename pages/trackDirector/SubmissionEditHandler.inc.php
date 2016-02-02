@@ -1192,7 +1192,7 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		
 		TrackDirectorAction::clearReviewForm($submission, $reviewId);
 
-		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, 'peerReview', array(), 'peerReview'.$reviewId);
+		Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
 	}
 
 	/**

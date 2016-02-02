@@ -31,7 +31,7 @@
 			{if $assignedReviewFormId == $reviewForm->getId()}
                             {translate key="common.alreadyAssigned"}
                         {else}
-                            <a href="{url op="selectReviewForm" path=$paperId|to_array:$reviewId:$reviewForm->getId()}" class="action">
+                            <a href="{url op="selectReviewForm" path=$paperId|to_array:$reviewId:$reviewForm->getId()}" class="action btn btn-default btn-sm">
                                 {*translate key="common.assign"*}
                                 指定 {* @TODO 語系 *}
                             </a>
@@ -40,6 +40,19 @@
                         <a href="{url op="previewReviewForm" path=$reviewId|to_array:$reviewForm->getId()}" class="action">
                             {translate key="common.preview"}
                         </a>
+                        {if $isConferenceManager}
+                            &nbsp;|&nbsp;
+                            <a href="{url page="manager" }/editReviewForm/{$reviewForm->getId()}" class="action">
+                                {$schedConfUrl}
+                                {translate key="common.edit"}
+                            </a>
+                            &nbsp;|&nbsp;
+                            <a href="{url page="manager" }/deleteReviewForm/{$reviewForm->getId()}" class="action"
+                                onclick="return confirm('{translate|escape:"jsparam" key="manager.reviewForms.confirmDeleteUnpublished"}')">
+                                {$schedConfUrl}
+                                {translate key="common.delete"}
+                            </a>
+                        {/if}
 	</tr>
 	<tr>
 		<td colspan="2" class="{if $reviewForms->eof()}end{/if}separator">&nbsp;</td>

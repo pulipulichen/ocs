@@ -51,6 +51,7 @@ class ReviewFormForm extends Form {
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('reviewFormId', $this->reviewFormId);
 		$templateMgr->assign('helpTopicId','conference.managementPages.reviewForms');
+                $templateMgr->assign('source', Request::getUserVar('source'));
 		parent::display();
 	}
 
@@ -99,7 +100,7 @@ class ReviewFormForm extends Form {
 
 			$reviewForm->setAssocType(ASSOC_TYPE_CONFERENCE);
 			$reviewForm->setAssocId($conferenceId);
-			$reviewForm->setActive(0);
+			$reviewForm->setActive(1);
 			$reviewForm->setSequence(REALLY_BIG_NUMBER);
 		}
 
@@ -113,6 +114,8 @@ class ReviewFormForm extends Form {
 			$reviewFormId = $reviewFormDao->insertObject($reviewForm);
 			$reviewFormDao->resequenceReviewForms(ASSOC_TYPE_CONFERENCE, $conferenceId);
 		}
+                
+                return $reviewFormId;
 	}
 }
 

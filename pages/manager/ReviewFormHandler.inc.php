@@ -100,7 +100,14 @@ class ReviewFormHandler extends ManagerHandler {
 		$reviewForm =& $reviewFormDao->getReviewForm($reviewFormId, ASSOC_TYPE_CONFERENCE, $conference->getId());
 
 		if ($reviewFormId != null && (!isset($reviewForm) || $reviewForm->getCompleteCount() != 0 || $reviewForm->getIncompleteCount() != 0)) {
+                    $source = Request::getUserVar('source');
+                    if (!isset($source)) {
 			Request::redirect(null, null, null, 'reviewForms');
+                    }
+                    else {
+                        $source = $source . '/' . $reviewFormId;
+                        PKPRequest::_checkThis()->url($source);
+                    }
 		}
 
 		import('manager.form.ReviewFormForm');
@@ -108,8 +115,16 @@ class ReviewFormHandler extends ManagerHandler {
 		$reviewFormForm->readInputData();
 
 		if ($reviewFormForm->validate()) {
-			$reviewFormForm->execute();
-			Request::redirect(null, null, null, 'reviewForms');
+			$reviewFormId = $reviewFormForm->execute();
+			//Request::redirect(null, null, null, 'reviewForms');
+                        $source = Request::getUserVar('source');
+                        if (!isset($source)) {
+                            Request::redirect(null, null, null, 'reviewForms');
+                        }
+                        else {
+                            $source = $source . '/' . $reviewFormId;
+                            header("Location: ". $source);
+                        }
 		} else {
 			$templateMgr =& TemplateManager::getManager();
 
@@ -183,7 +198,8 @@ class ReviewFormHandler extends ManagerHandler {
 			$reviewFormDao->deleteById($reviewFormId);
 		}
 
-		Request::redirect(null, null, null, 'reviewForms');
+		//Request::redirect(null, null, null, 'reviewForms');
+                Request::redirectReferer();
 	}
 
 	/**

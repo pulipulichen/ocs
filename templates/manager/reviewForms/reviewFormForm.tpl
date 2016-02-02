@@ -53,8 +53,12 @@
 
 <p class="text-center" style="margin-top: 15px;">
     <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
-    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="reviewForms"}'" />
+    <!--input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="reviewForms"}'" /-->
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
 </p>
+{if $source}
+    <input type="hidden" name="source" value="{$source}" />
+{/if}
 </form>
 
 {include file="common/footer.tpl"}

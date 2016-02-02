@@ -39,8 +39,18 @@ class Request extends PKPRequest {
 	 */
 	function redirect($conferencePath = null, $schedConfPath = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
 		$_this =& PKPRequest::_checkThis();
+                
+            $source = Request::getUserVar("source");
+            if (isset($source) && substr($source, 0, 1) === '/') {
+                $_this->redirectUrl($source);
+            }
+            
 		$_this->redirectUrl($_this->url($conferencePath, $schedConfPath, $page, $op, $path, $params, $anchor));
 	}
+        
+        function redirectReferer() {
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
 
 	/**
 	 * Deprecated
