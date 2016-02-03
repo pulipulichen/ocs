@@ -89,7 +89,7 @@
 		<td class="value">
                     <label>
                         <input type="radio" name="role" value="other" onchange="_setupRole(this)" checked="true" /> 
-                        {translate key="user.account.loginOther"}
+                        {translate key="user.account.loginTypeOther"}
                     </label>
                     {if $schedConfPostPayment}
                     <label>

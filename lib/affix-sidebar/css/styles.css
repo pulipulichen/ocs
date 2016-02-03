@@ -86,6 +86,12 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+    #sidebar.affix {
+        width: 100%;
+  }
+}
+
 #sidebar li.active {
   border:0 #eee solid;
   border-right-width:5px;
