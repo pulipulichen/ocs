@@ -8,19 +8,20 @@
       </fieldset>
 	  <div id="result"></div>
     </form>
+    使用者的資料：
+    <textarea id="data" style="width: 100%; height: 10em;"></textarea>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="handlebars.js"></script>
     <script type="text/javascript" src="../jQuery.Survey.js"></script>
     <script type="text/javascript" src="jquery.validate.js"></script>
     <script type="text/javascript" src="survey.js"></script>
+    <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript">
-      var person = {
-		"First%20Name": "pudding"
-	  };
+      $("#data").val(JSON.stringify(data));
       $(document).ready(function(){
         $('#survey').survey({
           survey: survey,
-          data: person,
+          data: data,
           init: function(target){
             target.closest('form').validate({
               errorPlacement: function(error, element){
@@ -32,6 +33,39 @@
               },
               wrapper: 'div'
             });
+          },
+          afterChange: function () {
+              var target = this;
+              var _changeCallback = function () {
+                  
+                  var data = $('#survey').serializeArray().reduce(function(obj, item) {
+                      var _name = item.name;
+                      //console.log(_name.substr(_name.length-2, 2));
+                      if (_name.substr(_name.length-2, 2) === "[]") {
+                          _name = _name.substr(0, _name.length-2);
+                      } 
+                      if (typeof(obj[_name]) !== "undefined") {
+                          if (typeof(obj[_name]['push']) !== "function") {
+                              obj[_name] = [obj[_name], item.value];
+                          }
+                          else {
+                              //console.log(typeof(obj[_name]));
+                              obj[_name].push(item.value);
+                          }
+                      }
+                      else {
+                          obj[_name] = item.value;
+                      }
+                      return obj;
+                  }, {});
+                  //var survey = $.survey($('#surveyDisplay').clone(true).wrap("<form></form>"));
+                  //var data = survey.pageData();
+                  //var surveyData = survey.data();
+                  //survey.updateData(data);
+                  $("#data").val(JSON.stringify(data));
+              };
+              $('#survey').find("input").change(_changeCallback);
+              $('#survey').find("textarea").change(_changeCallback);
           },
           beforeChange: function(from, to, next){
             var target = this;
