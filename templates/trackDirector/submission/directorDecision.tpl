@@ -220,23 +220,27 @@
                 };
             </script>
             {/literal}
+            {assign var="latestStatus" value=$submission->getLatestStatus()}
+            {if $latestStatus === "9"} 
+                {assign var='lastDecision' value=null}
+            {/if}
             <form method="post" action="{url op="recordDecision" path=$stage}#directorDecision" 
                   onsubmit="return _submit_decision(this, '{translate|escape:"jsparam" key="director.submissionReview.confirmDecision"}', {$lastDecision})">
             <input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
             
             {if $allowRecommendation and $isCurrent}
                 <select name="decision" class="btn btn-primary"{if not $allowRecommendation} disabled="disabled"{/if} onchange="$(this).next().click();">
-                                {html_options_translate options=$availableDirectorDecisionOptions selected=$lastDecision}
-                            </select>
-                            <input type="submit" name="submit" value="{translate key="director.paper.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} 
-                                   class="btn btn-primary hidden" />
-                        {else}
-                            {translate key="director.paper.cannotRecord"}
-                            <br />
-                            <a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()}#directors">
-                                {translate key="submissions.assignDirector"}
-                            </a>
-                        {/if}
+                    {html_options_translate options=$availableDirectorDecisionOptions selected=$lastDecision}
+                </select>
+                <input type="submit" name="submit" value="{translate key="director.paper.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} 
+                       class="btn btn-primary hidden" />
+            {else}
+                {translate key="director.paper.cannotRecord"}
+                <br />
+                <a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()}#directors">
+                    {translate key="submissions.assignDirector"}
+                </a>
+            {/if}
         </form>
     </td>
 </tr>

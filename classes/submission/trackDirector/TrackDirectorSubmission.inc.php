@@ -222,6 +222,32 @@ class TrackDirectorSubmission extends Paper {
 
 		return $this->directorDecisions[$stage];
 	}
+        
+        function getLatestStatus($stage = null) {
+            $directorDecisions = $this->getDecisions($stage);
+            if (isset($directorDecisions[1]) && count($directorDecisions[1]) === 0) {
+                $directorDecisions = $directorDecisions[2];
+            }
+            //print_r($directorDecisions);
+            //dateDecided
+            $latestDecision = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['decision'] : null;
+            
+            if ($latestDecision !== null) {
+                $dateDecided = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['dateDecided'] : null;
+                if (is_null($dateDecided) === FALSE) {
+                    $dateDecided = strtotime($dateDecided);
+                }
+
+                // 取出作者上傳檔案的最後日期
+                $lastModified = strtotime($this->getLastModified());
+                //echo "<!-- $lastModified **** $dateDecided -->";
+                if ($lastModified > $dateDecided) {
+                    $latestDecision = '9';
+                }
+            }
+            
+            return $latestDecision;
+        }
 
 	/**
 	 * Set director decisions.

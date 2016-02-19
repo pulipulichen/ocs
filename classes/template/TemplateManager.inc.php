@@ -251,6 +251,10 @@ class TemplateManager extends PKPTemplateManager {
 		} else {
 			$anchor = null;
 		}
+                
+                // 禁止使用anchor
+                $anchor = null;
+                
 		if (isset($params['all_extra'])) {
 			$allExtra = ' ' . $params['all_extra'];
 			unset($params['all_extra']);

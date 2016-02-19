@@ -37,6 +37,9 @@
 {iterate from=submissions item=submission}
 
 	{assign var="paperId" value=$submission->getPaperId()}
+        {assign var="latestDecision" valeu=$submission->getLatestDecision()}
+        
+        
 	<tr valign="top">
 		<td>{$submission->getPaperId()}</td>
 		<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>

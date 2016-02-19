@@ -399,3 +399,7 @@ table.listing tr.listing-tr.hover {
 .margintop20 {
     margin-top: 20px;
 }
+
+#submissions table td {
+    white-space: nowrap;
+}

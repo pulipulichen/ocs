@@ -119,6 +119,15 @@ class ReviewerSubmission extends Paper {
 
 		return $this->directorDecisions[$stage];
 	}
+        
+        function getLatestDecision($stage = null) {
+            $directorDecisions = $this->getDecisions($stage);
+            if (isset($directorDecisions[1]) && count($directorDecisions[1]) === 0) {
+                $directorDecisions = $directorDecisions[2];
+            }
+            $latestDecision = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['decision'] : null;
+            return $latestDecision;
+        }
 
 	/**
 	 * Set director decisions.

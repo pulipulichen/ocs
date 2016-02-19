@@ -13,7 +13,7 @@
   -->
 
 <locale name="zh_TW" full_name = "正體中文">
-	<message key="director.allDirectors">All Directors</message>
+	<message key="director.allDirectors">所有負責人</message>
 	<message key="director.allTracks">所有主題</message>
 	<message key="director.home">會議主席管理頁面</message>
 	<message key="director.me">我</message>
@@ -47,6 +47,8 @@
 	<message key="director.paper.decision.decline">拒絕</message>
 	<message key="director.paper.decision.invitePresentation">邀請稿件</message>
 	<message key="director.paper.decision.pendingRevisions">需要修改</message>
+        <message key="director.paper.decision.authorRevised">作者已修改</message>
+        <message key="director.paper.decision.wait">尚未決定</message>
 	<message key="director.paper.designateDueDate">設定截止日期</message>
 	<message key="director.paper.designateDueDateDescription">請輪入另一個日期或設定審查的周數以變更截止日期。</message>
 	<message key="director.paper.designateReviewVersion">楆示原始檔案作為審查用版本</message>
@@ -98,9 +100,9 @@
 	<message key="director.submissionReview.notes">截止日標示審稿的剩餘天數，如為負數則表示已經超過審稿期限。此欄將在審查接接受審查此稿件後才會出現數數值。&lt;br /&gt;日期格式為MM-DD。</message>
 	<message key="director.submissions.accept">接受</message>
 	<message key="director.submissions.activeAssignments">啟動分配</message>
-	<message key="director.submissions.assignedTo">檢視被安排的審查委員</message>
+	<message key="director.submissions.assignedTo">篩選主題負責人</message>
 	<message key="director.submissions.averageTime">耗時</message>
-	<message key="director.submissions.inTrack">檢視主題</message>
+	<message key="director.submissions.inTrack">選擇主題</message>
 	<message key="director.submissions.invite">邀請</message>
 	<message key="director.submissions.lastAssigned">最近審查時間</message>
 	<message key="director.submissions.lastCompleted">最近完成</message>

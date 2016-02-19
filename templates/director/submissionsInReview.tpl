@@ -28,6 +28,7 @@
 		<td>{sort_search key="paper.sessionType" sort="sessionType"}</td>
 		<td>{sort_search key="paper.authors" sort="authors"}</td>
 		<td>{sort_search key="paper.title" sort="title"}</td>
+                <!--
 		<td>
 			<center>{translate key="submission.peerReview"}</center>
 			<table width="100%" class="nested">
@@ -40,6 +41,10 @@
 			</table>
 		</td>
 		<td>{translate key="submissions.ruling"}</td>
+                -->
+                {* @TODO 語系 *}
+                <td>審查委員</td>
+                <td>審查進度</td>
 		<td>{translate key="paper.trackDirector"}</td>
                 <td>{translate key="submissions.manage"}</td>
 	</tr>
@@ -48,6 +53,9 @@
 	</tr>
 	
 	{iterate from=submissions item=submission}
+        
+        {assign var="latestStatus" value=$submission->getLatestStatus()}
+        
 	<tr valign="top"  class="listing-tr">
 		<td>{$submission->getPaperId()}</td>
 		{*}<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>{*}
@@ -68,6 +76,7 @@
 		</td>
 		<td>{$submission->getAuthorString(true)|truncate:40:"..."|escape}</td>
 		<td><a href="{url op="submissionReview" path=$submission->getPaperId()|to_array:$submission->getCurrentStage()}" class="action">{$submission->getLocalizedTitle()|strip_tags|truncate:40:"..."|default:"&mdash;"}</a></td>
+                <!--
 		<td>
 		<table width="100%">
 			{foreach from=$submission->getReviewAssignments() item=reviewAssignments}
@@ -114,6 +123,29 @@
 				&mdash;
 			{/foreach}
 		</td>
+                -->
+                <td>
+                    &mdash;
+                </td>
+                <td>
+                    {if $latestStatus === '2'}
+                        <span class="text-success">
+                            {translate key=director.paper.decision.accept}
+                        </span>
+                    {elseif $latestStatus === '3'}
+                        <span class="text-warning">
+                            {translate key=director.paper.decision.pendingRevisions}
+                        </span>
+                    {elseif $latestStatus === '9'}
+                        <span class="text-info">
+                            {translate key=director.paper.decision.authorRevised}
+                        </span>
+                    {else}
+                        <span style="color:#CCC">
+                            {translate key=director.paper.decision.wait}
+                        </span>
+                    {/if}
+                </td>
 		<td>
 			{assign var="editAssignments" value=$submission->getEditAssignments()}
 			{foreach from=$editAssignments item=editAssignment}
@@ -140,8 +172,8 @@
 	</tr>
 {else}
 	<tr>
-		<td colspan="{$colspan-2}" align="left">{page_info iterator=$submissions}</td>
-		<td colspan="3" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions searchField=$searchField searchMatch=$searchMatch search=$search track=$track sort=$sort sortDirection=$sortDirection}</td>
+		<td colspan="{$colspan-3}" align="left">{page_info iterator=$submissions}</td>
+		<td colspan="4" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions searchField=$searchField searchMatch=$searchMatch search=$search track=$track sort=$sort sortDirection=$sortDirection}</td>
 	</tr>
 {/if}
 </table>
