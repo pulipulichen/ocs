@@ -1,0 +1,74 @@
+[
+   {
+      "type": "radio",
+      "label": "主題相關性",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   },
+   {
+      "type": "radio",
+      "label": "論文原創性",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   },
+   {
+      "type": "radio",
+      "label": "論文嚴謹度",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   },
+{
+      "type": "radio",
+      "label": "成果重要性",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   },
+{
+      "type": "radio",
+      "label": "論文可讀性",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   },
+{
+      "type": "radio",
+      "label": "資料完整性",
+      "required": true,
+      "options": [
+         { "value": "極佳(5)" },
+         { "value": "優(4)" },
+         { "value": "普通(3)" },
+         { "value": "差(2)" },
+         { "value": "極差(1)" }
+      ]
+   }
+]

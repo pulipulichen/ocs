@@ -479,6 +479,15 @@ class ReviewAssignment extends DataObject {
 	function getReviewFormId() {
 		return $this->getData('reviewFormId');
 	}
+        
+        function getReviewSurveyForm() {
+            $conference =& Request::getConference();
+            $reviewFormId = $this->getReviewFormId();
+            $reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
+            $reviewForm =& $reviewFormDao->getReviewForm($reviewFormId, ASSOC_TYPE_CONFERENCE, $conference->getId());
+            $surveyForm = $reviewForm->getLocalizedTemplateSurvey();
+            return $surveyForm;
+        }
 
 	/**
 	 * Set review form id.
@@ -627,6 +636,14 @@ class ReviewAssignment extends DataObject {
 	 * Get ID of paper.
 	 * @return int
 	 */
+	function getCommentSurvey() {
+		return $this->getData('commentSurvey');
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
 	function setCommentAuthor($comment) {
 		return $this->setData('commentAuthor', $comment);
 	}
@@ -637,6 +654,14 @@ class ReviewAssignment extends DataObject {
 	 */
 	function setCommentDirector($comment) {
 		return $this->setData('commentDirector', $comment);
+	}
+        
+        /**
+	 * Get ID of paper.
+	 * @return int
+	 */
+	function setCommentSurvey($comment) {
+		return $this->setData('commentSurvey', $comment);
 	}
 }
 

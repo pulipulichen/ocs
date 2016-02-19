@@ -22,7 +22,7 @@
 {/if}
 {include file="common/header.tpl"}
 {/strip}
-
+ 
 <script type="text/javascript">
 {literal}
 <!--
@@ -43,8 +43,10 @@ function confirmIntegratedSubmissionCheck() {
 	if (confirm('{/literal}{translate|escape:"javascript" key="reviewer.paper.confirmDecision"}{literal}')) {
             $('[name="draft"]').val(0);
             //alert($('[name="draft"]').val());
+            //return true;
             return true;
         }
+        return false;
 }
 // -->
 {/literal}
@@ -298,10 +300,16 @@ function confirmIntegratedSubmissionCheck() {
     {if $confirmedStatus and not $declined}
 <tr valign="top">
 	<td class="label">
-            {if $isConferenceManager and $reviewAssignment->getReviewFormId() and !$reviewAssignment->getDateCompleted()}
+            {if $isConferenceManager and !$reviewAssignment->getDateCompleted()}
+                {if $reviewAssignment->getReviewFormId()}
                 <a class="edit-link" href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" target="_blank">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
+                {else}
+                    <a class="edit-link" href="{url page="director" op="selectReviewForm"}/{$paperId}/{$reviewId}" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
             {/if}
             {fieldLabel name="commentAuthor"}{translate key="submission.comments.forAuthorDirector"}
             
@@ -316,10 +324,16 @@ function confirmIntegratedSubmissionCheck() {
 </tr>
 <tr valign="top">
 	<td class="label">
-            {if $isConferenceManager and $reviewAssignment->getReviewFormId() and !$reviewAssignment->getDateCompleted()}
+            {if $isConferenceManager and !$reviewAssignment->getDateCompleted()}
+                {if $reviewAssignment->getReviewFormId()}
                 <a class="edit-link" href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" target="_blank">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
+                {else}
+                    <a class="edit-link" href="{url page="director" op="selectReviewForm"}/{$paperId}/{$reviewId}" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
             {/if}
             {fieldLabel name="commentDirector"}{translate key="submission.comments.forDirector"}
         </td>
@@ -328,6 +342,34 @@ function confirmIntegratedSubmissionCheck() {
                 <textarea id="commentDirector" name="commentDirector" style="width:100%;" rows="10" cols="50" class="textArea">{$commentDirector|escape}</textarea>
             {else}
                 {$commentDirector|nl2br|default:"&mdash;"}
+            {/if}
+        </td>
+</tr>
+<tr valign="top">
+	<td class="label">
+            {if $isConferenceManager and !$reviewAssignment->getDateCompleted()}
+                {if $reviewAssignment->getReviewFormId()}
+                <a class="edit-link" href="{url page="manager"}/editReviewForm/{$reviewAssignment->getReviewFormId()}" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                {else}
+                    <a class="edit-link" href="{url page="director" op="selectReviewForm"}/{$paperId}/{$reviewId}" target="_blank">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                {/if}
+            {/if}
+            {fieldLabel name="commentSurvey"}{translate key="submission.comments.survey"}
+        </td>
+	<td class="value">
+            
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
+            <textarea id="commentSurveyForm" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form {if $reviewAssignment->getDateCompleted()}report{/if}" jquery-survey-data="commentSurvey">{$commentSurveyForm|escape}</textarea>
+            <textarea id="commentSurvey" name="commentSurvey" style="width:100%;" rows="10" cols="50" class="textArea">{$commentSurvey|escape}</textarea>
+            
+            {if $reviewAssignment->getDateCompleted() && !$commentSurvey}
+                &mdash;
             {/if}
         </td>
 </tr>
@@ -414,7 +456,8 @@ function confirmIntegratedSubmissionCheck() {
 					{/if}
                                 </div>
 			{foreachelse}
-					{*translate key="common.none"*}
+                            {*translate key="common.none"*}
+                            &mdash;
 			{/foreach}
 		{if !$reviewAssignment->getDateCompleted()}
 			<!--<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">-->

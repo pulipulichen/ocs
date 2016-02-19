@@ -936,6 +936,7 @@
 		</field>
                 <field name="comment_author" type="X"/>
                 <field name="comment_director" type="X"/>
+                <field name="comment_survey" type="X"/>
 		<field name="review_form_id" type="I8"/>
 		<descr>Reviewing assignments.</descr>
 		<index name="review_assignments_paper_id">

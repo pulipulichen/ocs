@@ -86,21 +86,27 @@ class SubmissionReviewHandler extends ReviewerHandler {
                 
                 $authorComments = $reviewAssignment->getCommentAuthor();
                 $comments = $reviewAssignment->getCommentDirector();
+                $survey = $reviewAssignment->getCommentSurvey();
                 
                 $reviewFormId = $reviewAssignment->getReviewFormId();
                 if (isset($reviewFormId)) {
                     $reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
                     $reviewForm =& $reviewFormDao->getReviewForm($reviewFormId, ASSOC_TYPE_CONFERENCE, $conference->getId());
-                    if (!isset($authorComments)) {
+                    if (!isset($authorComments) || $authorComments === "") {
                         $authorComments = $reviewForm->getLocalizedDescription();
                     }
-                    if (!isset($comments)) {
+                    if (!isset($comments) || $comments === "") {
                         $comments = $reviewForm->getLocalizedTemplateForDirector();
                     }
+                    //if (!isset($survey) || $survey === "") {
+                        $surveyForm = $reviewForm->getLocalizedTemplateSurvey();
+                    //}
                 }
                 
                 $templateMgr->assign('commentAuthor', $authorComments);
                 $templateMgr->assign('commentDirector', $comments);
+                $templateMgr->assign('commentSurvey', $survey);
+                $templateMgr->assign('commentSurveyForm', $surveyForm);
                 
                 $templateMgr->assign('draft', Request::getUserVar('draft'));
                 
@@ -149,6 +155,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$reviewId = Request::getUserVar('reviewId');
                 $commentAuthor = Request::getUserVar('commentAuthor');
                 $commentDirector = Request::getUserVar('commentDirector');
+                $commentSurvey = Request::getUserVar('commentSurvey');
 		$recommendation = Request::getUserVar('recommendation');
                 $draft = Request::getUserVar('draft');
 
@@ -157,7 +164,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$this->setupTemplate(true);
 
 		if (!$reviewerSubmission->getCancelled()) {
-                    if (ReviewerAction::recordRecommendationIntegrated($reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $recommendation, $draft, Request::getUserVar('send'))) {
+                    if (ReviewerAction::recordRecommendationIntegrated($reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $commentSurvey, $recommendation, $draft, Request::getUserVar('send'))) {
                         Request::redirect(null, null, null, 'submission', $reviewId, array("draft"=>$draft), 'reviewSteps');
                         //Request::redirect(null, null, null, 'emailDirector', null, array('reviewId' => $reviewId));
                     }

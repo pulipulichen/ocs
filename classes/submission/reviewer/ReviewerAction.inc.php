@@ -209,7 +209,7 @@ class ReviewerAction extends Action {
 	 * @param $recommendation int
 	 * @param $send boolean
 	 */
-	function recordRecommendationIntegrated(&$reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $recommendation, $draft, $send) {
+	function recordRecommendationIntegrated(&$reviewerSubmission, $recommendation, $commentAuthor, $commentDirector, $commentSurvey, $recommendation, $draft, $send) {
 		$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
 		$userDao =& DAORegistry::getDAO('UserDAO');
                 
@@ -237,6 +237,7 @@ class ReviewerAction extends Action {
                 
                 $reviewAssignment->setCommentAuthor($commentAuthor);
                 $reviewAssignment->setCommentDirector($commentDirector);
+                $reviewAssignment->setCommentSurvey($commentSurvey);
 
                 $reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
                 if ($draft === "1") {
@@ -301,18 +302,21 @@ class ReviewerAction extends Action {
 
                                         $commentAuthor = strip_tags($reviewAssignment->getCommentAuthor());
                                         if (!$commentAuthor || $commentAuthor == "") {
-                                            $commentAuthor = "沒有意見";
+                                            $commentAuthor = "沒有意見"; // @TODO語系
                                         }
                                         $commentDirector =  strip_tags($reviewAssignment->getCommentDirector());
                                         if (!$commentDirector || $commentDirector == "") {
-                                            $commentDirector = "沒有意見";
+                                            $commentDirector = "沒有意見"; // @TODO語系
                                         }
+                                        $commentSurvey =  $reviewAssignment->getCommentSurvey();
+                                        
 					$email->assignParams(array(
 						'editorialContactName' => $editorialContactName,
 						'reviewerName' => $reviewer->getFullName(),
 						'paperTitle' => strip_tags($reviewerSubmission->getLocalizedTitle()),
                                                 'commentAuthor' => $commentAuthor,
                                                 'commentDirector' => $commentDirector,
+                                                'commentSurvey' => $commentSurvey,
                                                 'submissionUrl' => $submissionUrl,
 						'recommendation' => __($reviewerRecommendationOptions[$recommendation])
 					));
@@ -322,7 +326,8 @@ class ReviewerAction extends Action {
 					array('reviewId' => $reviewerSubmission->getReviewId(), 
                                             'recommendation' => $recommendation, 
                                             'commentAuthor' => strip_tags($reviewAssignment->getCommentAuthor()),
-                                            'commentDirector' => strip_tags($reviewAssignment->getCommentDirector())
+                                            'commentDirector' => strip_tags($reviewAssignment->getCommentDirector()),
+                                            'commentSurvey' => $reviewAssignment->getCommentSurvey(),
                                         )
 				);
 				return false;

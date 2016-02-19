@@ -732,6 +732,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="submission.comments.directorAuthorCorrespondence">電子郵件記錄</message>
 	<message key="submission.comments.forAuthorDirector">給作者的審查意見(會議主席可見)</message>
 	<message key="submission.comments.forDirector">給會議主席的審查意見</message>
+        <message key="submission.comments.survey">審查評分</message>
 	<message key="submission.comments.saveAndEmailAuthor">儲存並寄電子郵件給作者</message>
 	<message key="submission.comments.saveAndEmailDirector">儲存並寄電子郵件給會議主席</message>
 	<message key="submission.comments.viewableDescription"><![CDATA[本意見能夠分享給作者。<br />

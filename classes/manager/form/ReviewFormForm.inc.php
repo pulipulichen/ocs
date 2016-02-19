@@ -70,7 +70,8 @@ class ReviewFormForm extends Form {
 				$this->_data = array(
 					'title' => $reviewForm->getTitle(null), // Localized
 					'description' => $reviewForm->getDescription(null), // Localized
-                                        'templateForDirector' => $reviewForm->getTemplateForDirector(null) // Localized
+                                        'templateForDirector' => $reviewForm->getTemplateForDirector(null), // Localized
+                                        'templateSurvey' => $reviewForm->getTemplateSurvey(null) // Localized
 				);
 			}
 		}
@@ -80,7 +81,7 @@ class ReviewFormForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('title', 'description','templateForDirector'));
+		$this->readUserVars(array('title', 'description','templateForDirector', 'templateSurvey',));
 	}
 
 	/**
@@ -108,6 +109,7 @@ class ReviewFormForm extends Form {
 		$reviewForm->setTitle($this->getData('title'), null); // Localized
 		$reviewForm->setDescription($this->getData('description'), null); // Localized
                 $reviewForm->setTemplateForDirector($this->getData('templateForDirector'), null); // Localized
+                $reviewForm->setTemplateSurvey($this->getData('templateSurvey'), null); // Localized
 
 		if ($reviewForm->getId() != null) {
 			$reviewFormDao->updateObject($reviewForm);

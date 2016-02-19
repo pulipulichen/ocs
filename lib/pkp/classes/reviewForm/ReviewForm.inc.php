@@ -44,6 +44,14 @@ class ReviewForm extends DataObject {
 	}
         
         /**
+	 * Get localized templateSurvey.
+	 * @return string
+	 */
+	function getLocalizedTemplateSurvey() {
+		return $this->getLocalizedData('templateSurvey');
+	}
+        
+        /**
 	 * Get localized description.
 	 * @return string
 	 */
@@ -186,6 +194,15 @@ class ReviewForm extends DataObject {
 	function getTemplateForDirector($locale) {
 		return $this->getData('templateForDirector', $locale);
 	}
+        
+        /**
+	 * Get templateSurvey.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getTemplateSurvey($locale) {
+		return $this->getData('templateSurvey', $locale);
+	}
 
 	/**
 	 * Set description.
@@ -203,6 +220,15 @@ class ReviewForm extends DataObject {
 	 */
 	function setTemplateForDirector($templateForDirector, $locale) {
 		return $this->setData('templateForDirector', $templateForDirector, $locale);
+	}
+        
+        /**
+	 * Set templateForDirector.
+	 * @param $templateSurvey string
+	 * @param $locale string
+	 */
+	function setTemplateSurvey($templateSurvey, $locale) {
+		return $this->setData('templateSurvey', $templateSurvey, $locale);
 	}
 
 	/** DEPRECATED **/

@@ -225,7 +225,7 @@ function confirmSubmissionCheck() {
                 </tr>
                 {/if}
                 
-		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
+		{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined() and $reviewAssignment->getDateCompleted()}
                     {if $reviewAssignment->getCommentAuthor() and $reviewAssignment->getDateCompleted()}
 <tr valign="top">
 	<td class="label">
@@ -234,7 +234,7 @@ function confirmSubmissionCheck() {
         <td class="value">{$reviewAssignment->getCommentAuthor()|nl2br}</textarea></td>
 </tr>
                     {/if}
-                    {if $reviewAssignment->getCommentDirector()}
+                    {if $reviewAssignment->getCommentDirector() and $reviewAssignment->getDateCompleted()}
 <tr valign="top">
 	<td class="label">
             {translate key="submission.comments.forDirector"}
@@ -242,7 +242,27 @@ function confirmSubmissionCheck() {
 	<td class="value">{$reviewAssignment->getCommentDirector()|nl2br}</td>
 </tr>
                     {/if}
-                    {if !$reviewAssignment->getCommentAuthor() and !$reviewAssignment->getCommentDirector()}
+                    {if $reviewAssignment->getCommentSurvey() and $reviewAssignment->getDateCompleted()}
+<tr valign="top">
+	<td class="label">
+            {translate key="submission.comments.survey"}
+        </td>
+	<td class="value">
+            {assign var="commentSurvey" value=$reviewAssignment->getCommentSurvey()}
+            {assign var="commentSurveyForm" value=$reviewAssignment->getReviewSurveyForm()}
+            {if $commentSurvey}
+                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
+                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
+                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
+                <textarea id="commentSurveyForm" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form report" jquery-survey-data="commentSurvey">{$commentSurveyForm}</textarea>
+                <textarea id="commentSurvey" name="commentSurvey" style="width:100%;" rows="10" cols="50" class="textArea">{$commentSurvey}</textarea>
+            {else}
+                &mdash;
+            {/if}
+        </td>
+</tr>
+                    {/if}
+                    {if !$reviewAssignment->getCommentAuthor() and !$reviewAssignment->getCommentDirector() and $reviewAssignment->getDateCompleted()}
                         <tr valign="top">
 				<td class="label">
                                     {translate key="reviewer.paper.comment"}

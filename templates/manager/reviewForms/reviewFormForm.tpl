@@ -64,6 +64,15 @@
             <textarea name="templateForDirector[{$formLocale|escape}]" rows="4" cols="40" id="templateForDirector" class="textArea">{$templateForDirector[$formLocale]|escape}</textarea>
         </td>
 </tr>
+<tr valign="top">
+	<td class="label">
+            {*fieldLabel name="description" key="manager.reviewForms.description"*}
+            {fieldLabel name="templateSurvey" key="submission.comments.survey"}
+        </td>
+	<td class="value">
+            <textarea name="templateSurvey[{$formLocale|escape}]" rows="4" cols="40" id="templateSurvey" class="textArea">{$templateSurvey[$formLocale]|escape}</textarea>
+        </td>
+</tr>
 </table>
 
 <p class="text-center" style="margin-top: 15px;">
