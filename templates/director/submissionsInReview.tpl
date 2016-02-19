@@ -124,9 +124,48 @@
 			{/foreach}
 		</td>
                 -->
-                <td>
-                    &mdash;
+                
+                {* 審查委員 *}
+                <td >
+                    {assign var="stage" value=2}
+                    {assign var=reviewAssignments value=$submission->getReviewAssignments($stage)}
+                    {if $reviewAssignments|@count === 0} 
+                        &mdash;
+                    {else}
+                        {assign var="hasReview" value=0}
+                        {foreach from=$reviewAssignments item=reviewAssignment key=reviewKey}
+                            {assign var=reviewerRecommendationOptions value=$reviewAssignment->getReviewerRecommendationOptions()}
+                            {if not $reviewAssignment->getCancelled()}
+                            {assign var="hasReview" value=1}
+                            <a href="{url op="submissionAssignReviewer" path=$submission->getPaperId()|to_array:$submission->getCurrentStage()}#peerReview{$reviewAssignment->getId()}" 
+                               class="btn btn-default btn-sm"
+                               target="_blank"
+                               title="{$reviewAssignment->getReviewerFullName()|escape}">
+                                {if $reviewAssignment->getRecommendation() !== null && $reviewAssignment->getRecommendation() !== '' and $reviewAssignment->getDateCompleted()}
+                                    {assign var="recommendation" value=$reviewAssignment->getRecommendation()}
+                                    <span 
+                                        {if $recommendation == 1}
+                                            class="text-success"
+                                        {elseif $recommendation == 5 or $recommendation == 6 or $recommendation == 4}
+                                            class="text-danger"
+                                        {else}
+                                            class="text-warning"
+                                        {/if}>
+                                        {translate key=$reviewerRecommendationOptions.$recommendation}
+                                    </span>
+                            {else}
+                                &mdash;
+                            {/if}
+                            </a>
+                            {/if}
+                        {/foreach}
+                        {if $hasReview===0}
+                            &mdash;
+                        {/if}
+                    {/if}
                 </td>
+                
+                {* 審查結果 *}
                 <td>
                     {if $latestStatus === '2'}
                         <span class="text-success">
