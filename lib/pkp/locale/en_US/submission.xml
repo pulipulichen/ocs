@@ -235,6 +235,11 @@
 
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
-        
-        <message key="submission.button.remove">從已經接受的稿件清單中移除</message>
+        <message key="submissions.manage">Manage</message>
+        <message key="submission.button.remove">Remove from accepted list</message>
+        <message key="submissions.reviewAssignment.heading">Review Progress</message>
+        <message key="submission.addSubmissionFile">Add Submission File</message>
+        <message key="submission.event.author.authorRevision">Author Revised</message>
+        <message key="submission.event.author.directorRevision">Director Revised</message>
+        <message key="submission.authorReviewVersion">Latest Version</message>
 </locale>

@@ -107,4 +107,10 @@
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working languages</message>
 	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
+        <message key="user.emailOrUsername">Email or Username</message>
+        
+        <message key="user.userHome.progressAuthor">Submitted</message>
+        <message key="user.userHome.progressWaitAssign">Waiting Assgin</message>
+        <message key="user.userHome.progressWaitReview">Reviewing</message>
+        <message key="user.userHome.progressAccepted">Accepted</message>
 </locale>

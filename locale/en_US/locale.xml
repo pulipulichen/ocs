@@ -859,4 +859,23 @@ Validation may fail on search URLs that require posted form data.]]></message>
 
 	<message key="rt.context.authorTermsDescription">For items with more than one author, leave all names checked to search for similarly co-presented work, or search one at a time by checking only a single name. To learn more about the resource searched, click on ABOUT. These resources have been selected because of their relevance and their open (free) access to all or part of their contents.</message>
         <message key="nav.helloUsername">Hello, {$username}!</message>
+        <message key="schedConf.emailToDirector">Contact Manager</message>
+        <message key="user.role">Role</message>
+	<message key="user.role.author">Author</message>
+	<message key="user.role.authors">Authors</message>
+	<message key="user.role.director">Director</message>
+	<message key="user.role.directors">Directors</message>
+	<message key="user.role.manager">Manager</message>
+	<message key="user.role.managers">Managers</message>
+	<message key="user.role.trackDirector">Track Director</message>
+	<message key="user.role.trackDirectors">Track Directors</message>
+        <message key="user.account.loginTypeOther">For managers and authors.</message>
+        <message key="user.login.createAccountTitle">Create Account</message>
+        <message key="common.more">More...</message>
+        
+        <message key="common.queue.short.submissionsAll">All</message>
+        <message key="common.queue.count.submissionsAccepted"><![CDATA[<br />Accpeted]]></message>
+	<message key="common.queue.count.submissionsInReview"><![CDATA[<br />Waiting]]></message>
+        <message key="common.queue.count.submissionsUnassigned"><![CDATA[<br />Reviewing]]></message>
+        <message key="common.queue.count.active">Submits</message>
 </locale>

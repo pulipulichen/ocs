@@ -148,7 +148,7 @@
 
 
 <button type="button" class="btn btn-default" style="margin:20px 0;" onclick="$(this).hide().next().show();">
-    顯示更多
+    {translate key="common.more"}
 </button>
 <div style="display:none;">
     <div class="separator"></div>
