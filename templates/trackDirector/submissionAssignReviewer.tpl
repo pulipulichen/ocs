@@ -65,14 +65,9 @@
 
 {** 如果有主席了，那就不顯示這個 ***}
 {if $submission->getEditAssignments()|@count == 0}
-
-{include file="trackDirector/submission/directors.tpl"}
-
-<div class="separator"></div>
-
+    {include file="trackDirector/submission/directors.tpl"}
+    <div class="separator"></div>
 {/if}
-
-
 
 {include file="trackDirector/submission/assignReviewer.tpl"}
 

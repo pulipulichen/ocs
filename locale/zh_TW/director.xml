@@ -42,6 +42,7 @@
 	<message key="director.paper.commentsRequired">意見欄不可以空白。</message>
 	<message key="director.paper.completeReview">標記已完成審查</message>
 	<message key="director.paper.createGalley">本檔案已經完成編輯，可以公開發佈。</message>
+        <message key="director.paper.reviewStatus">審查進度</message>
 	<message key="director.paper.decision">稿件處理結果記錄</message>
 	<message key="director.paper.decision.accept">接受</message>
 	<message key="director.paper.decision.decline">拒絕</message>

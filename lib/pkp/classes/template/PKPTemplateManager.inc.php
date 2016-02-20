@@ -300,6 +300,7 @@ class PKPTemplateManager extends Smarty {
                 
                 $conference =& Request::getConference();
                 if (isset($conference)) {
+                    $instance->assign('conferenceId', $conference->getId());
                     $instance->assign('isConferenceManager', Validation::isConferenceManager($conference->getId()));
                     $instance->assign('analyticsTrackingID', $conference->getSetting('analyticsTrackingID'));
                     

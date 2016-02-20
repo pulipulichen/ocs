@@ -131,6 +131,11 @@
 		<option value="">{translate key="manager.reviewForms.noneChosen"}</option>
 		{html_options options=$reviewFormOptions selected=$reviewFormId}
 	</select>
+        <a href="{url op="reviewForms"}">
+            管理審查表單
+            {* @TODO 語系 *}
+        </a>
+        
 </td>
 <tr valign="top">
 	<td rowspan="2" class="label">{fieldLabel suppressId="true" key="submission.indexing"}</td>

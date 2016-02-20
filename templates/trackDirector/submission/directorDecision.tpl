@@ -224,8 +224,13 @@
             {if $latestStatus === "9"} 
                 {assign var='lastDecision' value=null}
             {/if}
+            {assign var="lastDecisionParam" value=$lastDecision}
+            {if !$lastDecisionParam}
+                {assign var="lastDecisionParam" value="''"}
+            {/if}
+                
             <form method="post" action="{url op="recordDecision" path=$stage}#directorDecision" 
-                  onsubmit="return _submit_decision(this, '{translate|escape:"jsparam" key="director.submissionReview.confirmDecision"}', {$lastDecision})">
+                  onsubmit="return _submit_decision(this, '{translate|escape:"jsparam" key="director.submissionReview.confirmDecision"}', {$lastDecisionParam})">
             <input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
             
             {if $allowRecommendation and $isCurrent}

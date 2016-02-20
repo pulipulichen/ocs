@@ -220,6 +220,11 @@ function confirmSubmissionCheck() {
                                         {translate key="editor.paper.clearReviewForm"}
                                     </a>
                                 {/if}
+                                {if $isConferenceManager}
+                                <a class="action" href="{url page="manager" op="editTrack" path=$conferenceId}#reviewFormId" target="_blank">
+                                    設定預設審查表單 {* @TODO 語系 *}
+                                </a>
+                                {/if}
                         {/if}
                         </td>
                 </tr>

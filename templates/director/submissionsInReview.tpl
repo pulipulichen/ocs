@@ -42,9 +42,9 @@
 		</td>
 		<td>{translate key="submissions.ruling"}</td>
                 -->
-                {* @TODO 語系 *}
-                <td>審查委員</td>
-                <td>審查進度</td>
+                <td>{translate key="director.paper.selectReviewer"}</td>
+                <td>{translate key="director.paper.reviewStatus"}</td>
+                
 		<td>{translate key="paper.trackDirector"}</td>
                 <td>{translate key="submissions.manage"}</td>
 	</tr>
