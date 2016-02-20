@@ -68,6 +68,8 @@
 	<td class="label">
             {*fieldLabel name="description" key="manager.reviewForms.description"*}
             {fieldLabel name="templateSurvey" key="submission.comments.survey"}
+            <br />
+            <a href="https://github.com/pulipulichen/ocs/blob/master/lib/jquery-survey/survey-example_20160219.json" target="_blank">{translate key="manager.reviewForms.description"}</a>
         </td>
 	<td class="value">
             <textarea name="templateSurvey[{$formLocale|escape}]" rows="4" cols="40" id="templateSurvey" class="textArea">{$templateSurvey[$formLocale]|escape}</textarea>

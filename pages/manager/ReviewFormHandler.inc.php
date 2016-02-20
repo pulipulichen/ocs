@@ -62,9 +62,8 @@ class ReviewFormHandler extends ManagerHandler {
 		$reviewFormDao =& DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm =& $reviewFormDao->getReviewForm($reviewFormId, ASSOC_TYPE_CONFERENCE, $conference->getId());
 
-		if ($reviewFormId != null && (!isset($reviewForm) 
-                        //|| $reviewForm->getCompleteCount() != 0 
-                        || $reviewForm->getIncompleteCount() != 0)) {
+		//if ($reviewFormId != null && (!isset($reviewForm) || $reviewForm->getCompleteCount() != 0)) {
+                if ($reviewFormId != null && (!isset($reviewForm) )) {
 			Request::redirect(null, null, null, 'reviewForms');
 		} else {
 			$this->setupTemplate(true, $reviewForm);
