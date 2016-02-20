@@ -32,7 +32,21 @@
         </a>
     </div>
         
-    <nav class="collapse navbar-collapse" role="navigation">
+        
+        {if $enableLanguageToggle}
+            <div class='language-toggle'>
+                <form action="#">
+                    
+                        <select {if $isPostRequest}disabled="disabled" {/if}size="1" name="locale" onchange="location.href={if $languageToggleNoUser}'{$currentUrl|escape}{if strstr($currentUrl, '?')}&amp;{else}?{/if}setLocale='+this.options[this.selectedIndex].value{else}('{url|escape:"javascript" page="user" op="setLocale" path="NEW_LOCALE" source=$smarty.server.REQUEST_URI}'.replace('NEW_LOCALE', this.options[this.selectedIndex].value)){/if}" 
+                                                   class="btn btn-default btn-xs"
+                                                   style="width:100%;">
+                            {html_options options=$languageToggleLocales selected=$currentLocale}
+                        </select>
+                        
+                </form>
+        </div>
+        {/if}
+        <nav class="collapse navbar-collapse {if $enableLanguageToggle}second-row{/if}" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         {if $schedConfPostOverview}<li {if $requestedOp=="overview"}class="active"{/if}><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
         <li {if $requestedPage=="announcement"}class="active"{/if}><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
@@ -72,7 +86,7 @@ or $requestedPage=="director"
 or $requestedPage=="trackDirector" 
 or $requestedPage=="reader"
 or $requestedPage=="reviewer"}class="active"{/if}>
-            
+         
             {if $isUserLoggedIn}
                 <a href="{url page="user"}">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -85,9 +99,11 @@ or $requestedPage=="reviewer"}class="active"{/if}>
             {/if}
             
         </li>
+        
+
       </ul>
       
-      
+       
     </nav>
   </div>
 </nav>
