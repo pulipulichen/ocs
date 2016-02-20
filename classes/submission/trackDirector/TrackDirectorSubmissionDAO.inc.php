@@ -473,6 +473,19 @@ class TrackDirectorSubmissionDAO extends DAO {
 		$returner = new DAOResultFactory($result, $this, '_returnTrackDirectorSubmissionFromRow');
 		return $returner;
 	}
+        
+        function &getTrackDirectorSubmissionsAll($trackDirectorId, $schedConfId, $trackId, $searchField = null, $searchMatch = null, $search = null, $dateField = null, $dateFrom = null, $dateTo = null, $rangeInfo = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
+		$result = $this->_getUnfilteredTrackDirectorSubmissions(
+			$trackDirectorId, $schedConfId, $trackId,
+			$searchField, $searchMatch, $search,
+			$dateField, $dateFrom, $dateTo,
+			'p.status = ' . STATUS_PUBLISHED,
+			$rangeInfo, $sortBy, $sortDirection
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_returnTrackDirectorSubmissionFromRow');
+		return $returner;
+	}
 
 	/**
 	 * Function used for counting purposes for right nav bar

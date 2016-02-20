@@ -224,25 +224,47 @@ class TrackDirectorSubmission extends Paper {
 	}
         
         function getLatestStatus($stage = null) {
-            $directorDecisions = $this->getDecisions($stage);
-            if (isset($directorDecisions[1]) && count($directorDecisions[1]) === 0) {
-                $directorDecisions = $directorDecisions[2];
-            }
-            //print_r($directorDecisions);
-            //dateDecided
-            $latestDecision = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['decision'] : null;
             
-            if ($latestDecision !== null) {
-                $dateDecided = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['dateDecided'] : null;
-                if (is_null($dateDecided) === FALSE) {
-                    $dateDecided = strtotime($dateDecided);
+            $status = $this->getStatus();
+            //echo $status . '/' . STATUS_ARCHIVED . '/' . ;
+            
+            if ($status == STATUS_PUBLISHED) {
+                $latestDecision = '1';
+            }
+            else if ($status == STATUS_DECLINED) {
+                $latestDecision = '4';
+            }
+            else if ($status == STATUS_ARCHIVED) {
+                $latestDecision = '5';
+            }
+            else {
+                $directorDecisions = $this->getDecisions($stage);
+                if (isset($directorDecisions[1]) && count($directorDecisions[1]) === 0) {
+                    $directorDecisions = $directorDecisions[2];
                 }
+                $latestDecision = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['decision'] : null;
+                
+                if ($latestDecision !== null && $latestDecision !== "4") {
+                    $dateDecided = count($directorDecisions) >= 1 ? $directorDecisions[count($directorDecisions) - 1]['dateDecided'] : null;
+                    if (is_null($dateDecided) === FALSE) {
+                        $dateDecided = strtotime($dateDecided);
+                    }
 
-                // 取出作者上傳檔案的最後日期
-                $lastModified = strtotime($this->getLastModified());
-                //echo "<!-- $lastModified **** $dateDecided -->";
-                if ($lastModified > $dateDecided) {
-                    $latestDecision = '9';
+                    // 取出作者上傳檔案的最後日期
+//                    $lastModified = 0;
+//                    $authorFile = $this->getAuthorFileLastRevision($stage);
+//                    echo count($authorFile);
+//                    if (isset($authorFile)) {
+//                        //print_r($authorFile);
+//                        $lastModified = $authorFile->setDateUploaded();
+//                    }
+                    $lastModified = strtotime($this->getLastModified());
+                    
+                    //echo "<!-- $lastModified **** $dateDecided -->";
+                    //echo "$lastModified **** $dateDecided";
+                    if ($lastModified > $dateDecided) {
+                        $latestDecision = '9';
+                    }
                 }
             }
             
@@ -377,6 +399,28 @@ class TrackDirectorSubmission extends Paper {
 		} else {
 			return $this->authorFileRevisions[$stage];
 		}
+	}
+        
+        function getAuthorFileLastRevision($stage = null) {
+            //$stage = 2;
+            $files = $this->getAuthorFileRevisions($stage);
+            //echo count($files);
+            $date = null;
+            $lastFile = null;
+            if (is_null($stage)) {
+                foreach ($files AS $key => $file_array) {
+                    
+                    $f = $file_array[count($file_array)-1];
+                    if (isset($f) && ($date === null OR $f->getDateModified() > $date)) {
+                        $lastFile = $f;
+                        $date = $f->getDateModified();
+                    }
+                }
+            }
+            else {
+                $lastFile = $files[count($files)-1];
+            }
+            return $lastFile;
 	}
 
 	/**

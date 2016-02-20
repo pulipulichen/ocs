@@ -409,6 +409,18 @@ class DirectorSubmissionDAO extends DAO {
 		$returner = new DAOResultFactory($result, $this, '_returnDirectorSubmissionFromRow');
 		return $returner;
 	}
+        
+        function &getDirectorSubmissionsAll($schedConfId, $trackId, $directorId, $searchField = null, $searchMatch = null, $search = null, $dateField = null, $dateFrom = null, $dateTo = null, $rangeInfo = null, $sortBy = null, $sortDirection = "ASC") {
+		$result =& $this->_getUnfilteredDirectorSubmissions(
+			$schedConfId, $trackId, $directorId,
+			$searchField, $searchMatch, $search,
+			$dateField, $dateFrom, $dateTo,
+			'(p.status = ' . STATUS_QUEUED . ' AND ea.edit_id IS NULL) OR (p.status = ' . STATUS_QUEUED . ' AND ea.edit_id IS NOT NULL) OR (p.status = ' . STATUS_PUBLISHED . ') or (p.status <> ' . STATUS_QUEUED . ' AND p.status <> ' . STATUS_PUBLISHED . ')',
+			$rangeInfo, $sortBy, $sortDirection
+		);
+		$returner = new DAOResultFactory($result, $this, '_returnDirectorSubmissionFromRow');
+		return $returner;
+	}
 
 	/**
 	 * Function used for counting purposes for right nav bar
@@ -431,7 +443,7 @@ class DirectorSubmissionDAO extends DAO {
 				AND (p.submission_progress = 0 OR (p.review_mode = ' . REVIEW_MODE_BOTH_SEQUENTIAL . ' AND p.submission_progress <> 1))',
 			array((int) $schedConfId)
 		);
-		$submissionsCount[0] = $result->Fields('unassigned_count');
+		$submissionsCount[1] = $result->Fields('unassigned_count');
 		$result->Close();
 
 		// Fetch a count of submissions in review.
@@ -449,7 +461,7 @@ class DirectorSubmissionDAO extends DAO {
 				AND (p.submission_progress = 0 OR (p.review_mode = ' . REVIEW_MODE_BOTH_SEQUENTIAL . ' AND p.submission_progress <> 1))',
 			array((int) $schedConfId)
 		);
-		$submissionsCount[1] = $result->Fields('review_count');
+		$submissionsCount[2] = $result->Fields('review_count');
                 
                 $result =& $this->retrieve(
 			'SELECT	COUNT(*) AS review_count
@@ -463,7 +475,7 @@ class DirectorSubmissionDAO extends DAO {
 				AND (p.submission_progress = 0 OR (p.review_mode = ' . REVIEW_MODE_BOTH_SEQUENTIAL . ' AND p.submission_progress <> 1))',
 			array((int) $schedConfId)
 		);
-                $submissionsCount[2] = $result->Fields('review_count');
+                $submissionsCount[3] = $result->Fields('review_count');
                 
                 $result =& $this->retrieve(
 			'SELECT	COUNT(*) AS review_count
@@ -471,10 +483,11 @@ class DirectorSubmissionDAO extends DAO {
 				LEFT JOIN edit_assignments e ON (p.paper_id = e.paper_id)
 				LEFT JOIN edit_assignments e2 ON (p.paper_id = e2.paper_id AND e.edit_id < e2.edit_id)
 			WHERE	p.sched_conf_id = ?
-				AND p.status = ' . STATUS_ARCHIVED,
+				AND p.status = ' . STATUS_ARCHIVED .'
+                                AND e2.edit_id IS NULL',
 			array((int) $schedConfId)
 		);
-                $submissionsCount[3] = $result->Fields('review_count');
+                $submissionsCount[4] = $result->Fields('review_count');
                 
                 $result =& $this->retrieve(
 			'SELECT	COUNT(*) AS review_count
@@ -482,7 +495,9 @@ class DirectorSubmissionDAO extends DAO {
 			WHERE	sched_conf_id = ?',
 			array((int) $schedConfId)
 		);
-                $submissionsCount[4] = $result->Fields('review_count');
+                $submissionsCount[5] = $result->Fields('review_count');
+                
+                $submissionsCount[0] = $submissionsCount[1] + $submissionsCount[2] + $submissionsCount[3] + $submissionsCount[4];
                 
 		$result->Close();
                 

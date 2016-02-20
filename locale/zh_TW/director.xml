@@ -14,6 +14,7 @@
 
 <locale name="zh_TW" full_name = "正體中文">
 	<message key="director.allDirectors">所有負責人</message>
+        <message key="director.allReviewers">所有審查委員</message>
 	<message key="director.allTracks">所有主題</message>
 	<message key="director.home">會議主席管理頁面</message>
 	<message key="director.me">我</message>
@@ -64,6 +65,7 @@
 	<message key="director.paper.peerReviewOptions">同儕審查選項</message>
 	<message key="director.paper.quality">評分</message>
 	<message key="director.paper.rateReviewer">評價審查委員</message>
+        <message key="director.paper.filterReviewer">篩選審查委員</message>
 	<message key="director.paper.recommendation">建議</message>
 	<message key="director.paper.recordDecision">儲存</message>
 	<message key="director.paper.replaceReviewer">取代審查委員</message>

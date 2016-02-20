@@ -124,6 +124,7 @@
 	<message key="common.queue.long.completed">已經封存的稿件</message>
         <message key="common.reviewer.queue.long.active">待審查的稿件</message>
 	<message key="common.reviewer.queue.long.completed">完成審查的稿件</message>
+        <message key="common.queue.long.submissionsAll">所有稿件</message>
 	<message key="common.queue.long.submissionsAccepted">已經接受的稿件</message>
 	<message key="common.queue.long.submissionsArchives">已經封存的稿件</message>
 	<message key="common.queue.long.submissionsInReview">待審查的投稿</message>
@@ -136,12 +137,13 @@
         <message key="common.queue.count.registration">人 報名</message>
         <message key="common.queue.short.registration">報名名單</message>
 	
-	<message key="common.queue.short.submissionsAccepted">已經接受的稿件</message>
+        <message key="common.queue.short.submissionsAll">全部</message>
+	<message key="common.queue.short.submissionsAccepted">已接受</message>
         <message key="common.queue.count.submissionsAccepted"><![CDATA[篇 <br />已經接受]]></message>
-	<message key="common.queue.short.submissionsArchives">已經封存的稿件</message>
-	<message key="common.queue.short.submissionsInReview">等待審查的稿件</message>
+	<message key="common.queue.short.submissionsArchives">已封存</message>
+	<message key="common.queue.short.submissionsInReview">等待審查</message>
         <message key="common.queue.count.submissionsInReview"><![CDATA[篇 <br />等待審查]]></message>
-	<message key="common.queue.short.submissionsUnassigned">等待安排審查的稿件</message>
+	<message key="common.queue.short.submissionsUnassigned">等待安排的稿件</message>
         <message key="common.queue.count.submissionsUnassigned"><![CDATA[篇 <br />等待安排審查]]></message>
 	<message key="common.sitePageHeader.altText">網站標頭的圖片</message>
 	<message key="common.sortBy">排序依據...</message>

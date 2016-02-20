@@ -78,7 +78,11 @@ class TrackDirectorHandler extends Handler {
 				$functionName = 'getTrackDirectorSubmissionsArchives';
 				$helpTopicId = 'editorial.trackDirectorsRole.archives';
 				break;
-			default:
+			case 'submissionsAll':
+				$functionName = 'getTrackDirectorSubmissionsAll';
+				$helpTopicId = 'editorial.trackDirectorsRole.all';
+				break;
+                        default:
 				$page = 'submissionsInReview';
 				$functionName = 'getTrackDirectorSubmissionsInReview';
 				$helpTopicId = 'editorial.trackDirectorsRole.review';

@@ -54,7 +54,7 @@ function sortSearch(heading, direction) {
 	<td>{sort_search key="user.name" sort="reviewerName"}</td>
 	<td>
             {*translate key="user.interests"*}
-            擅長領域
+            擅長領域 {* @TODO 語系 *}
         </td>
 	{if $rateReviewerOnQuality}
 		<td>{sort_search key="reviewer.averageQuality" sort="quality"}</td>
@@ -85,7 +85,10 @@ function sortSearch(heading, direction) {
 
 	<td>
 		{if $completedReviewCounts[$userId]}
+                    <a href="{url op="submissions" path="submissionsAll"}?searchField=4&searchMatch=is&search={$reviewer->getFullName()|escape}"
+                       target="_blank">
 			{$completedReviewCounts[$userId]}
+                        </a>
 		{else}
 			0
 		{/if}
@@ -99,12 +102,17 @@ function sortSearch(heading, direction) {
 		{/if}
 	</td>
 	<td>{if $reviewerStats.last_notified}{$reviewerStats.last_notified|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
-	<td>{$reviewerStats.incomplete|default:0}</td>
+	<td>
+            <a href="{url op="submissions" path="submissionsInReview"}?searchField=4&searchMatch=is&search={$reviewer->getFullName()|escape}"
+                   target="_blank">
+                {$reviewerStats.incomplete|default:0}
+            </a>
+        </td>
 	<td align="right">
 		{if $reviewer->review_id}
 			{translate key="common.alreadyAssigned"}
 		{else}
-		<a class="btn btn-default btn-sm" href="{url op="selectReviewer" path=$paperId|to_array:$reviewer->getId()}">{translate key="common.assign"}</a>
+                    <a class="btn btn-default btn-sm" href="{url op="selectReviewer" path=$paperId|to_array:$reviewer->getId()}">{translate key="common.assign"}</a>
 		{/if}
 	</td>
 </tr>

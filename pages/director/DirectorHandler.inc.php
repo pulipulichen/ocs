@@ -54,7 +54,8 @@ class DirectorHandler extends TrackDirectorHandler {
 		$submissionsCount =& $directorSubmissionDao->getDirectorSubmissionsCount($schedConf->getId());
 		$templateMgr->assign('submissionsCount', $submissionsCount);
 		$templateMgr->assign('helpTopicId', 'editorial.directorsRole');
-		$templateMgr->display('director/index.tpl');
+		//$templateMgr->display('director/index.tpl');
+                Request::redirect(null, null, 'user');
 	}
 
 	/**
@@ -108,6 +109,12 @@ class DirectorHandler extends TrackDirectorHandler {
 				$helpTopicId = 'editorial.directorsRole.submissions.archives';
 				$sort = isset($sort) ? $sort : 'id';
 				break;
+                        case 'submissionsAll':
+                                $page = 'submissionsAll';
+				$functionName = 'getDirectorSubmissionsAll';
+				$helpTopicId = 'editorial.directorsRole.submissions.all';
+				$sort = isset($sort) ? $sort : 'id';
+				break;
 			default:
 				$page = 'submissionsInReview';
 				$functionName = 'getDirectorSubmissionsInReview';
@@ -131,6 +138,31 @@ class DirectorHandler extends TrackDirectorHandler {
 		} else {
 			$directorId = FILTER_DIRECTOR_ALL;
 		}
+                
+                // --------------------------------
+                $filterReviewerOptions = array(
+			FILTER_REVIEWER_ALL => AppLocale::Translate('director.allReviewers'),
+			FILTER_REVIEWER_ME => AppLocale::Translate('director.me')
+		);
+                
+                $filterReviewer = Request::getUserVar('filterReviewer');
+		if ($filterReviewer != '' && array_key_exists($filterReviewer, $filterReviewerOptions)) {
+			$user->updateSetting('filterReviewer', $filterReviewer, 'int', $schedConfId);
+		} else {
+			$filterReviewer = $user->getSetting('filterReviewer', $schedConfId);
+			if ($filterReviewer == null) {
+				$filterReviewer = FILTER_REVIEWER_ALL;
+				$user->updateSetting('filterReviewer', $filterReviewer, 'int', $schedConfId);
+			}	
+		}
+
+		if ($filterReviewer == FILTER_REVIEWER_ME) {
+			$reviewerId = $user->getId();
+		} else {
+			$reviewerId = FILTER_REVIEWER_ALL;
+		}
+                
+                // ---------------------------------
 
 		$filterTrack = Request::getUserVar('filterTrack');
 		if ($filterTrack != '' && array_key_exists($filterTrack, $filterTrackOptions)) {
@@ -182,9 +214,11 @@ class DirectorHandler extends TrackDirectorHandler {
 		$templateMgr->assign('pageToDisplay', $page);
 		$templateMgr->assign('director', $user->getFullName());
 		$templateMgr->assign('directorOptions', $filterDirectorOptions);
+                $templateMgr->assign('reviewerOptions', $filterReviewerOptions);
 		$templateMgr->assign('trackOptions', $filterTrackOptions);
 		$templateMgr->assign_by_ref('submissions', $submissions);
 		$templateMgr->assign('filterDirector', $filterDirector);
+                $templateMgr->assign('filterReviewer', $filterReviewer);
 		$templateMgr->assign('filterTrack', $filterTrack);
 		$templateMgr->assign('yearOffsetFuture', SCHED_CONF_DATE_YEAR_OFFSET_FUTURE);
 		$templateMgr->assign('durationOptions', TrackDirectorHandler::getDurationOptions());

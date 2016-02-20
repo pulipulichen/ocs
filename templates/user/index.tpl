@@ -110,25 +110,27 @@
 					<th valign="top"><a href="{url conference=$conferencePath schedConf=$schedConfPath  schedConf=$schedConfPath page="director"}">{translate key="user.role.director"}</a></th>
                                         <td>&nbsp;</td>
 					<td>
-                                            {if $directorSubmissionsCount[0]}
-                                                <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsUnassigned"}">{$directorSubmissionsCount[0]} {translate key="common.queue.count.submissionsUnassigned"}</a>
+                                            {if $directorSubmissionsCount[1]}
+                                                <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsUnassigned"}">
+                                                    {$directorSubmissionsCount[1]} 
+                                                    {translate key="common.queue.count.submissionsUnassigned"}</a>
                                             {else}
                                                 <span class="disabled">0 {translate key="common.queue.count.submissionsUnassigned"}</span>
                                             {/if}
 					</td>
 					<td>
-						{if $directorSubmissionsCount[1]}
+						{if $directorSubmissionsCount[2]}
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsInReview"}">
-                                                            {$directorSubmissionsCount[1]} {translate key="common.queue.count.submissionsInReview"}
+                                                            {$directorSubmissionsCount[2]} {translate key="common.queue.count.submissionsInReview"}
                                                         </a>
 						{else}
 							<span class="disabled">0 {translate key="common.queue.count.submissionsInReview"}</span>
 						{/if}
 					</td>
                                         <td>
-                                            {if $directorSubmissionsCount[2]}
+                                            {if $directorSubmissionsCount[3]}
                                                 <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsAccepted"}">
-                                                    {$directorSubmissionsCount[2]}
+                                                    {$directorSubmissionsCount[3]}
                                                     {translate key="common.queue.count.submissionsAccepted"}
                                                 </a>
                                             {else}
@@ -137,9 +139,9 @@
                                         </td>
                                         {if $schedConfPostPayment}
                                         <td>
-                                            {if $directorSubmissionsCount[4]}
+                                            {if $directorSubmissionsCount[5]}
                                                 <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="manager" op="registration"}">
-                                                    {$directorSubmissionsCount[4]}
+                                                    {$directorSubmissionsCount[5]}
                                                     {translate key="common.queue.count.registration"}
                                                 </a>
                                             {else}
