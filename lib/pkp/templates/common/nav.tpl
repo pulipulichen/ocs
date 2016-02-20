@@ -33,21 +33,25 @@
     </div>
         
         
-        {if $enableLanguageToggle}
-            <div class='language-toggle'>
+        
+        <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav navbar-right">
+          
+          {if $enableLanguageToggle}
+            <li class='language-toggle'>
                 <form action="#">
                     
                         <select {if $isPostRequest}disabled="disabled" {/if}size="1" name="locale" onchange="location.href={if $languageToggleNoUser}'{$currentUrl|escape}{if strstr($currentUrl, '?')}&amp;{else}?{/if}setLocale='+this.options[this.selectedIndex].value{else}('{url|escape:"javascript" page="user" op="setLocale" path="NEW_LOCALE" source=$smarty.server.REQUEST_URI}'.replace('NEW_LOCALE', this.options[this.selectedIndex].value)){/if}" 
-                                                   class="btn btn-default btn-xs"
+                                                   class="btn btn-default btn-sm"
                                                    style="width:100%;">
                             {html_options options=$languageToggleLocales selected=$currentLocale}
                         </select>
                         
                 </form>
-        </div>
+        </li>
         {/if}
-        <nav class="collapse navbar-collapse {if $enableLanguageToggle}second-row{/if}" role="navigation">
-      <ul class="nav navbar-nav navbar-right">
+          
+          
         {if $schedConfPostOverview}<li {if $requestedOp=="overview"}class="active"{/if}><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
         <li {if $requestedPage=="announcement"}class="active"{/if}><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
         {if $schedConfShowCFP}
