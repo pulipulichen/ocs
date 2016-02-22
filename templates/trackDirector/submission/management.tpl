@@ -15,10 +15,23 @@
 {assign var="suppFiles" value=$submission->getSuppFiles()}
 
 <table width="100%" class="data">
+        {assign var="submitter" value=$submission->getUser()}
+        <tr>
+            <td class="label" width="20$">
+                管理網址 {* @TODO 語系 *}
+            </td>
+            <td width="80%">
+                {url|assign:"submitterUrl" page="author" op="submissionReview"}
+                {assign var="submissionId" value=$submission->getId()}
+                {assign var="submitterId" value=$submitter->getId()}
+                {assign var="submitterUrl" value="$submitterUrl/$submissionId?u=$submitterId"}
+                <a href="{$submitterUrl}" target="_blank">{$submitterUrl}</a>
+            </td>
+        </tr>
         <tr>
 		<td class="label">{translate key="submission.submitter"}</td>
 		<td colspan="2" class="value">
-			{assign var="submitter" value=$submission->getUser()}
+			
 			{assign var=emailString value=$submitter->getFullName()|concat:" <":$submitter->getEmail():">"}
 			{url|assign:"url" page="user" op="email" redirectUrl=$currentUrl to=$emailString|to_array subject=$submission->getLocalizedTitle|strip_tags paperId=$submission->getPaperId()}
 			<a href="{$url}" class="btn btn-default">

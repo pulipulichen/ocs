@@ -265,6 +265,11 @@ class AuthorSubmission extends Paper {
 		return $returner;
 	}
         
+        function &getRevisedFileDateUploaded() {
+		$returner =& $this->getRevisedFile();
+		return $returner->getDateModified();
+	}
+        
         function &getReviewRevision() {
 		$returner =& $this->getData('reviewRevision');
 		return $returner;

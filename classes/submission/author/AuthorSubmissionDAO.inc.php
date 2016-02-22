@@ -146,6 +146,7 @@ class AuthorSubmissionDAO extends DAO {
 			$paper->setRevisedFileId($authorSubmission->getRevisedFileId());
 			$paper->setDateStatusModified($authorSubmission->getDateStatusModified());
 			$paper->setLastModified($authorSubmission->getLastModified());
+                        $paper->setDateAuthorModified($authorSubmission->getRevisedFileDateUploaded());
 			// FIXME: These two are necessary for designating the
 			// original as the review version, but they are probably
 			// best not exposed like this.

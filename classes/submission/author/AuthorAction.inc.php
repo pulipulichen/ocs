@@ -447,6 +447,7 @@ class AuthorAction extends Action {
 
 		// If there are open reviews for the submission, it may not be edited.
 		$assignments = $authorSubmission->getReviewAssignments(null);
+                
 		if (is_array($assignments)) foreach ($assignments as $round => $roundAssignments) {
 			if (is_array($roundAssignments)) foreach($roundAssignments as $assignment) {
 				if (	!$assignment->getCancelled() &&

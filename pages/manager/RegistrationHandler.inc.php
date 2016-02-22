@@ -421,17 +421,22 @@ class RegistrationHandler extends ManagerHandler {
 		$this->setupTemplate(true);
 
 		$schedConf =& Request::getSchedConf();
+                
 		$registrationTypeId = !isset($args) || empty($args) ? null : (int) $args[0];
 		$registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
 
 		$output = $registrationTypeDao->getSurvey($schedConf->getId(), $registrationTypeId);
                 
-//                $output = iconv("utf8", "big5", $output);
-//                
-//                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.cvs"');
-//                header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
-//                header('Content-Length: ' . strlen($output));
-//                header('Connection: close');
+                $output = iconv("utf8", "big5", $output);
+                
+                if (is_null($registrationTypeId)) {
+                    $registrationTypeId = "all";
+                }
+                
+                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.cvs"');
+                header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+                header('Content-Length: ' . strlen($output));
+                header('Connection: close');
 
                 echo $output;
 	}

@@ -16,6 +16,8 @@
 
 <form name="profile" method="post" action="{url op="saveProfile"}" enctype="multipart/form-data">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/formErrors.tpl"}
 
 <table class="data" width="100%">
@@ -176,9 +178,10 @@
 
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="user"}'" />
+</p>
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

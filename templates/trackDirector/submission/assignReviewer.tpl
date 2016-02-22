@@ -99,6 +99,17 @@ function confirmSubmissionCheck() {
                 </div>
                 <div class="panel-body">
 		<table width="100%" class="data">
+                    <tr>
+                    <td class="label" width="20$">
+                        管理網址 {* @TODO 語系 *}
+                    </td>
+                    <td width="80%">
+                        {url|assign:"reviewerUrl" page="reviewer" op="submission"}
+                        {assign var="reivewerId" value=$reviewAssignment->getReviewerId()}
+                        {assign var="reviewerUrl" value="$reviewerUrl/$reviewId?u=$reivewerId"}
+                        <a href="{$reviewerUrl}" target="_blank">{$reviewerUrl}</a>
+                    </td>
+                    </tr>
 		<tr valign="top">
                     <td class="label" width="20%">
                         {translate key="submissions.reviewAssignment.heading"}

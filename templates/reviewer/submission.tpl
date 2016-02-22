@@ -74,10 +74,12 @@ function confirmIntegratedSubmissionCheck() {
 
 <tr valign="top">
 	<td width="20%" class="label">{translate key="paper.title"}</td>
-	<td width="80%" class="value">{$submission->getLocalizedTitle()|strip_unsafe_html}</td>
+	<td width="80%" class="value">
+            {$submission->getLocalizedTitle()|strip_unsafe_html}
+        </td>
 </tr>
 
-{assing var="abstract" value=$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br}
+{assign var="abstract" value=$submission->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 {if $abstract and $abstract != ""}
 <tr valign="top">
     
@@ -150,6 +152,8 @@ function confirmIntegratedSubmissionCheck() {
 <h3>
     {translate key="reviewer.paper.reviewSteps"}
 </h3>
+
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {if $draft === "1"}
     <div class="alert alert-info" role="alert">
@@ -271,6 +275,7 @@ function confirmIntegratedSubmissionCheck() {
 			{/if}
         </td>
     </tr>
+        <!--
         {if $suppFiles}
             <tr valign="top">
                 <td class="label">
@@ -296,6 +301,7 @@ function confirmIntegratedSubmissionCheck() {
                 </td>
             </tr>
         {/if}
+            -->
     {/if}
     {if $confirmedStatus and not $declined}
 <tr valign="top">
@@ -311,8 +317,7 @@ function confirmIntegratedSubmissionCheck() {
                     </a>
                 {/if}
             {/if}
-            {fieldLabel name="commentAuthor"}{translate key="submission.comments.forAuthorDirector"}
-            
+            <label for="commentAuthor">{translate key="submission.comments.forAuthorDirector"} *</label> 
         </td>
         <td class="value">
             {if !$reviewAssignment->getDateCompleted()}
@@ -335,7 +340,7 @@ function confirmIntegratedSubmissionCheck() {
                     </a>
                 {/if}
             {/if}
-            {fieldLabel name="commentDirector"}{translate key="submission.comments.forDirector"}
+            <label for="commentDirector">{translate key="submission.comments.forDirector"}</label>
         </td>
 	<td class="value">
             {if !$reviewAssignment->getDateCompleted()}
@@ -345,6 +350,7 @@ function confirmIntegratedSubmissionCheck() {
             {/if}
         </td>
 </tr>
+{if $commentSurveyForm}
 <tr valign="top">
 	<td class="label">
             {if $isConferenceManager and !$reviewAssignment->getDateCompleted()}
@@ -358,7 +364,7 @@ function confirmIntegratedSubmissionCheck() {
                     </a>
                 {/if}
             {/if}
-            {fieldLabel name="commentSurvey"}{translate key="submission.comments.survey"}
+            <label>{translate key="submission.comments.survey"} *</label>
         </td>
 	<td class="value">
             
@@ -373,6 +379,7 @@ function confirmIntegratedSubmissionCheck() {
             {/if}
         </td>
 </tr>
+{/if}
     {else}
         <tr>
             <td class="label">
@@ -457,7 +464,7 @@ function confirmIntegratedSubmissionCheck() {
                                 </div>
 			{foreachelse}
                             {*translate key="common.none"*}
-                            &mdash;
+                            <!--&mdash;-->
 			{/foreach}
 		{if !$reviewAssignment->getDateCompleted()}
 			<!--<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">-->

@@ -258,7 +258,8 @@ class TrackDirectorSubmission extends Paper {
 //                        //print_r($authorFile);
 //                        $lastModified = $authorFile->setDateUploaded();
 //                    }
-                    $lastModified = strtotime($this->getLastModified());
+                    $lastModified = strtotime($this->getDateAuthorModified());
+                    $lastModified = $lastModified + 50;
                     
                     //echo "<!-- $lastModified **** $dateDecided -->";
                     //echo "$lastModified **** $dateDecided";
@@ -394,6 +395,7 @@ class TrackDirectorSubmission extends Paper {
 	 * @return array PaperFiles
 	 */
 	function getAuthorFileRevisions($stage = null) {
+            //echo count($this->authorFileRevisions);
 		if ($stage == null) {
 			return $this->authorFileRevisions;
 		} else {

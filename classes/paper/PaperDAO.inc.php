@@ -127,6 +127,7 @@ class PaperDAO extends DAO {
 		$paper->setTrackId($row['track_id']);
 		$paper->setDateToPresentations($this->datetimeFromDB($row['date_to_presentations']));
 		$paper->setDateToArchive($this->datetimeFromDB($row['date_to_archive']));
+                $paper->setDateAuthorModified($this->datetimeFromDB($row['date_author_modified']));
 
 		$paper->setTrackTitle($row['track_title']);
 		$paper->setTrackAbbrev($row['track_abbrev']);
@@ -181,6 +182,7 @@ class PaperDAO extends DAO {
 				 end_time,
 				 date_to_presentations,
 				 date_to_archive,
+                                 date_author_modified,
 				 status,
 				 submission_progress,
 				 review_mode,
@@ -194,7 +196,7 @@ class PaperDAO extends DAO {
 				 comments_status)
 				VALUES
 				(?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-				$this->datetimeToDB($paper->getDateSubmitted()), $this->datetimeToDB($paper->getDateStatusModified()), $this->datetimeToDB($paper->getLastModified()), $this->datetimeToDB($paper->getDateReminded()), $this->datetimeToDB($paper->getStartTime()), $this->datetimeToDB($paper->getEndTime()), $this->datetimeToDB($paper->getDateToPresentations()), $this->datetimeToDB($paper->getDateToArchive())),
+				$this->datetimeToDB($paper->getDateSubmitted()), $this->datetimeToDB($paper->getDateStatusModified()), $this->datetimeToDB($paper->getLastModified()), $this->datetimeToDB($paper->getDateReminded()), $this->datetimeToDB($paper->getStartTime()), $this->datetimeToDB($paper->getEndTime()), $this->datetimeToDB($paper->getDateToPresentations()), $this->datetimeToDB($paper->getDateToArchive()), $this->datetimeToDB($paper->getDateAuthorModifieid())),
 			array(
 				$paper->getUserId(),
 				$paper->getSchedConfId(),
@@ -251,6 +253,7 @@ class PaperDAO extends DAO {
 					end_time = %s,
 					date_to_presentations = %s,
 					date_to_archive = %s,
+                                        date_author_modified = %s,
 					status = ?,
 					submission_progress = ?,
 					review_mode = ?,
@@ -263,7 +266,7 @@ class PaperDAO extends DAO {
 					pages = ?,
 					comments_status = ?
 				WHERE paper_id = ?',
-				$this->datetimeToDB($paper->getDateSubmitted()), $this->datetimeToDB($paper->getDateStatusModified()), $this->datetimeToDB($paper->getLastModified()), $this->datetimeToDB($paper->getDateReminded()), $this->datetimeToDB($paper->getStartTime()), $this->datetimeToDB($paper->getEndTime()), $this->datetimeToDB($paper->getDateToPresentations()), $this->datetimeToDB($paper->getDateToArchive())),
+				$this->datetimeToDB($paper->getDateSubmitted()), $this->datetimeToDB($paper->getDateStatusModified()), $this->datetimeToDB($paper->getLastModified()), $this->datetimeToDB($paper->getDateReminded()), $this->datetimeToDB($paper->getStartTime()), $this->datetimeToDB($paper->getEndTime()), $this->datetimeToDB($paper->getDateToPresentations()), $this->datetimeToDB($paper->getDateToArchive()), $this->datetimeToDB($paper->getDateAuthorModified())),
 			array(
 				$paper->getUserId(),
 				$paper->getTrackId(),

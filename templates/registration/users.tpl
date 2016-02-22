@@ -41,24 +41,33 @@
 <table width="100%" class="listing">
 <tr><td colspan="4" class="headseparator">&nbsp;</td></tr>
 <tr class="heading" valign="bottom">
-	<td width="25%">{sort_heading key="user.username" sort="username"}</td>
-	<td width="35%">{sort_heading key="user.name" sort="name"}</td>
-	<td width="30%">{sort_heading key="user.email" sort="email"}</td>
-	<td width="10%" align="right"></td>
+	<td>{sort_heading key="user.username" sort="username"}</td>
+	<td>{sort_heading key="user.name" sort="name"}</td>
+	<td>{sort_heading key="user.email" sort="email"}</td>
+	<td align="right"></td>
 </tr>
 <tr><td colspan="4" class="headseparator">&nbsp;</td></tr>
 {iterate from=users item=user}
 {assign var="userid" value=$user->getId()}
 <tr valign="top">
 	<td>{if $isSchedConfManager}<a class="action" href="{url op="userProfile" path=$userid}">{/if}{$user->getUsername()|escape}{if $isSchedConfManager}</a>{/if}</td>
-	<td>{$user->getFullName(true)|escape}</td>
+	<td>
+            {$user->getFullName(true)|escape}
+        </td>
 	<td class="nowrap">
 		{assign var=emailString value=$user->getFullName()|concat:" <":$user->getEmail():">"}
 		{url|assign:"url" page="user" op="email" to=$emailString|to_array}
-		{$user->getEmail()|truncate:20:"..."|escape}&nbsp;{icon name="mail" url=$url}
+                <a href="{$url}" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    {$user->getEmail()|truncate:20:"..."|escape}
+                </a>
+		
 	</td>
 	<td align="right" class="nowrap">
-		<a href="{if $registrationId}{url op="editRegistration" path=$registrationId userId=$user->getId()}{else}{url op="createRegistration" userId=$user->getId()}{/if}" class="action">{translate key="manager.registration.enroll"}</a>
+		<a href="{if $registrationId}{url op="editRegistration" path=$registrationId userId=$user->getId()}{else}{url op="createRegistration" userId=$user->getId()}{/if}" 
+                   class="action btn btn-default btn-sm">
+                    {translate key="manager.registration.enroll"}
+                </a>
 	</td>
 </tr>
 <tr><td colspan="4" class="{if $users->eof()}end{/if}separator">&nbsp;</td></tr>
@@ -70,10 +79,17 @@
 	<tr><td colspan="4" class="endseparator">&nbsp;</td></tr>
 {else}
 	<tr>
-		<td colspan="3" align="left">{page_info iterator=$users}</td>
-		<td colspan="2" align="right">{page_links anchor="users" name="users" iterator=$users searchInitial=$searchInitial searchField=$searchField searchMatch=$searchMatch search=$search dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth sort=$sort sortDirection=$sortDirection}</td>
+		<td colspan="1" align="left">{page_info iterator=$users}</td>
+		<td colspan="4" align="right">{page_links anchor="users" name="users" iterator=$users searchInitial=$searchInitial searchField=$searchField searchMatch=$searchMatch search=$search dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth sort=$sort sortDirection=$sortDirection}</td>
 	</tr>
 {/if}
 </table>
 </div>
+
+<p class="text-center">
+    <a href="{url page="schedConf" op="registration"}" class="btn btn-default" target="_blank">
+        新增使用者並登記報名此研討會 {* @TODO 語系 *}
+    </a>
+</p>
+
 {include file="common/footer.tpl"}

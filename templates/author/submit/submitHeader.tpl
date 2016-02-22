@@ -27,7 +27,7 @@
 			<li{if $submitStep == 2} class="current active"{/if}>
 				{if $submitStep != 2 && $submissionProgress >= 2}<a href="{url op="submit" path="2" paperId=$paperId}">{else}
                                     <a href="#">{/if}
-				{translate key="author.submit.upload"}</a>
+				{translate key="author.submit.metadata"}</a>
 			</li>
 		{else}
 			<li{if $submitStep == 3} class="current active"{/if}>
@@ -67,7 +67,7 @@
 			<li{if $submitStep == 3} class="current active"{/if}>
 				{if $submitStep != 3 && $submissionProgress >= 3}<a href="{url op="submit" path="3" paperId=$paperId}">{else}
                                     <a href="#">{/if}
-				{translate key="author.submit.metadata"}</a>
+				{translate key="author.submit.upload"}</a>
 			</li>
 		{/if}
 

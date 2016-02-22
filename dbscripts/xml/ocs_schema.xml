@@ -438,6 +438,7 @@
 		<field name="pages" type="C2" size="255"/>
 		<field name="date_to_presentations" type="T"/>
 		<field name="date_to_archive" type="T"/>
+                <field name="date_author_modified" type="T"/>
 		<field name="comments_status" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>

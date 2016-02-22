@@ -91,7 +91,7 @@
         <message key="manager.registrationList">報名名單</message>
         <message key="manager.registrationListCount">人報名</message>
 	<message key="manager.registration.confirmDelete">您確定要刪除此報名嗎？?</message>
-	<message key="manager.registration.create">選擇使用者報名本研討會</message>
+	<message key="manager.registration.create">指定使用者加入本研討會的報名</message>
 	<message key="manager.registration.createTitle">建立</message>
 	<message key="manager.registration.datePaid">已付費</message>
 	<message key="manager.registration.dateRegistered">已報名</message>
@@ -132,9 +132,9 @@
 	<message key="manager.registration.noneCreated">沒有報名</message>
 	<message key="manager.registration.registrationCreatedSuccessfully">成功報名</message>
 	<message key="manager.registration.registrationType">報名類型</message>
-	<message key="manager.registration.select">將使用者設為報名研討會</message>
+	<message key="manager.registration.select">將使用者登記為報名研討會</message>
 	<message key="manager.registration.selectRegistrant">選擇已報名者</message>
-	<message key="manager.registration.selectRegistrant.desc">報名訪問權限自動地授予給研討會的會議主席、主管, 和路徑主席。</message>
+	<message key="manager.registration.selectRegistrant.desc">研討會的會議主席、管理者已經自動報名研討會。</message>
 	<message key="manager.registration.user">使用者</message>
 	<message key="manager.registrationManagement">報名管理</message>
 	<message key="manager.registrationOptions">報名選項</message>
@@ -353,7 +353,7 @@
 	<message key="manager.schedConfSetup.submissions.pageDescription">投稿過程及型態、投稿、方針、索引、和證明。</message>
 	<message key="manager.schedConfSetup.submissions.preparationChecklist">稿件查核表</message>
 	<message key="manager.schedConfSetup.submissions.preparationChecklist.description">如果作者要投稿到此研討會，必須先確認並勾選以下稿件查核表，表示投稿前已經妥善檢查。稿件查核表會在作者指南底下出現。以下您可以編輯稿件查核表的項目。</message>
-	<message key="manager.schedConfSetup.submissions.presentationsAlone">提案全文</message>
+	<message key="manager.schedConfSetup.submissions.presentationsAlone">論文全文</message>
 	<message key="manager.schedConfSetup.submissions.previewAbstracts">一旦摘要審查完成，立刻發佈摘要。</message>
 	<message key="manager.schedConfSetup.submissions.publicIdentifier">研討會內容確認</message>
 	<message key="manager.schedConfSetup.submissions.subjectClassification">附屬分類</message>

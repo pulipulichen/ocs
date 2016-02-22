@@ -44,6 +44,7 @@ function sortSearch(heading, direction) {
 {/if}
 
 <form method="post" name="submit" action="{url op="registration"}">
+    <div>
 	<input type="hidden" name="sort" value="id"/>
 	<input type="hidden" name="sortDirection" value="ASC"/>
 	<select name="searchField" size="1" class="selectMenu">
@@ -55,22 +56,27 @@ function sortSearch(heading, direction) {
 		<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 	</select>
 	<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />
-	
+    </div>
+    <div>
 	<select name="dateSearchField" size="1" class="selectMenu">
 		{html_options_translate options=$dateFieldOptions selected=$dateSearchField}
 	</select>
-	{translate key="common.between"}
+	{translate key="schedConf.registration.dateBetween"}
 	{html_select_date prefix="dateFrom" time=$dateFrom all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+5"}
 	{translate key="common.and"}
 	{html_select_date prefix="dateTo" time=$dateTo all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+5"}
 	<input type="hidden" name="dateToHour" value="23" />
 	<input type="hidden" name="dateToMinute" value="59" />
 	<input type="hidden" name="dateToSecond" value="59" />
-	<br/>
+    </div>
 	<input type="submit" value="{translate key="common.search"}" class="button" />
 </form>
 
-<br />
+<p class="text-center">
+<a href="{url op="registrationSurveyDownload"}" class="btn btn-default btn-sm">
+                {translate key="schedConf.registration.export"}
+</a>
+</p>
 
 <div id="registrations">
 <table width="100%" class="listing">
@@ -114,6 +120,12 @@ function sortSearch(heading, direction) {
 {/if}
 </table>
 
-<a href="{url op="selectRegistrant"}" class="action">{translate key="manager.registration.create"}</a>
+<p class="text-center">
+    <a href="{url op="selectRegistrant"}" class="action btn btn-default">
+        {translate key="manager.registration.create"}
+    </a>
+</p>
+
+
 </div>
 {include file="common/footer.tpl"}

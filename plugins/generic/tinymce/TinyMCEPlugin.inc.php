@@ -197,6 +197,8 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/program':
 			case 'manager/saveProgramSettings':
 				$fields[] = 'program';
+                                $features = "full";
+                                break;
 			case 'schedConf/registration':
 				$fields[] = 'specialRequests';
                                 $fields[] = 'applicationForm';

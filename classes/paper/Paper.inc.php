@@ -305,6 +305,22 @@ class Paper extends Submission {
 	function setDateToArchive($dateToArchive) {
 		return $this->setData('dateToArchive', $dateToArchive);
 	}
+        
+        /**
+	 * Get the date of the last modification.
+	 * @return date
+	 */
+	function getDateAuthorModified() {
+		return $this->getData('dateAuthorModified');
+	}
+        
+        /**
+	 * Set date sent to presentations.
+	 * @param $dateToArchive date
+	 */
+	function setDateAuthorModified($date) {
+		return $this->setData('dateAuthorModified', $date);
+	}
 
 	/**
 	 * Stamp the date moved to the archive to the current time.

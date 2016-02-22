@@ -585,7 +585,12 @@ class PKPUser extends DataObject {
 		$middleName = $this->getData('middleName');
 		$lastName = $this->getData('lastName');
 		if ($lastFirst) {
+                    if (isset($lastName) && $lastName !== "") {
 			return "$lastName, " . ($salutation != ''?"$salutation ":'') . "$firstName" . ($middleName != ''?" $middleName":'');
+                    }
+                    else {
+                        return ($salutation != ''?"$salutation ":'') . "$firstName" . ($middleName != ''?" $middleName":'');
+                    }
 		} else {
 			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName;
 		}

@@ -59,6 +59,8 @@
 {/if}
 </table>
 
-<a href="{url op="createRegistrationType"}" class="action">{translate key="manager.registrationTypes.create"}</a>
+<p class="text-center">
+    <a href="{url op="createRegistrationType"}" class="action btn btn-default">{translate key="manager.registrationTypes.create"}</a>
+</p>
 </div>
 {include file="common/footer.tpl"}

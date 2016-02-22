@@ -491,17 +491,31 @@ class RegistrationTypeDAO extends DAO {
 	 * @param $conferenceId int
 	 * @return array
 	 */
-	function &getSurvey($schedConfId, $typeid) {
+	function &getSurvey($schedConfId, $typeid = NULL) {
                 
-		$result =& $this->retrieve(
-			'SELECT users.user_id, users.first_name, users.affiliation, survey, registrations.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ?'
-                        , array($schedConfId, $typeid)
-		);
+                if (is_null($typeid)) {
+                    $result =& $this->retrieve(
+                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, survey, registrations.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ?'
+                            , array($schedConfId)
+                    );
+                }
+                else {
+                    $result =& $this->retrieve(
+                            'SELECT type_id, users.first_name, users.affiliation, survey, registrations.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ?'
+                            , array($schedConfId, $typeid)
+                    );
+                }
+            
+		
                 
                 $output = array();
 		while (!$result->EOF) {
                     $row =& $result->getRowAssoc(false);
+                    
+                    $type = $this->getRegistrationType($row['type_id']);
+                    
                     $data = array(
+                        'type' => $type->getRegistrationTypeName(),
                         'user_id' => $row['user_id'], 
                         'first_name' => $row['first_name'], 
                         'affiliation' => $row['affiliation'], 
