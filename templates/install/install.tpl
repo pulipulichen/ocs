@@ -238,7 +238,7 @@
 <div class="separator"></div>
 
 
-<p><input type="submit" value="{translate key="installer.installApplication"}" class="button defaultButton" /></p>
+<p class="text-center"><input type="submit" value="{translate key="installer.installApplication"}" class="btn btn-primary" /></p>
 
 </form>
 

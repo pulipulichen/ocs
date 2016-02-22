@@ -153,7 +153,11 @@ function sortSearch(heading, direction) {
 {/if}
 </table>
 
-<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="button defaultButton" /> <input type="button" value="{translate key="common.selectAll"}" class="button" onclick="toggleChecked()" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" />
+<p class="text-center">
+<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="btn btn-primary" /> 
+<input type="button" value="{translate key="common.selectAll"}" class="btn btn-default" onclick="toggleChecked()" /> 
+<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="manager"}'" />
+</p>
 </div>
 
 </form>

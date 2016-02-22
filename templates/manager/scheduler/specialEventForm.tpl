@@ -75,7 +75,11 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $specialEventId}<input type="submit" name="createAnother" value="{translate key="manager.scheduler.specialEvent.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="specialEvents"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    {if not $specialEventId}<input type="submit" name="createAnother" value="{translate key="manager.scheduler.specialEvent.saveAndCreateAnother"}" class="btn btn-default" /> {/if}
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="specialEvents"}'" />
+</p>
 
 </form>
 

@@ -122,8 +122,8 @@
 {/if}
 </table>
 {if empty($oldUserIds)}
-	<input type="submit" class="button defaultButton" value="{translate key="manager.people.mergeUsers"}" />
-	</form>
+    <p><input type="submit" class="btn btn-primary" value="{translate key="manager.people.mergeUsers"}" /></p>
 {/if}
+</form>
 </div>
 {include file="common/footer.tpl"}

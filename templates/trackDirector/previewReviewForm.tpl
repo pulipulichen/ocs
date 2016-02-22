@@ -51,7 +51,7 @@
 <br/>
 
 <form name="previewReviewForm" method="post" action="{url op="selectReviewForm" path=$paperId|to_array:$reviewId}">
-	<p><input type="submit" value="{translate key="common.close"}" class="button defaultButton" /></p>
+	<p class="text-center"><input type="submit" value="{translate key="common.close"}" class="btn btn-primary" /></p>
 </form>
 <!--
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

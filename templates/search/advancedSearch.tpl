@@ -114,7 +114,8 @@ function ensureKeyword() {
 </tr>
 </table>
 
-<p><input type="button" onclick="ensureKeyword();" value="{translate key="common.search"}" class="button defaultButton" /></p>
+<p class="text-center"><input type="button" onclick="ensureKeyword();" value="{translate key="common.search"}" class="btn btn-primary" />
+</p>
 </div>
 <script type="text/javascript">
 <!--

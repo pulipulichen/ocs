@@ -52,7 +52,7 @@
 			</td>
 			<td width="75%" class="value">
 				<input type="file" class="uploadField" name="newPlugin" id="newPlugin" /> 
-				<input name="uploadPlugin" type="submit" value="{translate key="common.continue"}" class="button defaultButton" />
+				<input name="uploadPlugin" type="submit" value="{translate key="common.continue"}" class="btn btn-primary" />
 			</td>
 		</tr>
 		</table>
@@ -95,7 +95,7 @@
 			</td>
 			<td width="75%" class="value">
 				<input type="file" class="uploadField" name="newPlugin" id="newPlugin" />
-				<input name="uploadPlugin" type="submit" value="{translate key="common.continue"}" class="button defaultButton" />
+				<input name="uploadPlugin" type="submit" value="{translate key="common.continue"}" class="btn btn-primary" />
 			</td>
 		</tr>
 		</table>
@@ -128,7 +128,7 @@
 					</li>
 				</ul>
 			{/if}
-			<input type="submit" name="save" class="button defaultButton" value="{translate key="common.delete"}"/> <input type="button" class="button" value="{translate key="common.cancel"}" onclick="history.go(-1)"/>
+			<input type="submit" name="save" class="btn btn-primary" value="{translate key="common.delete"}"/> <input type="button" class="button" value="{translate key="common.cancel"}" onclick="history.go(-1)"/>
 		</form>
 	{else}
 		<p>{translate key="manager.plugins.deleteSuccess"}</p>

@@ -32,7 +32,7 @@
 {/if}
 
 
-<p><input type="submit" value="{translate key="installer.upgradeApplication"}" class="button defaultButton" /></p>
+<p class="text-center"><input type="submit" value="{translate key="installer.upgradeApplication"}" class="btn btn-primary" /></p>
 
 </form>
 

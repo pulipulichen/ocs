@@ -33,7 +33,7 @@
 <br />
 {/foreach}
 
-<p><input type="submit" value="{translate key="admin.saveSystemConfig"}" class="button defaultButton" /> <input name="display" type="submit" value="{translate key="admin.displayNewSystemConfig"}" class="button" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="systemInfo"}'" /></p>
+<p class="text-center"><input type="submit" value="{translate key="admin.saveSystemConfig"}" class="btn btn-primary" /> <input name="display" type="submit" value="{translate key="admin.displayNewSystemConfig"}" class="btn btn-default" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="systemInfo"}'" /></p>
 
 </form>
 

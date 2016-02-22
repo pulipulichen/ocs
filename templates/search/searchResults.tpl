@@ -34,7 +34,7 @@ function ensureKeyword() {
 	<form method="post" name="search" action="{url op="results"}">
 		<input type="text" size="40" maxlength="255" class="textField" name="query" value="{$basicQuery|escape}"/>&nbsp;&nbsp;
 		<input type="hidden" name="searchField" value="{$searchField|escape}"/>
-		<input type="submit" class="button defaultButton" onclick="ensureKeyword();" value="{translate key="common.search"}"/>
+		<input type="submit" class="btn btn-primary" onclick="ensureKeyword();" value="{translate key="common.search"}"/>
 	</form>
 	<br />
 {else}

@@ -180,7 +180,9 @@
 
 <br />
 
-<p><input type="submit" value="{translate key="form.submit"}" class="button defaultButton" />  <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="notification"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="form.submit"}" class="btn btn-primary" />  
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="notification"}'" /></p>
 
 </form>
 

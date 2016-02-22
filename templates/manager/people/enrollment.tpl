@@ -169,7 +169,7 @@ function sortSearch(heading, direction) {
 </table>
 
 {if $userExists}
-	<p><input type="submit" value="{translate key="email.compose"}" class="button defaultButton"/>&nbsp;<input type="button" value="{translate key="common.selectAll"}" class="button" onclick="toggleChecked()" />  <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" /></p>
+    <p class="text-center"><input type="submit" value="{translate key="email.compose"}" class="btn btn-primary"/>&nbsp;<input type="button" value="{translate key="common.selectAll"}" class="btn btn-default" onclick="toggleChecked()" />  <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="manager"}'" /></p>
 {/if}
 </div>
 </form>

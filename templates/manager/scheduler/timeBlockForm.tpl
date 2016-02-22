@@ -60,7 +60,11 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $timeBlockId}<input type="submit" name="createAnother" value="{translate key="manager.scheduler.timeBlock.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="timeBlocks"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    {if not $timeBlockId}<input type="submit" name="createAnother" value="{translate key="manager.scheduler.timeBlock.saveAndCreateAnother"}" class="btn btn-default" /> {/if}
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="timeBlocks"}'" />
+</p>
 
 </form>
 

@@ -60,9 +60,12 @@
 	<br />
 
 	{if $editorPreview}
-		<p><input type="button" value="{translate key="common.close"}" class="button defaultButton" onclick="window.close()" /></p>
+            <p class="text-center"><input type="button" value="{translate key="common.close"}" class="btn btn-primary" onclick="window.close()" /></p>
 	{else}
-		<p><input {if $disabled}disabled="disabled" {/if}type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="document.location.href='{url op="submission" path=$reviewId}'" /></p>
+        <p class="text-center">
+            <input {if $disabled}disabled="disabled" {/if}type="submit" name="save" value="{translate key="common.save"}" class="btn btn-primary" /> 
+            <input type="button" value="{translate key="common.close"}" class="btn btn-default" onclick="document.location.href='{url op="submission" path=$reviewId}'" />
+        </p>
 	{/if}
 
 	

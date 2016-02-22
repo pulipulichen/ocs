@@ -35,7 +35,7 @@
 	</tr>
 	<tr valign="top">
 		<td width="5%">&nbsp;</td>
-		<td><p><input type="submit" value="{translate key="form.submit"}" class="button defaultButton" /></p></td>
+		<td><p><input type="submit" value="{translate key="form.submit"}" class="btn btn-primary" /></p></td>
 	</tr>
 </table>
 

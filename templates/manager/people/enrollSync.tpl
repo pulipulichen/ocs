@@ -50,7 +50,7 @@
 	</tr>
 </table>
 
-<p><input type="submit" value="{translate key="manager.people.enrollSync"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+<p class="text-center"><input type="submit" value="{translate key="manager.people.enrollSync"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" /></p>
 
 </form>
 

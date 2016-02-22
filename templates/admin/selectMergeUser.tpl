@@ -122,7 +122,7 @@
 {/if}
 </table>
 {if empty($oldUserIds)}
-	<input type="submit" class="button defaultButton" value="{translate key="admin.mergeUsers"}" />
+    <p class="text-center"><input type="submit" class="btn btn-primary" value="{translate key="admin.mergeUsers"}" /></p>
 	</form>
 {/if}
 </div>

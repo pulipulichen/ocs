@@ -28,7 +28,7 @@ $(document).ready(function() { setupTableDND("#dragTable", "moveGroup"); });
 	{translate key="manager.groups.enableBoard.description" aboutOrganizingTeamUrl=$aboutOrganizingTeamUrl}<br/>
 	<input type="radio" id="boardEnabledOff" {if !$boardEnabled}checked="checked" {/if}name="boardEnabled" value="0"/>&nbsp;<label for="boardEnabledOff">{translate key="manager.groups.disableBoard"}</label><br/>
 	<input type="radio" id="boardEnabledOn" {if $boardEnabled}checked="checked" {/if}name="boardEnabled" value="1"/>&nbsp;<label for="boardEnabledOn">{translate key="manager.groups.enableBoard"}</label><br/>
-	<input type="submit" value="{translate key="common.record"}" class="button defaultButton"/>
+	<input type="submit" value="{translate key="common.record"}" class="btn btn-primary"/>
 </form>
 
 <br />

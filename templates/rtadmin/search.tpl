@@ -39,7 +39,7 @@
 	</tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="searches" path=$versionId|to_array:$contextId}'" /></p>
+<p class="text-center"><input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="searches" path=$versionId|to_array:$contextId}'" /></p>
 
 </form>
 

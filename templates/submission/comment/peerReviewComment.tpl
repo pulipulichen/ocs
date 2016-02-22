@@ -84,7 +84,10 @@
 </tr>
 </table>
 
-<p><input type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.opener.location.reload(); window.close()" /></p>
+<p class="text-center">
+    <input type="submit" name="save" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.close"}" class="btn btn-default" onclick="window.opener.location.reload(); window.close()" />
+</p>
 
 
 </div>

@@ -106,7 +106,7 @@
 </tr>
 </table>
 
-<p><input name="send" type="submit" value="{translate key="email.send"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+<p class="text-center"><input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" /></p>
 </form>
 
 {include file="common/footer.tpl"}

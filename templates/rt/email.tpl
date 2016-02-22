@@ -168,7 +168,9 @@ function deleteAttachment(fileId) {
 </tr>
 </table>
 
-<p><input name="send" type="submit" value="{translate key="email.send"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.close();" /></p>
+<p class="text-center">
+    <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-primary" /> 
+    <input type="button" value="{translate key="common.close"}" class="btn btn-default" onclick="window.close();" /></p>
 </form>
 
 {assign var=omitCloseButton value=1}

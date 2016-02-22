@@ -65,14 +65,17 @@
 </tr>
 </table>
 
-<p><input type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.opener.location.reload(); window.close()" /></p>
+<p class="text-center">
+<input type="submit" name="save" value="{translate key="common.save"}" class="btn btn-primary" /> 
+<input type="button" value="{translate key="common.close"}" class="btn btn-default" onclick="window.opener.location.reload(); window.close()" />
+</p>
 
 
 </div>
 </form>
 -->
 {else}
-<input type="button" value="{translate key="common.close"}" class="button defaultButton" style="width: 5em" onclick="window.close()" />
+<input type="button" value="{translate key="common.close"}" class="btn btn-primary" style="width: 5em" onclick="window.close()" />
 {/if}
 
 {include file="submission/comment/footer.tpl"}

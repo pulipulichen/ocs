@@ -46,7 +46,11 @@
 {/if}
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if !$isPeerReviewComment}<input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1);" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    {if !$isPeerReviewComment}<input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="btn btn-default" /> {/if}
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1);" />
+</p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>

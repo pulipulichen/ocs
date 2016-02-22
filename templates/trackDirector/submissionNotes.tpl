@@ -147,7 +147,9 @@
 	</tr>
 	</table>
 	<br />
-	<input type="submit" class="button defaultButton" value="{translate key="submission.notes.createNewNote"}" />
+        <p class="text-center">
+	<input type="submit" class="btn btn-primary" value="{translate key="submission.notes.createNewNote"}" /></p>
+        
 	</form>
 {else}
 <h3>{translate key="submission.notes"}</h3>

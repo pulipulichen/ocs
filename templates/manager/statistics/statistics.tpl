@@ -21,7 +21,7 @@
 			<option {if in_array($track->getId(), $trackIds)}selected {/if}value="{$track->getId()}">{$track->getLocalizedTitle()}</option>
 		{/foreach}
 	</select><br/>&nbsp;<br/>
-	<input type="submit" value="{translate key="common.record"}" class="button defaultButton"/>
+	<input type="submit" value="{translate key="common.record"}" class="btn btn-primary"/>
 </form>
 
 <br/>
@@ -77,6 +77,7 @@
 <p>{translate key="manager.statistics.statistics.note"}</p>
 
 {translate key="manager.statistics.statistics.makePublic"}<br/>
-<input type="submit" class="button defaultButton" value="{translate key="common.record"}"/>
+<p class="text-center">
+<input type="submit" class="btn btn-primary" value="{translate key="common.record"}"/></p>
 </form>
 </div>

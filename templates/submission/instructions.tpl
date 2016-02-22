@@ -50,7 +50,7 @@
 		
 		<div id="content">
 			<p>{$instructions|nl2br}</p>
-			<p><input type="button" onclick="window.close()" value="{translate key="common.close"}" class="button defaultButton" /></p>
+			<p class="text-center"><input type="button" onclick="window.close()" value="{translate key="common.close"}" class="btn btn-primary" /></p>
 		</div>
 		
 	</div>

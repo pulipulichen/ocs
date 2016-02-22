@@ -11,7 +11,8 @@
 <br />
 
 {if !$omitCloseButton}
-<input type="button" onclick="window.close()" value="{translate key="common.close"}" class="button defaultButton" />
+    <p class="text-center">
+<input type="button" onclick="window.close()" value="{translate key="common.close"}" class="btn btn-primary" /></p>
 {/if}
 
 {call_hook name="Templates::Rt::Footer::PageFooter"}

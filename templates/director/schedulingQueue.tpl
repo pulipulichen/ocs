@@ -75,7 +75,9 @@
 {/if}
 </table>
 
-<input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" />
+<p class="text-center">
+<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+</p>
 </form>
 </div>
 {include file="common/footer.tpl"}
