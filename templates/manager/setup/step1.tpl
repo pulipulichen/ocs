@@ -12,6 +12,8 @@
 {include file="manager/setup/setupHeader.tpl"}
 
 <form name="setupForm" method="post" action="{url op="saveSetup" path="1"}">
+    
+    <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {include file="common/formErrors.tpl"}
 
 {if $supportedLocales|@count > 1}
@@ -185,7 +187,7 @@
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup"}'" />
 </p>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 </form>
 

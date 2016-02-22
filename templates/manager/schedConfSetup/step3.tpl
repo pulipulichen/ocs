@@ -12,6 +12,8 @@
 {include file="manager/schedConfSetup/setupHeader.tpl"}
 
 <form name="setupForm" method="post" action="{url op="saveSchedConfSetup" path="3"}">
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/formErrors.tpl"}
 
 {if $supportedLocales|@count > 1}
@@ -120,8 +122,6 @@
     <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="schedConfSetup"}'" />
 </p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

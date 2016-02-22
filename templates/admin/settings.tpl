@@ -14,6 +14,8 @@
 {/strip}
 
 <form name="settings" method="post" action="{url op="saveSettings"}" enctype="multipart/form-data">
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/formErrors.tpl"}
 
 <table class="data" width="100%">
@@ -117,7 +119,5 @@
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="admin"}'" /></p>
 
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

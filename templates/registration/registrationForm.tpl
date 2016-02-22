@@ -21,7 +21,7 @@
 
 <br/>
 
-<form method="post" action="{url op="updateRegistration"}">
+<form method="post" action="{url op="updateRegistration"}"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {if $registrationId}
 <input type="hidden" name="registrationId" value="{$registrationId|escape}" />
 {/if}
@@ -133,6 +133,6 @@
 
 </form>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 {include file="common/footer.tpl"}

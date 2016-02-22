@@ -91,7 +91,7 @@ function prepBlockFields() {
 {/literal}
 </script>
 
-<form name="setupForm" method="post" action="{url op="saveSetup" path="4"}" enctype="multipart/form-data">
+<form name="setupForm" method="post" action="{url op="saveSetup" path="4"}" enctype="multipart/form-data"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {include file="common/formErrors.tpl"}
 
 {* There are no localized settings on this page.
@@ -196,7 +196,7 @@ function prepBlockFields() {
 </div>
 <div class="separator"></div>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 <p class="text-center">
     <input type="submit" onclick="prepBlockFields()" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 

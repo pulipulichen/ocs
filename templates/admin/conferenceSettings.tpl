@@ -16,6 +16,7 @@
 <br />
 <div id="conferenceSettings">
 <form name="conference" method="post" action="{url op="updateConference"}">
+    <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {if $conferenceId}
 <input type="hidden" name="conferenceId" value="{$conferenceId|escape}" />
 {/if}
@@ -75,6 +76,6 @@
 
 </form>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 </div>
 {include file="common/footer.tpl"}

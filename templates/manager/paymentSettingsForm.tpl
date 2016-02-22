@@ -30,6 +30,8 @@ $(document).ready(function() {
 
 <form method="post" id="paymentSettingsForm" name="paymentSettingsForm" action="{url op="savePaymentSettings"}">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <p>{translate key="manager.payment.form.description"}</p>
 
 
@@ -49,8 +51,6 @@ $(document).ready(function() {
 </table>
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 

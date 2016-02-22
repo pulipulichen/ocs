@@ -33,6 +33,8 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 	<input type="hidden" name="reviewFormId" value="{$reviewFormId}"/>
 	<input type="hidden" name="reviewFormElementId" value="{$reviewFormElementId}"/>
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/formErrors.tpl"}
 
 <table class="data" width="100%">
@@ -103,7 +105,5 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="reviewFormElements" path=$reviewFormId}'" /></p>
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

@@ -17,6 +17,8 @@
 
 <form name="accommodationForm" method="post" action="{url op="saveAccommodationSettings"}" enctype="multipart/form-data">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <p>{translate key="manager.accommodation.form.description"}</p>
 <div id="accommodationFiles">
 <h4>{translate key="manager.accommodation.form.accommodationFiles"}</h4>
@@ -69,8 +71,6 @@
 <div class="separator"></div>
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 </form>
 

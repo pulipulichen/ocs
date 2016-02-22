@@ -14,7 +14,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<form name="track" method="post" action="{url op="updateTrack"}" onsubmit="return saveSelectedDirectors()">
+<form name="track" method="post" action="{url op="updateTrack"}" onsubmit="return saveSelectedDirectors()"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {if $trackId}
 <input type="hidden" name="trackId" value="{$trackId|escape}" />
 {/if}
@@ -219,5 +219,5 @@
 
 </form>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/footer.tpl"}

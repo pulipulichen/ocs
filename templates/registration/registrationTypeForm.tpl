@@ -27,6 +27,9 @@
 <br/>
 
 <form name="registrationType" method="post" action="{url op="updateRegistrationType"}">
+    
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {if $typeId}
 <input type="hidden" name="typeId" value="{$typeId|escape}" />
 {/if}
@@ -79,6 +82,9 @@
 	<td colspan="2" class="value">
 		<span class="instruct">{translate key="manager.registrationTypes.form.costInstructions"}</span>
 		<br />
+                {if !$cost}
+                    {assign var="cost" value=0}
+                {/if}
 		<input type="text" name="cost" value="{$cost|escape}" size="5" maxlength="10" id="cost" class="textField" />		
 	</td>
 </tr>
@@ -152,9 +158,11 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $typeId}<input type="submit" name="createAnother" value="{translate key="manager.registrationTypes.form.saveAndCreateAnotherType"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="registrationTypes"}'" /></p>
+<p class="text-center">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-primary" /> 
+    {if not $typeId}<input type="submit" name="createAnother" value="{translate key="manager.registrationTypes.form.saveAndCreateAnotherType"}" class="btn btn-default" /> {/if}
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="registrationTypes"}'" />
+</p>
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

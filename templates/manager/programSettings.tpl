@@ -17,6 +17,7 @@
 
 <form name="programForm" method="post" action="{url op="saveProgramSettings"}" enctype="multipart/form-data">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 <div id="programForm">
 <p>{translate key="manager.program.form.description"}</p>
 
@@ -35,6 +36,7 @@
 </table>
 {/if}
 
+<!--
 <h4>{translate key="manager.program.form.programFile"}</h4>
 <p>{translate key="manager.program.form.programFile.description"}</p>
 
@@ -43,10 +45,12 @@
 	<td width="20%" class="label">{fieldLabel name="programFileTitle" key="common.title"}</td>
 	<td width="80%" class="value"><input type="text" id="programFileTitle" name="programFileTitle[{$formLocale|escape}]" value="{$programFileTitle[$formLocale]|escape}" size="40" maxlength="120" class="textField" /></td>
 </tr>
+
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="programFile" key="common.file"}</td>
 	<td width="80%">
-		<input type="file" id="programFile" name="programFile" class="uploadField" /> <input type="submit" name="uploadProgramFile" value="{translate key="common.upload"}" class="button" />
+		<input type="file" id="programFile" name="programFile" class="uploadField" /> 
+                <input type="submit" name="uploadProgramFile" value="{translate key="common.upload"}" class="button" />
 		{if $programFile[$formLocale]}
 			<br/>
 			{translate key="common.fileName"}: <a href="{$publicSchedConfFilesDir}/{$programFile[$formLocale].uploadName}" target="_new" class="file">{$programFile[$formLocale].name|escape}</a> {$programFile[$formLocale].dateUploaded|date_format:$datetimeFormatShort} <input type="submit" name="deleteProgramFile" value="{translate key="common.delete"}" class="button" />
@@ -54,6 +58,7 @@
 	</td>
 </tr>
 </table>
+-->
 </div>
 
 <div id="programText">
@@ -66,7 +71,6 @@
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" /></p>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 </form>
 

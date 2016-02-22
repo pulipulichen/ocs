@@ -21,7 +21,7 @@
 	<li><a href="{url op="registrationOptions"}">{translate key="manager.registrationOptions"}</a></li>
 </ul>
 
-<form name="registrationPolicies" method="post" action="{url op="saveRegistrationPolicies"}">
+<form name="registrationPolicies" method="post" action="{url op="saveRegistrationPolicies"}"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {include file="common/formErrors.tpl"}
 
 	<script type="text/javascript">
@@ -167,7 +167,7 @@
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="registrationPolicies"}'" /></p>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 </form>
 

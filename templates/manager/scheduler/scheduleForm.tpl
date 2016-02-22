@@ -126,6 +126,8 @@ function sortBy(sortName) {
 <br/>
 
 <form name="schedule" method="post" action="{url op="saveSchedule"}">
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <input name="changes" type="hidden" value="{$changes|escape}" />
 <input name="sort" type="hidden" value="{$sort|truncate:20|escape}" />
 {include file="common/formErrors.tpl"}
@@ -238,7 +240,5 @@ function sortBy(sortName) {
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="scheduler"}'" /></p>
 
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

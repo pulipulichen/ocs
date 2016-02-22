@@ -11,7 +11,7 @@
 {assign var="pageTitle" value="manager.setup.indexing.title"}
 {include file="manager/setup/setupHeader.tpl"}
 
-<form name="setupForm" method="post" action="{url op="saveSetup" path="6"}">
+<form name="setupForm" method="post" action="{url op="saveSetup" path="6"}"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {include file="common/formErrors.tpl"}
 
 {if $supportedLocales|@count > 1}
@@ -62,7 +62,7 @@
 </div>
 <div class="separator"></div>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 <p class="text-center">
     <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 

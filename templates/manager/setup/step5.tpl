@@ -11,7 +11,7 @@
 {assign var="pageTitle" value="manager.setup.loggingAndAuditing.title"}
 {include file="manager/setup/setupHeader.tpl"}
 
-<form name="setupForm" method="post" action="{url op="saveSetup" path="5"}" enctype="multipart/form-data">
+<form name="setupForm" method="post" action="{url op="saveSetup" path="5"}" enctype="multipart/form-data"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {include file="common/formErrors.tpl"}
 
 {* There are no localized settings on this page.
@@ -49,7 +49,7 @@
 </table>
 </div>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 
 <p class="text-center">
     <input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> 

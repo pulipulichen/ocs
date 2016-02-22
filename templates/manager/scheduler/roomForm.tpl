@@ -31,6 +31,8 @@
 <br/>
 
 <form name="room" method="post" action="{url op="updateRoom"}">
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {if $roomId}
 <input type="hidden" name="roomId" value="{$roomId|escape}" />
 {/if}
@@ -67,7 +69,5 @@
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $roomId}<input type="submit" name="createAnother" value="{translate key="manager.scheduler.room.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="rooms" path=$buildingId}'" /></p>
 
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

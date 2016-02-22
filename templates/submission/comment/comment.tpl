@@ -42,7 +42,7 @@
 <br />
 
 {if not $isLocked}
-<form method="post" action="{url op=$commentAction}">
+<form method="post" action="{url op=$commentAction}"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {if $hiddenFormParams}
 	{foreach from=$hiddenFormParams item=hiddenFormParam key=key}
 		<input type="hidden" name="{$key|escape}" value="{$hiddenFormParam|escape}" />
@@ -66,7 +66,7 @@
 
 <p><input type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="button" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.opener.location.reload(); window.close()" /></p>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 </div>
 </form>
 

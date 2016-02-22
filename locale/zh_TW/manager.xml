@@ -85,8 +85,8 @@
 	<message key="manager.program.form.description">當會議議程準備好被提出給使用者時，請用純文本安裝於此處。</message>
 	<message key="manager.program.form.programFile">議程檔案</message>
 	<message key="manager.program.form.programFile.description">如果議程是可利用的檔案文件，請上傳於此處。</message>
-	<message key="manager.program.form.programText">純文字</message>
-	<message key="manager.program.form.programText.description">請基於此版本在此輸入您的研討會議程。</message>
+	<message key="manager.program.form.programText">議程</message>
+	<message key="manager.program.form.programText.description">請輸入研討會的議程。</message>
 	<message key="manager.registration">報名</message>
         <message key="manager.registrationList">報名名單</message>
         <message key="manager.registrationListCount">人報名</message>

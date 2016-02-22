@@ -31,6 +31,7 @@
 <br/>
 
 <form name="building" method="post" action="{url op="updateBuilding"}">
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {if $buildingId}
 <input type="hidden" name="buildingId" value="{$buildingId|escape}" />
 {/if}
@@ -67,6 +68,5 @@
 
 </form>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 {include file="common/footer.tpl"}

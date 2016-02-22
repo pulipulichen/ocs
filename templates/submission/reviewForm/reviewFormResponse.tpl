@@ -25,6 +25,7 @@
 <p>{$reviewForm->getLocalizedDescription()}</p>
 
 <form name="saveReviewFormResponse" method="post" action="{url op="saveReviewFormResponse" path=$reviewId|to_array:$reviewForm->getId()}">
+    <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{foreach from=$reviewFormElements name=reviewFormElements key=elementId item=reviewFormElement}
 		<p>{$reviewFormElement->getLocalizedQuestion()} {if $reviewFormElement->getRequired() == 1}*{/if}</p>
 		<p>
@@ -64,7 +65,7 @@
 		<p><input {if $disabled}disabled="disabled" {/if}type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="document.location.href='{url op="submission" path=$reviewId}'" /></p>
 	{/if}
 
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+	
 
 </form>
 

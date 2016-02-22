@@ -16,6 +16,8 @@
 
 <form method="post" action="{url page="admin" op="doImportOCS1"}">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 {include file="common/formErrors.tpl"}
 
 {if $importError}
@@ -59,7 +61,5 @@
 <p><input type="submit" value="{translate key="common.import"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="admin" op="conferences"}'" /></p>
 
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}

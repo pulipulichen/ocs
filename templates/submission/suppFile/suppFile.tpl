@@ -34,9 +34,9 @@
 
 <div class="separator"></div>
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
-<form name="suppFile" method="post" action="{url page=$rolePath op="saveSuppFile" path=$suppFileId}" enctype="multipart/form-data">
+
+<form name="suppFile" method="post" action="{url page=$rolePath op="saveSuppFile" path=$suppFileId}" enctype="multipart/form-data"><p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 <input type="hidden" name="paperId" value="{$paperId|escape}" />
 <input type="hidden" name="from" value="{$from|escape}" />
 {include file="common/formErrors.tpl"}

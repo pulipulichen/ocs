@@ -20,6 +20,8 @@
 {if count($availableLocales) > 1}
 <form method="post" action="{url op="saveLanguageSettings"}">
 
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 <table class="data" width="100%">
 <tr valign="top">
 	<td width="20%" rowspan="2" class="label">{fieldLabel name="primaryLocale" required="true" key="locale.primary"}</td>
@@ -60,8 +62,6 @@
 </table>
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager"}'" /></p>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 
