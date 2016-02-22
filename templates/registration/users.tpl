@@ -87,8 +87,8 @@
 </div>
 
 <p class="text-center">
-    <a href="{url page="schedConf" op="registration"}" class="btn btn-default" target="_blank">
-        新增使用者並登記報名此研討會 {* @TODO 語系 *}
+    <a href="{url page="schedConf" op="registration"}?u=0" class="btn btn-default" target="_blank">
+        登出並手動新增使用者報名此研討會 {* @TODO 語系 *}
     </a>
 </p>
 

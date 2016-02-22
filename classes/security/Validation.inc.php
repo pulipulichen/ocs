@@ -350,9 +350,18 @@ class Validation {
 	function isLoggedIn() {
                 // 如果網址有u=?的話，那就把它顯示出來
                 if (is_string(Request::getUserVar('u'))) {
-                    $user = Validation::loginForce(Request::getUserVar('u'));
-                    if (is_object($user)) {
-                        $userId = $user->getUserId();
+                    $u = Request::getUserVar('u');
+                    $u = intval($u);
+                    if ($u > 0) {
+                        $user = Validation::loginForce(Request::getUserVar('u'));
+                        if (is_object($user)) {
+                            $userId = $user->getUserId();
+                        }
+                    }
+                    else {
+                        //if (Validation::isLoggedIn()) {
+                            Validation::logout();
+                        //}
                     }
                 }
                 
