@@ -73,8 +73,8 @@
 	<message key="user.profile.form.oldPasswordInvalid">您輸入的原有密碼不正確</message>
 	<message key="user.profile.form.openAccessNotifications">開放閱讀期刊電郵通知</message>
 	<message key="user.profile.form.passwordRequired">需要一個密碼</message>
-	<message key="user.profile.form.profileImage">Profile Image</message>
-	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
+	<message key="user.profile.form.profileImage">使用者圖像</message>
+	<message key="user.profile.form.profileImageInvalid">無效的圖像，或是圖像太大。僅能接受.git、.jpg、.png格式，而且圖片大小應該小於150x150像素。</message>
 	<message key="user.profile.form.publishedNotifications">新期刊出版電郵通知</message>
 	<message key="user.profile.form.urlInvalid">The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</message>
 	<message key="user.profile.form.usernameRequired">需要一個使用者帳號名稱</message>
