@@ -323,89 +323,13 @@
     {translate key="manager.setup.layout.linkType.4"}
 </h3>
 
-<fieldset id="surveyDisplay"></fieldset>
     <!--span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span-->
-
-<p><textarea name="survey" id="survey" cols="60" rows="10" class="hide">{$survey}</textarea></p>
+    <textarea name="surveyConfig" cols="60" rows="10" class="jquery-survey-form" jquery-survey-data="survey" error-message="{translate key="common.formValidateError"}">{$surveyConfig}</textarea>
+    <textarea name="survey" id="survey" cols="60" rows="10" class="">{$survey}</textarea>
 
 {if !$survey}
     {assign var="survey" value="null"}
 {/if}
-
-<script language="javascript" type="text/javascript">
-var survey = {literal}{{/literal}
-    pages: [{literal}{{/literal} 
-        elements: {$surveyConfig}
-    {literal}}]{/literal}
-{literal}}{/literal};
-var data = {$survey};
-
-{literal}
-
-    $('#surveyDisplay').survey({
-        survey: survey,
-        data: data,
-        init: function(target){
-            target.closest('form').validate({
-              errorPlacement: function(error, element){
-                var p = element;
-                while(p && (!p.hasClass('input'))){
-                  p = p.parent();
-                }
-                error.appendTo(p||element);
-              },
-              wrapper: 'div'
-            });
-          },
-          afterChange: function () {
-            var target = this;
-            var _changeCallback = function () {
-                
-                var data = $('#surveyDisplay').serializeArray().reduce(function(obj, item) {
-                    var _name = item.name;
-                    //console.log(_name.substr(_name.length-2, 2));
-                    if (_name.substr(_name.length-2, 2) === "[]") {
-                        _name = _name.substr(0, _name.length-2);
-                    } 
-                    if (typeof(obj[_name]) !== "undefined") {
-                        if (typeof(obj[_name]['push']) !== "function") {
-                            obj[_name] = [obj[_name], item.value];
-                        }
-                        else {
-                            //console.log(typeof(obj[_name]));
-                            obj[_name].push(item.value);
-                        }
-                    }
-                    else {
-                        obj[_name] = item.value;
-                    }
-                    return obj;
-                }, {});
-                //var survey = $.survey($('#surveyDisplay').clone(true).wrap("<form></form>"));
-                //var data = survey.pageData();
-                //var surveyData = survey.data();
-                //survey.updateData(data);
-                $("#survey").val(JSON.stringify(data));
-            };
-            $('#surveyDisplay').find("input").change(_changeCallback);
-            $('#surveyDisplay').find("textarea").change(_changeCallback);
-          },
-          beforeChange: function(from, to, next){
-            var target = this;
-            if(from === void 0){
-              next();
-            }else if(target.closest('form').valid()){
-              var survey = $.survey(target);
-              var data = survey.pageData();
-              var surveyData = survey.data();
-              survey.updateData(data);
-              $("#survey_data").val(JSON.stringify(data));
-              $("#survey_data").parents("form:first").submit();
-            }
-          }
-    });
-{/literal}
-</script>
 
 </div>
 {/if}

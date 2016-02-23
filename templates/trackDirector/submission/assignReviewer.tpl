@@ -275,7 +275,9 @@ function confirmSubmissionCheck() {
                 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
                 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
                 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
-                <textarea id="commentSurveyForm" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form report" jquery-survey-data="commentSurvey">{$commentSurveyForm}</textarea>
+                <textarea id="commentSurveyForm" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form report" 
+                          jquery-survey-data="commentSurvey"
+                           error-message="{translate key="common.formValidateError"}">{$commentSurveyForm}</textarea>
                 <textarea id="commentSurvey" name="commentSurvey" style="width:100%;" rows="10" cols="50" class="textArea">{$commentSurvey}</textarea>
             {else}
                 &mdash;

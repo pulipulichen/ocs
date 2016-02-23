@@ -50,13 +50,29 @@ class AuthorSubmitStep2Form extends AuthorSubmitForm {
 	function initData() {
 		$trackDao =& DAORegistry::getDAO('TrackDAO');
                 $schedConf =& Request::getSchedConf();
+                
+                
 
 		if (isset($this->paper)) {
 			$paper =& $this->paper;
+                        $track = $trackDao->getTrack($paper->getTrackId());
+                        $sessionTypeId = NULL;
+                        $abstractLength = NULL;
+                        $sessionTypeName = NULL;
+                        $sessionType = $paper->getSessionType();
+                        if (isset($sessionType)) {
+                            $sessionTypeId = $sessionType->getId();
+                            $sessionTypeName = $sessionType->getLocalizedName();
+                            $abstractLength = $sessionType->getAbstractLength();
+                        }
+                        //echo $sessionType->getId();
 			$this->_data = array(
 				'authors' => array(),
 				'title' => $paper->getTitle(null), // Localized
 				'abstract' => $paper->getAbstract(null), // Localized
+                                'sessionTypeId' => $sessionTypeId,
+                                'sessionTypeName' => $sessionTypeName, // Localized
+                                'abstractLength' => $abstractLength,
 				'discipline' => $paper->getDiscipline(null), // Localized
 				'subjectClass' => $paper->getSubjectClass(null), // Localized
 				'subject' => $paper->getSubject(null), // Localized

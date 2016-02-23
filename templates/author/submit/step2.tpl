@@ -70,6 +70,32 @@ function moveAuthor(dir, authorIndex) {
 	<td width="20%" class="label">{fieldLabel name="title" required="true" key="paper.title"}</td>
 	<td width="80%" class="value"><input type="text" class="textField" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" /></td>
 </tr>
+
+
+{if $collectAbstracts}
+<tr valign="top">
+	<td width="20%" class="label">
+            {if $isConferenceManager}
+                <a class="edit-link" href="{url page="manager"}/schedConfSetup/2#paperTypeName-{$sessionTypeId}" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+            {fieldLabel name="abstract" key="paper.abstract" required="true"}
+        </td>
+	<td width="80%" class="value">
+            {if $abstractLength}
+                <div>
+
+                    {$sessionTypeName}
+                    {fieldLabel name="abstract" key="manager.schedConfSetup.submissions.typeOfSubmission.abstractLength"}:  
+                    {$abstractLength}
+
+                </div>
+            {/if}
+            <textarea name="abstract[{$formLocale|escape}]" id="abstract" class="textArea" rows="15" cols="60">{$abstract[$formLocale]|escape}</textarea>
+        </td>
+</tr>
+{/if}{* $collectAbstracts *}
 </table>
 
 
@@ -200,6 +226,7 @@ function moveAuthor(dir, authorIndex) {
 	<td width="20%" class="label">{fieldLabel name="authors-0-biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
 	<td width="80%" class="value"><textarea name="authors[0][biography]" class="textArea" id="authors-0-biography[{$formLocale|escape}]" rows="5" cols="40"></textarea></td>
 </tr>
+
 </table>
 {/foreach}
 
@@ -207,13 +234,6 @@ function moveAuthor(dir, authorIndex) {
     <input type="submit" class="button" name="addAuthor" value="{translate key="author.submit.addAuthor"}" />
 </p>
 </div>
-
-{if $collectAbstracts}
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="abstract" key="paper.abstract" required="true"}</td>
-	<td width="80%" class="value"><textarea name="abstract[{$formLocale|escape}]" id="abstract" class="textArea" rows="15" cols="60">{$abstract[$formLocale]|escape}</textarea></td>
-</tr>
-{/if}{* $collectAbstracts *}
 
 </div>
 <div class="separator"></div>

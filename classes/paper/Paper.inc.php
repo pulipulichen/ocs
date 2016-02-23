@@ -548,6 +548,17 @@ class Paper extends Submission {
 
 		return $userIds;
 	}
+        
+        function getSessionType() {
+            $sessionType = $this->getData("sessionType");
+            
+            
+            $paperTypeDao =& DAORegistry::getDAO('PaperTypeDAO');
+            $sessionType = $paperTypeDao->getPaperType($sessionType);
+            
+            //return $sessionTypes[$sessionType];
+            return $sessionType;
+        }
 }
 
 ?>

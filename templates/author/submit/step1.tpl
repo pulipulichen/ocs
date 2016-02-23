@@ -99,10 +99,12 @@
 							<br/>
 							{translate key="manager.schedConfSetup.submissions.typeOfSubmission.length"}: {$sessionTypeObject->getLength()|escape}
 						{/if}
+                                                <!--
 						{if $sessionTypeObject->getAbstractLength()}
 							<br/>
 							{translate key="manager.schedConfSetup.submissions.typeOfSubmission.abstractLength"}: {$sessionTypeObject->getAbstractLength()|escape}
 						{/if}
+                                                -->
                                                 </div>
                                             </label>
 					</td>

@@ -30,6 +30,26 @@ class PaperTypeDAO extends ControlledVocabDAO {
 		$paperTypeEntryDao =& DAORegistry::getDAO('PaperTypeEntryDAO');
 		return $paperTypeEntryDao->getByControlledVocabId($paperTypes->getId());
 	}
+        
+        function getPaperType($typeId) {
+            //$types = $this->getPaperTypes($schedConfId);
+            //$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+            $schedConf =& Request::getSchedConf();
+            
+            $paperTypeEntryIterator = $this->getPaperTypes($schedConf->getId());
+            while ($paperTypeEntry =& $paperTypeEntryIterator->next()) {
+                    //if (!in_array($paperTypeEntry->getId(), $paperTypeIds)) {
+                    //        $paperTypeEntryDao->deleteObject($paperTypeEntry);
+                    //}
+                    //unset($paperTypeEntry);
+                if ($paperTypeEntry->getId() == $typeId) {
+                    return $paperTypeEntry;
+                }
+            }
+            //$sessionTypes = $controlledVocabDao->enumerateBySymbolic('paperType', ASSOC_TYPE_SCHED_CONF, $schedConf->getId());
+            //print_r($sessionTypes);
+            
+        }
 }
 
 ?>
