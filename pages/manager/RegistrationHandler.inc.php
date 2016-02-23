@@ -433,8 +433,8 @@ class RegistrationHandler extends ManagerHandler {
                     $registrationTypeId = "all";
                 }
                 
-                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.cvs"');
-                header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.csv"');
+                header('Content-Type: text/csv'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
                 header('Content-Length: ' . strlen($output));
                 header('Connection: close');
 

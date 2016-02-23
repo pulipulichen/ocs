@@ -36,6 +36,8 @@ class TimelineForm extends Form {
 		} else {
 			parent::Form('manager/timelineView.tpl');
 		}
+                
+                //echo $schedConf->getSetting('endDate');
 
 		if (!$overrideDates) {
 			// Conference start must happen before conference end
@@ -151,6 +153,7 @@ class TimelineForm extends Form {
 	function initData() {
 		$schedConf =& Request::getSchedConf();
 
+                //echo $schedConf->getSetting('endDate');
 		$this->_data = array(
 			'siteStartDate' => $schedConf->getStartDate(),
 			'siteEndDate' => $schedConf->getEndDate(),
@@ -223,13 +226,19 @@ class TimelineForm extends Form {
 		while (!$timingCorrect) {
 			foreach ($timing as $rule) {
 				$timingCorrect = true;
-				if ($this->getData($rule[0]) == NULL)
+				if ($this->getData($rule[0]) == NULL) {
 					$this->setData($rule[0], time());
-				if ($this->getData($rule[1]) == NULL)
+                                }
+				if ($this->getData($rule[1]) == NULL) {
 					$this->setData($rule[1], time());
+                                }
 
 				if ($this->getData($rule[0]) >= $this->getData($rule[1])) {
-					$this->setData($rule[1], mktime(0, 0, 0, date('m', $this->getData($rule[0])), date('d', $this->getData($rule[0])) + 1, date('Y', $this->getData($rule[0]))));
+                                    
+                                    // 避免換一天，還是保持同一天
+                                    $nextDay = mktime(0, 0, 0, date('m', $this->getData($rule[0])), date('d', $this->getData($rule[0])) + 1, date('Y', $this->getData($rule[0])));
+                                    $nextDay--;
+					$this->setData($rule[1], $nextDay);
 					$timingCorrect = false;
 				}
 			}

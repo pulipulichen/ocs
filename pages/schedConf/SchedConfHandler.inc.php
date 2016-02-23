@@ -689,8 +689,8 @@ class SchedConfHandler extends Handler {
             
             //print_r($output);
             
-            header('Content-Disposition: attachment; filename="export_survey_'.$conference->getId().'_'.$id.'.cvs"');
-            header('Content-Type: text/plain'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+            header('Content-Disposition: attachment; filename="export_survey_'.$conference->getId().'_'.$id.'.csv"');
+            header('Content-Type: text/csv'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
             header('Content-Length: ' . strlen($output));
             header('Connection: close');
             

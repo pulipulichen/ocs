@@ -531,10 +531,10 @@ class RegistrationTypeDAO extends DAO {
 		}
                 
                 import('conference.ConferenceSettingsDAO');
-		$cvs = ConferenceSettingsDAO::_parseCvs($output);
+		$csv = ConferenceSettingsDAO::_parseCsv($output);
                 
 		$result->Close();
 		unset($result);
-                return $cvs;
+                return $csv;
 	}
 }

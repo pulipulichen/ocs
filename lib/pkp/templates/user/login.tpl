@@ -38,8 +38,8 @@
     
 {literal}
     <script type="text/javascript">
-        var _setupUsername = function (_input) {
-            var _form = _input.form;
+        var _setupUsername = function (_form) {
+            //var _form = _input.form;
             var _email = _form.email.value;
             
             var _user = _email;
@@ -72,7 +72,7 @@
         };
     </script>
 {/literal}
-	<form id="signinForm" name="login" method="post" action="{$loginUrl}">
+	<form id="signinForm" name="login" method="post" action="{$loginUrl}" onsubmit="_setupUsername(this);">
 {/if}
 
 <input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
@@ -105,8 +105,7 @@
                     <label class="audience-label" for="loginEmail" style="display:none;">{translate key="user.email"}</label>
                 </td>
 		<td class="value">
-                    <input type="text" id="loginEmail" name="email" value="{$email|escape}" size="20" maxlength="32" class="textField"
-                           onchange="_setupUsername(this);"/>
+                    <input type="text" id="loginEmail" name="email" value="{$email|escape}" size="20" maxlength="32" class="textField" />
                 </td>
 	</tr>
 	<tr style="display:none;">

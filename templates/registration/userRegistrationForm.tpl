@@ -18,7 +18,8 @@
 {else} 
     {assign var="action" value="register"}
 {/if}
-<form action="{url op=$action}" name="registration" method="post">
+<form action="{url op=$action}" name="registration" method="post" 
+                   onsubmit="PULI_HELPERS.formConvertToField(this, 'email', ['username']);PULI_HELPERS.formToField(this, 'email', ['password', 'password2']);">
 <input type="hidden" name="registrationTypeId" value="{$registrationTypeId|escape}" />
 
 {include file="common/formErrors.tpl"}
@@ -174,11 +175,15 @@
 	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 
+<tr valign="top" class="">
+	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
+	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
+</tr>
+
 <tr valign="top">
 	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
 	<td class="value">
-            <input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField" 
-                   onchange="PULI_HELPERS.emailConvertToField(this, ['username']);PULI_HELPERS.emailToField(this, ['password', 'password2']);" />
+            <input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField"  />
         </td>
 </tr>
             
@@ -216,11 +221,6 @@
 		</td>
 	</tr>
 {/if}
-
-<tr valign="top" class="hide">
-	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
-	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
-</tr>
 
 	
 <tr valign="top" class="hide">

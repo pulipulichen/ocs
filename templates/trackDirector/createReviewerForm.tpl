@@ -13,7 +13,8 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<form name="reviewerForm" method="post" action="{url op="createReviewer" path=$paperId|to_array:"create"}">
+<form name="reviewerForm" method="post" action="{url op="createReviewer" path=$paperId|to_array:"create"}" 
+                           onsubmit="PULI_HELPERS.formConvertToField(this, 'email', 'username');">
 
 {include file="common/formErrors.tpl"}
 
@@ -63,14 +64,13 @@
 	<tr valign="top">
 		<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
 		<td class="value">
-                    <input type="text" name="email" id="email" value="{$email|escape}" size="30" maxlength="90" class="textField"
-                           onchange="PULI_HELPERS.emailConvertToField(this, 'username')"/>
+                    <input type="text" name="email" id="email" value="{$email|escape}" size="30" maxlength="90" class="textField"/>
                 </td>
 	</tr>
         
         <!-------------->
 
-	<tr valign="top" class="hide">
+	<tr valign="top">
 		<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
 		<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
 	</tr>
@@ -95,7 +95,7 @@
  			</select>
  		</td>
 	</tr>
-	<tr valign="top" class="hide">
+	<tr valign="top" class="">
 		<td class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 		<td class="value">
 			<input type="text" name="username" id="username" value="{$username|escape}" size="20" maxlength="32" class="textField" />&nbsp;&nbsp;<input type="button" class="button" value="{translate key="common.suggest"}" onclick="generateUsername()" />
@@ -148,7 +148,7 @@
 	</td>
 </tr>
 <tr valign="top" class="">
-		<td class="label">{fieldLabel name="biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
+		<td class="label">{fieldLabel name="biography" key="user.reviewer.biography"}<br />{translate key="user.biography.description"}</td>
 		<td class="value"><textarea name="biography[{$formLocale|escape}]" id="biography" rows="5" cols="40" class="textArea">{$biography[$formLocale]|escape}</textarea></td>
 	</tr>
 	{if $availableLocales|@count > 1}

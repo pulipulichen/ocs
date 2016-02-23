@@ -111,21 +111,21 @@ class ConferenceSettingsDAO extends SettingsDAO {
                     $output[] = $data;
                     $result->MoveNext();
 		}
-		$cvs = ConferenceSettingsDAO::_parseCvs($output);
+		$csv = ConferenceSettingsDAO::_parseCsv($output);
                 
 		$result->Close();
 		unset($result);
-                return $cvs;
+                return $csv;
 	}
         
-        static function _parseCvs($output) {
+        static function _parseCsv($output) {
                 //$output = json_encode($output, JSON_UNESCAPED_UNICODE);
-                $cvs = '';
+                $csv = '';
                 $delimiter = "\t";
                 $all_fields = array();
                 if (count($output) > 0) {
                     //print_r($output);
-                    //$cvs = $line;
+                    //$csv = $line;
                     
                     // ------------------------
                     // 第一輪，先把所有欄位尋過一次
@@ -145,7 +145,7 @@ class ConferenceSettingsDAO extends SettingsDAO {
                         }
                         $line .= $f;
                     }
-                    $cvs = $line;
+                    $csv = $line;
                     
                     // ------------------------
                     // 第二輪，把所有資料都重新彙整
@@ -178,11 +178,11 @@ class ConferenceSettingsDAO extends SettingsDAO {
                             $line .= $col;
                         }
                         
-                        $cvs .= "\n" . $line;
+                        $csv .= "\n" . $line;
                     }
                     
                 }
-                return $cvs;
+                return $csv;
         }
         
 	/**

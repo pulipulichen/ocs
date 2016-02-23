@@ -12,7 +12,6 @@
 {assign var="pageTitle" value="manager.timeline.conferenceTimeline"}
 {include file="common/header.tpl"}
 {/strip}
-
 <br />
 
 <div class="instruct">

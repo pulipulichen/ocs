@@ -334,6 +334,7 @@ table.data td {
 table.data td.label {
     padding-right: 1em;
     text-align: left;
+    padding-left:0;
 }
 
 table.data td.value {
