@@ -114,7 +114,7 @@ or $requestedPage=="reviewer"}
 
             <div class="col-sm-9 well well-lg">
 {if $isConferenceManager}
-    <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageHeaderInfo" target="_blank">
+    <a class="edit-link" href="{url page="manager"}/setup/3#conferenceTitleInfo" target="_blank">
         {*translate key="manager.registrationOptions.editTitle"*}
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
@@ -122,7 +122,10 @@ or $requestedPage=="reviewer"}
                 <h1>
                     <a href="{$currentConferenceHome}">
                     {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+                            <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" 
+                                 width="{$displayPageHeaderTitle.width|escape}" 
+                                 height="{$displayPageHeaderTitle.height|escape}" 
+                                 {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
                     {elseif $displayPageHeaderTitle}
                         {if !$isCompact}
                             {$displayPageHeaderTitle}

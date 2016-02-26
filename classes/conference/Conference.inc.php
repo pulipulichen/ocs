@@ -279,6 +279,11 @@ class Conference extends DataObject {
 	 */
 	function getPageHeaderTitle($home = false) {
 		$prefix = $home ? 'home' : 'page';
+                
+                // @Author Pulipuli Chen 20160227
+                // 不管怎樣都維持home的狀態
+                $prefix = "home";
+                
 		$typeArray = $this->getSetting($prefix . 'HeaderTitleType');
 		$imageArray = $this->getSetting($prefix . 'HeaderTitleImage');
 		$titleArray = $this->getSetting($prefix . 'HeaderTitle');
@@ -287,10 +292,17 @@ class Conference extends DataObject {
 
 		foreach (array(AppLocale::getLocale(), AppLocale::getPrimaryLocale()) as $locale) {
 			if (isset($typeArray[$locale]) && $typeArray[$locale]) {
-				if (isset($imageArray[$locale])) $title = $imageArray[$locale];
+                            if (isset($imageArray[$locale])) {
+                                $title = $imageArray[$locale];
+                            }
+                            
 			}
-			if (empty($title) && isset($titleArray[$locale])) $title = $titleArray[$locale];
-			if (!empty($title)) return $title;
+			if (empty($title) && isset($titleArray[$locale])) {
+                            $title = $titleArray[$locale];
+                        }
+			if (!empty($title)) {
+                            return $title;
+                        }
 		}
 		return null;
 	}

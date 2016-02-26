@@ -44,7 +44,7 @@
 {translate key="common.ccLicense"}
 {/if}
 {if $isConferenceManager}
-    <a class="edit-link" href="{$conferenceUrl}/manager/setup/3#conferencePageFooterInfo" target="_blank">
+    <a class="edit-link" href="{url page="manager"}/setup/3#conferencePageFooterInfo" target="_blank">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
