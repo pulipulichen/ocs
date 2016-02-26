@@ -20,7 +20,7 @@
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 <p>{translate key="manager.accommodation.form.description"}</p>
-<div id="accommodationFiles">
+<div id="accommodationFiles" class="hide">
 <h4>{translate key="manager.accommodation.form.accommodationFiles"}</h4>
 <p>{translate key="manager.accommodation.form.accommodationFiles.description"}</p>
 

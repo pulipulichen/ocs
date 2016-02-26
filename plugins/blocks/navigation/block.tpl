@@ -108,7 +108,26 @@
                                 <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a>
                             </li>
                         {/if}
-			{if $schedConfPostAccommodation}<li {if $requestedOp=="accommodation"}class="active"{/if}><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
+			{if $schedConfPostAccommodation}
+                            <li {if $requestedOp=="accommodation"}class="active"{/if}>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/accommodation" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
+                            </li>
+                        {/if}
+                        {if $schedConfPostLocation}
+                            <li {if $requestedOp=="location"}class="active"{/if}>
+                                {if $isConferenceManager}
+                                    <a class="edit-link" href="{url page="manager"}/location" target="_blank">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    </a>
+                                {/if}
+                                <a href="{url page="schedConf" op="location"}">{translate key="schedConf.location"}</a>
+                            </li>
+                        {/if}
 			{if $schedConfPostSupporters}<li {if $requestedOp=="organizingTeam"}class="active"{/if}><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
 			{if $schedConfPostTimeline}
                             <li {if $requestedOp=="timeline"}class="active"{/if}>

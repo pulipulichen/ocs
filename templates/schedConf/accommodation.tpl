@@ -15,6 +15,12 @@
 
 <div id="accomodationDescription">{$accommodationDescription|nl2br}</div>
 
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/accommodation" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
+
 {if !empty($accommodationFiles)}
 	<div class="separator"></div>
 {/if}

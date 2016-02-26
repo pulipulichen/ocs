@@ -13,7 +13,7 @@
   -->
 
 <locale name="zh_TW" full_name = "正體中文">
-	<message key="manager.accommodation">Accommodation</message>
+	<message key="manager.accommodation">住宿資訊</message>
 	<message key="manager.accommodation.form.accommodationFiles">Files</message>
 	<message key="manager.accommodation.form.accommodationFiles.description">Use this section to upload one or more files for registrants and potential registrants, such as maps, forms, etc.</message>
 	<message key="manager.accommodation.form.accommodationText">Accommodation Description</message>
