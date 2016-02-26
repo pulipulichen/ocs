@@ -211,12 +211,6 @@
 			{fieldLabel name="postProgram" key="manager.timeline.postProgram"}
 		</td>
 	</tr>
-        <tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postContact" id="postContact" value="1" {if $postContact}checked="checked"{/if} />
-			{fieldLabel name="postContact" key="manager.timeline.postContact"}
-		</td>
-	</tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postPayment" id="postPayment" value="1" {if $postPayment}checked="checked"{/if} />
@@ -231,6 +225,18 @@
 		</td>
 	</tr>
 
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postAccommodation" id="postAccommodation" value="1" {if $postAccommodation}checked="checked"{/if} />
+			{fieldLabel name="postAccommodation" key="manager.timeline.postAccommodation"}
+		</td>
+	</tr>
+        <tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postContact" id="postContact" value="1" {if $postContact}checked="checked"{/if} />
+			{fieldLabel name="postContact" key="manager.timeline.postContact"}
+		</td>
+	</tr>
 	
 	<tr valign="top">
 		<td class="label" colspan="2">
@@ -248,12 +254,6 @@
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postPresentations" id="postPresentations" value="1" {if $postPresentations}checked="checked"{/if} />
 			{fieldLabel name="postPresentations" key="manager.timeline.postPresentations"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postAccommodation" id="postAccommodation" value="1" {if $postAccommodation}checked="checked"{/if} />
-			{fieldLabel name="postAccommodation" key="manager.timeline.postAccommodation"}
 		</td>
 	</tr>
 	<tr valign="top">

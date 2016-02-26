@@ -97,6 +97,10 @@
 <div id="conferencePageHeaderInfo">
 <h3>3.2 {translate key="manager.setup.layout.conferencePageHeader"}</h3>
 
+<button type="button" class="btn btn-default btn-sm" onclick="$(this).next().show();$(this).hide();">
+    {translate key="common.more"}
+</button>
+<div style="display:none;">
 <p>{translate key="manager.setup.layout.conferencePageHeader.description"}</p>
 <div id="conferenceTitle">
 <h4>{translate key="manager.setup.layout.conferenceTitle"}</h4>
@@ -156,7 +160,7 @@
 </table>
 {/if}
 </div>
-
+</div>
 <div id="conferenceFavicon">
 <h4>{translate key="manager.setup.layout.favicon"}</h4>
 

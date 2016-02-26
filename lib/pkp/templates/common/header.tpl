@@ -26,7 +26,11 @@
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	{$metaCustomHeaders}
-	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
+	{if $displayFavicon}
+            <link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />
+        {else}
+            <link rel="icon" href="{$baseUrl}/favicon.ico" type="image/x-icon" />
+        {/if}
 	
         <link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />

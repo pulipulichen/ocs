@@ -879,4 +879,7 @@ Validation may fail on search URLs that require posted form data.]]></message>
         <message key="common.queue.count.submissionsUnassigned"><![CDATA[<br />Reviewing]]></message>
         <message key="common.queue.count.active">Submits</message>
         <message key="common.formValidateError">Missing field.</message>
+        
+        <message key="schedConf.location">Location</message>
+	<message key="schedConf.location.title">Location</message>
 </locale>

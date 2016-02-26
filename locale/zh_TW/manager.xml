@@ -667,7 +667,7 @@
 	<message key="manager.timeline.openRegReviewer">開放審查者報名</message>
 	<message key="manager.timeline.overrideDates">撤銷錯誤資訊</message>
 	<message key="manager.timeline.postAbstracts">Accepted abstracts</message>
-	<message key="manager.timeline.postAccommodation">Include Accommodation in Conference Information listing</message>
+	<message key="manager.timeline.postAccommodation">導覽列顯示「住宿資訊」</message>
 	<message key="manager.timeline.postCFP">導覽列顯示「投稿」</message>
 	<message key="manager.timeline.postDate">Post Date</message>
 	<message key="manager.timeline.postOverview">導覽列顯示「研討會簡介」</message>
