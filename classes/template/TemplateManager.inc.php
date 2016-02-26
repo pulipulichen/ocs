@@ -81,6 +81,7 @@ class TemplateManager extends PKPTemplateManager {
 
 				$this->assign('publicFilesDir', Request::getBaseUrl() . '/' . PublicFileManager::getConferenceFilesPath($conference->getId()));
 				$this->assign('displayPageHeaderTitle', $conference->getPageHeaderTitle());
+                                $this->assign('displayPageHeaderSubTitle', $conference->getLocalizedSetting('homeHeaderSubTitle'));
 				$this->assign('displayPageHeaderLogo', $conference->getPageHeaderLogo());
 				$this->assign('displayPageHeaderTitleAltText', $conference->getLocalizedSetting('pageHeaderTitleImageAltText'));
 				$this->assign('displayPageHeaderLogoAltText', $conference->getLocalizedSetting('pageHeaderLogoImageAltText'));

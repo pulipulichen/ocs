@@ -43,6 +43,10 @@ a:hover {
 	background-color: #CAA;
 }
 
+.header-container .sub-title {
+    font-size: 70%;
+}
+
 #footer {
 	background-color: #CAA;
 }

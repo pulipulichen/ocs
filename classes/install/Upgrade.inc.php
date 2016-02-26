@@ -219,6 +219,7 @@ class Upgrade extends Installer {
 			'homeHeaderLogoImage' => 'homeHeaderLogoImage',
 			'homeHeaderTitleType' => 'homeHeaderTitleType',
 			'homeHeaderTitle' => 'homeHeaderTitle',
+                        'homeHeaderSubTitle' => 'homeHeaderSubTitle',
 			'homeHeaderTitleImage' => 'homeHeaderTitleImage',
 			'pageHeaderTitleType' => 'pageHeaderTitleType',
 			'pageHeaderTitle' => 'pageHeaderTitle',

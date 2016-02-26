@@ -26,6 +26,7 @@ class ConferenceSetupStep3Form extends ConferenceSetupForm {
 			array(
 				'homeHeaderTitleType' => 'int',
 				'homeHeaderTitle' => 'string',
+                                'homeHeaderSubTitle' => 'string',
 				'pageHeaderTitleType' => 'int',
 				'pageHeaderTitle' => 'string',
 				'navItems' => 'object',
@@ -47,7 +48,7 @@ class ConferenceSetupStep3Form extends ConferenceSetupForm {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('homeHeaderTitleType', 'homeHeaderTitle', 'pageHeaderTitleType', 'pageHeaderTitle', 'navItems', 'conferencePageHeader', 'conferencePageFooter', 'conferenceFavicon', 'homeHeaderTitleImageAltText', 'homeHeaderLogoImageAltText', 'pageHeaderTitleImageAltText', 'pageHeaderLogoImageAltText');
+		return array('homeHeaderTitleType', 'homeHeaderTitle', 'homeHeaderSubTitle', 'pageHeaderTitleType', 'pageHeaderTitle', 'navItems', 'conferencePageHeader', 'conferencePageFooter', 'conferenceFavicon', 'homeHeaderTitleImageAltText', 'homeHeaderLogoImageAltText', 'pageHeaderTitleImageAltText', 'pageHeaderLogoImageAltText');
 	}
 
 	/**

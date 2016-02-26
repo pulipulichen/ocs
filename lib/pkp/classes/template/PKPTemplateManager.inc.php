@@ -317,7 +317,7 @@ class PKPTemplateManager extends Smarty {
                         }
                     }
                 }
-                AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_OCS_DIRECTOR, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION)); // FIXME: For timeline constants
+                AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_OCS_ADMIN, LOCALE_COMPONENT_OCS_DIRECTOR, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION)); // FIXME: For timeline constants
 		return $instance;
 	}
 

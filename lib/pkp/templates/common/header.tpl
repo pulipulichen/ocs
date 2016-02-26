@@ -145,6 +145,10 @@ or $requestedPage=="reviewer"}
                     {else}
                             {$applicationName}
                     {/if}
+                    
+                    {if $displayPageHeaderSubTitle}
+                        <div class="sub-title">{$displayPageHeaderSubTitle}</div>
+                    {/if}
                     </a>
                 </h1>    
             </div>
