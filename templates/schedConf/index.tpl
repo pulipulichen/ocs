@@ -75,7 +75,7 @@
 <!--
 {if $schedConfPostOverview || $schedConfShowCFP
 			|| $schedConfPostPolicies || $schedConfShowProgram ||  $schedConfPostPresentations || $schedConfPostSchedule 
-			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || $schedConfPostTimeline}
+			|| $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostLocation || $schedConfPostSupporters  || $schedConfPostTimeline}
 <h3>{translate key="schedConf.contents"}</h3>
 
 <ul class="plain">
@@ -89,6 +89,7 @@
 	{if $schedConfPostSchedule}<li>&#187; <a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
 	{if $schedConfPostPayment}<li>&#187; <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
 	{if $schedConfPostAccommodation}<li>&#187; <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
+        {if $schedConfPostLocation}<li>&#187; <a href="{url page="schedConf" op="location"}">{translate key="schedConf.location"}</a></li>{/if}
 	{if $schedConfPostSupporters}<li>&#187; <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
 	{if $schedConfPostTimeline}<li>&#187; <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if}
 </ul>

@@ -116,6 +116,7 @@ class TemplateManager extends PKPTemplateManager {
 					$this->assign('schedConfPostTrackPolicies', $schedConf->getSetting('postTrackPolicies'));
 					$this->assign('schedConfPostPresentations', $schedConf->getSetting('postPresentations'));
 					$this->assign('schedConfPostAccommodation', $schedConf->getSetting('postAccommodation'));
+                                        $this->assign('schedConfPostLocation', $schedConf->getSetting('postLocation'));
 					$this->assign('schedConfPostSupporters', $schedConf->getSetting('postSupporters'));
 					$this->assign('schedConfPostPayment', $schedConf->getSetting('postPayment'));
 

@@ -54,14 +54,15 @@
           
         {if $schedConfPostOverview}<li {if $requestedOp=="overview"}class="active"{/if}><a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a></li>{/if}
         <li {if $requestedPage=="announcement"}class="active"{/if}><a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a></li>
-        {if $schedConfShowCFP}
+        {*if $schedConfShowCFP}
             <li {if $requestedOp=="cfp"}class="active"{/if}><a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a></li>
-        {/if}
+        {/if*}
         {if $schedConfPostTrackPolicies}<li {if $requestedOp=="trackPolicies"}class="active"{/if}><a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a></li>{/if}
         {if $schedConfShowProgram}<li {if $requestedOp=="program"}class="active"{/if}><a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a></li>{/if}
         {if $schedConfPostPresentations}<li {if $requestedOp=="presentations"}class="active"{/if}><a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a></li>{/if}
         {if $schedConfPostSchedule}<li {if $requestedOp=="schedule"}class="active"{/if}><a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a></li>{/if}
-        {if $schedConfPostPayment}<li {if $requestedOp=="registration" or $requestedOp=="register"}class="active"{/if}><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if}
+        {*if $schedConfPostPayment}<li {if $requestedOp=="registration" or $requestedOp=="register"}class="active"{/if}><a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a></li>{/if*}
+        {if $schedConfPostLocation}<li {if $requestedOp=="location"}class="active"{/if}><a href="{url page="schedConf" op="location"}">{translate key="schedConf.location"}</a></li>{/if}
         {if $schedConfPostAccommodation}<li {if $requestedOp=="accommodation"}class="active"{/if}><a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a></li>{/if}
         {if $schedConfPostSupporters}<li {if $requestedOp=="organizingTeam"}class="active"{/if}><a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a></li>{/if}
         <!-- {if $schedConfPostTimeline}<li><a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a></li>{/if} -->

@@ -810,6 +810,28 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.accommodation');
 		$templateMgr->display('schedConf/accommodation.tpl');
 	}
+        
+        /**
+	 * Display conference accommodation page
+	 */
+	function location() {
+		$this->addCheck(new HandlerValidatorSchedConf($this));
+		$this->validate();
+
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		SchedConfHandler::setupTemplate($conference,$schedConf);
+
+		$templateMgr->assign('locationDescription', $schedConf->getLocalizedSetting('locationDescription'));
+
+		$templateMgr->assign('helpTopicId', 'conference.currentConferences.location');
+		$templateMgr->display('schedConf/location.tpl');
+	}
 
 	/**
 	 * Display the presentations

@@ -208,7 +208,11 @@ class TinyMCEPlugin extends GenericPlugin {
 			case 'manager/saveAccommodationSettings':
 				$fields[] = 'accommodationDescription';
 				break;
-			case 'manager/createBuilding':
+			case 'manager/location':
+			case 'manager/saveLocation':
+				$fields[] = 'locationDescription';
+				break;
+                        case 'manager/createBuilding':
 			case 'manager/editBuilding':
 			case 'manager/updateBuilding':
 				$fields[] = 'description';

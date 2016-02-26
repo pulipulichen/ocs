@@ -50,6 +50,7 @@
 		<li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="registration" clearPageContext=1}">{translate key="manager.registration"}</a></li>
 		<li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="scheduler"}">{translate key="manager.scheduler"}</a></li>
 		<li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="paymentSettings"}">{translate key="manager.payment.paymentSettings"}</a></li>
+                <li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="location"}">{translate key="manager.location"}</a></li>
 		<li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="accommodation"}">{translate key="manager.accommodation"}</a></li>
 		<li>&#187; <a href="{url schedConf=$schedConf->getPath() page="manager" op="people" clearPageContext=1}">{translate key="manager.roles"}</a></li>
 		<li>

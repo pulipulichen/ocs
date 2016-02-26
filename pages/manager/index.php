@@ -271,6 +271,14 @@ switch ($op) {
 		import('pages.manager.ManagerAccommodationHandler');
 		break;
 	//
+	// Location
+	//
+	case 'location':
+	case 'saveLocationSettings':
+		define('HANDLER_CLASS', 'ManagerLocationHandler');
+		import('pages.manager.ManagerLocationHandler');
+		break;
+        //
 	// Payment
 	//
 	case 'paymentSettings':

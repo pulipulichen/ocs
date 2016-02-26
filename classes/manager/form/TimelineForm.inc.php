@@ -184,6 +184,7 @@ class TimelineForm extends Form {
                         'postContact' => $schedConf->getSetting('postContact'),
 			'postPresentations' => $schedConf->getSetting('postPresentations'),
 			'postAccommodation' => $schedConf->getSetting('postAccommodation'),
+                        'postLocation' => $schedConf->getSetting('postLocation'),
 			'postSupporters' => $schedConf->getSetting('postSupporters'),
 			'postPayment' => $schedConf->getSetting('postPayment'),
 			'delayOpenAccess' => $schedConf->getSetting('delayOpenAccess'),
@@ -277,6 +278,7 @@ class TimelineForm extends Form {
                         'postContact',
 			'postPresentations',
 			'postAccommodation',
+                        'postLocation',
 			'postSupporters',
 			'postPayment'
 		));
@@ -318,6 +320,7 @@ class TimelineForm extends Form {
                 $schedConf->updateSetting('postContact', $this->getData('postContact'), 'bool');
 		$schedConf->updateSetting('postPresentations', $this->getData('postPresentations'), 'bool');
 		$schedConf->updateSetting('postAccommodation', $this->getData('postAccommodation'), 'bool');
+                $schedConf->updateSetting('postLocation', $this->getData('postLocation'), 'bool');
 		$schedConf->updateSetting('postSupporters', $this->getData('postSupporters'), 'bool');
 		$schedConf->updateSetting('postPayment', $this->getData('postPayment'), 'bool');
 

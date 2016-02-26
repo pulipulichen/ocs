@@ -19,7 +19,13 @@
 	<message key="manager.accommodation.form.accommodationText">Accommodation Description</message>
 	<message key="manager.accommodation.form.accommodationText.description">Enter text describing conference accommodations in the field below.</message>
 	<message key="manager.accommodation.form.description">Enter information about accommodation, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
-	<message key="manager.announcements.form.schedConfId">研討會</message>
+	<message key="manager.location">會議地點</message>
+	<message key="manager.location.form.locationFiles">Files</message>
+	<message key="manager.location.form.locationFiles.description">Use this section to upload one or more files for registrants and potential registrants, such as maps, forms, etc.</message>
+	<message key="manager.location.form.locationText">Location Description</message>
+	<message key="manager.location.form.locationText.description">Enter text describing conference location in the field below.</message>
+	<message key="manager.location.form.description">Enter information about location, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
+        <message key="manager.announcements.form.schedConfId">研討會</message>
 	<message key="manager.announcements.schedConf">研討會</message>
 	<message key="manager.conferenceEventLog">事件日誌</message>
 	<message key="manager.conferenceSiteManagement">研討會網站管理</message>
@@ -668,6 +674,7 @@
 	<message key="manager.timeline.overrideDates">撤銷錯誤資訊</message>
 	<message key="manager.timeline.postAbstracts">Accepted abstracts</message>
 	<message key="manager.timeline.postAccommodation">導覽列顯示「住宿資訊」</message>
+        <message key="manager.timeline.postLocation">導覽列顯示「會議地點」</message>
 	<message key="manager.timeline.postCFP">導覽列顯示「投稿」</message>
 	<message key="manager.timeline.postDate">Post Date</message>
 	<message key="manager.timeline.postOverview">導覽列顯示「研討會簡介」</message>

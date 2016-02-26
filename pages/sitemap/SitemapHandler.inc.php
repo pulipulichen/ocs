@@ -136,6 +136,7 @@ class SitemapHandler extends Handler {
 		XMLCustomWriter::appendChild($root, SitemapHandler::createUrlTree($doc, Request::url($conference->getPath(), $schedConf->getPath(), 'schedConf', 'trackPolicies')));
 		XMLCustomWriter::appendChild($root, SitemapHandler::createUrlTree($doc, Request::url($conference->getPath(), $schedConf->getPath(), 'schedConf', 'presentations')));
 		XMLCustomWriter::appendChild($root, SitemapHandler::createUrlTree($doc, Request::url($conference->getPath(), $schedConf->getPath(), 'schedConf', 'accommodation')));
+                XMLCustomWriter::appendChild($root, SitemapHandler::createUrlTree($doc, Request::url($conference->getPath(), $schedConf->getPath(), 'schedConf', 'location')));
 		XMLCustomWriter::appendChild($root, SitemapHandler::createUrlTree($doc, Request::url($conference->getPath(), $schedConf->getPath(), 'schedConf', 'organizingTeam')));
 		// Individual Papers
 		$publishedPapers =& $publishedPaperDao->getPublishedPapers($schedConf->getId());

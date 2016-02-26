@@ -34,6 +34,7 @@ switch ($op) {
         case 'surveyExport':
 	case 'schedule':
 	case 'accommodation':
+        case 'location':
 	case 'presentations':
 		define('HANDLER_CLASS', 'SchedConfHandler');
 		import('pages.schedConf.SchedConfHandler');

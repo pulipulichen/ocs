@@ -231,6 +231,14 @@
 			{fieldLabel name="postAccommodation" key="manager.timeline.postAccommodation"}
 		</td>
 	</tr>
+        
+        <tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postLocation" id="postLocation" value="1" {if $postLocation}checked="checked"{/if} />
+			{fieldLabel name="postLocation" key="manager.timeline.postLocation"}
+		</td>
+	</tr>
+        
         <tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postContact" id="postContact" value="1" {if $postContact}checked="checked"{/if} />

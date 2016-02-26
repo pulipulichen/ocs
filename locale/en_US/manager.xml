@@ -19,6 +19,12 @@
 	<message key="manager.accommodation.form.accommodationText">Accommodation Description</message>
 	<message key="manager.accommodation.form.accommodationText.description">Enter text describing conference accommodations in the field below.</message>
 	<message key="manager.accommodation.form.description">Enter information about accommodation, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
+        <message key="manager.location">Location</message>
+	<message key="manager.location.form.locationFiles">Files</message>
+	<message key="manager.location.form.locationFiles.description">Use this section to upload one or more files for registrants and potential registrants, such as maps, forms, etc.</message>
+	<message key="manager.location.form.locationText">Location Description</message>
+	<message key="manager.location.form.locationText.description">Enter text describing conference location in the field below.</message>
+	<message key="manager.location.form.description">Enter information about location, transportation, and other related logistics here. Several files including information like directions and forms may also be uploaded.</message>
 	<message key="manager.announcements.form.schedConfId">Scheduled Conference</message>
 	<message key="manager.announcements.schedConf">Scheduled Conference</message>
 	<message key="manager.conferenceEventLog">Event Log</message>
