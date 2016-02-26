@@ -174,11 +174,17 @@
                                             href="{url page="schedConf"}/page?title={if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}&url={$navItem.url|escape}"
                                         {elseif $navItem.urlType=='4'}
                                             href="{url page="schedConf"}/survey?id={$navItemId}"
+                                        {elseif $navItem.urlType=='5'}
+                                            href="{url page="schedConf"}/navPage?id={$navItemId}"
                                         {else}
                                             href="{$navItem.url|escape}"
                                         {/if}
                                        {if $navItem.urlType=='2'} target="_blank"{/if}>
-                                        {if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}
+                                        {if $navItem.isLiteral}
+                                            {$navItem.name|escape}
+                                        {else}
+                                            {translate key=$navItem.name}
+                                        {/if}
                                     </a>
                                 </li>
 			{/if}

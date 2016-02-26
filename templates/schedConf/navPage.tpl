@@ -13,23 +13,12 @@
 {include file="common/header.tpl"}
 {/strip}
 
+
 {if $isConferenceManager}
     <a class="edit-link" href="{url page="manager"}/setup/3#navigationBar" target="_blank">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
-
-{literal}
-<script language="javascript" type="text/javascript">
-  function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-  }
-</script>
-{/literal}
-{if $url|substr:0:4!="http"}
-    <iframe style="width: 100%; height: 500px;" frameborder="0" src="{$url}"  scrolling="no" onload="resizeIframe(this)"></iframe>
-{else}
-    <iframe style="width: 100%; height: 500px;border:1px solid gray" frameborder="0" src="{$url}"  scrolling="yes"></iframe>
-{/if}
+{$navPage}
 
 {include file="common/footer.tpl"}

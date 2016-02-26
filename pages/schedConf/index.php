@@ -31,6 +31,7 @@ switch ($op) {
 	case 'program':
         case 'page':
         case 'survey':
+        case 'navPage':
         case 'surveyExport':
 	case 'schedule':
 	case 'accommodation':

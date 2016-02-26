@@ -12,6 +12,12 @@
 {assign var="pageTitleTranslated" value=$title}
 {include file="common/header.tpl"}
 {/strip}
+
+{if $isConferenceManager}
+    <a class="edit-link" href="{url page="manager"}/setup/3#navigationBar" target="_blank">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+{/if}
 <form>
     <fieldset id="survey"></fieldset>
     <!--span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span-->

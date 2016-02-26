@@ -118,6 +118,7 @@
 	<message key="common.openConferenceSystems">OCS會議管理系統</message>
 	<message key="common.pageHeader.altText">頁面標頭的圖片</message>
 	<message key="common.path">路徑</message>
+        <message key="common.page">網頁</message>
         <message key="common.more">顯示更多...</message>
         <message key="common.formValidateError">請填寫這項資料。</message>
 	<message key="common.preview">預覽</message>

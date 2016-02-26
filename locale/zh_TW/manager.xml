@@ -595,6 +595,7 @@
         <message key="manager.setup.layout.linkType.2">開新網頁</message>
         <message key="manager.setup.layout.linkType.3">內嵌網頁</message>
         <message key="manager.setup.layout.linkType.4">問卷調查</message>
+        <message key="manager.setup.layout.linkType.5">網頁</message>
         <message key="manager.setup.layout.surveyConfig">問卷設定</message>
         <message key="manager.setup.layout.surveyExport">匯出問卷結果</message>
 	<message key="manager.setup.layout.lists">名單</message>

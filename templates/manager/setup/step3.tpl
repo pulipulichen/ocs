@@ -213,13 +213,21 @@
 var _linkTypeChange = function (_select) {
     _select = $(_select);
     var _survey_config = _select.parents("tr:first").nextAll(".survey-config");
+    var _nav_page = _select.parents("tr:first").nextAll(".nav-page");
     var _url = _select.parents("tr:first").nextAll(".url");
     if (_select.val() === "4") {
         _survey_config.show();
+        _nav_page.hide();
+        _url.hide();
+    }
+    if (_select.val() === "5") {
+        _survey_config.hide();
+        _nav_page.show();
         _url.hide();
     }
     else {
         _survey_config.hide();
+        _nav_page.hide();
         _url.show();
     }
 };
@@ -262,10 +270,11 @@ var _linkTypeChange = function (_select) {
                                                         <option value="2" {if $navItem.urlType == '2'}selected{/if}>{translate key="manager.setup.layout.linkType.2"}</option>
                                                         <option value="3" {if $navItem.urlType == '3'}selected{/if}>{translate key="manager.setup.layout.linkType.3"}</option>
                                                         <option value="4" {if $navItem.urlType == '4'}selected{/if}>{translate key="manager.setup.layout.linkType.4"}</option>
+                                                        <option value="5" {if $navItem.urlType == '5'}selected{/if}>{translate key="manager.setup.layout.linkType.5"}</option>
                                                     </select>
                                                 </td>
 					</tr>
-					<tr valign="top" class="url">
+					<tr valign="top" class="url" {if $navItem.urlType == '4' OR $navItem.urlType == '5'}style="display:none;"{/if}>
 						<th>
                                                    {fieldLabel name="navItems-$navItemId-url" key="common.url"} 
                                                 </th>
@@ -275,20 +284,28 @@ var _linkTypeChange = function (_select) {
                                         </tr>
                                         <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
                                                 <th>
-                                                   {translate key="manager.setup.layout.surveyConfig"} 
+                                                   {fieldLabel name="navItems-$navItemId-survey" key="manager.setup.layout.surveyConfig"} 
                                                 </th>
                                                 <td>
-                                                    <textarea name="navItems[{$formLocale|escape}][{$navItemId}][survey]" rows="10" cols="60" class="textArea">{$navItem.survey}</textarea>
+                                                    <textarea name="navItems[{$formLocale|escape}][{$navItemId}][survey]" id="navItems-{$navItemId}-survey" rows="10" cols="60" class="textArea">{$navItem.survey}</textarea>
                                                 </td>
                                         </tr>
                                         <tr valign="top" class="survey-config" {if $navItem.urlType != '4'}style="display:none;"{/if}>
                                                 <th>
-                                                    {translate key="common.export"} 
+                                                    {fieldLabel name="navItems-$navItemId-survey" key="common.export"} 
                                                 </th>
                                                 <td>
                                                     <a href="{url page="schedConf" op="surveyExport"}?id={$navItemId}" class="btn btn-default">
                                                         {translate key="manager.setup.layout.surveyExport"}
                                                     </a>
+                                                </td>
+                                        </tr>
+                                        <tr valign="top" class="nav-page" {if $navItem.urlType != '5'}style="display:none;"{/if}>
+						<th>
+                                                   {fieldLabel name="navItems-$navItemId-navPage" key="common.page"} 
+                                                </th>
+						<td>
+                                                    <textarea class="nagPageTextarea" name="navItems[{$formLocale|escape}][{$navItemId}][navPage]" id="navItems-{$navItemId}-navPage" rows="10" cols="60" class="textArea">{$navItem.navPage}</textarea>
                                                 </td>
                                         </tr>
                                     </table> 

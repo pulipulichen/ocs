@@ -678,6 +678,30 @@ class SchedConfHandler extends Handler {
 		$templateMgr->display('schedConf/survey.tpl');
 	}
         
+        function navPage() {
+		$conference =& Request::getConference();
+		$schedConf =& Request::getSchedConf();
+                
+                $id = Request::getUserVar('id');
+                $navItems = $conference->getLocalizedSetting('navItems');
+                $navItem = $navItems[intval($id)];
+                $title = $navItem["name"];
+
+		$templateMgr =& TemplateManager::getManager();
+		SchedConfHandler::setupTemplate($conference,$schedConf);
+
+                $templateMgr->assign('pageHierarchyRoot', true);
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
+                        array(Request::url(null, null, 'index'), $title, true)));
+                
+		$templateMgr->assign('title', $title);
+                $templateMgr->assign('navPage', $navItem["navPage"]);
+		$templateMgr->assign('helpTopicId', 'conference.currentConferences.navPage');
+                
+		$templateMgr->display('schedConf/navPage.tpl');
+	}
+        
         function surveyExport() {
             
             $id = Request::getUserVar('id');

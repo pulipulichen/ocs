@@ -157,6 +157,11 @@ class TinyMCEPlugin extends GenericPlugin {
 					case 3:
 						$fields[] = 'conferencePageHeader';
 						$fields[] = 'conferencePageFooter';
+                                                $navItems = $templateMgr->get_template_vars('navItems');
+						$count = max(1, isset($navItems[$formLocale])?count($navItems[$formLocale]):0);
+						for ($i=0; $i<$count; $i++) {
+							$fields[] = "navItems-$i-navPage";
+						}
 						break;
 				}
 				break;
