@@ -41,12 +41,16 @@
                         || $schedConfContactEmail)}
 		<!-- <span class="blockSubtitle">{translate key="schedConf.contents"}</span> -->
                 
-                {if $isConferenceManager}
-                <a class="edit-link" href="{url page="manager"}/timeline#websitePosting" target="_blank">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-                {/if}
                 <ul class="nav nav-stacked affix" style="clear: both;">
+                    
+                    {if $isConferenceManager}
+                        <li class="panel panel-primary">
+                                <a href="{url page="manager"}/timeline#websitePosting" target="_blank">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    {translate key="manager.timeline.websitePosting"}
+                                </a>
+                        </li>
+                    {/if}
 			{if $schedConfPostOverview}
                             <li {if $requestedOp=="overview"}class="active"{/if}>
                                 {if $isConferenceManager}
@@ -157,12 +161,15 @@
 		{/if}
                 
                 <div>
-                {if $isConferenceManager}
-                    <a class="edit-link" href="{url page="manager"}/setup/3#navigationBar" target="_blank">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    </a>
-                {/if}
                 <ul class="nav nav-stacked">
+                    {if $isConferenceManager}
+                        <li class="panel panel-primary">
+                                <a href="{url page="manager"}/setup/3#navigationBar" target="_blank">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    {translate key="manager.setup.layout.navigationBar"}
+                                </a>
+                        </li>
+                    {/if}
                 {foreach from=$navMenuItems key=navItemId item=navItem}
 			{if $navItem.name != '' 
                             && $navItem.visibility !== '0' && ($navItem.visibility === '1' 

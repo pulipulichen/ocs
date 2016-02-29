@@ -393,13 +393,13 @@
 	<message key="manager.schedConfs.form.createInstructions">一個已被計畫的研討會的實例是由進入標題及一個網路路徑所創造(例如, 如果這是一年ㄧ次的年會，會議的名字會加上年)。在這已被預訂的研討會的裡，研討會一開始時，您將被任用為研討會的主任並且能選定其他研討會的主任來處理細節。</message>
 	<message key="manager.schedConfs.form.pathAlphaNumeric">路徑可能包含唯一字母或數字字符，底線和連字號，且必須以一個字母或數字字符來開始和結束。</message>
 	<message key="manager.schedConfs.form.pathExists">選擇的路徑已在這會議內使用中。</message>
-	<message key="manager.schedConfs.form.pathRequired">一個路徑是必需的</message>
+	<message key="manager.schedConfs.form.pathRequired">請輸入路徑。</message>
 	<message key="manager.schedConfs.form.title">已被計畫的研討會的名稱</message>
-	<message key="manager.schedConfs.form.titleRequired">一個名稱是必需的。</message>
+	<message key="manager.schedConfs.form.titleRequired">請輸入名稱。</message>
 	<message key="manager.schedConfs.form.urlWillBe">此專站的網址將為 {$sampleUrl}</message>
-	<message key="manager.schedConfs.noneCreated">無案件被創造</message>
+	<message key="manager.schedConfs.noneCreated">目前沒有研討會</message>
 	<message key="manager.schedConfs.scheduledConference">預定的會議</message>
-	<message key="manager.schedConfs.schedulingAConference">預定一個研討會</message>
+	<message key="manager.schedConfs.schedulingAConference">預訂會議的設定</message>
 	<message key="manager.scheduler">會議排程</message>
 	<message key="manager.scheduler.building">建築物</message>
 	<message key="manager.scheduler.building.abbrev">縮寫/代號</message>

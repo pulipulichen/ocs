@@ -47,6 +47,10 @@ class SchedConfSettingsForm extends Form {
 	 */
 	function display() {
 		$templateMgr =& TemplateManager::getManager();
+                
+                $schedConfDao =& DAORegistry::getDAO('SchedConfDAO');
+                $schedConf =& $schedConfDao->getSchedConf($this->schedConfId);
+                $templateMgr->assign('schedConfTitle', $schedConf->getSetting('title'));
 		$templateMgr->assign('schedConfId', $this->schedConfId);
 		$templateMgr->assign('conferenceId', $this->conferenceId);
 		$templateMgr->assign('helpTopicId', 'conference.generalManagement.scheduledConferences');

@@ -34,6 +34,13 @@
 <h3>3.1 {translate key="manager.setup.layout.homepageHeader"}</h3>
 
 <p>{translate key="manager.setup.layout.homepageHeader.description"}</p>
+<ul>
+    <li>
+        <a href="{url page="schedConf" op="surveyExport"}" target="_blank">
+        {translate key="manager.schedConfs.schedulingAConference"}
+        </a>
+    </li>
+</ul>
 <div id="conferenceTitleInfo">
 <h4>{translate key="manager.setup.layout.conferenceTitle"}</h4>
 
