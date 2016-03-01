@@ -150,6 +150,7 @@
 	<message key="common.sitePageHeader.altText">網站標頭的圖片</message>
 	<message key="common.sortBy">排序依據...</message>
 	<message key="common.time">時間</message>
+        <message key="common.tempSave">暫存</message>
 	<message key="common.timeZone">時差</message>
 	<message key="conference.archive">研討會檔案</message>
 	<message key="conference.conference">研討會</message>

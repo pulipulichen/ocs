@@ -193,6 +193,13 @@ class TinyMCEPlugin extends GenericPlugin {
 						for ($i=0; $i<$count; $i++) {
 							$fields[] = "submissionChecklist-$i";
 						}
+                                                
+                                                $paperTypes = $templateMgr->get_template_vars('paperTypes');
+                                                //print_r(array_keys($paperTypes));
+						$count = max(1, isset($paperTypes)?count($paperTypes):0);
+						for ($i=0; $i<$count; $i++) {
+							$fields[] = "paperTypeDescription-".array_keys($paperTypes)[$i];
+						}
 						break;
 					case 3:
 						$fields[] = 'reviewPolicy';

@@ -93,7 +93,7 @@
 					<td class="value" width="75%">
                                             <label for="sessionType{$sessionTypeObject->getId()}">
 						<strong>{$sessionTypeObject->getLocalizedName()}</strong>
-                                                <div class="value">
+                                                <div class="value paper-type-description">
 						{$sessionTypeObject->getLocalizedDescription()}
 						{if $sessionTypeObject->getLength()}
 							<br/>
@@ -233,7 +233,7 @@ function checkSubmissionChecklist() {
     <input type="submit" 
            value="{translate key="common.saveAndContinue"}" 
            class="btn btn-primary" /> 
-    <input type="button" value="{translate key="common.cancel"}" 
+    <input type="button" value="{translate key="common.tempSave"}" 
            class="btn btn-default" 
            onclick="{if $paperId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author"}'{/if}" />
 </p>

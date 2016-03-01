@@ -95,7 +95,7 @@
  			</select>
  		</td>
 	</tr>
-	<tr valign="top" class="">
+	<tr valign="top" class="hide">
 		<td class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 		<td class="value">
 			<input type="text" name="username" id="username" value="{$username|escape}" size="20" maxlength="32" class="textField" />&nbsp;&nbsp;<input type="button" class="button" value="{translate key="common.suggest"}" onclick="generateUsername()" />

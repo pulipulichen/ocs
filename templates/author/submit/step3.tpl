@@ -119,7 +119,7 @@
            class="btn btn-primary" class="button" value="{translate key="common.upload"}" />
     {/if}
     
-    <input type="button" value="{translate key="common.cancel"}" 
+    <input type="button" value="{translate key="common.tempSave"}" 
            class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" />
 </p>
 

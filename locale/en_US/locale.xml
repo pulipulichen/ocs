@@ -145,6 +145,10 @@
 	<message key="common.queue.short.active">Active</message>
 	<message key="common.queue.long.completed">Archive</message>
 	<message key="common.queue.short.completed">Archive</message>
+        <message key="common.queue.long.registration">Registration</message>
+	<message key="common.queue.short.registration">Registration</message>
+        <message key="common.queue.count.registration">registered</message>
+        <message key="common.tempSave">Save Draft</message>
 
 	<!--
 	 *

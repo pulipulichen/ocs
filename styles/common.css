@@ -424,3 +424,7 @@ table.listing tr.listing-tr.hover {
     line-height: 20px;
     padding-top: 11px;
 }
+
+.paper-type-description {
+    font-weight: normal;
+}
