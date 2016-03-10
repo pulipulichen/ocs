@@ -23,6 +23,12 @@
                         {translate key="manager.registrationList"}
                     </a>
                 </li>
+                <li>
+                    <a class="text-warning" href="{url page="manager" }/registrationPolicies">
+                    設定報名聯絡人
+                    {* @TODO 語系 *}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -101,8 +107,7 @@
 	</tr>
 </table>
 </div>
-{if $currentSchedConf->getSetting('registrationName')}
-
+        
 <p class="text-center">
     {if $isUserLoggedIn}
     <input type="submit" 
@@ -125,9 +130,9 @@
         </a>
     {/if}
 </p>
-    
-<div class="separator"></div>
 
+{if $currentSchedConf->getSetting('registrationName')}
+<div class="separator"></div>
 
 {*---------------------------------------------------*}
     

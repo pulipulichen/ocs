@@ -428,3 +428,13 @@ table.listing tr.listing-tr.hover {
 .paper-type-description {
     font-weight: normal;
 }
+
+#sidebar {
+    background-color: white;
+}
+
+@media (max-height: 700px) {
+    #sidebar.affix {
+        position: static;
+    }
+}
