@@ -242,4 +242,16 @@
         <message key="submission.event.author.authorRevision">Author Revised</message>
         <message key="submission.event.author.directorRevision">Director Revised</message>
         <message key="submission.authorReviewVersion">Latest Version</message>
+        
+        <message key="submissions.status">Submission Status</message>
+        
+        <message key="submission.assignReview.writeEmail">Write Email</message>
+        <message key="submission.assignReview.waitComplete">Wait for reviewing</message>
+        <message key="submission.assignReview.empty">No reviewer assgined.</message>
+        <message key="submission.assignReview.createAccount">Create reviewer</message>
+        <message key="submission.assignReview.selectReviewer">Select reviewer</message>
+        <message key="submission.assignReview.selectUser">Select reviewer from users</message>
+        <message key="submission.assignReview.due">Due Date</message>
+        <message key="submissions.reviewAssignment.inviteResponded">回覆審查邀請</message>
+        <message key="submission.assignReview.setupAutoRemind">設定自動提醒</message>
 </locale>

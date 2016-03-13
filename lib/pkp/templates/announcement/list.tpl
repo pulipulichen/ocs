@@ -21,7 +21,7 @@
                 {/if}
                 <span class="glyphicon glyphicon-calendar"></span>
                 {translate key="announcement.posted"}: {$announcement->getDatePosted()}
-                <a href="{url op="view" path=$announcement->getAnnouncementId()}">
+                <a href="{url op="view"  page="announcement"  path=$announcement->getAnnouncementId()}">
                 {if $announcement->getTypeId() != null}
                     <h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4>
                 {else}

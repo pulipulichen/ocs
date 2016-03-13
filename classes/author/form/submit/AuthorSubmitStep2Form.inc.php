@@ -33,7 +33,7 @@ class AuthorSubmitStep2Form extends AuthorSubmitForm {
 		$schedConf =& Request::getSchedConf();
 		$reviewMode = $paper->getReviewMode();
 		if ($reviewMode != REVIEW_MODE_PRESENTATIONS_ALONE) {
-			$this->addCheck(new FormValidatorLocale($this, 'abstract', 'required', 'author.submit.form.abstractRequired'));
+			//$this->addCheck(new FormValidatorLocale($this, 'abstract', 'required', 'author.submit.form.abstractRequired'));
 
 			$trackDao =& DAORegistry::getDAO('TrackDAO');
 			$track = $trackDao->getTrack($paper->getTrackId());

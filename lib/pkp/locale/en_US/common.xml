@@ -324,4 +324,5 @@
 	<message key="common.activate">Activate</message>
 	<message key="common.deactivate">Deactivate</message>
         <message key="common.uploadAnotherFile">重新上傳檔案</message>
+        <message key="common.remind">提醒</message>
 </locale>

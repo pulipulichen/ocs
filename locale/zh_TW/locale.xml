@@ -827,7 +827,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="user.account.hasAccount"><![CDATA[若您已經註冊過帳號，<a href="{$accountUrl}">請從這裡登入</a>。]]></message>
 	<message key="user.account.hasNoAccount"><![CDATA[如果您尚未在此研討會建立帳號，<a href="{$accountUrl}">請點選這裡建立帳號</a>。]]></message>
 	<message key="user.account.loginToRegister">請輸入您的帳號與密碼來報名本研討會。</message>
-        <message key="user.account.loginTypeOther">管理者、作者等</message>
+        <message key="user.account.loginTypeOther">管理者與作者</message>
         <message key="user.account.loginTypeAudience">報名民眾</message>
 	<message key="user.account.noConferences">在這個網站裡沒有研討會可以讓您登記。</message>
 	<message key="user.account.noSchedConfs">在這個網站裡沒有預定的研討會可以讓您登記。</message>

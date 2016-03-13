@@ -64,7 +64,10 @@
                             <th rowspan="2">
                                 {translate key="user.roles"}
                             </th>
-                            <th colspan="4">
+                            <th rowspan="2">
+                                {translate key="user.userHome.progressAuthor"}
+                            </th> 
+                            <th colspan="3">
                                 {translate key="submissions.reviewAssignment.heading"}
                             </th>
                             {if $schedConfPostPayment}
@@ -77,9 +80,6 @@
                             </th>
                         </tr>
                         <tr>
-                            <th>
-                                {translate key="user.userHome.progressAuthor"}
-                            </th> 
                             <th>
                                 {translate key="user.userHome.progressWaitAssign"}
                             </th> 

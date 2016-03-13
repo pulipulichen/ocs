@@ -107,4 +107,8 @@
 	<message key="director.submissions.lastCompleted">Last Complete</message>
 	<message key="director.submissions.assignedTo">Assigned To</message>
 	<message key="director.submissions.inTrack">In Track</message>
+        
+        <message key="director.paper.decision.wait">Wait</message>
+        <message key="director.paper.decision.authorRevised">Author revised</message>
+        <message key="director.submissions.active">Reviewed Count</message>
 </locale>
