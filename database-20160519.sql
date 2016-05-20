@@ -32,7 +32,9 @@ CREATE TABLE IF NOT EXISTS `access_keys` (
   `key_hash` varchar(40) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `assoc_id` bigint(20) DEFAULT NULL,
-  `expiry_date` datetime NOT NULL
+  `expiry_date` datetime NOT NULL,
+  PRIMARY KEY (`access_key_id`),
+  KEY `access_keys_hash` (`key_hash`,`user_id`,`context`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -182,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `conferences` (
 --
 
 INSERT INTO `conferences` (`conference_id`, `path`, `seq`, `primary_locale`, `enabled`) VALUES
-(1, 'iccisc', 1, 'zh_TW', 1);
+(1, 'conf', 1, 'zh_TW', 1);
 
 -- --------------------------------------------------------
 
@@ -240,14 +242,14 @@ INSERT INTO `conference_settings` (`conference_id`, `locale`, `setting_name`, `s
 (1, '', 'rtViewMetadata', '1', 'bool'),
 (1, '', 'supportedLocales', 'a:1:{i:0;s:5:"zh_TW";}', 'object'),
 (1, 'zh_TW', 'archiveAccessPolicy', '##default.conferenceSettings.archiveAccessPolicy##', 'string'),
-(1, 'zh_TW', 'authorInformation', '如果您有興趣投稿本研討會，請造訪 <a href="http://localhost/ocs/index.php/iccisc/index/about">關於研討會</a> 網頁了解相燈的策略與訊息，並訪問 <a href="http://localhost/ocs/index.php/iccisc/index">研討會首頁</a> 查看即將舉辦的研討會訊息。', 'string'),
+(1, 'zh_TW', 'authorInformation', '如果您有興趣投稿本研討會，請造訪 <a href="/conf/index/about">關於研討會</a> 網頁了解相燈的策略與訊息，並訪問 <a href="/conf/index">研討會首頁</a> 查看即將舉辦的研討會訊息。', 'string'),
 (1, 'zh_TW', 'authorSelfArchivePolicy', '作者可以將自己的論文檔案放在自己或者所屬機構的網站上 (但需清楚標示該論文的出版資訊)。', 'string'),
 (1, 'zh_TW', 'copyrightNotice', '作者在投稿前需先同意以下版權條款:<br/>\n<strong>a)</strong>&nbsp;當作者允許研討會安排尚未出版的作品在 <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</a>之下時，作者在執行工作時須保留版權，並允許研討會其他參加人員自由存取、使用、及分享其著作及介紹。<br/>\n<strong>b)</strong>&nbsp;作者能放棄CC執照並將其分開，並以最初在此研討會內的發表感言，另外?這尚未公開分配及之後的出版物來擬訂契約協議安排 (如：在期刊內出版一篇已修正的論文，將其張貼在學會的資料庫內或出版在ㄧ本書內)。<br/>\n<strong>c)</strong>&nbsp;除此之外，鼓勵作者在研討會前或後任何一時間點，在網路上張貼及分享他們的作品，(如：在學會的資料庫或他們的網站內)。', 'string'),
 (1, 'zh_TW', 'description', '<p>人口老化是一種複雜與多面向的論題，也是一種社會趨勢變遷，高齡化社會所帶來的問題不僅是我國當前所面臨的重要問題之一，同時也是德國、法國等高齡化國家所面臨的問題，此現象提供我們重視並尋求活躍老化的新方式，增加生命量和質的改善。</p><p>Prof.Dr. Kessle是法國社會法與勞動法教授，對於高齡者健康和就業促進等議題有獨特見解；Dumeier先生則是德國高齡者健康照顧實務專家；李玉春次長則為國內公共衛生政策專家，對健康照護體系有深入的研究（或陳素春副署長為國內老人福利實務專家）；宋玫玫助理教授帶領國內外未來觀點工作坊多年，特從活躍老化和未來學的觀點引領我們思考規劃未來的老年生活。本研討會希望透過受邀來賓的演講、實務分享和工作坊，增加與會者對德國、法國和我國高齡者活躍老化相關制度與措施的認識。</p>', 'string'),
 (1, 'zh_TW', 'lockssLicense', '本研討會使用 LOCKSS 系統由參與的圖書館建立分散式典藏系統，同時充許這些圖書館在維護與典藏的目的下建立永久性的典藏檔案庫。<a href="http://lockss.stanford.edu/">更多...</a>', 'string'),
 (1, 'zh_TW', 'privacyStatement', '您在本網站所輸入的個人資料僅使用於本研討會的各項活動中，不會使用在其他非本研討會相關的活動中。', 'string'),
-(1, 'zh_TW', 'readerInformation', '我們鼓勵讀者們登錄本站以收到有關本研討會論文的通知。同時建議您訪問 <a href="http://localhost/ocs/index.php/iccisc/index/about">關於研討會</a> 的網頁了解相關的策略，以及訪問 <a href="http://localhost/ocs/index.php/iccisc/index">研討會首頁</a> 查看即將舉辦的研討會訊息。', 'string'),
-(1, 'zh_TW', 'title', '「2016社會變遷與當代議題-活躍老化」國際學術研討會', 'string');
+(1, 'zh_TW', 'readerInformation', '我們鼓勵讀者們登錄本站以收到有關本研討會論文的通知。同時建議您訪問 <a href="/conf/index/about">關於研討會</a> 的網頁了解相關的策略，以及訪問 <a href="/conf/index">研討會首頁</a> 查看即將舉辦的研討會訊息。', 'string'),
+(1, 'zh_TW', 'title', '「布丁布丁吃什麼？」學術研討會', 'string');
 
 -- --------------------------------------------------------
 
@@ -591,7 +593,12 @@ CREATE TABLE IF NOT EXISTS `papers` (
   `pages` varchar(255) DEFAULT NULL,
   `date_to_presentations` datetime DEFAULT NULL,
   `date_to_archive` datetime DEFAULT NULL,
-  `comments_status` tinyint(4) NOT NULL DEFAULT '0'
+  `comments_status` tinyint(4) NOT NULL DEFAULT '0',
+  `date_author_modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`paper_id`),
+  KEY `papers_user_id` (`user_id`),
+  KEY `papers_sched_conf_id` (`sched_conf_id`),
+  KEY `papers_track_id` (`track_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1098,7 +1105,10 @@ CREATE TABLE IF NOT EXISTS `review_assignments` (
   `date_reminded` datetime DEFAULT NULL,
   `quality` tinyint(4) DEFAULT NULL,
   `stage` tinyint(4) NOT NULL DEFAULT '1',
-  `review_form_id` bigint(20) DEFAULT NULL
+  `review_form_id` bigint(20) DEFAULT NULL,
+  `comment_author` text,
+  `comment_director` text,
+  `comment_survey` text,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -2902,7 +2912,7 @@ CREATE TABLE IF NOT EXISTS `sched_confs` (
 --
 
 INSERT INTO `sched_confs` (`sched_conf_id`, `conference_id`, `path`, `seq`, `start_date`, `end_date`) VALUES
-(1, 1, 'iccisc', 1, NULL, NULL);
+(1, 1, 'conf', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2926,10 +2936,10 @@ INSERT INTO `sched_conf_settings` (`sched_conf_id`, `locale`, `setting_name`, `s
 (1, '', 'numWeeksPerReview', '4', 'int'),
 (1, '', 'paymentMethodPluginName', 'ManualPayment', 'string'),
 (1, '', 'reviewDeadlineType', '4', 'int'),
-(1, 'zh_TW', 'acronym', 'iccisc', 'string'),
-(1, 'zh_TW', 'emailSignature', '________________________________________________________________________\n「2016社會變遷與當代議題-活躍老化」國際學術研討會 「2016社會變遷與當代議題-活躍老化」國際學術研討會\nhttp://localhost/ocs/index.php/iccisc/issisc/index', 'string'),
-(1, 'zh_TW', 'submissionChecklist', 'a:7:{i:0;a:2:{s:7:"content";s:123:"本稿件從未出版過，同時也未曾在其他研討會中發表過 (或者提供相燈的解釋與說明給主編)。";s:5:"order";s:1:"1";}i:1;a:2:{s:7:"content";s:100:"本稿件的格式是以 OpenOffice, Microsoft Word, RTF, or WordPerfect 等的文件格式製作。";s:5:"order";s:1:"2";}i:2;a:2:{s:7:"content";s:129:"所有在文字中的連結 (例如 <a href="http://pkp.sfu.ca">http://pkp.sfu.ca</a>) 已經設定完成並可以正常運作。";s:5:"order";s:1:"3";}i:3;a:2:{s:7:"content";s:190:"文字內容為單行行距；使用12pt字體大小；採用斜體而不用底線 (除非是帶有網址)；而所有的圖解、圖示和表格都放在文中恰當位置，而非文末。";s:5:"order";s:1:"4";}i:4;a:2:{s:7:"content";s:207:"您可以在 <a href="http://localhost/ocs/index.php/iccisc/issisc/about/submissions#authorGuidelines">作者指引</a> 網頁中找到有關本研討會文章與文獻寫作格式與相關要求的說明。";s:5:"order";s:1:"5";}i:5;a:2:{s:7:"content";s:102:"如果是投稿至同儕匿名審查的主題，請於稿件中移除所有與作者有關的資訊。";s:5:"order";s:1:"6";}i:6;a:2:{s:7:"content";s:136:"如果是投稿到同儕匿名審查的稿件，所有稿件檔案 (包含補充檔案) 中關於作者的所有資訊都必須移除。";s:5:"order";s:1:"7";}}', 'object'),
-(1, 'zh_TW', 'title', '「2016社會變遷與當代議題-活躍老化」國際學術研討會', 'string');
+(1, 'zh_TW', 'acronym', 'conf', 'string'),
+(1, 'zh_TW', 'emailSignature', '________________________________________________________________________\n「布丁布丁吃什麼？」學術研討會 「布丁布丁吃什麼？」學術研討會\n/conf/index', 'string'),
+(1, 'zh_TW', 'submissionChecklist', 'a:7:{i:0;a:2:{s:7:"content";s:123:"本稿件從未出版過，同時也未曾在其他研討會中發表過 (或者提供相燈的解釋與說明給主編)。";s:5:"order";s:1:"1";}i:1;a:2:{s:7:"content";s:100:"本稿件的格式是以 OpenOffice, Microsoft Word, RTF, or WordPerfect 等的文件格式製作。";s:5:"order";s:1:"2";}i:2;a:2:{s:7:"content";s:129:"所有在文字中的連結 (例如 <a href="http://pkp.sfu.ca">http://pkp.sfu.ca</a>) 已經設定完成並可以正常運作。";s:5:"order";s:1:"3";}i:3;a:2:{s:7:"content";s:190:"文字內容為單行行距；使用12pt字體大小；採用斜體而不用底線 (除非是帶有網址)；而所有的圖解、圖示和表格都放在文中恰當位置，而非文末。";s:5:"order";s:1:"4";}i:4;a:2:{s:7:"content";s:207:"您可以在 <a href="/conf/conf/about/submissions#authorGuidelines">作者指引</a> 網頁中找到有關本研討會文章與文獻寫作格式與相關要求的說明。";s:5:"order";s:1:"5";}i:5;a:2:{s:7:"content";s:102:"如果是投稿至同儕匿名審查的主題，請於稿件中移除所有與作者有關的資訊。";s:5:"order";s:1:"6";}i:6;a:2:{s:7:"content";s:136:"如果是投稿到同儕匿名審查的稿件，所有稿件檔案 (包含補充檔案) 中關於作者的所有資訊都必須移除。";s:5:"order";s:1:"7";}}', 'object'),
+(1, 'zh_TW', 'title', '「布丁布丁吃什麼？」學術研討會', 'string');
 
 -- --------------------------------------------------------
 
@@ -2947,31 +2957,6 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `remember` tinyint(4) NOT NULL DEFAULT '0',
   `data` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 資料表的匯出資料 `sessions`
---
-
-INSERT INTO `sessions` (`session_id`, `user_id`, `ip_address`, `user_agent`, `created`, `last_used`, `remember`, `data`) VALUES
-('0crads1u8v1i0j8ie6a97m9314', NULL, '210.242.151.130', 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; InfoPath.3)', 1452241543, 1452241543, 0, ''),
-('14jqb87vcr471m72nn9kh44tn1', NULL, '223.140.11.125', 'Mozilla/5.0 (Linux; Android 5.0.2; HTC_B810x Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36', 1452241282, 1452241282, 0, ''),
-('21q4cv2hf8c96v3rob9jqu1a11', NULL, '223.140.150.149', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 Safari Line/5.8.0', 1452269544, 1452269544, 0, ''),
-('22u247270msvb1j66bo8gkneu5', NULL, '180.217.14.75', 'Mozilla/5.0 (Linux; Android 4.2.2; C2105 Build/15.3.A.1.14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36', 1452253536, 1452253642, 0, ''),
-('3k73ouknsj3c6u4c15o8iajen3', NULL, '210.242.151.130', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452241619, 1452241619, 0, ''),
-('5fbt9djk1b71n6i7ilr593pne4', NULL, '192.168.11.50', 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)', 1452304761, 1452304761, 0, ''),
-('5goq4tqu8eis28ppsklotcfnt7', NULL, '203.145.200.81', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)', 1452250536, 1452250536, 0, ''),
-('5h32h770148qjdvs7t26sd8s16', NULL, '125.227.130.73', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452238790, 1452240378, 0, ''),
-('5k1p6rl6mooebpgabfi00ugc10', NULL, '210.242.151.130', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)', 1452239259, 1452239259, 0, ''),
-('7bbn009ll0ii273lsth887ev04', NULL, '198.134.105.181', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0', 1455249947, 1455250032, 0, ''),
-('9bvlopot8bnb4khukdb2k0fbe7', NULL, '69.171.231.226', 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0 (Chrome)', 1452240668, 1452240668, 0, ''),
-('c1cqrmk6kn4789na52su5blv42', NULL, '180.217.14.75', 'Mozilla/5.0 (Linux; Android 4.2.2; C2105 Build/15.3.A.1.14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36', 1452261589, 1452261589, 0, ''),
-('ed67nfaedv8gj7io392g2iusf7', 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452064326, 1452239843, 1, 'userId|s:1:"1";username|s:3:"ocs";'),
-('geqaq5gnq5p427una6ppfeqii1', NULL, '192.168.11.50', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1452304806, 1452304806, 0, ''),
-('h7avsheu0gf6jfej46b65ic657', NULL, '192.168.11.50', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452238925, 1452304775, 0, ''),
-('hbelbhc6laei7onmvt055irkk0', NULL, '110.28.82.254', 'Mozilla/5.0 (Linux; Android 5.1.1; D2533 Build/19.4.A.0.182) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36', 1452261975, 1452261975, 0, ''),
-('jqc5umo9mcnjt8dg3f04ehfs12', NULL, '61.228.164.80', 'Mozilla/5.0 (Linux; Android 4.2.2; C2105 Build/15.3.A.1.14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36', 1452298119, 1452298119, 0, ''),
-('q3vb4ojp6v5trntnrg674mff51', NULL, '114.25.12.33', 'Mozilla/5.0 (Linux; Android 5.0.2; HTC_M910x Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36', 1452240963, 1452241197, 0, ''),
-('r3kp5ala1hkc3f7o60tc5cdhs6', NULL, '107.172.23.207', 'DirBuster-0.12 (http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project)', 1455249911, 1455249912, 0, '');
 
 -- --------------------------------------------------------
 
@@ -3013,7 +2998,7 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
 --
 
 INSERT INTO `site_settings` (`setting_name`, `locale`, `setting_value`, `setting_type`) VALUES
-('contactEmail', 'zh_TW', 'pudding@nccu.edu.tw', 'string'),
+('contactEmail', 'zh_TW', 'blog@pulipuli.info', 'string'),
 ('contactName', 'zh_TW', 'Open Conference Systems', 'string'),
 ('title', 'zh_TW', 'Open Conference Systems', 'string');
 
@@ -3216,7 +3201,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `salutation`, `first_name`, `middle_name`, `last_name`, `gender`, `initials`, `affiliation`, `email`, `url`, `phone`, `fax`, `mailing_address`, `country`, `locales`, `date_last_email`, `date_registered`, `date_validated`, `date_last_login`, `must_change_password`, `auth_id`, `auth_str`, `disabled`, `disabled_reason`) VALUES
-(1, 'ocs', '695acd442d1ac2762f83596af2ff61fd', NULL, 'ocs', NULL, '', NULL, NULL, NULL, 'pudding@nccu.edu.tw', NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-01-06 08:05:26', NULL, '2016-01-06 08:12:10', 0, NULL, NULL, 0, NULL);
+(1, 'ocs', '695acd442d1ac2762f83596af2ff61fd', NULL, 'password', NULL, '', NULL, NULL, NULL, 'blog@pulipuli.info', NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-01-06 08:05:26', NULL, '2016-01-06 08:12:10', 0, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
