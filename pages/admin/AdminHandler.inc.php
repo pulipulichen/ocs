@@ -26,7 +26,7 @@ class AdminHandler extends Handler {
 		parent::Handler();
 
 		$this->addCheck(new HandlerValidatorRoles($this, true, null, null, array(ROLE_ID_SITE_ADMIN)));
-		$this->addCheck(new HandlerValidatorCustom($this, true, null, null, create_function(null, 'return Request::getRequestedConferencePath() == \'index\';')));
+		$this->addCheck(new HandlerValidatorCustom($this, true, null, null, create_function(null, 'return Request::getRequestedConferencePath() == \'admin\';')));
 	}
 
 	/**

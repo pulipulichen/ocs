@@ -15,7 +15,7 @@
 
 {if $isSiteAdmin}
 {assign var="hasRole" value=1}
-	&#187; <a href="{url conference="index" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a>
+	&#187; <a href="{url conference="admin" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a>
 	{call_hook name="Templates::User::Index::Admin"}
 {/if}
 
@@ -28,7 +28,6 @@
     {assign var=lastColSpan value=$lastColSpan-1}
 {/if}
 <div id="conference">
-    
     {if !$currentConference}
     <h4><a href="{url conference=$conference->getPath() page="user"}">{$conference->getConferenceTitle()|escape}</a></h4>
     {/if}
@@ -255,7 +254,7 @@
 <ul class="plain">
 	{if $hasOtherConferences}
 		{if !$showAllConferences}
-			<li>&#187; <a href="{url conference="index" page="user"}">{translate key="user.showAllConferences"}</a></li>
+			<li>&#187; <a href="{url conference="admin" page="user"}">{translate key="user.showAllConferences"}</a></li>
 		{/if}
 	{/if}
 	<li>&#187; <a href="{url page="user" op="profile"}">{translate key="user.editMyProfile"}</a></li>

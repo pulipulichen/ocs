@@ -587,6 +587,7 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Generate a URL into a PKPApp. (This is a wrapper around Dispatcher::url() to make it available to Smarty templates.)
+         * {url} 標籤
 	 */
 	function smartyUrl($params, &$smarty) {
 		if ( !isset($params['context']) ) {

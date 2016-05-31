@@ -67,11 +67,11 @@
 
 <div id="navbar">
 	<ul class="menu">
-		<li><a href="{url conference="index" schedConf="index" op="index"}" target="_parent">{translate key="navigation.home"}</a></li>
+		<li><a href="{url conference="admin" schedConf="index" op="index"}" target="_parent">{translate key="navigation.home"}</a></li>
 		<li><a href="{url page="about"}" target="_parent">{translate key="navigation.about"}</a></li>
 
 		{if $isUserLoggedIn}
-			<li><a href="{url conference="index" page="user"}" target="_parent">{translate key="navigation.userHome"}</a></li>
+			<li><a href="{url conference="admin" page="user"}" target="_parent">{translate key="navigation.userHome"}</a></li>
 		{else}
 			<li><a href="{url page="login"}" target="_parent">{translate key="navigation.login"}</a></li>
 			<li><a href="{url page="user" op="account"}" target="_parent">{translate key="navigation.account"}</a></li>

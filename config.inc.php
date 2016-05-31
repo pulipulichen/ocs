@@ -83,6 +83,7 @@ allow_url_fopen = Off
 ; rewrite directive to be enabled in your .htaccess or httpd.conf.
 ; See FAQ for more details.
 restful_urls = On
+;restful_urls = Off
 
 ; Allow javascript files to be served through a content delivery network (set to off to use local files)
 enable_cdn = On
@@ -168,7 +169,7 @@ charset_normalization = On
 
 ; Complete path to directory to store uploaded files
 ; (This directory should not be directly web-accessible)
-files_dir = /opt/lampp/htdocs/ocs/files
+files_dir = /var/www/ocs/files
 
 ; Path to the directory to store public uploaded files
 ; (This directory should be web-accessible and the specified path

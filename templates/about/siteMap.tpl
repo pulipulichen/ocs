@@ -17,8 +17,8 @@
 
 <ul class="plain">
 <li>
-	<a href="{url conference="index" page="index" op="index"}">{translate key="navigation.home"}</a><br/>
-	{if $isUserLoggedIn}<a href="{url conference="index" page="user"}">{translate key="navigation.userHome"}</a><br/>{/if}
+	<a href="{url conference="admin" page="index" op="index"}">{translate key="navigation.home"}</a><br/>
+	{if $isUserLoggedIn}<a href="{url conference="admin" page="user"}">{translate key="navigation.userHome"}</a><br/>{/if}
 	<ul class="plain">
 	{if $conferences|@count>1 && !$currentConference}
 		{foreach from=$conferences item=conference}
@@ -28,7 +28,7 @@
 		{if $conferences|@count==1}
 			{assign var=currentConference value=$conferences[0]}
 		{else}
-			<li><a href="{url conference="index" page="about" op="siteMap"}">{translate key="conference.conferences"}</a><br/>
+			<li><a href="{url conference="admin" page="about" op="siteMap"}">{translate key="conference.conferences"}</a><br/>
 			<ul class="plain">
 			{assign var=onlyOneConference value=1}
 		{/if}
@@ -69,10 +69,10 @@
 	</ul>
 </li>
 {if $isSiteAdmin}
-	<li><a href="{url conference="index" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a></li>
+	<li><a href="{url conference="admin" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a></li>
 {/if}
 <li><a href="http://pkp.sfu.ca/ojs">{translate key="common.openConferenceSystems"}</a></li>
-<!-- li><a href="javascript:openHelp('{url conference="index" page="help"}')">{translate key="help.help"}</a></li -->
+<!-- li><a href="javascript:openHelp('{url conference="admin" page="help"}')">{translate key="help.help"}</a></li -->
 </ul>
 
 {include file="common/footer.tpl"}

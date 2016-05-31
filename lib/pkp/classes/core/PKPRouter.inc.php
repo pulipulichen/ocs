@@ -357,7 +357,7 @@ class PKPRouter {
 				// the current request's context
 				$contextObject =& $this->getContextByName($request, $contextName);
 				if ($contextObject) $contextValue = $contextObject->getPath();
-				else $contextValue = 'index';
+				else $contextValue = 'admin';
 
 			}
 
