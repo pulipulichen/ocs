@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `access_keys` (
   `expiry_date` datetime NOT NULL,
   PRIMARY KEY (`access_key_id`),
   KEY `access_keys_hash` (`key_hash`,`user_id`,`context`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   `type_id` bigint(20) DEFAULT NULL,
   `date_expire` datetime DEFAULT NULL,
   `date_posted` datetime NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `announcement_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `announcement_types` (
   `type_id` bigint(20) NOT NULL,
   `assoc_type` smallint(6) NOT NULL,
   `assoc_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `announcement_type_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `auth_sources` (
   `plugin` varchar(32) NOT NULL,
   `auth_default` tinyint(4) NOT NULL DEFAULT '0',
   `settings` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `auth_sources` (
 CREATE TABLE IF NOT EXISTS `buildings` (
   `building_id` bigint(20) NOT NULL,
   `sched_conf_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `building_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `captchas` (
   `session_id` varchar(40) NOT NULL,
   `value` varchar(20) NOT NULL,
   `date_created` datetime NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `body` text,
   `date_posted` datetime DEFAULT NULL,
   `date_modified` datetime DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `conferences` (
   `seq` double NOT NULL DEFAULT '0',
   `primary_locale` varchar(5) NOT NULL,
   `enabled` tinyint(4) NOT NULL DEFAULT '1'
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `conferences`
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `conference_event_log` (
   `is_translated` tinyint(4) DEFAULT NULL,
   `entry_params` text,
   `message` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `conference_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `conference_settings`
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `controlled_vocabs` (
   `symbolic` varchar(32) NOT NULL,
   `assoc_type` bigint(20) NOT NULL DEFAULT '0',
   `assoc_id` bigint(20) NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `controlled_vocab_entries` (
   `controlled_vocab_entry_id` bigint(20) NOT NULL,
   `controlled_vocab_id` bigint(20) NOT NULL,
   `seq` double DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `controlled_vocab_entry_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `custom_track_orders` (
   `sched_conf_id` bigint(20) NOT NULL,
   `track_id` bigint(20) NOT NULL,
   `seq` double NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -315,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `edit_assignments` (
   `date_assigned` datetime DEFAULT NULL,
   `date_notified` datetime DEFAULT NULL,
   `date_underway` datetime DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -330,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `edit_decisions` (
   `director_id` bigint(20) NOT NULL,
   `decision` tinyint(4) NOT NULL,
   `date_decided` datetime NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -344,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `email_templates` (
   `assoc_type` bigint(20) DEFAULT '0',
   `assoc_id` bigint(20) DEFAULT '0',
   `enabled` tinyint(4) NOT NULL DEFAULT '1'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `email_templates_data` (
   `assoc_id` bigint(20) DEFAULT '0',
   `subject` varchar(120) NOT NULL,
   `body` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -374,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `email_templates_default` (
   `can_edit` tinyint(4) NOT NULL DEFAULT '1',
   `from_role_id` bigint(20) DEFAULT NULL,
   `to_role_id` bigint(20) DEFAULT NULL
-) AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `email_templates_default`
@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `email_templates_default_data` (
   `subject` varchar(120) NOT NULL,
   `body` text,
   `description` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `email_templates_default_data`
@@ -482,7 +482,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `context` bigint(20) DEFAULT NULL,
   `about_displayed` tinyint(4) NOT NULL DEFAULT '0',
   `seq` double NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -495,7 +495,7 @@ CREATE TABLE IF NOT EXISTS `group_memberships` (
   `group_id` bigint(20) NOT NULL,
   `about_displayed` tinyint(4) NOT NULL DEFAULT '1',
   `seq` double NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -509,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `group_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -531,7 +531,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `product` varchar(20) DEFAULT NULL,
   `context` bigint(20) NOT NULL,
   `assoc_type` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -546,7 +546,7 @@ CREATE TABLE IF NOT EXISTS `notification_settings` (
   `user_id` bigint(20) NOT NULL,
   `product` varchar(20) DEFAULT NULL,
   `context` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -559,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `oai_resumption_tokens` (
   `expire` bigint(20) NOT NULL,
   `record_offset` int(11) NOT NULL,
   `params` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -599,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `papers` (
   KEY `papers_user_id` (`user_id`),
   KEY `papers_sched_conf_id` (`sched_conf_id`),
   KEY `papers_track_id` (`track_id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -619,7 +619,7 @@ CREATE TABLE IF NOT EXISTS `paper_authors` (
   `country` varchar(90) DEFAULT NULL,
   `email` varchar(90) NOT NULL,
   `url` varchar(255) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -633,7 +633,7 @@ CREATE TABLE IF NOT EXISTS `paper_author_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -653,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `paper_comments` (
   `date_posted` datetime DEFAULT NULL,
   `date_modified` datetime DEFAULT NULL,
   `viewable` tinyint(4) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -676,7 +676,7 @@ CREATE TABLE IF NOT EXISTS `paper_email_log` (
   `bcc_recipients` text,
   `subject` varchar(255) DEFAULT NULL,
   `body` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -697,7 +697,7 @@ CREATE TABLE IF NOT EXISTS `paper_event_log` (
   `is_translated` tinyint(4) DEFAULT NULL,
   `entry_params` text,
   `message` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -718,7 +718,7 @@ CREATE TABLE IF NOT EXISTS `paper_files` (
   `viewable` tinyint(4) DEFAULT NULL,
   `date_uploaded` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -736,7 +736,7 @@ CREATE TABLE IF NOT EXISTS `paper_galleys` (
   `style_file_id` bigint(20) DEFAULT NULL,
   `seq` double NOT NULL DEFAULT '0',
   `views` int(11) NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -747,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `paper_galleys` (
 CREATE TABLE IF NOT EXISTS `paper_html_galley_images` (
   `galley_id` bigint(20) NOT NULL,
   `file_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -764,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `paper_notes` (
   `title` varchar(255) NOT NULL,
   `note` text,
   `file_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -775,7 +775,7 @@ CREATE TABLE IF NOT EXISTS `paper_notes` (
 CREATE TABLE IF NOT EXISTS `paper_search_keyword_list` (
   `keyword_id` bigint(20) NOT NULL,
   `keyword_text` varchar(60) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -788,7 +788,7 @@ CREATE TABLE IF NOT EXISTS `paper_search_objects` (
   `paper_id` bigint(20) NOT NULL,
   `type` int(11) NOT NULL,
   `assoc_id` bigint(20) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -800,7 +800,7 @@ CREATE TABLE IF NOT EXISTS `paper_search_object_keywords` (
   `object_id` bigint(20) NOT NULL,
   `keyword_id` bigint(20) NOT NULL,
   `pos` int(11) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -814,7 +814,7 @@ CREATE TABLE IF NOT EXISTS `paper_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -833,7 +833,7 @@ CREATE TABLE IF NOT EXISTS `paper_supplementary_files` (
   `show_reviewers` tinyint(4) DEFAULT '0',
   `date_submitted` datetime NOT NULL,
   `seq` double NOT NULL DEFAULT '0'
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -847,7 +847,7 @@ CREATE TABLE IF NOT EXISTS `paper_supp_file_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -864,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `paypal_transactions` (
   `payment_date` varchar(127) DEFAULT NULL,
   `payer_id` varchar(13) DEFAULT NULL,
   `receiver_id` varchar(13) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -880,7 +880,7 @@ CREATE TABLE IF NOT EXISTS `plugin_settings` (
   `setting_name` varchar(80) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `plugin_settings`
@@ -954,7 +954,7 @@ CREATE TABLE IF NOT EXISTS `published_papers` (
   `seq` double NOT NULL DEFAULT '0',
   `views` int(11) NOT NULL DEFAULT '0',
   `public_paper_id` varchar(255) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -968,7 +968,7 @@ CREATE TABLE IF NOT EXISTS `queued_payments` (
   `date_modified` datetime NOT NULL,
   `expiry_date` date DEFAULT NULL,
   `payment_data` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -987,7 +987,7 @@ CREATE TABLE IF NOT EXISTS `registrations` (
   `domain` varchar(255) DEFAULT NULL,
   `ip_range` text,
   `special_requests` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1003,7 +1003,7 @@ CREATE TABLE IF NOT EXISTS `registration_options` (
   `closing_date` datetime NOT NULL,
   `pub` tinyint(4) NOT NULL,
   `seq` double NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1014,7 +1014,7 @@ CREATE TABLE IF NOT EXISTS `registration_options` (
 CREATE TABLE IF NOT EXISTS `registration_option_assoc` (
   `option_id` bigint(20) NOT NULL,
   `registration_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1026,7 +1026,7 @@ CREATE TABLE IF NOT EXISTS `registration_option_costs` (
   `type_id` bigint(20) NOT NULL,
   `option_id` bigint(20) NOT NULL,
   `cost` double NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1040,7 +1040,7 @@ CREATE TABLE IF NOT EXISTS `registration_option_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1062,7 +1062,7 @@ CREATE TABLE IF NOT EXISTS `registration_types` (
   `membership` tinyint(4) NOT NULL DEFAULT '0',
   `pub` tinyint(4) NOT NULL,
   `seq` double NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1076,7 @@ CREATE TABLE IF NOT EXISTS `registration_type_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1109,7 +1109,7 @@ CREATE TABLE IF NOT EXISTS `review_assignments` (
   `comment_author` text,
   `comment_director` text,
   `comment_survey` text,
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1123,7 +1123,7 @@ CREATE TABLE IF NOT EXISTS `review_forms` (
   `assoc_id` bigint(20) DEFAULT NULL,
   `seq` double DEFAULT NULL,
   `is_active` tinyint(4) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1138,7 @@ CREATE TABLE IF NOT EXISTS `review_form_elements` (
   `element_type` bigint(20) DEFAULT NULL,
   `required` tinyint(4) DEFAULT NULL,
   `included` tinyint(4) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1152,7 +1152,7 @@ CREATE TABLE IF NOT EXISTS `review_form_element_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1165,7 +1165,7 @@ CREATE TABLE IF NOT EXISTS `review_form_responses` (
   `review_id` bigint(20) NOT NULL,
   `response_type` varchar(6) DEFAULT NULL,
   `response_value` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1179,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `review_form_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1191,7 +1191,7 @@ CREATE TABLE IF NOT EXISTS `review_stages` (
   `paper_id` bigint(20) NOT NULL,
   `stage` tinyint(4) NOT NULL,
   `review_revision` bigint(20) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1204,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `sched_conf_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `role_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `roles`
@@ -1223,7 +1223,7 @@ INSERT INTO `roles` (`conference_id`, `sched_conf_id`, `user_id`, `role_id`) VAL
 CREATE TABLE IF NOT EXISTS `rooms` (
   `room_id` bigint(20) NOT NULL,
   `building_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1237,7 +1237,7 @@ CREATE TABLE IF NOT EXISTS `room_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1256,7 +1256,7 @@ CREATE TABLE IF NOT EXISTS `rt_contexts` (
   `define_terms` tinyint(4) NOT NULL DEFAULT '0',
   `geo_terms` tinyint(4) NOT NULL DEFAULT '0',
   `seq` double NOT NULL DEFAULT '0'
-) AUTO_INCREMENT=248 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `rt_contexts`
@@ -1526,7 +1526,7 @@ CREATE TABLE IF NOT EXISTS `rt_searches` (
   `search_url` text,
   `search_post` text,
   `seq` double NOT NULL DEFAULT '0'
-) AUTO_INCREMENT=1295 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1295 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `rt_searches`
@@ -2854,7 +2854,7 @@ CREATE TABLE IF NOT EXISTS `rt_versions` (
   `locale` varchar(5) DEFAULT 'en_US',
   `title` varchar(120) NOT NULL,
   `description` text
-) AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `rt_versions`
@@ -2890,7 +2890,7 @@ INSERT INTO `rt_versions` (`version_id`, `conference_id`, `version_key`, `locale
 CREATE TABLE IF NOT EXISTS `scheduled_tasks` (
   `class_name` varchar(255) NOT NULL,
   `last_run` datetime DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2905,7 +2905,7 @@ CREATE TABLE IF NOT EXISTS `sched_confs` (
   `seq` double NOT NULL DEFAULT '0',
   `start_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `sched_confs`
@@ -2926,7 +2926,7 @@ CREATE TABLE IF NOT EXISTS `sched_conf_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `sched_conf_settings`
@@ -2956,7 +2956,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `last_used` bigint(20) NOT NULL DEFAULT '0',
   `remember` tinyint(4) NOT NULL DEFAULT '0',
   `data` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2971,7 +2971,7 @@ CREATE TABLE IF NOT EXISTS `site` (
   `installed_locales` varchar(255) NOT NULL DEFAULT 'en_US',
   `supported_locales` varchar(255) DEFAULT NULL,
   `original_style_file_name` varchar(255) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `site`
@@ -2991,7 +2991,7 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
   `locale` varchar(5) NOT NULL DEFAULT '',
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `site_settings`
@@ -3014,7 +3014,7 @@ CREATE TABLE IF NOT EXISTS `special_events` (
   `start_time` datetime DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
   `room_id` bigint(20) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3028,7 +3028,7 @@ CREATE TABLE IF NOT EXISTS `special_event_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3040,7 +3040,7 @@ CREATE TABLE IF NOT EXISTS `static_pages` (
   `static_page_id` bigint(20) NOT NULL,
   `path` varchar(255) NOT NULL,
   `conference_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3054,7 +3054,7 @@ CREATE TABLE IF NOT EXISTS `static_page_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` longtext,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3070,7 +3070,7 @@ CREATE TABLE IF NOT EXISTS `temporary_files` (
   `file_size` bigint(20) NOT NULL,
   `original_file_name` varchar(127) DEFAULT NULL,
   `date_uploaded` datetime NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3085,7 +3085,7 @@ CREATE TABLE IF NOT EXISTS `time_blocks` (
   `end_time` datetime NOT NULL,
   `assigned_colour` varchar(6) DEFAULT NULL,
   `unassigned_colour` varchar(6) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3099,7 +3099,7 @@ CREATE TABLE IF NOT EXISTS `time_block_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3117,7 +3117,7 @@ CREATE TABLE IF NOT EXISTS `tracks` (
   `hide_about` tinyint(4) NOT NULL DEFAULT '0',
   `disable_comments` tinyint(4) NOT NULL DEFAULT '0',
   `abstract_word_count` bigint(20) DEFAULT NULL
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `tracks`
@@ -3136,7 +3136,7 @@ CREATE TABLE IF NOT EXISTS `track_directors` (
   `sched_conf_id` bigint(20) NOT NULL,
   `track_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3150,7 +3150,7 @@ CREATE TABLE IF NOT EXISTS `track_settings` (
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `track_settings`
@@ -3194,7 +3194,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `auth_str` varchar(255) DEFAULT NULL,
   `disabled` tinyint(4) NOT NULL DEFAULT '0',
   `disabled_reason` text
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `users`
@@ -3217,7 +3217,7 @@ CREATE TABLE IF NOT EXISTS `user_settings` (
   `assoc_id` bigint(20) DEFAULT '0',
   `setting_value` text,
   `setting_type` varchar(6) NOT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -3234,7 +3234,7 @@ CREATE TABLE IF NOT EXISTS `versions` (
   `current` tinyint(4) NOT NULL DEFAULT '0',
   `product_type` varchar(30) DEFAULT NULL,
   `product` varchar(30) DEFAULT NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `versions`
