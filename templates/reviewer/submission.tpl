@@ -148,7 +148,7 @@ function confirmIntegratedSubmissionCheck() {
 </div>
 <div class="separator"></div>
 <div id="reviewSteps">
-<form action="{url op="recordRecommendationIntegrated"}" method="post">
+<form action="{url op="recordRecommendationIntegrated"}" onsubmit="return confirmIntegratedSubmissionCheck()" method="post">
 <h3>
     {translate key="reviewer.paper.reviewSteps"}
 </h3>
