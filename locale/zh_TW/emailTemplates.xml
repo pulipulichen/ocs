@@ -484,7 +484,7 @@ Thank you and looking forward to your participation in this event.
 		<description>This email is sent by a Track Director to a submission's Author to notify them that a decision has been reached in regard to an abstract and invite them to submit a paper for subsequent review.</description>
 	</email_text>
 	<email_text key="SUBMISSION_PAPER_REVISE">
-		<subject>關於稿件的審查結果：需要修改</subject>
+		<subject>關於稿件的審查結果：接受但需要修改</subject>
 		<body>{$authorName}您好，
 
 我們仔細審查了您的稿件「{$paperTitle}」，以下是供您修正稿件的建議：

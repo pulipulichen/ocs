@@ -48,7 +48,7 @@
 	<message key="director.paper.decision.accept">接受</message>
 	<message key="director.paper.decision.decline">拒絕</message>
 	<message key="director.paper.decision.invitePresentation">邀請稿件</message>
-	<message key="director.paper.decision.pendingRevisions">需要修改</message>
+	<message key="director.paper.decision.pendingRevisions">接受但需要修改</message>
         <message key="director.paper.decision.authorRevised">作者已修改</message>
         <message key="director.paper.decision.wait">尚未決定</message>
 	<message key="director.paper.designateDueDate">設定截止日期</message>
