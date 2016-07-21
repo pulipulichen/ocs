@@ -48,6 +48,14 @@ function confirmIntegratedSubmissionCheck() {
         }
         return false;
 }
+function onRecommendationChange() {
+    if ($('[name="recommendation"]').val() !== '') {
+        $(".btn.btn-primary.done").show();
+    }
+    else {
+        $(".btn.btn-primary.done").hide();
+    }
+}
 // -->
 {/literal}
 </script>
@@ -525,6 +533,7 @@ function confirmIntegratedSubmissionCheck() {
             <input type="hidden" name="reviewId" value="{$reviewId|escape}" />
             {if !$reviewAssignment->getDateCompleted()}
                 <select name="recommendation" 
+                        onchange="onRecommendationChange()"
                         class="btn btn-default">
                         {html_options_translate options=$reviewerRecommendationOptions selected=$reviewAssignment->getRecommendation()}
                 </select>
@@ -544,7 +553,8 @@ function confirmIntegratedSubmissionCheck() {
     {if !$declined and $confirmedStatus}
     <p class="text-center margintop20">
         {if !$reviewAssignment->getDateCompleted()}
-            <input type="submit" value="{translate key="common.done"}" class="btn btn-primary" 
+            <input type="submit" value="{translate key="common.done"}" class="btn btn-primary done" 
+                   {if !$reviewAssignment->getRecommendation()}style="display:none"{/if}
                    onclick="return confirmIntegratedSubmissionCheck()" />
             <input type="submit" value="{translate key="common.draft"}" class="btn btn-default" />
         {else}
