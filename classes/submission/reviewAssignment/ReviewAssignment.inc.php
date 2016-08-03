@@ -230,6 +230,7 @@ class ReviewAssignment extends DataObject {
 	function setDateConfirmed($dateConfirmed) {
 		return $this->setData('dateConfirmed', $dateConfirmed);
 	}
+        
 
 	/**
 	 * Get the reviewer's completed date.
@@ -245,6 +246,11 @@ class ReviewAssignment extends DataObject {
 	 */
 	function setDateCompleted($dateCompleted) {
 		return $this->setData('dateCompleted', $dateCompleted);
+	}
+        
+        
+        function setDateCompletedCancel() {
+		return $this->setData('dateCompleted', NULL);
 	}
 
 	/**

@@ -105,7 +105,7 @@
         <message key="submission.assignReview.writeEmail">寫信</message>
         <message key="submission.assignReview.waitComplete">等待完成審查</message>
         <message key="submission.assignReview.empty">尚未選擇審查委員</message>
-        <message key="submission.assignReview.createAccount">建立審查委員</message>
+        <message key="submission.assignReview.createAccount">建立審查委員帳號</message>
         <message key="submission.assignReview.selectReviewer">選擇之前的審查委員</message>
         <message key="submission.assignReview.selectUser">從所有使用者指定審查委員</message>
 	<message key="submission.dueDate">到期日</message>

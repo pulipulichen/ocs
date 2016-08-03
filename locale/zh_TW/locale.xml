@@ -573,6 +573,7 @@ The Public Knowledge Project 建議使用 <a href="http://creativecommons.org">C
 	<message key="reviewer.paper.notifyEditorA">告知會議主席</message>
 	<message key="reviewer.paper.notifyEditorB">您是否願意擔任審查委員</message>
 	<message key="reviewer.paper.notifyTheDirector">通知會議主席</message>
+        <message key="reviewer.paper.notifyTheDirectorAgain">再一次通知會議主席</message>
 	<message key="reviewer.paper.recommendation">審查建議</message>
 	<message key="reviewer.paper.restrictedFileAccess">稿作只能在被接受審查的狀態下才可以觀看。</message>
 	<message key="reviewer.paper.reviewFormResponse.form.responseRequired">Please fill in required fields.</message>

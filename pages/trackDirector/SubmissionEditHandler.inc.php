@@ -524,7 +524,6 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$trackId = Request::getUserVar('trackId');
 
 		TrackDirectorAction::changeTrack($submission, $trackId);
-
 		Request::redirect(null, null, null, 'submission', $paperId);
 	}
 
@@ -621,9 +620,15 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$schedConf =& Request::getSchedConf();
 		$submission =& $this->submission;
 
-		if ($result === "complete") $complete = true;
-		elseif ($result === "remove") $complete = false;
-		else Request::redirect(null, null, null, 'index');
+		if ($result === "complete") {
+                    $complete = true;
+                }
+		elseif ($result === "remove") {
+                    $complete = false;
+                }
+		else {
+                    Request::redirect(null, null, null, 'index');
+                }
 
 		TrackDirectorAction::completePaper($submission, $complete);
 
@@ -760,12 +765,12 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 	 * already used by the system. (Poor-man's AJAX.)
 	 */
 	function suggestUsername() {
-		parent::validate();
-		$suggestion = Validation::suggestUsername(
-			Request::getUserVar('firstName'),
-			Request::getUserVar('lastName')
-		);
-		echo $suggestion;
+            parent::validate();
+            $suggestion = Validation::suggestUsername(
+                Request::getUserVar('firstName'),
+                Request::getUserVar('lastName')
+            );
+            echo $suggestion;
 	}
 
 	/**
@@ -869,15 +874,35 @@ class SubmissionEditHandler extends TrackDirectorHandler {
 		$schedConf =& Request::getSchedConf();
 		$submission =& $this->submission;
 
-
 		$reviewId = Request::getUserVar('reviewId');
 
 		$send = Request::getUserVar('send')?true:false;
 		$this->setupTemplate(true, $paperId, 'review');
 
 		if (TrackDirectorAction::notifyReviewer($submission, $reviewId, $send)) {
-			Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
+                    Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
 		}
+	}
+        
+        function cancelCompleted($args = array()) {
+            $paperId = Request::getUserVar('paperId');
+            $this->validate($paperId, TRACK_DIRECTOR_ACCESS_REVIEW);
+            $conference =& Request::getConference();
+            $schedConf =& Request::getSchedConf();
+            $submission =& $this->submission;
+
+            $reviewId = Request::getUserVar('reviewId');
+            $reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO');
+            $reviewAssignment = $reviewAssignmentDao->getReviewAssignmentById($reviewId);
+            $reviewAssignment->setDateCompletedCancel();
+            $reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
+
+            //$send = Request::getUserVar('send')?true:false;
+            //$this->setupTemplate(true, $paperId, 'review');
+
+            //if (TrackDirectorAction::notifyReviewer($submission, $reviewId, $send)) {
+                Request::redirect(null, null, null, 'submissionAssignReviewer', $paperId, array(), 'peerReview'.$reviewId);
+            //}
 	}
 
 	function clearReview($args) {

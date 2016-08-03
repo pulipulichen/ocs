@@ -120,20 +120,20 @@ function confirmSubmissionCheck() {
                                         <th class="" style="border-top-width:0">{translate key="submission.request"}</th>
                                         <td class="value" style="border-top-width:0">
                                             {url|assign:"reviewUrl" op="notifyReviewer" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
-							{if !$allowRecommendation}
-								{icon name="mail" url=$reviewUrl disabled="true"}
-                                                                <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
-                                                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                    {translate key="common.invite"}
-                                                                </a>
-							{elseif $reviewAssignment->getDateNotified()}
-								{$reviewAssignment->getDateNotified()|date_format:$dateFormatShort}
-							{elseif !$reviewAssignment->getDeclined() and !$reviewAssignment->getDateNotified()}
-								<a href="{$reviewUrl}" class="btn btn-primary btn-sm">
-                                                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                                                    {translate key="common.invite"}
-                                                                </a>
-							{/if}
+                                            {if !$allowRecommendation}
+                                                    {*icon name="mail" url=$reviewUrl disabled="true"*}
+                                                    <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
+                                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                        {translate key="common.invite"}
+                                                    </a>
+                                            {elseif $reviewAssignment->getDateNotified()}
+                                                    {$reviewAssignment->getDateNotified()|date_format:$dateFormatShort}
+                                            {elseif !$reviewAssignment->getDeclined() and !$reviewAssignment->getDateNotified()}
+                                                    <a href="{$reviewUrl}" class="btn btn-primary btn-sm">
+                                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                        {translate key="common.invite"}
+                                                    </a>
+                                            {/if}
                                         </td>
                                     </tr>
                                     <tr>
@@ -151,6 +151,22 @@ function confirmSubmissionCheck() {
                                         </td>
                                     </tr>
                                     
+                                    {if $reviewAssignment->getDateCompleted()}
+                                    <tr>
+                                        <th class="">
+                                            提交審查結果 {* @TODO 語系 *}
+                                        </th>
+                                        <td class="value">
+                                            {url|assign:"cancelCompletedUrl" op="cancelCompleted" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
+                                            {$reviewAssignment->getDateCompleted()|date_format:$dateFormatShort}
+                                            
+                                            <a href="{$cancelCompletedUrl}" class="btn btn-primary btn-sm">
+                                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                                退回審查結果
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {/if}
                                     <tr>
                                         <th class="">
                                             {translate key="submission.assignReview.due"}
@@ -180,7 +196,7 @@ function confirmSubmissionCheck() {
                                                         </a>
                                                         {/if}
                                                     {/if}
-                                                    {/if}
+                                                {/if}
                                         </td>
                                     </tr>
                                     {if $reviewAssignment->getDateConfirmed()}

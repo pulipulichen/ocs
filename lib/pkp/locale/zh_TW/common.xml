@@ -93,7 +93,7 @@
 	<message key="common.deleteSelection">刪除選取範圍</message>
 	<message key="common.description">描述</message>
 	<message key="common.disabled">關閉</message>
-	<message key="common.discipline">Discipline</message>
+	<message key="common.discipline">學術領域</message>
 	<message key="common.done">完成</message>
 	<message key="common.download">下載</message>
         <message key="common.draft">暫存</message>

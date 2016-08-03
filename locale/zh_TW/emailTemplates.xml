@@ -180,7 +180,7 @@ Your password for disabling notification emails is: {$password}
 
 {$commentAuthor}
 
-給您的審查意見如下：
+給會議主席的審查意見如下：
 
 {$commentDirector}
                 

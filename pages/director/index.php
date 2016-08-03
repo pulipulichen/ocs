@@ -103,6 +103,8 @@ switch ($op) {
 	case 'downloadFile':
 	case 'viewFile':
 	case 'suggestUsername':
+            
+        case 'cancelCompleted':
 		define('HANDLER_CLASS', 'SubmissionEditHandler');
 		import('pages.trackDirector.SubmissionEditHandler');
 		break;

@@ -11,32 +11,32 @@
 <div id="submissions">
 <table width="100%" class="listing">
 	<tr>
-		<td colspan="10" class="headseparator">&nbsp;</td>
+            <td colspan="10" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
-		<td>{sort_search key="common.id" sort="id"}</td>
-		<td><!--<span class="disabled">MM-DD</span><br />-->{sort_search key="submissions.submit" sort="submitDate"}</td>
-		<td>{sort_search key="submissions.track" sort="track"}</td>
-		<td>{sort_search key="paper.sessionType" sort="sessionType"}</td>
-		<td>{sort_search key="paper.authors" sort="authors"}</td>
-		<td>{sort_search key="paper.title" sort="title"}</td>
-		<td>
-			<center>{translate key="submission.peerReview"}</center>
-			<table width="100%" class="nested">
-				<tr valign="top">
-					<td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submissions.reviewType"}</td>
-					<td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.ask"}</td>
-					<td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.due"}</td>
-					<td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.done"}</td>
-				</tr>
-			</table>
-		</td>
-		<td>{translate key="submissions.ruling"}</td>
-		<td>{translate key="paper.trackDirector"}</td>
-                <td>&nbsp;</td>
+            <td>{sort_search key="common.id" sort="id"}</td>
+            <td><!--<span class="disabled">MM-DD</span><br />-->{sort_search key="submissions.submit" sort="submitDate"}</td>
+            <td>{sort_search key="submissions.track" sort="track"}</td>
+            <td>{sort_search key="paper.sessionType" sort="sessionType"}</td>
+            <td>{sort_search key="paper.authors" sort="authors"}</td>
+            <td>{sort_search key="paper.title" sort="title"}</td>
+            <td>
+                    <center>{translate key="submission.peerReview"}</center>
+                    <table width="100%" class="nested">
+                            <tr valign="top">
+                                    <td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submissions.reviewType"}</td>
+                                    <td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.ask"}</td>
+                                    <td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.due"}</td>
+                                    <td width="25%" style="padding: 0 4px 0 0; font-size: 1.0em">{translate key="submission.done"}</td>
+                            </tr>
+                    </table>
+            </td>
+            <td>{translate key="submissions.ruling"}</td>
+            <td>{translate key="paper.trackDirector"}</td>
+            <td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td colspan="10" class="headseparator">&nbsp;</td>
+            <td colspan="10" class="headseparator">&nbsp;</td>
 	</tr>
 	
 	{iterate from=submissions item=submission}

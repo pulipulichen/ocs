@@ -22,12 +22,12 @@
 {/if}
 {include file="common/header.tpl"}
 {/strip}
- 
+
 <script type="text/javascript">
 {literal}
 <!--
 function confirmSubmissionCheck() {
-	if (document.recommendation.recommendation.value=='') {
+	if (document.recommendation.recommendation.value==='') {
 		alert('{/literal}{translate|escape:"javascript" key="reviewer.paper.mustSelectDecision"}{literal}');
 		return false;
 	}
@@ -35,7 +35,7 @@ function confirmSubmissionCheck() {
 }
 
 function confirmIntegratedSubmissionCheck() {
-	if ($('[name="recommendation"]').val()=='') {
+	if ($('[name="recommendation"]').val()==='') {
 		alert('{/literal}{translate|escape:"javascript" key="reviewer.paper.mustSelectDecision"}{literal}');
                 $('[name="recommendation"]').focus();
 		return false;
@@ -135,28 +135,32 @@ function onRecommendationChange() {
 <h3>{translate key="reviewer.paper.reviewSchedule"}</h3>
 <table width="100%" class="data">
 <tr valign="top">
-	<td class="label" width="20%">{translate key="reviewer.paper.schedule.request"}</td>
-	<td class="value" width="80%">{if $submission->getDateNotified()}{$submission->getDateNotified()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
+    <td class="label" width="20%">{translate key="reviewer.paper.schedule.request"}</td>
+    <td class="value" width="80%">{if $submission->getDateNotified()}{$submission->getDateNotified()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
 </tr>
 <tr valign="top">
-	<td class="label">{translate key="reviewer.paper.schedule.response"}</td>
-	<td class="value">{if $submission->getDateConfirmed()}{$submission->getDateConfirmed()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
+    <td class="label">{translate key="reviewer.paper.schedule.response"}</td>
+    <td class="value">{if $submission->getDateConfirmed()}{$submission->getDateConfirmed()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
 </tr>
 <tr valign="top">
-	<td class="label">{translate key="reviewer.paper.schedule.submitted"}</td>
-	<td class="value">{if $submission->getDateCompleted()}{$submission->getDateCompleted()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
+    <td class="label">{translate key="reviewer.paper.schedule.submitted"}</td>
+    <td class="value">{if $submission->getDateCompleted()}{$submission->getDateCompleted()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
 </tr>
 <tr valign="top">
-	<td class="label">
-            {translate key="reviewer.paper.schedule.due"}
-        </td>
-	<td class="value">{if $submission->getDateDue()}{$submission->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}</td>
+    <td class="label">
+        {translate key="reviewer.paper.schedule.due"}
+    </td>
+    <td class="value">
+        {if $submission->getDateDue()}{$submission->getDateDue()|date_format:$dateFormatShort}{else}&mdash;{/if}
+    </td>
 </tr>
 </table>
 </div>
 <div class="separator"></div>
 <div id="reviewSteps">
-<form action="{url op="recordRecommendationIntegrated"}" onsubmit="return confirmIntegratedSubmissionCheck()" method="post">
+<form action="{url op="recordRecommendationIntegrated"}" 
+      {if !$reviewAssignment->getDateCompleted()}onsubmit="return confirmIntegratedSubmissionCheck()"{/if}
+      method="post">
 <h3>
     {translate key="reviewer.paper.reviewSteps"}
 </h3>
@@ -332,6 +336,7 @@ function onRecommendationChange() {
                 <textarea id="commentAuthor" name="commentAuthor" style="width:100%;" rows="10" cols="50" class="textArea">{$commentAuthor|escape}</textarea>
             {else}
                 {$commentAuthor|nl2br|default:"&mdash;"}
+                <input type="hidden" id="commentAuthor" name="commentAuthor" value="{$commentAuthor|escape}" />
             {/if}
         </td>
 </tr>
@@ -355,6 +360,7 @@ function onRecommendationChange() {
                 <textarea id="commentDirector" name="commentDirector" style="width:100%;" rows="10" cols="50" class="textArea">{$commentDirector|escape}</textarea>
             {else}
                 {$commentDirector|nl2br|default:"&mdash;"}
+                <input type="hidden" id="commentDirector" name="commentDirector" value="{$commentDirector|escape}" />
             {/if}
         </td>
 </tr>
@@ -386,6 +392,8 @@ function onRecommendationChange() {
             
             {if $reviewAssignment->getDateCompleted() && !$commentSurvey}
                 &mdash;
+            {else}
+                <input type="hidden" id="commentSurvey" name="commentSurvey" value="{$commentSurvey|escape}" />
             {/if}
         </td>
 </tr>
@@ -540,6 +548,7 @@ function onRecommendationChange() {
             {else}
                 {assign var="recommendation" value=$reviewAssignment->getRecommendation()}
                 {translate key=$reviewerRecommendationOptions.$recommendation}
+                <input type="hidden" name="recommendation" value="{$reviewAssignment->getRecommendation()}" />
             {/if}
         </td>
     </tr>
@@ -554,11 +563,10 @@ function onRecommendationChange() {
     <p class="text-center margintop20">
         {if !$reviewAssignment->getDateCompleted()}
             <input type="submit" value="{translate key="common.done"}" class="btn btn-primary done" 
-                   {if !$reviewAssignment->getRecommendation()}style="display:none"{/if}
-                   onclick="return confirmIntegratedSubmissionCheck()" />
+                   {if !$reviewAssignment->getRecommendation()}style="display:none"{/if} />
             <input type="submit" value="{translate key="common.draft"}" class="btn btn-default" />
         {else}
-            <input type="submit" value="{translate key="reviewer.paper.notifyTheDirector"}" class="btn btn-primary" /> 
+            <input type="submit" value="{translate key="reviewer.paper.notifyTheDirectorAgain"}" class="btn btn-primary" /> 
         {/if}
     </p>
     {/if}
