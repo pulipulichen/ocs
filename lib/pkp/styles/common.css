@@ -212,7 +212,8 @@ input.defaultButton {
 	text-decoration: none;
 }
 
-#breadcrumb a.current {
+#breadcrumb a.current,
+#breadcrumb li:last-of-type a {
 	font-weight: bold;
 }
 

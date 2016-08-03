@@ -13,15 +13,27 @@
             {$name}
         {foreach from=$pageHierarchy item=hierarchyLink}
             {if $first==false}
-                &gt;
+                <!-- &gt;-->
             {/if}
-		<a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a>
+                <li>
+                    <a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a>
+                </li>
                 {assign var="first" value=false}
 	{/foreach}
     {else}
+        <!--
         <li><a href="{url context=$homeContext page="index"}">{translate key="navigation.home"}</a></li>
+        -->
 	{foreach from=$pageHierarchy item=hierarchyLink}
-            <li><a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a></li>
+            <li>
+                <a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">
+                    {if not $hierarchyLink[2]}
+                        {translate key=$hierarchyLink[1]}
+                    {else}
+                        {$hierarchyLink[1]|escape}
+                    {/if}
+                </a>
+            </li>
 	{/foreach}
 	{* Disable linking to the current page if the request is a post (form) request. Otherwise following the link will lead to a form submission error. *}
         <li class="active">

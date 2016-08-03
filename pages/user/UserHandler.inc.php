@@ -302,9 +302,11 @@ class UserHandler extends Handler {
 		$pageHierarchy = array();
 
 		if ($schedConf) {
-			$pageHierarchy[] = array(Request::url(null, null, 'index'), $schedConf->getFullTitle(), true);
+                    //$pageHierarchy[] = array(Request::url(null, null, 'index'), $schedConf->getFullTitle(), true);
+                    $pageHierarchy[] = array(Request::url(null, null, 'index'), AppLocale::Translate('navigation.home'), true);
 		} elseif ($conference) {
-			$pageHierarchy[] = array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true);
+                    //$pageHierarchy[] = array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true);
+                    $pageHierarchy[] = array(Request::url(null, 'index', 'index'), AppLocale::Translate('navigation.home'), true);
 		}
 
 		if ($subclass) {

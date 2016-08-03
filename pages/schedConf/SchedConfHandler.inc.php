@@ -161,9 +161,11 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, null, 'index'), AppLocale::Translate('navigation.home'), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
 		$templateMgr->assign('overview', $schedConf->getLocalizedSetting('overview'));
@@ -274,9 +276,11 @@ class SchedConfHandler extends Handler {
                 }
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, null, 'index'), AppLocale::Translate('navigation.home'), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
 		$user =& Request::getUser();
@@ -579,7 +583,8 @@ class SchedConfHandler extends Handler {
                 $templateMgr->assign('pageHierarchyRoot', true);
                 $templateMgr->assign('pageHierarchy', array(
 			array(Request::url(null, $conference->getSetting('path'), 'index'), AppLocale::Translate('navigation.home'), true), 
-                        array(Request::url(null, null, 'index'), AppLocale::Translate('schedConf.program.title'), true)));
+                        array(Request::url(null, null, 'index'), AppLocale::Translate('schedConf.program.title'), true))
+                        );
                 
 		$templateMgr->assign('program', $schedConf->getSetting('program', AppLocale::getLocale()));
 		$templateMgr->assign('programFile', $schedConf->getSetting('programFile', AppLocale::getLocale()));
@@ -823,9 +828,11 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, null, 'index'), AppLocale::Translate('navigation.home'), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
 		$templateMgr->assign('accommodationDescription', $schedConf->getLocalizedSetting('accommodationDescription'));
@@ -846,9 +853,11 @@ class SchedConfHandler extends Handler {
 		$schedConf =& Request::getSchedConf();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('pageHierarchy', array(
-			array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
-			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+		//$templateMgr->assign('pageHierarchy', array(
+		//	array(Request::url(null, 'index', 'index'), $conference->getConferenceTitle(), true),
+		//	array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
+                $templateMgr->assign('pageHierarchy', array(
+			array(Request::url(null, null, 'index'), AppLocale::Translate('navigation.home'), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
 		$templateMgr->assign('locationDescription', $schedConf->getLocalizedSetting('locationDescription'));
