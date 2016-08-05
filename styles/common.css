@@ -405,7 +405,7 @@ table.listing tr.listing-tr.hover {
 }
 
 #submissions table td {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 .collapse.navbar-collapse.second-row {

@@ -51,9 +51,11 @@ function confirmIntegratedSubmissionCheck() {
 function onRecommendationChange() {
     if ($('[name="recommendation"]').val() !== '') {
         $(".btn.btn-primary.done").show();
+        $(".done-info").show();
     }
     else {
         $(".btn.btn-primary.done").hide();
+        $(".done-info").hide();
     }
 }
 // -->
@@ -188,9 +190,9 @@ function onRecommendationChange() {
     
     {if $declined or not $confirmedStatus}
     <tr>
-        <th class="label" style="white-space: normal" width="20%">
+        <td class="label" style="white-space: normal" width="20%">
             {translate key="reviewer.paper.acceptConfirm"}
-        </th>
+        </td>
         <td class="value" width="80%">
                 
                 
@@ -244,7 +246,7 @@ function onRecommendationChange() {
     {if $confirmedStatus AND !$declined}
     {if $schedConf->getSetting('reviewMode') != REVIEW_MODE_ABSTRACTS_ALONE}
     <tr>
-        <th class="label">
+        <td class="label">
             <span class="instruct">
                 {if ($confirmedStatus and not $declined) or not $schedConf->getSetting('restrictReviewerFileAccess')}
 				{if $reviewAssignment->getStage() == REVIEW_STAGE_ABSTRACT}
@@ -256,7 +258,7 @@ function onRecommendationChange() {
                     {translate key="$reviewerInstruction3"}
                 {/if}
             </span>
-        </th>
+        </td>
         
         <td class="value">
             
@@ -542,9 +544,12 @@ function onRecommendationChange() {
             {if !$reviewAssignment->getDateCompleted()}
                 <select name="recommendation" 
                         onchange="onRecommendationChange()"
-                        class="btn btn-default">
+                        class="btn btn-primary">
                         {html_options_translate options=$reviewerRecommendationOptions selected=$reviewAssignment->getRecommendation()}
                 </select>
+                <p>
+                    選擇審查意見之後才能完成審查。 {* @TODO 語系 *}
+                </p>
             {else}
                 {assign var="recommendation" value=$reviewAssignment->getRecommendation()}
                 {translate key=$reviewerRecommendationOptions.$recommendation}
@@ -560,7 +565,11 @@ function onRecommendationChange() {
         <input type="hidden" name="draft" value="0" />
     {/if}
     {if !$declined and $confirmedStatus}
-    <p class="text-center margintop20">
+
+    <p class="text-center bg-info margintop20 done-info" {if !$reviewAssignment->getRecommendation()}style="display:none"{/if}>
+        按下完成之後，系統會協助您送出通知信件，這樣才算完成整個審查流程。 {* @TODO 語系 *}
+    </p>
+    <p class="text-center">
         {if !$reviewAssignment->getDateCompleted()}
             <input type="submit" value="{translate key="common.done"}" class="btn btn-primary done" 
                    {if !$reviewAssignment->getRecommendation()}style="display:none"{/if} />

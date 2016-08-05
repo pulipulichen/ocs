@@ -141,7 +141,9 @@ function deleteAttachment(fileId) {
             {/if}
             {fieldLabel name="body" key="email.body"}
         </td>
-	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
+	<td class="value">
+            <textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea>
+        </td>
 </tr>
 {*if $isADirector}
 	<tr valign="top">
@@ -167,13 +169,17 @@ function deleteAttachment(fileId) {
 
 		{if $attachmentNum != 1}<br/>{/if}
 
-		<input type="file" name="newAttachment" class="uploadField" /> <input name="addAttachment" type="submit" class="button" value="{translate key="common.upload"}" />
+		<input type="file" name="newAttachment" class="uploadField" /> 
+                <input name="addAttachment" type="submit" class="button" value="{translate key="common.upload"}" />
 	</td>
 </tr>
 {/if}
 </table>
 
-<p class="text-center">
+<p class="text-center bg-info">
+    送出信件之後才算完成整個操作流程。 {* @TODO 語系 *}
+</p>
+<p class="text-center">    
     <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
     {if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="btn btn-default" />{/if}

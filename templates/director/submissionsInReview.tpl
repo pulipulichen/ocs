@@ -42,7 +42,9 @@
 		</td>
 		<td>{translate key="submissions.ruling"}</td>
                 -->
-                <td>{translate key="director.paper.selectReviewer"}</td>
+                <td>
+                    審查委員進度 {* @TODO 語系 *}
+                </td>
                 <td>{translate key="director.paper.reviewStatus"}</td>
                 
 		<td>{translate key="paper.trackDirector"}</td>
@@ -157,8 +159,14 @@
                                         {/if}>
                                         {translate key=$reviewerRecommendationOptions.$recommendation}
                                     </span>
+                            {elseif !$reviewAssignment->getDateConfirmed() }
+                                <span class="text-danger">(等待確認邀請) {* @TODO 語系 *}</span>
+                            {elseif $reviewAssignment->getDeclined() }
+                                <span class="text-danger">(婉拒審查) {* @TODO 語系 *}</span>
+                            {elseif $reviewAssignment->getRecommendation() !== null and !$reviewAssignment->getDateCompleted() }
+                                (已暫存審查建議) {* @TODO 語系 *}
                             {else}
-                                &mdash;
+                                (審查中) {* @TODO 語系 *}
                             {/if}
                             </a>
                             {/if}
@@ -215,8 +223,8 @@
 	</tr>
 {else}
 	<tr>
-		<td colspan="{$colspan-3}" align="left">{page_info iterator=$submissions}</td>
-		<td colspan="4" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions searchField=$searchField searchMatch=$searchMatch search=$search track=$track sort=$sort sortDirection=$sortDirection}</td>
+		<td colspan="{$colspan-5}" align="left">{page_info iterator=$submissions}</td>
+		<td colspan="5" align="right">{page_links anchor="submissions" name="submissions" iterator=$submissions searchField=$searchField searchMatch=$searchMatch search=$search track=$track sort=$sort sortDirection=$sortDirection}</td>
 	</tr>
 {/if}
 </table>

@@ -14,6 +14,10 @@
 function confirmSubmissionCheck() {
     return confirm('{/literal}{translate|escape:"javascript" key="reviewer.paper.confirmDecision"}{literal}');
 }
+function confirmCancelCompleted() {
+    return confirm('退回後審查委員可修改審查成果，您確定要退回審查結果嗎？');
+    // {* @TODO 語系 *}
+}
 // -->
 {/literal}
 </script>
@@ -160,8 +164,8 @@ function confirmSubmissionCheck() {
                                             {url|assign:"cancelCompletedUrl" op="cancelCompleted" reviewId=$reviewAssignment->getId() paperId=$submission->getPaperId()}
                                             {$reviewAssignment->getDateCompleted()|date_format:$dateFormatShort}
                                             
-                                            <a href="{$cancelCompletedUrl}" class="btn btn-primary btn-sm">
-                                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                            <a href="{$cancelCompletedUrl}" class="btn btn-danger btn-sm" onclick="return confirmCancelCompleted()">
+                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                                 退回審查結果
                                             </a>
                                         </td>
@@ -288,13 +292,10 @@ function confirmSubmissionCheck() {
             {assign var="commentSurvey" value=$reviewAssignment->getCommentSurvey()}
             {assign var="commentSurveyForm" value=$reviewAssignment->getReviewSurveyForm()}
             {if $commentSurvey}
-                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
-                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
-                <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
-                <textarea id="commentSurveyForm" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form report" 
-                          jquery-survey-data="commentSurvey"
+                <textarea id="commentSurveyForm{$reviewAssignment->getId()}" style="width:100%;" rows="10" cols="50" class="textArea jquery-survey-form report" 
+                          jquery-survey-data="commentSurvey{$reviewAssignment->getId()}"
                            error-message="{translate key="common.formValidateError"}">{$commentSurveyForm}</textarea>
-                <textarea id="commentSurvey" name="commentSurvey" style="width:100%;" rows="10" cols="50" class="textArea">{$commentSurvey}</textarea>
+                <textarea id="commentSurvey{$reviewAssignment->getId()}" name="commentSurvey{$reviewAssignment->getId()}" style="width:100%;" rows="10" cols="50" class="textArea">{$commentSurvey}</textarea>
             {else}
                 &mdash;
             {/if}

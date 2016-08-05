@@ -9,6 +9,23 @@
  * $Id$
  *}
  
+ <script type="text/javascript">
+{literal}
+<!--
+function changeDecision(_decision) {
+    var _value = _decision.value;
+    if (_value !== "") {
+        $(_decision).next().click();
+        $(".notify-author").show();
+    }
+    else {
+        $(".notify-author").hide();
+    }
+}
+// -->
+{/literal}
+</script>
+ 
 {assign var=availableDirectorDecisionOptions value=$submission->getDirectorDecisionOptions($currentSchedConf,$stage)}
 <div id="directorDecision">
 <h3>{translate key="submission.directorDecision"}</h3>
@@ -234,7 +251,7 @@
             <input type="hidden" name="paperId" value="{$submission->getPaperId()}" />
             
             {if $allowRecommendation and $isCurrent}
-                <select name="decision" class="btn btn-primary"{if not $allowRecommendation} disabled="disabled"{/if} onchange="$(this).next().click();">
+                <select name="decision" class="btn btn-primary"{if not $allowRecommendation} disabled="disabled"{/if} onchange="changeDecision(this);">
                     {html_options_translate options=$availableDirectorDecisionOptions selected=$lastDecision}
                 </select>
                 <input type="submit" name="submit" value="{translate key="director.paper.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} 
@@ -259,7 +276,7 @@
     <td class="value" colspan="2" width="80%">
         {url|assign:"notifyAuthorUrl" op="emailDirectorDecisionComment" paperId=$submission->getPaperId()}
         
-                <a class="btn btn-default" href="{$notifyAuthorUrl}">
+                <a class="btn btn-default notify-author" href="{$notifyAuthorUrl}" {if not $allowRecommendation}style="display:none;"{/if}>
                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                     {translate key="submission.notifyAuthor"}
                     {*icon name="mail"*}

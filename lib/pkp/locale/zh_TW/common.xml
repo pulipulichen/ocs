@@ -222,7 +222,7 @@
 	<message key="email.recipients">收件者</message>
 	<message key="email.send">送出</message>
 	<message key="email.sender">送件者</message>
-	<message key="email.skip">跳過信件</message>
+	<message key="email.skip">完成操作但不寄送信件</message>
 	<message key="email.subject">主旨</message>
 	<message key="email.to">收件者</message>
 	<message key="form.contains">包含</message>

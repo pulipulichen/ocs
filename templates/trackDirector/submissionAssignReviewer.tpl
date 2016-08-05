@@ -68,7 +68,9 @@
     {include file="trackDirector/submission/directors.tpl"}
     <div class="separator"></div>
 {/if}
-
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
+<script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
 {include file="trackDirector/submission/assignReviewer.tpl"}
 
 

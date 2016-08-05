@@ -188,7 +188,7 @@
 	<message key="submission.noReviewAssignments">沒有審查工作</message>
 	<message key="submission.notes">投稿備註</message>
 	<message key="submission.notes.addNewNote">應加新的備註</message>
-	<message key="submission.notes.attachedFile">附加檔案</message>
+	<message key="submission.notes.attachedFile">附加檔案下載</message>
 	<message key="submission.notes.backToSubmissionNotes">返回投稿備註</message>
 	<message key="submission.notes.breadcrumb">備註</message>
 	<message key="submission.notes.clearAllNotes">清除所有備註</message>
@@ -217,8 +217,8 @@
 	<message key="submission.restrictions">限制</message>
 	<message key="submission.review">審查作業</message>
 	<message key="submission.reviewMetadata">審查資料</message>
-	<message key="submission.reviewVersion">最新稿件</message>
-        <message key="submission.authorReviewVersion">作者最新稿件</message>
+	<message key="submission.reviewVersion">最新稿件檔案下載</message>
+        <message key="submission.authorReviewVersion">作者最新稿件檔案下載</message>
 	<message key="submission.saveMetadata">儲存相關資料</message>
 	<message key="submission.start">開始</message>
 	<message key="submission.submissionHistory">稿件歷史</message>

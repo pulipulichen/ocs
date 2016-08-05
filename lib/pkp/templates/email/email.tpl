@@ -164,6 +164,9 @@ function deleteAttachment(fileId) {
 </tr>
 </table>
 
+<p class="text-center bg-info">
+    送出信件之後才算完成整個操作流程。 {* @TODO 語系 *}
+</p>
 <p class="text-center">
     <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-primary" /> 
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" />
