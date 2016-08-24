@@ -255,9 +255,6 @@
     <input type="hidden" name="source" value="{$source|escape}" />
 {/if}
 
-
-{*-----------------------------*}
-
 {*-----------------------------*}
 
 {if $privacyStatement}
