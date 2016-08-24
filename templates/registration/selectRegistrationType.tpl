@@ -47,8 +47,8 @@
 		<td colspan="2" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr valign="top" class="heading">
-		<td width="80%">{translate key="schedConf.registration.type"}</td>
-		<td style="min-width:200px">
+		<td>{translate key="schedConf.registration.type"}</td>
+		<td style="min-width:400px">
                     {translate key="schedConf.registration.option"}
                 </td>
 	</tr>
@@ -56,9 +56,12 @@
 		<td colspan="2" class="headseparator">&nbsp;</td>
 	</tr>
 	{assign var="isFirstRegistrationType" value=true}
+        {assign var="hasRegistration" value=false}
+        
 	{iterate from=registrationTypes item=registrationType}
 	{assign var="typeId" value=$registrationType->getTypeId()}
 	{if $registrationType->getPublic()}
+            
 		<tr valign="top">
 			<td class="label">
 				<strong>{$registrationType->getRegistrationTypeName()|escape}</strong>
@@ -72,6 +75,7 @@
                                         {/if}
 					{translate key="schedConf.registration.typeCloses" closingDate=$registrationType->getClosingDate()|date_format:$dateFormatShort}
 					{assign var="isFirstRegistrationType" value=false}
+                                        {assign var="hasRegistration" value=true}
 				{elseif strtotime($registrationType->getOpeningDate()) > time()}
 					<input type="radio" name="registrationTypeId" value="{$typeId|escape}" disabled="disabled" />
                                         {if $registrationType->getCost() > 0}
@@ -109,14 +113,30 @@
 </div>
         
 <p class="text-center">
-    {if $isUserLoggedIn}
+    {if $hasRegistration === FALSE}
+        
+    {elseif $isUserLoggedIn}
     <input type="submit" 
            value="{translate key="schedConf.registration.register"}" {if !$registrationMethodAvailable}disabled="disabled" 
-           class="button" {else}class="btn btn-primary" {/if}/>
+           class="btn btn-default disabled" {else}class="btn btn-primary" {/if}/>
     {else}
+        <!--
         <input type="submit" 
-           value="{translate key="schedConf.registration.createAccount"}" {if !$registrationMethodAvailable}disabled="disabled" 
-           class="button" {else}class="btn btn-primary" {/if}/>
+           value="{translate key="schedConf.registration.createAccount"}" 
+           {if !$registrationMethodAvailable}disabled="disabled" 
+           class="btn btn-default disabled" {else}class="btn btn-primary" {/if}
+           />
+           -->
+        <!--
+        <input type="submit" 
+           value="{translate key="schedConf.registration.createAccount"}"  
+           class="btn btn-primary" />
+        -->
+        <a href="{url op="account" page="user"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" 
+           class="btn btn-primary" 
+           onclick="_getRegistrationTypeId(this);">
+            {translate key="schedConf.registration.createAccount"}
+        </a>
         <script>
             {literal}
             var _getRegistrationTypeId = function (_a) {
@@ -125,7 +145,9 @@
             };
             {/literal}
         </script>
-        <a href="{url page="login"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" class="btn btn-default" onclick="_getRegistrationTypeId(this);">
+        <a href="{url page="login"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" 
+           class="btn btn-default" 
+           onclick="_getRegistrationTypeId(this);">
             {translate key="schedConf.registration.login"}
         </a>
     {/if}

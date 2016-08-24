@@ -239,7 +239,7 @@
 	<message key="manager.registrationTypes.form.currencyRequired">貨幣是必需的。</message>
 	<message key="manager.registrationTypes.form.currencyValid">請選擇一個有效的幣值。</message>
 	<message key="manager.registrationTypes.form.description">描述</message>
-        <message key="manager.registrationTypes.form.applicationForm">報名表</message>
+        <message key="manager.registrationTypes.form.applicationForm">資料填寫</message>
 	<message key="manager.registrationTypes.form.expiryDate">針對研討會的網上內容通入的有效期限</message>
 	<message key="manager.registrationTypes.form.institutional">報名者能通過領域或IP認證而生效。</message>
 	<message key="manager.registrationTypes.form.institutionalValid">請使用研討會所提供的複選框。</message>
@@ -515,7 +515,7 @@
 	<message key="manager.setup.aboutConference.description">研討會的描述、主要聯絡人、著作權告示等等。</message>
 	<message key="manager.setup.aboutConference.postCreativeCommons">在會議網站內張貼有創造力的共同性執照圖示。</message>
 	<message key="manager.setup.aboutConference.principalContact">研討會的主要聯絡人</message>
-	<message key="manager.setup.aboutConference.privacyStatement">保密聲明</message>
+	<message key="manager.setup.aboutConference.privacyStatement">隱私聲明</message>
 	<message key="manager.setup.aboutConference.restrictPaperAccess">在觀看被封存的研討會摘要和介紹之前，訪客必須建立一個讀者帳號。</message>
 	<message key="manager.setup.aboutConference.title">步驟 1. 關於研討會</message>
 	<message key="manager.setup.additionalContent">附加的網站內容</message>
@@ -594,7 +594,7 @@
         <message key="manager.setup.layout.linkType.1">普通連結</message>
         <message key="manager.setup.layout.linkType.2">開新網頁</message>
         <message key="manager.setup.layout.linkType.3">內嵌網頁</message>
-        <message key="manager.setup.layout.linkType.4">問卷調查</message>
+        <message key="manager.setup.layout.linkType.4">調查表單</message>
         <message key="manager.setup.layout.linkType.5">網頁</message>
         <message key="manager.setup.layout.surveyConfig">問卷設定</message>
         <message key="manager.setup.layout.surveyExport">匯出問卷結果</message>

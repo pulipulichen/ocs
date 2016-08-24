@@ -121,7 +121,8 @@ class ConferenceSettingsDAO extends SettingsDAO {
         static function _parseCsv($output) {
                 //$output = json_encode($output, JSON_UNESCAPED_UNICODE);
                 $csv = '';
-                $delimiter = "\t";
+                //$delimiter = "\t";
+                $delimiter = ",";
                 $all_fields = array();
                 if (count($output) > 0) {
                     //print_r($output);

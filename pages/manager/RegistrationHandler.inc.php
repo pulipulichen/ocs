@@ -427,17 +427,32 @@ class RegistrationHandler extends ManagerHandler {
 
 		$output = $registrationTypeDao->getSurvey($schedConf->getId(), $registrationTypeId);
                 
-                $output = iconv("utf8", "big5", $output);
-                
                 if (is_null($registrationTypeId)) {
                     $registrationTypeId = "all";
                 }
                 
-                header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.csv"');
-                header('Content-Type: text/csv'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
-                header('Content-Length: ' . strlen($output));
-                header('Connection: close');
-
+                if (false) {
+                    
+                    header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.csv"');
+                    header('Content-Type: text/csv'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
+                    header('Content-Length: ' . strlen($output));
+                    header('Connection: close');
+                    
+                }
+                
+                if (false) {
+                    
+                    $lines = explode("\r", $output);
+                    //$output = "";
+                    foreach ($lines AS $key => $line) {
+                        $line = iconv("utf8", "big5", $line);
+                        $lines[$key] = $line;
+                    }
+                    
+                    $output = implode("\r", $lines);
+                    //$output = iconv("utf8", "big5", $output);
+                }
+                
                 echo $output;
 	}
 

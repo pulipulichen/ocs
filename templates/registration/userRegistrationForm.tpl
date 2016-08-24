@@ -139,11 +139,15 @@
 
 	<table class="data" width="100%">
 		<tr valign="top">
-			<td width="20%" class="label">{translate key="user.name"}</td>
+			<td width="20%" class="label">{translate key="user.name"}: </td>
 			<td width="80%" class="value">{$user->getFullName()|escape}</td>
 		</tr>
-		<tr valign="top">
-			<td class="label">{translate key="user.email"}</td>
+                <tr valign="top">
+			<td class="label">{translate key="user.affiliation"}: </td>
+			<td class="value">{$user->getAffiliation()|escape}</td>
+		</tr>
+                <tr valign="top">
+			<td class="label">{translate key="user.email"}: </td>
 			<td class="value">{$user->getEmail()|escape}</td>
 		</tr>
                 <!--
@@ -171,17 +175,17 @@
             
       
 <tr valign="top">
-	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
+	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}:</td>
 	<td class="value"><input type="text" id="firstName" name="firstName" value="{$firstName|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 
 <tr valign="top" class="">
-	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
-	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
+	<td class="label">{fieldLabel name="salutation" key="user.salutation"}:</td>
+	<td class="value"><input type="text" name="salutation" id="salutation" value="{$saluaccounttation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 
 <tr valign="top">
-	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
+	<td class="label">{fieldLabel name="email" required="true" key="user.email"}:</td>
 	<td class="value">
             <input type="text" id="email" name="email" value="{$email|escape}" size="30" maxlength="90" class="textField"  />
         </td>
@@ -310,8 +314,11 @@
 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
 <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
-    
+   
+<!--
 <div class="separator"></div>
+-->
+
 <div id="surveyDiv">
 {if $isConferenceManager}
     <a class="edit-link" href="{url page="manager" }/editRegistrationType/{$registrationTypeId|escape}#survey" target="_blank">
@@ -319,10 +326,11 @@
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}
+<!--
 <h3>
     {translate key="manager.setup.layout.linkType.4"}
 </h3>
-
+-->
     <!--span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span-->
     <textarea name="surveyConfig" cols="60" rows="10" class="jquery-survey-form" jquery-survey-data="survey" error-message="{translate key="common.formValidateError"}">{$surveyConfig}</textarea>
     <textarea name="survey" id="survey" cols="60" rows="10" class="">{$survey}</textarea>
