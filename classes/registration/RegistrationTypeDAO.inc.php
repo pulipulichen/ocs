@@ -523,6 +523,7 @@ class RegistrationTypeDAO extends DAO {
                         'affiliation' => $row['affiliation'], 
                         'date_registered' => $row['date_registered']
                     );
+                    
                     $surveyArray = json_decode($row['survey'], true);
                     //print_r($surveyArray);
                     foreach ($surveyArray AS $key => $value) {

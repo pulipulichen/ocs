@@ -155,7 +155,10 @@ class ConferenceSettingsDAO extends SettingsDAO {
                         $o = array();
                         foreach ($all_fields AS $f) {
                             if (isset($row[$f])) {
-                                $o[$f] = $row[$f];
+                                $value = $row[$f];
+                                $value = trim(preg_replace('/\s\s+/', ' ', $value));
+                                $o[$f] = $value;
+                                
                             }
                             else {
                                 $o[$f] = null;
@@ -175,6 +178,7 @@ class ConferenceSettingsDAO extends SettingsDAO {
                             }
                             if (is_array($col)) {
                                 $col = join(",", $col);
+                                
                             }
                             $line .= $col;
                         }
