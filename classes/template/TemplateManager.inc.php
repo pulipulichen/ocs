@@ -115,38 +115,19 @@ class TemplateManager extends PKPTemplateManager {
                     $submissionsCloseDate = $schedConf->getSetting('submissionsCloseDate');
                     $this->assign('submissionsCloseDate', $submissionsCloseDate);
 
-                    $this->assign('schedConfPostTimeline', $schedConf->getSetting('postTimeline'));
-                    $this->assign('schedConfPostTimelineOrder', $schedConf->getSetting('postTimelineOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Timeline');
-
                     $this->assign('schedConfPostOverview', $schedConf->getSetting('postOverview'));
                     $this->assign('schedConfPostOverviewOrder', $schedConf->getSetting('postOverviewOrder'));
                     $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Overview');
-
-                    $this->assign('schedConfPostTrackPolicies', $schedConf->getSetting('postTrackPolicies'));
-                    $this->assign('schedConfPostTrackPoliciesOrder', $schedConf->getSetting('postTrackPoliciesOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'TrackPolicies');
-
-                    $this->assign('schedConfPostPresentations', $schedConf->getSetting('postPresentations'));
-                    $this->assign('schedConfPostPresentationsOrder', $schedConf->getSetting('postPresentationsOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Presentations');
-
-                    $this->assign('schedConfPostAccommodation', $schedConf->getSetting('postAccommodation'));
-                    $this->assign('schedConfPostAccommodationOrder', $schedConf->getSetting('postAccommodationOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Accommodation');
-
-                    $this->assign('schedConfPostLocation', $schedConf->getSetting('postLocation'));
-                    $this->assign('schedConfPostLocationOrder', $schedConf->getSetting('postLocationOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Location');
-
-                    $this->assign('schedConfPostSupporters', $schedConf->getSetting('postSupporters'));
-                    $this->assign('schedConfPostSupportersOrder', $schedConf->getSetting('postSupportersOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Supporters');
-
-                    $this->assign('schedConfPostPayment', $schedConf->getSetting('postPayment'));
-                    $this->assign('schedConfPostPaymentOrder', $schedConf->getSetting('postPaymentOrder'));
-                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Payment');
-
+                    
+                    $this->assign('schedConfPostAnnouncement', $schedConf->getSetting('postAnnouncement'));
+                    $this->assign('schedConfPostAnnouncementOrder', $schedConf->getSetting('postAnnouncementOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Announcement');
+                    
+                    
+                    $this->assign('schedConfPostTimeline', $schedConf->getSetting('postTimeline'));
+                    $this->assign('schedConfPostTimelineOrder', $schedConf->getSetting('postTimelineOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Timeline');
+                    
                     // CFP displayed
                     $showCFPDate = $schedConf->getSetting('showCFPDate');
                     $postCFP = $schedConf->getSetting('postCFP');
@@ -155,6 +136,32 @@ class TemplateManager extends PKPTemplateManager {
                         $this->assign('schedConfShowCFPOrder', $schedConf->getSetting('postCFPOrder'));
                         $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'CFP');
                     }
+                    
+                    $this->assign('schedConfPostPayment', $schedConf->getSetting('postPayment'));
+                    $this->assign('schedConfPostPaymentOrder', $schedConf->getSetting('postPaymentOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Payment');
+                    
+                    
+                    $this->assign('schedConfPostTrackPolicies', $schedConf->getSetting('postTrackPolicies'));
+                    $this->assign('schedConfPostTrackPoliciesOrder', $schedConf->getSetting('postTrackPoliciesOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'TrackPolicies');
+
+                    $this->assign('schedConfPostPresentations', $schedConf->getSetting('postPresentations'));
+                    $this->assign('schedConfPostPresentationsOrder', $schedConf->getSetting('postPresentationsOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Presentations');
+
+                    $this->assign('schedConfPostLocation', $schedConf->getSetting('postLocation'));
+                    $this->assign('schedConfPostLocationOrder', $schedConf->getSetting('postLocationOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Location');
+                    
+                    $this->assign('schedConfPostAccommodation', $schedConf->getSetting('postAccommodation'));
+                    $this->assign('schedConfPostAccommodationOrder', $schedConf->getSetting('postAccommodationOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Accommodation');
+
+
+                    $this->assign('schedConfPostSupporters', $schedConf->getSetting('postSupporters'));
+                    $this->assign('schedConfPostSupportersOrder', $schedConf->getSetting('postSupportersOrder'));
+                    $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Supporters');
 
                     // Schedule displayed
                     $postScheduleDate = $schedConf->getSetting('postScheduleDate');
@@ -194,7 +201,7 @@ class TemplateManager extends PKPTemplateManager {
 
                     // 再加入 $navMenuItems
                     foreach ($navMenuItems AS $navItemId => $navItem) {
-                        $navItemOrder = 0;
+                        $navItemOrder = 90;
                         if (isset($navItem["order"]) && trim($navItem["order"]) !== "") {
                             $navItemOrder = trim($navItem["order"]);
                         }
@@ -241,9 +248,10 @@ class TemplateManager extends PKPTemplateManager {
     }
 
     function _addNavMenuItemOrder($schedConf, & $navMenuItemOrder, $key, $defaultOrder = 0) {
-        echo $schedConf->getSetting('port' . $key);
-        if ($schedConf->getSetting('port' . $key) !== "") {
-            $defaultOrder = 0;
+        //echo 'post' . $key . $schedConf->getSetting('post' . $key) . '|';
+        //echo 'port' . $key . '|';
+        if ($schedConf->getSetting('post' . $key) === true) {
+            $defaultOrder = 90;
             if (is_int($schedConf->getSetting('post'.$key. 'Order'))) {
                 $defaultOrder = $schedConf->getSetting('post'.$key. 'Order');
             }

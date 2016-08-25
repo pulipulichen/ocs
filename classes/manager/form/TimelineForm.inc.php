@@ -179,6 +179,8 @@ class TimelineForm extends Form {
                         'postTimelineOrder' => $schedConf->getSetting('postTimelineOrder'),
 			'postOverview' => $schedConf->getSetting('postOverview'),
                         'postOverviewOrder' => $schedConf->getSetting('postOverviewOrder'),
+                        'postAnnouncement' => $schedConf->getSetting('postAnnouncement'),
+                        'postAnnouncementOrder' => $schedConf->getSetting('postAnnouncementOrder'),
 			'postCFP' => $schedConf->getSetting('postCFP'),
                         'postCFPOrder' => $schedConf->getSetting('postCFPOrder'),
 			'postProposalSubmission' => $schedConf->getSetting('postProposalSubmission'),
@@ -285,6 +287,8 @@ class TimelineForm extends Form {
                         'postTimelineOrder',
 			'postOverview',
                         'postOverviewOrder',
+                        'postAnnouncement',
+                        'postAnnouncementOrder',
 			'postCFP',
                         'postCFPOrder',
 			'postProposalSubmission',
@@ -339,6 +343,8 @@ class TimelineForm extends Form {
                 $schedConf->updateSetting('postTimelineOrder', $this->getData('postTimelineOrder'), 'int');
 		$schedConf->updateSetting('postOverview', $this->getData('postOverview'), 'bool');
                 $schedConf->updateSetting('postOverviewOrder', $this->getData('postOverviewOrder'), 'int');
+                $schedConf->updateSetting('postAnnouncement', $this->getData('postAnnouncement'), 'bool');
+                $schedConf->updateSetting('postAnnouncementOrder', $this->getData('postAnnouncementOrder'), 'int');
 		$schedConf->updateSetting('postCFP', $this->getData('postCFP'), 'bool');
                 $schedConf->updateSetting('postCFPOrder', $this->getData('postCFPOrder'), 'int');
 		$schedConf->updateSetting('postProposalSubmission', $this->getData('postProposalSubmission'), 'bool');

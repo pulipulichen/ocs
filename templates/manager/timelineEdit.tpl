@@ -211,13 +211,25 @@
 	</tr>
         <tr valign="top">
 		<td class="label" colspan="2">
-			<input type="checkbox" name="postCFP" id="postCFP" value="1" {if $postCFP}checked="checked"{/if} />
-			{fieldLabel name="postCFP" key="manager.timeline.postCFP"}
+			<input type="checkbox" name="postAnnouncement" id="postAnnouncement" value="1" {if $postAnnouncement}checked="checked"{/if} />
+			{fieldLabel name="postAnnouncement" key="plugins.block.navigation.announcement"}
 		</td>
                 <td>
-                    <input type="number" name="postCFPOrder" value="{$postCFPOrder}" />
+                    <input type="number" name="postAnnouncementOrder" value="{$postAnnouncementOrder}" />
                 </td>
 	</tr>
+        
+        
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postTimeline" id="postTimeline" value="1" {if $postTimeline}checked="checked"{/if} />
+			{fieldLabel name="postTimeline" key="manager.timeline.postTimeline"}
+		</td>
+                <td>
+                    <input type="number" name="postTimelineOrder" value="{$postTimelineOrder}" />
+                </td>
+	</tr>
+        
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postProgram" id="postProgram" value="1" {if $postProgram}checked="checked"{/if} />
@@ -227,6 +239,27 @@
                     <input type="number" name="postProgramOrder" value="{$postProgramOrder}" />
                 </td>
 	</tr>
+        
+        <tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postProposalSubmission" id="postProposalSubmission" value="1" {if $postProposalSubmission}checked="checked"{/if} />
+			{fieldLabel name="postProposalSubmission" key="manager.timeline.postProposalSubmission"}
+		</td>
+                <td>
+                    <input type="number" name="postProposalSubmissionOrder" value="{$postProposalSubmissionOrder}" />
+                </td>
+	</tr>
+        
+        <tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postCFP" id="postCFP" value="1" {if $postCFP}checked="checked"{/if} />
+			{fieldLabel name="postCFP" key="manager.timeline.postCFP"}
+		</td>
+                <td>
+                    <input type="number" name="postCFPOrder" value="{$postCFPOrder}" />
+                </td>
+	</tr>
+        
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postPayment" id="postPayment" value="1" {if $postPayment}checked="checked"{/if} />
@@ -237,13 +270,14 @@
                 </td>
 	</tr>
         
-	<tr valign="top">
+        
+        <tr valign="top">
 		<td class="label" colspan="2">
-			<input type="checkbox" name="postTimeline" id="postTimeline" value="1" {if $postTimeline}checked="checked"{/if} />
-			{fieldLabel name="postTimeline" key="manager.timeline.postTimeline"}
+			<input type="checkbox" name="postLocation" id="postLocation" value="1" {if $postLocation}checked="checked"{/if} />
+			{fieldLabel name="postLocation" key="manager.timeline.postLocation"}
 		</td>
                 <td>
-                    <input type="number" name="postTimelineOrder" value="{$postTimelineOrder}" />
+                    <input type="number" name="postLocationOrder" value="{$postLocationOrder}" />
                 </td>
 	</tr>
 
@@ -257,26 +291,7 @@
                 </td>
 	</tr>
         
-        <tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postLocation" id="postLocation" value="1" {if $postLocation}checked="checked"{/if} />
-			{fieldLabel name="postLocation" key="manager.timeline.postLocation"}
-		</td>
-                <td>
-                    <input type="number" name="postLocationOrder" value="{$postLocationOrder}" />
-                </td>
-	</tr>
         
-	
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postProposalSubmission" id="postProposalSubmission" value="1" {if $postProposalSubmission}checked="checked"{/if} />
-			{fieldLabel name="postProposalSubmission" key="manager.timeline.postProposalSubmission"}
-		</td>
-                <td>
-                    <input type="number" name="postProposalSubmissionOrder" value="{$postProposalSubmissionOrder}" />
-                </td>
-	</tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postTrackPolicies" id="postTrackPolicies" value="1" {if $postTrackPolicies}checked="checked"{/if} />
@@ -295,6 +310,7 @@
                     <input type="number" name="postPresentationsOrder" value="{$postPresentationsOrder}" />
                 </td>
 	</tr>
+        
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postSupporters" id="postSupporters" value="1" {if $postSupporters}checked="checked"{/if} />
