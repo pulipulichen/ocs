@@ -71,6 +71,8 @@ body {
     top:70px;
     /*width: 20%;*/
     /*width:228px;*/
+    max-height: calc(100% - 70px);
+    overflow-y: auto;
   }
 }   /* @media (min-width: 979px) {*/
 

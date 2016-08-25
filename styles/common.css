@@ -379,6 +379,15 @@ ul.nav.nav-stacked li a {
     margin-left: 2px;
 }
 
+ul.nav.nav-stacked li.panel.panel-primary a {
+    border-bottom-width: 0;
+    color: white;
+}
+
+ul.nav.nav-stacked li.panel.panel-primary {
+    background-color: #337ab7;
+}
+
 .header-container.compact,
 .header-container.compact .row {
     min-height: 0 !important;
@@ -438,3 +447,4 @@ table.listing tr.listing-tr.hover {
         position: static;
     }
 }
+

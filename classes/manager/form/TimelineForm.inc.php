@@ -176,17 +176,29 @@ class TimelineForm extends Form {
 			'postPapers' => $schedConf->getSetting('postPapers'),
 			'postPapersDate' => $schedConf->getSetting('postPapersDate'),
 			'postTimeline' => $schedConf->getSetting('postTimeline'),
+                        'postTimelineOrder' => $schedConf->getSetting('postTimelineOrder'),
 			'postOverview' => $schedConf->getSetting('postOverview'),
+                        'postOverviewOrder' => $schedConf->getSetting('postOverviewOrder'),
 			'postCFP' => $schedConf->getSetting('postCFP'),
+                        'postCFPOrder' => $schedConf->getSetting('postCFPOrder'),
 			'postProposalSubmission' => $schedConf->getSetting('postProposalSubmission'),
+                        'postProposalSubmissionOrder' => $schedConf->getSetting('postProposalSubmissionOrder'),
 			'postTrackPolicies' => $schedConf->getSetting('postTrackPolicies'),
+                        'postTrackPoliciesOrder' => $schedConf->getSetting('postTrackPoliciesOrder'),
 			'postProgram' => $schedConf->getSetting('postProgram'),
+                        'postProgramOrder' => $schedConf->getSetting('postProgramOrder'),
                         'postContact' => $schedConf->getSetting('postContact'),
+                        'postContactOrder' => $schedConf->getSetting('postContactOrder'),
 			'postPresentations' => $schedConf->getSetting('postPresentations'),
+                        'postPresentationsOrder' => $schedConf->getSetting('postPresentationsOrder'),
 			'postAccommodation' => $schedConf->getSetting('postAccommodation'),
+                        'postAccommodationOrder' => $schedConf->getSetting('postAccommodationOrder'),
                         'postLocation' => $schedConf->getSetting('postLocation'),
+                        'postLocationOrder' => $schedConf->getSetting('postLocationOrder'),
 			'postSupporters' => $schedConf->getSetting('postSupporters'),
+                        'postSupportersOrder' => $schedConf->getSetting('postSupportersOrder'),
 			'postPayment' => $schedConf->getSetting('postPayment'),
+                        'postPaymentOrder' => $schedConf->getSetting('postPaymentOrder'),
 			'delayOpenAccess' => $schedConf->getSetting('delayOpenAccess'),
 			'delayOpenAccessDate' => $schedConf->getSetting('delayOpenAccessDate'),
 			'closeComments' => $schedConf->getSetting('closeComments'),
@@ -270,17 +282,29 @@ class TimelineForm extends Form {
 			'delayOpenAccess',
 			'closeComments',
 			'postTimeline',
+                        'postTimelineOrder',
 			'postOverview',
+                        'postOverviewOrder',
 			'postCFP',
+                        'postCFPOrder',
 			'postProposalSubmission',
+                        'postProposalSubmissionOrder',
 			'postTrackPolicies',
+                        'postTrackPoliciesOrder',
 			'postProgram',
+                        'postProgramOrder',
                         'postContact',
+                        'postContactOrder',
 			'postPresentations',
+                        'postPresentationsOrder',
 			'postAccommodation',
+                        'postAccommodationOrder',
                         'postLocation',
+                        'postLocationOrder',
 			'postSupporters',
-			'postPayment'
+                        'postSupportersOrder',
+			'postPayment',
+                        'postPaymentOrder'
 		));
 	}
 
@@ -312,17 +336,29 @@ class TimelineForm extends Form {
 
 		// Conference Information display flags
 		$schedConf->updateSetting('postTimeline', $this->getData('postTimeline'), 'bool');
+                $schedConf->updateSetting('postTimelineOrder', $this->getData('postTimelineOrder'), 'int');
 		$schedConf->updateSetting('postOverview', $this->getData('postOverview'), 'bool');
+                $schedConf->updateSetting('postOverviewOrder', $this->getData('postOverviewOrder'), 'int');
 		$schedConf->updateSetting('postCFP', $this->getData('postCFP'), 'bool');
+                $schedConf->updateSetting('postCFPOrder', $this->getData('postCFPOrder'), 'int');
 		$schedConf->updateSetting('postProposalSubmission', $this->getData('postProposalSubmission'), 'bool');
+                $schedConf->updateSetting('postProposalSubmissionOrder', $this->getData('postProposalSubmissionOrder'), 'int');
 		$schedConf->updateSetting('postTrackPolicies', $this->getData('postTrackPolicies'), 'bool');
+                $schedConf->updateSetting('postTrackPoliciesOrder', $this->getData('postTrackPoliciesOrder'), 'int');
 		$schedConf->updateSetting('postProgram', $this->getData('postProgram'), 'bool');
+                $schedConf->updateSetting('postProgramOrder', $this->getData('postProgramOrder'), 'int');
                 $schedConf->updateSetting('postContact', $this->getData('postContact'), 'bool');
+                $schedConf->updateSetting('postContactOrder', $this->getData('postContactOrder'), 'int');
 		$schedConf->updateSetting('postPresentations', $this->getData('postPresentations'), 'bool');
+                $schedConf->updateSetting('postPresentationsOrder', $this->getData('postPresentationsOrder'), 'int');
 		$schedConf->updateSetting('postAccommodation', $this->getData('postAccommodation'), 'bool');
+                $schedConf->updateSetting('postAccommodationOrder', $this->getData('postAccommodationOrder'), 'int');
                 $schedConf->updateSetting('postLocation', $this->getData('postLocation'), 'bool');
+                $schedConf->updateSetting('postLocationOrder', $this->getData('postLocationOrder'), 'int');
 		$schedConf->updateSetting('postSupporters', $this->getData('postSupporters'), 'bool');
+                $schedConf->updateSetting('postSupportersOrder', $this->getData('postSupportersOrder'), 'int');
 		$schedConf->updateSetting('postPayment', $this->getData('postPayment'), 'bool');
+                $schedConf->updateSetting('postPaymentOrder', $this->getData('postPaymentOrder'), 'int');
 
 
 		//

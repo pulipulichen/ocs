@@ -57,11 +57,11 @@ class TimelineHandler extends ManagerHandler {
 		$timelineForm->readInputData();
 
 		if ($timelineForm->validate()) {
-			$timelineForm->execute();
-			Request::redirect(null, null, null, 'index');
+                    $timelineForm->execute();
+                    Request::redirect(null, null, null, 'timeline');
 		} else {
-			$timelineForm->setData('errorsExist', true);
-			$timelineForm->display();
+                    $timelineForm->setData('errorsExist', true);
+                    $timelineForm->display();
 		}
 	}
 

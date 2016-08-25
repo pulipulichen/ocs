@@ -15,7 +15,7 @@
 
 
 {if $isConferenceManager}
-    <a class="edit-link" href="{url page="manager"}/setup/3#navigationBar" target="_blank">
+    <a class="edit-link" href="{url page="manager"}/setup/3#navItems-{$navId}-name" target="_blank">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
     </a>
 {/if}

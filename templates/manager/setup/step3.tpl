@@ -242,13 +242,13 @@ var _linkTypeChange = function (_select) {
 </script>
 <table width="100%" class="data">
 	{foreach name=navItems from=$navItems[$formLocale] key=navItemId item=navItem}
-		<tr valign="top">
+		<tr valign="top" {if $smarty.foreach.navItems.last} id="navItems-last" {/if}>
 			<td width="20%" class="label">{fieldLabel name="navItems-$navItemId-name" key="manager.setup.layout.labelName"}</td>
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][{$navItemId}][name]" id="navItems-{$navItemId}-name" value="{$navItem.name|escape}" size="30" maxlength="90" class="textField" /> <input type="submit" name="delNavItem[{$navItemId}]" value="{translate key="common.delete"}" class="button" />
 				<table width="100%">
 					<tr valign="top">
-						<td width="5%"><input type="checkbox" name="navItems[{$formLocale|escape}][{$navItemId}][isLiteral]" id="navItems-{$navItemId}-isLiteral" value="1"{if $navItem.isLiteral} checked="checked"{/if} /></td>
+						<td width="5%"><input type="checkbox" name="navItems[{$formLocale|escape}][{$navItemId}][isLiteral]" id="navItems-{$navItemId}-isLiteral" value="1"{if $navItem.isLiteral !== FALSE} checked="checked"{/if} /></td>
 						<td width="95%">{fieldLabel name="navItems-$navItemId-isLiteral" key="manager.setup.layout.navItemIsLiteral"}</td>
 					</tr>
 				</table>
@@ -265,6 +265,15 @@ var _linkTypeChange = function (_select) {
                                                         <option value="4" {if $navItem.visibility == '4'}selected{/if}>{translate key="manager.setup.layout.visibility.4"}</option>
                                                         <option value="0" {if $navItem.visibility == '0'}selected{/if}>{translate key="manager.setup.layout.visibility.0"}</option>
                                                     </select>
+                                                </td>
+					</tr>
+                                        <tr valign="top">
+                                                <th>
+                                                   {fieldLabel name="navItems-$navItemId-order" key="common.order"} 
+                                                </th>
+						<td>
+                                                    <input type="number" name="navItems[{$formLocale|escape}][{$navItemId}][order]" id="navItems-{$navItemId}-order" value="{$navItem.order|escape}" class="textField" />
+                                                    * 數字越小，排在越上面 {* @TODO 語系 *}
                                                 </td>
 					</tr>
                                         <tr valign="top">
@@ -335,7 +344,8 @@ var _linkTypeChange = function (_select) {
 			</tr>
 		{/if}
 	{foreachelse}
-		<tr valign="top">
+                {* 只有一行！ *}
+		<tr valign="top" id="navItems-last">
 			<td width="20%" class="label">{fieldLabel name="navItems-0-name" key="manager.setup.layout.labelName"}</td>
 			<td width="80%" class="value">
 				<input type="text" name="navItems[{$formLocale|escape}][0][name]" id="navItems-0-name" size="30" maxlength="90" class="textField" />
@@ -380,7 +390,7 @@ var _linkTypeChange = function (_select) {
 	{/foreach}
 </table>
 
-<p><input type="submit" name="addNavItem" value="{translate key="manager.setup.layout.addNavItem"}" class="button" /></p>
+<p><input type="submit" name="addNavItem" id="addNavItem" value="{translate key="manager.setup.layout.addNavItem"}" class="button" /></p>
 </div>
 <div class="separator"></div>
 

@@ -702,6 +702,7 @@ class SchedConfHandler extends Handler {
                 
 		$templateMgr->assign('title', $title);
                 $templateMgr->assign('navPage', $navItem["navPage"]);
+                $templateMgr->assign('navId', $id);
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.navPage');
                 
 		$templateMgr->display('schedConf/navPage.tpl');

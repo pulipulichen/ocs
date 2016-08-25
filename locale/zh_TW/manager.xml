@@ -607,7 +607,7 @@
         <message key="manager.setup.googleAnalytics.help">如何取得Google分析的追蹤編號？</message>
 	<message key="manager.setup.layout.navItemIsAbsolute">這是絕對網址 (如："http://www.example.com")，而不是相對路徑 (如： "/manager/setup")。</message>
 	<message key="manager.setup.layout.navItemIsLiteral">該名稱不是語系關鍵字(如："manager.setup")，而是實際顯示的文字(如：「管理者設定」)</message>
-	<message key="manager.setup.layout.navigationBar">導航條</message>
+	<message key="manager.setup.layout.navigationBar">其他導覽列項目</message>
 	<message key="manager.setup.layout.noImageFileUploaded">無圖示檔上傳</message>
 	<message key="manager.setup.layout.numPageLinks">頁面連結</message>
 	<message key="manager.setup.layout.title">步驟 3. 網站頁首、頁尾、名單和導航條</message>

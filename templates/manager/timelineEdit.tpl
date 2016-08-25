@@ -177,7 +177,7 @@
 <br/>
 
 <div id="websitePosting">
-<h3>{translate key="manager.timeline.websitePosting"}</h3>
+
 
 <table width="100%" class="data">
 	{*
@@ -192,30 +192,49 @@
 	</tr>
 	*}
 
-
+        <tr valign="bottom">
+            <td class="label" colspan="2">
+                <h3>{translate key="manager.timeline.websitePosting"}</h3>
+            </td>
+            <td>
+                排序 (數字越小，排序越前面) {* @TODO 語系 *}
+            </td>
+        </tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postOverview" id="postOverview" value="1" {if $postOverview}checked="checked"{/if} />
 			{fieldLabel name="postOverview" key="manager.timeline.postOverview"}
 		</td>
+                <td>
+                    <input type="number" name="postOverviewOrder" value="{$postOverviewOrder}" />
+                </td>
 	</tr>
         <tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postCFP" id="postCFP" value="1" {if $postCFP}checked="checked"{/if} />
 			{fieldLabel name="postCFP" key="manager.timeline.postCFP"}
 		</td>
+                <td>
+                    <input type="number" name="postCFPOrder" value="{$postCFPOrder}" />
+                </td>
 	</tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postProgram" id="postProgram" value="1" {if $postProgram}checked="checked"{/if} />
 			{fieldLabel name="postProgram" key="manager.timeline.postProgram"}
 		</td>
+                <td>
+                    <input type="number" name="postProgramOrder" value="{$postProgramOrder}" />
+                </td>
 	</tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postPayment" id="postPayment" value="1" {if $postPayment}checked="checked"{/if} />
 			{fieldLabel name="postPayment" key="manager.timeline.postRegistration"}
 		</td>
+                <td>
+                    <input type="number" name="postPaymentOrder" value="{$postPaymentOrder}" />
+                </td>
 	</tr>
         
 	<tr valign="top">
@@ -223,6 +242,9 @@
 			<input type="checkbox" name="postTimeline" id="postTimeline" value="1" {if $postTimeline}checked="checked"{/if} />
 			{fieldLabel name="postTimeline" key="manager.timeline.postTimeline"}
 		</td>
+                <td>
+                    <input type="number" name="postTimelineOrder" value="{$postTimelineOrder}" />
+                </td>
 	</tr>
 
 	<tr valign="top">
@@ -230,6 +252,9 @@
 			<input type="checkbox" name="postAccommodation" id="postAccommodation" value="1" {if $postAccommodation}checked="checked"{/if} />
 			{fieldLabel name="postAccommodation" key="manager.timeline.postAccommodation"}
 		</td>
+                <td>
+                    <input type="number" name="postAccommodationOrder" value="{$postAccommodationOrder}" />
+                </td>
 	</tr>
         
         <tr valign="top">
@@ -237,6 +262,47 @@
 			<input type="checkbox" name="postLocation" id="postLocation" value="1" {if $postLocation}checked="checked"{/if} />
 			{fieldLabel name="postLocation" key="manager.timeline.postLocation"}
 		</td>
+                <td>
+                    <input type="number" name="postLocationOrder" value="{$postLocationOrder}" />
+                </td>
+	</tr>
+        
+	
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postProposalSubmission" id="postProposalSubmission" value="1" {if $postProposalSubmission}checked="checked"{/if} />
+			{fieldLabel name="postProposalSubmission" key="manager.timeline.postProposalSubmission"}
+		</td>
+                <td>
+                    <input type="number" name="postProposalSubmissionOrder" value="{$postProposalSubmissionOrder}" />
+                </td>
+	</tr>
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postTrackPolicies" id="postTrackPolicies" value="1" {if $postTrackPolicies}checked="checked"{/if} />
+			{fieldLabel name="postTrackPolicies" key="manager.timeline.postTrackPolicies"}
+		</td>
+                <td>
+                    <input type="number" name="postTrackPoliciesOrder" value="{$postTrackPoliciesOrder}" />
+                </td>
+	</tr>
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postPresentations" id="postPresentations" value="1" {if $postPresentations}checked="checked"{/if} />
+			{fieldLabel name="postPresentations" key="manager.timeline.postPresentations"}
+		</td>
+                <td>
+                    <input type="number" name="postPresentationsOrder" value="{$postPresentationsOrder}" />
+                </td>
+	</tr>
+	<tr valign="top">
+		<td class="label" colspan="2">
+			<input type="checkbox" name="postSupporters" id="postSupporters" value="1" {if $postSupporters}checked="checked"{/if} />
+			{fieldLabel name="postSupporters" key="manager.timeline.postSupporters"}
+		</td>
+                <td>
+                    <input type="number" name="postSupportersOrder" value="{$postSupportersOrder}" />
+                </td>
 	</tr>
         
         <tr valign="top">
@@ -244,39 +310,30 @@
 			<input type="checkbox" name="postContact" id="postContact" value="1" {if $postContact}checked="checked"{/if} />
 			{fieldLabel name="postContact" key="manager.timeline.postContact"}
 		</td>
+                <td>
+                    <input type="number" name="postContactOrder" value="{$postContactOrder}" />
+                </td>
 	</tr>
-	
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postProposalSubmission" id="postProposalSubmission" value="1" {if $postProposalSubmission}checked="checked"{/if} />
-			{fieldLabel name="postProposalSubmission" key="manager.timeline.postProposalSubmission"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postTrackPolicies" id="postTrackPolicies" value="1" {if $postTrackPolicies}checked="checked"{/if} />
-			{fieldLabel name="postTrackPolicies" key="manager.timeline.postTrackPolicies"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postPresentations" id="postPresentations" value="1" {if $postPresentations}checked="checked"{/if} />
-			{fieldLabel name="postPresentations" key="manager.timeline.postPresentations"}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label" colspan="2">
-			<input type="checkbox" name="postSupporters" id="postSupporters" value="1" {if $postSupporters}checked="checked"{/if} />
-			{fieldLabel name="postSupporters" key="manager.timeline.postSupporters"}
-		</td>
+        
+        <!------------------------------------------------------------->
+        
+        <tr valign="top">
+            <td class="label" colspan="3">
+                <label>
+                <a href="{url page="manager"}/setup/3#navigationBar" target="_blank">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    {translate key="manager.setup.layout.navigationBar"}
+                </a>
+                </label>
+            </td>
 	</tr>
 
 	<tr valign="top">
-		<td width="50%"><h4>{translate key="manager.timeline.include"}</h4></td>
-		<td width="50%" class="heading"><h4>{translate key="manager.timeline.postDate"}</h4></td>
+		<td width="50%" ><h4>{translate key="manager.timeline.include"}</h4></td>
+		<td width="50%" class="heading" colspan="2"><h4>{translate key="manager.timeline.postDate"}</h4></td>
 	</tr>
 	<tr valign="top">
-		<td width="50%" class="label">
+		<td width="50%" class="label" colspan="2">
 			<input type="checkbox" name="postSchedule" id="postSchedule" value="1" {if $postSchedule}checked="checked"{/if} />
 			{fieldLabel name="postSchedule" key="manager.timeline.postSchedule"}
 		</td>
@@ -285,7 +342,7 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="50%" class="label">
+		<td width="50%" class="label" colspan="2">
 			<input type="checkbox" name="postAbstracts" id="postAbstracts" value="1" {if $postAbstracts}checked="checked"{/if} />
 			{fieldLabel name="postAbstracts" key="manager.timeline.postAbstracts"}
 		</td>
@@ -294,16 +351,16 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="50%" class="label">
-			<input type="checkbox" name="postPapers" id="postPapers" value="1" {if $postPapers}checked="checked"{/if} />
-			{fieldLabel name="postPapers" key="manager.timeline.postPapers"}
+		<td width="50%" class="label" colspan="2">
+                    <input type="checkbox" name="postPapers" id="postPapers" value="1" {if $postPapers}checked="checked"{/if} />
+                    {fieldLabel name="postPapers" key="manager.timeline.postPapers"}
 		</td>
 		<td width="50%" class="value">
-				{html_select_date prefix="postPapersDate" time=$postPapersDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
+                    {html_select_date prefix="postPapersDate" time=$postPapersDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="50%" class="label">
+		<td width="50%" class="label" colspan="2">
 			<input type="checkbox" name="delayOpenAccess" id="delayOpenAccess" value="1" {if $delayOpenAccess}checked="checked"{/if} />
 			{fieldLabel name="delayOpenAccess" key="manager.timeline.delayOpenAccess"}
 		</td>
@@ -312,12 +369,12 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td width="50%" class="label">
+		<td width="50%" class="label" colspan="2">
 			<input type="checkbox" name="closeComments" id="closeComments" value="1" {if $closeComments}checked="checked"{/if} />
 			{fieldLabel name="closeComments" key="manager.timeline.closeComments"}
 		</td>
 		<td width="50%" class="value">
-				{html_select_date prefix="closeCommentsDate" time=$closeCommentsDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
+                        {html_select_date prefix="closeCommentsDate" time=$closeCommentsDate all_extra="class=\"selectMenu\"" start_year=$firstYear end_year=$lastYear}
 			<input type="hidden" name="closeCommentsDateHour" value="23" />
 			<input type="hidden" name="closeCommentsDateMinute" value="59" />
 			<input type="hidden" name="closeCommentsDateSecond" value="59" />
