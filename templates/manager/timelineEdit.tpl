@@ -212,7 +212,8 @@
         <tr valign="top">
 		<td class="label" colspan="2">
 			<input type="checkbox" name="postAnnouncement" id="postAnnouncement" value="1" {if $postAnnouncement}checked="checked"{/if} />
-			{fieldLabel name="postAnnouncement" key="plugins.block.navigation.announcement"}
+			{*fieldLabel name="postAnnouncement" key="plugins.block.navigation.announcement"*}
+                        導覽列顯示「公告」 {* @TODO 語系 *}
 		</td>
                 <td>
                     <input type="number" name="postAnnouncementOrder" value="{$postAnnouncementOrder}" />
