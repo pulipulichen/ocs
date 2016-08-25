@@ -147,9 +147,14 @@
 			<td class="value">{$user->getAffiliation()|escape}</td>
 		</tr>
                 <tr valign="top">
+			<td class="label">{translate key="user.salutation"}: </td>
+			<td class="value">{$user->getSalutation()|escape}</td>
+		</tr>
+                <tr valign="top">
 			<td class="label">{translate key="user.email"}: </td>
 			<td class="value">{$user->getEmail()|escape}</td>
 		</tr>
+                
                 <!--
 		<tr valign="top">
 			<td class="label">{translate key="user.phone"}</td>
@@ -180,7 +185,7 @@
 </tr>
 
 <tr valign="top" class="">
-	<td class="label">{fieldLabel name="salutation" key="user.salutation"}:</td>
+	<td class="label">{fieldLabel name="salutation" required="true" key="user.salutation"}:</td>
 	<td class="value"><input type="text" name="salutation" id="salutation" value="{$saluaccounttation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 

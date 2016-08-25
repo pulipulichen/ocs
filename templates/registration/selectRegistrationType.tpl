@@ -132,11 +132,11 @@
            value="{translate key="schedConf.registration.createAccount"}"  
            class="btn btn-primary" />
         -->
-        <a href="{url op="account" page="user"}?source=%2Focs%2Ficcisc%2F2016%2FschedConf%2Fregistration?registrationTypeId=" 
-           class="btn btn-primary" 
-           onclick="_getRegistrationTypeId(this);">
-            {translate key="schedConf.registration.createAccount"}
-        </a>
+        <input type="submit" 
+           value="{translate key="schedConf.registration.createAccount"}" 
+           {if !$registrationMethodAvailable}disabled="disabled" 
+           class="btn btn-default disabled" {else}class="btn btn-primary" {/if}
+           />
         <script>
             {literal}
             var _getRegistrationTypeId = function (_a) {
