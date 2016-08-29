@@ -115,6 +115,10 @@ class RegistrationForm extends Form {
 			$registrationOptionDao =& DAORegistry::getDAO('RegistrationOptionDAO');
 			$registrationDao =& DAORegistry::getDAO('RegistrationDAO');
 			$registration =& $registrationDao->getRegistration($this->registrationId);
+                        
+                        $registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
+                        $registrationType =& $registrationTypeDao->getRegistrationType($registration->getTypeId());
+                        $surveyConfig = $registrationType->getLocalizedData("survey");
 
 			if ($registration != null) {
 				$this->_data = array(
@@ -123,6 +127,9 @@ class RegistrationForm extends Form {
 					'membership' => $registration->getMembership(),
 					'domain' => $registration->getDomain(),
 					'ipRange' => $registration->getIPRange(),
+                                        'applicationForm' => $registration->getApplicationForm(),
+                                        'surveyConfig' => $surveyConfig,
+                                        'survey' => $registration->getSurvey(),
 					'specialRequests' => $registration->getSpecialRequests(),
 					'datePaid' => $registration->getDatePaid(),
 					'registrationOptionIds' => $registrationOptionDao->getRegistrationOptions($this->registrationId)
@@ -138,7 +145,19 @@ class RegistrationForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('userId', 'typeId', 'membership', 'domain', 'ipRange', 'notifyEmail', 'notifyPaymentEmail', 'specialRequests', 'datePaid', 'registrationOptionIds'));
+		$this->readUserVars(array(
+                    'userId', 
+                    'typeId', 
+                    'applicationForm', 
+                    'survey', 
+                    'membership', 
+                    'domain', 
+                    'ipRange', 
+                    'notifyEmail', 
+                    'notifyPaymentEmail', 
+                    'specialRequests', 
+                    'datePaid', 
+                    'registrationOptionIds'));
 
 		$this->_data['datePaid'] = Request::getUserVar('paid')?Request::getUserDateVar('datePaid'):null;
 
@@ -187,6 +206,8 @@ class RegistrationForm extends Form {
 		$registration->setSchedConfId($schedConf->getId());
 		$registration->setUserId($this->getData('userId'));
 		$registration->setTypeId($this->getData('typeId'));
+                $registration->setApplicationForm($this->getData('applicationForm'));
+                $registration->setSurvey($this->getData('survey'));
 		$registration->setMembership($this->getData('membership') ? $this->getData('membership') : null);
 		$registration->setDomain($this->getData('domain') ? $this->getData('domain') : null);
 		$registration->setIPRange($this->getData('ipRange') ? $this->getData('ipRange') : null);

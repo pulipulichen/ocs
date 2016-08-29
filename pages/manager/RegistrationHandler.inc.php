@@ -43,8 +43,10 @@ class RegistrationHandler extends ManagerHandler {
 		$search = Request::getUserVar('search');
 		
 		$sort = Request::getUserVar('sort');
-		$sort = isset($sort) ? $sort : 'user';
+		//$sort = isset($sort) ? $sort : 'user';
+                $sort = isset($sort) ? $sort : 'registered';
 		$sortDirection = Request::getUserVar('sortDirection');
+                $sortDirection = isset($sortDirection) ? $sortDirection : SORT_DIRECTION_DESC;
 
 		$fromDate = Request::getUserDateVar('dateFrom', 1, 1);
 		if ($fromDate !== null) $fromDate = date('Y-m-d H:i:s', $fromDate);
@@ -64,8 +66,9 @@ class RegistrationHandler extends ManagerHandler {
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.registration');
 
 		// Set search parameters
-		foreach ($this->getSearchFormDuplicateParameters() as $param)
+		foreach ($this->getSearchFormDuplicateParameters() as $param) {
 			$templateMgr->assign($param, Request::getUserVar($param));
+                }
 
 		$templateMgr->assign('dateFrom', $fromDate);
 		$templateMgr->assign('dateTo', $toDate);
@@ -416,7 +419,7 @@ class RegistrationHandler extends ManagerHandler {
 	 * Display form to edit a registration type.
 	 * @param $args array optional, first parameter is the ID of the registration type to edit
 	 */
-	function registrationSurveyDownload($args = array()) {
+	function registrationSurveyDownload($args = array(), $useBig5 = true) {
 		$this->validate();
 		$this->setupTemplate(true);
 
@@ -440,7 +443,7 @@ class RegistrationHandler extends ManagerHandler {
                     
                 }
                 
-                if (true) {
+                if ($useBig5) {
                     
                     $lines = explode("\r", $output);
                     //$output = "";
@@ -459,6 +462,10 @@ class RegistrationHandler extends ManagerHandler {
                 
                 echo $output;
 	}
+        
+        function registrationSurveyDownloadUTF($args = array()) {
+            $this->registrationSurveyDownload($args, false);
+        }
 
 	/**
 	 * Display form to create new registration type.

@@ -212,6 +212,7 @@ class TinyMCEPlugin extends GenericPlugin {
                                 $features = "full";
                                 break;
 			case 'schedConf/registration':
+                        case 'manager/editRegistration':
 				$fields[] = 'specialRequests';
                                 $fields[] = 'applicationForm';
                                 $features = "simple";

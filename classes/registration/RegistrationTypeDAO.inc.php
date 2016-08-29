@@ -495,13 +495,15 @@ class RegistrationTypeDAO extends DAO {
                 
                 if (is_null($typeid)) {
                     $result =& $this->retrieve(
-                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? ORDER BY users.first_name'
+                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, registrations.date_registered, registrations.date_paid FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? '
+                            . 'ORDER BY registrations.date_registered'
                             , array($schedConfId)
                     );
                 }
                 else {
                     $result =& $this->retrieve(
-                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ? ORDER BY users.first_name'
+                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, registrations.date_registered, registrations.date_paid FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ? '
+                            . 'ORDER BY registrations.date_registered'
                             , array($schedConfId, $typeid)
                     );
                 }
@@ -522,7 +524,8 @@ class RegistrationTypeDAO extends DAO {
                         'first_name' => $row['first_name'], 
                         'affiliation' => $row['affiliation'], 
                         'email' => $row['email'],
-                        'date_registered' => $row['date_registered']
+                        'date_registered' => $row['date_registered'],
+                        'date_paid' => $row['date_paid']
                     );
                     
                     $surveyArray = json_decode($row['survey'], true);

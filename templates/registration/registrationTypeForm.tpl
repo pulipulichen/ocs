@@ -66,7 +66,10 @@
             {fieldLabel name="survey" key="manager.setup.layout.linkType.4"}
             <br />
             <a href="{url op="registrationSurveyDownload"}/{$typeId}" class="btn btn-default btn-sm">
-                {translate key="manager.setup.layout.surveyExport"}
+                {translate key="manager.setup.layout.surveyExport"} (Excel)
+            </a>
+            <a href="{url op="registrationSurveyDownloadUTF"}/{$typeId}" class="btn btn-default btn-sm">
+                {translate key="manager.setup.layout.surveyExport"} (LibreOffice)
             </a>
         </td>
 	<td colspan="2" class="value">

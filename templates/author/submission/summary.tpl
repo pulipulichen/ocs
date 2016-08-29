@@ -149,7 +149,7 @@
                                         
                                     {/foreach}
                                     &nbsp;&nbsp;
-                                        <a href="{url op="addSuppFile" path=$submission->getPaperId()}" class="action">
+                                        <a href="{url op="addSuppFile" path=$submission->getPaperId()}" class="action supp-file-upload">
                                             <span class="glyphicon glyphicon-upload"></span>
                                             {translate key="submission.addSuppFile"}
                                         </a>

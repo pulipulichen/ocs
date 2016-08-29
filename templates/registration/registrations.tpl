@@ -74,7 +74,10 @@ function sortSearch(heading, direction) {
 
 <p class="text-center">
 <a href="{url op="registrationSurveyDownload"}" class="btn btn-default btn-sm">
-                {translate key="schedConf.registration.export"}
+    {translate key="schedConf.registration.export"} (Excel)
+</a>
+<a href="{url op="registrationSurveyDownloadUTF"}" class="btn btn-default btn-sm">
+    {translate key="schedConf.registration.export"} (LibreOffice)
 </a>
 </p>
 

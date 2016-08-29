@@ -107,9 +107,8 @@
 			{else}
 				{translate key="common.none"}
 			{/if}
-                        &nbsp;&nbsp;
-                        <a class="action"
-                            href="{url op="submissionReview" path=$submission->getPaperId()}#directorDecision" class="action">
+                        <a
+                            href="{url op="submissionReview" path=$submission->getPaperId()}#directorDecision" class="action supp-file-upload">
                              <span class="glyphicon glyphicon-upload"></span>
                              {translate key="submission.addSubmissionFile"}
                          </a>
@@ -140,10 +139,8 @@
 			{foreachelse}
 				{translate key="common.none"}
 			{/foreach}
-                                <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
-                                &nbsp;&nbsp;
-                                <a class="action"
-                                   href="{url op="addSuppFile" from="submission" path=$submission->getPaperId()}" class="action">
+                                <a 
+                                   href="{url op="addSuppFile" from="submission" path=$submission->getPaperId()}" class="action supp-file-upload">
                                     <span class="glyphicon glyphicon-upload"></span>
                                     {translate key="submission.addSuppFile"}
                                 </a>

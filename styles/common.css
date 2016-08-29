@@ -448,3 +448,8 @@ table.listing tr.listing-tr.hover {
     }
 }
 
+a.action.supp-file-upload {
+    display: block;
+    margin: 0.5em;
+    margin-left: 0;
+}

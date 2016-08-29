@@ -159,6 +159,7 @@ switch ($op) {
 	case 'selectRegistrant':
 	case 'editRegistrationType':
         case 'registrationSurveyDownload':
+        case 'registrationSurveyDownloadUTF':
 	case 'updateRegistrationType':
 	case 'moveRegistrationType':
 	//

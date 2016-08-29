@@ -66,6 +66,42 @@
 </tr>
 {/foreach}
 <tr valign="top">
+	<td class="label">
+            {fieldLabel name="application_form" key="資料填寫"}
+            {* @TODO 語系 *}
+            {if $isConferenceManager}
+                <a class="edit-link" href="{url page="manager" }/editRegistrationType/{$typeId|escape}#applicationForm" target="_blank">
+                    {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+        </td>
+	<td class="value">
+            <textarea name="applicationForm" id="applicationForm" cols="40" rows="5" class="textArea">{$applicationForm|escape}</textarea>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="label">
+            {fieldLabel name="survey" key="調查表單"}
+            {* @TODO 語系 *}
+            {if $isConferenceManager}
+                <a class="edit-link" href="{url page="manager" }/editRegistrationType/{$typeId|escape}#survey" target="_blank">
+                    {*http://iccisc.dlll.nccu.edu.tw/ocs/index.php/iccisc/2016/manager/registrationTypes?clearPageContext=1*}
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            {/if}
+        </td>
+	<td class="value">
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/handlebars.js"></script>
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jQuery.Survey.js"></script>
+            <script type="text/javascript" src="{$baseUrl}/lib/jquery-survey/jquery.validate.js"></script>
+
+            <textarea name="surveyConfig" cols="60" rows="10" class="jquery-survey-form" jquery-survey-data="survey" error-message="{translate key="common.formValidateError"}">{$surveyConfig}</textarea>
+            <textarea name="survey" id="survey" cols="60" rows="10" class="">{$survey}</textarea>
+	</td>
+</tr>
+
+<tr valign="top">
 	<td class="label">{fieldLabel name="membership" key="manager.registration.form.membership"}</td>
 	<td class="value">
 		<input type="text" name="membership" value="{$membership|escape}" id="membership" size="40" maxlength="40" class="textField" />

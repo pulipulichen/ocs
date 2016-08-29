@@ -19,8 +19,20 @@
         <div class="panel-body">
             <ul>
                 <li>
-                    <a href="{url page="manager" }/registrationTypes?clearPageContext=1">
+                    <a href="{url page="manager" }/registration?clearPageContext=1">
                         {translate key="manager.registrationList"}
+                    </a>
+                </li>
+                <li>
+                    <a class="text-warning" href="{url page="manager" }/registrationSurveyDownload">
+                    匯出報名結果 (Excel)
+                    {* @TODO 語系 *}
+                    </a>
+                </li>
+                <li>
+                    <a class="text-warning" href="{url page="manager" }/registrationSurveyDownloadUTF">
+                    匯出報名結果 (LibreOffice)
+                    {* @TODO 語系 *}
                     </a>
                 </li>
                 <li>
@@ -29,6 +41,7 @@
                     {* @TODO 語系 *}
                     </a>
                 </li>
+                
             </ul>
         </div>
     </div>
