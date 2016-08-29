@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*** CSS Document ***/
+
+/* header text */
+#masthead .well h1 { 
+	line-height:125%; 
+	}
+	
+#masthead .well h1 a, .header-container .sub-title {
+	margin-left:180px;
+	padding-top:6px;
+		}
+		#masthead .well h1 a {
+			padding-top:210px;
+			color:rgba(29,72,161,1.00);
+			font-size:110%;
+			}
+		.header-container .sub-title {
+			color:rgba(29,72,161,1.00);
+			}
+
+#masthead .container .row {
+	background-color:#68A4C4; 
+	}
+	
+/* header banner image overlay */
+#masthead .well {
+	padding-top:80px;
+	border:0;
+	border-radius:0;
+	margin:0;
+	height:246px;
+	width:100%;
+	opacity:1;
+	background-image:url(/ocs/public/conferences/1/homeHeaderTitleImage_zh_TW.png);
+	background-repeat:no-repeat;
+	}
+	
+/* siderbar text */
+ul.nav.nav-stacked li a {
+	border-bottom:#999999 1px dotted;
+	color:#337ab7;
+	}
+	
+/*hide special request*/	
+form[name="registration"] > #specialRequestsDiv	{
+	display:none;
+}
+
+form[name="registration"] > div.separator:last-of-type 	{
+	display:none;
+}
+ul.nav > li.registration.register {
+	font-weight: bold;
+	font-size: large;
+}
+
+ul.nav > li.registration.register a:last-of-type {
+	color: red !important;
+}
