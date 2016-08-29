@@ -431,7 +431,7 @@ class RegistrationHandler extends ManagerHandler {
                     $registrationTypeId = "all";
                 }
                 
-                if (false) {
+                if (true) {
                     
                     header('Content-Disposition: attachment; filename="export_registration_type_survey_'.$registrationTypeId.'.csv"');
                     header('Content-Type: text/csv'); # Don't use application/force-download - it's not a real MIME type, and the Content-Disposition header is sufficient
@@ -440,12 +440,16 @@ class RegistrationHandler extends ManagerHandler {
                     
                 }
                 
-                if (false) {
+                if (true) {
                     
                     $lines = explode("\r", $output);
                     //$output = "";
                     foreach ($lines AS $key => $line) {
-                        $line = iconv("utf8", "big5", $line);
+                        //try {
+                            //$line = iconv("UTF-8", "BIG5", $line);
+                            $line = mb_convert_encoding($line, "BIG5", "UTF-8");
+                        //}
+                        //catch (Exception $e) { }
                         $lines[$key] = $line;
                     }
                     
