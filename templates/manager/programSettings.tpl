@@ -36,6 +36,7 @@
 </table>
 {/if}
 
+<!--
 <h4>{translate key="manager.program.form.programFile"}</h4>
 <p>{translate key="manager.program.form.programFile.description"}</p>
 
@@ -57,7 +58,7 @@
 	</td>
 </tr>
 </table>
-
+-->
 </div>
 
 <div id="programText">
