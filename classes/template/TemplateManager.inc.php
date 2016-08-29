@@ -170,12 +170,11 @@ class TemplateManager extends PKPTemplateManager {
                     }
 
                     // Program
-                    if ($schedConf->getSetting('postProgram') && ($schedConf->getSetting('program') || $schedConf->getSetting('programFile'))) {
+                    //if ($schedConf->getSetting('postProgram') && ($schedConf->getSetting('program') || $schedConf->getSetting('programFile'))) {
                         $this->assign('schedConfShowProgram', true);
                         $this->assign('schedConfShowProgramOrder', $schedConf->getSetting('postProgramOrder'));
                         $this->_addNavMenuItemOrder($schedConf, $navMenuItemOrder, 'Program');
-
-                    }
+                    //}
 
                     // Contact & Contact Email
                     if ($schedConf->getSetting('postContact') && ($schedConf->getSetting('postContact') || $schedConf->getSetting('postContact'))) {

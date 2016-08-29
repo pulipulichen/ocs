@@ -380,7 +380,7 @@ class TinyMCEPlugin extends GenericPlugin {
                                             apply_source_formatting : false,
                                             theme : "advanced",
                                             theme_advanced_toolbar_location : "top",
-                                            theme_advanced_buttons1 : "cut,copy,paste,|,forecolor,bold,italic,underline,bullist,numlist,aligncenter,|,jbimages,link,unlink,code,fullscreen",
+                                            theme_advanced_buttons1 : "cut,copy,paste,|,fontsizeselect,forecolor,bold,italic,underline,bullist,numlist,aligncenter,|,jbimages,link,unlink,code,fullscreen",
                                             theme_advanced_buttons2 : "",
                                             theme_advanced_buttons3 : "",
                                     });

@@ -36,6 +36,7 @@
         <br />
 
         <ul class="nav nav-stacked affix" style="clear: both;">
+            
             {if $isConferenceManager}
                 <li class="panel panel-primary">
                         <a href="{url page="manager"}/timeline#websitePosting" target="_blank">
@@ -49,7 +50,7 @@
                 {*$navItem*}
                 
                 {if $navItem=='schedConfPostOverview'}
-                    <li {if $requestedOp=="overview"}class="active"{/if}>
+                    <li {if $requestedOp=="overview"}class="active overview"{else}class="overview"{/if}>
                         {if $isConferenceManager}
                         <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#description" target="_blank">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -59,7 +60,7 @@
                     </li>
                     
                 {elseif $navItem=='schedConfPostAnnouncement'}
-                    <li {if $requestedPage=="announcement"}class="active"{/if}>
+                    <li {if $requestedPage=="announcement"}class="active announcement"{else}class="announcement"{/if}>
                         {if $isConferenceManager}
                         <a class="edit-link" href="{url page="manager"}/announcements?clearPageContext=1" target="_blank">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -68,7 +69,7 @@
                         <a href="{url page="announcement"}">{translate key="plugins.block.navigation.announcement"}</a>
                     </li>
                 {elseif $navItem=='schedConfShowCFP'}
-                    <li {if $requestedOp=="cfp"}class="active"{/if}>
+                    <li {if $requestedOp=="cfp"}class="active cfp"{else}class="cfp"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/timeline#submissionsTimeline" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -86,14 +87,14 @@
                     </li>
                 
                 {elseif $navItem=='schedConfPostTrackPolicies'}
-                    <li {if $requestedOp=="trackPolicies"}class="active"{/if}>
+                    <li {if $requestedOp=="trackPolicies"}class="active trackPolicies"{else}class="trackPolicies"{/if}>
                         <a href="{url page="schedConf" op="trackPolicies"}">
                             {translate key="schedConf.trackPolicies"}
                         </a>
                     </li>
                     
-                {elseif $navItem=='schedConfShowProgram'}    
-                    <li {if $requestedOp=="program"}class="active"{/if}>
+                {elseif $navItem=='schedConfPostProgram'}    
+                    <li {if $requestedOp=="program"}class="active program"{else}class="program"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/program" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -103,21 +104,21 @@
                     </li>
                     
                 {elseif $navItem=='schedConfShowProgram'}    
-                    <li {if $requestedOp=="presentations"}class="active"{/if}>
+                    <li {if $requestedOp=="presentations"}class="active presentations"{else}class="presentations"{/if}>
                         <a href="{url page="schedConf" op="presentations"}">
                             {translate key="schedConf.presentations.short"}
                         </a>
                     </li>
                     
                 {elseif $navItem=='schedConfPostSchedule'}    
-                    <li {if $requestedOp=="schedule"}class="active"{/if}>
+                    <li {if $requestedOp=="schedule"}class="active schedule"{else}class="schedule"{/if}>
                         <a href="{url page="schedConf" op="schedule"}">
                             {translate key="schedConf.schedule"}
                         </a>
                     </li>
                     
                 {elseif $navItem=='schedConfPostPayment'}
-                    <li {if $requestedOp=="registration" or $requestedOp=="register"}class="active"{/if}>
+                    <li {if $requestedOp=="registration" or $requestedOp=="register"}class="active registration register"{else}class="registration register"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/registration?clearPageContext=1" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -127,7 +128,7 @@
                     </li>
                     
                 {elseif $navItem=='schedConfPostLocation'}
-                    <li {if $requestedOp=="location"}class="active"{/if}>
+                    <li {if $requestedOp=="location"}class="active location"{else}class="location"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/location" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -137,7 +138,7 @@
                     </li>
                     
                 {elseif $navItem=='schedConfPostAccommodation'}
-                    <li {if $requestedOp=="accommodation"}class="active"{/if}>
+                    <li {if $requestedOp=="accommodation"}class="active accommodation"{else}class="accommodation"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/accommodation" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -147,14 +148,14 @@
                     </li>
                     
                 {elseif $navItem=='schedConfPostSupporters'}
-                    <li {if $requestedOp=="organizingTeam"}class="active"{/if}>
+                    <li {if $requestedOp=="organizingTeam"}class="active organizingTeam"{else}class="organizingTeam"{/if}>
                         <a href="{url page="about" op="organizingTeam"}">
                             {translate key="schedConf.supporters"}
                         </a>
                     </li>
                     
                 {elseif $navItem=='schedConfPostTimeline'}
-                    <li {if $requestedOp=="timeline"}class="active"{/if}>
+                    <li {if $requestedOp=="timeline"}class="active timeline"{else}class="schedConfPostTimeline"{/if}>
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/timeline" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -164,7 +165,7 @@
                     </li>
                     
                 {elseif $navItem=='schedConfContact'}
-                    <li>
+                    <li class="schedConfContact">
                         {if $isConferenceManager}
                             <a class="edit-link" href="{url page="manager"}/schedConfSetup/1#principalContact" target="_blank">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -188,7 +189,7 @@
                             || ($navItem.visibility === '2' && $isUserLoggedIn)
                             || ($navItem.visibility === '3' && $isRegistrationUser)
                             || ($navItem.visibility === '4' && $isConferenceManager)) }
-                            <li  {if $requestedOp=="page"}class="active"{/if}>
+                            <li {if $requestedOp=="page"}class="active navItem-{$navItemId}"{else}class="navItem-{$navItemId}"{/if}>
                                 {if $isConferenceManager}
                                     <a class="edit-link" href="{url page="manager"}/setup/3#navItems-{$navItemId}-name" target="_blank">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>

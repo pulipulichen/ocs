@@ -228,7 +228,7 @@
 	<message key="manager.registrationTypes.form.accessRequired">一個報名的過程類別是必需的。</message>
 	<message key="manager.registrationTypes.form.accessValid">請選擇一個有效的報名過程類別。</message>
 	<message key="manager.registrationTypes.form.closeBeforeOpen">為此種報名類型的開放日期必須在結束的日期前來。</message>
-	<message key="manager.registrationTypes.form.closeDate">關閉報名</message>
+	<message key="manager.registrationTypes.form.closeDate">報名截止日期</message>
 	<message key="manager.registrationTypes.form.code">報名通關代碼</message>
 	<message key="manager.registrationTypes.form.code.instructions">請輸入一個數字代碼。報名此類別的人必須要有通關代碼才能報名。</message>
 	<message key="manager.registrationTypes.form.cost">費用</message>
@@ -653,9 +653,9 @@
 	<message key="manager.timeline">研討會時間安排</message>
 	<message key="manager.timeline.closeComments">關閉評論 (啟動閱讀工具)</message>
 	<message key="manager.timeline.closeComments.plain">關閉評論</message>
-	<message key="manager.timeline.closeRegAuthor">關閉作者報名</message>
-	<message key="manager.timeline.closeRegReviewer">關閉審查者報名</message>
-	<message key="manager.timeline.closeReviewProcess">關閉審查過程</message>
+	<message key="manager.timeline.closeRegAuthor">作者報名截止</message>
+	<message key="manager.timeline.closeRegReviewer">審查者報名截止</message>
+	<message key="manager.timeline.closeReviewProcess">審查過程截止</message>
 	<message key="manager.timeline.conference">研討會</message>
 	<message key="manager.timeline.conferenceTimeline">研討會時間安排</message>
 	<message key="manager.timeline.delayOpenAccess">延長接受稿件間至</message>
