@@ -495,13 +495,13 @@ class RegistrationTypeDAO extends DAO {
                 
                 if (is_null($typeid)) {
                     $result =& $this->retrieve(
-                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? ORDER BY users.first_name'
+                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? ORDER BY users.first_name'
                             , array($schedConfId)
                     );
                 }
                 else {
                     $result =& $this->retrieve(
-                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ? ORDER BY users.first_name'
+                            'SELECT type_id, users.user_id, users.first_name, users.affiliation, users.email, survey, users.date_registered FROM registrations, users WHERE registrations.user_id = users.user_id AND sched_conf_id = ? AND type_id = ? ORDER BY users.first_name'
                             , array($schedConfId, $typeid)
                     );
                 }
@@ -521,6 +521,7 @@ class RegistrationTypeDAO extends DAO {
                         'user_id' => $row['user_id'], 
                         'first_name' => $row['first_name'], 
                         'affiliation' => $row['affiliation'], 
+                        'email' => $row['email'],
                         'date_registered' => $row['date_registered']
                     );
                     

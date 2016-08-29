@@ -179,7 +179,7 @@
                 {elseif $navItem|substr:0:16 === "schedConfNavItem"}
                     {* schedConfNavItem *}
                     {assign var="navItemId" value=$navItem|substr:16}
-                    {$navId}
+                    {*$navId*}
                     
                     {assign var="navItem" value=$navMenuItems[$navItemId]}
                     {*$navItem.name*}
