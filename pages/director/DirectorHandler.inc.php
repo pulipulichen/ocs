@@ -159,7 +159,7 @@ class DirectorHandler extends TrackDirectorHandler {
 		if ($filterReviewer == FILTER_REVIEWER_ME) {
 			$reviewerId = $user->getId();
 		} else {
-			$reviewerId = FILTER_REVIEWER_ALL;
+			$reviewerId = $filterReviewerOptions['FILTER_REVIEWER_ALL'];
 		}
                 
                 // ---------------------------------

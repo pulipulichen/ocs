@@ -205,7 +205,7 @@ class TemplateManager extends PKPTemplateManager {
                             $navItemOrder = trim($navItem["order"]);
                         }
                         
-                        if (is_array($navMenuItemOrder[$navItemOrder]) === FALSE) {
+                        if (isset($navMenuItemOrder[$navItemOrder]) === FALSE || is_array($navMenuItemOrder[$navItemOrder]) === FALSE) {
                             $navMenuItemOrder[$navItemOrder] = array();
                         }
                         $navMenuItemOrder[$navItemOrder][] = 'schedConfNavItem' . $navItemId;
@@ -254,7 +254,7 @@ class TemplateManager extends PKPTemplateManager {
             if (is_int($schedConf->getSetting('post'.$key. 'Order'))) {
                 $defaultOrder = $schedConf->getSetting('post'.$key. 'Order');
             }
-            if (is_array($navMenuItemOrder[$defaultOrder]) === FALSE) {
+            if (isset($navMenuItemOrder[$defaultOrder]) === FALSE || is_array($navMenuItemOrder[$defaultOrder]) === FALSE) {
                 $navMenuItemOrder[$defaultOrder] = array();
             }
             $navMenuItemOrder[$defaultOrder][] = 'schedConfPost' . $key;
