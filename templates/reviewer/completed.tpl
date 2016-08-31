@@ -48,11 +48,15 @@
                     {assign var="sessionTypeId" value=$submission->getData('sessionType')}
                     {if $sessionTypeId}
                             {assign var="sessionType" value=$sessionTypes.$sessionTypeId}
-                            {assign var="sessionName" value=$sessionType->getLocalizedName()}
-                            {if $sessionName|strlen < 12}
-                                {$sessionName|escape}
-                                {else}
-                                {$sessionName|escape|substr:0:12}...
+                            {if $sessionType|is_object}
+                                {assign var="sessionName" value=$sessionType->getLocalizedName()}
+                                {if $sessionName|strlen < 12}
+                                    {$sessionName|escape}
+                                    {else}
+                                    {$sessionName|escape|substr:0:12}...
+                                {/if}
+                            {else}
+                                &mdash;
                             {/if}
                     {/if}
                 </td>
