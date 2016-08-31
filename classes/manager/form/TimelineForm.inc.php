@@ -175,32 +175,47 @@ class TimelineForm extends Form {
 			'postScheduleDate' => $schedConf->getSetting('postScheduleDate'),
 			'postPapers' => $schedConf->getSetting('postPapers'),
 			'postPapersDate' => $schedConf->getSetting('postPapersDate'),
+                    
 			'postTimeline' => $schedConf->getSetting('postTimeline'),
                         'postTimelineOrder' => $schedConf->getSetting('postTimelineOrder'),
+                        'postTimelineNavOrder' => $schedConf->getSetting('postTimelineNavOrder'),
 			'postOverview' => $schedConf->getSetting('postOverview'),
                         'postOverviewOrder' => $schedConf->getSetting('postOverviewOrder'),
+                        'postOverviewNavOrder' => $schedConf->getSetting('postOverviewNavOrder'),
                         'postAnnouncement' => $schedConf->getSetting('postAnnouncement'),
                         'postAnnouncementOrder' => $schedConf->getSetting('postAnnouncementOrder'),
+                        'postAnnouncementNavOrder' => $schedConf->getSetting('postAnnouncementNavOrder'),
 			'postCFP' => $schedConf->getSetting('postCFP'),
                         'postCFPOrder' => $schedConf->getSetting('postCFPOrder'),
+                        'postCFPNavOrder' => $schedConf->getSetting('postCFPNavOrder'),
 			'postProposalSubmission' => $schedConf->getSetting('postProposalSubmission'),
                         'postProposalSubmissionOrder' => $schedConf->getSetting('postProposalSubmissionOrder'),
+                        'postProposalSubmissionNavOrder' => $schedConf->getSetting('postProposalSubmissionNavOrder'),
 			'postTrackPolicies' => $schedConf->getSetting('postTrackPolicies'),
                         'postTrackPoliciesOrder' => $schedConf->getSetting('postTrackPoliciesOrder'),
+                        'postTrackPoliciesNavOrder' => $schedConf->getSetting('postTrackPoliciesNavOrder'),
 			'postProgram' => $schedConf->getSetting('postProgram'),
                         'postProgramOrder' => $schedConf->getSetting('postProgramOrder'),
+                        'postProgramNavOrder' => $schedConf->getSetting('postProgramNavOrder'),
                         'postContact' => $schedConf->getSetting('postContact'),
                         'postContactOrder' => $schedConf->getSetting('postContactOrder'),
+                        'postContactNavOrder' => $schedConf->getSetting('postContactNavOrder'),
 			'postPresentations' => $schedConf->getSetting('postPresentations'),
                         'postPresentationsOrder' => $schedConf->getSetting('postPresentationsOrder'),
+                        'postPresentationsNavOrder' => $schedConf->getSetting('postPresentationsNavOrder'),
 			'postAccommodation' => $schedConf->getSetting('postAccommodation'),
                         'postAccommodationOrder' => $schedConf->getSetting('postAccommodationOrder'),
+                        'postAccommodationNavOrder' => $schedConf->getSetting('postAccommodationNavOrder'),
                         'postLocation' => $schedConf->getSetting('postLocation'),
                         'postLocationOrder' => $schedConf->getSetting('postLocationOrder'),
+                        'postLocationNavOrder' => $schedConf->getSetting('postLocationNavOrder'),
 			'postSupporters' => $schedConf->getSetting('postSupporters'),
                         'postSupportersOrder' => $schedConf->getSetting('postSupportersOrder'),
+                        'postSupportersNavOrder' => $schedConf->getSetting('postSupportersNavOrder'),
 			'postPayment' => $schedConf->getSetting('postPayment'),
                         'postPaymentOrder' => $schedConf->getSetting('postPaymentOrder'),
+                        'postPaymentNavOrder' => $schedConf->getSetting('postPaymentNavOrder'),
+                    
 			'delayOpenAccess' => $schedConf->getSetting('delayOpenAccess'),
 			'delayOpenAccessDate' => $schedConf->getSetting('delayOpenAccessDate'),
 			'closeComments' => $schedConf->getSetting('closeComments'),
@@ -283,32 +298,46 @@ class TimelineForm extends Form {
 			'postSchedule',
 			'delayOpenAccess',
 			'closeComments',
+                    
 			'postTimeline',
                         'postTimelineOrder',
+                        'postTimelineNavOrder',
 			'postOverview',
                         'postOverviewOrder',
+                        'postOverviewNavOrder',
                         'postAnnouncement',
                         'postAnnouncementOrder',
+                        'postAnnouncementNavOrder',
 			'postCFP',
                         'postCFPOrder',
+                        'postCFPNavOrder',
 			'postProposalSubmission',
                         'postProposalSubmissionOrder',
+                        'postProposalSubmissionNavOrder',
 			'postTrackPolicies',
                         'postTrackPoliciesOrder',
+                        'postTrackPoliciesNavOrder',
 			'postProgram',
                         'postProgramOrder',
+                        'postProgramNavOrder',
                         'postContact',
                         'postContactOrder',
+                        'postContactNavOrder',
 			'postPresentations',
                         'postPresentationsOrder',
+                        'postPresentationsNavOrder',
 			'postAccommodation',
                         'postAccommodationOrder',
+                        'postAccommodationNavOrder',
                         'postLocation',
                         'postLocationOrder',
+                        'postLocationNavOrder',
 			'postSupporters',
                         'postSupportersOrder',
+                        'postSupportersNavOrder',
 			'postPayment',
-                        'postPaymentOrder'
+                        'postPaymentOrder',
+                        'postPaymentNavOrder'
 		));
 	}
 
@@ -341,30 +370,43 @@ class TimelineForm extends Form {
 		// Conference Information display flags
 		$schedConf->updateSetting('postTimeline', $this->getData('postTimeline'), 'bool');
                 $schedConf->updateSetting('postTimelineOrder', $this->getData('postTimelineOrder'), 'int');
+                $schedConf->updateSetting('postTimelineNavOrder', $this->getData('postTimelineNavOrder'), 'int');
 		$schedConf->updateSetting('postOverview', $this->getData('postOverview'), 'bool');
                 $schedConf->updateSetting('postOverviewOrder', $this->getData('postOverviewOrder'), 'int');
+                $schedConf->updateSetting('postOverviewNavOrder', $this->getData('postOverviewNavOrder'), 'int');
                 $schedConf->updateSetting('postAnnouncement', $this->getData('postAnnouncement'), 'bool');
                 $schedConf->updateSetting('postAnnouncementOrder', $this->getData('postAnnouncementOrder'), 'int');
+                $schedConf->updateSetting('postAnnouncementNavOrder', $this->getData('postAnnouncementNavOrder'), 'int');
 		$schedConf->updateSetting('postCFP', $this->getData('postCFP'), 'bool');
                 $schedConf->updateSetting('postCFPOrder', $this->getData('postCFPOrder'), 'int');
+                $schedConf->updateSetting('postCFPNavOrder', $this->getData('postCFPNavOrder'), 'int');
 		$schedConf->updateSetting('postProposalSubmission', $this->getData('postProposalSubmission'), 'bool');
                 $schedConf->updateSetting('postProposalSubmissionOrder', $this->getData('postProposalSubmissionOrder'), 'int');
+                $schedConf->updateSetting('postProposalSubmissionNavOrder', $this->getData('postProposalSubmissionNavOrder'), 'int');
 		$schedConf->updateSetting('postTrackPolicies', $this->getData('postTrackPolicies'), 'bool');
                 $schedConf->updateSetting('postTrackPoliciesOrder', $this->getData('postTrackPoliciesOrder'), 'int');
+                $schedConf->updateSetting('postTrackPoliciesNavOrder', $this->getData('postTrackPoliciesNavOrder'), 'int');
 		$schedConf->updateSetting('postProgram', $this->getData('postProgram'), 'bool');
                 $schedConf->updateSetting('postProgramOrder', $this->getData('postProgramOrder'), 'int');
+                $schedConf->updateSetting('postProgramNavOrder', $this->getData('postProgramNavOrder'), 'int');
                 $schedConf->updateSetting('postContact', $this->getData('postContact'), 'bool');
                 $schedConf->updateSetting('postContactOrder', $this->getData('postContactOrder'), 'int');
+                $schedConf->updateSetting('postContactNavOrder', $this->getData('postContactNavOrder'), 'int');
 		$schedConf->updateSetting('postPresentations', $this->getData('postPresentations'), 'bool');
                 $schedConf->updateSetting('postPresentationsOrder', $this->getData('postPresentationsOrder'), 'int');
+                $schedConf->updateSetting('postPresentationsNavOrder', $this->getData('postPresentationsNavOrder'), 'int');
 		$schedConf->updateSetting('postAccommodation', $this->getData('postAccommodation'), 'bool');
                 $schedConf->updateSetting('postAccommodationOrder', $this->getData('postAccommodationOrder'), 'int');
+                $schedConf->updateSetting('postAccommodationNavOrder', $this->getData('postAccommodationNavOrder'), 'int');
                 $schedConf->updateSetting('postLocation', $this->getData('postLocation'), 'bool');
                 $schedConf->updateSetting('postLocationOrder', $this->getData('postLocationOrder'), 'int');
+                $schedConf->updateSetting('postLocationNavOrder', $this->getData('postLocationNavOrder'), 'int');
 		$schedConf->updateSetting('postSupporters', $this->getData('postSupporters'), 'bool');
                 $schedConf->updateSetting('postSupportersOrder', $this->getData('postSupportersOrder'), 'int');
+                $schedConf->updateSetting('postSupportersNavOrder', $this->getData('postSupportersNavOrder'), 'int');
 		$schedConf->updateSetting('postPayment', $this->getData('postPayment'), 'bool');
                 $schedConf->updateSetting('postPaymentOrder', $this->getData('postPaymentOrder'), 'int');
+                $schedConf->updateSetting('postPaymentNavOrder', $this->getData('postPaymentNavOrder'), 'int');
 
 
 		//

@@ -278,6 +278,15 @@ var _linkTypeChange = function (_select) {
 					</tr>
                                         <tr valign="top">
                                                 <th>
+                                                   {fieldLabel name="navItems-$navItemId-navOrder" key="上方導覽列排序"} {* @TODO 語系 *} 
+                                                </th>
+						<td>
+                                                    <input type="number" name="navItems[{$formLocale|escape}][{$navItemId}][navOrder]" id="navItems-{$navItemId}-navOrder" value="{$navItem.navOrder|escape}" class="textField" />
+                                                    * 數字越小，排在越上面，空白或0表示不顯示 {* @TODO 語系 *}
+                                                </td>
+					</tr>
+                                        <tr valign="top">
+                                                <th>
                                                    {fieldLabel name="navItems-$navItemId-url" key="manager.setup.layout.linkType"} 
                                                 </th>
 						<td>

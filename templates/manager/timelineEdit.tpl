@@ -197,7 +197,10 @@
                 <h3>{translate key="manager.timeline.websitePosting"}</h3>
             </td>
             <td>
-                排序 (數字越小，排序越前面) {* @TODO 語系 *}
+                左方導覽列排序 (數字越小，排序越前面) {* @TODO 語系 *}
+            </td>
+            <td>
+                上方導覽列排序 (數字越小，排序越前面，0表示不顯示) {* @TODO 語系 *}
             </td>
         </tr>
 	<tr valign="top">
@@ -208,6 +211,9 @@
                 <td>
                     <input type="number" name="postOverviewOrder" value="{$postOverviewOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postOverviewNavOrder" value="{$postOverviewNavOrder}" />
+                </td>
 	</tr>
         <tr valign="top">
 		<td class="label" colspan="2">
@@ -217,6 +223,9 @@
 		</td>
                 <td>
                     <input type="number" name="postAnnouncementOrder" value="{$postAnnouncementOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postAnnouncementNavOrder" value="{$postAnnouncementNavOrder}" />
                 </td>
 	</tr>
         
@@ -229,6 +238,9 @@
                 <td>
                     <input type="number" name="postTimelineOrder" value="{$postTimelineOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postTimelineNavOrder" value="{$postTimelineNavOrder}" />
+                </td>
 	</tr>
         
 	<tr valign="top">
@@ -238,6 +250,9 @@
 		</td>
                 <td>
                     <input type="number" name="postProgramOrder" value="{$postProgramOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postProgramNavOrder" value="{$postProgramNavOrder}" />
                 </td>
 	</tr>
         
@@ -249,6 +264,9 @@
                 <td>
                     <input type="number" name="postProposalSubmissionOrder" value="{$postProposalSubmissionOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postProposalSubmissionNavOrder" value="{$postProposalSubmissionNavOrder}" />
+                </td>
 	</tr>
         
         <tr valign="top">
@@ -259,6 +277,9 @@
                 <td>
                     <input type="number" name="postCFPOrder" value="{$postCFPOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postCFPNavOrder" value="{$postCFPNavOrder}" />
+                </td>
 	</tr>
         
 	<tr valign="top">
@@ -268,6 +289,9 @@
 		</td>
                 <td>
                     <input type="number" name="postPaymentOrder" value="{$postPaymentOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postPaymentNavOrder" value="{$postPaymentNavOrder}" />
                 </td>
 	</tr>
         
@@ -280,6 +304,9 @@
                 <td>
                     <input type="number" name="postLocationOrder" value="{$postLocationOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postLocationNavOrder" value="{$postLocationNavOrder}" />
+                </td>
 	</tr>
 
 	<tr valign="top">
@@ -289,6 +316,9 @@
 		</td>
                 <td>
                     <input type="number" name="postAccommodationOrder" value="{$postAccommodationOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postAccommodationNavOrder" value="{$postAccommodationNavOrder}" />
                 </td>
 	</tr>
         
@@ -301,6 +331,9 @@
                 <td>
                     <input type="number" name="postTrackPoliciesOrder" value="{$postTrackPoliciesOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postTrackPoliciesNavOrder" value="{$postTrackPoliciesNavOrder}" />
+                </td>
 	</tr>
 	<tr valign="top">
 		<td class="label" colspan="2">
@@ -309,6 +342,9 @@
 		</td>
                 <td>
                     <input type="number" name="postPresentationsOrder" value="{$postPresentationsOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postPresentationsNavOrder" value="{$postPresentationsNavOrder}" />
                 </td>
 	</tr>
         
@@ -320,6 +356,9 @@
                 <td>
                     <input type="number" name="postSupportersOrder" value="{$postSupportersOrder}" />
                 </td>
+                <td>
+                    <input type="number" name="postSupportersNavOrder" value="{$postSupportersNavOrder}" />
+                </td>
 	</tr>
         
         <tr valign="top">
@@ -329,6 +368,9 @@
 		</td>
                 <td>
                     <input type="number" name="postContactOrder" value="{$postContactOrder}" />
+                </td>
+                <td>
+                    <input type="number" name="postContactNavOrder" value="{$postContactNavOrder}" />
                 </td>
 	</tr>
         
