@@ -39,18 +39,23 @@
 	<tr valign="top"  class="listing-tr">
 		<td>{$paperId|escape}</td>
 		<td>{$submission->getDateSubmitted()|date_format:$dateFormatShort}</td>
+                <!-- -->
                 {if $tracks|@count > 1}
-		<td>{$submission->getTrackAbbrev()|escape}</td>
+                    <td>AAA</td>
                 {/if}
 		<td>
 			{assign var="sessionTypeId" value=$submission->getData('sessionType')}
-			{if $sessionTypeId}
+                        {if $sessionTypeId}
 				{assign var="sessionType" value=$sessionTypes.$sessionTypeId}
-				{assign var="sessionName" value=$sessionType->getLocalizedName()}
-                                {if $sessionName|strlen < 12}
-                                    {$sessionName|escape}
-                                    {else}
-                                    {$sessionName|escape|substr:0:12}...
+                                {if $sessionType|is_object}
+                                    {assign var="sessionName" value=$sessionType->getLocalizedName()}
+                                    {if $sessionName|strlen < 12}
+                                        {$sessionName|escape}
+                                        {else}
+                                        {$sessionName|escape|substr:0:12}...
+                                    {/if}
+                                {else}
+                                    &mdash;
                                 {/if}
 			{/if}
 		</td>
