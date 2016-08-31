@@ -28,6 +28,7 @@ class AdminPeopleHandler extends AdminHandler {
 	 * Allow the Site Administrator to merge user accounts.
 	 */
 	function mergeUsers($args) {
+            
 		$this->validate();
 		$this->setupTemplate(true);
 
@@ -125,6 +126,19 @@ class AdminPeopleHandler extends AdminHandler {
 		$templateMgr->assign('oldUserIds', $oldUserIds);
 		$templateMgr->assign('rolePath', $roleDao->getRolePath($roleId));
 		$templateMgr->assign('roleSymbolic', $roleSymbolic);
+                
+                // ---------------------------
+                $site =& Request::getSite();
+                $conferenceDao =& DAORegistry::getDAO('ConferenceDAO');
+                $conference = $conferenceDao->getConference($site->getRedirect());
+                
+                $redirectPath;
+                if ($site->getRedirect() && $conference) {
+                    $redirectPath = $conference->getPath();
+                }
+                $templateMgr->assign('redirectPath', $redirectPath);
+                // ---------------------------
+                
 		$templateMgr->display('admin/selectMergeUser.tpl');
 	}
 

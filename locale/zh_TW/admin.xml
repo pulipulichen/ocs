@@ -56,11 +56,11 @@
 	<message key="admin.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</message>
 	<message key="admin.mergeUsers.from.description">Select a user (or several) to merge into another user account (e.g., when someone has two user accounts). The account(s) selected first will be deleted and any submissions, assignments, etc. will be attributed to the second account.</message>
 	<message key="admin.mergeUsers.into.description">Select a user to whom to attribute the previous user's submissions, editing assignments, etc.</message>
-	<message key="admin.mergeUsers.mergeUser">Merge User</message>
+	<message key="admin.mergeUsers.mergeUser">合併</message>
 	<message key="admin.mergerUsers.noneEnrolled">No enrolled users.</message>
-	<message key="admin.settings.conferenceRedirect">更改研討會方向</message>
+	<message key="admin.settings.conferenceRedirect">直接進入指定研討會</message>
 	<message key="admin.settings.conferenceRedirectInstructions">主要網站將被要求改變方向的至某一研討會。如果網站只主持此唯一研討會這或許是有用的方式。</message>
-	<message key="admin.settings.noConferenceRedirect">請勿改變方向</message>
+	<message key="admin.settings.noConferenceRedirect">停留在OC首頁S</message>
 	<message key="admin.systemConfiguration">OCS配置</message>
 	<message key="admin.systemConfigurationDescription"><![CDATA[OCS配置設置是從<tt>config.inc.php</tt>.]]></message>
 	<message key="admin.systemVersion">OCS 版本</message>

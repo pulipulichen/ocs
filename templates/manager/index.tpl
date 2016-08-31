@@ -18,8 +18,9 @@
 {translate key="manager.managementPages.description"}
 
 <ul class="plain">
-        <li>&#187; <a href="{url context="index" page="admin" op="editConference"}/{$conferenceId}">{translate key="admin.conferences.conferenceSettings"}</a></li>
+        <li>&#187; <a href="{url context="admin" page="admin" op="editConference"}/{$conferenceId}">{translate key="admin.conferences.conferenceSettings"}</a></li>
 	<li>&#187; <a href="{url op="setup"}">{translate key="manager.websiteManagement"}</a></li>
+        <li>&#187; <a href="{url context="admin" page="admin" op="mergeUsers"}">{translate key="使用者管理"}{* @TODO 語系 *}</a></li>
         <li>&#187; <a href="{url op="setup"}/4">{translate key="Conference Style"}{* @TODO 語系  *}</a></li>
 	<li>&#187; <a href="{url op="schedConfs" clearPageContext=1}">{translate key="manager.schedConfs"}</a></li>
 	{if $announcementsEnabled}

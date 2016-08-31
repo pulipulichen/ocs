@@ -73,8 +73,7 @@
 		{/if}
 		<td>{translate key="user.username"}</td>
 		<td width="29%">{translate key="user.name"}</td>
-		<td width="29%">{translate key="user.email"}</td>
-		<td width="15%" align="right">{translate key="common.action"}</td>
+		<td width="44%" align="right">{translate key="common.action"}</td>
 	</tr>
 	<tr>
 		<td colspan="{$numCols}" class="headseparator">&nbsp;</td>
@@ -87,20 +86,31 @@
 		{/if}
 		<td>{$user->getUsername()|escape|wordwrap:15:" ":true}</td>
 		<td>{$user->getFullName()|escape}</td>
-		<td class="nowrap">
-			{assign var=emailString value=$user->getFullName()|concat:" <":$user->getEmail():">"}
-			{url|assign:"redirectUrl" path=$roleSymbolic}
-			{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$redirectUrl}
-			{$user->getEmail()|truncate:15:"..."|escape}&nbsp;{icon name="mail" url=$url}
-		</td>
 		<td align="right">
+                        
+                    
+                    
 			{if !empty($oldUserIds)}
 				{if !in_array($user->getId(), $oldUserIds)}
 					<a href="#" onclick="confirmAction('{url oldUserIds=$oldUserIds newUserId=$user->getId()}', '{translate|escape:"jsparam" key="admin.mergeUsers.confirm" oldAccountCount=$oldUserIds|@count newUsername=$user->getUsername()}')" class="action">{translate key="admin.mergeUsers.mergeUser"}</a>
 				{/if}
 			{elseif $thisUser->getId() != $user->getId()}
-				<a href="{url oldUserIds=$user->getId()}" class="action">{translate key="admin.mergeUsers.mergeUser"}</a>
+                            <a href="{url context=$redirectPath page="user"}?u={$user->getId()}" class="action">
+                                登入網址 {* @TODO 語系 *}
+                            </a>
+                            <a href="{url oldUserIds=$user->getId()}" class="action btn btn-default btn-sm">
+                                {translate key="admin.mergeUsers.mergeUser"}
+                            </a>
 			{/if}
+                        
+                        {assign var=emailString value=$user->getFullName()|concat:" <":$user->getEmail():">"}
+			{url|assign:"redirectUrl" path=$roleSymbolic}
+			{url|assign:"url" page="user" op="email" to=$emailString|to_array redirectUrl=$redirectUrl}
+			{*$user->getEmail()|truncate:15:"..."|escape}&nbsp;{icon name="mail" url=$url*}
+                        <a href="{$url}" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            寄信 {* @TODO 語系 *}
+                        </a>
 		</td>
 	</tr>
 	<tr>
@@ -116,14 +126,20 @@
 	</tr>
 {else}
 	<tr>
-		<td colspan="{math equation="floor(numCols / 2)" numCols=$numCols}" align="left">{page_info iterator=$users}</td>
-		<td colspan="{math equation="ceil(numCols / 2)" numCols=$numCols}" align="right">{page_links anchor="users" name="users" iterator=$users searchInitial=$searchInitial searchField=$searchField searchMatch=$searchMatch search=$search dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth roleSymbolic=$roleSymbolic oldUserIds=$oldUserIds}</td>
+		<td colspan="{math equation="floor(numCols / 2)" numCols=$numCols}" align="left">
+                    {page_info iterator=$users}
+                </td>
+		<td colspan="{math equation="ceil(numCols / 2)" numCols=$numCols}" align="right">
+                    {page_links anchor="users" name="users" iterator=$users searchInitial=$searchInitial searchField=$searchField searchMatch=$searchMatch search=$search dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth roleSymbolic=$roleSymbolic oldUserIds=$oldUserIds}
+                </td>
 	</tr>
 {/if}
 </table>
 {if empty($oldUserIds)}
-    <p class="text-center"><input type="submit" class="btn btn-primary" value="{translate key="admin.mergeUsers"}" /></p>
-	</form>
+    <p class="text-center">
+        <input type="submit" class="btn btn-primary" value="{translate key="admin.mergeUsers"}" />
+    </p>
+    </form>
 {/if}
 </div>
 </div>
