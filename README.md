@@ -22,6 +22,11 @@ Articles
 *   [布丁版OCS特色介紹：第二部分 / Pudding’s OCS Features: Part 2](https://blog.pulipuli.info/2016/03/ocs-puddings-ocs-features-part-2.html)   
 *   [布丁版OCS特色介紹：第三部分 / Pudding’s OCS Features: Part 3](https://blog.pulipuli.info/2016/03/ocs-puddings-ocs-features-part-3.html)
 
+Citation
+------
+
+Chen, Y.-T. (2024). *Ocs* (20240518.195711) [Computer software]. Zenodo. [https://doi.org/10.5281/ZENODO.11213930](https://doi.org/10.5281/ZENODO.11213930)
+
 ----
 
 Drafts
