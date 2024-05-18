@@ -28,6 +28,7 @@
     "url": "https://github.com/pulipulichen/ocs/issues"
   },
   "homepage": "https://github.com/pulipulichen/ocs#readme",
+  "doi": "10.5281/zenodo.11213930",
   "devDependencies": {
   },
   "dependencies": {

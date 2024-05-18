@@ -9,3 +9,6 @@ title: "ocs"
 license: "MIT"
 repository-code: "https://github.com/pulipulichen/ocs"
 abstract: "An open-source conference management system with features for conference registration, paper submission, and review processes.  "
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.11213930
