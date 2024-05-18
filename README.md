@@ -10,9 +10,9 @@ An open-source conference management system with features for conference registr
 Technologies
 ------------
 
-*   PHP
-*   Bootstrap: CSS框架
-*   jQuery.Survey: 線上問卷功能
+*   **PHP**
+*   **Bootstrap**: CSS框架
+*   **jQuery.Survey**: 線上問卷功能
 
 Articles
 --------

@@ -1,0 +1,35 @@
+{
+  "name": "ocs",
+  "version": "1.0.0",
+  "description": "An open-source conference management system with features for conference registration, paper submission, and review processes.  ",
+  "main": "index.js",
+  "scripts": {
+    "tag": "./build/tag.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://pulipuli.chen@gmail.com@github.com/pulipulichen/ocs.git"
+  },
+  "keywords": [
+    "OCS",
+    "Open Conference System",
+    "PHP",
+    "jQuery",
+    "jQuery.Survey"
+  ],
+  "author": {
+    "name": "Yung-Ting Chen",
+    "email": "blog@pulipuli.info",
+    "orcid": "https://orcid.org/0000-0003-3751-610X",
+    "url": "https://blog.pulipuli.info"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pulipulichen/ocs/issues"
+  },
+  "homepage": "https://github.com/pulipulichen/ocs#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
