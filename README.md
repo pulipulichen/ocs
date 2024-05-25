@@ -9,7 +9,7 @@ An open-source conference management system with features for conference registr
 
 ![](https://lh3.googleusercontent.com/-to0nSTzVrWQ/VrHIzXlFEfI/AAAAAAACr20/SeJ2QKJtMLA/s1600/2016-02-03_010637%25255B2%25255D.jpg)  
 
-Technologies
+Techniques
 ------------
 
 *   **PHP**
